@@ -8,8 +8,9 @@
 
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
   
-  <xsl:param name="resource_name"  as="xs:string" select="replace(document-uri(/),'(.*/)','')"/>
-  <xsl:param name="transform_href" as="xs:string">transform.sef</xsl:param>
+  <xsl:param name="resource_filename" as="xs:string" select="replace(document-uri(/),'(.*/)','')"/>
+  <xsl:param name="transform_href"    as="xs:string">transform.sef</xsl:param>
+
   <xsl:param name="given-title" select="/descendant::*:title[1]"/>
   
   <xsl:template match="/" expand-text="yes">
@@ -27,8 +28,9 @@
         <script>
           window.onload = function() {{
           SaxonJS.transform({{
-          sourceLocation:     "{$resource_name}",
-          stylesheetLocation: "{$transform_href}"
+            sourceLocation:     "{$resource_filename}",
+            stylesheetLocation: "{$transform_href}",
+            initialTemplate:    "xmljigsaw_fetch"
           }});
           }}     
         </script>

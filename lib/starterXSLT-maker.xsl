@@ -8,6 +8,9 @@
   
   <xsl:output indent="yes"/>
   
+  <!-- Set $xsl-version to 1.0 and you get an XSLT that will run in any old browser. -->
+  <xsl:param name="xsl-version">3.0</xsl:param>
+  
   <!-- The assumption is, elements in the input data sample will fall into
     three classes:
     1. Those that appear next to text data i.e. in mixed content
@@ -42,19 +45,18 @@
   
   
   <xsl:template match="/">
-    <xjs:stylesheet version="3.0"
+    <xjs:stylesheet version="{$xsl-version}"
       extension-element-prefixes="ixsl">
       <xsl:namespace name="ixsl">http://saxonica.com/ns/interactiveXSLT</xsl:namespace>
         
       <!--<xsl:copy-of select="$element-analysis"/>-->
       
-      <xjs:template match="/">
-        
+      <xjs:template name="xmljigsaw_fetch">
+        <xsl:comment> Target page components by assigning transformation results to them via their IDs. </xsl:comment>
         <xjs:result-document href="#xmljigsaw_body">
             <xjs:apply-templates/>
         </xjs:result-document>
       </xjs:template>
-      
       
       <xsl:for-each-group select="$divs" group-by="@name">
         <xjs:template mode="asleep" match="{current-grouping-key()}">
@@ -96,36 +98,37 @@ div { margin-left: 1rem }
         </style>
       </xjs:template>
       
-      <xjs:template priority="-0.1" match="{ string-join($divs/@name,' | ')}">
+      <xjs:template priority="-0.4" match="{ string-join($divs/@name,' | ')}">
         <div class="{{name()}}">
           <div class="tag"><xjs:value-of select="name()"/>: </div>
           <xjs:apply-templates/>
         </div>
       </xjs:template>
-      <xjs:template priority="-0.1" match="{ string-join($paras/@name,' | ')}">
+      <xjs:template priority="-0.4" match="{ string-join($paras/@name,' | ')}">
         <p class="{{name()}}">
           <span class="tag"><xjs:value-of select="name()"/>: </span>
           <xjs:apply-templates/>
         </p>
       </xjs:template>
-      <xjs:template priority="-0.1" match="{ string-join($inlines/@name,' | ')}">
+      <xjs:template priority="-0.4" match="{ string-join($inlines/@name,' | ')}">
         <span class="{{name()}}">
           <span class="tag"><xjs:value-of select="name()"/>: </span>
           <xjs:apply-templates/>
         </span>
       </xjs:template>
       
-      <xjs:function name="xjs:classes">
-        <xjs:param name="who" as="element()"/>
-        <xjs:sequence select="tokenize($who/@class,'\s+') ! lower-case(.)"/>
-      </xjs:function>
-      
-      <xjs:function name="xjs:has-class">
-        <xjs:param name="who" as="element()"/>
-        <xjs:param name="ilk" as="xs:string"/>
-        <xjs:sequence select="$ilk = xjs:classes($who)"/>
-      </xjs:function>
-      
+      <xsl:if test="not($xsl-version = '1.0')">
+        <xjs:function name="xjs:classes">
+          <xjs:param name="who" as="element()"/>
+          <xjs:sequence select="tokenize($who/@class, '\s+') ! lower-case(.)"/>
+        </xjs:function>
+
+        <xjs:function name="xjs:has-class">
+          <xjs:param name="who" as="element()"/>
+          <xjs:param name="ilk" as="xs:string"/>
+          <xjs:sequence select="$ilk = xjs:classes($who)"/>
+        </xjs:function>
+      </xsl:if>
       
     </xjs:stylesheet>
   </xsl:template>
