@@ -43,7 +43,7 @@ A stylesheet is enclosed that can do this for you.
 
 ## Setup and run
 
-Copy the SaxonJS libraries into a `/lib/saxon` subdirectory on your web server. (Or some other subdirectory.)
+As described in Saxonica docs, copy the SaxonJS libraries into a `/lib/saxon` subdirectory on your web server. (Or some other subdirectory.)
 
 Copy the `.htaccess` file to your web server or otherwise configure it to serve up SEF as XML.
 
@@ -63,7 +63,7 @@ stylesheetLocation: "{$transform_href}",
 initialTemplate:    "xmljigsaw_fetch"
 ```
 
-`sourceLocation` should name your XML source file. `stylesheetLocation` should name your SEF. `xmljigsaw_fetch` identifies the entry point for the stylesheet. Adjust as necessary. You are done with the host file.
+`sourceLocation` should name your XML source file. `stylesheetLocation` should name your SEF. `xmljigsaw_fetch` identifies the entry point for the stylesheet (this names a template appearing in XSLTs produced by the starter-maker). Adjust as necessary for your XSLT. You are done with the host file.
 
 Next, produce and adjust your XSLT as described above, or develop your own. Compile it using SaxonEE into SEF format.
 

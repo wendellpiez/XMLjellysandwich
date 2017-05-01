@@ -47,8 +47,9 @@
   <xsl:template match="/">
     <xjs:stylesheet version="{$xsl-version}"
       extension-element-prefixes="ixsl">
+      <xsl:namespace name="xjs">http://github.com/wendellpiez/XMLJigsaw</xsl:namespace>
       <xsl:namespace name="ixsl">http://saxonica.com/ns/interactiveXSLT</xsl:namespace>
-        
+      <xsl:copy-of select="//namespace::*"/>
       <!--<xsl:copy-of select="$element-analysis"/>-->
       
       <xjs:template name="xmljigsaw_fetch">
