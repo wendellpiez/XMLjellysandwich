@@ -1,5 +1,8 @@
-# XMLJigsaw
+# XMLjellysandwich aka "XML Jelly Sandwich"
+
 Starter kit for client-side XSLT using SaxonJS
+
+(Might have named it XSLT jumpstart except for the book of that title, which looks commendable!)
 
 To use: try any of the XSLT stylesheets on your XML.
 
