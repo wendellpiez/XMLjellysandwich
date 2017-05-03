@@ -20,8 +20,8 @@
         <title>{$given-title}</title>
         <meta charset="utf-8"/>
         <!--<link rel="stylesheet" href="books.css" type="text/css">-->
-        <style type="text/css" id="xmljigsaw_css">
-          <xsl:comment> Include your CSS here ... or target #xmljigsaw_css from your XSLT ... </xsl:comment></style>
+        <style type="text/css" id="xmljellysandwich_css">
+          <xsl:comment> Include your CSS here ... or target #xmljellysandwich_css from your XSLT ... </xsl:comment></style>
         <script type="text/javascript" language="javascript" src="lib/saxon/SaxonJS.min.js">
           <xsl:comment> parsers are so easily confused </xsl:comment>
         </script>
@@ -30,37 +30,37 @@
           SaxonJS.transform({{
             sourceLocation:     "{$resource_filename}",
             stylesheetLocation: "{$transform_href}",
-            initialTemplate:    "xmljigsaw_fetch"
+            initialTemplate:    "xmljellysandwich_fetch"
           }});
           }}     
         </script>
       </head>
       
       <body>
-        <div id="xmljigsaw_header">
-          <h1 id="xmljigsaw_title">
+        <div id="xmljellysandwich_header">
+          <h1 id="xmljellysandwich_title">
             <xsl:value-of select="$given-title"/>
             <xsl:comment><![CDATA[ target with
-      <xsl:result-document href="#xmljigsaw_title"> .... </xsl:result-document>
+      <xsl:result-document href="#xmljellysandwich_title"> .... </xsl:result-document>
     ]]></xsl:comment>
           </h1>
         </div>
         
-        <div id="xmljigsaw_directory">
+        <div id="xmljellysandwich_directory">
           <xsl:comment><![CDATA[ target with
-      <xsl:result-document href="#xmljigsaw_directory"> .... </xsl:result-document>
+      <xsl:result-document href="#xmljellysandwich_directory"> .... </xsl:result-document>
     ]]></xsl:comment>
         </div>
         
-        <div id="xmljigsaw_body">
+        <div id="xmljellysandwich_body">
           <xsl:comment><![CDATA[ target with
-      <xsl:result-document href="#xmljigsaw_body"> .... </xsl:result-document>
+      <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document>
     ]]></xsl:comment>
         </div>
         
-        <div id="xmljigsaw_footer">
+        <div id="xmljellysandwich_footer">
           <p>XML+XSLT under JS in the browser using <a href="http://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>, from
-            <a href="http://www.saxonica.com">Saxonica</a>, with help from <a href="http://github.com/wendellpiez/xmlJigsaw">XML Jigsaw</a>.</p>
+            <a href="http://www.saxonica.com">Saxonica</a>, with help from <a href="http://github.com/wendellpiez/XMLjellysandwich">XML jellysandwich</a>.</p>
         </div>
       </body>
     </html>

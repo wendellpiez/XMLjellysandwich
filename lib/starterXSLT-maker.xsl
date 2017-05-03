@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:xjs="http://github.com/wendellpiez/xmljigsaw"
+  xmlns:xjs="http://github.com/wendellpiez/XMLjellysandwich"
   version="2.0">
   
   <xsl:namespace-alias stylesheet-prefix="xjs" result-prefix="xsl"/>
@@ -47,14 +47,14 @@
   <xsl:template match="/">
     <xjs:stylesheet version="{$xsl-version}"
       extension-element-prefixes="ixsl">
-      <xsl:namespace name="xjs">http://github.com/wendellpiez/XMLJigsaw</xsl:namespace>
+      <xsl:namespace name="xjs">http://github.com/wendellpiez/XMLjellysandwich</xsl:namespace>
       <xsl:namespace name="ixsl">http://saxonica.com/ns/interactiveXSLT</xsl:namespace>
       <xsl:copy-of select="//namespace::*"/>
       <!--<xsl:copy-of select="$element-analysis"/>-->
       
-      <xjs:template name="xmljigsaw_fetch">
+      <xjs:template name="xmljellysandwich_fetch">
         <xsl:comment> Target page components by assigning transformation results to them via their IDs. </xsl:comment>
-        <xjs:result-document href="#xmljigsaw_body">
+        <xjs:result-document href="#xmljellysandwich_body">
             <xjs:apply-templates/>
         </xjs:result-document>
       </xjs:template>
