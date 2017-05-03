@@ -31,10 +31,10 @@ It has a few control points:
 ```
 sourceLocation:     "{$resource_filename}",
 stylesheetLocation: "{$transform_href}",
-initialTemplate:    "xmljellysandwich_fetch"
+initialTemplate:    "xmljellysandwich_pack"
 ```
 
-`sourceLocation` should name the XML file you plan to deliver. `stylesheetLocation` should name your SEF. `xmljellysandwich_fetch` identifies the entry point for the stylesheet (this names a template appearing in XSLTs produced by the starter-maker). Adjust as necessary for your XSLT. You are done with the host file. (You can come back.)
+`sourceLocation` should name the XML file you plan to deliver. `stylesheetLocation` should name your SEF. `xmljellysandwich_pack` identifies the entry point for the stylesheet (this names a template appearing in XSLTs produced by the starter-maker). Adjust as necessary for your XSLT. You are done with the host file. (You can come back.)
 
 Next, produce and adjust your XSLT as described below, or develop your own. Compile it using SaxonEE into SEF format.
 

@@ -30,7 +30,7 @@
           SaxonJS.transform({{
             sourceLocation:     "{$resource_filename}",
             stylesheetLocation: "{$transform_href}",
-            initialTemplate:    "xmljellysandwich_fetch"
+            initialTemplate:    "xmljellysandwich_pack"
           }});
           }}     
         </script>
@@ -60,7 +60,7 @@
         
         <div id="xmljellysandwich_footer">
           <p>XML+XSLT under JS in the browser using <a href="http://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>, from
-            <a href="http://www.saxonica.com">Saxonica</a>, with help from <a href="http://github.com/wendellpiez/XMLjellysandwich">XML jellysandwich</a>.</p>
+            <a href="http://www.saxonica.com">Saxonica</a>, with help from <a href="http://github.com/wendellpiez/XMLjellysandwich">XML Jelly Sandwich</a>.</p>
         </div>
       </body>
     </html>
