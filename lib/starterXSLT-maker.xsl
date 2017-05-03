@@ -33,7 +33,8 @@
   </xsl:for-each-group>
 </xsl:variable>
       
-  <xsl:variable name="lf">&#xA;&#xA;</xsl:variable>
+  <xsl:variable name="lf"> <xsl:text>&#xA;</xsl:text></xsl:variable>
+  <xsl:variable name="lf2"><xsl:text>&#xA;&#xA;</xsl:text></xsl:variable>
   
   <xsl:variable name="wrappers" select="$element-analysis/*[@has-text-children='false']"/>
   
@@ -58,18 +59,20 @@
       </xsl:for-each>
       <!--<xsl:copy-of select="$element-analysis"/>-->
       
-      <xsl:copy-of select="$lf"/>
+      <xsl:copy-of select="$lf2"/>
       <xsl:comment>Starter XSLT written courtesy of XML Jelly Sandwich </xsl:comment>
-      <xsl:copy-of select="$lf"/>
+      <xsl:copy-of select="$lf2"/>
       <xjs:template name="xmljellysandwich_fetch">
-        <xsl:comment> Target page components by assigning transformation results to them via their IDs. </xsl:comment>
+        <xsl:copy-of select="$lf"/>
+        <xsl:comment> Target page components by assigning transformation results to them via their IDs in the host page. </xsl:comment>
+        <xsl:copy-of select="$lf"/>
         <xjs:result-document href="#xmljellysandwich_body">
             <xjs:apply-templates/>
         </xjs:result-document>
       </xjs:template>
       
       <xsl:for-each-group select="$divs" group-by="@name">
-        <xsl:copy-of select="$lf"/>
+        <xsl:copy-of select="$lf2"/>
         <xjs:template mode="asleep" match="{current-grouping-key()}">
           <div class="{current-grouping-key()}">
             <xjs:apply-templates/>
@@ -77,7 +80,7 @@
         </xjs:template>
       </xsl:for-each-group>
       <xsl:for-each-group select="$paras" group-by="@name">
-        <xsl:copy-of select="$lf"/>
+        <xsl:copy-of select="$lf2"/>
         <xjs:template mode="asleep" match="{current-grouping-key()}">
           <p class="{current-grouping-key()}">
             <xjs:apply-templates/>
@@ -85,7 +88,7 @@
         </xjs:template>
       </xsl:for-each-group>
       <xsl:for-each-group select="$inlines" group-by="@name">
-        <xsl:copy-of select="$lf"/>
+        <xsl:copy-of select="$lf2"/>
         <xjs:template mode="asleep" match="{current-grouping-key()}">
           <span class="{current-grouping-key()}">
             <xjs:apply-templates/>
@@ -93,7 +96,7 @@
         </xjs:template>
       </xsl:for-each-group>
       
-      <xsl:copy-of select="$lf"/>
+      <xsl:copy-of select="$lf2"/>
       <xjs:template name="css">
         <style type="text/css">
           <xsl:text>
@@ -112,22 +115,22 @@ div { margin-left: 1rem }
         </style>
       </xjs:template>
       
-      <xsl:copy-of select="$lf"/>
-      <xsl:copy-of select="$lf"/>
+      <xsl:copy-of select="$lf2"/>
+      <xsl:copy-of select="$lf2"/>
       <xjs:template priority="-0.4" match="{ string-join($divs/@name,' | ')}">
         <div class="{{name()}}">
           <div class="tag"><xjs:value-of select="name()"/>: </div>
           <xjs:apply-templates/>
         </div>
       </xjs:template>
-      <xsl:copy-of select="$lf"/>
+      <xsl:copy-of select="$lf2"/>
       <xjs:template priority="-0.4" match="{ string-join($paras/@name,' | ')}">
         <p class="{{name()}}">
           <span class="tag"><xjs:value-of select="name()"/>: </span>
           <xjs:apply-templates/>
         </p>
       </xjs:template>
-      <xsl:copy-of select="$lf"/>
+      <xsl:copy-of select="$lf2"/>
       <xjs:template priority="-0.4" match="{ string-join($inlines/@name,' | ')}">
         <span class="{{name()}}">
           <span class="tag"><xjs:value-of select="name()"/>: </span>
@@ -136,13 +139,14 @@ div { margin-left: 1rem }
       </xjs:template>
       
       <xsl:if test="not($xsl-version = '1.0')">
-        <xsl:copy-of select="$lf"/>
+        <xsl:copy-of select="$lf2"/>
+        <xsl:copy-of select="$lf2"/>
         <xjs:function name="xjs:classes">
           <xjs:param name="who" as="element()"/>
           <xjs:sequence select="tokenize($who/@class, '\s+') ! lower-case(.)"/>
         </xjs:function>
 
-        <xsl:copy-of select="$lf"/>
+        <xsl:copy-of select="$lf2"/>
         <xjs:function name="xjs:has-class">
           <xjs:param name="who" as="element()"/>
           <xjs:param name="ilk" as="xs:string"/>
