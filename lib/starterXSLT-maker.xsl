@@ -62,7 +62,7 @@
       <xsl:copy-of select="$lf2"/>
       <xsl:comment>Starter XSLT written courtesy of XML Jelly Sandwich </xsl:comment>
       <xsl:copy-of select="$lf2"/>
-      <xjs:template name="xmljellysandwich_fetch">
+      <xjs:template name="xmljellysandwich_pack">
         <xsl:copy-of select="$lf"/>
         <xsl:comment> Target page components by assigning transformation results to them via their IDs in the host page. </xsl:comment>
         <xsl:copy-of select="$lf"/>
@@ -116,27 +116,36 @@ div { margin-left: 1rem }
       </xjs:template>
       
       <xsl:copy-of select="$lf2"/>
-      <xsl:copy-of select="$lf2"/>
-      <xjs:template priority="-0.4" match="{ string-join($divs/@name,' | ')}">
-        <div class="{{name()}}">
-          <div class="tag"><xjs:value-of select="name()"/>: </div>
-          <xjs:apply-templates/>
-        </div>
-      </xjs:template>
-      <xsl:copy-of select="$lf2"/>
-      <xjs:template priority="-0.4" match="{ string-join($paras/@name,' | ')}">
-        <p class="{{name()}}">
-          <span class="tag"><xjs:value-of select="name()"/>: </span>
-          <xjs:apply-templates/>
-        </p>
-      </xjs:template>
-      <xsl:copy-of select="$lf2"/>
-      <xjs:template priority="-0.4" match="{ string-join($inlines/@name,' | ')}">
-        <span class="{{name()}}">
-          <span class="tag"><xjs:value-of select="name()"/>: </span>
-          <xjs:apply-templates/>
-        </span>
-      </xjs:template>
+      
+      <xsl:if test="exists($divs)">
+        <xsl:copy-of select="$lf2"/>
+        <xjs:template priority="-0.4" match="{ string-join($divs/@name,' | ')}">
+          <div class="{{name()}}">
+            <div class="tag"><xjs:value-of select="name()"/>: </div>
+            <xjs:apply-templates/>
+          </div>
+        </xjs:template>
+      </xsl:if>
+      
+        <xsl:if test="exists($paras)">
+          <xsl:copy-of select="$lf2"/>
+          <xjs:template priority="-0.4" match="{ string-join($paras/@name,' | ')}">
+            <p class="{{name()}}">
+              <span class="tag"><xjs:value-of select="name()"/>: </span>
+              <xjs:apply-templates/>
+            </p>
+          </xjs:template>
+        </xsl:if>
+        
+        <xsl:if test="exists($inlines)">
+          <xsl:copy-of select="$lf2"/>
+          <xjs:template priority="-0.4" match="{ string-join($inlines/@name,' | ')}">
+            <span class="{{name()}}">
+              <span class="tag"><xjs:value-of select="name()"/>: </span>
+              <xjs:apply-templates/>
+            </span>
+          </xjs:template>
+        </xsl:if>
       
       <xsl:if test="not($xsl-version = '1.0')">
         <xsl:copy-of select="$lf2"/>
