@@ -1,0 +1,2283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!-- MODULE:    Balisage Conference Paper DTD -->
+<!-- VERSION:   1.2 -->
+<!-- DATE:      February 4, 2010 -->
+<!---->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- SYSTEM:    Balisage: The Markup Conference papers -->
+<!---->
+<!-- PURPOSE:   Created for validation of papers submitted -->
+<!-- for Balisage: The Markup Conference -->
+<!---->
+<!-- CREATED BY: -->
+<!-- Mulberry Technologies, Inc. (MS/BTU) -->
+<!-- 17 West Jefferson Street, Suite 207 -->
+<!-- Rockville, MD  20850  USA -->
+<!-- Phone:  +1 301/315-9631 -->
+<!-- Fax:    +1 301/315-8285 -->
+<!-- e-mail: info@mulberrytech.com -->
+<!-- WWW:    http://www.mulberrytech.com -->
+<!---->
+<!-- ============================================================= -->
+<!-- ============================================================= -->
+<!-- DESIGN CONSIDERATIONS -->
+<!-- ============================================================= -->
+<!--
+  The goal of this DTD is to define a very small tag set that
+  describes documents that are valid to DocBook (5.0CR7). 
+  There was no intent to make this DTD or the associated XSD or
+  RNG descriptions of the tag set subsets of DocBook; we simply 
+  want the documents described to be valid to DocBook and thus 
+  to be able to make use of presentation and authoring tools
+  that have been created for use with DocBook.
+-->
+<!-- ============================================================= -->
+<!-- OWNERSHIP AND LICENSES -->
+<!-- ============================================================= -->
+<!--
+  
+  This DTD/schema was developed by, and is copyright 2008 
+  Mulberry Technologies, Inc. 
+  
+  DocBook, with which the structures in this DTD/schema are 
+  intended to be compatible, carries the following license, 
+  which is reproduced here because this DTD/schema could be 
+  considered a modification of the DocBook schema:
+  
+  Copyright 1992-2007 HaL Computer Systems, Inc.,
+  O'Reilly & Associates, Inc., ArborText, Inc., Fujitsu 
+  Software Corporation, Norman Walsh, Sun Microsystems, Inc., 
+  and the Organization for the Advancement of Structured 
+  Information Standards (OASIS).
+  
+  Release: $Id: docbook.rnc 7474 2007-09-28 18:50:07Z nwalsh $
+  
+  Permission to use, copy, modify and distribute the DocBook 
+  schema and its accompanying documentation for any purpose 
+  and without fee is hereby granted in perpetuity, provided 
+  that the above copyright notice and this paragraph appear 
+  in all copies. The copyright holders make no representation 
+  about the suitability of the schema for any purpose. It is 
+  provided "as is" without expressed or implied warranty.
+  
+  If you modify the DocBook schema in any way, label your 
+  schema as a variant of DocBook. See the reference 
+  documentation 
+  (http://docbook.org/tdg5/en/html/ch05.html#s-notdocbook) 
+  for more information.
+  
+  Please direct all questions, bug reports, or suggestions 
+  for changes to the docbook@lists.oasis-open.org mailing 
+  list. For more information, see 
+  http://www.oasis-open.org/docbook/.
+-->
+<!-- ============================================================= -->
+<!-- CHANGE HISTORY -->
+<!-- ============================================================= -->
+<!--
+       Version  Reason/Occasion              (who) vx.x (yyyy-mm-dd)
+       =============================================================
+  
+                                             (wap) v1.3 (2010-10-15)
+  16.  Incremented article/@version to "5.0-subset Balisage-1.3"
+  
+  15.  FURTHER TIGHTENING CROSS-REFERENCING
+  
+       In order to support cross-referencing more gracefully, or
+       rather not to promise cross-referencing implicitly in
+       places where it is underspecified, we remove xref
+       targeting attributes (@xml:id and @xreflabel) from these
+       elements:
+         para
+         informaltable
+         mediaobject
+         itemizedlist
+         orderedlist
+         listitem
+         variablelist
+         varlistentry
+         programlisting
+  
+       In many cases, a cross-reference to one of these should
+       be made by placing the object in a figure or table that
+       can be cross-referenced. In others, an implicit cross-
+       reference should be adequate.
+  
+                                             (wap) v1.2 (2010-04-06)
+  14.  ALLOWING PARA.LEVEL, NOT JUST PARA, INSIDE ARTICLE
+  
+       Oh dear, para-level items other than para have not been
+       allowed outside sections. This leads to introducing a 
+       para.level entity so we can treat this systematically.
+  
+                                             (wap) v1.2 (2010-03-03)
+  13.  MORE TWEAKS AND ADJUSTMENTS
+  
+       Added inline elements to citation
+  
+       Removed personname from attribution and added xref
+  
+       Changed declaration of table/@border to NMTOKEN for
+       consistency with informaltable and Docbook (not HTML)
+  
+       Parameterized info element content model, to enable
+       the next changes.
+  
+       Removed legalnotice and references to it. Instead, this
+       element will be provided in production, to papers valid
+       to the new Balisage-1-2-production.dtd.
+  
+       Removed confgroup element, which will be handled likewise.
+  
+       Redefined role attribute on keywordset to have value
+       'author' #REQUIRED to fix the value to 'author' when
+       using this DTD. Restricted the info content model
+       to allow only one keywordset.
+  
+       Parameterized attribute declarations for layout
+       attributes on figure and table, allowing these to
+       be removed to the production DTD.
+  
+                                             (wap) v1.2 (2010-02-04)
+  13.  SYSTEMATIC CLEANUP OF FEATURES NOT BEING USED BY BALISAGE
+  
+       Changed (fixed) value of article/@version to
+       5.0-subset Balisage-1.2.
+  
+       Modified element and attribute descriptions.
+  
+       Fixed up XLink declarations: unused attributes are removed 
+       and attributes`we need to control from the top are #FIXED. 
+       Tagging will now be more lightweight.
+  
+       Removed XLink attributes not needed in Balisage proceedings.
+  
+       footnoteref is removed; xref can be used instead.
+  
+       footnote, email and link removed from content model for link.
+  
+       Made imagedata/@format #IMPLIED. This info is either redundant
+       or wrong, since the server will determine the MIME type based
+       on the file name; the attribute is retained at all only
+       for backward compatibility (and should be validated against
+       the file name suffix going forward).
+  
+       Removed unused formatting specs from figure.
+  
+       Removed special formatting specs (not being used)
+       from itemizedlist, orderedlist, programlisting.
+  
+       Fixed bug at tail of blockquote content model: citation
+       was used where attribution was intended (and is required by
+       Docbook).
+  
+       Removed @label throughout (these items will be autonumbered).
+  
+       Renamed db.common.attributes to xref.target.attributes and 
+       removed it from elements to which Balisage does not support
+       cross-referencing.
+  
+  12.  Renamed table/@id to table/@xml:id for consistency and
+       conformity with Docbook
+  
+                                             (wap) v1.1 (2010-02-01)
+  11.  Moved xlink declaration attribute to the top level
+  
+                                             (wap) v1.1 (2009-07-05)
+  10.  Added <biblioid> to <bibliomixed>. Its @class must be 'doi'
+  
+                                             (TRG) v1.1 (2008-01-21)
+   9.  Deleted the following attributes from <imagedata> in favor 
+       of a simplified sizing function via the "scale" attribute:
+         - align
+         - valign
+         - width
+         - contentwidth
+         - scalefit
+         - depth
+         - contentdepth
+  
+   8.  Changed OR grouping in <appendix> to zero or more objects 
+       instead of one or more.
+  
+   7.  Added <xref> to the following elements' content models:
+         - <title>
+         - <subtitle>
+         - <para>
+         - <term>
+         - <emphasis>
+         - <th>
+         - <td>
+  
+   6.  Added <quote> to the following elements' content models:
+         - <bibliomixed>
+         - <title>
+         - <subtitle>
+         - <link>
+         - <para>
+         - <term>
+         - <emphasis>
+         - <th>
+         - <td>
+  
+   5.  Created two new elements: <xref> and <quote>. The <xref>
+       element has an associated attribute, "linkend", while the
+       <quote> element uses the common label and identifier
+       attributes.
+  
+   4.  Removed <footnoteref> from the content model for <link>.
+  
+   3.  Removed the "label" attribute from <footnoteref>.
+  
+   2.  Changed the content model of <article> to permit zero or
+       more <para> rather than one or more <para>.
+  
+       =============================================================
+                                             (BTU)  v1.0 (2008-01-18)
+   1.  Added fixed version attribute to article, to identify that 
+       the document is tagged to the Balisage 1 subset of DocBook 5.
+-->
+<!-- ============================================================= -->
+<!-- INTERNAL PARAMETER ENTITIES -->
+<!-- ============================================================= -->
+<!-- XREF TARGET ATTRIBUTES -->
+<!--
+  Attributes used to identify and or label 
+  an element for purposes of internal cross-
+  referencing.
+-->
+<!--
+  xml:id     Identifies the unique ID value of the 
+             element.
+  xreflabel  Provides the text that is to be generated 
+             for a cross reference to the element.
+-->
+<grammar ns="http://docbook.org/ns/docbook" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <start>
+    <ref name="article"/>
+  </start>
+  
+  <define name="xref.target.attributes">
+    <optional>
+      <attribute name="xml:id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xreflabel"/>
+    </optional>
+  </define>
+  <!-- INFO ELEMENT CONTENT -->
+  <!-- Content model for the info element. -->
+  <define name="info.content">
+    <ref name="abstract"/>
+    <oneOrMore>
+      <ref name="author"/>
+    </oneOrMore>
+    <optional>
+      <ref name="keywordset"/>
+    </optional>
+  </define>
+  <!-- PARA LEVEL CONTENT -->
+  <!--
+    Most places a para may appear, so may a
+    nearly-arbitrary mix of other things.
+  -->
+  <define name="para.level">
+    <choice>
+      <ref name="blockquote"/>
+      <ref name="equation"/>
+      <ref name="figure"/>
+      <ref name="informaltable"/>
+      <ref name="itemizedlist"/>
+      <ref name="mediaobject"/>
+      <ref name="note"/>
+      <ref name="orderedlist"/>
+      <ref name="para"/>
+      <ref name="programlisting"/>
+      <ref name="table"/>
+      <ref name="variablelist"/>
+    </choice>
+  </define>
+  <!-- PAGE LAYOUT ATTRIBUTES -->
+  <!-- Attributes for specifying page layout. -->
+  <define name="page.layout.attributes">
+    <empty/>
+  </define>
+  <!-- TABLE LAYOUT ATTRIBUTES -->
+  <!-- Attributes for specifying table layout. -->
+  <define name="table.layout.attributes">
+    <empty/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- DEFINITION DOC TOP LEVEL -->
+  <!-- ============================================================= -->
+  <!-- ARTICLE -->
+  <!--
+    One Balisage paper, essay, or opinion 
+    piece
+  -->
+  <define name="article">
+    <element name="article">
+      <ref name="article.attlist"/>
+      <ref name="title"/>
+      <optional>
+        <ref name="subtitle"/>
+      </optional>
+      <ref name="info"/>
+      <zeroOrMore>
+        <ref name="para.level"/>
+      </zeroOrMore>
+      <zeroOrMore>
+        <ref name="section"/>
+      </zeroOrMore>
+      <zeroOrMore>
+        <ref name="appendix"/>
+      </zeroOrMore>
+      <optional>
+        <ref name="bibliography"/>
+      </optional>
+    </element>
+  </define>
+  <!--
+    xml:id     Identifies a unique ID value of the 
+               element.
+    version    Version of the DTD; the value of this 
+               attribute is fixed at 
+               "5.0-subset Balisage-1.3"
+    xmlns      Pseudo-attribute used to identify the 
+               default namespace, for DocBook
+    xmlns:xlink
+               Namespace declaration pseudo-attribute
+               for xlink.
+  -->
+  <define name="article.attlist" combine="interleave">
+    <optional>
+      <attribute name="xml:id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="version" a:defaultValue="5.0-subset Balisage-1.3">
+        <value type="string" datatypeLibrary="">5.0-subset Balisage-1.3</value>
+      </attribute>
+    </optional>
+  </define>
+  <!-- ============================================================= -->
+  <!-- ARTICLE ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- INFO -->
+  <!--
+    Metadata for the paper, including
+    information that may be exposed to or
+    through other systems.
+  -->
+  <define name="info">
+    <element name="info">
+      <ref name="info.attlist"/>
+      <ref name="info.content"/>
+    </element>
+  </define>
+  <define name="info.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- APPENDIX -->
+  <!--
+    At the author's discretion, any original
+    material related or supplementary to the
+    paper but not properly part of it.
+  -->
+  <define name="appendix">
+    <element name="appendix">
+      <ref name="appendix.attlist"/>
+      <ref name="title"/>
+      <optional>
+        <ref name="subtitle"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="para.level"/>
+      </zeroOrMore>
+      <zeroOrMore>
+        <ref name="section"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="appendix.attlist" combine="interleave">
+    <ref name="xref.target.attributes"/>
+  </define>
+  <!-- BIBLIOGRAPHY -->
+  <!-- A list of works referenced in the paper. -->
+  <define name="bibliography">
+    <element name="bibliography">
+      <ref name="bibliography.attlist"/>
+      <ref name="title"/>
+      <oneOrMore>
+        <ref name="bibliomixed"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="bibliography.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- INFO ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- ABSTRACT -->
+  <!-- Summary of the paper's content. -->
+  <define name="abstract">
+    <element name="abstract">
+      <ref name="abstract.attlist"/>
+      <oneOrMore>
+        <ref name="para"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="abstract.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- AUTHOR -->
+  <!-- Wrapper for author related elements. -->
+  <define name="author">
+    <element name="author">
+      <ref name="author.attlist"/>
+      <ref name="personname"/>
+      <ref name="personblurb"/>
+      <zeroOrMore>
+        <choice>
+          <ref name="affiliation"/>
+          <ref name="email"/>
+          <ref name="link"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="author.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- LEGAL NOTICE -->
+  <!--
+    Statement of copyright date and ownership 
+    and licensing for the conference paper, in 
+    presentation form.
+  -->
+  <define name="legalnotice">
+    <element name="legalnotice">
+      <ref name="legalnotice.attlist"/>
+      <oneOrMore>
+        <ref name="para"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="legalnotice.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- CONFERENCE GROUP -->
+  <!-- Wrapper for conference information. -->
+  <define name="confgroup">
+    <element name="confgroup">
+      <ref name="confgroup.attlist"/>
+      <ref name="conftitle"/>
+      <ref name="confdates"/>
+    </element>
+  </define>
+  <define name="confgroup.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- CONFERENCE DATES -->
+  <!--
+    Dates of conference at which the paper is 
+    presented (not the specific date the paper 
+    was presented).
+  -->
+  <define name="confdates">
+    <element name="confdates">
+      <ref name="confdates.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="confdates.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- CONFERENCE TITLE -->
+  <!--
+    Identifying the specific conference or
+    event where the paper was presented.
+  -->
+  <define name="conftitle">
+    <element name="conftitle">
+      <ref name="conftitle.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="conftitle.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- KEYWORD SET -->
+  <!-- A set of keywords describing the paper. -->
+  <define name="keywordset">
+    <element name="keywordset">
+      <ref name="keywordset.attlist"/>
+      <oneOrMore>
+        <ref name="keyword"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <!-- role       Identifies the keywordset by type. -->
+  <define name="keywordset.attlist" combine="interleave">
+    <attribute name="role">
+      <choice>
+        <value>author</value>
+      </choice>
+    </attribute>
+  </define>
+  <!-- KEYWORD -->
+  <!--
+    A word or phrase describing the content of 
+    the paper. Depending on the role of the
+    keywordset, this may be required to conform
+    to a controlled vocabulary.
+  -->
+  <define name="keyword">
+    <element name="keyword">
+      <ref name="keyword.attlist"/>
+      <zeroOrMore>
+        <text/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="keyword.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- AUTHOR ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- PERSON NAME -->
+  <!-- Name of an author of a document. -->
+  <define name="personname">
+    <element name="personname">
+      <ref name="personname.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <ref name="firstname"/>
+          <ref name="surname"/>
+          <ref name="lineage"/>
+          <ref name="othername"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="personname.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- PERSON BLURB -->
+  <!--
+    Short description of the author, typically 
+    including biographical details such as 
+    employer and education.
+  -->
+  <define name="personblurb">
+    <element name="personblurb">
+      <ref name="personblurb.attlist"/>
+      <oneOrMore>
+        <ref name="para"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="personblurb.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- AFFILIATION -->
+  <!--
+    Institutional or corporate affiliation
+    of an author.
+  -->
+  <define name="affiliation">
+    <element name="affiliation">
+      <ref name="affiliation.attlist"/>
+      <zeroOrMore>
+        <ref name="jobtitle"/>
+      </zeroOrMore>
+      <optional>
+        <ref name="orgname"/>
+      </optional>
+    </element>
+  </define>
+  <define name="affiliation.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- EMAIL -->
+  <!-- Contact email address for an author. -->
+  <define name="email">
+    <element name="email">
+      <ref name="email.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="email.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- PERSON NAME ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- FIRST NAME -->
+  <!-- The given name of a person. -->
+  <define name="firstname">
+    <element name="firstname">
+      <ref name="firstname.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="firstname.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- SURNAME -->
+  <!-- The family name of a person. -->
+  <define name="surname">
+    <element name="surname">
+      <ref name="surname.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="surname.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- LINEAGE -->
+  <!-- A name suffix such as "Jr" or "Sr". -->
+  <define name="lineage">
+    <element name="lineage">
+      <ref name="lineage.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="lineage.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- OTHER NAME -->
+  <!--
+    Miscellaneous name components that don't 
+    fit into the other person name elements, 
+    for example: middle name or initial.
+  -->
+  <define name="othername">
+    <element name="othername">
+      <ref name="othername.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="othername.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- AFFILIATION ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- JOB TITLE -->
+  <!--
+    An author's title in an affiliated 
+    organization.
+  -->
+  <define name="jobtitle">
+    <element name="jobtitle">
+      <ref name="jobtitle.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="jobtitle.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ORGANIZATION NAME -->
+  <!-- An author's affiliated organization. -->
+  <define name="orgname">
+    <element name="orgname">
+      <ref name="orgname.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="orgname.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- BIBLIOGRAPHY ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- BIBLIOGRAPHIC ENTRY -->
+  <!-- An item in a bibliography. -->
+  <define name="bibliomixed">
+    <element name="bibliomixed">
+      <ref name="bibliomixed.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="emphasis"/>
+          <ref name="link"/>
+          <ref name="quote"/>
+          <ref name="biblioid"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="bibliomixed.attlist" combine="interleave">
+    <ref name="xref.target.attributes"/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- COMMON ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- SECTION -->
+  <!--
+    A major division or subdivision of the
+    text.
+  -->
+  <define name="section">
+    <element name="section">
+      <ref name="section.attlist"/>
+      <ref name="title"/>
+      <optional>
+        <ref name="subtitle"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="para.level"/>
+      </zeroOrMore>
+      <zeroOrMore>
+        <ref name="section"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="section.attlist" combine="interleave">
+    <ref name="xref.target.attributes"/>
+  </define>
+  <!-- TITLE -->
+  <!--
+    The title of the text component to which
+    it belongs.
+  -->
+  <define name="title">
+    <element name="title">
+      <ref name="title.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+          <ref name="citation"/>
+          <ref name="emphasis"/>
+          <ref name="footnote"/>
+          <ref name="trademark"/>
+          <ref name="email"/>
+          <ref name="code"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="quote"/>
+          <ref name="xref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="title.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- SUBTITLE -->
+  <!-- A subtitle. -->
+  <define name="subtitle">
+    <element name="subtitle">
+      <ref name="subtitle.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+          <ref name="citation"/>
+          <ref name="emphasis"/>
+          <ref name="footnote"/>
+          <ref name="trademark"/>
+          <ref name="email"/>
+          <ref name="code"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="quote"/>
+          <ref name="xref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="subtitle.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- LINK -->
+  <!--
+    A hypertext link. Either @linkend is used
+    for an internal link, or xlink:href is used
+    for an external link. Expect an error if
+    both are used.
+    link with @linkend is an alternative to xref
+    for internal cross-references, when the 
+    linking text (anchor) is not to be generated
+    or acquired from the target of the reference,
+    but instead taken from the element contents
+    (like an HTML-style anchor).
+    XLink attributes are hard-coded to make a
+    simple link to an external resource.
+    If neither @linkend nor @xlink:href is used,
+    the text content of the link itself is
+    promoted to serve as the link target.
+  -->
+  <define name="link">
+    <element name="link">
+      <ref name="link.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="emphasis"/>
+          <ref name="trademark"/>
+          <ref name="code"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="quote"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="link.attlist" combine="interleave">
+    <optional>
+      <attribute name="linkend">
+        <data type="IDREF"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xlink:href"/>
+    </optional>
+    <optional>
+      <attribute name="xlink:title"/>
+    </optional>
+    <optional>
+      <attribute name="xlink:type" a:defaultValue="simple">
+        <value>simple</value>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xlink:show" a:defaultValue="new">
+        <value>new</value>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xlink:actuate" a:defaultValue="onRequest">
+        <value>onRequest</value>
+      </attribute>
+    </optional>
+  </define>
+  <!-- PARAGRAPH -->
+  <!--
+    A rhetorical (not merely presentational)
+    paragraph.
+  -->
+  <define name="para">
+    <element name="para">
+      <ref name="para.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="blockquote"/>
+          <ref name="citation"/>
+          <ref name="code"/>
+          <ref name="email"/>
+          <ref name="emphasis"/>
+          <ref name="equation"/>
+          <ref name="figure"/>
+          <ref name="footnote"/>
+          <ref name="informaltable"/>
+          <ref name="inlinemediaobject"/>
+          <ref name="itemizedlist"/>
+          <ref name="link"/>
+          <ref name="mediaobject"/>
+          <ref name="note"/>
+          <ref name="orderedlist"/>
+          <ref name="programlisting"/>
+          <ref name="subscript"/>
+          <ref name="superscript"/>
+          <ref name="table"/>
+          <ref name="trademark"/>
+          <ref name="variablelist"/>
+          <ref name="quote"/>
+          <ref name="xref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="para.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- BLOCK QUOTE -->
+  <!-- A quotation set off from the main text. -->
+  <define name="blockquote">
+    <element name="blockquote">
+      <ref name="blockquote.attlist"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <oneOrMore>
+        <ref name="para.level"/>
+      </oneOrMore>
+      <optional>
+        <ref name="attribution"/>
+      </optional>
+    </element>
+  </define>
+  <define name="blockquote.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ATTRIBUTION -->
+  <!-- The source of a blockquote or epigraph. -->
+  <define name="attribution">
+    <element name="attribution">
+      <ref name="attribution.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+          <ref name="citation"/>
+          <ref name="xref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="attribution.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- PROGRAM LISTING -->
+  <!--
+    A verbatim environment for program source
+    code or pseudo-code.
+  -->
+  <define name="programlisting">
+    <element name="programlisting">
+      <ref name="programlisting.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="emphasis"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <!--
+    xml:space  Specifies all white space, such as tabs, 
+    ordinary spaces, and line breaks, be 
+    preserved.
+  -->
+  <define name="programlisting.attlist" combine="interleave">
+    <optional>
+      <attribute name="xml:space" a:defaultValue="preserve">
+        <value>preserve</value>
+      </attribute>
+    </optional>
+  </define>
+  <!-- NOTE -->
+  <!--
+    Textual information set off from the main 
+    text, labeled as a note and displayed in
+    place.
+  -->
+  <define name="note">
+    <element name="note">
+      <ref name="note.attlist"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <oneOrMore>
+        <ref name="para.level"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="note.attlist" combine="interleave">
+    <ref name="xref.target.attributes"/>
+  </define>
+  <!-- FOOTNOTE -->
+  <!--
+    Contents to be relegated to a footnote or
+    endnote, with a reference to be generated
+    in place.
+  -->
+  <define name="footnote">
+    <element name="footnote">
+      <ref name="footnote.attlist"/>
+      <oneOrMore>
+        <ref name="para"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="footnote.attlist" combine="interleave">
+    <ref name="xref.target.attributes"/>
+  </define>
+  <!-- CODE -->
+  <!-- Inline code including markup fragments. -->
+  <define name="code">
+    <element name="code">
+      <ref name="code.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="code.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- CAPTION -->
+  <!--
+    Text descriptive of the component to which
+    it is attached.
+  -->
+  <define name="caption">
+    <element name="caption">
+      <ref name="caption.attlist"/>
+      <oneOrMore>
+        <ref name="para"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="caption.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- TRADEMARK -->
+  <!-- Identifies a legal trademark. -->
+  <define name="trademark">
+    <element name="trademark">
+      <ref name="trademark.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="inlinemediaobject"/>
+          <ref name="link"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <!--
+    class      The type of trademark as well as an
+    indicator of what sort of trademark symbol
+    should be displayed.
+  -->
+  <define name="trademark.attlist" combine="interleave">
+    <optional>
+      <attribute name="class">
+        <choice>
+          <value>copyright</value>
+          <value>registered</value>
+          <value>service</value>
+          <value>trade</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- EQUATION -->
+  <!--
+    A mathematical equation or expression,
+    called out as a block and labeled.
+    Note: simple expressions may 
+    be provided as <mathphrase>, and more
+    complex maths should be supplied as 
+    graphics. This tag set does not include 
+    MathML.
+  -->
+  <define name="equation">
+    <element name="equation">
+      <ref name="equation.attlist"/>
+      <oneOrMore>
+        <choice>
+          <ref name="mathphrase"/>
+          <ref name="mediaobject"/>
+        </choice>
+      </oneOrMore>
+      <optional>
+        <ref name="caption"/>
+      </optional>
+    </element>
+  </define>
+  <!--
+    floatstyle Specifies whether the figure should be 
+    tethered to the text or may float
+  -->
+  <define name="equation.attlist" combine="interleave">
+    <ref name="xref.target.attributes"/>
+  </define>
+  <!-- MATH PHRASE -->
+  <!--
+    A mathematical expression that can be 
+    represented with ordinary text and a 
+    small amount of markup.
+  -->
+  <define name="mathphrase">
+    <element name="mathphrase">
+      <ref name="mathphrase.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="inlinemediaobject"/>
+          <ref name="subscript"/>
+          <ref name="superscript"/>
+          <ref name="link"/>
+          <ref name="citation"/>
+          <ref name="emphasis"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="mathphrase.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- LIST ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- ITEMIZED LIST -->
+  <!--
+    A list in which entries are marked with a 
+    symbol such as a bullet or dash.
+  -->
+  <define name="itemizedlist">
+    <element name="itemizedlist">
+      <ref name="itemizedlist.attlist"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <oneOrMore>
+        <ref name="listitem"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="itemizedlist.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ORDERED LIST -->
+  <!--
+    A list in which each list item is 
+    numbered.
+  -->
+  <define name="orderedlist">
+    <element name="orderedlist">
+      <ref name="orderedlist.attlist"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <oneOrMore>
+        <ref name="listitem"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <!--
+    continuation 
+               Indicates how numbering should begin 
+               relative to an immediately preceding list. 
+                 Restarts   item/line numbering begins 
+                            at 1 
+                 Continues  item/line numbering begins 
+                            where the preceding 
+                            list/program left off
+    startingnumber 
+               Indicates number to begin numbering
+    numeration Style of numbering
+  -->
+  <define name="orderedlist.attlist" combine="interleave">
+    <optional>
+      <attribute name="continuation">
+        <choice>
+          <value>continues</value>
+          <value>restarts</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="startingnumber">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="numeration">
+        <choice>
+          <value>arabic</value>
+          <value>upperalpha</value>
+          <value>loweralpha</value>
+          <value>upperroman</value>
+          <value>lowerroman</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- LIST ITEM -->
+  <!-- An individual list entry. -->
+  <define name="listitem">
+    <element name="listitem">
+      <ref name="listitem.attlist"/>
+      <oneOrMore>
+        <ref name="para.level"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="listitem.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- VARIABLE LIST -->
+  <!--
+    A list composed of a set of 
+    term/description pairs; a glossary or
+    "definition list".
+  -->
+  <define name="variablelist">
+    <element name="variablelist">
+      <ref name="variablelist.attlist"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <oneOrMore>
+        <ref name="varlistentry"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="variablelist.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- VARIABLE LIST ENTRY -->
+  <!--
+    A single term/description pairing within a
+    variablelist.
+  -->
+  <define name="varlistentry">
+    <element name="varlistentry">
+      <ref name="varlistentry.attlist"/>
+      <ref name="term"/>
+      <ref name="listitem"/>
+    </element>
+  </define>
+  <define name="varlistentry.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- TERM -->
+  <!--
+    A term or entry heading, to be described
+    by its description element sibling.
+  -->
+  <define name="term">
+    <element name="term">
+      <ref name="term.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+          <ref name="citation"/>
+          <ref name="emphasis"/>
+          <ref name="footnote"/>
+          <ref name="trademark"/>
+          <ref name="email"/>
+          <ref name="code"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="inlinemediaobject"/>
+          <ref name="quote"/>
+          <ref name="xref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="term.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- ============================================================= -->
+  <!-- IMAGE ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- FIGURE -->
+  <!--
+    Any illustrative text or images, to be
+    called out and labeled as a figure.
+  -->
+  <define name="figure">
+    <element name="figure">
+      <ref name="figure.attlist"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <oneOrMore>
+        <ref name="para.level"/>
+      </oneOrMore>
+      <optional>
+        <ref name="caption"/>
+      </optional>
+    </element>
+  </define>
+  <define name="figure.attlist" combine="interleave">
+    <ref name="xref.target.attributes"/>
+    <ref name="page.layout.attributes"/>
+  </define>
+  <!-- MEDIA OBJECT -->
+  <!--
+    A displayed media object; for Balisage, 
+    only still images are permitted.
+    Note: while each mediaobject may have its
+    own caption, it is more common to caption
+    an entire figure (containing one or more
+    mediaobjects).
+  -->
+  <define name="mediaobject">
+    <element name="mediaobject">
+      <ref name="mediaobject.attlist"/>
+      <oneOrMore>
+        <ref name="imageobject"/>
+      </oneOrMore>
+      <optional>
+        <ref name="caption"/>
+      </optional>
+    </element>
+  </define>
+  <define name="mediaobject.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- INLINE MEDIA OBJECT -->
+  <!--
+    A media object appearing in the text
+    flow.
+  -->
+  <define name="inlinemediaobject">
+    <element name="inlinemediaobject">
+      <ref name="inlinemediaobject.attlist"/>
+      <oneOrMore>
+        <ref name="imageobject"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="inlinemediaobject.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- IMAGE OBJECT -->
+  <!-- Wrapper for image data. -->
+  <define name="imageobject">
+    <element name="imageobject">
+      <ref name="imageobject.attlist"/>
+      <ref name="imagedata"/>
+    </element>
+  </define>
+  <define name="imageobject.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- IMAGE DATA -->
+  <!--
+    Indicating an image resource (file) along
+    with information pertaining to its
+    display.
+  -->
+  <define name="imagedata">
+    <element name="imagedata">
+      <ref name="imagedata.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <!--
+    common.attr 
+               Labels and ids for a text section
+    format     Format of image data; for Balisage, values 
+               are restricted to jpg or png.
+    fileref    Name of file that contains image
+    width      Width of the display viewport, either as
+               an absolute value (px) or as a percentage
+               of available screen space. (Adjustment
+               of image height is implicit as aspect ratio
+               is preserved.) When width is not given, the
+               image will be displayed at its native size
+               in pixels.
+  -->
+  <define name="imagedata.attlist" combine="interleave">
+    <optional>
+      <attribute name="format">
+        <choice>
+          <value>jpg</value>
+          <value>png</value>
+        </choice>
+      </attribute>
+    </optional>
+    <attribute name="fileref"/>
+    <optional>
+      <attribute name="width"/>
+    </optional>
+  </define>
+  <!-- ============================================================= -->
+  <!-- REFERENCE ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- CITATION REFERENCE -->
+  <!--
+    A citation to an external source, optionally
+    referring to a bibliographic reference
+    (bibliomixed element).
+    Use linkend to make the contents of this
+    element link to a bibliomixed element.
+  -->
+  <define name="citation">
+    <element name="citation">
+      <ref name="citation.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="quote"/>
+          <ref name="emphasis"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="citation.attlist" combine="interleave">
+    <optional>
+      <attribute name="linkend">
+        <data type="IDREF"/>
+      </attribute>
+    </optional>
+  </define>
+  <!-- CROSS-REFERENCE -->
+  <!--
+    An internal cross-reference. The link will
+    be displayed with contents generated from
+    the target of the link (either its xreflabel
+    or an autogenerated label).
+    Note: a footnote can be referenced
+    more than once using xref for second or
+    subsequent references.
+  -->
+  <define name="xref">
+    <element name="xref">
+      <ref name="xref.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <!--
+    linkend    Points to an internal link target by 
+    identifying the value of its xml:id.
+  -->
+  <define name="xref.attlist" combine="interleave">
+    <attribute name="linkend">
+      <data type="IDREF"/>
+    </attribute>
+  </define>
+  <!-- ============================================================= -->
+  <!-- FORMATTING ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- EMPHASIS -->
+  <!--
+    Text receiving typographical emphasis in
+    line.
+  -->
+  <define name="emphasis">
+    <element name="emphasis">
+      <ref name="emphasis.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+          <ref name="citation"/>
+          <ref name="emphasis"/>
+          <ref name="footnote"/>
+          <ref name="trademark"/>
+          <ref name="email"/>
+          <ref name="code"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="quote"/>
+          <ref name="xref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <!-- role       Type of emphasis formatting. -->
+  <define name="emphasis.attlist" combine="interleave">
+    <optional>
+      <attribute name="role">
+        <choice>
+          <value>bold</value>
+          <value>ital</value>
+          <value>bital</value>
+          <value>rom</value>
+          <value>under</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- SUBSCRIPT -->
+  <define name="subscript">
+    <element name="subscript">
+      <ref name="subscript.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="inlinemediaobject"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="link"/>
+          <ref name="citation"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="subscript.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- SUPERSCRIPT -->
+  <define name="superscript">
+    <element name="superscript">
+      <ref name="superscript.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="inlinemediaobject"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="link"/>
+          <ref name="citation"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="superscript.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- INLINE QUOTE -->
+  <!--
+    Any text to be displayed in quotes for
+    reasons of argument or rhetoric, or in 
+    order to refer to a term or phrase as such
+    (i.e., as "mentioned")
+  -->
+  <define name="quote">
+    <element name="quote">
+      <ref name="quote.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="inlinemediaobject"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="xref"/>
+          <ref name="link"/>
+          <ref name="emphasis"/>
+          <ref name="footnote"/>
+          <ref name="trademark"/>
+          <ref name="citation"/>
+          <ref name="code"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <define name="quote.attlist" combine="interleave">
+    <empty/>
+  </define>
+  <!-- BIBLIO ID -->
+  <!--
+    A formal identifier for a work cited or
+    listed in a bibliography. In this
+    application, the ID must be a DOI
+    (digital object identifier).
+  -->
+  <define name="biblioid">
+    <element name="biblioid">
+      <ref name="biblioid.attlist"/>
+      <text/>
+    </element>
+  </define>
+  <define name="biblioid.attlist" combine="interleave">
+    <attribute name="class">
+      <choice>
+        <value>doi</value>
+      </choice>
+    </attribute>
+  </define>
+  <!-- ============================================================= -->
+  <!-- TABLE ELEMENT DEFINITIONS -->
+  <!-- ============================================================= -->
+  <!-- TABLE FOOT -->
+  <!-- A table footer consisting of rows. -->
+  <define name="tfoot">
+    <element name="tfoot">
+      <ref name="tfoot.attlist"/>
+      <oneOrMore>
+        <ref name="tr"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <!--
+    valign     Vertical alignment
+    align      Horizontal alignment
+    char       Specifies alignment character
+    charoff    Percentage of column width to appear when     
+               align is set to "char"
+  -->
+  <define name="tfoot.attlist" combine="interleave">
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>bottom</value>
+          <value>middle</value>
+          <value>top</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char"/>
+    </optional>
+    <optional>
+      <attribute name="charoff"/>
+    </optional>
+  </define>
+  <!-- TABLE BODY -->
+  <!--
+    A wrapper for table rows in the body 
+    (as opposed to the header) portion of a 
+    table.
+  -->
+  <define name="tbody">
+    <element name="tbody">
+      <ref name="tbody.attlist"/>
+      <oneOrMore>
+        <ref name="tr"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <!--
+    valign     Vertical alignment
+    align      Horizontal alignment
+    char       Specifies alignment character
+    charoff    Percentage of column width to appear when     
+               align is set to "char"
+  -->
+  <define name="tbody.attlist" combine="interleave">
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>bottom</value>
+          <value>middle</value>
+          <value>top</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char"/>
+    </optional>
+    <optional>
+      <attribute name="charoff"/>
+    </optional>
+  </define>
+  <!-- INFORMAL TABLE -->
+  <!--
+    A table to appear without caption or
+    label.
+  -->
+  <define name="informaltable">
+    <element name="informaltable">
+      <ref name="informaltable.attlist"/>
+      <choice>
+        <zeroOrMore>
+          <ref name="col"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="colgroup"/>
+        </zeroOrMore>
+      </choice>
+      <optional>
+        <ref name="thead"/>
+      </optional>
+      <optional>
+        <ref name="tfoot"/>
+      </optional>
+      <oneOrMore>
+        <ref name="tr"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <!--
+    frame      Specifies which sides of the table should 
+               be given rules, making a box or frame of 
+               lines around a table
+    border     Specifies the thickness, in pixels, of the 
+               border to draw around a table
+    rules      Defines which rules to draw between the 
+               rows and columns of a table
+    cellspacing
+               Width of space between cells in a table
+    cellpadding
+               Specifies the amount of space, in pixels, 
+               between the border of a cell and the 
+               contents of a table cell
+  -->
+  <define name="informaltable.attlist" combine="interleave">
+    <optional>
+      <attribute name="frame">
+        <choice>
+          <value>void</value>
+          <value>above</value>
+          <value>below</value>
+          <value>hsides</value>
+          <value>lhs</value>
+          <value>rhs</value>
+          <value>vsides</value>
+          <value>box</value>
+          <value>border</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="border">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rules">
+        <choice>
+          <value>none</value>
+          <value>groups</value>
+          <value>rows</value>
+          <value>cols</value>
+          <value>all</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="cellspacing"/>
+    </optional>
+    <optional>
+      <attribute name="cellpadding"/>
+    </optional>
+  </define>
+  <!-- TABLE -->
+  <!-- A table (using the HTML model). -->
+  <define name="table">
+    <element name="table">
+      <ref name="table.attlist"/>
+      <optional>
+        <ref name="caption"/>
+      </optional>
+      <choice>
+        <zeroOrMore>
+          <ref name="col"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="colgroup"/>
+        </zeroOrMore>
+      </choice>
+      <choice>
+        <group>
+          <optional>
+            <ref name="thead"/>
+          </optional>
+          <optional>
+            <ref name="tfoot"/>
+          </optional>
+          <oneOrMore>
+            <ref name="tbody"/>
+          </oneOrMore>
+        </group>
+        <oneOrMore>
+          <ref name="tr"/>
+        </oneOrMore>
+      </choice>
+    </element>
+  </define>
+  <!--
+    border     Specifies the thickness, in pixels, of the 
+               border to draw around a table
+    pgwide     Identifies whether a figure can be the 
+               current paragraph width or require special 
+               handling
+    frame      Specifies which sides of the table should 
+               be given rules, making a box or frame of 
+               lines around a table
+    rules      Defines which rules to draw between the 
+               rows and columns of a table
+    cellspacing
+               Width of space between cells in a table
+    cellpadding
+               Specifies the amount of space, in pixels, 
+               between the border of a cell and the 
+               contents of a table cell
+  -->
+  <define name="table.attlist" combine="interleave">
+    <ref name="xref.target.attributes"/>
+    <ref name="page.layout.attributes"/>
+    <ref name="table.layout.attributes"/>
+    <optional>
+      <attribute name="border">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="pgwide">
+        <choice>
+          <value>0</value>
+          <value>1</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="frame">
+        <choice>
+          <value>void</value>
+          <value>above</value>
+          <value>below</value>
+          <value>hsides</value>
+          <value>lhs</value>
+          <value>rhs</value>
+          <value>vsides</value>
+          <value>box</value>
+          <value>border</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rules">
+        <choice>
+          <value>none</value>
+          <value>groups</value>
+          <value>rows</value>
+          <value>cols</value>
+          <value>all</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="cellspacing"/>
+    </optional>
+    <optional>
+      <attribute name="cellpadding"/>
+    </optional>
+  </define>
+  <!-- COLUMN -->
+  <!-- The description of one column of a table . -->
+  <define name="col">
+    <element name="col">
+      <ref name="col.attlist"/>
+      <empty/>
+    </element>
+  </define>
+  <!--
+    span       Horizontal spanning of columns
+    width      Horizontal size of cell
+    align      Horizontal alignment
+    char       Specifies alignment character
+    charoff    Percentage of column width to appear when 
+               align is set to "char" 
+    valign     Vertical alignment
+  -->
+  <define name="col.attlist" combine="interleave">
+    <optional>
+      <attribute name="span" a:defaultValue="1"/>
+    </optional>
+    <optional>
+      <attribute name="width"/>
+    </optional>
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char"/>
+    </optional>
+    <optional>
+      <attribute name="charoff"/>
+    </optional>
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>top</value>
+          <value>middle</value>
+          <value>bottom</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- COLUMN GROUP -->
+  <!--
+    A container element to hold column 
+    descriptions (element <col>) for a table; 
+    may describe the default behavior for all 
+    columns with its attributes.
+  -->
+  <define name="colgroup">
+    <element name="colgroup">
+      <ref name="colgroup.attlist"/>
+      <zeroOrMore>
+        <ref name="col"/>
+      </zeroOrMore>
+    </element>
+  </define>
+  <!--
+    span       Horizontal spanning of columns
+    width      Horizontal size of cell
+    align      Horizontal alignment
+    char       Specifies alignment character
+    charoff    Percentage of column width to appear when 
+               align is set to "char" 
+    valign     Vertical alignment
+  -->
+  <define name="colgroup.attlist" combine="interleave">
+    <optional>
+      <attribute name="span" a:defaultValue="1"/>
+    </optional>
+    <optional>
+      <attribute name="width"/>
+    </optional>
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char"/>
+    </optional>
+    <optional>
+      <attribute name="charoff"/>
+    </optional>
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>top</value>
+          <value>middle</value>
+          <value>bottom</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- TABLE HEAD CELL -->
+  <!-- Cell for table header. -->
+  <define name="th">
+    <element name="th">
+      <ref name="th.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+          <ref name="citation"/>
+          <ref name="emphasis"/>
+          <ref name="footnote"/>
+          <ref name="trademark"/>
+          <ref name="email"/>
+          <ref name="code"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="inlinemediaobject"/>
+          <ref name="itemizedlist"/>
+          <ref name="orderedlist"/>
+          <ref name="variablelist"/>
+          <ref name="equation"/>
+          <ref name="mediaobject"/>
+          <ref name="programlisting"/>
+          <ref name="note"/>
+          <ref name="para"/>
+          <ref name="quote"/>
+          <ref name="xref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <!--
+    scope      Specifies the set of data cells for which 
+               the current header cell provides header 
+               information, for example, the rest of the 
+               row group that contains it
+    rowspan    Spanning of content across rows
+    colspan    Spanning of content across columns
+    align      Horizontal alignment
+    char       Specifies alignment character
+    charoff    Percentage of column width to appear when
+               align is set to "char"
+    valign     Vertical alignment
+  -->
+  <define name="th.attlist" combine="interleave">
+    <optional>
+      <attribute name="scope">
+        <choice>
+          <value>row</value>
+          <value>col</value>
+          <value>rowgroup</value>
+          <value>colgroup</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rowspan">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="colspan">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char"/>
+    </optional>
+    <optional>
+      <attribute name="charoff"/>
+    </optional>
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>top</value>
+          <value>middle</value>
+          <value>bottom</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- TABLE HEADER -->
+  <!--
+    A wrapper for table rows in the header 
+    (as opposed to the body) portion of a 
+    table.
+  -->
+  <define name="thead">
+    <element name="thead">
+      <ref name="thead.attlist"/>
+      <oneOrMore>
+        <ref name="tr"/>
+      </oneOrMore>
+    </element>
+  </define>
+  <!--
+    valign     Vertical alignment                         
+    align      Horizontal alignment                       
+    char       Specifies alignment character              
+    charoff    Percentage of column width to appear when     
+               align is set to "char"
+  -->
+  <define name="thead.attlist" combine="interleave">
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>bottom</value>
+          <value>middle</value>
+          <value>top</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char"/>
+    </optional>
+    <optional>
+      <attribute name="charoff"/>
+    </optional>
+  </define>
+  <!-- TABLE ROW -->
+  <!-- A row in a table. -->
+  <define name="tr">
+    <element name="tr">
+      <ref name="tr.attlist"/>
+      <oneOrMore>
+        <choice>
+          <ref name="th"/>
+          <ref name="td"/>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  <!--
+    common.attr 
+               Labels and ids for a text section
+    align      Horizontal alignment
+    char       Specifies alignment character
+    charoff    Percentage of col width to appear when 
+               align is set to "char"
+    valign     Vertical alignment
+  -->
+  <define name="tr.attlist" combine="interleave">
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char"/>
+    </optional>
+    <optional>
+      <attribute name="charoff"/>
+    </optional>
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>top</value>
+          <value>middle</value>
+          <value>bottom</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <!-- TABLE ENTRY CELL -->
+  <!-- An entry in a table body. -->
+  <define name="td">
+    <element name="td">
+      <ref name="td.attlist"/>
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="link"/>
+          <ref name="citation"/>
+          <ref name="emphasis"/>
+          <ref name="footnote"/>
+          <ref name="trademark"/>
+          <ref name="email"/>
+          <ref name="code"/>
+          <ref name="superscript"/>
+          <ref name="subscript"/>
+          <ref name="inlinemediaobject"/>
+          <ref name="itemizedlist"/>
+          <ref name="orderedlist"/>
+          <ref name="variablelist"/>
+          <ref name="equation"/>
+          <ref name="mediaobject"/>
+          <ref name="programlisting"/>
+          <ref name="note"/>
+          <ref name="para"/>
+          <ref name="quote"/>
+          <ref name="xref"/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  <!--
+    scope      Specifies the set of data cells for which 
+               the current header cell provides header 
+               information, for example, the rest of the 
+               row group that contains it
+    rowspan    Spanning of content across rows
+    colspan    Spanning of content across columns
+    align      Horizontal alignment
+    char       Specifies alignment character
+    charoff    Percentage of col width to appear when 
+               align is set to "char"
+    valign     Vertical alignment
+  -->
+  <define name="td.attlist" combine="interleave">
+    <optional>
+      <attribute name="scope">
+        <choice>
+          <value>row</value>
+          <value>col</value>
+          <value>rowgroup</value>
+          <value>colgroup</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="rowspan">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="colspan">
+        <data type="NMTOKEN"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="align">
+        <choice>
+          <value>left</value>
+          <value>center</value>
+          <value>right</value>
+          <value>justify</value>
+          <value>char</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="char"/>
+    </optional>
+    <optional>
+      <attribute name="charoff"/>
+    </optional>
+    <optional>
+      <attribute name="valign">
+        <choice>
+          <value>top</value>
+          <value>middle</value>
+          <value>bottom</value>
+          <value>baseline</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+</grammar>
+<!-- ================== END OF BALISAGE CONFERENCE PAPER DTD ===== -->

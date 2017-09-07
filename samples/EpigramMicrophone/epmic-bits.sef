@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-04-13T17:57:21.519-04:00" target="JS">
+ <co id="0" binds="">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="342" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" eval="7" flags="pU" as="item()*" slots="2">
+   <arg name="who" as="element()"/>
+   <arg name="ilk" as="xs:string"/>
+   <gcEE role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="340" op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+    <forEach>
+     <fn name="tokenize">
+      <cvUntyped to="xs:string">
+       <data>
+        <slash line="345" simple="1">
+         <varRef name="who" slot="0"/>
+         <axis line="340" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+        </slash>
+       </data>
+      </cvUntyped>
+      <str val="\s+"/>
+      <str val=""/>
+     </fn>
+     <fn name="lower-case">
+      <dot type="xs:string"/>
+     </fn>
+    </forEach>
+    <varRef line="345" name="ilk" slot="1"/>
+   </gcEE>
+  </function>
+ </co>
+ <co id="1" binds="2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2">
+  <mode name="Q{}asleep" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.0" seq="3" rank="0" minImp="0" slots="0" flags="os" line="125" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="126" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="contrib-group"/>
+      </att>
+      <applyT line="127" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="12" rank="0" minImp="0" slots="0" flags="os" line="170" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="171" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="sec"/>
+      </att>
+      <applyT line="172" flags="i" bSlot="1">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="18" rank="0" minImp="0" slots="0" flags="os" line="200" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}string-name)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='string-name';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="201" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="string-name"/>
+      </att>
+      <applyT line="202" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="9" rank="0" minImp="0" slots="0" flags="os" line="155" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-part-meta)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-part-meta';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="156" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="book-part-meta"/>
+      </att>
+      <applyT line="157" flags="i" bSlot="3">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="15" rank="0" minImp="0" slots="0" flags="os" line="185" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}disp-quote)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='disp-quote';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="186" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="disp-quote"/>
+      </att>
+      <applyT line="187" flags="i" bSlot="4">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="23" rank="0" minImp="0" slots="0" flags="os" line="225" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{http://www.niso.org/schemas/ali/1.0/}license_ref)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri=='http://www.niso.org/schemas/ali/1.0/'&amp;&amp;q.local=='license_ref';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="226" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="ali:license_ref"/>
+      </att>
+      <applyT line="227" flags="i" bSlot="5">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="5" rank="0" minImp="0" slots="0" flags="os" line="135" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}permissions)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='permissions';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="136" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="permissions"/>
+      </att>
+      <applyT line="137" flags="i" bSlot="6">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="os" line="110" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="111" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="book"/>
+      </att>
+      <applyT line="112" flags="i" bSlot="7">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="13" rank="0" minImp="0" slots="0" flags="os" line="175" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}list)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="176" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="list"/>
+      </att>
+      <applyT line="177" flags="i" bSlot="8">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="20" rank="0" minImp="0" slots="0" flags="os" line="210" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}copyright-statement)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='copyright-statement';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="211" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="copyright-statement"/>
+      </att>
+      <applyT line="212" flags="i" bSlot="9">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="11" rank="0" minImp="0" slots="0" flags="os" line="165" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='body';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="166" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="body"/>
+      </att>
+      <applyT line="167" flags="i" bSlot="10">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="2" rank="0" minImp="0" slots="0" flags="os" line="120" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-title-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-title-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="121" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="book-title-group"/>
+      </att>
+      <applyT line="122" flags="i" bSlot="11">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="17" rank="0" minImp="0" slots="0" flags="os" line="195" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-title';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="196" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="book-title"/>
+      </att>
+      <applyT line="197" flags="i" bSlot="12">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="8" rank="0" minImp="0" slots="0" flags="os" line="150" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-part)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-part';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="151" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="book-part"/>
+      </att>
+      <applyT line="152" flags="i" bSlot="13">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="22" rank="0" minImp="0" slots="0" flags="os" line="220" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}copyright-holder)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='copyright-holder';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="221" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="copyright-holder"/>
+      </att>
+      <applyT line="222" flags="i" bSlot="14">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="4" rank="0" minImp="0" slots="0" flags="os" line="130" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="131" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="contrib"/>
+      </att>
+      <applyT line="132" flags="i" bSlot="15">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="os" line="115" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-meta)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-meta';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="116" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="book-meta"/>
+      </att>
+      <applyT line="117" flags="i" bSlot="16">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="19" rank="0" minImp="0" slots="0" flags="os" line="205" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}email)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='email';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="206" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="email"/>
+      </att>
+      <applyT line="207" flags="i" bSlot="17">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="10" rank="0" minImp="0" slots="0" flags="os" line="160" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}title-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="161" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="title-group"/>
+      </att>
+      <applyT line="162" flags="i" bSlot="18">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="24" rank="0" minImp="0" slots="0" flags="os" line="230" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}license-p)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='license-p';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="231" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="license-p"/>
+      </att>
+      <applyT line="232" flags="i" bSlot="19">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="16" rank="0" minImp="0" slots="0" flags="os" line="190" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}statement)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='statement';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="191" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="statement"/>
+      </att>
+      <applyT line="192" flags="i" bSlot="20">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="6" rank="0" minImp="0" slots="0" flags="os" line="140" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}license)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='license';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="141" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="license"/>
+      </att>
+      <applyT line="142" flags="i" bSlot="21">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="7" rank="0" minImp="0" slots="0" flags="os" line="145" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-body';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="146" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="book-body"/>
+      </att>
+      <applyT line="147" flags="i" bSlot="22">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="14" rank="0" minImp="0" slots="0" flags="os" line="180" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}list-item)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list-item';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="181" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="list-item"/>
+      </att>
+      <applyT line="182" flags="i" bSlot="23">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="21" rank="0" minImp="0" slots="0" flags="os" line="215" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}copyright-year)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='copyright-year';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="216" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="copyright-year"/>
+      </att>
+      <applyT line="217" flags="i" bSlot="24">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="25" rank="0" minImp="0" slots="0" flags="os" line="235" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="236" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="title"/>
+      </att>
+      <applyT line="237" flags="i" bSlot="25">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="3" binds="4 2">
+  <template name="Q{}xmljellysandwich_fetch" flags="os" line="11" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" slots="0">
+   <sequence role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="12">
+    <resultDoc global="#&#xA;#Thu Apr 13 17:57:21 EDT 2017&#xA;" local="#&#xA;#Thu Apr 13 17:57:21 EDT 2017&#xA;">
+     <str role="href" val="#xmljellysandwich_css"/>
+     <callT role="content" line="13" name="css" bSlot="0"/>
+    </resultDoc>
+    <resultDoc line="15" global="#&#xA;#Thu Apr 13 17:57:21 EDT 2017&#xA;" local="#&#xA;#Thu Apr 13 17:57:21 EDT 2017&#xA;">
+     <str role="href" val="#xmljellysandwich_body"/>
+     <applyT role="content" line="16" flags="i" bSlot="1">
+      <slash role="select" simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="13|0|XTTE0510|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="node()" jsTest="return true;"/>
+      </slash>
+     </applyT>
+    </resultDoc>
+   </sequence>
+  </template>
+ </co>
+ <co id="4" binds="">
+  <template name="Q{}css" flags="os" line="241" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" slots="0">
+   <elem role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="242" name="style" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+    <sequence>
+     <att name="type" flags="l">
+      <str val="text/css"/>
+     </att>
+     <valueOf flags="l">
+      <str val="&#xA;html, body { font-size: 10pt }&#xA;div { margin-left: 1rem }&#xA;.tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }&#xA;&#xA;&#xA;.book { }&#xA;&#xA;.book-meta { }&#xA;&#xA;.book-title-group { }&#xA;&#xA;.book-title { }&#xA;&#xA;.contrib-group { }&#xA;&#xA;.contrib { }&#xA;&#xA;.string-name { }&#xA;&#xA;.email { }&#xA;&#xA;.permissions { }&#xA;&#xA;.copyright-statement { }&#xA;&#xA;.copyright-year { }&#xA;&#xA;.copyright-holder { }&#xA;&#xA;.license { }&#xA;&#xA;.ali:license_ref { }&#xA;&#xA;.license-p { }&#xA;&#xA;.book-body { }&#xA;&#xA;.book-part { }&#xA;&#xA;.book-part-meta { }&#xA;&#xA;.title-group { }&#xA;&#xA;.title { }&#xA;&#xA;.body { }&#xA;&#xA;.sec { }&#xA;&#xA;.p { }&#xA;&#xA;.italic {  display: inline; }&#xA;&#xA;.list { }&#xA;&#xA;.list-item { }&#xA;&#xA;.disp-quote { }&#xA;&#xA;.sup {  display: inline; }&#xA;&#xA;.statement { }&#xA;&#xA;.underline {  display: inline; }&#xA;&#xA;.statement .emphasis { font-style: normal }&#xA;&#xA;"/>
+     </valueOf>
+    </sequence>
+   </elem>
+  </template>
+ </co>
+ <co id="5" binds="">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="338" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" eval="3" flags="pU" as="item()*" slots="1">
+   <arg name="who" as="element()"/>
+   <forEach role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="340">
+    <fn name="tokenize">
+     <cvUntyped to="xs:string">
+      <data>
+       <slash simple="1">
+        <varRef name="who" slot="0"/>
+        <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+       </slash>
+      </data>
+     </cvUntyped>
+     <str val="\s+"/>
+     <str val=""/>
+    </fn>
+    <fn name="lower-case">
+     <dot type="xs:string"/>
+    </fn>
+   </forEach>
+  </function>
+ </co>
+ <co id="2" binds="2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2">
+  <mode onNo="TC" flags="dW" patternSlots="0">
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="8" rank="1" minImp="0" slots="0" flags="os" line="60" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="61" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="sec"/>
+      </att>
+      <att name="id" flags="l">
+       <fn name="generate-id">
+        <dot type="element(Q{}sec)"/>
+       </fn>
+      </att>
+      <applyT line="62" flags="i" bSlot="1">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}string-name)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='string-name';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="os" line="23" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-part-meta)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-part-meta';"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="24" flags="ti" bSlot="3">
+     <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-part-meta)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-part-meta';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="12" rank="1" minImp="0" slots="0" flags="os" line="86" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}disp-quote)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='disp-quote';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="87" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="concat">
+        <str val="disp-quote "/>
+        <fn name="string">
+         <convert from="xs:untypedAtomic" to="xs:string">
+          <data>
+           <axis name="attribute" nodeTest="attribute(Q{}content-type)" jsTest="return item.name=='content-type'"/>
+          </data>
+         </convert>
+        </fn>
+       </fn>
+      </att>
+      <applyT line="88" flags="i" bSlot="4">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}disp-quote)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='disp-quote';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{http://www.niso.org/schemas/ali/1.0/}license_ref)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri=='http://www.niso.org/schemas/ali/1.0/'&amp;&amp;q.local=='license_ref';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="5" rank="2" minImp="0" slots="0" flags="os" line="43" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.withUpper role="match" axis="ancestor" upFirst="false">
+     <p.nodeTest test="element(Q{}italic)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='italic';"/>
+     <p.nodeTest test="element(Q{}statement)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='statement';"/>
+    </p.withUpper>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="44" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="emphasis"/>
+      </att>
+      <applyT line="45" flags="i" bSlot="5">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="4" rank="1" minImp="0" slots="0" flags="os" line="38" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}italic)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='italic';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="39" name="i" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="italic"/>
+      </att>
+      <applyT line="40" flags="i" bSlot="6">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="16" rank="0" minImp="0" slots="0" flags="os" line="330" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}italic)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='italic';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="331" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="332" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="333" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="334" flags="i" bSlot="7">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}permissions)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='permissions';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="os" line="23" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book';"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="24" flags="ti" bSlot="3">
+     <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="10" rank="2" minImp="0" slots="0" flags="os" line="73" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="element(Q{}list)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list';"/>
+     <gc vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="73" op="=" card="1:1" comp="CCC">
+      <data>
+       <axis name="attribute" nodeTest="attribute(Q{}list-type)" jsTest="return item.name=='list-type'"/>
+      </data>
+      <str val="ordered"/>
+     </gc>
+    </p.withPredicate>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="74" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="ordered-list"/>
+      </att>
+      <applyT line="75" bSlot="8">
+       <axis role="select" name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+      </applyT>
+      <elem line="77" name="ol" flags="l" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+       <applyT bSlot="9">
+        <axis role="select" name="child" nodeTest="element(Q{}list-item)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list-item';"/>
+       </applyT>
+      </elem>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="9" rank="1" minImp="0" slots="0" flags="os" line="65" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}list)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="66" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="plain-list"/>
+      </att>
+      <applyT line="67" bSlot="10">
+       <axis role="select" name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+      </applyT>
+      <elem line="69" name="ul" flags="l" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+       <applyT bSlot="11">
+        <axis role="select" name="child" nodeTest="element(Q{}list-item)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list-item';"/>
+       </applyT>
+      </elem>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}list)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="6" rank="1" minImp="0" slots="0" flags="os" line="48" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}sup)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sup';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="49" name="sup" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="sup"/>
+      </att>
+      <applyT line="50" flags="i" bSlot="12">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="16" rank="0" minImp="0" slots="0" flags="os" line="330" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}sup)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sup';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="331" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="332" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="333" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="334" flags="i" bSlot="7">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}copyright-statement)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='copyright-statement';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="os" line="23" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='body';"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="24" flags="ti" bSlot="3">
+     <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='body';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-title-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-title-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="7" rank="1" minImp="0" slots="0" flags="os" line="53" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}underline)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='underline';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="54" name="u" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="underline"/>
+      </att>
+      <applyT line="55" flags="i" bSlot="13">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="16" rank="0" minImp="0" slots="0" flags="os" line="330" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}underline)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='underline';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="331" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="332" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="333" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="334" flags="i" bSlot="7">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="3" rank="1" minImp="0" slots="0" flags="os" line="33" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}p)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='p';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="34" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="p"/>
+      </att>
+      <applyT line="35" flags="i" bSlot="14">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}p)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='p';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-title';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="os" line="23" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-part)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-part';"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="24" flags="ti" bSlot="3">
+     <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-part)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-part';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}copyright-holder)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='copyright-holder';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="os" line="21" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-meta)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-meta';"/>
+    <empty role="action"/>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-meta)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-meta';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}email)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='email';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="os" line="23" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}title-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title-group';"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="24" flags="ti" bSlot="3">
+     <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}title-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}license-p)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='license-p';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="13" rank="1" minImp="0" slots="1" flags="os" line="91" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}statement)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='statement';"/>
+    <let role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="92" var="next" as="element(Q{}statement)?" slot="0" eval="7">
+     <lastOf>
+      <union op="|">
+       <slash>
+        <root/>
+        <first>
+         <axis name="descendant" nodeTest="element(Q{}statement)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='statement';"/>
+        </first>
+       </slash>
+       <first>
+        <axis name="following" nodeTest="element(Q{}statement)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='statement';"/>
+       </first>
+      </union>
+     </lastOf>
+     <elem line="93" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+      <sequence>
+       <att name="class" flags="l">
+        <str val="statement"/>
+       </att>
+       <applyT line="94" flags="i" bSlot="15">
+        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+       </applyT>
+      </sequence>
+     </elem>
+    </let>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}statement)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='statement';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}license)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='license';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="os" line="23" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-body';"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="24" flags="ti" bSlot="3">
+     <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}book-body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='book-body';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="11" rank="1" minImp="0" slots="0" flags="os" line="81" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}list-item)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list-item';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="82" name="li" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="list-item"/>
+      </att>
+      <applyT line="83" flags="i" bSlot="16">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="14" rank="0" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}list-item)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list-item';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="317" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="318" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="319" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}copyright-year)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='copyright-year';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="2" rank="1" minImp="0" slots="0" flags="os" line="27" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="29" name="h2" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <applyT flags="i" bSlot="17">
+      <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+     </applyT>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="15" rank="0" minImp="0" slots="0" flags="os" line="323" module="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl">
+    <p.nodeTest role="match" test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/samples/EpigramMicrophone/epmic-bits.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/" line="324" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink ali=http://www.niso.org/schemas/ali/1.0/">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="325" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="326" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="327" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+  </mode>
+ </co>
+ <overridden/>
+ <output>
+  <property name="{http://saxon.sf.net/}stylesheet-version" value="30"/>
+ </output>
+ <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
+</package>
+<?Σ 489cabed?>
