@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:xjs="http://github.com/wendellpiez/XMLjellysandwich"
+  xmlns:XJS="http://github.com/wendellpiez/XMLjellysandwich"
   version="2.0"
   exclude-result-prefixes="#all">
   
-  <xsl:namespace-alias stylesheet-prefix="xjs" result-prefix="xsl"/>
+  <!-- John Lumley suggests putting the ns prefix in upper case excellent idea -->
+  <xsl:namespace-alias stylesheet-prefix="XJS" result-prefix="xsl"/>
   
   <xsl:output indent="yes"/>
   
@@ -46,7 +47,7 @@
   
   
   <xsl:template match="/">
-    <xjs:stylesheet version="{$xsl-version}"
+    <XJS:stylesheet version="{$xsl-version}"
       extension-element-prefixes="ixsl">
       <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
       <xsl:namespace name="xjs">http://github.com/wendellpiez/XMLjellysandwich</xsl:namespace>
@@ -62,42 +63,42 @@
       <xsl:copy-of select="$lf2"/>
       <xsl:comment>Starter XSLT written courtesy of XML Jelly Sandwich </xsl:comment>
       <xsl:copy-of select="$lf2"/>
-      <xjs:template name="xmljellysandwich_fetch">
+      <XJS:template name="xmljellysandwich_pack">
         <xsl:copy-of select="$lf"/>
         <xsl:comment> Target page components by assigning transformation results to them via their IDs in the host page. </xsl:comment>
         <xsl:copy-of select="$lf"/>
-        <xjs:result-document href="#xmljellysandwich_body">
-            <xjs:apply-templates/>
-        </xjs:result-document>
-      </xjs:template>
+        <XJS:result-document href="#xmljellysandwich_body">
+            <XJS:apply-templates/>
+        </XJS:result-document>
+      </XJS:template>
       
       <xsl:for-each-group select="$divs" group-by="@name">
         <xsl:copy-of select="$lf2"/>
-        <xjs:template mode="asleep" match="{current-grouping-key()}">
+        <XJS:template mode="asleep" match="{current-grouping-key()}">
           <div class="{current-grouping-key()}">
-            <xjs:apply-templates/>
+            <XJS:apply-templates/>
           </div>
-        </xjs:template>
+        </XJS:template>
       </xsl:for-each-group>
       <xsl:for-each-group select="$paras" group-by="@name">
         <xsl:copy-of select="$lf2"/>
-        <xjs:template mode="asleep" match="{current-grouping-key()}">
+        <XJS:template mode="asleep" match="{current-grouping-key()}">
           <p class="{current-grouping-key()}">
-            <xjs:apply-templates/>
+            <XJS:apply-templates/>
           </p>
-        </xjs:template>
+        </XJS:template>
       </xsl:for-each-group>
       <xsl:for-each-group select="$inlines" group-by="@name">
         <xsl:copy-of select="$lf2"/>
-        <xjs:template mode="asleep" match="{current-grouping-key()}">
+        <XJS:template mode="asleep" match="{current-grouping-key()}">
           <span class="{current-grouping-key()}">
-            <xjs:apply-templates/>
+            <XJS:apply-templates/>
           </span>
-        </xjs:template>
+        </XJS:template>
       </xsl:for-each-group>
       
       <xsl:copy-of select="$lf2"/>
-      <xjs:template name="css">
+      <XJS:template name="css">
         <style type="text/css">
           <xsl:text>
 html, body { font-size: 10pt }
@@ -113,48 +114,57 @@ div { margin-left: 1rem }
           </xsl:for-each-group>
           <xsl:text>&#xA;&#xA;</xsl:text>
         </style>
-      </xjs:template>
+      </XJS:template>
       
       <xsl:copy-of select="$lf2"/>
-      <xsl:copy-of select="$lf2"/>
-      <xjs:template priority="-0.4" match="{ string-join($divs/@name,' | ')}">
-        <div class="{{name()}}">
-          <div class="tag"><xjs:value-of select="name()"/>: </div>
-          <xjs:apply-templates/>
-        </div>
-      </xjs:template>
-      <xsl:copy-of select="$lf2"/>
-      <xjs:template priority="-0.4" match="{ string-join($paras/@name,' | ')}">
-        <p class="{{name()}}">
-          <span class="tag"><xjs:value-of select="name()"/>: </span>
-          <xjs:apply-templates/>
-        </p>
-      </xjs:template>
-      <xsl:copy-of select="$lf2"/>
-      <xjs:template priority="-0.4" match="{ string-join($inlines/@name,' | ')}">
-        <span class="{{name()}}">
-          <span class="tag"><xjs:value-of select="name()"/>: </span>
-          <xjs:apply-templates/>
-        </span>
-      </xjs:template>
+      
+      <xsl:if test="exists($divs)">
+        <xsl:copy-of select="$lf2"/>
+        <XJS:template priority="-0.4" match="{ string-join($divs/@name,' | ')}">
+          <div class="{{name()}}">
+            <div class="tag"><XJS:value-of select="name()"/>: </div>
+            <XJS:apply-templates/>
+          </div>
+        </XJS:template>
+      </xsl:if>
+      
+        <xsl:if test="exists($paras)">
+          <xsl:copy-of select="$lf2"/>
+          <XJS:template priority="-0.4" match="{ string-join($paras/@name,' | ')}">
+            <p class="{{name()}}">
+              <span class="tag"><XJS:value-of select="name()"/>: </span>
+              <XJS:apply-templates/>
+            </p>
+          </XJS:template>
+        </xsl:if>
+        
+        <xsl:if test="exists($inlines)">
+          <xsl:copy-of select="$lf2"/>
+          <XJS:template priority="-0.4" match="{ string-join($inlines/@name,' | ')}">
+            <span class="{{name()}}">
+              <span class="tag"><XJS:value-of select="name()"/>: </span>
+              <XJS:apply-templates/>
+            </span>
+          </XJS:template>
+        </xsl:if>
       
       <xsl:if test="not($xsl-version = '1.0')">
         <xsl:copy-of select="$lf2"/>
         <xsl:copy-of select="$lf2"/>
-        <xjs:function name="xjs:classes">
-          <xjs:param name="who" as="element()"/>
-          <xjs:sequence select="tokenize($who/@class, '\s+') ! lower-case(.)"/>
-        </xjs:function>
+        <XJS:function name="XJS:classes">
+          <XJS:param name="who" as="element()"/>
+          <XJS:sequence select="tokenize($who/@class, '\s+') ! lower-case(.)"/>
+        </XJS:function>
 
         <xsl:copy-of select="$lf2"/>
-        <xjs:function name="xjs:has-class">
-          <xjs:param name="who" as="element()"/>
-          <xjs:param name="ilk" as="xs:string"/>
-          <xjs:sequence select="$ilk = xjs:classes($who)"/>
-        </xjs:function>
+        <XJS:function name="XJS:has-class">
+          <XJS:param name="who" as="element()"/>
+          <XJS:param name="ilk" as="xs:string"/>
+          <XJS:sequence select="$ilk = XJS:classes($who)"/>
+        </XJS:function>
       </xsl:if>
       
-    </xjs:stylesheet>
+    </XJS:stylesheet>
   </xsl:template>
   
 </xsl:stylesheet>
