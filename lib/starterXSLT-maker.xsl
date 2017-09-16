@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:XJS="http://github.com/wendellpiez/XMLjellysandwich"
+  xmlns:xjs="http://github.com/wendellpiez/XMLjellysandwich"
   version="2.0"
   exclude-result-prefixes="#all">
   
@@ -151,16 +152,16 @@ div { margin-left: 1rem }
       <xsl:if test="not($xsl-version = '1.0')">
         <xsl:copy-of select="$lf2"/>
         <xsl:copy-of select="$lf2"/>
-        <XJS:function name="XJS:classes">
+        <XJS:function name="xjs:classes">
           <XJS:param name="who" as="element()"/>
           <XJS:sequence select="tokenize($who/@class, '\s+') ! lower-case(.)"/>
         </XJS:function>
 
         <xsl:copy-of select="$lf2"/>
-        <XJS:function name="XJS:has-class">
+        <XJS:function name="xjs:has-class">
           <XJS:param name="who" as="element()"/>
           <XJS:param name="ilk" as="xs:string"/>
-          <XJS:sequence select="$ilk = XJS:classes($who)"/>
+          <XJS:sequence select="$ilk = xjs:classes($who)"/>
         </XJS:function>
       </xsl:if>
       
