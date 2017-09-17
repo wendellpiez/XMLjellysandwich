@@ -1,0 +1,365 @@
+html { }
+
+body { background-color: white }
+
+div { }
+
+div#balisage-header,
+div#balisage-footer
+{
+  font-style: italic;
+}
+
+.navbar { 
+  display:block;
+  vertical-align: middle;
+  height:30px;
+  padding-left: 0.5em;
+  padding-right: 0.5em }
+
+.page-header { margin: 0em;
+               padding-left: 0.25em }
+
+h2.page-header { margin-top: 10px; font-size: 120% }
+
+div.article, div.content
+{ margin: 0.5em }
+
+div.content
+{ padding-bottom: 0.5em }
+
+div.abstract, div.author-block, div.toc, div.box, div.equation, div.citation-block
+{
+  background-color: white;
+  border: thin solid lightgrey;
+  margin-top: 0.5em;
+  padding: 0.5em 
+}
+
+div.citation-block { font-size: 90%; font-family: sans-serif }
+
+div.article > p, div.section > p {  line-height: 140% }
+
+p.citation { font-size: 90%;
+   margin-left: 1em; text-indent: -1em }
+
+p.citation small { font-size: 100% }
+
+div.index
+{
+  background-color: white;
+  border: thin solid lightgrey;
+  margin-top: 0.5em;
+  padding: 0.25em 
+}
+
+div.toc ul { margin-bottom: 0em;
+  margin-top: 0.5em;
+  font-size: 90%;
+  padding-left: 1em;
+  list-style-position: outside }
+
+div.toc dl { margin-bottom: 0em;
+  font-size: 90% }
+
+dl dl { margin-top: 0em }
+
+div.index dl { margin: 0em;
+  font-size: 90% }
+
+div.confgroup { margin: 0.5em;
+  font-size: 120% }
+  
+span.conftitle { font-weight: bold;
+  font-style: italic }
+
+div.box { font-family: sans-serif;
+  font-size: 90%;
+  text-align: center }
+
+div.appendix { }
+
+div.author { }
+
+div.bibliography { }
+
+div.bibliomixed { }
+
+div.blockquote { }
+
+div.caption { }
+
+div.figure-contents > pre.programlisting {
+ font-size: 100%
+}
+
+pre.programlisting,
+div.equation,
+div.variablelist,
+div.figure,
+div.table-wrapper,
+div.notice,
+div.note,
+div.mediaobject
+{
+  margin-top: 0.5em;
+  background-color: white;
+  border: medium solid lightgrey;
+  padding: 0.5em;
+  font-size: 85%
+}
+
+div.figure-contents,
+div.mediaobject h5 { margin-top: 0.5em; margin-bottom: 0em }
+
+div.figure-contents { margin-top: 0.5em }
+
+div.figure-contents div.mediaobject
+{ margin: 0em;
+  border: none;
+  padding: 0em }
+
+table.variablelist { border-collapse: collapse }
+
+div.figure-float { }
+
+div.folder { margin: 0em }
+
+div.footnote { }
+
+div.footnotes { }
+
+div.itemizedlist { }
+
+div.legalnotice { }
+
+div.mediaobject { }
+
+div.section { }
+
+div.table-caption { }
+
+div.titlepage { }
+
+div.toc
+{
+  font-family: sans-serif
+}
+
+blockquote.blockquote { }
+
+h1, h2, h3, h4, h5, h6
+{
+   font-family: sans-serif 
+}
+
+.subtitle
+  { margin-top: 0.5ex }
+
+.title, div.article > .subtitle
+  { margin-bottom: 0em;
+    margin-top: 1.5ex }
+
+h2.title { font-size: 125% }
+h3.title { font-size: 115%; font-style: italic }
+h4.title { font-size: 105% }
+h5.title { font-size: 95%; font-style: italic }
+h6.title { font-size: 85% }
+
+p.title { margin-top: 0em }
+
+div.index p.title { font-weight:normal; font-size: 90% }
+
+h3.title { font-style: italic }
+div.note h3.title { margin: 0em;
+  font-size: 90%;
+  font-style: italic }
+
+pre.programlisting > .title,
+div.variablelist > .title,
+div.figure > .title,
+div.table-wrapper > .title,
+div.notice > .title,
+div.note > .title
+  { margin-top: 0em;
+    font-style: normal }
+
+div.itemizedlist,
+div.orderedlist { margin-top: 0.5em }
+
+div.itemizedlist > ul,
+div.orderedlist > ol { margin-top: 0px }
+
+div.article > h2.title { font-size: 160% }
+
+h3.author { margin:0em }
+
+h5.author-email { margin-top: 0.25em; margin-bottom: 0em; font-size: 100% }
+
+h3.notice-title { margin-top:0em;
+  margin-bottom: 1em }
+ 
+div.author { margin-top:0.5em;
+  margin-bottom:0em }
+
+div.affiliation, div.affiliation > * { margin:0em }
+
+p { margin-top: 0.5em;
+    margin-bottom: 0em }
+
+div.toc p,
+p.notice { margin: 0em }
+
+p.title
+{
+  font-family: sans-serif;
+  font-weight: bold
+}
+
+p.bibliomixed { margin-left: 1em; text-indent: -1em }
+
+blockquote > p.attribution { text-align: right; margin-top: 0.5ex }
+
+table.table { margin-top: 0.5em }
+
+col { }
+
+thead { }
+
+tbody { }
+
+tr { }
+
+th
+{
+  background-color: lightgrey;
+  padding-left: 0.5em;
+  padding-right: 0.5em 
+}
+
+td
+{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  vertical-align: top
+}
+
+
+td > *:first-child { margin-top: 0px }
+
+table.variablelist > tbody > tr > td { vertical-align: text-top;
+  border-top: thin solid lightgrey; padding-top: 1ex; padding-bottom: 1ex }
+  
+table.variablelist > tbody > tr:first-child > td { border-top: none }
+
+/*td.varlist-item { border-left: medium solid lightgrey }*/
+
+ul { }
+
+li { }
+
+  
+dl p, li p
+{ margin-top: 0.25em 
+}
+
+dt
+{ margin-left: 1em;
+  text-indent: -1em
+}
+div.index dl dt { margin-left: 2.5em }
+
+div.variablelist td { vertical-align: text-top }
+
+dd { }
+
+td p, th p, dd p
+{ margin-top: 0.25em;
+  margin-bottom: 0em 
+}
+
+hr { }
+
+br { }
+
+img { border: none; max-width: 100% }
+
+b { }
+
+code.code { }
+
+code.email { }
+
+i { }
+
+strong { }
+
+sup { font-size: 70% }
+
+span.ital
+{ font-style: italic 
+}
+
+span.bold
+{ font-weight: bold 
+}
+
+span.bital
+{ font-weight: bold;
+  font-style: italic 
+}
+
+span.rom
+{ font-weight: normal;
+  font-style: normal 
+}
+
+span.under
+{ text-decoration: underline 
+}
+
+span.appendix { }
+
+span.bibliography { }
+
+span.citation { }
+
+span.firstname { }
+
+span.jobtitle { }
+
+span.orgname { }
+
+span.othername { }
+
+span.section { }
+
+span.surname { }
+
+span.term
+{ font-family: sans-serif;
+  font-weight: bold;
+  font-size: 90% 
+}
+
+.smaller { font-size:85% }
+
+.doi { font-family: monospace }
+
+a
+{ color: darkslategrey;
+  text-decoration: none 
+}
+
+a.email { }
+
+a.footnote { }
+
+a.para { }
+
+a.xref { font-family: sans-serif;
+  font-size: 80% }
+
+a:hover { text-decoration: underline }
+
+img.toc-icon { vertical-align: text-top }
