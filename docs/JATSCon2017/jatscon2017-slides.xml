@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article
+  PUBLIC "-//NLM//DTD JATS (Z39.96) Article Authoring DTD with MathML3 v1.1 20151215//EN"
+  "JATS-articleauthoring1-mathml3.dtd">
+<article dtd-version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>HTML First?</article-title>
+        <subtitle>Testing an alternative approach to producing JATS from arbitrary (unconstrained or
+          "wild") .docx (WordML) format</subtitle>
+      </title-group>
+      <contrib-group>
+        <contrib>
+          <name>
+            <surname>Piez</surname>
+            <given-names>Wendell</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <abstract>
+        <p>XSweet, a toolkit under development by the Coko Foundation, takes a novel approach to
+          data conversion from .docx (MS Word) data. Instead of trying to produce a correct and
+          full-fledged representation of the source data in a canonical form such as JATS, XSweet
+          attempts a less ambitious task: to produce a faithful rendering of a Word document's
+          appearance (conceived of as a "typescript"), translated into a vernacular HTML/CSS. It is
+          interesting what comes out from such a process, and what doesn't. And while the results
+          are barely adequate for reviewing in your browser, they might be "good enough to improve"
+          using other applications.</p>
+        <p>One such application would produce JATS. Indeed it might be easier to produce clean,
+          descriptive JATS or BITS from such HTML, than to wrestle into shape whatever nominal JATS
+          came back from a conversion processor that aimed to do more. This idea is tested with a
+          real-world example.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Outline</title>
+      <list>
+        <list-item>
+          <p>XSweet - XSLT-based tool for document conversion from MS Word – it works!</p>
+        </list-item>
+        <list-item>
+          <p>My adventures converting a Word document via HTML into BITS (JATS)</p>
+          <p>(A <ext-link xlink:href="https://fr.wikisource.org/wiki/Voyage_autour_de_ma_chambre"
+              >"Voyage Around My Room"</ext-link>)</p>
+        </list-item>
+      </list>
+    </sec>
+    <sec>
+      <title>XSweet: MS Word documents<break/> → HTML workflows</title>
+      <list>
+        <list-item>
+          <p>Project conceived and motivated by Adam Hyde / sponsored by <ext-link
+              xlink:href="https://coko.foundation/">Coko Foundation</ext-link></p>
+        </list-item>
+        <list-item>
+          <p>Open-source, reusable, hackable XSLT 2.0</p>
+        </list-item>
+        <list-item>
+          <p>Prototype design and implementation by Wendell Piez and Alex Theg</p>
+          <list list-type="simple">
+            <list-item>
+              <p>Libraries of XSLT transformations to be applied in combination</p>
+            </list-item>
+            <list-item>
+              <p>Demonstration pipelines in XProc (XML Calabash or any XProc toolkit)</p>
+            </list-item>
+            <list-item>
+              <p>Components run on any platform or stack supporting XSLT 2.0</p>
+              <p>For example, <ext-link xlink:href="https://coko.foundation/technology/">INK under
+                  Pubsweet</ext-link></p>
+            </list-item>
+          </list>
+        </list-item>
+        <list-item>
+          <p>Made available to public on an open source basis (MIT license)</p>
+          <p><ext-link xlink:href="https://gitlab.coko.foundation/wendell/XSweet"/></p>
+        </list-item>
+        <list-item>
+          <p>One task supported: exposure of contents of Word documents
+              ("<monospace>.docx</monospace> files") in a vernacular HTML suitable for further
+            work</p>
+        </list-item>
+      </list>
+    </sec>
+    <sec>
+      <title>Goals of XSweet</title>
+      <list>
+        <list-item>
+          <p>Produce HTML from your Word document</p>
+        </list-item>
+        <list-item>
+          <p>Work well on arbitrary Word <monospace>docx</monospace>, "in the wild" and
+            unsupervised</p>
+          <p>(Keep fiddly settings to a minimum ideally none)</p>
+        </list-item>
+        <list-item>
+          <p>Deliver something plain, generic, and useful</p>
+        </list-item>
+        <list-item>
+          <p>Complement other tools (lightweight mix/match alternative)</p>
+        </list-item>
+        <list-item>
+          <p>Simultaneously offering a hackable, extensible open source toolkit (hey why not?)</p>
+        </list-item>
+        <list-item>
+          <p>Standards basis (XSLT) for portability / reusability / dependency management</p>
+        </list-item>
+      </list>
+    </sec>
+    <sec>
+      <title>XSweet and "HTML Typescript"</title>
+      <p>XSweet does nothing like a complete job in document conversion (by design)</p>
+      <p>Several challenging real-life problems are set aside for other processes</p>
+      <p>Its HTML represents, as literally as possible, properties expressed in the Word document<list>
+          <list-item>
+            <p><monospace>@class</monospace> names (where WordML has named
+              styles)<code>&lt;p class="Header1">Paragraph Style "Header 1"&lt;/p></code></p>
+          </list-item>
+          <list-item>
+            <p>As HTML/CSS equivalents of the formatting as designated in the Word</p>
+            <p>So <bold>24pt, bold face</bold> becomes
+              <code>&lt;span style="font-weight: bold; font-size: 24pt">24pt, bold face&lt;/span></code></p>
+          </list-item>
+        </list></p>
+      <p>Our name for such an application (or profile, or style) of HTML: "HTML Typescript"</p>
+      <p><ext-link xlink:href="https://www.adamhyde.net/typescript-redistributing-labor/"/></p>
+    </sec>
+    <sec>
+      <title>Why "typescript"?</title>
+      <p>By analogy to role of typescript in print-oriented workflows</p>
+      <p>Typescript wasn't print, but it emulated print for certain practical purposes</p>
+      <p>We need something analogous for web-based workflows, and HTML is a <italic>lingua
+          franca</italic></p>
+      <fig>
+        <caption>
+          <title>Manuscript text in a word processor</title>
+        </caption>
+        <graphic xlink:href="epmic-word.png" content-type="screenshot"/>
+      </fig>
+    </sec>
+    <sec>
+      <title>By design, typescript is imperfect</title>
+      <p>A typescript isn't finished - it's a <italic>representation</italic> of a text (to be
+        published)</p>
+      <list>
+        <list-item>
+          <p>HTML Typescript comes flat - no structure</p>
+          <p>(Like WordML sources)</p>
+          <p>Until you add structure in a later step</p>
+        </list-item>
+        <list-item>
+          <p>Typically documents are loaded with formatting info</p>
+          <p>(Because that's what we had in the Word doc)</p>
+          <p>E.g.: <monospace>font-size: 14pt</monospace> (lots of CSS in HTML Typescript)</p>
+          <p>Such formatting usually (not always) "says something" – "latent semantics"</p>
+        </list-item>
+      </list>
+      <p>HTML like this isn't finished either: there's much work to be done still</p>
+    </sec>
+    <sec>
+      <title>XSweet attempts</title>
+      <list>
+        <list-item>
+          <p>Not to drop anything coming across</p>
+        </list-item>
+        <list-item>
+          <p>To "look the same"</p>
+          <p>Following the rule that looks are everything</p>
+        </list-item>
+        <list-item>
+          <p>To do as little as possible to improve anything</p>
+        </list-item>
+        <list-item>
+          <p>Only to show what's there</p>
+        </list-item>
+      </list>
+      <graphic xlink:href="in-between.png"/>
+    </sec>
+    <sec>
+      <title>Resulting HTML</title>
+      <p>Looks tolerably okay in a browser</p>
+      <p>Shows "the same document" as the Word doc, now in more transmissible form</p>
+      <list>
+        <list-item>
+          <p>Most salient properties are exposed as HTML+CSS</p>
+        </list-item>
+        <list-item>
+          <p>Noise is removed or dampened</p>
+        </list-item>
+        <list-item>
+          <p>"Does its best and doesn't worry"</p>
+        </list-item>
+        <list-item>
+          <p>Extensible to new properties as requirements are discovered</p>
+        </list-item>
+      </list>
+      <p>Is also … XML (i.e. syntax well-formed) ...</p>
+      <p>… thus suitable for further improvement ...</p>
+      <p>(<italic>Mountain chalet</italic> theory of upconversion)</p>
+    </sec>
+    <sec>
+      <title><italic>Epigram Microphone</italic> BITS example</title>
+      <p><ext-link xlink:href="http://www.pausepress.net"/></p>
+      <list>
+        <list-item>
+          <p>Dovetailing with several projects including JATSKit, XML jellysandwich, Pause Press</p>
+        </list-item>
+        <list-item>
+          <p>Needing BITS examples</p>
+          <p>Having a Word manuscript (<monospace>docx</monospace>) available</p>
+        </list-item>
+        <list-item>
+          <p>Project demonstrates end to end production of BITS from a "real" (monograph)
+            example</p>
+          <p>Followed by demonstrations of its production</p>
+          <p>(Including, experimentally, XML in the browser …)</p>
+        </list-item>
+        <list-item>
+          <p>Mark Scott, the author of <italic>Epigram Microphone</italic>, has kindly assigned a
+            CC-by license, permitting this demo</p>
+        </list-item>
+      </list>
+    </sec>
+    <sec>
+      <title>EpMic-201612 docx</title>
+      <list>
+        <list-item>
+          <p>Fairly typical Word document by a "non-technical user"</p>
+          <p>(A writer and writing instructor who knows his way around a text)</p>
+        </list-item>
+        <list-item>
+          <p>Code turns out to be quite clean</p>
+        </list-item>
+        <list-item>
+          <p>Some specialized content types make this text interesting<list>
+              <list-item>
+                <p>Scholarly monograph albeit w/o formal referencing of sources</p>
+              </list-item>
+              <list-item>
+                <p>Some sections comprise <italic>epigrams</italic> not normal prose content</p>
+              </list-item>
+            </list></p>
+        </list-item>
+        <list-item>
+          <p>Links:<list>
+              <list-item>
+                <p>WordML <ext-link xlink:href="examples/document.xml">document.xml</ext-link></p>
+              </list-item>
+              <list-item>
+                <p><ext-link xlink:href="examples/_A_EpMic-201612-rough.html">XSweet rough
+                    cut</ext-link></p>
+              </list-item>
+              <list-item>
+                <p><ext-link xlink:href="examples/_B_EpMic-201612-sectioned.html">HTML after
+                    "structural pull"</ext-link></p>
+              </list-item>
+              <list-item>
+                <p><ext-link xlink:href="examples/_C_EpMic-201612-roughBITS.xml">BITS produced from
+                    the last HTML via (more) XSLT</ext-link></p>
+              </list-item>
+              <list-item>
+                <p><ext-link xlink:href="examples/_Z_EpigramMicrophone.xml">Final BITS</ext-link>
+                  after hand editing including (significant) copy editing</p>
+              </list-item>
+            </list></p>
+        </list-item>
+      </list>
+    </sec>
+    <sec>
+      <title>Challenges of conversion</title>
+      <p>Running XSweet gives me only a rough-ready HTML</p>
+      <p>To produce BITS from this, more effort is required</p>
+      <list list-type="bullet">
+        <list-item>
+          <p>Producing structures including<list list-type="bullet">
+              <list-item>
+                <p>Epigrams, in sequences</p>
+              </list-item>
+              <list-item>
+                <p>sections and (untitled) subsections</p>
+              </list-item>
+              <list-item>
+                <p>Overall sequence of sections</p>
+                <p>(Parallel or nested?)</p>
+              </list-item>
+            </list></p>
+        </list-item>
+        <list-item>
+          <p>These were handled by analysis + XSLT<list>
+              <list-item>
+                <p>Analysis established consistent <italic>indicators</italic></p>
+                <p>Such as consistent use of blank lines, text indents</p>
+              </list-item>
+              <list-item>
+                <p>Given the analysis, XSLT did the work</p>
+                <p>E.g., producing JATS <monospace>&lt;list></monospace>,
+                    <monospace>&lt;disp-quote></monospace> elements</p>
+              </list-item>
+              <list-item>
+                <p>Is custom-fitted XSLT really easier than hand conversion? (sometimes)</p>
+              </list-item>
+            </list></p>
+        </list-item>
+        <list-item>
+          <p>Level of effort: more than an hour, less than a day</p>
+          <p>(Caveat: already had some HTML → JATS XSLT available)</p>
+        </list-item>
+      </list>
+    </sec>
+    <sec>
+      <title>The real problem: scope of analysis</title>
+      <list>
+        <list-item>
+          <p>The pipeline works</p>
+          <list>
+            <list-item>
+              <p>But it is only as good as the analysis</p>
+            </list-item>
+            <list-item>
+              <p>What does our analysis cover?</p>
+            </list-item>
+            <list-item>
+              <p>One document? A set of (related) documents?</p>
+            </list-item>
+          </list>
+        </list-item>
+        <list-item>
+          <p>This aspect of the problem is irreducible</p>
+          <list>
+            <list-item>
+              <p>Range of possible structures and content types</p>
+              <p>Range of ways of representing them</p>
+            </list-item>
+            <list-item>
+              <p>For example, we have "epigrams" (indicated by paragraphs with leading white space),
+                which become <monospace>&lt;statement></monospace></p>
+              <p>(How often will <italic>this</italic> be the rule?)</p>
+            </list-item>
+          </list>
+        </list-item>
+        <list-item>
+          <p>Meanwhile I am all set up to convert more manuscripts by Mark Scott</p>
+        </list-item>
+      </list>
+    </sec>
+    <sec>
+      <title>The easy parts</title>
+      <list list-type="bullet">
+        <list-item>
+          <p>What was not a problem<list list-type="simple">
+              <list-item>
+                <p>Keeping everything even peculiar stuff (okay I was lucky)</p>
+              </list-item>
+              <list-item>
+                <p>Mapping from HTML Typescript into JATS (BITS)</p>
+              </list-item>
+              <list-item>
+                <p>Editing, production … everything subsequent to conversion</p>
+              </list-item>
+              <list-item>
+                <p>An "XML Early" workflow</p>
+              </list-item>
+            </list></p>
+        </list-item>
+        <list-item>
+          <p>Principles of scale apply<list>
+              <list-item>
+                <p>Yet even a small operation can benefit from positive externalities</p>
+                <p>(Commodity software, standards, open source toolkits)</p>
+                <p>For even "fine-grained" work</p>
+              </list-item>
+            </list></p>
+        </list-item>
+        <list-item>
+          <p><italic>Love Your Data!</italic> - being willing to put in the effort, makes it
+            easy</p>
+        </list-item>
+      </list>
+    </sec>
+    <sec>
+      <title>Outcome</title>
+      <p>Conclusions re: XSweet<list list-type="bullet">
+          <list-item>
+            <p>Good enough!</p>
+          </list-item>
+          <list-item>
+            <p>Probably (already) roughly comparable to other inexpensive / low-end approaches</p>
+          </list-item>
+          <list-item>
+            <p>Requires extension / work / tuning to be as good as "state of the art" applications
+              or service providers</p>
+            <p>(But maybe that is what makes them state of the art)</p>
+          </list-item>
+        </list></p>
+      <p>Beautiful BITS format!</p>
+      <p>Given an XML/XSLT/JATS toolkit, subsequent editing (in BITS) is a breeze</p>
+      <p>Meanwhile we started looking at productions via JATSKit stylesheets</p>
+      <p>
+        <list list-type="simple">
+          <list-item>
+            <p>HTML, version available at <ext-link xlink:href="http://pausepress.net">Pause
+                Press</ext-link></p>
+          </list-item>
+          <list-item>
+            <p>(Should have EPUB soon / already)</p>
+          </list-item>
+          <list-item>
+            <p>Also - XML in the browser?</p>
+            <list>
+              <list-item>
+                <p><ext-link xlink:href="http://pausepress.net/EpigramMicrophone.xml">Experimental
+                    XSLT 1.0 version</ext-link></p>
+              </list-item>
+              <list-item>
+                <p>Even more experimental SaxonJS version</p>
+              </list-item>
+            </list>
+          </list-item>
+        </list>
+      </p>
+    </sec>
+    <sec>
+      <title>Lessons</title>
+      <list>
+        <list-item>
+          <p>Yes, starting halfway up the slope is a big help</p>
+          <p>Producing good BITS from HTML is a breeze. From Word <monospace>docx</monospace>, not
+            so much</p>
+        </list-item>
+        <list-item>
+          <p>Certain kinds of redundancy / sloppiness are okay and even useful</p>
+          <p>Set aside your "engineer's pride"</p>
+        </list-item>
+        <list-item>
+          <p>The will to execute is always more important than the means</p>
+        </list-item>
+        <list-item>
+          <p>"Love Your Data" remains the only way to produce good work</p>
+          <p>(Which can't be automated)</p>
+        </list-item>
+      </list>
+      <fig>
+        <caption>
+          <title>Inside the black box</title>
+          <p>Rube Goldberg's Self-operating napkin (Wikimedia Commons)</p>
+        </caption>
+        <graphic xlink:href="Self-operating_napkin.jpg"/>
+      </fig>
+    </sec>
+  </body>
+</article>

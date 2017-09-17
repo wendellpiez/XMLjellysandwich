@@ -1,0 +1,1224 @@
+
+book [dtd-version xml:lang]
+  book-meta
+    book-title-group
+      book-title
+    contrib-group
+      contrib [contrib-type]
+        string-name [name-style]
+        email
+    permissions
+      copyright-statement
+      copyright-year
+      copyright-holder
+      license [license-type xlink:href]
+        ali:license_ref
+        license-p
+        license-p
+  book-body
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        sec [sec-type]
+          p
+          p
+          p
+          p
+            italic [toggle]
+          p
+            list [list-type]
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+          p
+            italic [toggle]
+          p
+          p
+          p
+          p
+            italic [toggle]
+        sec [sec-type]
+          p
+          p
+          p
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+          p
+            italic [toggle]
+          p
+            italic [toggle]
+          p
+        sec [sec-type]
+          p
+            italic [toggle]
+          p
+          p
+          p
+            disp-quote
+              p
+                italic [toggle]
+          p
+        sec [sec-type]
+          p
+          p
+          p
+          p
+            disp-quote
+              p
+        sec [sec-type]
+          p
+            italic [toggle]
+        sec [sec-type]
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+        sec [sec-type]
+          p
+            italic [toggle]
+          p
+            italic [toggle]
+            disp-quote
+              p
+                italic [toggle]
+            disp-quote
+              p
+            italic [toggle]
+            disp-quote
+              p
+            italic [toggle]
+          p
+          p
+          p
+            italic [toggle]
+            italic [toggle]
+          p
+            sup
+        sec [sec-type]
+          p
+            italic [toggle]
+          p
+            italic [toggle]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        p
+        p
+        p
+        p
+        p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        p
+          italic [toggle]
+        p
+          italic [toggle]
+          italic [toggle]
+        p
+          italic [toggle]
+        p
+          disp-quote [content-type]
+            p [content-type]
+          disp-quote [content-type]
+            p [content-type]
+          disp-quote [content-type]
+            p [content-type]
+          disp-quote [content-type]
+            p [content-type]
+        p
+        p
+        p
+        p
+        p
+        p
+        p
+        p
+          disp-quote
+            p
+        p
+          disp-quote
+            p
+        p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        p
+        p
+        p
+          disp-quote
+            p
+          italic [toggle]
+        p
+          italic [toggle]
+        p
+        p
+        p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        p
+          disp-quote
+            p
+        p
+          disp-quote
+            p
+              italic [toggle]
+        p
+        p
+          disp-quote
+            p
+          disp-quote
+            p
+          disp-quote
+            p
+          disp-quote
+            p
+          disp-quote
+            p
+          disp-quote
+            p
+          disp-quote
+            p
+              italic [toggle]
+          disp-quote
+            p
+          disp-quote
+            p
+          disp-quote
+            p
+          disp-quote
+            p
+        p
+          disp-quote
+            p
+        p
+          italic [toggle]
+          italic [toggle]
+          italic [toggle]
+          italic [toggle]
+          italic [toggle]
+          italic [toggle]
+          italic [toggle]
+          italic [toggle]
+        p
+          disp-quote
+            p
+        p
+          disp-quote
+            p
+          disp-quote
+            p
+          disp-quote
+            p
+        p
+          disp-quote
+            p
+            disp-quote
+              p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        p
+        p
+          italic [toggle]
+          italic [toggle]
+        p
+        p
+        p
+        p
+        p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        sec [sec-type]
+          p
+          p
+            italic [toggle]
+          p
+          p
+            italic [toggle]
+        sec [sec-type]
+          p
+          p
+          p
+            disp-quote [content-type]
+              p
+                underline
+                italic [toggle]
+            italic [toggle]
+          p
+            italic [toggle]
+        sec [sec-type]
+          p
+            italic [toggle]
+          p
+            list
+              title
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+              list-item
+                p
+          p
+          p
+        sec [sec-type]
+          p
+            italic [toggle]
+          p
+          p
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+          p
+          p
+          p
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+        sec [sec-type]
+          p
+          p
+            italic [toggle]
+          p
+          p
+          p
+        sec [sec-type]
+          p
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+          p
+            italic [toggle]
+        sec [sec-type]
+          p
+          p
+          p
+          p
+        sec [sec-type]
+          p
+            italic [toggle]
+        sec [sec-type]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+            italic [toggle]
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+        statement [content-type]
+          p
+    book-part
+      book-part-meta
+        title-group
+          title
+      body
+        sec
+          p
+          p
+          p
+          p
+            disp-quote
+              p
+            italic [toggle]
+            italic [toggle]
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+          p
+            disp-quote
+              p
+                italic [toggle]
+            disp-quote
+              p [content-type]
+              p [content-type]
+              p [content-type]
+              p [content-type]
+              p
+          p
+        sec
+          p
+            italic [toggle]
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+          p
+            disp-quote
+              p
+            disp-quote
+              p
+        sec
+          p
+            italic [toggle]
+            italic [toggle]
+            disp-quote
+              p
+          p
+          p
+            italic [toggle]
+            disp-quote
+              p
+            italic [toggle]
+          p
+          p
+            disp-quote
+              p
+            italic [toggle]
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+          p
+            italic [toggle]
+          p
+          p
+        sec
+          p
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+            italic [toggle]
+            disp-quote
+              p
+            italic [toggle]
+            italic [toggle]
+          p
+          p
+          p

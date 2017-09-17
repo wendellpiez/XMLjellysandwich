@@ -1,0 +1,1967 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-05-03T09:48:22.993-04:00" target="JS">
+ <co id="0" binds="">
+  <mode name="Q{}mark-visited" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="69" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="71" name="ixsl:set-attribute" type="item()*">
+     <str val="class"/>
+     <fn name="string-join">
+      <sequence>
+       <filter flags="b">
+        <forEach line="456">
+         <fn name="tokenize">
+          <cvUntyped to="xs:string">
+           <data>
+            <slash line="71" simple="1">
+             <dot type="element()"/>
+             <axis line="456" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+            </slash>
+           </data>
+          </cvUntyped>
+          <str val="\s+"/>
+          <str val=""/>
+         </fn>
+         <fn name="lower-case">
+          <dot type="xs:string"/>
+         </fn>
+        </forEach>
+        <fn name="not">
+         <gc op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+          <data>
+           <dot/>
+          </data>
+          <str val="visited"/>
+         </gc>
+        </fn>
+       </filter>
+       <str val="visited"/>
+      </sequence>
+      <str val=" "/>
+     </fn>
+    </ifCall>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="1" binds="2 3">
+  <template name="Q{}front-page" flags="os" line="29" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" slots="0">
+   <elem role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="30" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+    <sequence>
+     <att name="class" flags="l">
+      <str val="front-page"/>
+     </att>
+     <forEach line="31">
+      <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg544832189" bSlot="0"/>
+      <elem line="32" name="h4" flags="l" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+       <sequence>
+        <att name="id" flags="l">
+         <fn name="concat">
+          <fn name="string-join">
+           <convert from="xs:anyAtomicType" to="xs:string">
+            <data>
+             <first>
+              <sequence>
+               <slash>
+                <axis name="parent" nodeTest="(document-node()|element())" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType==9||item.nodeType==11||item.nodeType==1);"/>
+                <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+               </slash>
+               <fn name="generate-id">
+                <check card="?" diag="0|0||generate-id">
+                 <axis name="parent" nodeTest="(document-node()|element())" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType==9||item.nodeType==11||item.nodeType==1);"/>
+                </check>
+               </fn>
+              </sequence>
+             </first>
+            </data>
+           </convert>
+           <str val=" "/>
+          </fn>
+          <str val="-link"/>
+         </fn>
+        </att>
+        <applyT line="33" mode="Q{}nobrk" flags="i" bSlot="1">
+         <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+        </applyT>
+       </sequence>
+      </elem>
+     </forEach>
+    </sequence>
+   </elem>
+  </template>
+ </co>
+ <co id="4" binds="">
+  <mode name="Q{}mark-unvisited" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="74" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="75" name="ixsl:set-attribute" type="item()*">
+     <str val="class"/>
+     <fn name="string-join">
+      <filter flags="b">
+       <forEach line="456">
+        <fn name="tokenize">
+         <cvUntyped to="xs:string">
+          <data>
+           <slash line="75" simple="1">
+            <dot type="element()"/>
+            <axis line="456" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+           </slash>
+          </data>
+         </cvUntyped>
+         <str val="\s+"/>
+         <str val=""/>
+        </fn>
+        <fn name="lower-case">
+         <dot type="xs:string"/>
+        </fn>
+       </forEach>
+       <fn name="not">
+        <gc op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+         <data>
+          <dot/>
+         </data>
+         <str val="visited"/>
+        </gc>
+       </fn>
+      </filter>
+      <str val=" "/>
+     </fn>
+    </ifCall>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="5" binds="6 6 6 6 6 6 6 6 6 6 6 6 6 6">
+  <mode name="Q{}asleep" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.0" seq="8" rank="0" minImp="0" slots="0" flags="os" line="178" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}name)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='name';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="179" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="name"/>
+      </att>
+      <applyT line="180" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="os" line="138" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}article)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='article';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="139" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="article"/>
+      </att>
+      <applyT line="140" flags="i" bSlot="1">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="5" rank="0" minImp="0" slots="0" flags="os" line="163" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="164" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="contrib-group"/>
+      </att>
+      <applyT line="165" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="10" rank="0" minImp="0" slots="0" flags="os" line="188" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}given-names)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='given-names';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="189" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="given-names"/>
+      </att>
+      <applyT line="190" flags="i" bSlot="3">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="2" rank="0" minImp="0" slots="0" flags="os" line="148" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}article-meta)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='article-meta';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="149" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="article-meta"/>
+      </att>
+      <applyT line="150" flags="i" bSlot="4">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="7" rank="0" minImp="0" slots="0" flags="os" line="173" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib-id)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib-id';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="174" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="contrib-id"/>
+      </att>
+      <applyT line="175" flags="i" bSlot="5">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="4" rank="0" minImp="0" slots="0" flags="os" line="158" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}article-title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='article-title';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="159" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="article-title"/>
+      </att>
+      <applyT line="160" flags="i" bSlot="6">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="9" rank="0" minImp="0" slots="0" flags="os" line="183" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}surname)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='surname';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="184" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="surname"/>
+      </att>
+      <applyT line="185" flags="i" bSlot="7">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="os" line="143" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}front)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='front';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="144" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="front"/>
+      </att>
+      <applyT line="145" flags="i" bSlot="8">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="13" rank="0" minImp="0" slots="0" flags="os" line="251" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}back)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='back';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="252" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="back"/>
+      </att>
+      <applyT line="253" flags="i" bSlot="9">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="6" rank="0" minImp="0" slots="0" flags="os" line="168" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="169" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="contrib"/>
+      </att>
+      <applyT line="170" flags="i" bSlot="10">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="11" rank="0" minImp="0" slots="0" flags="os" line="193" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}abstract)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='abstract';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="194" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="abstract"/>
+      </att>
+      <applyT line="195" flags="i" bSlot="11">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="3" rank="0" minImp="0" slots="0" flags="os" line="153" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}title-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="154" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="title-group"/>
+      </att>
+      <applyT line="155" flags="i" bSlot="12">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="12" rank="0" minImp="0" slots="0" flags="os" line="199" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='body';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="200" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="body"/>
+      </att>
+      <applyT line="201" flags="i" bSlot="13">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="7" binds="4 8">
+  <template name="Q{}clear-boxes" flags="os" line="78" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" slots="0">
+   <applyT role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="80" mode="Q{}mark-unvisited" flags="t" bSlot="0">
+    <docOrder role="select" intra="1">
+     <slash>
+      <docOrder intra="1">
+       <slash>
+        <docOrder intra="1">
+         <slash>
+          <slash simple="1">
+           <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:page" type="document-node()?"/>
+           <axis name="descendant-or-self" nodeTest="node()" jsTest="return true;"/>
+          </slash>
+          <fn name="id">
+           <str val="xmljellysandwich_directory"/>
+          </fn>
+         </slash>
+        </docOrder>
+        <filter flags="p">
+         <axis name="child" nodeTest="element(Q{}div)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='div';"/>
+         <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="1" eval="7 0">
+          <dot type="element(Q{}div)"/>
+          <str val="nav"/>
+         </ufCall>
+        </filter>
+       </slash>
+      </docOrder>
+      <axis name="child" nodeTest="element(Q{}h5)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='h5';"/>
+     </slash>
+    </docOrder>
+   </applyT>
+  </template>
+ </co>
+ <co id="9" binds="">
+  <template name="Q{}css" flags="os" line="350" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" slots="0">
+   <elem role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="351" name="style" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+    <sequence>
+     <att name="type" flags="l">
+      <str val="text/css"/>
+     </att>
+     <valueOf flags="l">
+      <str val="&#xA;html, body { background-color: skyblue }&#xA;&#xA;.tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }&#xA;&#xA;&#xA;.article { }&#xA;&#xA;.front { }&#xA;&#xA;.article-meta { }&#xA;&#xA;.title-group { }&#xA;&#xA;.article-title { }&#xA;&#xA;.contrib-group { }&#xA;&#xA;.contrib { }&#xA;&#xA;.contrib-id { }&#xA;&#xA;.name { }&#xA;&#xA;.surname { }&#xA;&#xA;.given-names { }&#xA;&#xA;.abstract { }&#xA;&#xA;.p { }&#xA;&#xA;.fig { display: table-cell }&#xA;.graphic { border: thin dotted black }&#xA;&#xA;.caption { text-align: center; margin-top: 0.5em }&#xA;.caption * { margin: 0pt }&#xA;&#xA;.body { }&#xA;&#xA;.sec { }&#xA;&#xA;.sec &gt; .title { text-align: center; border-bottom: medium double black }&#xA;&#xA;.list { }&#xA;&#xA;.list-item { }&#xA;&#xA;.back { }&#xA;&#xA;.ref-list { }&#xA;&#xA;.ref { }&#xA;&#xA;.mixed-citation { }&#xA;&#xA;img { max-width: 40em }&#xA;&#xA;.front-page h4 { margin-top: 1em; margin-bottom: 0em; font-size: 80% }&#xA;&#xA;div#xmljellysandwich_body &gt; div { padding: 0.5em; border: thin solid black; max-width:80%; background-color: white }&#xA;div#xmljellysandwich_body &gt; div &gt; *:first-child { margin-top: 0em }&#xA;&#xA;div#xmljellysandwich_footer { margin-top: 2%;&#xA;  font-size: 70%; padding: 0.5em; border: thin solid black; max-width:80%; color: white; background-color: midnightblue  }&#xA;div#xmljellysandwich_footer * { margin: 0em }&#xA;&#xA;#xmljellysandwich_footer a { color: skyblue }&#xA;&#xA;&#xA;#xmljellysandwich_directory div.nav { padding-left: 85%; font-size: 60%; margin-top: 1em }&#xA;h5.navbutton { background-color: midnightblue; border: thin solid midnightblue; margin: 0.2em }&#xA;h5.navbutton.visited { background-color: skyblue }&#xA;&#xA;a { font-family: sans-serif; font-size: 85% }&#xA;a:visited { color: midnightblue }&#xA;a:hover { text-decoration: underline }&#xA;&#xA;"/>
+     </valueOf>
+    </sequence>
+   </elem>
+  </template>
+ </co>
+ <co id="10" binds="8 11 12 13 14 8 12 13 14 7 1 8 13 8 13">
+  <mode name="Q{http://saxonica.com/ns/interactiveXSLT}onclick" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="4" rank="0" minImp="0" slots="2" flags="os" line="112" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="112" name="id">
+      <str val="advance-button"/>
+     </fn>
+    </p.nodeSet>
+    <let role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="115" var="here" as="element(Q{}div)*" slot="0" eval="3">
+     <docOrder intra="0">
+      <slash>
+       <docOrder intra="0">
+        <slash>
+         <slash simple="1">
+          <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:page" type="document-node()?"/>
+          <axis name="descendant-or-self" nodeTest="node()" jsTest="return true;"/>
+         </slash>
+         <fn name="id">
+          <str val="xmljellysandwich_body"/>
+         </fn>
+        </slash>
+       </docOrder>
+       <filter flags="p">
+        <axis name="child" nodeTest="element(Q{}div)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='div';"/>
+        <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="0" eval="7 0">
+         <dot type="element(Q{}div)"/>
+         <str val="sec"/>
+        </ufCall>
+       </filter>
+      </slash>
+     </docOrder>
+     <let line="117" var="next-sec" as="element(Q{}sec)*" slot="1" eval="3">
+      <choose>
+       <fn name="empty">
+        <varRef name="here" slot="0"/>
+       </fn>
+       <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg158472843" bSlot="1"/>
+       <true/>
+       <docOrder intra="1">
+        <slash>
+         <fn name="key">
+          <str val="sec-by-id"/>
+          <data>
+           <conditionalSort>
+            <fn name="exists">
+             <tail start="2">
+              <varRef name="here" slot="0"/>
+             </tail>
+            </fn>
+            <docOrder intra="0">
+             <slash>
+              <varRef name="here" slot="0"/>
+              <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+             </slash>
+            </docOrder>
+           </conditionalSort>
+          </data>
+          <gVarRef name="Q{}doc" bSlot="2"/>
+         </fn>
+         <first>
+          <axis name="following-sibling" nodeTest="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+         </first>
+        </slash>
+       </docOrder>
+      </choose>
+      <sequence line="119">
+       <forEach>
+        <varRef name="next-sec" slot="1"/>
+        <callT line="120" name="open-section" bSlot="3">
+         <withParam name="sec-id" flags="c" as="item()">
+          <first line="121">
+           <sequence>
+            <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+            <fn name="generate-id">
+             <dot type="element(Q{}sec)"/>
+            </fn>
+           </sequence>
+          </first>
+         </withParam>
+        </callT>
+       </forEach>
+       <choose line="124">
+        <fn name="empty">
+         <varRef name="next-sec" slot="1"/>
+        </fn>
+        <callT line="125" name="load-front-page" bSlot="4"/>
+       </choose>
+      </sequence>
+     </let>
+    </let>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="3" rank="0" minImp="0" slots="1" flags="os" line="97" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="97" name="id">
+      <str val="back-button"/>
+     </fn>
+    </p.nodeSet>
+    <let role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="100" var="source" as="node()*" slot="0" eval="3">
+     <fn name="key">
+      <str val="sec-by-id"/>
+      <data>
+       <slash>
+        <docOrder line="99" intra="1">
+         <slash>
+          <docOrder intra="1">
+           <slash>
+            <slash simple="1">
+             <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:page" type="document-node()?"/>
+             <axis name="descendant-or-self" nodeTest="node()" jsTest="return true;"/>
+            </slash>
+            <fn name="id">
+             <str val="xmljellysandwich_body"/>
+            </fn>
+           </slash>
+          </docOrder>
+          <filter flags="p">
+           <axis name="child" nodeTest="element(Q{}div)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='div';"/>
+           <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="5" eval="7 0">
+            <dot type="element(Q{}div)"/>
+            <str val="sec"/>
+           </ufCall>
+          </filter>
+         </slash>
+        </docOrder>
+        <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+       </slash>
+      </data>
+      <gVarRef name="Q{}doc" bSlot="6"/>
+     </fn>
+     <sequence line="101">
+      <forEach>
+       <docOrder intra="1">
+        <slash>
+         <varRef name="source" slot="0"/>
+         <first>
+          <axis name="preceding-sibling" nodeTest="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+         </first>
+        </slash>
+       </docOrder>
+       <callT line="102" name="open-section" bSlot="7">
+        <withParam name="sec-id" flags="c" as="item()">
+         <first line="103">
+          <sequence>
+           <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+           <fn name="generate-id">
+            <dot type="element(Q{}sec)"/>
+           </fn>
+          </sequence>
+         </first>
+        </withParam>
+       </callT>
+      </forEach>
+      <choose line="106">
+       <fn name="empty">
+        <conditionalSort>
+         <fn name="exists">
+          <tail start="2">
+           <varRef name="source" slot="0"/>
+          </tail>
+         </fn>
+         <docOrder intra="1">
+          <slash>
+           <varRef name="source" slot="0"/>
+           <fn name="reverse">
+            <axis name="preceding-sibling" nodeTest="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+           </fn>
+          </slash>
+         </docOrder>
+        </conditionalSort>
+       </fn>
+       <callT line="107" name="load-front-page" bSlot="8"/>
+      </choose>
+     </sequence>
+    </let>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="2" rank="0" minImp="0" slots="0" flags="os" line="90" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="90" name="id">
+      <str val="up-button"/>
+     </fn>
+    </p.nodeSet>
+    <sequence role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="91">
+     <callT name="clear-boxes" bSlot="9"/>
+     <resultDoc line="92" global="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;" local="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+      <str role="href" val="#xmljellysandwich_body"/>
+      <callT role="content" line="93" name="front-page" bSlot="10"/>
+     </resultDoc>
+    </sequence>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="2" rank="0" minImp="0" slots="0" flags="os" line="90" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="90" name="id">
+      <str val="xmljellysandwich_title"/>
+     </fn>
+    </p.nodeSet>
+    <sequence role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="91">
+     <callT name="clear-boxes" bSlot="9"/>
+     <resultDoc line="92" global="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;" local="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+      <str role="href" val="#xmljellysandwich_body"/>
+      <callT role="content" line="93" name="front-page" bSlot="10"/>
+     </resultDoc>
+    </sequence>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="1" rank="0" minImp="0" slots="0" flags="os" line="55" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.withUpper role="match" axis="parent" upFirst="false">
+     <p.nodeTest test="element(Q{}h5)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='h5';"/>
+     <p.genNode type="element(Q{}div)">
+      <filter vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="55" flags="p">
+       <slash simple="1">
+        <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+         <dot flags="a"/>
+        </treat>
+        <axis name="child" nodeTest="element(Q{}div)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='div';"/>
+       </slash>
+       <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="11">
+        <dot type="element(Q{}div)"/>
+        <str val="nav"/>
+       </ufCall>
+      </filter>
+     </p.genNode>
+    </p.withUpper>
+    <callT role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="56" name="open-section" bSlot="12">
+     <withParam name="sec-id" flags="c" as="xs:string">
+      <fn line="57" name="replace">
+       <cvUntyped to="xs:string">
+        <data>
+         <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+        </data>
+       </cvUntyped>
+       <str val="-nav$"/>
+       <str val=""/>
+       <str val=""/>
+      </fn>
+     </withParam>
+    </callT>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="48" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.withUpper role="match" axis="parent" upFirst="false">
+     <p.nodeTest test="element(Q{}h4)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='h4';"/>
+     <p.genNode type="element(Q{}div)">
+      <filter vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="48" flags="p">
+       <slash simple="1">
+        <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+         <dot flags="a"/>
+        </treat>
+        <axis name="child" nodeTest="element(Q{}div)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='div';"/>
+       </slash>
+       <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="13">
+        <dot type="element(Q{}div)"/>
+        <str val="front-page"/>
+       </ufCall>
+      </filter>
+     </p.genNode>
+    </p.withUpper>
+    <callT role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="49" name="open-section" bSlot="14">
+     <withParam name="sec-id" flags="c" as="xs:string">
+      <fn line="50" name="replace">
+       <cvUntyped to="xs:string">
+        <data>
+         <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+        </data>
+       </cvUntyped>
+       <str val="-link$"/>
+       <str val=""/>
+       <str val=""/>
+      </fn>
+     </withParam>
+    </callT>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="15" binds="16">
+  <template name="Q{}nav" flags="os" line="39" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" slots="0">
+   <elem role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="40" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+    <sequence>
+     <att name="class" flags="l">
+      <str val="nav"/>
+     </att>
+     <forEach line="41">
+      <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg324296983" bSlot="0"/>
+      <elem line="42" name="h5" flags="l" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+       <sequence>
+        <att name="id" flags="l">
+         <fn name="concat">
+          <fn name="string-join">
+           <convert from="xs:anyAtomicType" to="xs:string">
+            <data>
+             <first>
+              <sequence>
+               <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+               <fn name="generate-id">
+                <dot type="element(Q{}sec)"/>
+               </fn>
+              </sequence>
+             </first>
+            </data>
+           </convert>
+           <str val=" "/>
+          </fn>
+          <str val="-nav"/>
+         </fn>
+        </att>
+        <att name="class" flags="l">
+         <str val="navbutton"/>
+        </att>
+        <valueOf flags="l">
+         <str val=" "/>
+        </valueOf>
+       </sequence>
+      </elem>
+     </forEach>
+    </sequence>
+   </elem>
+  </template>
+ </co>
+ <co id="17" binds="1 9 15">
+  <template name="Q{}xmljellysandwich_fetch" flags="os" line="14" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" slots="0">
+   <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="17">
+    <resultDoc global="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;" local="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#xmljellysandwich_body"/>
+     <callT role="content" line="18" name="front-page" bSlot="0"/>
+    </resultDoc>
+    <resultDoc line="20" global="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;" local="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#xmljellysandwich_css"/>
+     <callT role="content" line="21" name="css" bSlot="1"/>
+    </resultDoc>
+    <resultDoc line="23" global="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;" local="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#xmljellysandwich_directory"/>
+     <callT role="content" line="24" name="nav" bSlot="2"/>
+    </resultDoc>
+   </sequence>
+  </template>
+ </co>
+ <co id="13" binds="0 6 12">
+  <template name="Q{}open-section" flags="os" line="61" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" slots="2">
+   <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="62">
+    <param name="sec-id" slot="0" flags="r">
+     <str role="select" val=""/>
+     <supplied role="conversion" slot="0"/>
+    </param>
+    <applyT line="63" mode="Q{}mark-visited" bSlot="0">
+     <docOrder role="select" intra="1">
+      <let var="vv:loc1461111274" as="xs:string" slot="1" eval="8">
+       <fn name="concat">
+        <atomSing card="?" diag="0|0||concat">
+         <varRef name="sec-id" slot="0"/>
+        </atomSing>
+        <str val="-nav"/>
+       </fn>
+       <slash>
+        <slash simple="1">
+         <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:page" type="document-node()?"/>
+         <axis name="descendant-or-self" nodeTest="node()" jsTest="return true;"/>
+        </slash>
+        <fn name="id">
+         <varRef name="vv:loc1461111274" slot="1"/>
+        </fn>
+       </slash>
+      </let>
+     </docOrder>
+    </applyT>
+    <resultDoc line="64" global="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;" local="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#xmljellysandwich_body"/>
+     <applyT role="content" line="65" bSlot="1">
+      <fn role="select" name="key">
+       <str val="sec-by-id"/>
+       <data>
+        <varRef name="sec-id" slot="0"/>
+       </data>
+       <gVarRef name="Q{}doc" bSlot="2"/>
+      </fn>
+     </applyT>
+    </resultDoc>
+   </sequence>
+  </template>
+ </co>
+ <co id="16" binds="12">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg324296983" type="element(Q{}sec)*" line="41" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c() {return true;};">
+   <slash vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="41">
+    <slash>
+     <slash simple="1">
+      <gVarRef name="Q{}doc" bSlot="0"/>
+      <axis name="child" nodeTest="element()" jsTest="return item.nodeType==1;"/>
+     </slash>
+     <axis name="child" nodeTest="element(Q{}body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='body';"/>
+    </slash>
+    <axis name="child" nodeTest="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+   </slash>
+  </globalVariable>
+ </co>
+ <co id="12" binds="">
+  <globalVariable name="Q{}doc" type="document-node()" line="83" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType==9||item.nodeType==11);};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c(n) {return n==1;};">
+   <root vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="83"/>
+  </globalVariable>
+ </co>
+ <co id="8" binds="">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="459" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" eval="7" flags="pU" as="item()*" slots="2">
+   <arg name="who" as="element()"/>
+   <arg name="ilk" as="xs:string"/>
+   <gcEE role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="456" op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+    <forEach>
+     <fn name="tokenize">
+      <cvUntyped to="xs:string">
+       <data>
+        <slash line="462" simple="1">
+         <varRef name="who" slot="0"/>
+         <axis line="456" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+        </slash>
+       </data>
+      </cvUntyped>
+      <str val="\s+"/>
+      <str val=""/>
+     </fn>
+     <fn name="lower-case">
+      <dot type="xs:string"/>
+     </fn>
+    </forEach>
+    <varRef line="462" name="ilk" slot="1"/>
+   </gcEE>
+  </function>
+ </co>
+ <co id="11" binds="12">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg158472843" type="element(Q{}sec)?" line="117" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c(n) {return n&lt;=1;};">
+   <slash vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="117">
+    <gVarRef name="Q{}doc" bSlot="0"/>
+    <first>
+     <axis name="descendant" nodeTest="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+    </first>
+   </slash>
+  </globalVariable>
+ </co>
+ <co id="18" binds="">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="454" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" eval="3" flags="pU" as="item()*" slots="1">
+   <arg name="who" as="element()"/>
+   <forEach role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="456">
+    <fn name="tokenize">
+     <cvUntyped to="xs:string">
+      <data>
+       <slash simple="1">
+        <varRef name="who" slot="0"/>
+        <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+       </slash>
+      </data>
+     </cvUntyped>
+     <str val="\s+"/>
+     <str val=""/>
+    </fn>
+    <fn name="lower-case">
+     <dot type="xs:string"/>
+    </fn>
+   </forEach>
+  </function>
+ </co>
+ <co id="2" binds="12">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg544832189" type="element(Q{}title)*" line="31" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c() {return true;};">
+   <slash vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="31">
+    <slash>
+     <slash>
+      <slash simple="1">
+       <gVarRef name="Q{}doc" bSlot="0"/>
+       <axis name="child" nodeTest="element()" jsTest="return item.nodeType==1;"/>
+      </slash>
+      <axis name="child" nodeTest="element(Q{}body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='body';"/>
+     </slash>
+     <axis name="child" nodeTest="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+    </slash>
+    <axis name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+   </slash>
+  </globalVariable>
+ </co>
+ <co id="3" binds="6">
+  <mode name="Q{}nobrk" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="130" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="131" flags="t" bSlot="0">
+     <dot role="select" type="element()"/>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="os" line="134" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}break)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='break';"/>
+    <empty role="action"/>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="14" binds="7 1">
+  <template name="Q{}load-front-page" flags="os" line="90" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" slots="0">
+   <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="91">
+    <callT name="clear-boxes" bSlot="0"/>
+    <resultDoc line="92" global="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;" local="#&#xA;#Wed May 03 09:48:22 EDT 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#xmljellysandwich_body"/>
+     <callT role="content" line="93" name="front-page" bSlot="1"/>
+    </resultDoc>
+   </sequence>
+  </template>
+ </co>
+ <co id="6" binds="6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6">
+  <mode onNo="TC" flags="dW" patternSlots="0">
+   <templateRule prec="0" prio="0.0" seq="17" rank="1" minImp="0" slots="0" flags="os" line="338" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}italic)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='italic';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="339" name="i" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="italic"/>
+      </att>
+      <applyT line="340" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="21" rank="0" minImp="0" slots="0" flags="os" line="446" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}italic)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='italic';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="447" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="448" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="449" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="450" flags="i" bSlot="1">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}name)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='name';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}article)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='article';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="2" rank="1" minImp="0" slots="0" flags="os" line="245" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}list-item)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list-item';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="246" name="li" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="list-item"/>
+      </att>
+      <applyT line="247" flags="i" bSlot="3">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}list-item)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list-item';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="7" rank="1" minImp="0" slots="0" flags="os" line="281" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}bold)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='bold';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="282" name="b" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="bold"/>
+      </att>
+      <applyT line="283" flags="i" bSlot="4">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="21" rank="0" minImp="0" slots="0" flags="os" line="446" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}bold)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='bold';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="447" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="448" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="449" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="450" flags="i" bSlot="1">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="14" rank="2" minImp="0" slots="0" flags="os" line="321" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.withUpper role="match" axis="parent" upFirst="false">
+     <p.nodeTest test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+     <p.nodeTest test="element(Q{}caption)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='caption';"/>
+    </p.withUpper>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="322" name="h5" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="title"/>
+      </att>
+      <applyT line="323" flags="i" bSlot="5">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="11" rank="2" minImp="0" slots="0" flags="os" line="303" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.withUpper role="match" axis="parent" upFirst="false">
+     <p.nodeTest test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+     <p.nodeTest test="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+    </p.withUpper>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="304" name="h1" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="title"/>
+      </att>
+      <applyT line="305" flags="i" bSlot="6">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="20" rank="0" minImp="0" slots="0" flags="os" line="439" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="440" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="441" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="442" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="443" flags="i" bSlot="7">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}given-names)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='given-names';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="18" rank="1" minImp="0" slots="0" flags="os" line="344" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}code)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='code';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="345" name="pre" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="code"/>
+      </att>
+      <applyT line="346" flags="i" bSlot="8">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="12" rank="1" minImp="0" slots="0" flags="os" line="309" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}fig)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='fig';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="310" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="fig"/>
+      </att>
+      <applyT line="311" bSlot="9">
+       <sequence role="select">
+        <axis name="child" nodeTest="(element() except element(Q{}caption))" jsTest="function a() {return item.nodeType==1;};function b() {var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='caption';};return a()&amp;&amp;!b();"/>
+        <axis name="child" nodeTest="element(Q{}caption)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='caption';"/>
+       </sequence>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}article-meta)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='article-meta';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="3" rank="1" minImp="0" slots="0" flags="os" line="257" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}ref-list)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='ref-list';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="258" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="ref-list"/>
+      </att>
+      <applyT line="259" flags="i" bSlot="10">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}ref-list)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='ref-list';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="16" rank="1" minImp="0" slots="0" flags="os" line="332" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}monospace)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='monospace';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="333" name="code" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="monospace"/>
+      </att>
+      <applyT line="334" flags="i" bSlot="11">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="21" rank="0" minImp="0" slots="0" flags="os" line="446" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}monospace)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='monospace';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="447" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="448" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="449" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="450" flags="i" bSlot="1">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib-id)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib-id';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="8" rank="1" minImp="0" slots="0" flags="os" line="287" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}break)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='break';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="288" name="br" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <att name="class" flags="l">
+      <str val="br"/>
+     </att>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="os" line="235" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}list)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="237" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="list"/>
+      </att>
+      <applyT line="238" bSlot="12">
+       <axis role="select" name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+      </applyT>
+      <elem line="240" name="ul" flags="l" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+       <applyT bSlot="13">
+        <axis role="select" name="child" nodeTest="(element() except element(Q{}title))" jsTest="function a() {return item.nodeType==1;};function b() {var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';};return a()&amp;&amp;!b();"/>
+       </applyT>
+      </elem>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}list)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='list';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="15" rank="1" minImp="0" slots="0" flags="os" line="327" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}graphic)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='graphic';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="328" name="img" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="concat">
+        <str val="graphic"/>
+        <fn name="string">
+         <slash>
+          <axis name="attribute" nodeTest="attribute(Q{}content-type)" jsTest="return item.name=='content-type'"/>
+          <fn name="concat">
+           <str val=" "/>
+           <data>
+            <dot type="attribute(Q{}content-type)"/>
+           </data>
+          </fn>
+         </slash>
+        </fn>
+       </fn>
+      </att>
+      <att name="src" flags="l">
+       <convert from="xs:untypedAtomic" to="xs:string">
+        <data>
+         <axis name="attribute" nodeTest="attribute(Q{http://www.w3.org/1999/xlink}href)" jsTest="var q=SaxonJS.U.nameOfNode(item); return q.uri=='http://www.w3.org/1999/xlink'&amp;&amp;q.local=='href';"/>
+        </data>
+       </convert>
+      </att>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}article-title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='article-title';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="6" rank="1" minImp="0" slots="0" flags="os" line="275" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}p)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='p';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="276" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="p"/>
+      </att>
+      <applyT line="277" flags="i" bSlot="14">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="20" rank="0" minImp="0" slots="0" flags="os" line="439" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}p)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='p';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="440" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="441" name="span" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="442" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="443" flags="i" bSlot="7">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="5" rank="1" minImp="0" slots="0" flags="os" line="269" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}mixed-citation)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='mixed-citation';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="270" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="mixed-citation"/>
+      </att>
+      <applyT line="271" flags="i" bSlot="15">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}mixed-citation)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='mixed-citation';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="os" line="228" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="230" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="sec"/>
+      </att>
+      <att name="id" flags="l">
+       <fn name="string-join">
+        <convert from="xs:anyAtomicType" to="xs:string">
+         <data>
+          <first>
+           <sequence>
+            <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+            <fn name="generate-id">
+             <dot type="element(Q{}sec)"/>
+            </fn>
+           </sequence>
+          </first>
+         </data>
+        </convert>
+        <str val=" "/>
+       </fn>
+      </att>
+      <applyT line="231" flags="i" bSlot="16">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}surname)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='surname';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}front)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='front';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}back)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='back';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}contrib)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='contrib';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="10" rank="2" minImp="0" slots="0" flags="os" line="297" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="element(Q{}ext-link)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='ext-link';"/>
+     <fn vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="297" name="matches">
+      <cvUntyped to="xs:string">
+       <data>
+        <dot type="element(Q{}ext-link)"/>
+       </data>
+      </cvUntyped>
+      <str val="\S"/>
+      <str val=""/>
+     </fn>
+    </p.withPredicate>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="298" name="a" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="target" flags="l">
+       <fn name="generate-id">
+        <dot type="element(Q{}ext-link)"/>
+       </fn>
+      </att>
+      <att name="href" flags="l">
+       <fn name="string-join">
+        <convert from="xs:anyAtomicType" to="xs:string">
+         <data>
+          <first>
+           <sequence>
+            <axis name="attribute" nodeTest="attribute(Q{http://www.w3.org/1999/xlink}href)" jsTest="var q=SaxonJS.U.nameOfNode(item); return q.uri=='http://www.w3.org/1999/xlink'&amp;&amp;q.local=='href';"/>
+            <filter flags="b">
+             <fn name="string">
+              <dot type="element(Q{}ext-link)"/>
+             </fn>
+             <castable as="xs:anyURI" emptiable="0">
+              <dot type="xs:string"/>
+             </castable>
+            </filter>
+           </sequence>
+          </first>
+         </data>
+        </convert>
+        <str val=" "/>
+       </fn>
+      </att>
+      <applyT line="299" flags="i" bSlot="17">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="9" rank="1" minImp="0" slots="0" flags="os" line="291" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}ext-link)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='ext-link';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="292" name="a" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="target" flags="l">
+       <fn name="generate-id">
+        <dot type="element(Q{}ext-link)"/>
+       </fn>
+      </att>
+      <att name="href" flags="l">
+       <convert from="xs:untypedAtomic" to="xs:string">
+        <data>
+         <axis name="attribute" nodeTest="attribute(Q{http://www.w3.org/1999/xlink}href)" jsTest="var q=SaxonJS.U.nameOfNode(item); return q.uri=='http://www.w3.org/1999/xlink'&amp;&amp;q.local=='href';"/>
+        </data>
+       </convert>
+      </att>
+      <applyT line="293" bSlot="18">
+       <axis role="select" name="attribute" nodeTest="attribute(Q{http://www.w3.org/1999/xlink}href)" jsTest="var q=SaxonJS.U.nameOfNode(item); return q.uri=='http://www.w3.org/1999/xlink'&amp;&amp;q.local=='href';"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}abstract)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='abstract';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="13" rank="1" minImp="0" slots="0" flags="os" line="315" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}caption)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='caption';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="316" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="caption"/>
+      </att>
+      <applyT line="317" flags="i" bSlot="19">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}title-group)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title-group';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="4" rank="1" minImp="0" slots="0" flags="os" line="263" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}ref)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='ref';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="264" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="ref"/>
+      </att>
+      <applyT line="265" flags="i" bSlot="20">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}ref)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='ref';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="-0.4" seq="19" rank="0" minImp="0" slots="0" flags="os" line="432" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl">
+    <p.nodeTest role="match" test="element(Q{}body)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='body';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="433" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema xjs=http://github.com/wendellpiez/XMLjellysandwich xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <elem line="434" name="div" flags="l">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="tag"/>
+        </att>
+        <valueOf line="435" flags="l">
+         <fn name="name">
+          <dot type="element()"/>
+         </fn>
+        </valueOf>
+        <valueOf flags="l">
+         <str val=": "/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <applyT line="436" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+  </mode>
+ </co>
+ <overridden/>
+ <key name="Q{}sec-by-id" line="85" module="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" binds="">
+  <p.nodeTest test="element(Q{}sec)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='sec';"/>
+  <data vn="31" baseUri="file:/home/wendell/public_html/JellySandwich/JATSCon2017/jatscon-slides.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform xjs=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema xlink=http://www.w3.org/1999/xlink xsi=http://www.w3.org/2001/XMLSchema-instance" line="85">
+   <first>
+    <sequence>
+     <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+     <fn name="generate-id">
+      <dot type="element(Q{}sec)"/>
+     </fn>
+    </sequence>
+   </first>
+  </data>
+ </key>
+ <output>
+  <property name="{http://saxon.sf.net/}stylesheet-version" value="30"/>
+ </output>
+ <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
+</package>
+<?Σ 856b0b7a?>
