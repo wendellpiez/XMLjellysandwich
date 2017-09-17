@@ -10,7 +10,8 @@
   
   <xsl:param name="resource_filename" as="xs:string" select="replace(document-uri(/),'(.*/)','')"/>
   <xsl:param name="transform_href"    as="xs:string">transform.sef</xsl:param>
-
+  <xsl:param name="saxonJS_home"      as="xs:string">lib/saxon</xsl:param>
+  
   <xsl:param name="given-title" select="/descendant::*:title[1]"/>
   
   <xsl:template match="/" expand-text="yes">
@@ -22,7 +23,7 @@
         <!--<link rel="stylesheet" href="books.css" type="text/css">-->
         <style type="text/css" id="xmljellysandwich_css">
           <xsl:comment> Include your CSS here ... or target #xmljellysandwich_css from your XSLT ... </xsl:comment></style>
-        <script type="text/javascript" language="javascript" src="lib/saxon/SaxonJS.min.js">
+        <script type="text/javascript" language="javascript" src="{$saxonJS_home}/SaxonJS.min.js">
           <xsl:comment> parsers are so easily confused </xsl:comment>
         </script>
         <script>

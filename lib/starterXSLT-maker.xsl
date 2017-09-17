@@ -66,8 +66,11 @@
         <xsl:copy-of select="$lf"/>
         <xsl:comment> Target page components by assigning transformation results to them via their IDs in the host page. </xsl:comment>
         <xsl:copy-of select="$lf"/>
+        <xjs:result-document href="#xmljellysandwich_css">
+          <xjs:call-template name="css"/>
+        </xjs:result-document><xsl:copy-of select="$lf"/>
         <xjs:result-document href="#xmljellysandwich_body">
-            <xjs:apply-templates/>
+          <xjs:apply-templates/>
         </xjs:result-document>
       </xjs:template>
       

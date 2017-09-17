@@ -10,11 +10,28 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>../../public_html/JellySandwich/demo/random-bits.xml</String>
+                                    <String>../../public_html/JellySandwich/demo/EpigramMicrophone.bits.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
                                         <String>Make XML Jelly Sandwich SaxonJS HTML host page for XML</String>
+                                        <String>Make XML Jelly Sandwich starter XSLT</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../../public_html/JellySandwich/demo/random-bits.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>Make XML Jelly Sandwich starter XSLT</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -29,9 +46,9 @@
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
+                                        <String>Make XML Jelly Sandwich SaxonJS HTML host page for XML</String>
                                         <String>Make standalone XML (XML Jelly Sandwich)</String>
                                         <String>Make XML Jelly Sandwich starter XSLT</String>
-                                        <String>Make XML Jelly Sandwich SaxonJS HTML host page for XML</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -136,7 +153,29 @@
                                     <Boolean>true</Boolean>
                                 </field>
                                 <field name="xsltParams">
-                                    <list/>
+                                    <list>
+                                        <transformationParameter>
+                                            <field name="paramDescription">
+                                                <paramDescriptor>
+                                                    <field name="localName">
+                                                        <String>transform_href</String>
+                                                    </field>
+                                                    <field name="prefix">
+                                                        <null/>
+                                                    </field>
+                                                    <field name="namespace">
+                                                        <null/>
+                                                    </field>
+                                                </paramDescriptor>
+                                            </field>
+                                            <field name="value">
+                                                <String>${ask('Compiled transformation file', string, 'transform.sef')}</String>
+                                            </field>
+                                            <field name="hasXPathValue">
+                                                <Boolean>false</Boolean>
+                                            </field>
+                                        </transformationParameter>
+                                    </list>
                                 </field>
                                 <field name="cascadingStylesheets">
                                     <String-array/>
@@ -186,7 +225,7 @@
                                     <String>XSL</String>
                                 </field>
                                 <field name="saveAs">
-                                    <Boolean>true</Boolean>
+                                    <Boolean>false</Boolean>
                                 </field>
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
@@ -272,7 +311,7 @@
                                     <String>XSL</String>
                                 </field>
                                 <field name="saveAs">
-                                    <Boolean>true</Boolean>
+                                    <Boolean>false</Boolean>
                                 </field>
                                 <field name="openInBrowser">
                                     <Boolean>false</Boolean>
