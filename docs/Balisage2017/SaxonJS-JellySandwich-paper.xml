@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="balisage-proceedings-html.xsl"?>
-<?xml-model href="../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-stylesheet type="text/css" href="../../../Documents/Balisage/lib/balisage-author.css" title="Forms interface" alternate="no"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0-subset Balisage-1.3"
   xml:id="Balisage2017Piez01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -31,10 +31,17 @@
     </author>
     
   </info>
+  <note>
+    <para>Sections of this article were presented as slides. Here, some of them are altered or
+      expanded into prose, while others are touched, amended or annotated. For slides, <link
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xlink:href="https://wendellpiez.github.io/XMLjellysandwich/Balisage2017/balisage2017-slides.html"
+        >see Github.io</link> or link above.</para>
+  </note>
   <section>
     <title>Old promise, new realization</title>
     <para>XSLT was originally designed with client-side processing in mind</para>
-    <para>This never / quite happened or did it? with XSLT 1.0<itemizedlist>
+    <para>This never (quite) happened or did it? with XSLT 1.0<itemizedlist>
         <listitem>
           <para>Yes, you can (sorta) get it to work ...</para>
         </listitem>
@@ -52,21 +59,68 @@
   </section>
   <section>
     <title>The web is dead</title>
-    <para>Several things killed it, including the predominant advertising-based sustainability
-      model</para>
-    <para>The web is a big competition over placement and ranking in indexes</para>
-    <para>As "consumers", bots and crawlers are more important than people</para>
-    <para>Much information has retreated again behind pay walls</para>
-    <para>So hasn't XML in the browser missed its moment?</para>
+    <para>I don't actually think the web is dead. However, I think our ideas about what the web is,
+      or should be, have changed and in many ways we have been disappointed. Certain hopes regarding
+      the web are dead. I think the web has been compromised by a few issues, both economic and architectural-structural:<itemizedlist>
+        <listitem>
+          <para>The predominant advertising model has promised economic viability at the cost of
+            "noise" in the browser; there is no such thing as a "safe space" on the web. Ironically
+            this means that getting through to an audience is harder than ever (to say nothing of
+            reaching and serving them).</para>
+        </listitem>
+        <listitem>
+          <para>This has combined with the way in which the layered architecture (CSS over HTML over
+            data stores), cumbersome though it is, has had the effect of equalizing production
+            values across the economic and institutional spectrum. The New York Times looks like
+            anyone's spoof of the New York Times. Especially when either one is seen through the
+            lens of Facebook.</para>
+        </listitem>
+        <listitem>
+          <para>Consequently, in a flattened world, indexing becomes everything, and page ranking
+            (and its equivalents) become surrogates for actual attention. Link counting and page hit
+            analysis substitute for contact and responsiveness between parties in communication,
+            "producers" and "consumers" of information. (Even these terms for what used to be
+            thought of as "readers" and "writers" reveal the alienation I am speaking of, in which
+            both of these roles have become commoditized.)</para>
+          <para>Thus as "consumers", bots and crawlers are more important than people (because they
+            produce the indexes that are presented to people), who have become objects of
+            second-hand interest.</para>
+        </listitem>
+        <listitem>
+          <para>Enterprises on a common Internet platform tend naturally toward monopoly, each
+            sector being dominated by a single "provider" (more alienated and generalized language)
+            with only edges of the market left to others; this is can be true even in the quasi-gift
+            economy of Open Source, in which reputation becomes currency, and reputation is achieved
+            by altruism (the gift) or its semblance (which may indeed be no more than network
+            effects - i.e. real benefits, but created by the community not the founder). This is bad
+            for "culture" in the broadest sense.</para>
+        </listitem>
+        <listitem>
+          <para>It seems that (consequently) much information has now retreated again behind pay
+            walls or onto proprietary platforms. "Proprietary platforms" includes social media but
+            also media whose content (think of the restaurant review sites) is essentially produced
+            by its consumers, gratis. It seems that someone always has their finger in the
+            pie.</para>
+        </listitem>
+        <listitem>
+          <para>Yet paradoxically, open source and even "open information" has shown it can be
+            economically viable – can "pay for itself" – if it is linked organically to some
+            market-driven, remunerative activity. This may (see above) happen only on the edges of
+            an industry. But providers who can both give away / "share", and "own and control" along
+            well-defined lines, may have a shot at viability.</para>
+        </listitem>
+      </itemizedlist></para>
+    <para>The world is very different from 1997. Has XML in the browser missed its moment? )Or maybe
+      is it just arriving?)</para>
   </section>
   <section>
-    <title>Yet the browser has emerged as a platform</title>
-    <para>Nevertheless the web subsists / evolves / matures as a capable medium</para>
+    <title>The browser has emerged as a platform</title>
+    <para>The web subsists / evolves / matures as a capable medium</para>
     <para>Ubiquitous, capable, improving: more standard and stable</para>
     <para>There must always be a "reductio" ("base") medium to which other media / channels can
       appeal</para>
-    <para>Thus it remains a way to get stuff in front of people</para>
-    <para>(One at a time if not en masse)</para>
+    <para>Thus the web remains a way to get stuff in front of people</para>
+    <para>(One at a time or within defined communities of interest, if not en masse)</para>
   </section>
   <section>
     <title>Opportunity of the moment</title>
@@ -77,7 +131,12 @@
     <para>Once XSLT is compiled (stylesheet export file: SEF), further use / sharing is free (no
       costs, licenses or registration for anyone)</para>
     <para>Drop it onto a web server and go</para>
-    <para>(Or – <emphasis role="ital">drop it onto the file system</emphasis> – ?!)</para>
+    <para>(Or – <emphasis role="ital">drop it onto the file system</emphasis> – ?!)<note>
+        <para>The question here is whether SaxonJS works without a web browser at all, for example
+          if you simply open a local HTML file with settings for SaxonJS, will it execute
+          successfully. The answer is, it will, up to a point; it is when/if the server has to be
+          queried again that the problems begin.</para>
+      </note></para>
   </section>
   <section>
     <title>Why this may actually work</title>
@@ -103,14 +162,21 @@
       obfuscate the source if we want to.)</para>
     <para>This places stress on XSLT (compiled into SEF) as (site of) "added value": not the
       information but its rendition (logic)</para>
-    <para>The application as a whole differentiates, not just the data</para>
+    <para><emphasis>The application as a whole differentiates</emphasis>, not just the data</para>
+    <para>(In principle, this could make it more difficult to reverse engineer, spoof or even
+      emulate than pre-cooked HTML/CSS.)</para>
   </section>
   <section>
     <title>How it changes design</title>
+    <para>It will be interesting to see whether there is much use of SaxonJS, and where. It could
+      well be relegated to (what might amount to) "boutique" applications.</para>
     <para>Emphasis goes back to the work as a whole, no longer so much "pages"</para>
     <para>Multiple views and access points reflect peculiar semantics of the source data</para>
     <para>Server doesn't disappear, just becomes a resource</para>
-    <para>Question: How about XForms under SaxonJS? (XRX with SaxonJS in front)</para>
+    <para>Question: How about XForms under SaxonJS? (XRX with SaxonJS in front)<note>
+        <para>Answer: it's happening. See Oneill Delpratt and Debbie Lockett's work (XML
+          London).</para>
+      </note></para>
   </section>
   <section>
     <title>There is no irony here</title>
@@ -152,11 +218,6 @@
       </itemizedlist></para>
     <para>You still gotta know XSLT (boy do you)</para>
     <para>Development and debugging</para>
-    <para>Hey! This is not the only choice<itemizedlist>
-        <listitem>
-          <para> e.g. Frameless <link>http://frameless.io/xslt/</link></para>
-        </listitem>
-      </itemizedlist></para>
   </section>
   <section>
     <title>Getting started kit</title>
@@ -202,11 +263,12 @@
             Southey</link> (thanks Elisa Beshero-Bandar)</para>
       </listitem>
       <listitem>
-        <para>My Balisage papers, 2017, <link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pellucidliterature.org/Balisage2017/workshop-slides.html">the
+        <para>My Balisage papers, 2017,
+          <link xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="https://wendellpiez.github.io/XMLjellysandwich/Balisage2017/workshop-paper.html">the
             workshop paper</link> and <link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pellucidliterature.org/Balisage2017/balisage2017-slides.html">this
-            one</link></para>
+              xlink:href="https://wendellpiez.github.io/XMLjellysandwich/Balisage2017/workshop-slides.html">slides</link> as well as <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="https://wendellpiez.github.io/XMLjellysandwich/Balisage2017/balisage2017-slides.html">slides for this paper</link>.</para>
       </listitem>
       <listitem>
         <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
