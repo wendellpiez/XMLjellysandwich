@@ -14,6 +14,7 @@ Thalaba demo calls a file in a fork of E Beshero-Bandar's TEI Thalaba. Thanks El
 
 * [JATSCon presentation slides](JATSCon2017)
 * [Balisage Upconversion Workshop paper/slides](Balisage2017/workshop-slides.html)
+* [Balisage Upconversion Workshop paper](Balisage2017/workshop-paper.html)
 * [Balisage SaxonJS slides](Balisage2017/balisage2017-slides.html)
 * [Balisage SaxonJS final paper](Balisage2017/balisage2017-final.html)
 
