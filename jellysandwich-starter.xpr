@@ -367,6 +367,6 @@
     </meta>
     <projectTree name="jellysandwich-starter.xpr">
         <folder path="."/>
-        <folder path="../../public_html/JellySandwich/"/>
+        <folder path="../../public_html/pellucidliterature/"/>
     </projectTree>
 </project>
