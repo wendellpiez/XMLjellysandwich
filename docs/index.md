@@ -13,9 +13,9 @@ Thalaba demo calls a file in a fork of E Beshero-Bandar's TEI Thalaba. Thanks El
 ## Maintained here on github
 
 * [JATSCon presentation slides](JATSCon2017)
-* [Balisage Upconversion Workshop paper/slides](Balisage2017/workshop-slides.html)
-* [Balisage Upconversion Workshop paper](Balisage2017/workshop-paper.html)
-* [Balisage SaxonJS slides](Balisage2017/balisage2017-slides.html)
+* [Balisage Upconversion Workshop slides](Balisage2017/workshop-slides.html)
+* [Balisage Upconversion Workshop final paper](Balisage2017/workshop-paper.html)
+* [Balisage SaxonJS presentation slides](Balisage2017/balisage2017-slides.html)
 * [Balisage SaxonJS final paper](Balisage2017/balisage2017-final.html)
 
-Note that the demonstrations were all made at various times using different generations of tools available at github.com/wendellpiez/XMLjellysandwich. Each has subsequently undergone more or less radical refactoring.
+Note that the demonstrations were all made at various times using different generations of tools available at github.com/wendellpiez/XMLjellysandwich. Each has subsequently undergone more or less radical configuration and rewrite.
