@@ -56,109 +56,68 @@
   <xsl:template name="nav">
     <div class="nav">
       <xsl:for-each select="$doc/article/section">
-        <h4 id="{(@id,generate-id(.))[1]}-nav" class="navbutton">
-          <xsl:apply-templates select="title"/>
+        <xsl:variable name="my-id" select="(@id,generate-id(.))[1]"/>
+        <h4 id="{$my-id}-nav" class="navbutton">
+          <xsl:apply-templates select="title" mode="nav-link"/>
         </h4>
-        <xsl:for-each select="$doc/section">
+        <xsl:for-each select="section">
           <h5 id="{(@id,generate-id(.))[1]}-nav" class="navbutton">&#xA0;&#xA0;&#xA0;
-            <xsl:apply-templates select="title"/>
+            <xsl:apply-templates select="title" mode="nav-link"/>
           </h5>
         </xsl:for-each>
       </xsl:for-each>
     </div>
   </xsl:template>
-  
-  <xsl:template mode="ixsl:onclick"
-    match="div[xjs:has-class(.,'front-page')]/h4" xpath-default-namespace="">
-    <xsl:call-template name="open-section">
-      <xsl:with-param name="sec-id" select="replace(@id,'-link$','')"/>
-    </xsl:call-template>
+
+  <xsl:template match="title" mode="nav-link">
+    <xsl:variable name="here-id" select="../(@id,generate-id(.))[1]"/>
+    <a href="#{$here-id}">
+      <xsl:apply-templates/>
+    </a>
   </xsl:template>
   
   <xsl:template mode="ixsl:onclick"
-    match="div[xjs:has-class(.,'nav')]/h5" xpath-default-namespace="">
-    <xsl:call-template name="open-section">
-      <xsl:with-param name="sec-id" select="replace(@id,'-nav$','')"/>
-    </xsl:call-template>
+    match="div[xjs:has-class(.,'front-page')]/h4 | div[xjs:has-class(.,'nav')]/h5" xpath-default-namespace="">
+    <xsl:variable name="sec-id" select="replace(@id,'-link$','')"/>
+    
+    <xsl:apply-templates select="key('sec-by-id',$sec-id,$doc)" mode="open"/>
+    
   </xsl:template>
   
-  <xsl:template name="open-section">
-    <xsl:param name="sec-id" required="yes"/>
-    <xsl:apply-templates mode="mark-visited" select="ixsl:page()//id(concat($sec-id,'-nav'))"/>
-    <xsl:result-document href="#xmljellysandwich_body" method="ixsl:replace-content">
-      <xsl:apply-templates select="key('sec-by-id',$sec-id,$doc)"/>
-    </xsl:result-document>
+  <xsl:template mode="ixsl:onclick"
+    match="id('xmljellysandwich_body')//h2 | id('xmljellysandwich_body')//h3 | id('xmljellysandwich_body')//h4" xpath-default-namespace="">
+    <xsl:variable name="sec-id" select="../@id"/>
+    
+    <xsl:apply-templates select=".." mode="open-or-shut"/>
+    
   </xsl:template>
   
-  <xsl:template mode="mark-visited" match="*" xpath-default-namespace="">
+  
+  
+<!-- Open any section by removing a 'shut' attribute -->
+  <xsl:template match="*" mode="shut" xpath-default-namespace="">
+    <xsl:variable name="already-has" select="tokenize(@class, '\s+')"/>
     <ixsl:set-attribute name="class"
-      select="string-join((xjs:classes(.)[not(.='visited')],'visited' ),' ')"/>
+      select="string-join(
+      if ($already-has = 'shut') then $already-has else ($already-has,'shut'),' ')"/>
   </xsl:template>
   
-  <xsl:template mode="mark-unvisited" match="*" xpath-default-namespace="">
-    <ixsl:set-attribute name="class" select="string-join(xjs:classes(.)[not(.='visited')],' ')"/>
+  <xsl:template match="*" mode="open" xpath-default-namespace="">
+    <xsl:variable name="already-has" select="tokenize(@class, '\s+')"/>
+    <ixsl:set-attribute name="class" select="string-join(($already-has[not(. = 'shut')]), ' ')"/>
   </xsl:template>
   
-  <xsl:template name="clear-boxes" xpath-default-namespace="">
-    <xsl:apply-templates mode="mark-unvisited"
-      select="ixsl:page()//id('xmljellysandwich_directory')/div[xjs:has-class(.,'nav')]/h5"/>
+  <xsl:template match="*" mode="open-or-shut" xpath-default-namespace="">
+    <xsl:variable name="already-has" select="tokenize(@class, '\s+')"/>
+    <ixsl:set-attribute name="class"
+      select="string-join(
+      if ($already-has = 'shut') then $already-has[not(. = 'shut')] else ($already-has,'shut'),' ')"/>
   </xsl:template>
   
-   
-  
-  <xsl:template name="load-front-page" mode="ixsl:onclick"
-    match="id('xmljellysandwich_title') | id('up-button')" xpath-default-namespace="">
-    <xsl:call-template name="clear-boxes"/>
-    <xsl:result-document href="#xmljellysandwich_body" method="ixsl:replace-content">
-     <!-- <xsl:call-template name="front-page"/>-->
-    </xsl:result-document>
-  </xsl:template>
-  
-  <xsl:template mode="ixsl:onclick" match="id('back-button')" xpath-default-namespace="">
-    <xsl:variable name="here"
-      select="ixsl:page()//id('xmljellysandwich_body')/div[xjs:has-class(., 'section')]"/>
-    <xsl:variable name="source" select="key('sec-by-id', $here/@id, $doc)"/>
-    <xsl:for-each select="$source/preceding-sibling::b:section[1]">
-      <xsl:call-template name="open-section">
-        <xsl:with-param name="sec-id" select="(@id, generate-id())[1]"/>
-      </xsl:call-template>
-    </xsl:for-each>
-    <xsl:if test="empty($source/preceding-sibling::b:section)">
-      <xsl:call-template name="load-front-page"/>
-    </xsl:if>
-  </xsl:template>
-  
-  <xsl:template mode="ixsl:onclick"
-    match="id('advance-button')" xpath-default-namespace="">
-    <!-- $here is the section element presently loaded, if there is one;
-         $source is its correspondent source section. -->
-    <xsl:variable name="here" select="ixsl:page()//id('xmljellysandwich_body')/div[xjs:has-class(.,'section')]"/>
-    <xsl:variable name="next-sec"
-      select="if (empty($here)) then $doc/descendant::b:section[1] else key('sec-by-id',$here/@id,$doc)/following-sibling::b:section[1]"/>
-    
-    <xsl:for-each select="$next-sec">
-      <xsl:call-template name="open-section">
-        <xsl:with-param name="sec-id" select="(@id,generate-id())[1]"/>
-      </xsl:call-template>
-    </xsl:for-each>
-    <xsl:if test="empty($next-sec)">
-      <xsl:call-template name="load-front-page"/>
-    </xsl:if>
-    
-  </xsl:template>
-  
-  <!-- Being used to hide things in this application. -->
-  <xsl:template match="note"/>
   
   <xsl:template match="article/section">
     <div class="section" id="{(@id,generate-id(.))[1]}">
-      <div class="figure-block" style="max-width:40%; float: left">
-        <xsl:apply-templates select="figure"/>
-        
-      </div>
-      <div class="page-body" style="float:right; width: 58%; padding-left: 2%">
-        <xsl:apply-templates select="* except figure"/>
-      </div>
+      <xsl:apply-templates/>
     </div>
   </xsl:template>
 
@@ -243,7 +202,7 @@
       </p>
    </xsl:template>
 
-  <xsl:template mode="asleep" match="blockquote">
+  <xsl:template match="blockquote">
     <blockquote class="blockquote">
       <xsl:apply-templates/>
     </blockquote>
@@ -342,7 +301,7 @@ html, body { font-size: 10pt }
 
 .personblurb { }
 
-.section { }
+.section { margin-left: 2em; margin-top: 1em }
 
 .itemizedlist { }
 
@@ -388,7 +347,7 @@ img { max-width: 100% }
 
 .page-body > *:first-child { margin-top: 0em }
 
-.section .title { text-align: center; border-bottom: medium double black; padding-bottom: 1ex }
+.section .title { border-bottom: medium double black; padding-bottom: 1ex }
 
 .front-page h4 { margin-top: 1em; margin-bottom: 0em; font-size: 80% }
 
@@ -398,9 +357,7 @@ div#xmljellysandwich_body > div > *:first-child { margin-top: 0em }
 div#xmljellysandwich_footer { margin-top: 2%; font-size: 80%; font-family: sans-serif;
   padding: 0.5em; border: thin solid black; clear: both }
 
-#xmljellysandwich_directory div.nav { padding-left: 85%; font-size: 60%; margin-top: 1em }
-h5.navbutton { background-color: midnightblue; border: thin solid midnightblue; margin: 0.2em; min-width: 2em }
-h5.navbutton.visited { background-color: skyblue }
+// #xmljellysandwich_directory div.nav { padding-left: 85%; font-size: 60%; margin-top: 1em }
 
 #header-box { padding: 0.5em; background-color: gainsboro; border: thin solid black; width: 80%
   margin-top: 1em; margin-bottom: 1em }
@@ -415,34 +372,6 @@ a:hover { text-decoration: underline }
 </style>
    </xsl:template>
 
-
-
-  <!-- <xsl:template priority="-0.4"
-                 match="article | info | abstract | author | personname | personblurb | section | itemizedlist | listitem | variablelist | varlistentry | bibliography">
-      <div class="{name()}">
-         <div class="tag">
-            <xsl:value-of select="name()"/>: </div>
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template priority="-0.4"
-                 match="title | para | firstname | surname | term | bibliomixed">
-      <p class="{name()}">
-         <span class="tag">
-            <xsl:value-of select="name()"/>: </span>
-         <xsl:apply-templates/>
-      </p>
-   </xsl:template>
-
-   <xsl:template priority="-0.4"
-                 match="emphasis | code | citation | link | quote | biblioid">
-      <span class="{name()}">
-         <span class="tag">
-            <xsl:value-of select="name()"/>: </span>
-         <xsl:apply-templates/>
-      </span>
-   </xsl:template>-->
 
 
 

@@ -121,7 +121,10 @@
           <para>A data format may provide for functionalities in processing, either directly or via
             indirect bindings or programming. "Display on the web" broadly is an application of
             HTML. But HTML archived for long-term storage (and hence tomorrow's processor) is not
-            aiming (or not aiming only) at this use.</para>
+            aiming (or not aiming only) at this use. To the extent that the purpose and use of HTML
+            is to produce display in (today's) web browser, it is an application format. (To the
+            extent it has some other purpose and use, it might be something else.)</para>
+          <para>Open Office XML is an application format.</para>
           <para>The great attraction of electronic data formats is in their fungibility, which can
             permit them (in principle and often actually) to be represented and re-represented in
             and for other applications. Thus even hard-core "application profile" formats such as
@@ -138,12 +141,12 @@
             formats.</para>
           <para>The entire reason we conceive of "uphill conversion" at all is because we envision a
             hub format in which encoded information is "high value" – both "clean" and "dense",
-            meaning both more expressive and more efficient, parsimonious, integral and
+            meaning both more expressive and more efficient, parsimonious, well integrated and
             communicative. If such a format is identified with an application, then so must our data
-            be. When this becomes a problem (as it inevitably does sooner or later), the way to
-            insulate and protect data from "application rot", likewise, is to take care that the
-            representations (in and of its encoding) be abstracted away from application
-            requirements. A hub format provides a safe home, as it were.</para>
+            be. When this becomes a problem (as it inevitably does sooner or later – applications
+            change), the way to insulate and protect data from "application rot", likewise, is to
+            take care that the representations (in and of its encoding) be abstracted away from
+            application requirements. A hub format provides a safe home for data, as it were.</para>
           <para>Historically, the broadly descriptive formats including TEI, JATS, DITA and Docbook
             were all developed to serve this role, in information systems of various sizes and
             scales of complexity.</para>
@@ -164,14 +167,23 @@
           <para>Similarly we may have formats or data encoding regimens that serve for nothing but a
             communicative purpose (for example, between two systems that have their own hub format).
             That's a carrier format.</para>
-          <para>It isn't difficult to produce an artificial carrier format or indeed to adapt a hub
-            format (typically by relaxing it) to this purpose. It is also possible (and frequently
-            easier) to adapt something.</para>
+          <para>It isn't conceptually difficult to design an artificial carrier format (it has been
+            done), nor is it difficult to envision what a general-purpose carrier would look like
+            for many purposes (for publishing documentary data it might be much like Peter Flynn's
+            generic universal document format). More commonly, carrier formats are made by adapting
+            another format to this use, typically by relaxing it. Carrier formats are hard to see
+            because they take the forms of other formats. What characterizes them as carriers is
+            that they need to follow the rules <emphasis>neither</emphasis> of hub nor of
+            application, since their point is to mediate between them. Consequently they follow the
+            rules (and must impose constraints), but progressively, relatively, and not always
+            equally, or not right away.</para>
           <para>Note that, somewhat confusing, someone's carrier format, may be someone else's
             application format. That is, what is a carrier for you (internally) becomes for them, an
             interface that they have to target (externally).</para>
           <para>Thus it's typical to try and cheat, using an application format as a carrier format
-            and vice versa. That is what we are doing here.</para>
+            and vice versa. That is what we are doing here – even if the format we opt for, as a
+            carrier (namely HTML) has some of the features of both application, and hub
+            formats.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
