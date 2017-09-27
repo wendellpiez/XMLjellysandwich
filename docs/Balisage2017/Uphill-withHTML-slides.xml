@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="balisage-proceedings-html.xsl"?>
+<?xml-model href="../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/css" href="../../../Documents/Balisage/lib/balisage-author.css" title="Forms interface" alternate="no"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0-subset Balisage-1.3"
+  xml:id="HR-23632987-8973" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>Uphill to XML with XSLT, XProc … and HTML</title>
+  <info>
+    <abstract><para>HTML is a widely familiar vernacular for ad-hoc representation of documents, and
+      can be useful as a staging ground for decomposing and breaking down the more complex
+      operations in uphill data transformation. HTML, syntactically well-formed and maintained
+      within XML pipelines with well-defined interfaces, can usefully join XSLT and XProc to
+      provide for a complete up-conversion or data-enhancement pipeline – especially when the
+      ultimate target is semantically richer than HTML. In a project based on this approach,
+      lessons learned include: “Many steps may be easier than one”; “If it doesn't work, try it
+      the other way around”; and “Validation is in the eye of the beholder”.</para></abstract>
+    <author>
+      <personname>
+        <firstname>Wendell</firstname><surname>Piez</surname>
+      </personname>
+      <personblurb>
+        <para>Wendell Piez is an independent consultant specializing in XML and XSLT, based in
+          Rockville MD.</para>
+      </personblurb>
+    </author>
+    
+  </info>
+  <section>
+    <title>Upconversion is (really not!) difficult</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata
+            fileref="Unknown-artist-eadwine-the-scribe-at-work-eadwine-psalter-christ-church-canterbury-england-uk-circa-1160-70.jpg"
+          />
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>Eadwine at his desk (Wikimedia Commons)</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="ital">Pulling meaning out of information</emphasis> may involve
+          interpretation, enrichment, reduction, refactoring</para>
+      </listitem>
+      <listitem>
+        <para>This is endless!</para>
+      </listitem>
+      <listitem>
+        <para>We begin by acknowledging we will never be finished</para>
+        <itemizedlist>
+          <listitem>
+            <para>… Dealing with upconversion in general ...</para>
+          </listitem>
+          <listitem>
+            <para>… While we may be finished with a particular conversion problem</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Why convert to/from HTML?</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Matterhorn_from_Domh%C3%BCtte_-_2.jpg"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>Matterhorn (Wikimedia Commons)</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>Because it's there</para>
+      </listitem>
+      <listitem>
+        <para>Making peace with HTML as a carrier format</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>What does it mean, 'carrier format'?</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Dredging_technique_schematic.png"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>Canal dredging equipment, schematic (Wikimedia Commons)</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>Especially to be distinguished from "hub format"</para>
+      </listitem>
+      <listitem>
+        <para>"Carrier" format may help get data in/out</para>
+      </listitem>
+      <listitem>
+        <para>Represents an expedient means</para>
+        <para>Facing a specific interface (internal or external)</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Four uses for data formats</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="XMLGeneralArchitecture.png"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>Distinguishing among these four different uses for a data format, may be helpful.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Application format</para>
+      </listitem>
+      <listitem>
+        <para>System hub format</para>
+        <para>(Abstracted from processes; generalized)</para>
+      </listitem>
+      <listitem>
+        <para>Control format</para>
+        <para>(Further generalized and externalized)</para>
+      </listitem>
+      <listitem>
+        <para>Carrier format</para>
+        <para>(Commonly a form of an application or hub format, i.e. an application of an
+          application)</para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <variablelist>
+        <varlistentry>
+          <term>Application</term>
+          <listitem>
+            <para>A data format may provide for functionalities in processing, either directly or
+              via indirect bindings or programming. "Display on the web" broadly is an application
+              of HTML. But HTML archived for long-term storage (and hence tomorrow's processor) is
+              not aiming (or not aiming only) at this use.</para>
+            <para>The great attraction of electronic data formats is in their fungibility, which can
+              permit them (in principle and often actually) to be represented and re-represented in
+              and for other applications. Thus even hard-core "application profile" formats such as
+              SVG or XSL FO (formatting objects), must maintain a balance between supported
+              functionalities, and abstract specifications.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Hub</term>
+          <listitem>
+            <para>The design, specification, application and use of a hub format is different from
+              an application format. In theory and practice, hub formats have enabled data reuse and
+              re-publication by providing for "downhill conversion" into one or more application
+              formats.</para>
+            <para>The entire reason we conceive of "uphill conversion" at all is because we envision
+              a hub format in which encoded information is "high value" – both "clean" and "dense",
+              meaning both more expressive and more efficient, parsimonious, integral and
+              communicative. If such a format is identified with an application, then so must our
+              data be. When this becomes a problem (as it inevitably does sooner or later), the way
+              to insulate and protect data from "application rot", likewise, is to take care that
+              the representations (in and of its encoding) be abstracted away from application
+              requirements. A hub format provides a safe home, as it were.</para>
+            <para>Historically, the broadly descriptive formats including TEI, JATS, DITA and
+              Docbook were all developed to serve this role, in information systems of various sizes
+              and scales of complexity.</para>
+            <para>But plenty of systems exist that have their own private hub format of one form or
+              another. Indeed, XML itself is only one of many ways a hub format can be defined and
+              managed.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Carrier</term>
+          <listitem>
+            <para>However, just because we have a hub format, doesn't mean we have to use it for
+              every purpose: on the contrary, the opposite must necessarily be the case. Just as we
+              expect to translate data "out of" or "down from" our hub into application formats, we
+              might suppose that data on the way "in" or "up into", might require something that
+              doesn't impose (or, at any one stage, doesn't <emphasis role="ital">yet</emphasis>
+              impose) all the rigors of the hub.</para>
+            <para>Similarly we may have formats or data encoding regimens that serve for nothing but
+              a communicative purpose (for example, between two systems that have their own hub
+              format). That's a carrier format.</para>
+            <para>It isn't difficult to produce an artificial carrier format or indeed to adapt a
+              hub format (typically by relaxing it) to this purpose. It is also possible (and
+              frequently easier) to adapt something.</para>
+            <para>Note that, somewhat confusing, someone's carrier format, may be someone else's
+              application format. That is, what is a carrier for you (internally) becomes for them,
+              an interface that they have to target (externally).</para>
+            <para>Thus it's typical to try and cheat, using an application format as a carrier
+              format and vice versa. That is what we are doing here.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Control</term>
+          <listitem>
+            <para>Finally, it should be noted that actual control over a data set may be exerted,
+              even without a fully specified hub format – inasmuch as control mechanisms may take
+              other forms than the classic constraints over markup languages (which focuses
+              validation on element type names, containment as represented syntactically, and
+              attribute flags. Sometimes the hub format or essential aspects or elements of the hub
+              are better regarded as a projections of other, further abstracted models or
+              taxonomies.</para>
+            <para>It is frequently difficult, when considering a system especially that has grown
+              over time, to determine exactly where the control points actually are. Especially
+              since where they are actually controlled (operationally) and where they are nominally
+              dictated, are often two different things. Documentation, it is sad to say, is more
+              often than not out of date.</para>
+            <para>These entanglements are all reasons, it may be, not to rely on a hub format to do
+              every job in the world. Imposing a requirement that a process artifact (even a
+              temporary one) conform to a hub format (designed for another purpose) may be an
+              arbitrary imposition as often as it's a neat trick. Better to keep the hub format for
+              the good data, the controls in place – and with the data that is not so good or not
+              yet so good, don't make such demands.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </note>
+  </section>
+  <section>
+    <title>History of these projects</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="fechner-source.png"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>TEI transcription of translated tract</para>
+      </caption>
+    </figure>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Fechner-cover.png"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>Started with editorial work from plain text sources</para>
+        <itemizedlist>
+          <listitem>
+            <para>Gustav Fechner (<link xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="http://piez.org/wendell/projects/buechlein/"><emphasis role="ital">Life
+                  After Death: a Manual</emphasis></link>)</para>
+            <para>Aiming for "functional facsimile" of 1904 print edition</para>
+          </listitem>
+          <listitem>
+            <para>Chas. Woodbury (<link xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="http://pausepress.net/TalksWithEmerson.xml"><emphasis role="ital">Talks
+                  with Emerson</emphasis></link>, 1890, with new annotations)</para>
+          </listitem>
+          <listitem>
+            <para>Demonstrated that XSLT pipelines are capable</para>
+            <itemizedlist>
+              <listitem>
+                <para>In XSLT: 2.0 grouping, temporary trees/pipelining, regular expressions
+                  ...</para>
+              </listitem>
+              <listitem>
+                <para>Specification of requirements becomes the hard part not implementation</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Moved on to HTML sources (mainly because they are widely available)</para>
+        <itemizedlist>
+          <listitem>
+            <para>Can save work as compared to plain text (piggybacking on earlier editors)</para>
+          </listitem>
+          <listitem>
+            <para>Still present formidable obstacles</para>
+          </listitem>
+          <listitem>
+            <para>See, e.g., BITSLab examples</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>More recently, <link xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="https://gitlab.coko.foundation/wendell/XSweet">XSweet</link> with Coko
+          Foundation</para>
+        <para>Developing pipelines producing HTML from Word <code>docx</code>.</para>
+        <para>For example, <link xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="http://pausepress.net/EpigramMicrophone"><emphasis role="ital">Epigram
+              Microphone</emphasis></link> by Mark Scott</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Requirements of agility</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Standard_Poodle_blue_agility.jpg"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>What you get asking for "agility". HMKC Spring 2007 Agility Trial: photo author Ron
+          Armstrong from Helena, MT, USA. Wikimedia Commons.</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>Agility implies less time spent up front in design</para>
+        <para>(We improve our design in use, rather than stall ourselves designing it)</para>
+        <para>And it's a huge plus if developers already know the language we propose to use!</para>
+      </listitem>
+      <listitem>
+        <para>Maybe we don't have a hub format yet (much less a control infrastructure)</para>
+      </listitem>
+      <listitem>
+        <para>We still want to move data across the system!</para>
+      </listitem>
+      <listitem>
+        <para>HTML appears to be a reasonable way to do this</para>
+        <itemizedlist>
+          <listitem>
+            <para>Remains relatively transparent throughout</para>
+          </listitem>
+          <listitem>
+            <para>We can nail things down later</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>Question of the moment (say): if <citation>docx</citation> is my source, and BITS is
+          my target, is HTML a reasonable way station?</para>
+        <para>(Epigram Microphone)</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Faking it with HTML</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="XHTMLinoXygen.png"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>Some XHTML on the way to BITS</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>Actually, it's still XML</para>
+        <itemizedlist>
+          <listitem>
+            <para>Well-formed</para>
+          </listitem>
+          <listitem>
+            <para>Even if not formally (valid as) XHTML</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>So our XML toolkit can still manage</para>
+      </listitem>
+      <listitem>
+        <para>In other words - going with wf/HTML has implications in detail</para>
+        <para>(viz: roles of <code>@class</code> and <code>@style</code>)</para>
+        <para>But it's not fundamentally different from any other tree-shaped XML-based
+          format</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>What makes HTML weirdly capable for this</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="pigs-14968609001to.jpg"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>More cute animals courtesy of Public Domain Pictures.</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>HTML can be perfectly nutritious</para>
+        <para>May be flat (soupy or sloppy): any structure is a bonus</para>
+        <para>i.e., because HTML does not enforce structure, it can tolerate any or no
+          structure</para>
+      </listitem>
+      <listitem>
+        <para>Yet a rough distinction between wrappers, blocks and inlines can be observed</para>
+        <para>(The stuff of any sort of content objects)</para>
+        <para>Everything can reduce to <code>div</code>, <code>p</code>, and
+          <code>span</code></para>
+        <para>Plus, shifts in register can be more important than the registers themselves</para>
+      </listitem>
+      <listitem>
+        <para>Semantic labels can (and frequently are) hidden away in (overloaded)
+            <code>@class</code></para>
+      </listitem>
+      <listitem>
+        <para>We also have a wide-open garage door escape hatch for presentation info: CSS</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>HTML as liminal zone</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Pieter_Bruegel_LentvsCarnival.jpg"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>The Fight Between Carnival and Lent, Pieter Bruegel, 1559. Wikimedia Commons</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>HTML is <emphasis role="ital">in between</emphasis><itemizedlist>
+            <listitem>
+              <para>The <emphasis role="bold">opaque chaos</emphasis> of uncontrolled data
+                sources</para>
+              <para>(Wherein information is present, but latent)</para>
+            </listitem>
+            <listitem>
+              <para>And the <emphasis role="bold">transparent order</emphasis> of highly controlled
+                data resources</para>
+              <para>(Let's say, the targets of an uphill data conversion)</para>
+            </listitem>
+          </itemizedlist></para>
+        <para>On our way from here to there</para>
+        <para>We can express (only) what we know, when we know it</para>
+        <para>As we go, we can enrich semantics step by step</para>
+        <para>Enriching description, enunciating regularity, reducing noise</para>
+      </listitem>
+      <listitem>
+        <para>HTML did not start this way – but it has evolved in the direction of this
+          capability</para>
+        <para>(HTML is a hub format that was broken on the wheels of its applications.)</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>HTML Typescript</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Sir_James_Cantlie,_Lecture_on_Hong_Kong_Wellcome_L0031681.jpg"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>Sir James Cantlie (1851-1926), Lecture on Hong Kong. Typescript with holograph
+          corrections, etc., London, 1898. Page 19: a more or less random typescript page from
+          Wikimedia Commons</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>HTML can present rough-but-capable representation of "what an author wrote"</para>
+        <para>Analogous to a "typescript" in print-oriented production</para>
+        <para>Represents a work in progress, not a finished work</para>
+        <para>Its <emphasis role="ital">lack</emphasis> of (final) production values is <emphasis
+            role="ital">part of the point</emphasis></para>
+      </listitem>
+      <listitem>
+        <para>Offers a site of analysis, negotiation and preparation for the next stage of
+          production</para>
+        <para>By analogy - a downstream consumer is apt to be happier to consume HTML than most any
+          other format even a "better" one ...</para>
+        <para/>
+        <para>Cf Adam Hyde, <link
+            xlink:href="https://www.adamhyde.net/typescript-redistributing-labor/"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            >https://www.adamhyde.net/typescript-redistributing-labor/</link></para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Halfway there is not nowhere</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Sulphur_Mountain_Restaurant_(369087090).jpg"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>Sulphur Mountain Resort (interior), Banff. By Tony Hisgett. Wikimedia Commons.</para>
+      </caption>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>"Mountain chalet" theory of upconversion</para>
+        <para>("When climbing a tall peak it's nice to have a mountain chalet halfway up")</para>
+      </listitem>
+      <listitem>
+        <para>The shortest distance between two points is not always a straight line</para>
+        <para>"Many steps are sometimes easier than one"</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Pipelines and processing</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Ugly-OOXML.png"/>
+        </imageobject>
+        <caption>
+          <para>"Before" - Word (OOXML) source</para>
+        </caption>
+      </mediaobject>
+    </figure>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="EpMic-html.png"/>
+        </imageobject>
+        <caption>
+          <para>"After" - pulled into (reasonably clean) HTML</para>
+        </caption>
+      </mediaobject>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>Having a carrier format in place early is helpful</para>
+      </listitem>
+      <listitem>
+        <para>At least data transmission is possible even while other aspects are tbd</para>
+      </listitem>
+      <listitem>
+        <para>Pipelines permit handling complex problems!</para>
+        <para>By breaking down into simpler problems</para>
+      </listitem>
+      <listitem>
+        <para>Freeing up order of development priorities</para>
+        <para>"Try it the other way around"</para>
+        <itemizedlist>
+          <listitem>
+            <para>Early HTML production is an example of this</para>
+            <para>Or, performing header promotion, and only then structural induction</para>
+          </listitem>
+        </itemizedlist>
+        <para>A system is no longer all-or-nothing</para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <para>Many of the more challenging problems in data conversion are much more tractable when
+        broken into parts or phases, than they are when conceived as single operations. Having an
+        nominal carrier format already designed – even before other parts of a system are yet fully
+        mature – is really helpful when we turn to building tools and processing, since one aspect
+        of that problem at least (namely, what sorts of tags to use to express things), has been
+        reduced, making it possible to focus on the more essential parts (what is the information
+        being represented and processed).</para>
+      <para>Thus, even when HTML solves no problems for a conversion pipeline, it can expose them.
+        This is itself is really useful.</para>
+      <para>So for example, a huge problem in data conversion is structural inferencing – how to
+        determine appropriate structures latent in unstructured data: in transformation terms,
+        allocating contents to structures properly in a result, even when the input is "soup". It is
+        convenient, though not essential, that HTML can be used easily to represent data in both
+        forms, before ("soupy") and after ("structured"), using HTML <code>div</code> or
+          <code>section</code> elements to represent the structure.</para>
+      <para>It's getting from one form, to the other, that is the problem. Producing the soup from
+        the structure is easy: that's why we call it "down". But to get structure from the soup is
+        comparatively difficult, and solutions tend to be accordingly brittle, partial and limited.
+        The process requires two distinct operations, not just one. First, the "signaling elements"
+        that are taken to represent structural boundaries (in this case, section titles or other
+        section demarcators), must be recognized. (For most purposes in structured documentary data,
+        section titles serve as effective signals regarding at least some salient document
+        structures. But this is not always the case.) Only once this has occurred (logically or
+        temporally) does it become possible to render the structure itself. And rendering the
+        structure is only possible if the signals line up.</para>
+      <para>This two-phase approach plays out easily in HTML: in the first phase, paragraphs that
+        are "actually headers" can be promoted to h1-h6. In the second phase, the section structure
+        is built up from the headers. Each of these is significantly easier, when it can be isolated
+        from the other.</para>
+      <para>What's more, we can explain it this way, and anyone familiar with HTML can understand
+        it. We don't need to educate them in a new data representation to make our methods
+        explicable.</para>
+    </note>
+  </section>
+  <section>
+    <title>Pipelines, meta-pipelines, pipelines of pipelines</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Pipeline-Flange-Template-Industrial-1566044.png"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>See <link>maxpixel.freegreatpicture.com</link> (for real)</para>
+      </caption>
+    </figure>
+    <para>Examples of complex pipelines</para>
+    <itemizedlist>
+      <listitem>
+        <para>Aggregation, splitting</para>
+      </listitem>
+      <listitem>
+        <para>Data analytics / synoptics</para>
+      </listitem>
+      <listitem>
+        <para>Metadata integration</para>
+      </listitem>
+      <listitem>
+        <para>Metadata-driven resource architectures</para>
+      </listitem>
+    </itemizedlist>
+    <itemizedlist>
+      <listitem>
+        <para>HTML tweaking</para>
+        <para>Arbitrary tweak of HTML @class / @style - add/remove</para>
+        <para>Configured for runtime w/ XML driver</para>
+      </listitem>
+      <listitem>
+        <para>Header promotion by induction<itemizedlist>
+            <listitem>
+              <para>Filter paragraphs by formatting properties, reduce, count and sort them</para>
+            </listitem>
+            <listitem>
+              <para>Assign header level categories based on combinations of properties</para>
+            </listitem>
+            <listitem>
+              <para>Produce an XSLT from this (result of analysis) for this particular instance (or
+                family member)</para>
+            </listitem>
+            <listitem>
+              <para>Apply this XSLT to original document to match and produce headers</para>
+            </listitem>
+          </itemizedlist></para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <para>A so-called "meta-pipeline" or "meta-transformation", loosely, might be any application
+        of a transformation technology that is anything but the simple three-part
+        source/transformation/result arrangement. Yet even within a simple architecture, pipelines
+        will typically be made of pipelines, and transformations will include multiple "logical" and
+        even "temporal" steps or stages, within both their specification(s) and their execution.
+        More complex arrangements are possible and sometimes useful. These include not only
+        pipelines of transformations in sequence (each one consuming the results of the precedent
+        one) but also pipelines with extra inputs, spin-off results, or loops, wherein (for example)
+        logic is produced in one branch that is then used to transform the results of another
+        branch.</para>
+      <para>Because XSLT is syntactically homoiconic (canonically expressed in the same notation
+        that it reads and produces, i.e. XML), it is a straightforward exercise to construct a
+        pipeline whose transformation is itself generated dynamically. This is useful if we don't
+        know what XSLT we will want, until runtime. If we can specify inputs to produce a
+        transformation programmatically, we can delay its actual production until we have the
+        data.</para>
+      <para>An example is the header promotion transformation as described above – a transformation
+        of HTML data in which paragraphs (p elements) can be mapped into h1-h6 based on properties
+        either assigned to them (in the data) or accessible and measurable. This is not a trivial
+        operation, but it can be achieved using pipelines in and with XSLT.</para>
+      <para>The difficulty is that such a transformation depends on an assessment of which
+        properties assigned to which paragraphs, separately and together, warrant promotion for that
+        (type) of paragraph. The particulars of this assessment may only be fully discovered in view
+        of the data itself. So a pipeline has to "inspect" and "assess" the data itself before it
+        can produce its set of rules for handling it.</para>
+      <para>Thus, in a pipeline, header promotion can proceed in three steps: in the first step, and
+        analysis of the data is conducted in which candidate (types of) block-level or
+          <code>p</code> elements are selected and bound to (different levels of) header elements.
+        In a second step, this analysis (result) is fed to a generic "meta-transformation" XSLT that
+        produces a one-time use XSLT specifically for the data set. The third step is the
+        application of this one-time custom-fit XSLT to the data, matching elements appropriately to
+        produce headers from the <code>p</code> elements as directed.</para>
+      <para>As noted, HTML's lack of any kind of structural enforcement over its element set, is
+        very advantageous here. A header promotion transformation can litter the result file with h1
+        - h6 elements, all without (much) concern either for formal validation or for predictable
+        behavior in tools.</para>
+      <para>To be sure, such raw data may not be ready to bring into a structured environment, which
+        will not permit such a free representation: but then, that is the point. The inference of
+          <code>div</code> or section boundaries, once headers are in place, is another fairly
+        straightforward operation – when the data warrants it.</para>
+      <para>Other similar examples of pipelines, metapipelines and multi-stage pipelines can be
+        mentioned, including pipelines<itemizedlist>
+          <listitem>
+            <para>Producing diagnostic outputs (document maps, error reports etc. etc.)</para>
+          </listitem>
+          <listitem>
+            <para>Referencing external (exposed) configurations or "drivers" to simplify
+              operation</para>
+          </listitem>
+          <listitem>
+            <para>Enriching data sets (e.g. content type inferencing) by reference to rule sets,
+              external authority files, or other criteria</para>
+          </listitem>
+        </itemizedlist></para>
+    </note>
+  </section>
+  <section>
+    <title>Murky worlds</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="TristramShandy.png"/>
+        </imageobject>
+        <caption>
+          <para>From <emphasis role="ital">The Life and Opinions of Tristram
+            Shandy</emphasis></para>
+          <para>Laurence Sterne, 1759.</para>
+        </caption>
+      </mediaobject>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>Notice we leave aside issues having to do with (for example) fine points of HTML
+          alignment</para>
+        <itemizedlist>
+          <listitem>
+            <para>List structures, lists inside paragraphs ...</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+      <listitem>
+        <para>This is because we aren't validating!</para>
+        <para>"Valid is in the eye of the beholder" and formal HTML validation buys us
+          nothing</para>
+      </listitem>
+      <listitem>
+        <para>Instead, we promiscuously mix tag sets</para>
+        <para>Regression testing as we proceed permits this to occur as a "shaping"</para>
+        <para>End point is when our target data is strong not when process is (ever) finished</para>
+        <para>We may well introduce other data enhancements along the way</para>
+      </listitem>
+      <listitem>
+        <para>This is upconversion, the task is endless</para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <para>One interesting and unexpected consequence of distinguishing our temporary carrier
+        format from our long-term hub format, is that it becomes possible to mix them on the way
+        from one to the other. This may be regarded as cheating - certainly it feels a little
+        different to write XSLTs that expect tagged inputs to be mixed, and to behave accordingly.
+        Yet since the entire purpose of such XSLT is to <emphasis role="ital">clean up</emphasis>
+        such tagging (i.e. to reduce the use of the uphill carrier format in favor of the hub
+        format), this isn't actually a problem. It's something we can get used to.</para>
+      <para>In such murky worlds, the introduction of ad-hoc validation steps for even intermediate
+        results, is sometimes useful. For example, a Schematron can tell whether an HTML file's
+        headers (h1-h6 elements) are in "regular order", thus susceptible to serving as markers of a
+        regularly-nested div or section structure. (One implementation of a rule enforcing regular
+        order is that each header be either an h1, or not more than one level below the immediately
+        preceding header. So an h4 can directly follow an h5 or h3, but not an h2.) Naturally, much
+        emphasis is placed on assigning and managing values to @class and thereby abstracting
+        semantic categories away from the literal code.</para>
+      <para>Work on validating profiles of HTML is critical to this. Schematron is one option. So is
+        Gerrit Imsieke's Epischema <link
+          xlink:href="https://www.xml.com/articles/2017/04/29/epischemas/"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          >https://www.xml.com/articles/2017/04/29/epischemas/</link>. In any case, when the goal
+        remains clear – both valid and optimal expression in the target language – much remains
+        forgiveable along the way. The relevant principle here is "Validation is in the eye of the
+        beholder".</para>
+      <para>Another consequence of the "murky worlds" is that it becomes possible to implement
+        features such as "passive upconversion". For example, a system that produces JATS from
+        arbitrary HTML can easily be "sensitized" to produce certain JATS elements as soon as their
+        names are found on HTML inputs, assigned via @class. This makes the implementation of
+        mappings from any HTML into these JATS elements, as easy as seeing to it that the
+        appropriate class value is provided in an HTML → HTML transformation – something relatively
+        easy to configure and implement. (Especially using another meta-XSLT.)</para>
+    </note>
+  </section>
+  <section>
+    <title>Higher level logics</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Other_ramps1b.svg"/>
+        </imageobject>
+        <caption>
+          <para>Some approaches to pyramid construction. SVG by Althiphika (CC BY-SA 3.0),
+              <link>https://commons.wikimedia.org/w/index.php?curid=17788820</link>, based on
+              <link>http://www.touregypt.net/featurestories/pyramidlifts.htm</link></para>
+        </caption>
+      </mediaobject>
+    </figure>
+    <itemizedlist>
+      <listitem>
+        <para>Sometimes it turns out if we reverse the order of operations (assumptions), things can
+          be easier</para>
+      </listitem>
+      <listitem>
+        <para>Operative principle is "try it the other way around"</para>
+      </listitem>
+      <listitem>
+        <para>For example, if we have prior knowledge as to document structure, a
+            <quote>pull</quote> can be (much) easier to execute than an induction</para>
+      </listitem>
+      <listitem>
+        <para>HTML early is another example of this</para>
+      </listitem>
+      <listitem>
+        <para>Refactor, break the problem apart and "conquer in detail"</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>The last mile problem</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Esopus_Meadows_Lighthouse_2011.jpg"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>A search on a popular search engine for "last mile problem" yields among other things
+          this photo of the Esopus Meadows Lighthouse (Esopus New York). By John Hirth,
+          CC-BY-SA.</para>
+      </caption>
+    </figure>
+    <para>Of course we are not interested in HTML (even clean) but (say) JATS, TEI or DITA</para>
+    <para>But many problems of going to SADF (<quote>standard average document format</quote> P
+      Flynn) can be addressed in an HTML target, making subsequent conversion easy</para>
+    <para>E.g. header promotion, list induction</para>
+    <para>When this is not the case – we'd have had a problem anyway</para>
+    <para>Can this be scaled up? Perhaps not without process controls up front</para>
+    <para>(When is it better than a screen scrape: tipping point at ca. 30 MS pp?)</para>
+  </section>
+  <section>
+    <title>The case against HTML on the way up hill</title>
+    <figure>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="Cologne2010.jpg"/>
+        </imageobject>
+      </mediaobject>
+      <caption>
+        <para>Balloons over Cologne, 2010. Photo by the author.</para>
+      </caption>
+    </figure>
+    <para>Scaling problem?</para>
+    <itemizedlist>
+      <listitem>
+        <para>XSweet is designed on the assumption that the problem splits into tractable and
+          irreducible aspects</para>
+        <itemizedlist>
+          <listitem>
+            <para>So XSweet addresses tractable problems<itemizedlist>
+                <listitem>
+                  <para>creating clean/vernacular HTML-something from Word</para>
+                </listitem>
+              </itemizedlist></para>
+            <para>While setting irreducible aspects aside<itemizedlist>
+                <listitem>
+                  <para>mapping arbitrary, implicit, local semantics into controlled content objects
+                  </para>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+          <listitem>
+            <para>Is this analysis correct?</para>
+            <para>The flip side is that HTML-first offers a pipeline that is transparent and
+              traceable throughout</para>
+          </listitem>
+        </itemizedlist>
+      </listitem>
+    </itemizedlist>
+    <para>Semantic inadequacy of HTML?</para>
+    <itemizedlist>
+      <listitem>
+        <para>A carrier format can afford to be embarrassed about its syntax and even its semantics,
+          if the job gets done</para>
+        <para>In practice, extending CSS (slightly) has proven to be all that is ever needed</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <bibliography>
+    <title>Some works and demonstrations</title>
+    <bibliomixed>Fechner, Gustav. <emphasis role="ital">Life After Death: A Manual</emphasis>.
+      Translated by Mary C. Wadsworth (1894); edited by Wendell Piez.
+        <link>http://piez.org/wendell/projects/buechlein/</link></bibliomixed>
+    <bibliomixed>Gerrit Imsieke. <emphasis role="ital">Epischema – Schema Constraints That
+        Facilitate Content Completion</emphasis>
+      <link xlink:href="https://www.xml.com/articles/2017/04/29/epischemas/"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        >https://www.xml.com/articles/2017/04/29/epischemas/</link></bibliomixed>
+    <bibliomixed>Haupt, Stefanie, and Maik Stührenberg. “Automatic upconversion using XSLT 2.0 and
+      XProc: A real world example.” Presented at Balisage: The Markup Conference 2010, Montréal,
+      Canada, August 3 - 6, 2010. In Proceedings of Balisage: The Markup Conference 2010. Balisage
+      Series on Markup Technologies, vol. 5 (2010). DOI: <biblioid class="doi"
+        >10.4242/BalisageVol5.Haupt01</biblioid>.</bibliomixed>
+    <bibliomixed>Hyde, Adam. <emphasis role="ital">HTML Typescript – redistributing
+      labor</emphasis>. <link xlink:href="https://www.adamhyde.net/typescript-redistributing-labor/"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        >https://www.adamhyde.net/typescript-redistributing-labor/</link></bibliomixed>
+    <bibliomixed>Piez, Wendell. “Framing the Problem: Building customized editing environments and
+      workflows.“ Presented at Balisage: The Markup Conference 2016, Washington, DC, August 2 - 5,
+      2016. In <emphasis role="ital">Proceedings of Balisage: The Markup Conference 2016</emphasis>.
+      Balisage Series on Markup Technologies, vol. 17 (2016). DOI: <biblioid class="doi"
+        >10.4242/BalisageVol17.Piez01</biblioid>.</bibliomixed>
+    <bibliomixed>Piez, Wendell. (Lead developer.) XSweet. Producing HTML for editorial workflows.
+        <link xlink:href="https://gitlab.coko.foundation/wendell/XSweet"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        >https://gitlab.coko.foundation/wendell/XSweet</link></bibliomixed>
+    <bibliomixed>Scott, Mark. Epigram Microphone, 2017. (NLM BITS format produced via XSweet from
+      Word .docx format. <link>http://www.pausepress.net/EpigramMicrophone</link></bibliomixed>
+    <bibliomixed xml:id="Woodbury1890">Woodbury, Charles. <emphasis role="ital">Talks with
+        Emerson</emphasis>. 1890. Edited by Wendell Piez.
+        <link>http://pausepress.net/TalksWithEmerson.xml</link></bibliomixed>
+  </bibliography>
+     
+</article>

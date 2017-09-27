@@ -6,7 +6,6 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 version="3.0"
-                exclude-result-prefixes="#all"
                 extension-element-prefixes="ixsl"
                 xpath-default-namespace="http://docbook.org/ns/docbook"
                 xmlns:b="http://docbook.org/ns/docbook">
@@ -37,7 +36,7 @@
       </div>
     </xsl:result-document>
     <xsl:result-document href="#xmljellysandwich_body">
-      <xsl:apply-templates/>
+      <xsl:call-template name="front-page"/>
     </xsl:result-document>
     <xsl:result-document href="#xmljellysandwich_css" method="ixsl:replace-content">
       <xsl:call-template name="css"/>
@@ -49,6 +48,16 @@
   </xsl:template>
   
   
+  <xsl:template name="front-page">
+    <div class="front-page">
+      <xsl:for-each select="$doc/article/section">
+        <h4 id="{(@id,generate-id(.))[1]}-link">
+          <xsl:apply-templates select="title" mode="nobrk"/>
+        </h4>
+      </xsl:for-each>
+    </div>
+  </xsl:template>
+  
   <xsl:template mode="nobrk" match="*">
     <xsl:apply-templates select="."/>
   </xsl:template>
@@ -56,14 +65,7 @@
   <xsl:template name="nav">
     <div class="nav">
       <xsl:for-each select="$doc/article/section">
-        <h4 id="{(@id,generate-id(.))[1]}-nav" class="navbutton">
-          <xsl:apply-templates select="title"/>
-        </h4>
-        <xsl:for-each select="$doc/section">
-          <h5 id="{(@id,generate-id(.))[1]}-nav" class="navbutton">&#xA0;&#xA0;&#xA0;
-            <xsl:apply-templates select="title"/>
-          </h5>
-        </xsl:for-each>
+        <h5 id="{(@id,generate-id(.))[1]}-nav" class="navbutton">&#xA0;&#xA0;&#xA0;</h5>
       </xsl:for-each>
     </div>
   </xsl:template>
@@ -110,7 +112,7 @@
     match="id('xmljellysandwich_title') | id('up-button')" xpath-default-namespace="">
     <xsl:call-template name="clear-boxes"/>
     <xsl:result-document href="#xmljellysandwich_body" method="ixsl:replace-content">
-     <!-- <xsl:call-template name="front-page"/>-->
+      <xsl:call-template name="front-page"/>
     </xsl:result-document>
   </xsl:template>
   
@@ -243,19 +245,13 @@
       </p>
    </xsl:template>
 
-  <xsl:template mode="asleep" match="blockquote">
-    <blockquote class="blockquote">
-      <xsl:apply-templates/>
-    </blockquote>
-  </xsl:template>
-  
-  <xsl:template mode="asleep" match="para">
-    <p class="para">
-      <xsl:apply-templates/>
-    </p>
-  </xsl:template>
-  
-  <xsl:template mode="asleep" match="firstname">
+   <xsl:template mode="asleep" match="para">
+      <p class="para">
+         <xsl:apply-templates/>
+      </p>
+   </xsl:template>
+
+   <xsl:template mode="asleep" match="firstname">
       <p class="firstname">
          <xsl:apply-templates/>
       </p>
