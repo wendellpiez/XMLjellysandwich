@@ -277,7 +277,9 @@
 
    <xsl:template name="css">
       <style type="text/css">
-html, body { font-size: 10pt }
+
+div.nav * { margin-top: 1ex; margin-bottom: 0ex }
+div.nav h5 { padding-right: 2em }
 
 .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }
 
@@ -352,13 +354,12 @@ img { max-width: 100% }
 
 .front-page h4 { margin-top: 1em; margin-bottom: 0em; font-size: 80% }
 
-div#xmljellysandwich_body > div { max-width:80%; background-color: white }
+
+div#xmljellysandwich_body > div { max-width:70%; background-color: white }
 div#xmljellysandwich_body > div > *:first-child { margin-top: 0em }
 
 div#xmljellysandwich_footer { margin-top: 2%; font-size: 80%; font-family: sans-serif;
   padding: 0.5em; border: thin solid black; clear: both }
-
-// #xmljellysandwich_directory div.nav { padding-left: 85%; font-size: 60%; margin-top: 1em }
 
 #header-box { padding: 0.5em; background-color: gainsboro; border: thin solid black; width: 80%
   margin-top: 1em; margin-bottom: 1em }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="balisage-proceedings-html.xsl"?>
-<?xml-model href="../../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-stylesheet type="text/css" href="../../../Documents/Balisage/lib/balisage-author.css" title="Forms interface" alternate="no"?>
+<?xml-model href="../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0-subset Balisage-1.3"
   xml:id="Balisage2017Piez01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <title>Interactive web applications demonstrating SaxonJS</title>
@@ -63,56 +63,68 @@
       <title>The web is dead</title>
       <para>I don't actually think the web is dead. However, I think our ideas about what the web
         is, or should be, have changed and in many ways we have been disappointed. Certain hopes
-        regarding the web are dead. At the same time, I think we have barely begun to think about
-        the fullest implications of a worldwide publishing platform that is only too prone to
-        fragmentation and abuse. I think the web has been compromised by a few issues, both economic
-        and architectural-structural:<itemizedlist>
+        regarding the web are dead, while we have barely begun to think about the fullest
+        implications of a worldwide publishing platform that is only too prone to fragmentation and
+        misuse. Yet at the same time, there is nevertheless unrealized potential, if not for the web
+        as a whole (how can we design that which no one has designed) then for us as users of it. I
+        think the web as we know it has been compromised by a few issues, both economic and architectural-structural:<itemizedlist>
           <listitem>
-            <para>The predominant advertising model has offered (some measure of) economic viability
-              (or its promise) at the cost of "noise" in the browser; there is no such thing as a
-              "safe space" on the web. Ironically this means that getting through to an audience is
-              harder than ever (to say nothing of reaching and serving them).</para>
+            <para>The predominant advertising-supported business model has offered (some measure of)
+              economic viability (or its promise) to ventures on the web, at the cost of “noise” in
+              the browser; there is no such thing as a “safe space” on the web. Paradoxically, all
+              the activity makes getting through to an audience harder than ever (to say nothing of
+              reaching and serving them).</para>
           </listitem>
           <listitem>
             <para>This has combined with the way in which the layered architecture (CSS over HTML
-              over data stores), cumbersome though it is, has had the effect of equalizing
-              production values across the economic and institutional spectrum. The New York Times
-              looks like anyone's spoof of the New York Times. Especially when either one is seen
-              through the lens of Facebook.</para>
+              over data stores, with tightly bound Javascript application logic maintained in
+              libraries) – abstracted into the most minimal layers for viability – has had the
+              effect of equalizing production values across the economic and institutional spectrum.
+              The New York Times looks like anyone's spoof of the New York Times (and neither of
+              them actually looks very good). Especially when either one is seen through the lens of
+              Facebook. One result is a collapse in authority.</para>
           </listitem>
           <listitem>
             <para>Consequently, in a flattened world, indexing becomes everything, and page ranking
               (and its equivalents) become surrogates for actual attention. Link counting and page
               hit analysis substitute for contact and responsiveness between parties in
-              communication, "producers" and "consumers" of information. (Even these terms for what
-              used to be thought of as "readers" and "writers" suggest a kind of alienation, in
+              communication, “producers” and “consumers” of information. (Even these terms for what
+              used to be thought of as “readers” and “writers” suggest a kind of alienation, in
               which both of these roles have become commoditized.)</para>
-            <para>Thus as "consumers", bots and crawlers are more important than people (because
+            <para>Thus as “consumers”, bots and crawlers are more important than people (because
               they produce the indexes that are presented to people), who have become objects of
               second-hand interest.</para>
           </listitem>
           <listitem>
-            <para>Enterprises on a common Internet platform tend naturally toward monopoly, each
-              sector being dominated by a single "provider" (more alienated and generalized
+            <para>Markets on a common Internet platform tend naturally toward monopoly, each sector
+              being dominated by a single “provider” (to use more alienated and generalized
               language) with only edges of the market left to others; this is can be true even in
               the quasi-gift economy of Open Source, in which reputation becomes currency, and
-              reputation is achieved by altruism (the gift) or its semblance (which may indeed be no
-              more than network effects - i.e. real benefits, but created by the community not the
-              founder). This is bad for "culture" in the broadest sense.</para>
+              reputation is achieved by altruism (the gift of time and expertise) or its semblance
+              (which may indeed result only from network effects - i.e. real benefits, but created
+              by the community not the innovator). This centralization, of both economic and
+              “imaginative” domains, is arguably bad for “culture” in the broadest sense. (This is a
+              problem with mass media off the Internet as well, but it is especially bad on the
+              web.)</para>
           </listitem>
           <listitem>
-            <para>It seems that (consequently) much information has now retreated again behind pay
-              walls or onto proprietary platforms. "Proprietary platforms" includes social media but
-              also media whose content (think of the restaurant review sites) is essentially
-              produced by its consumers, gratis. It seems that someone always has their finger in
-              the pie.</para>
+            <para>It seems that (accordingly) much information has now retreated again behind pay
+              walls or back onto proprietary platforms. “Proprietary platforms” includes
+              traditionally controlled media (i.e. with formally curtailed access rights); social
+              media; but also media whose content (think of the restaurant review sites) is
+              essentially produced by its consumers, gratis. It seems that someone always has their
+              finger in the pie.</para>
+            <para>What a moment for owning and controlling the format and encoding of your data set
+              – not just the data itself, but for practical purposes, <emphasis>access</emphasis> to
+              it (that which is paradoxically blocked by proprietary stacks).</para>
           </listitem>
           <listitem>
-            <para>Yet paradoxically, open source and even "open information" has shown it can be
-              economically viable – can "pay for itself" – if it is linked organically to some
-              market-driven, remunerative activity. This may (see above) happen only on the edges of
-              an industry. But providers who can both give away / "share", and "own and control"
-              along well-defined lines, may have a shot at viability.</para>
+            <para>Yet (again, paradoxically) open source and even “open information” has also shown
+              it can be economically viable – can “pay for itself” – if it is linked organically to
+              some market-driven, productive (and hence remunerative) activity. This may (see above)
+              happen only on the edges of an industry. But providers who can <emphasis role="ital"
+                >both</emphasis> give away / “share”, and “own and control”, may have a shot at
+              viability.</para>
           </listitem>
         </itemizedlist></para>
       <para>The world is very different from 1997. Has XML in the browser missed its moment? Or
@@ -122,7 +134,7 @@
       <title>The browser has emerged as a platform</title>
       <para>The web subsists / evolves / matures as a capable medium</para>
       <para>Ubiquitous, capable, improving: more standard and stable</para>
-      <para>There must always be a "reductio" ("base") medium to which other media / channels can
+      <para>There must always be a “reductio” (“base”) medium to which other media / channels can
         appeal</para>
       <para>Thus the web remains a way to get stuff in front of people</para>
       <para>(One at a time or within defined communities of interest, if not en masse)</para>
@@ -131,7 +143,7 @@
       <title>Opportunity of the moment</title>
       <para>An XSLT processor capable of arbitrary transforms can be compiled and run under
         Javascript</para>
-      <para>In the case of SaxonJS, the transformations (XSLT) must be compiled up front<itemizedlist>
+      <para>In the case of SaxonJS, the transformations (XSLT 3.0) must be compiled up front<itemizedlist>
           <listitem>
             <para>Saxonica offers this feature under the EE license</para>
           </listitem>
@@ -145,22 +157,23 @@
             <para>Write your XML</para>
           </listitem>
           <listitem>
-            <para>Write your XSLT and compile it (or find one)</para>
+            <para>If necessary, write your XSLT and compile it</para>
           </listitem>
         </itemizedlist>
         <itemizedlist>
           <listitem>
-            <para>Configure a "harness" or host file (HTML) to glue them together</para>
+            <para>Configure a “harness” or host file (HTML) to glue them together</para>
           </listitem>
         </itemizedlist>
         <itemizedlist>
           <listitem>
-            <para>Drop it onto a web server and publish its address</para>
+            <para>Drop all these, plus the Saxon libraries, onto a web server and publish its
+              address</para>
           </listitem>
         </itemizedlist>
       </para>
       <para>(Or – <emphasis role="ital">just open the HTML on the file system</emphasis> – ?!)<note>
-          <para>The question here is whether SaxonJS works without a web browser at all, for example
+          <para>The question here is whether SaxonJS works without a web server at all, for example
             if you simply open a local HTML file with settings for SaxonJS, will it execute
             successfully. The answer is, it will, up to a point.</para>
         </note></para>
@@ -174,39 +187,50 @@
             <para>E.g., already-owners of XML can reuse our same XML and even same
               stylesheets</para>
           </listitem>
+          <listitem>
+            <para>SaxonJS is licensed but your XML, XSLT, compiled SEF and design all belong to
+              you</para>
+          </listitem>
+          <listitem>
+            <para>The only long-term dependency – http server + Javascript-capable browser(s) – is
+              sustainable?</para>
+          </listitem>
         </itemizedlist></para>
-      <para>This creates new possibilities of "information arbitrage" - power of XML at lower
-        cost</para>
-      <para>SaxonJS is licensed but your XML, XSLT, compiled SEF and design all belong to you</para>
-      <para>External dependency on http server + Javascript-capable browser(s) is –
-        sustainable?</para>
+      <para>This creates new kinds of leverage in exploiting the power of XML, and available now,
+        i.e. potentially already helping to capitalize on your earlier investment</para>
+      <para>Might it even motivate new users of XML/XSLT? Why not start benefiting not only from
+        this architecture but from other longer-term demonstrable advantages including long-term
+        stability and reusability?</para>
     </section>
     <section>
       <title>What about the business case</title>
-      <para>It's still difficult to argue for "giving away the semantics".</para>
-      <para>Yet - while XML can expose the source, with SaxonJS we get obfuscation of the
-        processing, for free.</para>
+      <para>It's still difficult to argue for “giving away the semantics”.</para>
+      <para>Yet while XML can expose the source, with SaxonJS we get (some, relative) obfuscation of
+        the processing, for free.</para>
       <para>(Plus, the XML is behind a link - that crawler has to read that. Then too we can still
-        obfuscate the source if we want to.)</para>
-      <para>This places stress on XSLT (compiled into SEF) as (site of) "added value": not the
-        information but its rendition (logic).</para>
-      <para><emphasis>The application as a whole differentiates</emphasis>, not just the
-        data.</para>
-      <para>(In principle, this could make it more difficult to reverse engineer, spoof or even
-        emulate than pre-cooked HTML/CSS.)</para>
+        protect or obfuscate the source if we want to.)</para>
+      <para>This places stress on XSLT (compiled into SEF) as (site of) “added value”: not the
+        information “bare” but also its rendition (logic), what we are making of it.</para>
+      <para><emphasis>The application as a whole differentiates</emphasis>, not just the data. (How
+        can this be better than a nice PDF, for example? Seeing is believing.)</para>
+      <para>Entire new kinds of hypertext and/or dynamic interactions with data are thinkable using
+        templating in XSLT …</para>
+      <para>(And in principle such applications would be more difficult to reverse engineer, spoof
+        or even emulate than pre-cooked HTML/CSS/Javascript.)</para>
     </section>
   </section>
   <section>
     <title>Implications</title>
     <section>
       <title>How it changes design</title>
-      <para>It will be interesting to see whether there is much use of SaxonJS, and where</para>
-      <para>Emphasis goes back to the work as a whole, no longer so much "pages"</para>
+      <para>Design emphasis goes back to the work as a whole, no longer so much “pages”</para>
       <para>Multiple views and access points reflect peculiar semantics of the source data</para>
-      <para>Server doesn't disappear, but just becomes a resource</para>
+      <para>The more peculiar / interesting the source data, the more reward there is for investment
+        in specialized logic</para>
+      <para>The server doesn't disappear, but just becomes a resource</para>
       <para>Question: How about XForms under SaxonJS? (XRX with SaxonJS in front)<note>
-          <para>Answer: it's happening. See O'Neill Delpratt and Debbie Lockett's work (XML London
-            2017).</para>
+          <para>Answer: it's happening. See <citation linkend="DelprattandLocket2017">O'Neill
+              Delpratt and Debbie Lockett's work (XML London 2017)</citation>.</para>
         </note></para>
     </section>
     <section>
@@ -227,8 +251,91 @@
       <para>XML publication becomes its own archive</para>
       <para>Architecture implies entire libraries of support per document type (yes how
         classic)</para>
-      <para>Even when "document set" is singular.</para>
+      <para>Even when “document set” is singular</para>
       <para>(Edit XML in git repo, then render via XSLT/SaxonJS?)</para>
+      <section>
+        <title>An example</title>
+        <para>In the application, we wish the reader to be able to click on any arbitrary span in
+          the text, and the selected span along with all other spans with the same values of @class
+          (i.e. 'class' assignments, note plural) – both in the document and in an associated SVG
+          diagram – should receive highlight or visual emphasis. (See the Irish Airman demo to see
+          it in action)</para>
+        <programlisting>&lt;xsl:template match="span | svg:tspan" mode="ixsl:onclick">
+  &lt;xsl:apply-templates mode="off" select="key('classmates', 'ON')"/>
+  &lt;xsl:apply-templates mode="on"  select="key('classmates', tokenize(@class,'\s+'))"/>
+&lt;/xsl:template>
+
+&lt;xsl:key name="classmates" match="span | svg:tspan" use="tokenize(@class,'\s+')"/>
+
+&lt;xsl:template match="*"                mode="off">
+  &lt;ixsl:set-attribute name="class"
+     select="string-join( (tokenize(@class,'\s+')[not(. eq 'ON')]), ' ')"/>
+&lt;/xsl:template>
+ 
+&lt;xsl:template match="*"                mode="on">
+  &lt;ixsl:set-attribute name="class"
+     select="string-join( (tokenize(@class,'\s+')[not(. eq 'ON')],'ON'), ' ')"/>
+&lt;/xsl:template></programlisting>
+        <para>Possibly noteworthy:<itemizedlist>
+            <listitem>
+              <para>The example shows how the display may be simply “retouched” dynamically with a
+                mouse click on any marked span, by rewriting the “class” attribute using XSLT. No
+                Javascript either to address (isolate) the elements we need, or to modify
+                them.</para>
+            </listitem>
+            <listitem>
+              <para>The first template matches both <code>span</code> in no namespace, or
+                  <code>tspan</code> in SVG. In no namespace, the <code>span</code> will be in the
+                HTML DOM (as rendered in the browser by SaxonJS). Accordingly, any span displayed in
+                the browser, when clicked, will match this template – the template matches when a
+                user clicks on a span element, with that same element as its context.</para>
+              <para>It is important to keep in mind that this template will be applicable not to
+                elements in the original source document of the transformation, but to elements in
+                display, which is to say (in most cases) in the <emphasis>result</emphasis> of an
+                XSLT transform. (Nowhere in the source document for Irish Airman is a
+                  <code>span</code> element to be found, for example). Yet SaxonJS, as a generalized
+                tree transformation engine, can bind and process its data just as it can any other
+                tree it can address. In addition to mode <code>ixsl:onclick</code>, Saxon has modes
+                providing bindings to any number of different kinds of events in the browser
+                including mouse movements, hover behaviors (“mouse over“) and the rest.</para>
+            </listitem>
+            <listitem>
+              <para>When invoked, this template does two things: it turns all spans in the document
+                off (by applying templates to them), and it turns selected spans on (similarly).
+                “Turning the element on” (or off) takes the form of adding, or removing, the value
+                “ON” from its class attribute. Since the “on” template comes second, it will take
+                effect on any spans selected both times – that is, it is possible for a span to go
+                “off” with the first apply-templates instruction, then “on” again with the
+                second.</para>
+              <para>The key matches all spans and tspans according to their various
+                  <code>@class</code> values. Note especially that the set of elements returned by
+                the key for the value “ON” will change, as this value is added or removed. In other
+                words, as the HTML document is dynamic, so also are the keys that Saxon keeps to
+                index into it.</para>
+            </listitem>
+            <listitem>
+              <para>Matching any element in the “on” mode, we use a Saxon extension to add “ON” to
+                its set of <code>@class</code> (“class” attribute) values. That is, any element
+                matching the key (having a matching 'class' value) will be turned on, when a span
+                with any class is clicked (resulting in calls to this template).</para>
+              <para>This is many-to-many. Spans that have many classes, will (when clicked) turn on
+                (rewriting an HTML attribute value) all elements of any of the same classes.</para>
+              <para>CSS does the rest: elements that have class “ON” can be matched and highlighted
+                in some way. </para>
+              <para>The consequence is that the document's spans become “aware” of one another, as
+                seen in the “Irish Airman” example, where (as noted) this behavior is used to
+                provide for the indexing of rhymes and assonances.</para>
+              <para>While such interactivity could also be programmed in one or two lines of
+                JQuery*, the point here is not the terseness of the notation: it is that
+                event-driven DOM operations are conducted using XSLT idioms over an XPath (XDM-like)
+                data model.</para>
+              <note>
+                <para>* Well, except for the SVG part. This works seamlessly with SVG while
+                  (unextended) JQuery does not.</para>
+              </note>
+            </listitem>
+          </itemizedlist></para>
+      </section>
     </section>
     <section>
       <title>What kinds of data, again?</title>
@@ -236,12 +343,16 @@
       <para>Standards, reference catalogs and authority files</para>
       <para>Educational or not-for-profit publication</para>
       <para>Public domain, government and open data sets</para>
-      <para>(Not Linked Open Data so much as SANDs - "Small Arcane Non-trivial Datasets" cf Josh
-        Lubell 2014)</para>
+      <para>Not Linked Open Data so much as SANDs<itemizedlist>
+          <listitem>
+            <para>“Small Arcane Non-trivial Datasets” cf <citation linkend="Lubell2014">Josh Lubell
+                2014</citation></para>
+          </listitem>
+        </itemizedlist></para>
     </section>
     <section>
       <title>Half-empty part</title>
-      <para>Architecture is still a bit opaque and cumbersome<itemizedlist>
+      <para>Architecture is still somewhat opaque and cumbersome<itemizedlist>
           <listitem>
             <para>Um but compared to what?</para>
           </listitem>
@@ -249,22 +360,23 @@
             <para>Maybe we can help with that</para>
           </listitem>
         </itemizedlist></para>
-      <para>XSLT is its heart and soul, not something you can avoid</para>
+      <para>You have to have friendly feelings toward XSLT (don't you?)</para>
       <para>Development and debugging</para>
     </section>
     <section>
       <title>Getting started kit</title>
       <para>See <link>github.com/wendellpiez/XMLjellysandwich</link></para>
-      <para>Set of stylesheets can produce:</para>
+      <para>A set of stylesheets that can produce (from XML source):</para>
       <itemizedlist>
         <listitem>
-          <para>"host" HTML landing page with syntax and callouts</para>
+          <para>A “host” HTML landing page with syntax and callouts</para>
         </listitem>
         <listitem>
-          <para>"starter" XSLT with templates</para>
+          <para>A “starter” XSLT with templates (“asleep”) matching elements in the source
+            XML</para>
         </listitem>
         <listitem>
-          <para>normalized-as-standalone XML document copy</para>
+          <para>A normalized-as-standalone XML document copy</para>
         </listitem>
       </itemizedlist>
     </section>
@@ -278,7 +390,7 @@
           <para>Now we can better contemplate learning XSLT from the inside out</para>
         </listitem>
         <listitem>
-          <para>New forms of "meaningful learning application" should become possible</para>
+          <para>New forms of “meaningful learning application” should become possible</para>
         </listitem>
       </itemizedlist>
     </section>
@@ -290,7 +402,7 @@
         <para>Links to demonstrations are now given at <link
             xlink:href="https://wendellpiez.github.io/XMLjellysandwich/"
             xmlns:xlink="http://www.w3.org/1999/xlink"/>, where you can also find a Git repo
-          containing all the code.</para>
+          containing all the code you need (oXygen XML Developer or Editor is recommended).</para>
       </listitem>
     </itemizedlist>
   </section>
@@ -301,20 +413,26 @@
         role="ital">Proceedings of Balisage: The Markup Conference 2013</emphasis>. Balisage Series
       on Markup Technologies, vol. 10 (2013). DOI: <biblioid class="doi"
         >10.4242/BalisageVol10.Delpratt01</biblioid>.</bibliomixed>
-    <bibliomixed>Delpratt, O'Neil, and Debbie Lockett. “Distributing XSLT Processing between Client
-      and Server.” Presented at XML London 2017 (<link
+    <bibliomixed xml:id="DelprattandLocket2017" xreflabel="Delpratt and Lockett 2017">Delpratt,
+      O'Neil, and Debbie Lockett. “Distributing XSLT Processing between Client and Server.”
+      Presented at XML London 2017 (<link
         xlink:href="http://xmllondon.com/2017/xmllondon-2017-proceedings.pdf"
         xmlns:xlink="http://www.w3.org/1999/xlink"/>) </bibliomixed>
     <bibliomixed>Lockett, Debbie, and Michael Kay. “Saxon-JS: XSLT 3.0 in the Browser.” Presented at
       Balisage: The Markup Conference 2016, Washington, DC, August 2 - 5, 2016. In <emphasis
         role="ital">Proceedings of Balisage: The Markup Conference 2016</emphasis>. Balisage Series
-      on Markup Technologies, vol. 17 (2016). DOI: <biblioid class="doi"
+      on Markup Technologies, vol. 17 (2016). doi: <biblioid class="doi"
         >10.4242/BalisageVol17.Lockett01</biblioid>.</bibliomixed>
-    <bibliomixed>Lubell, Joshua. “XForms User Interfaces for Small Arcane Nontrivial Datasets.”
-      Presented at Balisage: The Markup Conference 2014, Washington, DC, August 5 - 8, 2014. In
-        <emphasis role="ital">Proceedings of Balisage: The Markup Conference 2014</emphasis>.
-      Balisage Series on Markup Technologies, vol. 13 (2014). DOI: <biblioid class="doi"
-        >10.4242/BalisageVol13.Lubell01</biblioid>.</bibliomixed>
+    <bibliomixed xml:id="Lubell2014" xreflabel="Lubell 2017">Lubell, Joshua. “XForms User Interfaces
+      for Small Arcane Nontrivial Datasets.” Presented at Balisage: The Markup Conference 2014,
+      Washington, DC, August 5 - 8, 2014. In <emphasis role="ital">Proceedings of Balisage: The
+        Markup Conference 2014</emphasis>. Balisage Series on Markup Technologies, vol. 13 (2014).
+      doi: <biblioid class="doi">10.4242/BalisageVol13.Lubell01</biblioid>.</bibliomixed>
+    <bibliomixed>Lumley, John, Debbie Lockett and Michael Kay. “Compiling XSLT3, in the browser, in
+      itself.” Presented at Balisage: The Markup Conference 2017, Washington, DC, August 1 - 4,
+      2017. In <emphasis role="ital">Proceedings of Balisage: The Markup Conference 2017</emphasis>.
+      Balisage Series on Markup Technologies, vol. 19 (2017). doi: <biblioid class="doi"
+        >10.4242/BalisageVol19.Lumley01</biblioid>.</bibliomixed>
     <bibliomixed>Frameless XSLT processor. <link>http://frameless.io/xslt/</link></bibliomixed>
     <bibliomixed>Piez, Wendell. TEI Overlap Demonstration. (Saxon-CE demo in the browser.) See <link
        >http://www.piez.org/wendell/projects/Interedition2011/</link></bibliomixed>

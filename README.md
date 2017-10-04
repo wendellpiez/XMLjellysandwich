@@ -8,6 +8,8 @@ To use: try any of the XSLT stylesheets on your XML.
 
 To see examples: http://wendellpiez.github.io/XMLjellysandwich
 
+SaxonJS is documented here: http://www.saxonica.com/saxon-js/documentation/index.html
+
 ## To set up and run
 
 You have XML and you wish to style it in the browser with XSLT.
@@ -37,24 +39,39 @@ Produce and adjust your HTML 'hosting' file, either by hand (copy/alter) or by u
 It has a few control points:
 
 - There should be a `script[@src='lib/saxon/SaxonJS.min.js']`, or equivalent. The named Javascript file must be in the location mentioned
- 
+
+```
+<script type="text/javascript"
+        src="../lib/saxon/SaxonJS.min.js"><!-- cosmetic comment --></script>
+```
+
 - Within a second `script` element there are settings for your source XML and your SEF (compiled XSLT) some as follows:
- 
+
+
 ```
-sourceLocation:     "{$resource_filename}",
-stylesheetLocation: "{$transform_href}",
-initialTemplate:    "xmljellysandwich_pack"
+<script>
+    window.onload = function() {
+    SaxonJS.transform({
+        sourceLocation:     "{$resource_filename}",
+        stylesheetLocation: "{$transform_href}",
+        initialTemplate:    "xmljellysandwich_pack"
+    });
+    }     
+</script>
 ```
 
-`sourceLocation` should name the XML file you plan to deliver. `stylesheetLocation` should name your SEF. `xmljellysandwich_pack` identifies the entry point for the stylesheet (this names a template appearing in XSLTs produced by the starter-maker). Adjust as necessary for your XSLT. You are done with the host file. (You can come back.)
 
-See examples of hosting pages in any of the projects in `docs`.
+`$resource_filename` should name the XML file you plan to deliver. `transform_href` should point to your your SEF. `xmljellysandwich_pack` identifies the entry point for the stylesheet (this names a template appearing in XSLTs produced by the starter-maker, but your XSLT could offer its own entry points). Adjust as necessary for your XSLT. You are done with the host file. (You can come back.)
+
+These and many other runtime options for SaxonJS are documented at http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform.
+
+See examples of hosting pages in any of the projects in `docs`. A hosting file can be named `index.html` if you like.
 
 #### XSLT compiled into SEF
 
-You may already have XSLT that is capable of performing the necessary transformations on the XML to render and present it in the browser. Or you may write it yourself. (Or you can produce a functional "starter" XSLT using the utility as described below.)
+You may already have XSLT that is capable of performing the necessary transformations on the XML to render and present it in the browser. (Presumably it specifies a tranformation from an XML language or dialect, into HTML/CSS or perhaps SVG/CSS; in any case its target notation is browser-digestible.) Or you may write this yourself. Or you can produce a functional "starter" XSLT using the utility as described below, getting something "good enough to improve" without having to start from scratch.
 
-In any case, you will need to compile it for SaxonJS or have it compiled, into Saxon's SEF notation (an XML application that configures an XSLT runtime.) You will need a licensed copy of Saxon or of a toolkit that contains it (such as oXygen XMl Editor/Developer) to do this.
+In any case, you will need to compile the XSLT for SaxonJS or have it compiled, into Saxon's SEF notation (an XML application that configures an XSLT runtime.) You will need a licensed copy of Saxon or of a toolkit that contains it (such as oXygen XMl Editor/Developer) to do this.
 
 Again, all the projects in `docs` have XSLT files (at various stages of finish, with apologies) along with SEF files produced from them (for SaxonJS to deliver).
 
@@ -62,10 +79,15 @@ Again, all the projects in `docs` have XSLT files (at various stages of finish, 
 
 Optionally, produce a normalized standalone XML file to share as source data.
 
+Note that the demonstrations show different kinds of source data. The Balisage examples are in a flavor of Docbook. The JATSCon example uses JATS. The Irish Airman example uses a bespoke homemade XML just for this little project. Other examples have their own markup formats including BITS (JATS for books) and TEI.
+
 ### Give it a run
 
-If all resources are copied to a web site and links configured in the host file, are resolving correctly, SaxonJS should do the rest. Point your browser to your host file on the web site. This works on a local host or on the open web. After a client has a copy of the Javascript processor, it doesn't need a second. Transformation time, of course, depends on your XML and what the XSLT is being asked to do with it.
+Point your browser to your host file on the web site.
+ 
+If all resources are copied to a web site and links configured in the host file, are resolving correctly, SaxonJS should do the rest. This works on a local host or on the open web. After a client has a copy of the Javascript processor, it doesn't need a second copy (i.e. the library can be cached). Transformation time, of course, depends on your XML and what the XSLT is being asked to do with it.
 
+Of particular interest to developers is not only that this is end-to-end XML pipelining in the client, but also how the user interface in the displayed page (HTML/SVG) are now programmable with XSLT.
 
 ## XML Jelly Sandwich Components
 
@@ -97,7 +119,7 @@ stylesheetLocation: "XYZTransformation.sef",
 
 The parameter `$resource_filename` should similarly designate the XML file you wish to be called in. This can be either your source XML (which will be named by default) or another name: if for example you have a normalized standalone version, you can name that file as your XML source file.
 
-If all the glue is stuck on right, things will "just work".
+As soon as you have the pieces aligned and glued together correctly, they will "just work". A host file can be complex, and can offer multiple locations where contents may be acquired dynamically (that is, written and rewritten by the transformation engine).
 
 See SaxonJS docs for more help on the HTML host file and how to populate it dynamically from XSLT: http://www.saxonica.com/saxon-js/documentation/
 

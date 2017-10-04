@@ -1,14 +1,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-     <title>Interactive web applications demonstrating SaxonJS</title>
+      <title>Uphill to XML with XSLT, XProc … and HTML</title>
       <meta charset="utf-8"/>
       <style type="text/css" id="xmljellysandwich_css"><!-- Include your CSS here ... or target #xmljellysandwich_css from your XSLT ... --></style>
       <script type="text/javascript"
+              language="javascript"
               src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
       <script>
           window.onload = function() {
           SaxonJS.transform({
-            sourceLocation:     "SaxonJS-JellySandwich-paper.xml",
+            sourceLocation:     "Uphill-withHTML-paper.xml",
             stylesheetLocation: "balisage-in-browser.sef",
             initialTemplate:    "xmljellysandwich_pack"
           });
@@ -17,21 +18,24 @@
    </head>
    <body>
      
-     <div id="navbar" style="position: fixed; top:3em; right: 5px; text-align: right">
+     <div id="navbar" style="position: fixed; top:5px; right: 5px; text-align: right">
+       <button id="back-button">back</button>
+       <button id="up-button">top</button>
+       <button id="advance-button">next</button>
        
        <br class="br"/>
          <div id="xmljellysandwich_directory"><!-- target with
       <xsl:result-document href="#xmljellysandwich_directory"> .... </xsl:result-document>
     --></div>
        
-       <p><a href="SaxonJS-JellySandwich.xml">Balisage XML Source</a></p>
+       <p><a href="Uphill-withHTML.xml">Balisage XML Source</a></p>
        <!--<p><a href="jatscon-slides.xsl">jatscon-slides.xsl</a></p>-->
      </div>
      
       <div id="xmljellysandwich_header">
-         <h1 id="xmljellysandwich_title"><!-- target with
-      <xsl:result-document href="#xmljellysandwich_title"> .... </xsl:result-document>
-    --></h1>
+         <h1 id="xmljellysandwich_title">Uphill to XML with XSLT, XProc … and HTML</h1>
+        <h2>Wendell Piez · Balisage 2017 · Rockville Maryland</h2> <!-- target with
+      <xsl:result-document href="#xmljellysandwich_title"> .... </xsl:result-document> -->
       </div>
       
       <div id="xmljellysandwich_body"><!-- target with

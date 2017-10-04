@@ -763,11 +763,14 @@
         <para>Of course we are not interested in HTML (even clean) but (say) JATS, TEI or
           DITA</para>
         <para>But many problems of going to SADF (<quote>standard average document format</quote> P
-          Flynn) can be addressed in an HTML target, making subsequent conversion easy</para>
+          Flynn) can be addressed in an HTML target</para>
+        <para>This has the effect of "sifting", exposing the requirements that are not so easily
+          addressed (and would hinder in any case possibly prohibitively)</para>
         <para>E.g. header promotion, list induction</para>
-        <para>When this is not the case – we'd have had a problem anyway</para>
-        <para>Can this be scaled up? Perhaps not without process controls up front</para>
-        <para>(When is it better than a screen scrape: tipping point at ca. 30 MS pp?)</para>
+        <para>However, workflow-appropriate solutions are possible even for these!</para>
+        <para>Can conversions be scaled up? Perhaps not without process controls up front</para>
+        <para>(When is it better than a screen scrape: tipping point is at only a very few MS pp, 10
+          or less?)</para>
       </blockquote>
     </section>
     <section>
@@ -838,10 +841,10 @@
       2016. In <emphasis role="ital">Proceedings of Balisage: The Markup Conference 2016</emphasis>.
       Balisage Series on Markup Technologies, vol. 17 (2016). DOI: <biblioid class="doi"
         >10.4242/BalisageVol17.Piez01</biblioid>.</bibliomixed>
-    <bibliomixed>Piez, Wendell. (Lead developer.) XSweet. Producing HTML for editorial workflows.
-        <link xlink:href="https://gitlab.coko.foundation/wendell/XSweet"
+    <bibliomixed>Hyde, Adam, Wendell Piez and Alex Theg. XSweet. Producing HTML for editorial
+      workflows. <link xlink:href="https://gitlab.coko.foundation/wendell/XSweet"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        >https://gitlab.coko.foundation/wendell/XSweet</link></bibliomixed>
+        >https://gitlab.coko.foundation/XSweet/XSweet</link></bibliomixed>
     <bibliomixed>Scott, Mark. Epigram Microphone, 2017. (NLM BITS format produced via XSweet from
       Word .docx format. <link>http://www.pausepress.net/EpigramMicrophone</link></bibliomixed>
     <bibliomixed xml:id="Woodbury1890">Woodbury, Charles. <emphasis role="ital">Talks with
