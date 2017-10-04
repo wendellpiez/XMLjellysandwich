@@ -223,11 +223,20 @@
     <title>Implications</title>
     <section>
       <title>How it changes design</title>
-      <para>Design emphasis goes back to the work as a whole, no longer so much “pages”</para>
-      <para>Multiple views and access points reflect peculiar semantics of the source data</para>
+      <para>Design emphasis goes back to the work as a whole, no longer so much “pages”<itemizedlist>
+          <listitem>
+            <para>So, the resource, site or work, not so much the view</para>
+          </listitem>
+          <listitem>
+            <para>Inter-resource linking is now robust, rich and inexpensive</para>
+            <para>(No longer limited, expensive and prone to break)</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>Multiple views and access points now can reflect peculiar semantics of the source
+        data</para>
       <para>The more peculiar / interesting the source data, the more reward there is for investment
         in specialized logic</para>
-      <para>The server doesn't disappear, but just becomes a resource</para>
+      <para>The server doesn't disappear, but just becomes a resource among others</para>
       <para>Question: How about XForms under SaxonJS? (XRX with SaxonJS in front)<note>
           <para>Answer: it's happening. See <citation linkend="DelprattandLocket2017">O'Neill
               Delpratt and Debbie Lockett's work (XML London 2017)</citation>.</para>
@@ -252,7 +261,7 @@
       <para>Architecture implies entire libraries of support per document type (yes how
         classic)</para>
       <para>Even when “document set” is singular</para>
-      <para>(Edit XML in git repo, then render via XSLT/SaxonJS?)</para>
+      <para>(Edit XML in git repo, then render via XSLT/SaxonJS calling public libraries?)</para>
       <section>
         <title>An example</title>
         <para>In the application, we wish the reader to be able to click on any arbitrary span in
@@ -436,10 +445,11 @@
     <bibliomixed>Frameless XSLT processor. <link>http://frameless.io/xslt/</link></bibliomixed>
     <bibliomixed>Piez, Wendell. TEI Overlap Demonstration. (Saxon-CE demo in the browser.) See <link
        >http://www.piez.org/wendell/projects/Interedition2011/</link></bibliomixed>
-    <bibliomixed>Piez, Wendell. XML Jigsaw. Project on Github at <link
+    <bibliomixed>Piez, Wendell. XML Jelly Sandwich. Project on Github at <link
         xlink:href="https://github.com/wendellpiez/XMLJigsaw"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-      >https://github.com/wendellpiez/XMLJigsaw</link>.</bibliomixed>
+        >https://github.com/wendellpiez/XMLjellysandwich</link> with demonstrations at
+        <link>https://wendellpiez.github.io/XMLjellysandwich</link>.</bibliomixed>
     <bibliomixed>SaxonJS Documentation. From Saxonica. <link
         xlink:href="http://www.saxonica.com/saxon-js/documentation/"
         xmlns:xlink="http://www.w3.org/1999/xlink"

@@ -78,11 +78,17 @@
   </xsl:template>
   
   <xsl:template mode="ixsl:onclick"
-    match="div[xjs:has-class(.,'front-page')]/h4 | div[xjs:has-class(.,'nav')]/h5" xpath-default-namespace="">
-    <xsl:variable name="sec-id" select="replace(@id,'-link$','')"/>
+    match="div[xjs:has-class(.,'nav')]/h4" xpath-default-namespace="">
+    <xsl:variable name="sec-id" select="replace(@id,'-nav$','')"/>
     
-    <xsl:apply-templates select="key('sec-by-id',$sec-id,$doc)" mode="open"/>
+    <xsl:apply-templates select="id($sec-id)/div[xjs:has-class(.,'section')]" mode="shut"/>
+  </xsl:template>
+
+  <xsl:template mode="ixsl:onclick"
+    match="div[xjs:has-class(.,'nav')]/h5" xpath-default-namespace="">
+    <xsl:variable name="sec-id" select="replace(@id,'-nav$','')"/>
     
+    <xsl:apply-templates select="id($sec-id)" mode="open"/>
   </xsl:template>
   
   <xsl:template mode="ixsl:onclick"
@@ -122,158 +128,21 @@
     </div>
   </xsl:template>
 
-
-
-
-   <xsl:template mode="asleep" match="article">
-      <div class="article">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="info">
-      <div class="info">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="abstract">
-      <div class="abstract">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="author">
-      <div class="author">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="personname">
-      <div class="personname">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="personblurb">
-      <div class="personblurb">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="section">
-      <div class="section">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="itemizedlist">
-      <div class="itemizedlist">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="listitem">
-      <div class="listitem">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="variablelist">
-      <div class="variablelist">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="varlistentry">
-      <div class="varlistentry">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="bibliography">
-      <div class="bibliography">
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="title">
-      <p class="title">
-         <xsl:apply-templates/>
-      </p>
-   </xsl:template>
-
+  <xsl:template match="section | appendix">
+    <div class="{local-name()}{ if (empty(section)) then ' shut' else '' }">
+      <xsl:call-template name="attach-id"/>
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+  
+  
   <xsl:template match="blockquote">
     <blockquote class="blockquote">
       <xsl:apply-templates/>
     </blockquote>
   </xsl:template>
   
-  <xsl:template mode="asleep" match="para">
-    <p class="para">
-      <xsl:apply-templates/>
-    </p>
-  </xsl:template>
   
-  <xsl:template mode="asleep" match="firstname">
-      <p class="firstname">
-         <xsl:apply-templates/>
-      </p>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="surname">
-      <p class="surname">
-         <xsl:apply-templates/>
-      </p>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="term">
-      <p class="term">
-         <xsl:apply-templates/>
-      </p>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="bibliomixed">
-      <p class="bibliomixed">
-         <xsl:apply-templates/>
-      </p>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="emphasis">
-      <span class="emphasis">
-         <xsl:apply-templates/>
-      </span>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="code">
-      <span class="code">
-         <xsl:apply-templates/>
-      </span>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="citation">
-      <span class="citation">
-         <xsl:apply-templates/>
-      </span>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="link">
-      <span class="link">
-         <xsl:apply-templates/>
-      </span>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="quote">
-      <span class="quote">
-         <xsl:apply-templates/>
-      </span>
-   </xsl:template>
-
-   <xsl:template mode="asleep" match="biblioid">
-      <span class="biblioid">
-         <xsl:apply-templates/>
-      </span>
-   </xsl:template>
 
    <xsl:template name="css">
       <style type="text/css">
@@ -364,6 +233,9 @@ div#xmljellysandwich_footer { margin-top: 2%; font-size: 80%; font-family: sans-
 #header-box { padding: 0.5em; background-color: gainsboro; border: thin solid black; width: 80%
   margin-top: 1em; margin-bottom: 1em }
 #header-box * { margin: 0em }
+
+.shut > * { display: none }
+.shut > .title { display: block }
 
 li p { margin-top: 0.5em; margin-bottom: 0em }
 
