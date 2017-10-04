@@ -18,9 +18,7 @@
   <xsl:key name="sec-by-id" match="section" use="(@id,generate-id(.))[1]"/>
   
   
-  
   <xsl:template match="/">
-    <!-- Target page components by assigning transformation results to them via their IDs in the host page. -->
     <xsl:apply-templates/>
   </xsl:template>
 
@@ -52,6 +50,9 @@
   <xsl:template mode="nobrk" match="*">
     <xsl:apply-templates select="."/>
   </xsl:template>
+  
+  
+  <xsl:template name="toc"/>
   
   <xsl:template name="nav">
     <div class="nav">

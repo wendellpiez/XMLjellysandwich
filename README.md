@@ -1,24 +1,36 @@
-# XMLjellysandwich aka "XML Jelly Sandwich"
+# XML Jelly Sandwich
 
 Starter kit for client-side XSLT using SaxonJS
 
-(Might have named it XSLT jumpstart except for the book of that title, which looks commendable!)
+(Might have named it XSLT jumpstart except for the book of that title, which looks commendable, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, nutritious enough, and portable.)
 
 To use: try any of the XSLT stylesheets on your XML.
 
-## Setup and run
+To see examples: http://wendellpiez.github.io/XMLjellysandwich
+
+## To set up and run
 
 You have XML and you wish to style it in the browser with XSLT.
 
-### Initial (web setup)
+### Initial (web site/server) setup
 
 As described in Saxonica docs, copy the SaxonJS libraries into a `/lib/saxon` subdirectory on your web server. (Or some other subdirectory.) Here is the v1.0 download: http://www.saxonica.com/saxon-js/download/Saxon-JS-1.0.0.zip.
 
-Copy the `.htaccess` file to your web server or otherwise configure it to serve up SEF as XML.
+Just in case, copy the `.htaccess` file to your web server or otherwise configure it to serve up SEF as XML.
 
 (Cf http://www.saxonica.com/saxon-js/documentation/#!starting/export)
 
-### For the XML
+### Runtime resources
+
+You have XML or know how to produce it. And you've copied the libraries.
+
+Once you have XML, making it available via SaxonJS entails:
+
+* A harness or "host" file (landing page) where a browser can find what it needs
+* XSLT written to process your XML, compiled into SEF
+* Your XML source data (this file or a syntax-normalized copy
+
+#### 'hosting' (HTML) page
 
 Produce and adjust your HTML 'hosting' file, either by hand (copy/alter) or by using the XSLT as described below. Adjust it to match your settings.
 
@@ -36,16 +48,26 @@ initialTemplate:    "xmljellysandwich_pack"
 
 `sourceLocation` should name the XML file you plan to deliver. `stylesheetLocation` should name your SEF. `xmljellysandwich_pack` identifies the entry point for the stylesheet (this names a template appearing in XSLTs produced by the starter-maker). Adjust as necessary for your XSLT. You are done with the host file. (You can come back.)
 
-Next, produce and adjust your XSLT as described below, or develop your own. Compile it using SaxonEE into SEF format.
+See examples of hosting pages in any of the projects in `docs`.
+
+#### XSLT compiled into SEF
+
+You may already have XSLT that is capable of performing the necessary transformations on the XML to render and present it in the browser. Or you may write it yourself. (Or you can produce a functional "starter" XSLT using the utility as described below.)
+
+In any case, you will need to compile it for SaxonJS or have it compiled, into Saxon's SEF notation (an XML application that configures an XSLT runtime.) You will need a licensed copy of Saxon or of a toolkit that contains it (such as oXygen XMl Editor/Developer) to do this.
+
+Again, all the projects in `docs` have XSLT files (at various stages of finish, with apologies) along with SEF files produced from them (for SaxonJS to deliver).
+
+##### XML source data
 
 Optionally, produce a normalized standalone XML file to share as source data.
 
-Copy the host file, 'resource' XML file, and compiled stylesheet (SEF) to your web site.
+### Give it a run
 
-Point your browser to your host file on the web site and let SaxonJS do the rest.
+If all resources are copied to a web site and links configured in the host file, are resolving correctly, SaxonJS should do the rest. Point your browser to your host file on the web site. This works on a local host or on the open web. After a client has a copy of the Javascript processor, it doesn't need a second. Transformation time, of course, depends on your XML and what the XSLT is being asked to do with it.
 
 
-## Components
+## XML Jelly Sandwich Components
 
 ### Starter XSLT maker
 

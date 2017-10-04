@@ -6,5 +6,6 @@
     </meta>
     <projectTree name="JellySandwich-site.xpr">
         <folder path="."/>
+        <folder path="../../public_html/"/>
     </projectTree>
 </project>

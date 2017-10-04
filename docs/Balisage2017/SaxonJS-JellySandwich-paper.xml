@@ -39,588 +39,261 @@
         >see Github.io</link> or link above.</para>
   </note>
   <section>
-    <title>Old promise, new realization</title>
-    <para>XSLT was originally designed with client-side processing in mind</para>
-    <para>This never (quite) happened or did it? with XSLT 1.0<itemizedlist>
-        <listitem>
-          <para>Yes, you can (sorta) get it to work ...</para>
-        </listitem>
-      </itemizedlist></para>
-    <para>Impediments to this effort<itemizedlist>
-        <listitem>
-          <para>No API or runtime interface to XSLT execution</para>
-        </listitem>
-        <listitem>
-          <para>Considerable limitations of XSLT 1.0</para>
-        </listitem>
-      </itemizedlist></para>
-    <para>At long last, Saxonica offers a solution that addresses both problems</para>
-    <para>Background / context / problem: (lack of) business case for exposing XML (what?)</para>
+    <title>Context</title>
+    <section>
+      <title>Old promise, new realization</title>
+      <para>XSLT was originally designed with client-side processing in mind</para>
+      <para>This never (quite) happened or did it? with XSLT 1.0<itemizedlist>
+          <listitem>
+            <para>Yes, you can (sorta) get it to work ...</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>Impediments to this effort<itemizedlist>
+          <listitem>
+            <para>No API or runtime interface to XSLT execution</para>
+          </listitem>
+          <listitem>
+            <para>Considerable limitations of XSLT 1.0</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>At long last, Saxonica offers a solution that addresses both problems</para>
+      <para>Background / context / problem: (lack of) business case for exposing XML (what?)</para>
+    </section>
+    <section>
+      <title>The web is dead</title>
+      <para>I don't actually think the web is dead. However, I think our ideas about what the web
+        is, or should be, have changed and in many ways we have been disappointed. Certain hopes
+        regarding the web are dead. At the same time, I think we have barely begun to think about
+        the fullest implications of a worldwide publishing platform that is only too prone to
+        fragmentation and abuse. I think the web has been compromised by a few issues, both economic
+        and architectural-structural:<itemizedlist>
+          <listitem>
+            <para>The predominant advertising model has offered (some measure of) economic viability
+              (or its promise) at the cost of "noise" in the browser; there is no such thing as a
+              "safe space" on the web. Ironically this means that getting through to an audience is
+              harder than ever (to say nothing of reaching and serving them).</para>
+          </listitem>
+          <listitem>
+            <para>This has combined with the way in which the layered architecture (CSS over HTML
+              over data stores), cumbersome though it is, has had the effect of equalizing
+              production values across the economic and institutional spectrum. The New York Times
+              looks like anyone's spoof of the New York Times. Especially when either one is seen
+              through the lens of Facebook.</para>
+          </listitem>
+          <listitem>
+            <para>Consequently, in a flattened world, indexing becomes everything, and page ranking
+              (and its equivalents) become surrogates for actual attention. Link counting and page
+              hit analysis substitute for contact and responsiveness between parties in
+              communication, "producers" and "consumers" of information. (Even these terms for what
+              used to be thought of as "readers" and "writers" suggest a kind of alienation, in
+              which both of these roles have become commoditized.)</para>
+            <para>Thus as "consumers", bots and crawlers are more important than people (because
+              they produce the indexes that are presented to people), who have become objects of
+              second-hand interest.</para>
+          </listitem>
+          <listitem>
+            <para>Enterprises on a common Internet platform tend naturally toward monopoly, each
+              sector being dominated by a single "provider" (more alienated and generalized
+              language) with only edges of the market left to others; this is can be true even in
+              the quasi-gift economy of Open Source, in which reputation becomes currency, and
+              reputation is achieved by altruism (the gift) or its semblance (which may indeed be no
+              more than network effects - i.e. real benefits, but created by the community not the
+              founder). This is bad for "culture" in the broadest sense.</para>
+          </listitem>
+          <listitem>
+            <para>It seems that (consequently) much information has now retreated again behind pay
+              walls or onto proprietary platforms. "Proprietary platforms" includes social media but
+              also media whose content (think of the restaurant review sites) is essentially
+              produced by its consumers, gratis. It seems that someone always has their finger in
+              the pie.</para>
+          </listitem>
+          <listitem>
+            <para>Yet paradoxically, open source and even "open information" has shown it can be
+              economically viable – can "pay for itself" – if it is linked organically to some
+              market-driven, remunerative activity. This may (see above) happen only on the edges of
+              an industry. But providers who can both give away / "share", and "own and control"
+              along well-defined lines, may have a shot at viability.</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>The world is very different from 1997. Has XML in the browser missed its moment? Or
+        maybe is it just arriving?</para>
+    </section>
+    <section>
+      <title>The browser has emerged as a platform</title>
+      <para>The web subsists / evolves / matures as a capable medium</para>
+      <para>Ubiquitous, capable, improving: more standard and stable</para>
+      <para>There must always be a "reductio" ("base") medium to which other media / channels can
+        appeal</para>
+      <para>Thus the web remains a way to get stuff in front of people</para>
+      <para>(One at a time or within defined communities of interest, if not en masse)</para>
+    </section>
+    <section>
+      <title>Opportunity of the moment</title>
+      <para>An XSLT processor capable of arbitrary transforms can be compiled and run under
+        Javascript</para>
+      <para>In the case of SaxonJS, the transformations (XSLT) must be compiled up front<itemizedlist>
+          <listitem>
+            <para>Saxonica offers this feature under the EE license</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>Once XSLT is compiled (stylesheet export file: SEF), further use / sharing is free (no
+        costs, licenses or registration for anyone)</para>
+      <para>The model</para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para>Write your XML</para>
+          </listitem>
+          <listitem>
+            <para>Write your XSLT and compile it (or find one)</para>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem>
+            <para>Configure a "harness" or host file (HTML) to glue them together</para>
+          </listitem>
+        </itemizedlist>
+        <itemizedlist>
+          <listitem>
+            <para>Drop it onto a web server and publish its address</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>(Or – <emphasis role="ital">just open the HTML on the file system</emphasis> – ?!)<note>
+          <para>The question here is whether SaxonJS works without a web browser at all, for example
+            if you simply open a local HTML file with settings for SaxonJS, will it execute
+            successfully. The answer is, it will, up to a point.</para>
+        </note></para>
+    </section>
+    <section>
+      <title>Why this may actually work</title>
+      <para>SaxonJS is carefully placed on the strategic fine edge between standards-based and
+        proprietary</para>
+      <para>As a proprietary platform it externalizes everything it can to the standards<itemizedlist>
+          <listitem>
+            <para>E.g., already-owners of XML can reuse our same XML and even same
+              stylesheets</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>This creates new possibilities of "information arbitrage" - power of XML at lower
+        cost</para>
+      <para>SaxonJS is licensed but your XML, XSLT, compiled SEF and design all belong to you</para>
+      <para>External dependency on http server + Javascript-capable browser(s) is –
+        sustainable?</para>
+    </section>
+    <section>
+      <title>What about the business case</title>
+      <para>It's still difficult to argue for "giving away the semantics".</para>
+      <para>Yet - while XML can expose the source, with SaxonJS we get obfuscation of the
+        processing, for free.</para>
+      <para>(Plus, the XML is behind a link - that crawler has to read that. Then too we can still
+        obfuscate the source if we want to.)</para>
+      <para>This places stress on XSLT (compiled into SEF) as (site of) "added value": not the
+        information but its rendition (logic).</para>
+      <para><emphasis>The application as a whole differentiates</emphasis>, not just the
+        data.</para>
+      <para>(In principle, this could make it more difficult to reverse engineer, spoof or even
+        emulate than pre-cooked HTML/CSS.)</para>
+    </section>
   </section>
   <section>
-    <title>The web is dead</title>
-    <para>I don't actually think the web is dead. However, I think our ideas about what the web is,
-      or should be, have changed and in many ways we have been disappointed. Certain hopes regarding
-      the web are dead. I think the web has been compromised by a few issues, both economic and architectural-structural:<itemizedlist>
+    <title>Implications</title>
+    <section>
+      <title>How it changes design</title>
+      <para>It will be interesting to see whether there is much use of SaxonJS, and where</para>
+      <para>Emphasis goes back to the work as a whole, no longer so much "pages"</para>
+      <para>Multiple views and access points reflect peculiar semantics of the source data</para>
+      <para>Server doesn't disappear, but just becomes a resource</para>
+      <para>Question: How about XForms under SaxonJS? (XRX with SaxonJS in front)<note>
+          <para>Answer: it's happening. See O'Neill Delpratt and Debbie Lockett's work (XML London
+            2017).</para>
+        </note></para>
+    </section>
+    <section>
+      <title>There is no irony here</title>
+      <para>SaxonJS is deployed in Javascript so we don't have to write Javascript</para>
+      <para>XSLT turns out to be really good at event handling!</para>
+      <itemizedlist>
         <listitem>
-          <para>The predominant advertising model has promised economic viability at the cost of
-            "noise" in the browser; there is no such thing as a "safe space" on the web. Ironically
-            this means that getting through to an audience is harder than ever (to say nothing of
-            reaching and serving them).</para>
+          <para>HTML/CSS provide canvas and paints</para>
         </listitem>
         <listitem>
-          <para>This has combined with the way in which the layered architecture (CSS over HTML over
-            data stores), cumbersome though it is, has had the effect of equalizing production
-            values across the economic and institutional spectrum. The New York Times looks like
-            anyone's spoof of the New York Times. Especially when either one is seen through the
-            lens of Facebook.</para>
+          <para>XSLT is all the techniques of application</para>
         </listitem>
         <listitem>
-          <para>Consequently, in a flattened world, indexing becomes everything, and page ranking
-            (and its equivalents) become surrogates for actual attention. Link counting and page hit
-            analysis substitute for contact and responsiveness between parties in communication,
-            "producers" and "consumers" of information. (Even these terms for what used to be
-            thought of as "readers" and "writers" reveal the alienation I am speaking of, in which
-            both of these roles have become commoditized.)</para>
-          <para>Thus as "consumers", bots and crawlers are more important than people (because they
-            produce the indexes that are presented to people), who have become objects of
-            second-hand interest.</para>
+          <para>Matching elements in the (rendered) page is as easy as matching anywhere else</para>
+        </listitem>
+      </itemizedlist>
+      <para>XML publication becomes its own archive</para>
+      <para>Architecture implies entire libraries of support per document type (yes how
+        classic)</para>
+      <para>Even when "document set" is singular.</para>
+      <para>(Edit XML in git repo, then render via XSLT/SaxonJS?)</para>
+    </section>
+    <section>
+      <title>What kinds of data, again?</title>
+      <para>Product documentation</para>
+      <para>Standards, reference catalogs and authority files</para>
+      <para>Educational or not-for-profit publication</para>
+      <para>Public domain, government and open data sets</para>
+      <para>(Not Linked Open Data so much as SANDs - "Small Arcane Non-trivial Datasets" cf Josh
+        Lubell 2014)</para>
+    </section>
+    <section>
+      <title>Half-empty part</title>
+      <para>Architecture is still a bit opaque and cumbersome<itemizedlist>
+          <listitem>
+            <para>Um but compared to what?</para>
+          </listitem>
+          <listitem>
+            <para>Maybe we can help with that</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>XSLT is its heart and soul, not something you can avoid</para>
+      <para>Development and debugging</para>
+    </section>
+    <section>
+      <title>Getting started kit</title>
+      <para>See <link>github.com/wendellpiez/XMLjellysandwich</link></para>
+      <para>Set of stylesheets can produce:</para>
+      <itemizedlist>
+        <listitem>
+          <para>"host" HTML landing page with syntax and callouts</para>
         </listitem>
         <listitem>
-          <para>Enterprises on a common Internet platform tend naturally toward monopoly, each
-            sector being dominated by a single "provider" (more alienated and generalized language)
-            with only edges of the market left to others; this is can be true even in the quasi-gift
-            economy of Open Source, in which reputation becomes currency, and reputation is achieved
-            by altruism (the gift) or its semblance (which may indeed be no more than network
-            effects - i.e. real benefits, but created by the community not the founder). This is bad
-            for "culture" in the broadest sense.</para>
+          <para>"starter" XSLT with templates</para>
         </listitem>
         <listitem>
-          <para>It seems that (consequently) much information has now retreated again behind pay
-            walls or onto proprietary platforms. "Proprietary platforms" includes social media but
-            also media whose content (think of the restaurant review sites) is essentially produced
-            by its consumers, gratis. It seems that someone always has their finger in the
-            pie.</para>
+          <para>normalized-as-standalone XML document copy</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section>
+      <title>New ways to learn XSLT</title>
+      <itemizedlist>
+        <listitem>
+          <para>Client-side XSLT was always fun - until you hit the wall</para>
         </listitem>
         <listitem>
-          <para>Yet paradoxically, open source and even "open information" has shown it can be
-            economically viable – can "pay for itself" – if it is linked organically to some
-            market-driven, remunerative activity. This may (see above) happen only on the edges of
-            an industry. But providers who can both give away / "share", and "own and control" along
-            well-defined lines, may have a shot at viability.</para>
-        </listitem>
-      </itemizedlist></para>
-    <para>The world is very different from 1997. Has XML in the browser missed its moment? )Or maybe
-      is it just arriving?)</para>
-  </section>
-  <section>
-    <title>The browser has emerged as a platform</title>
-    <para>The web subsists / evolves / matures as a capable medium</para>
-    <para>Ubiquitous, capable, improving: more standard and stable</para>
-    <para>There must always be a "reductio" ("base") medium to which other media / channels can
-      appeal</para>
-    <para>Thus the web remains a way to get stuff in front of people</para>
-    <para>(One at a time or within defined communities of interest, if not en masse)</para>
-  </section>
-  <section>
-    <title>Opportunity of the moment</title>
-    <para>An XSLT processor capable of arbitrary transforms can be compiled and run under
-      Javascript</para>
-    <para>In the case of SaxonJS, the transformations (XSLT) must be compiled up front</para>
-    <para>Saxonica offers this feature under the EE license</para>
-    <para>Once XSLT is compiled (stylesheet export file: SEF), further use / sharing is free (no
-      costs, licenses or registration for anyone)</para>
-    <para>Drop it onto a web server and go</para>
-    <para>(Or – <emphasis role="ital">drop it onto the file system</emphasis> – ?!)<note>
-        <para>The question here is whether SaxonJS works without a web browser at all, for example
-          if you simply open a local HTML file with settings for SaxonJS, will it execute
-          successfully. The answer is, it will, up to a point; it is when/if the server has to be
-          queried again that the problems begin.</para>
-      </note></para>
-  </section>
-  <section>
-    <title>Why this may actually work</title>
-    <para>SaxonJS is carefully placed on the strategic fine edge between standards-based and
-      proprietary</para>
-    <para>As a proprietary platform it externalizes everything it can to the standards<itemizedlist>
-        <listitem>
-          <para>E.g., already-owners of XML can reuse our same stylesheets (usually / almost)</para>
-        </listitem>
-      </itemizedlist></para>
-    <para>This creates new possibilities of "information arbitrage" - power of XML at lower
-      cost</para>
-    <para>SaxonJS is licensed but your XML, XSLT, compiled SEF and design all belong to you</para>
-    <para>External dependency on http server + Javascript-capable browser(s) is –
-      sustainable?</para>
-  </section>
-  <section>
-    <title>What about the business case</title>
-    <para>It's still difficult to argue for "giving away the semantics"</para>
-    <para>Yet - while XML can expose the source, with SaxonJS we get obfuscation of the processing,
-      for free</para>
-    <para>(Plus, the XML is behind a link - that crawler has to read that. Then too we can still
-      obfuscate the source if we want to.)</para>
-    <para>This places stress on XSLT (compiled into SEF) as (site of) "added value": not the
-      information but its rendition (logic)</para>
-    <para><emphasis>The application as a whole differentiates</emphasis>, not just the data</para>
-    <para>(In principle, this could make it more difficult to reverse engineer, spoof or even
-      emulate than pre-cooked HTML/CSS.)</para>
-  </section>
-  <section>
-    <title>How it changes design</title>
-    <para>It will be interesting to see whether there is much use of SaxonJS, and where. It could
-      well be relegated to (what might amount to) "boutique" applications.</para>
-    <para>Emphasis goes back to the work as a whole, no longer so much "pages"</para>
-    <para>Multiple views and access points reflect peculiar semantics of the source data</para>
-    <para>Server doesn't disappear, just becomes a resource</para>
-    <para>Question: How about XForms under SaxonJS? (XRX with SaxonJS in front)<note>
-        <para>Answer: it's happening. See Oneill Delpratt and Debbie Lockett's work (XML
-          London).</para>
-      </note></para>
-  </section>
-  <section>
-    <title>There is no irony here</title>
-    <para>SaxonJS is deployed in Javascript so we don't have to write Javascript</para>
-    <para>XSLT turns out to be really good at event handling!</para>
-    <itemizedlist>
-      <listitem>
-        <para>HTML/CSS provide canvas and paints</para>
-      </listitem>
-      <listitem>
-        <para>XSLT is all the techniques of application</para>
-      </listitem>
-      <listitem>
-        <para>Matching elements in the (rendered) page is as easy as matching anywhere else</para>
-      </listitem>
-    </itemizedlist>
-    <para>XML publication becomes its own archive</para>
-    <para>Architecture implies entire libraries of support per document type (yes how
-      classic)</para>
-    <para>Even when "document set" is singular.</para>
-    <para>(Edit XML in git repo, then render via XSLT/SaxonJS?)</para>
-  </section>
-  <section>
-    <title>What kinds of data, again?</title>
-    <para>Product documentation</para>
-    <para>Standards, reference catalogs and authority files</para>
-    <para>Educational or not-for-profit publication</para>
-    <para>Public domain, government and open data sets</para>
-  </section>
-  <section>
-    <title>Half-empty part</title>
-    <para>Architecture is still a bit opaque and cumbersome<itemizedlist>
-        <listitem>
-          <para>Um but compared to what?</para>
+          <para>Now we can better contemplate learning XSLT from the inside out</para>
         </listitem>
         <listitem>
-          <para>Maybe we can help with that</para>
+          <para>New forms of "meaningful learning application" should become possible</para>
         </listitem>
-      </itemizedlist></para>
-    <para>You still gotta know XSLT (boy do you)</para>
-    <para>Development and debugging</para>
-  </section>
-  <section>
-    <title>Getting started kit</title>
-    <para>See <link>github.com/wendellpiez/XMLjellysandwich</link></para>
-    <para>Set of stylesheets can produce:</para>
-    <itemizedlist>
-      <listitem>
-        <para>"host" HTML landing page with syntax and callouts</para>
-      </listitem>
-      <listitem>
-        <para>"starter" XSLT with templates</para>
-      </listitem>
-      <listitem>
-        <para>normalized-as-standalone XML document copy</para>
-      </listitem>
-    </itemizedlist>
-  </section>
-  <section>
-    <title>New ways to learn XSLT</title>
-    <itemizedlist>
-      <listitem>
-        <para>Client-side XSLT was always fun - until you hit the wall</para>
-      </listitem>
-      <listitem>
-        <para>Now we can better contemplate learning XSLT from the inside out</para>
-      </listitem>
-      <listitem>
-        <para>New forms of "meaningful learning application" should become possible</para>
-      </listitem>
-    </itemizedlist>
+      </itemizedlist>
+    </section>
   </section>
   <section>
     <title>Demonstrations</title>
     <itemizedlist>
       <listitem>
-        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pellucidliterature.org/IrishAirman/">A poem by William Butler
-            Yeats</link>, with imaginative rendering via XSLT to SVG</para>
-      </listitem>
-      <listitem>
-        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pellucidliterature.org/Thalaba/">A TEI-tagged romantic epic by Robert
-            Southey</link> (thanks Elisa Beshero-Bandar)</para>
-      </listitem>
-      <listitem>
-        <para>My Balisage papers, 2017,
-          <link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="https://wendellpiez.github.io/XMLjellysandwich/Balisage2017/workshop-paper.html">the
-            workshop paper</link> and <link xmlns:xlink="http://www.w3.org/1999/xlink"
-              xlink:href="https://wendellpiez.github.io/XMLjellysandwich/Balisage2017/workshop-slides.html">slides</link> as well as <link xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="https://wendellpiez.github.io/XMLjellysandwich/Balisage2017/balisage2017-slides.html">slides for this paper</link>.</para>
-      </listitem>
-      <listitem>
-        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pausepress.net/EpigramMicrophone/">A meditative monograph</link> by
-          Mark Scott, encoded in NLM BITS</para>
+        <para>Links to demonstrations are now given at <link
+            xlink:href="https://wendellpiez.github.io/XMLjellysandwich/"
+            xmlns:xlink="http://www.w3.org/1999/xlink"/>, where you can also find a Git repo
+          containing all the code.</para>
       </listitem>
     </itemizedlist>
   </section>
-  <!--<section>
-    <title>scraps</title>
-    <para>Licensed users of SaxonEE, the industry-leading XML/XSLT processor, have had access to
-      SaxonJS, its client-side (web browser-based) XML/XSLT processing framework, since February
-      2017. This includes you if you have a recent copy of oXygen XML Editor (in version 19 as of
-      April 2017). This paper is about SaxonJS and assumes its availability in oXygen. You may have
-      encumbrances or prior commitments that prevent you from using these tools – for such readers,
-      the demonstrations are possibly the best testimony. Certainly, everything done here can be
-      done by other means in other architectures and there is nothing especially "new" or
-      "innovative" about something we've been talking about for twenty (or thirty) years. What may
-      be more momentous is the <emphasis>survival</emphasis> of this idea.</para>
-    <para>Thus the significance of SaxonJS to you will probably depend largely on your commitment to
-      (or tolerance for) XSLT – while at the same time, things are not either/or. For old-timers,
-      SaxonJS does indeed realize a long-ago vision. It works! and then some. For us – and for
-      newcomers who are not shy about the XML/XSLT stack – it provides a platform with enticing
-      possibilities. It looks ideal for the delivery and long-term maintenance of <emphasis>certain
-        kinds</emphasis> of information resources on line. And (as described below) it looks
-      especially good for both bespoke, highly customized designs (of display and user
-      interactivity), and for rapid prototyping.</para>
-    <para>If XSLT presents a problem for you, however, then a new/old way to deploy it, is probably
-      not going to make the sale by itself. SaxonJS offers a new way to exploit XML and its kindred
-      that may be of interest – even keen interest – to those of us who are already exploiting it.
-      But whether XSLT 2.0 in the browser is revolutionary, depends on who you are.</para>
-    <para>For their efforts in producing SaxonJS (and all the work on which it is based) Michael Kay
-      and Saxonica deserve considerable credit, not least because in doing so, they have continued
-      to develop and support the underlying technologies (XML, XSLT and related specifications) in
-      an open way. It is very much to be hoped that their demonstrations of what the technologies
-      are capable of, inspire others to take us further still.</para>
-    <section>
-      <title>Why XSLT in the browser still matters</title>
-      <para>If you haven't skipped to the end of this paper, it's probably because you have XML; at
-        any rate you're thinking about it. It may be worth remembering why client-side processing
-        remains an attractive option and what particular advantages we hope to get from it.</para>
-      <para>Note that I don't address purely technical considerations here such as tradeoffs in
-        performance, bandwidth allocation, resource or system maintenance, etc. – any of which can
-        be questions, but only at the edges. We should be more interested in the affordances of a
-        client-focused architecture under the assumption that performance on this (and any) stack,
-        is adequate.</para>
-      <section>
-        <title>Data description still matters</title>
-        <para>In theory, we like the idea of pushing "live" (semantic) XML all the way out to the
-          client – assuming of course we have this choice – and execute an <emphasis>arbitrary
-            transformation</emphasis> on it at the receiving end – for the same reason we like XML
-          or "descriptive markup" in general: the clean layering between content description (XML)
-          and presentation logic (here, XSLT). "Doing it all" in the browser or display engine,
-          live, is in some ways the culmination of the promise of XML – that the description of data
-          "content" should remain separate and discrete from a specification of how it should be
-          rendered. Under client-side processing, they really can, at least until the final
-          moments.</para>
-        <para>If you like the layered architecture, and especially if you like XSLT's declarative
-          approach, you will really like being able to deploy XSLT 2.0 freely in the browser. If you
-          have ever been stymied by the limitations of XSLT 1.0 – they are no more. All the features
-          of XSLT 2.0 and several enticing new features of XSLT 3.0 work just fine.</para>
-        <para>A disadvantage historically to the strongly layered architecture is that it can take
-          so much effort even to get up and running. And until you have significant scale, either in
-          throughput (quantity or speed), or complexity, you don't reap any benefits from the extra
-          overhead. Client side processing promises to relieve that. In principle, to deploy an
-          application ("publish a document") should require "only" a source XML file, along with
-          "only" an XSLT with the requisite logic for displaying it. If you recognize the many
-          ironies in that statement (acquiring "only" an appropriate XSLT for any given XML, can
-          itself be quite an undertaking, and "displaying" it often seems to amount to transforming
-          into the HTML you might have had otherwise) – this is good news for you. While things are
-          never quite so simple, pushing out an application of this kind – and framing and
-          developing it to the "good enough to improve" point – may now be easier than ever.</para>
-        <para>To the extent this is the case, we have a new way to capitalize on and reap rewards
-          from our investment in good-quality data.</para>
-      </section>
-      <section>
-        <title>Unit of composition = unit of delivery</title>
-        <para>One critical function of a publishing workflow is the way it provides for aggregation
-          and (sometimes) disaggregation, of units, parts and assemblies of information. Articles
-          are combined into issues, but books are divided into chapters. With respect to how works,
-          products, content or contributions of whatever kind, are assembled in groups, different
-          publishing workflows must be different. Publishing monographs is a very different
-          undertaking from publishing a journal or newspaper. Publishing a series of monographs is
-          different from publishing a single highly produced art book whose design is <emphasis>sui
-            generis</emphasis>, a "one off".</para>
-        <para>The web, whose fundamental unit is the page, makes no special provision for pages
-          being related to one another in larger wholes. Such provisions must always be applied in
-          an application layer of some kind, typically by a linking architectures and
-          typographic/functional conventions (that more or less directly serve to signify likeness,
-          kinship or wholeness to both readers and client processes). But the web itself disdains
-          boundaries: everything is all over the place at once, if not being aggregated on the fly,
-          then only a click away. Consequently the relation between the "page" and the "work" is
-          always a vexed one on the web, and mapping out a one-to-many or a many-to-many relation
-          between (components in) source data and (pages on) a web site, is frequently not a trivial
-          problem.</para>
-        <para>In contrast to web sites, XML information sets are commonly scoped (by size and
-          complexity) and scaled to serve requirements for data creation and maintenance – not its
-          delivery on one or another platform. Whether we have a single huge complex XML file, or a
-          huge pile of tiny ones, or a relatively small resource whose markup is very rich and
-          consistent, or a small set of carefully interlinked documents, or any other arrangement,
-          should usually depend on what the information is and how we collect and curate or edit it
-          – not the vagaries of its display medium. To publish on the web, this "impedence" mismatch
-          between work, and page, must be managed (typically by some kind of logical mapping from
-          source to target file architectures).</para>
-        <para>When running a transformation on the client a balance shifts. An entire work can be
-          downloaded (as a single XML resource) and processed such that it is entirely loaded and
-          accessible, requiring no further transactions with a server to acquire further "pages". A
-          cost shifts to the front – where load times can be more than is ordinarily considered
-          acceptable. However once an XML file has been loaded and styled with XSLT, responsiveness
-          in the browser returns; indeed everything is now local and hence faster. And rather than
-          consuming a page at a time, we receive an entire resource, relatively complete unto
-          itself. Subjectively for the user there is hardly any difference. The difference for the
-          designer may be profound. We are still in two layers; but, as it were, they grow very
-          close. Providing resource-wide behaviors becomes trivial.</para>
-        <para>This makes client-side XSLT particularly suitable for works that have meaningful
-          integrity at a scale larger than a page, whether this be a "book" or any other sort of
-          (relatively self-contained) "resource" such as an encyclopedia, reference works, or
-          anything with significant internal linking whether explicit or implicit. Such "relative
-          self-containment" or "impermeability" is a property of some, but not all, information
-          sets. Where we find it, however, it can be very useful. The mental model is a "book":
-          self-contained, portable, with distinct boundaries, richer and more complete than a page,
-          a set of pages.</para>
-        <para>Conversely, what it won't be so good with is resources on a web that "leaks" at the
-          edges (a description that characterizes most of what we see today), perhaps by integrating
-          arbitrary bits of relatively uncontrolled content into a semi-controlled environment. The
-          more your need is for a kind of "mashup" architecture, into which data is injected
-          promiscuously, the less beneficial you will find the separation of concerns enforced by an
-          XML/XSLT "logic-driven" architecture. Similarly, if you have a more or less complex
-          workflow for managing aggregation and disaggregation: client-side processing can then be
-          only one tool among many (since while it can encapsulate a pipeline, it's not necessarily
-          so good for exposing one).</para>
-        <para>But when your data exhibits a high degree of semantic integrity and richness in its
-          XML, even when your "works" (the scale of production) are small or very small, and when it
-          makes natural (not arbitrary) "packages" – a client-side transformation may be an
-          attractive option. Semantic richness in the XML can be translated into easy wins with
-          interactivity and display: the richer and better is your data, the more you have to
-          leverage in transformation. In that context, SaxonJS is not better because it makes new
-          things possible (although: see <xref linkend="whosyerprogrmr"/>); they are just one
-          important step simpler because everything fits: one XML, one XSLT, one user
-          experience.</para>
-      </section>
-      <section xml:id="whosyerprogrmr">
-        <title>Who's your programmer? (Who's your sysadmin?)</title>
-        <para>Actually pulling off a project (in "publishing" or any sort of data processing or
-          transformation) may require people to take on a wide variety of challenges requiring
-          different sorts of technical and quasi-technical expertise. People who can wear all the
-          hats, are rare. The developer of a publishing system on the web nowadays must have some
-          proficiency with all the technologies on the stack, starting with HTML/CSS but not
-          excluding Javascript plus whatever technologies are on servers doing who knows what. The
-          costs of expertise add up, and who can be an expert in everything.</para>
-        <para>SaxonJS relieves this in two important ways. Once we have capable XSLT and have
-          compiled it using Saxon's executable, deploying the application itself is as simple as
-          copying files to a generic web server – there is no specialized server application to
-          mind, and all special handling of the data has been done. Consequently, the developer does
-          not also have to be expert in any more specialized technology on the server or the
-          production side. FTP the files to an ISP running a web server (or a local web server),
-          then take a look.</para>
-        <para>To be sure, setup and configuration requires some level of comfort with HTML and XSLT,
-          to say nothing of the "real work" of writing processing or presentation logic that does
-          what is called for. However, the need to be willing <emphasis>not only</emphasis> to wear
-          an XML/XSLT hacker hat, <emphasis>and also</emphasis> take responsibility for the care and
-          feeding of some (more or less obscure) application or workflow, on a server or through
-          some sort of batched (routinized) operation – this is considerably relieved.</para>
-        <para>Likewise when it comes to building the application itself. By using SaxonJS
-          functionality invoked (in an extension namespace) in the XSLT, interactivity in the
-          browser can be specified without coding any Javascript. What is most interesting is how
-          XSLT turns out to be a most natural language for these purposes (since it has both
-          template matching, and arbitrary document traversal and node retrieval) for describing
-          interactive semantics. "When the user clicks an element" is very naturally stated in
-          XSLT.</para>
-        <para>All this together suggests that XSLT in the client may be especially useful for
-          rapidly-developed prototypes and home-grown applications, as much as for the delivery of
-          "finished work". This may be no surprise, as this also describes XSLT 1.0 applications in
-          browsers.</para>
-        <para>This having been said, a natural development, over and above SaxonJS itself, may be
-          the deployment of libraries of XSLT that encapsulate designs and interactivity models, for
-          reuse across documents of similar structure. Presumably this will save us further work in
-          both development, and design and help to make prototyping even more rapid.</para>
-      </section>
-    </section>
-    <section>
-      <title>Some demonstrations</title>
-      <para>Production values on all these projects would be much better if their designer were more
-        talented – or if a more talented designer were available to make improvements.</para>
-      <section xml:id="EpMicDemo">
-        <title>Epigram Microphone</title>
-        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pausepress.net/EpigramMicrophone.xml">Epigram Microphone</link> by
-          Mark Scott is a set of prose meditations encoded in NISO BITS and delivered to your
-          browser in XML.</para>
-        <para>At the time of writing this demo is not yet using SaxonJS. It is presently XML+XSLT
-          1.0, relying on whatever support for these standards remains in the browser in use (so,
-          good luck). A bit of Javascript passed to the client provides some dynamic
-          behavior.</para>
-        <para>This demo is included as a baseline. It demonstrates what is still possible using the
-          state of the art – of 2002. When implemented, a new version using SaxonJS will be able to
-          use a much smaller and neater (XSLT 2.0) stylesheet (presently underway but not yet on
-          line).</para>
-      </section>
-      <section xml:id="IrishAirmanDemo">
-        <title>Irish Airman</title>
-        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pellucidliterature.org/IrishAirman/">This rendition of a poem by W.B.
-            Yeats</link> illustrates an "interpretive transformation".</para>
-        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pellucidliterature.org/IrishAirman/airman3.xml">The source XML</link>
-          is very small (3.5KB) and its markup is simple – but dense. In display, the XSLT produces
-          rendered versions in both HTML/CSS and SVG, and drives (via Saxon event-handling)
-          interactive behaviors, which are coded without Javascript.</para>
-      </section>
-      <section>
-        <title>Thalaba, the Destroyer, by Robert Southey</title>
-        <para><link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pellucidliterature.org/Thalaba/">This demonstration</link> may push
-          at performance limits; please be patient while the resources load. Once loaded,
-          performance stabilizes and interactive features work tolerably well (given the limits of
-          the rough design).</para>
-        <para>An edition of the 19th-century poem (twelve books in two volumes), "Thalaba the
-          Destroyer", <link xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="http://pellucidliterature.org/Thalaba/Thalaba.xml">the source text</link> is
-          TEI XML produced (from a Project Gutenberg transcript) by Professor Elisa Beshero-Bandar
-          (University of Pittsburgh at Greenburg). Of particular interest in this poem is the
-          predominance of footnotes including such complexities as verse, extended quotations and
-          notes inside the notes.</para>
-        <para>All of this can be given a dramatic rendition in HTML/CSS using a simple XSLT. The
-          presentation includes indexes to markup in several semantic categories such as personal
-          names or geographical features. The displayed indexes work by cross-indexing these terms
-          in the text, in proximity to one another (within the main text or footnote as the case may
-          be).</para>
-      </section>
-    </section>
-    <section xml:id="xmljigsaw">
-      <title>XML Jigsaw: Your SaxonJS rough cutter</title>
-      <para>The fussy part of all this is that in order to deploy an application, you need a web
-        server (okay) – but also, a certain amount of infrastructure must be assembled. There are
-        various resources to orchestrate. Nothing works until all of them are correct. Even then,
-        once everything is up -\- there is nothing to see until you have an XSLT that actually works.
-        If you know how to make one of those and test it, maybe you didn't need SaxonJS to begin
-        with.</para>
-      <para>This is a one-time task, but it can be reduced (assisted) by using a set of XSLTs made
-        available by the author. Assuming you can push through the running-XSLT part of the problem,
-        these can get you off the ground, providing a starter configuration, with a stylesheet, for
-        delivering any XML via SaxonJS.</para>
-      <para><link xlink:href="https://github.com/ebeshero/Thalaba"
-          xmlns:xlink="http://www.w3.org/1999/xlink">XMLJigsaw is posted and maintained on
-          Github</link>.</para>
-      <section>
-        <title>"Starter" XSLT (your XML → HTML)</title>
-        <para>From any XML document, XMLJigsaw can produce an XSLT transformation, which when
-          applied to the XML, produces a rendered HTML result. The stylesheet comes with glue code
-          for SaxonJS (in case you need it), and includes blank templates for you to enhance,
-          matching all the element types in the XML. An XSLT developer can rapidly take this XSLT to
-          the next level simply by modifying the code in place.</para>
-        <para>Templates in this stylesheet are able to distinguish (roughly) between elements that
-          map to HTML <code>div</code>, <code>p</code> or <code>span</code> based on whether they
-          are wrappers, blocks or inlines. Of course these distinctions are also subject to
-          refinement – while the automated logic spares the XSLT developer some work in researching
-          a new tag set. Additionally, having a dumb machine do the work can help get past some
-          common initial hurdles, such as getting namespaces set up right.</para>
-        <para>To make extension and tuning even easier, the machine-produced XSLT also contains a
-          template for emitting CSS, with blank rules set up to match the element classes to be seen
-          in the result HTML. Thus we have another points for extension for handling the HTML
-          representations of any element type or identified class in the XML.</para>
-        <para>The idea is that even a neophyte XSLT developer (who has some facility with HTML/CSS
-          and some idea of how XSLT templates work) can, boosted by XMLJigsaw, produce useful
-          results rapidly. The easy 80% becomes truly easy, permitting work to focus on the
-          interesting part.</para>
-        <para>This stylesheet may also be useful to teachers and self-teachers of XSLT, since the
-          StarterXSLT it produces (which renders an XML document of a particular form into HTML)
-          will work in any XSLT processor. (An XSLT 1.0 stylesheet can even be produced by flipping
-          a switch.)</para>
-      </section>
-      <section>
-        <title>SaxonJS 'host' page (HTML)</title>
-        <para>SaxonJS requires a shell or 'host' page for a browser to open, wherein further
-          instructions to load SaxonJS are included. XMLJigsaw can produce such a page for any XML
-          file, sparing the developer the task of making one.</para>
-      </section>
-      <section>
-        <title>Cleaner-upper serializer</title>
-        <para>Maybe you don't wish to, or can't, expose the XML exactly as-is; you wish to normalize
-          it for delivery. This might mean expanding entities, removing declarations or processing
-          instructions, and/or tweaking white space. Maybe you don't wish to have the same XML
-          prologue as the maintenance copy.</para>
-        <para>XMLJigsaw includes an XSLT that will write a normalized, parser-friendly, UTF-8,
-          standalone XML version of your XML. Use it to produce the XML source you wish to publish.
-          It can be extended readily to perform other interventions, such as whitespace or namespace
-          normalization.</para>
-      </section>
-      <section>
-        <title>Goes well with your wardrobe</title>
-        <para>While XMLJigsaw's stylesheet does a fair job of making XSLT for you, and its HTML
-          results are not half-bad, there are some things it doesn't attempt to do, such as detect
-          which elements in arbitrary XML should map to tables or lists. The point of XML is to do
-          special things with your specialized content types. Of course, the expectation is that the
-          XSLT produced "off the line" will be further fitted with logic for all this special
-          stuff.</para>
-        <para>In fact this is where the fun starts, when you start rewriting the XSLT produced by
-          XMLJigsaw.</para>
-        <para>At the same time the developer does not have to tweak everything by hand either.
-          Because in SaxonJS's distribution model, XSLTs are compiled for delivery, it is easy to
-          integrate logic from any XSLT you already have. Importing a community-standard library for
-          JATS, TEI or your industry schema is easy. Or better, study them and write your own logic.
-          By writing a baseline XSLT for you, ready for modification, XMLJigsaw speeds this process
-          along considerably. A user can start rewriting templates immediately and get immediate
-          results.</para>
-        <para>An XMLJigsaw XSLT comes set up to work outside SaxonJS as well, for testing.</para>
-      </section>
-    </section>
-    <section>
-      <title>Who should consider using SaxonJS</title>
-      <section>
-        <title>You have rich, well-controlled, 'book-sized' XML</title>
-        <para>XML practitioners do not need to be reminded of the virtues and strengths of clean and
-          efficient encoding, when it is consistent across a data set.</para>
-        <para>The richer and more consistent is your data, the more you will have to exploit using
-          XSLT. The more peculiar the data, the better – the more peculiar can be its
-          renditions.</para>
-      </section>
-      <section>
-        <title>You don't mind "giving away the source"</title>
-        <para>The whole idea of pushing XML to the client is … pushing your XML to the client. There
-          will be no "obfuscation for free" such as you get through most publishing platforms –
-          unless of course you deliberately provide for it.</para>
-        <para>The flip side is that since we have arbitrary processing (albeit subject to resource
-          limitations etc.) available on the client, we potentially also have a means for both re-
-          and de-obfuscation, if we so choose. But by design and by default, things are fairly
-          transparent.</para>
-        <para>The use of XSLT-based processing such as Saxon on client systems, to enable serving up
-          entirely new languages and data notations (<emphasis>parsed in the browser?</emphasis>) is
-          beyond the scope of this paper.</para>
-        <para>However, it must be noted there are many plausible scenarios in which sharing the XML
-          will be a good thing. Product documentation. Standards and specifications. Government
-          reports, data sets and other public information. Educational materials. </para>
-      </section>
-      <section>
-        <title>You have oXygen and a web server available</title>
-        <para>Everyone has a web server available. You may have one running on your computer right
-          now. In any case they can be hired easily enough. With minimal configuration, a
-          plain-vanilla web server such as Apache works well for SaxonJS.</para>
-        <para>SaxonJS itself can be deployed freely, but in order to produce stylesheets for it you
-          need a licensed copy of SaxonEE. An easy and cost-effective way of acquiring such a
-          license is with oXygen XML Editor, a commercial software product (available at discounted
-          rates for students, educators and independents).</para>
-      </section>
-      <section>
-        <title>You wish to get from 0 to 65mph quickly</title>
-        <para>Given a little help, your XML and whatever XSLT you have already works; it can also be
-          made easily to work even better.</para>
-      </section>
-    </section>
-  </section>-->
   <bibliography>
     <title>Some references</title>
     <bibliomixed>Delpratt, O'Neil, and Michael Kay. “Interactive XSLT in the browser.” Presented at
@@ -628,11 +301,20 @@
         role="ital">Proceedings of Balisage: The Markup Conference 2013</emphasis>. Balisage Series
       on Markup Technologies, vol. 10 (2013). DOI: <biblioid class="doi"
         >10.4242/BalisageVol10.Delpratt01</biblioid>.</bibliomixed>
+    <bibliomixed>Delpratt, O'Neil, and Debbie Lockett. “Distributing XSLT Processing between Client
+      and Server.” Presented at XML London 2017 (<link
+        xlink:href="http://xmllondon.com/2017/xmllondon-2017-proceedings.pdf"
+        xmlns:xlink="http://www.w3.org/1999/xlink"/>) </bibliomixed>
     <bibliomixed>Lockett, Debbie, and Michael Kay. “Saxon-JS: XSLT 3.0 in the Browser.” Presented at
       Balisage: The Markup Conference 2016, Washington, DC, August 2 - 5, 2016. In <emphasis
         role="ital">Proceedings of Balisage: The Markup Conference 2016</emphasis>. Balisage Series
       on Markup Technologies, vol. 17 (2016). DOI: <biblioid class="doi"
         >10.4242/BalisageVol17.Lockett01</biblioid>.</bibliomixed>
+    <bibliomixed>Lubell, Joshua. “XForms User Interfaces for Small Arcane Nontrivial Datasets.”
+      Presented at Balisage: The Markup Conference 2014, Washington, DC, August 5 - 8, 2014. In
+        <emphasis role="ital">Proceedings of Balisage: The Markup Conference 2014</emphasis>.
+      Balisage Series on Markup Technologies, vol. 13 (2014). DOI: <biblioid class="doi"
+        >10.4242/BalisageVol13.Lubell01</biblioid>.</bibliomixed>
     <bibliomixed>Frameless XSLT processor. <link>http://frameless.io/xslt/</link></bibliomixed>
     <bibliomixed>Piez, Wendell. TEI Overlap Demonstration. (Saxon-CE demo in the browser.) See <link
        >http://www.piez.org/wendell/projects/Interedition2011/</link></bibliomixed>
