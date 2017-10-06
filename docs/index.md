@@ -11,8 +11,11 @@ Each of the demonstrations listed is provided with source XSLT, if you know wher
 * W.B. Yeats' [Irish Airman (an SVG rendering)](http:pellucidliterature.org/IrishAirman)
 * Rob't Southey's [Thalaba](http://pellucidliterature.org/Thalaba) in TEI encoding
 * [Epigram Microphone](http://pausepress.net/EpigramMicrophone), by Mark Scott
+* [Constitutional Convention 1787](http://pellucidliterature.org/ConstitutionalConvention), by Jim Surkamp
 
 The Thalaba demo calls a file in a fork of E Beshero-Bandar's [TEI Thalaba](https://github.com/ebeshero/Thalaba). Thanks Elisa!
+
+The Constitutional Convention is as mostly restored from a 2002 SVG original produced by Jim Surkamp with the developer. It still has its original SVG animations -- ymmv on different browsers (try Firefox)
 
 ## Maintained in this repository
 
