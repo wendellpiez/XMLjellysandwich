@@ -2,9 +2,9 @@
 
 XML Jelly Sandwich is a library of XSLTs you can use to create XML/XSLT applications using SaxonJS. These will run in most any modern browser with Javascript.
 
-The demonstrations, and XML Jelly Sandwich in general, are entirely dependent on SaxonJS and would have been impossible without the efforts of Michael Kay, [Saxonica](http://saxonica.com) and [oXygen XML IDE](http://oxygenxml.com).
+The demonstrations, and XML Jelly Sandwich in general, are entirely dependent on SaxonJS and would have been impossible without the contributions of Michael Kay, [Saxonica](http://saxonica.com) and [oXygen XML IDE](http://oxygenxml.com).
 
-Each of the demonstrations listed is provided with source XSLT, if you know where to find it or how to ask. 
+Each of the demonstrations listed is provided with source XSLT, if you know where to find it. 
 
 ## Published at large
 
@@ -15,7 +15,7 @@ Each of the demonstrations listed is provided with source XSLT, if you know wher
 
 The Thalaba demo calls a file in a fork of E Beshero-Bandar's [TEI Thalaba](https://github.com/ebeshero/Thalaba). Thanks Elisa!
 
-The Constitutional Convention is as mostly restored from a 2002 SVG original produced by Jim Surkamp with the developer. It still has its original SVG animations -- ymmv on different browsers (try Firefox)
+The Constitutional Convention is as mostly restored from a 2002 SVG original produced by Jim Surkamp with the developer. It still relies on original SVG declarative animations -- YMMV on different browsers (try Firefox).
 
 ## Maintained in this repository
 
@@ -26,3 +26,7 @@ The Constitutional Convention is as mostly restored from a 2002 SVG original pro
 * [Balisage SaxonJS final paper](Balisage2017/balisage2017-final.html)
 
 Note that the demonstrations were all made at various times using different generations of tools available in the repo. Each has subsequently undergone more or less radical configuration and rewrite.
+
+## The code
+
+To produce your own XML application using XSLT and SaxonJS, XML Jelly Sandwich offers XSLT you can use to produce "starter" files, which you can subsequently modify and improve. See the repo.
