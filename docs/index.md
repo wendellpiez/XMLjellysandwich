@@ -2,7 +2,7 @@
 
 XML Jelly Sandwich is a library of XSLTs you can use to create XML/XSLT applications using SaxonJS. These will run in most any modern browser with Javascript.
 
-The demonstrations, and XML Jelly Sandwich in general, are entirely dependent on SaxonJS and would have been impossible without the contributions of Michael Kay, [Saxonica](http://saxonica.com) and [oXygen XML IDE](http://oxygenxml.com).
+The demonstrations, and XML Jelly Sandwich in general, are entirely dependent on SaxonJS and would hardly have been conceivable without the contributions of [Saxonica](http://saxonica.com) and [oXygen XML IDE](http://oxygenxml.com) among many others.
 
 Each of the demonstrations listed is provided with source XSLT, if you know where to find it. 
 

@@ -2,11 +2,12 @@
 
 Starter kit for client-side XSLT using SaxonJS
 
-(Might have named it XSLT jumpstart except for the book of that title, which looks commendable, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, nutritious enough, and portable.)
+(Might have named it "XSLT Jump Start" except for the excellent book of that title, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, tasty, nutritious, and portable.)
 
-To use: try any of the XSLT stylesheets on your XML.
 
 To see examples: http://wendellpiez.github.io/XMLjellysandwich
+
+To use: try any of the XSLT stylesheets on your XML. Its result will be either an HTML file, an XSLT stylesheet (which happens to match elements in your source XML), or a normalized XML copy of your input, depending on the stylesheet. Assemble the results of these (several) transformations, make your adjustments, compile the stylesheet, and you have a complete application you can park on a web server. (More details below.)
 
 SaxonJS is documented here: http://www.saxonica.com/saxon-js/documentation/index.html
 
