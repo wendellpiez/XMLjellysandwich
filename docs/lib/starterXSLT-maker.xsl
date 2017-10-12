@@ -50,7 +50,7 @@
     <XJS:stylesheet version="{$xsl-version}"
       extension-element-prefixes="ixsl">
       <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
-      <xsl:namespace name="xjs">http://github.com/wendellpiez/XMLjellysandwich</xsl:namespace>
+      <xsl:namespace name="XJS">http://github.com/wendellpiez/XMLjellysandwich</xsl:namespace>
       <xsl:namespace name="ixsl">http://saxonica.com/ns/interactiveXSLT</xsl:namespace>
       <xsl:copy-of select="//namespace::*[not(name()='')]"/>
       <xsl:for-each select="//namespace::*[name()='']">
