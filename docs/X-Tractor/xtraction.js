@@ -14,9 +14,9 @@ window.onload = function() {
 */
 
 
-function loadFromZip (docx, filepath) {
+function loadFromZip (zippath, filepath) {
    var zip = new JSZip()
-   zip.loadAsync(docx)
+   zip.loadAsync(zippath)
    .then(function (zip) {
         console.log(zip.files);
         

@@ -50,7 +50,7 @@ div { margin-left: 1rem }
         <xsl:variable name="content" select="ixsl:call(ixsl:window(),'loadFromZip',[ $fileobj,'content.xml' ])"/>
         
               <p>X
-                 <!--<xsl:copy-of select="$content"/>-->
+                 <xsl:copy-of select="$content"/>
               </p>
         <!--
         <xsl:value-of select="count($fileobj )"/>
@@ -67,8 +67,6 @@ div { margin-left: 1rem }
          <xsl:apply-templates/>
       </div>
    </xsl:template>
-
-
 
    <xsl:function name="XJS:classes">
       <xsl:param name="who" as="element()"/>

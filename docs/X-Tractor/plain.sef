@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-10-15T14:41:51.641-04:00" target="JS">
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-10-15T15:19:24.646-04:00" target="JS">
  <co id="0" binds="">
   <mode name="Q{http://saxonica.com/ns/interactiveXSLT}onchange" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="1" flags="os" line="42" module="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl">
+   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="1" flags="os" line="42" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeSet role="match" type="element()">
-     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="42" name="id">
+     <fn vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="42" name="id">
       <str val="file"/>
      </fn>
     </p.nodeSet>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="43" global="#&#xA;#Sun Oct 15 14:41:51 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Sun Oct 15 14:41:51 EDT 2017&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="43" global="#&#xA;#Sun Oct 15 15:19:24 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Sun Oct 15 15:19:24 EDT 2017&#xA;">
      <str role="href" val="#xmljellysandwich_body"/>
      <sequence role="content" line="46">
       <elem name="h1" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
@@ -56,17 +56,22 @@
         </arrayBlock>
        </ifCall>
        <elem line="52" name="p" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
-        <valueOf flags="l">
-         <str val="X&#xA;                 &#xA;              "/>
-        </valueOf>
+        <sequence>
+         <valueOf flags="l">
+          <str val="X&#xA;                 "/>
+         </valueOf>
+         <copyOf line="53" flags="vsc">
+          <varRef name="content" slot="0"/>
+         </copyOf>
+        </sequence>
        </elem>
       </let>
      </sequence>
     </resultDoc>
    </templateRule>
-   <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="1" flags="os" line="42" module="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl">
+   <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="1" flags="os" line="42" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeTest role="match" test="element(Q{}input)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='input';"/>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="43" global="#&#xA;#Sun Oct 15 14:41:51 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Sun Oct 15 14:41:51 EDT 2017&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="43" global="#&#xA;#Sun Oct 15 15:19:24 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Sun Oct 15 15:19:24 EDT 2017&#xA;">
      <str role="href" val="#xmljellysandwich_body"/>
      <sequence role="content" line="46">
       <elem name="h1" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
@@ -114,9 +119,14 @@
         </arrayBlock>
        </ifCall>
        <elem line="52" name="p" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
-        <valueOf flags="l">
-         <str val="X&#xA;                 &#xA;              "/>
-        </valueOf>
+        <sequence>
+         <valueOf flags="l">
+          <str val="X&#xA;                 "/>
+         </valueOf>
+         <copyOf line="53" flags="vsc">
+          <varRef name="content" slot="0"/>
+         </copyOf>
+        </sequence>
        </elem>
       </let>
      </sequence>
@@ -125,8 +135,8 @@
   </mode>
  </co>
  <co id="1" binds="">
-  <template name="Q{}css" flags="os" line="30" module="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" slots="0">
-   <elem role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="31" name="style" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+  <template name="Q{}css" flags="os" line="30" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" slots="0">
+   <elem role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="31" name="style" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
     <sequence>
      <att name="type" flags="l">
       <str val="text/css"/>
@@ -139,10 +149,10 @@
   </template>
  </co>
  <co id="2" binds="">
-  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="78" module="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" eval="7" flags="pU" as="item()*" slots="2">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="78" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="7" flags="pU" as="item()*" slots="2">
    <arg name="who" as="element()"/>
    <arg name="ilk" as="xs:string"/>
-   <gcEE role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="75" op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+   <gcEE role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="75" op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
     <forEach>
      <fn name="tokenize">
       <cvUntyped to="xs:string">
@@ -165,9 +175,9 @@
   </function>
  </co>
  <co id="3" binds="">
-  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="73" module="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" eval="3" flags="pU" as="item()*" slots="1">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="73" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="3" flags="pU" as="item()*" slots="1">
    <arg name="who" as="element()"/>
-   <forEach role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="75">
+   <forEach role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="75">
     <fn name="tokenize">
      <cvUntyped to="xs:string">
       <data>
@@ -187,8 +197,8 @@
   </function>
  </co>
  <co id="4" binds="5">
-  <template name="Q{}xmljellysandwich_pack" flags="os" line="12" module="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" slots="0">
-   <resultDoc role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="14" global="#&#xA;#Sun Oct 15 14:41:51 EDT 2017&#xA;" local="#&#xA;#Sun Oct 15 14:41:51 EDT 2017&#xA;">
+  <template name="Q{}xmljellysandwich_pack" flags="os" line="12" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" slots="0">
+   <resultDoc role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="14" global="#&#xA;#Sun Oct 15 15:19:24 EDT 2017&#xA;" local="#&#xA;#Sun Oct 15 15:19:24 EDT 2017&#xA;">
     <str role="href" val="#xmljellysandwich_body"/>
     <applyT role="content" line="15" flags="i" bSlot="0">
      <slash role="select" simple="1">
@@ -203,9 +213,9 @@
  </co>
  <co id="5" binds="5 5">
   <mode onNo="SC" flags="dW" patternSlots="0">
-   <templateRule prec="0" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="os" line="21" module="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl">
+   <templateRule prec="0" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="os" line="21" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeTest role="match" test="element(Q{}document)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='document';"/>
-    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="22" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="22" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
      <sequence>
       <att name="class" flags="l">
        <str val="document"/>
@@ -218,9 +228,9 @@
      </sequence>
     </elem>
    </templateRule>
-   <templateRule prec="0" prio="-0.4" seq="1" rank="0" minImp="0" slots="0" flags="os" line="63" module="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl">
+   <templateRule prec="0" prio="-0.4" seq="1" rank="0" minImp="0" slots="0" flags="os" line="63" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeTest role="match" test="element(Q{}document)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='document';"/>
-    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/DocXTractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="64" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="64" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
      <sequence>
       <att name="class" flags="l">
        <fn name="name">
@@ -256,4 +266,4 @@
  </output>
  <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
 </package>
-<?Σ bf5895fb?>
+<?Σ 81e3b53b?>
