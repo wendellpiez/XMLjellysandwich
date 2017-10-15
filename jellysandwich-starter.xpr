@@ -10,6 +10,23 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>../../public_html/pellucidliterature/DocXTractor/document.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>Make XML Jelly Sandwich SaxonJS HTML host page for XML</String>
+                                        <String>Make XML Jelly Sandwich starter XSLT</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>../../public_html/JellySandwich/demo/EpigramMicrophone.bits.xml</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -46,8 +63,8 @@
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
-                                        <String>Make XML Jelly Sandwich SaxonJS HTML host page for XML</String>
                                         <String>Make standalone XML (XML Jelly Sandwich)</String>
+                                        <String>Make XML Jelly Sandwich SaxonJS HTML host page for XML</String>
                                         <String>Make XML Jelly Sandwich starter XSLT</String>
                                     </list>
                                 </field>
@@ -367,6 +384,5 @@
     </meta>
     <projectTree name="jellysandwich-starter.xpr">
         <folder path="."/>
-        <folder path="../../public_html/pellucidliterature/"/>
     </projectTree>
 </project>
