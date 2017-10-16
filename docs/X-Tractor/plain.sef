@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-10-16T09:47:48.678-04:00" target="JS">
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-10-16T10:06:56.73-04:00" target="JS">
  <co id="0" binds="">
   <mode name="Q{http://saxonica.com/ns/interactiveXSLT}onchange" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="1" flags="os" line="42" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl">
+   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="1" flags="os" line="43" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeSet role="match" type="element()">
-     <fn vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="42" name="id">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="43" name="id">
       <str val="file"/>
      </fn>
     </p.nodeSet>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="43" global="#&#xA;#Mon Oct 16 09:47:48 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Mon Oct 16 09:47:48 EDT 2017&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="44" global="#&#xA;#Mon Oct 16 10:06:56 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Mon Oct 16 10:06:56 EDT 2017&#xA;">
      <str role="href" val="#xmljellysandwich_body"/>
-     <sequence role="content" line="46">
-      <elem name="h1" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence role="content" line="47">
+      <elem name="h2" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
        <sequence>
         <valueOf flags="l">
-         <str val=" beep "/>
+         <str val="reading file "/>
         </valueOf>
         <valueOf flags="l">
          <fn name="string-join">
@@ -34,14 +34,14 @@
         </valueOf>
        </sequence>
       </elem>
-      <let line="50" var="content" as="item()*" slot="0" eval="3">
+      <let line="51" var="content" as="item()*" slot="0" eval="3">
        <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:call" type="item()*">
         <check card="1" diag="0|0||ixsl:call">
          <ifCall name="ixsl:window" type="item()?"/>
         </check>
         <str val="loadFromZip"/>
         <arrayBlock>
-         <ifCall xmlns:map="http://www.w3.org/2005/xpath-functions/map" line="49" name="map:get" type="item()*">
+         <ifCall xmlns:map="http://www.w3.org/2005/xpath-functions/map" line="50" name="map:get" type="item()*">
           <treat as="map(*)" jsTest="return SaxonJS.U.isMap(item)" diag="0|0||map:get">
            <check card="1" diag="0|0||map:get">
             <ifCall name="ixsl:get" type="item()*">
@@ -55,21 +55,21 @@
          <str val="content.xml"/>
         </arrayBlock>
        </ifCall>
-       <valueOf line="52" flags="e">
+       <valueOf line="53" flags="e">
         <fn name="concat">
-         <str val="count($content)  "/>
+         <str val="&#xA;           count($content):  "/>
          <convert from="xs:integer" to="xs:string">
           <fn name="count">
            <varRef name="content" slot="0"/>
           </fn>
          </convert>
-         <str val=" &#xA;           exists($content)  "/>
+         <str val=" &#xA;           exists($content): "/>
          <convert from="xs:boolean" to="xs:string">
           <fn name="exists">
            <varRef name="content" slot="0"/>
           </fn>
          </convert>
-         <str val="          content: "/>
+         <str val="          &#xA;           content:          "/>
          <fn name="string-join">
           <convert from="xs:anyAtomicType" to="xs:string">
            <data>
@@ -87,15 +87,15 @@
      </sequence>
     </resultDoc>
    </templateRule>
-   <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="1" flags="os" line="42" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl">
+   <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="1" flags="os" line="43" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeTest role="match" test="element(Q{}input)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='input';"/>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="43" global="#&#xA;#Mon Oct 16 09:47:48 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Mon Oct 16 09:47:48 EDT 2017&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="44" global="#&#xA;#Mon Oct 16 10:06:56 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Mon Oct 16 10:06:56 EDT 2017&#xA;">
      <str role="href" val="#xmljellysandwich_body"/>
-     <sequence role="content" line="46">
-      <elem name="h1" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence role="content" line="47">
+      <elem name="h2" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
        <sequence>
         <valueOf flags="l">
-         <str val=" beep "/>
+         <str val="reading file "/>
         </valueOf>
         <valueOf flags="l">
          <fn name="string-join">
@@ -115,14 +115,14 @@
         </valueOf>
        </sequence>
       </elem>
-      <let line="50" var="content" as="item()*" slot="0" eval="3">
+      <let line="51" var="content" as="item()*" slot="0" eval="3">
        <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:call" type="item()*">
         <check card="1" diag="0|0||ixsl:call">
          <ifCall name="ixsl:window" type="item()?"/>
         </check>
         <str val="loadFromZip"/>
         <arrayBlock>
-         <ifCall xmlns:map="http://www.w3.org/2005/xpath-functions/map" line="49" name="map:get" type="item()*">
+         <ifCall xmlns:map="http://www.w3.org/2005/xpath-functions/map" line="50" name="map:get" type="item()*">
           <treat as="map(*)" jsTest="return SaxonJS.U.isMap(item)" diag="0|0||map:get">
            <check card="1" diag="0|0||map:get">
             <ifCall name="ixsl:get" type="item()*">
@@ -136,21 +136,21 @@
          <str val="content.xml"/>
         </arrayBlock>
        </ifCall>
-       <valueOf line="52" flags="e">
+       <valueOf line="53" flags="e">
         <fn name="concat">
-         <str val="count($content)  "/>
+         <str val="&#xA;           count($content):  "/>
          <convert from="xs:integer" to="xs:string">
           <fn name="count">
            <varRef name="content" slot="0"/>
           </fn>
          </convert>
-         <str val=" &#xA;           exists($content)  "/>
+         <str val=" &#xA;           exists($content): "/>
          <convert from="xs:boolean" to="xs:string">
           <fn name="exists">
            <varRef name="content" slot="0"/>
           </fn>
          </convert>
-         <str val="          content: "/>
+         <str val="          &#xA;           content:          "/>
          <fn name="string-join">
           <convert from="xs:anyAtomicType" to="xs:string">
            <data>
@@ -171,8 +171,8 @@
   </mode>
  </co>
  <co id="1" binds="">
-  <template name="Q{}css" flags="os" line="30" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" slots="0">
-   <elem role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="31" name="style" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+  <template name="Q{}css" flags="os" line="31" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" slots="0">
+   <elem role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="32" name="style" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
     <sequence>
      <att name="type" flags="l">
       <str val="text/css"/>
@@ -185,17 +185,17 @@
   </template>
  </co>
  <co id="2" binds="">
-  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="76" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="7" flags="pU" as="item()*" slots="2">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="79" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="7" flags="pU" as="item()*" slots="2">
    <arg name="who" as="element()"/>
    <arg name="ilk" as="xs:string"/>
-   <gcEE role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="73" op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+   <gcEE role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="76" op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
     <forEach>
      <fn name="tokenize">
       <cvUntyped to="xs:string">
        <data>
-        <slash line="79" simple="1">
+        <slash line="82" simple="1">
          <varRef name="who" slot="0"/>
-         <axis line="73" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+         <axis line="76" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
         </slash>
        </data>
       </cvUntyped>
@@ -206,14 +206,14 @@
       <dot type="xs:string"/>
      </fn>
     </forEach>
-    <varRef line="79" name="ilk" slot="1"/>
+    <varRef line="82" name="ilk" slot="1"/>
    </gcEE>
   </function>
  </co>
  <co id="3" binds="">
-  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="71" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="3" flags="pU" as="item()*" slots="1">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="74" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="3" flags="pU" as="item()*" slots="1">
    <arg name="who" as="element()"/>
-   <forEach role="body" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="73">
+   <forEach role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="76">
     <fn name="tokenize">
      <cvUntyped to="xs:string">
       <data>
@@ -233,20 +233,20 @@
   </function>
  </co>
  <co id="4" binds="">
-  <template name="Q{}xmljellysandwich_pack" flags="os" line="12" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" slots="0">
+  <template name="Q{}xmljellysandwich_pack" flags="os" line="13" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" slots="0">
    <empty role="body"/>
   </template>
  </co>
  <co id="5" binds="5 5">
   <mode onNo="SC" flags="dW" patternSlots="0">
-   <templateRule prec="0" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="os" line="21" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl">
+   <templateRule prec="0" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="os" line="22" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeTest role="match" test="element(Q{}document)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='document';"/>
-    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="22" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="23" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
      <sequence>
       <att name="class" flags="l">
        <str val="document"/>
       </att>
-      <elem line="24" name="h3" flags="l" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+      <elem line="25" name="h3" flags="l" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
        <applyT flags="i" bSlot="0">
         <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
        </applyT>
@@ -254,21 +254,21 @@
      </sequence>
     </elem>
    </templateRule>
-   <templateRule prec="0" prio="-0.4" seq="1" rank="0" minImp="0" slots="0" flags="os" line="63" module="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl">
+   <templateRule prec="0" prio="-0.4" seq="1" rank="0" minImp="0" slots="0" flags="os" line="66" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeTest role="match" test="element(Q{}document)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='document';"/>
-    <elem role="action" vn="31" baseUri="file:/home/wendell/Documents/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="64" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="67" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
      <sequence>
       <att name="class" flags="l">
        <fn name="name">
         <dot type="element(Q{}document)"/>
        </fn>
       </att>
-      <elem line="65" name="div" flags="l">
+      <elem line="68" name="div" flags="l">
        <sequence>
         <att name="class" flags="l">
          <str val="tag"/>
         </att>
-        <valueOf line="66" flags="l">
+        <valueOf line="69" flags="l">
          <fn name="name">
           <dot type="element(Q{}document)"/>
          </fn>
@@ -278,7 +278,7 @@
         </valueOf>
        </sequence>
       </elem>
-      <applyT line="67" flags="i" bSlot="1">
+      <applyT line="70" flags="i" bSlot="1">
        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
       </applyT>
      </sequence>
@@ -292,4 +292,4 @@
  </output>
  <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
 </package>
-<?Σ 9bc1702e?>
+<?Σ f7ce26d9?>
