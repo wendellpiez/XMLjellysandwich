@@ -25,10 +25,10 @@ function loadFromZip (zippath, filepath) {
         return filecontents
    } )
    .then(
-     function success(text) {                    // 5) display the result
-       console.log(text);
-       document.getElementById("locus").innerHTML = text;
-       return text
+      function success(text) {                    // 5) display the result
+         console.log(text);
+         document.getElementById("locus").innerHTML = text;
+         return text
       },
-     function error(e) { "ERROR: " + e } )
+      function error(e) { "ERROR: " + e } )
 }

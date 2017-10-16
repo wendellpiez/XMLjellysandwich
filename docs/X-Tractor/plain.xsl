@@ -9,12 +9,13 @@
 
 <!--Starter XSLT written courtesy of XML Jelly Sandwich -->
 
-   <xsl:template name="xmljellysandwich_pack">
+   <!-- We want nothing to happen (yet) at load time ... -->
+   <xsl:template name="xmljellysandwich_pack"/>
 <!-- Target page components by assigning transformation results to them via their IDs in the host page. -->
-      <xsl:result-document href="#xmljellysandwich_body">
+      <!--<xsl:result-document href="#xmljellysandwich_body">
          <xsl:apply-templates/>
-      </xsl:result-document>
-   </xsl:template>
+      </xsl:result-document>-->
+   <!--</xsl:template>-->
 
   <xsl:mode on-no-match="shallow-copy"/>
    
@@ -41,17 +42,19 @@ div { margin-left: 1rem }
 
   <xsl:template match="input | id('file')" mode="ixsl:onchange">
      <xsl:result-document href="#xmljellysandwich_body">
-        <h1>
-           <xsl:text> beep </xsl:text>
+        <h2>
+           <xsl:text>reading file </xsl:text>
            <xsl:value-of select="map:find(ixsl:get(.,'files'),'name')"/>
-        </h1>
+        </h2>
         
         <xsl:variable name="fileobj" select="map:get( ixsl:get(.,'files'),'0')"/>
         <xsl:variable name="content" select="ixsl:call(ixsl:window(),'loadFromZip',[ $fileobj,'content.xml' ])"/>
         
-              <p>X
-                 <xsl:copy-of select="$content"/>
-              </p>
+        <xsl:text expand-text="yes">
+           count($content):  { count($content) } 
+           exists($content): { exists($content) }          
+           content:          { $content }
+              </xsl:text>
         <!--
         <xsl:value-of select="count($fileobj )"/>
         <xsl:value-of select="map:find($fileobj,'name')"/>-->
