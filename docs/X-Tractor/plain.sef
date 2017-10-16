@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-10-16T10:06:56.73-04:00" target="JS">
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-10-16T10:12:18.438-04:00" target="JS">
  <co id="0" binds="">
   <mode name="Q{http://saxonica.com/ns/interactiveXSLT}onchange" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="1" flags="os" line="43" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl">
@@ -8,7 +8,7 @@
       <str val="file"/>
      </fn>
     </p.nodeSet>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="44" global="#&#xA;#Mon Oct 16 10:06:56 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Mon Oct 16 10:06:56 EDT 2017&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="44" global="#&#xA;#Mon Oct 16 10:12:18 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Mon Oct 16 10:12:18 EDT 2017&#xA;">
      <str role="href" val="#xmljellysandwich_body"/>
      <sequence role="content" line="47">
       <elem name="h2" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
@@ -55,41 +55,43 @@
          <str val="content.xml"/>
         </arrayBlock>
        </ifCall>
-       <valueOf line="53" flags="e">
-        <fn name="concat">
-         <str val="&#xA;           count($content):  "/>
-         <convert from="xs:integer" to="xs:string">
-          <fn name="count">
-           <varRef name="content" slot="0"/>
-          </fn>
-         </convert>
-         <str val=" &#xA;           exists($content): "/>
-         <convert from="xs:boolean" to="xs:string">
-          <fn name="exists">
-           <varRef name="content" slot="0"/>
-          </fn>
-         </convert>
-         <str val="          &#xA;           content:          "/>
-         <fn name="string-join">
-          <convert from="xs:anyAtomicType" to="xs:string">
-           <data>
-            <mergeAdj>
-             <varRef name="content" slot="0"/>
-            </mergeAdj>
-           </data>
+       <elem line="54" name="p" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+        <valueOf flags="el">
+         <fn name="concat">
+          <str val="&#xA;               count($content):  "/>
+          <convert from="xs:integer" to="xs:string">
+           <fn name="count">
+            <varRef name="content" slot="0"/>
+           </fn>
           </convert>
-          <str val=" "/>
+          <str val=" &#xA;               exists($content): "/>
+          <convert from="xs:boolean" to="xs:string">
+           <fn name="exists">
+            <varRef name="content" slot="0"/>
+           </fn>
+          </convert>
+          <str val="          &#xA;               content:          "/>
+          <fn name="string-join">
+           <convert from="xs:anyAtomicType" to="xs:string">
+            <data>
+             <mergeAdj>
+              <varRef name="content" slot="0"/>
+             </mergeAdj>
+            </data>
+           </convert>
+           <str val=" "/>
+          </fn>
+          <str val="&#xA;            "/>
          </fn>
-         <str val="&#xA;              "/>
-        </fn>
-       </valueOf>
+        </valueOf>
+       </elem>
       </let>
      </sequence>
     </resultDoc>
    </templateRule>
    <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="1" flags="os" line="43" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeTest role="match" test="element(Q{}input)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='input';"/>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="44" global="#&#xA;#Mon Oct 16 10:06:56 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Mon Oct 16 10:06:56 EDT 2017&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="44" global="#&#xA;#Mon Oct 16 10:12:18 EDT 2017&#xA;method=xml&#xA;" local="#&#xA;#Mon Oct 16 10:12:18 EDT 2017&#xA;">
      <str role="href" val="#xmljellysandwich_body"/>
      <sequence role="content" line="47">
       <elem name="h2" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
@@ -136,34 +138,36 @@
          <str val="content.xml"/>
         </arrayBlock>
        </ifCall>
-       <valueOf line="53" flags="e">
-        <fn name="concat">
-         <str val="&#xA;           count($content):  "/>
-         <convert from="xs:integer" to="xs:string">
-          <fn name="count">
-           <varRef name="content" slot="0"/>
-          </fn>
-         </convert>
-         <str val=" &#xA;           exists($content): "/>
-         <convert from="xs:boolean" to="xs:string">
-          <fn name="exists">
-           <varRef name="content" slot="0"/>
-          </fn>
-         </convert>
-         <str val="          &#xA;           content:          "/>
-         <fn name="string-join">
-          <convert from="xs:anyAtomicType" to="xs:string">
-           <data>
-            <mergeAdj>
-             <varRef name="content" slot="0"/>
-            </mergeAdj>
-           </data>
+       <elem line="54" name="p" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+        <valueOf flags="el">
+         <fn name="concat">
+          <str val="&#xA;               count($content):  "/>
+          <convert from="xs:integer" to="xs:string">
+           <fn name="count">
+            <varRef name="content" slot="0"/>
+           </fn>
           </convert>
-          <str val=" "/>
+          <str val=" &#xA;               exists($content): "/>
+          <convert from="xs:boolean" to="xs:string">
+           <fn name="exists">
+            <varRef name="content" slot="0"/>
+           </fn>
+          </convert>
+          <str val="          &#xA;               content:          "/>
+          <fn name="string-join">
+           <convert from="xs:anyAtomicType" to="xs:string">
+            <data>
+             <mergeAdj>
+              <varRef name="content" slot="0"/>
+             </mergeAdj>
+            </data>
+           </convert>
+           <str val=" "/>
+          </fn>
+          <str val="&#xA;            "/>
          </fn>
-         <str val="&#xA;              "/>
-        </fn>
-       </valueOf>
+        </valueOf>
+       </elem>
       </let>
      </sequence>
     </resultDoc>
@@ -185,17 +189,17 @@
   </template>
  </co>
  <co id="2" binds="">
-  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="79" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="7" flags="pU" as="item()*" slots="2">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="78" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="7" flags="pU" as="item()*" slots="2">
    <arg name="who" as="element()"/>
    <arg name="ilk" as="xs:string"/>
-   <gcEE role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="76" op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+   <gcEE role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="75" op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
     <forEach>
      <fn name="tokenize">
       <cvUntyped to="xs:string">
        <data>
-        <slash line="82" simple="1">
+        <slash line="81" simple="1">
          <varRef name="who" slot="0"/>
-         <axis line="76" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+         <axis line="75" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
         </slash>
        </data>
       </cvUntyped>
@@ -206,14 +210,14 @@
       <dot type="xs:string"/>
      </fn>
     </forEach>
-    <varRef line="82" name="ilk" slot="1"/>
+    <varRef line="81" name="ilk" slot="1"/>
    </gcEE>
   </function>
  </co>
  <co id="3" binds="">
-  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="74" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="3" flags="pU" as="item()*" slots="1">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="73" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" eval="3" flags="pU" as="item()*" slots="1">
    <arg name="who" as="element()"/>
-   <forEach role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="76">
+   <forEach role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="75">
     <fn name="tokenize">
      <cvUntyped to="xs:string">
       <data>
@@ -254,21 +258,21 @@
      </sequence>
     </elem>
    </templateRule>
-   <templateRule prec="0" prio="-0.4" seq="1" rank="0" minImp="0" slots="0" flags="os" line="66" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl">
+   <templateRule prec="0" prio="-0.4" seq="1" rank="0" minImp="0" slots="0" flags="os" line="65" module="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl">
     <p.nodeTest role="match" test="element(Q{}document)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='document';"/>
-    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="67" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/X-Tractor/plain.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema map=http://www.w3.org/2005/xpath-functions/map" line="66" name="div" namespaces="map=http://www.w3.org/2005/xpath-functions/map xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
      <sequence>
       <att name="class" flags="l">
        <fn name="name">
         <dot type="element(Q{}document)"/>
        </fn>
       </att>
-      <elem line="68" name="div" flags="l">
+      <elem line="67" name="div" flags="l">
        <sequence>
         <att name="class" flags="l">
          <str val="tag"/>
         </att>
-        <valueOf line="69" flags="l">
+        <valueOf line="68" flags="l">
          <fn name="name">
           <dot type="element(Q{}document)"/>
          </fn>
@@ -278,7 +282,7 @@
         </valueOf>
        </sequence>
       </elem>
-      <applyT line="70" flags="i" bSlot="1">
+      <applyT line="69" flags="i" bSlot="1">
        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
       </applyT>
      </sequence>
@@ -292,4 +296,4 @@
  </output>
  <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
 </package>
-<?Σ f7ce26d9?>
+<?Σ e63aa623?>

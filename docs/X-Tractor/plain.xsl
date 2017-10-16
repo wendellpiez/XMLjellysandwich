@@ -50,15 +50,14 @@ div { margin-left: 1rem }
         <xsl:variable name="fileobj" select="map:get( ixsl:get(.,'files'),'0')"/>
         <xsl:variable name="content" select="ixsl:call(ixsl:window(),'loadFromZip',[ $fileobj,'content.xml' ])"/>
         
-        <xsl:text expand-text="yes">
-           count($content):  { count($content) } 
-           exists($content): { exists($content) }          
-           content:          { $content }
-              </xsl:text>
-        <!--
-        <xsl:value-of select="count($fileobj )"/>
-        <xsl:value-of select="map:find($fileobj,'name')"/>-->
-    
+        <p>
+            <xsl:text expand-text="yes">
+               count($content):  { count($content) } 
+               exists($content): { exists($content) }          
+               content:          { $content }
+            </xsl:text>
+        </p>
+        
      </xsl:result-document>
      
   </xsl:template>
