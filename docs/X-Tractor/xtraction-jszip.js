@@ -15,26 +15,27 @@ window.onload = function() {
 
 
 function loadFromZip (zippath, filepath) {
-   var zip = new JSZip()
-   zip.loadAsync(zippath)
-   .then(function (zip) {
+    var zip = new JSZip()
+    zip.loadAsync(zippath)
+    .then(function (zip) {
         console.log(zip.files);
         
         var filecontents = zip.file(filepath).async("string")
         console.log(filecontents); // Promise { <state>: "pending" }
         return filecontents
-   } )
-   .then(
-      function success(text) {                    // 5) display the result
-         /*console.log(text);*/
-         var oParser = new DOMParser();
-         var xmltree = oParser.parseFromString(text, "text/xml");
+        },
+        function (err) { "ERROR: " + err } )
+    .then(function (text) {
+        console.log(text);
+        document.getElementById("XTractor").innerHTML = text;
+        /*var oParser = new DOMParser();
+        var xmltree = oParser.parseFromString(text, "text/xml");*/
         
-         SaxonJS.transform({
+        /*SaxonJS.transform({
             sourceNode:         xmltree,
             stylesheetLocation: "plain.sef",
-            initialTemplate:    "XTractor-acquire" });
-          console.log(xmltree); 
-      },
-      function error(e) { "ERROR: " + e } )
+            initialTemplate:    "XTractor-acquire" });*/
+        /*console.log(xmltree);*/
+    },
+function (err) { "ERROR: " + err } )
 }

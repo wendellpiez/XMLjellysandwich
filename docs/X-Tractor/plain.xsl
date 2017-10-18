@@ -17,17 +17,17 @@
       </xsl:result-document>-->
    <!--</xsl:template>-->
 
-  <xsl:mode on-no-match="shallow-copy"/>
+<!-- Entry template for XTractor - XML will be whatever was parsed from provided input, good luck! --> 
+<xsl:template name="XTractor-acquire">
+   <xsl:result-document href="#XTractor" method="ixsl:append-content">
+      <xsl:apply-templates mode="flag"/>
+   </xsl:result-document>
    
-   <xsl:template match="document">
-      <div class="document">
-         <h3>
-           <xsl:apply-templates/>
-         </h3>
-         
-      </div>
-   </xsl:template>
-
+   
+</xsl:template>
+   
+   <xsl:mode on-no-match="shallow-copy"/>
+   
    <xsl:template name="css">
       <style type="text/css">
 html, body { font-size: 10pt }
@@ -40,28 +40,40 @@ div { margin-left: 1rem }
 </style>
    </xsl:template>
 
-  <xsl:template match="input | id('file')" mode="ixsl:onchange">
-     <xsl:result-document href="#xmljellysandwich_body">
-        <h2>
-           <xsl:text>reading file </xsl:text>
-           <xsl:value-of select="map:find(ixsl:get(.,'files'),'name')"/>
-        </h2>
-        
-        <xsl:variable name="fileobj" select="map:get( ixsl:get(.,'files'),'0')"/>
-        <xsl:variable name="content" select="ixsl:call(ixsl:window(),'loadFromZip',[ $fileobj,'content.xml' ])"/>
-        
-        <p>
-            <xsl:text expand-text="yes">
+   <xsl:template match="id('file')" mode="ixsl:onchange">
+      <!-- pre loading -->
+      <xsl:variable name="fileobj" select="map:get( ixsl:get(id('file'),'files'),'0')"/>
+      <xsl:result-document href="#xmljellysandwich_header" method="ixsl:append-content">
+         <h2>
+            <xsl:text>reading file </xsl:text>
+            <xsl:value-of select="map:find(ixsl:get(.,'files'),'name')"/>
+         </h2>
+      </xsl:result-document>
+      
+         <!-- Call to $content will inject transformation results
+              into #XTractor -->
+      <xsl:variable name="content" select="ixsl:call(ixsl:window(),'loadFromZip',[ $fileobj,'word/document.xml' ])"/>
+      <xsl:copy-of select="$content"/>
+      
+   </xsl:template>
+   
+   <!--<xsl:template match="id('go')" mode="ixsl:onclick">
+      <xsl:result-document href="#xmljellysandwich_body">
+         <xsl:variable name="content" select="id('XTractor')"/>
+         <!-\-<xsl:variable name="xml-we-think" select="parse-xml($content)"/>-\->
+         <div>
+            <!-\-<xsl:text expand-text="yes">
                count($content):  { count($content) } 
                exists($content): { exists($content) }          
                content:          { $content }
-            </xsl:text>
-        </p>
-        
-     </xsl:result-document>
-     
-  </xsl:template>
-
+            </xsl:text>-\->
+            <xsl:apply-templates select="$content" mode="render"/>
+         </div>
+         
+      </xsl:result-document>
+      
+   </xsl:template>-->
+   
    <xsl:template priority="-0.4" match="document">
       <div class="{name()}">
          <div class="tag">
@@ -80,4 +92,21 @@ div { margin-left: 1rem }
       <xsl:param name="ilk" as="xs:string"/>
       <xsl:sequence select="$ilk = XJS:classes($who)"/>
    </xsl:function>
+   
+   <xsl:template match="*" mode="render flag">
+      <span style="color: green; font-size: 70%; font-family: sans-serif">
+         <xsl:value-of select="local-name()"/>
+      </span>
+      <xsl:apply-templates mode="#current"/>
+      <span style="color: green; font-size: 70%; font-family: sans-serif">
+         <xsl:value-of select="local-name()"/>
+      </span>
+   </xsl:template>
+
+   <xsl:template match="." mode="render flag">
+      <span style="color: blue">
+      <xsl:value-of select="."/>
+      </span>
+   </xsl:template>
+
 </xsl:stylesheet>
