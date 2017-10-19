@@ -4,7 +4,18 @@
       <meta charset="utf-8"><!-- meta --></meta>
       <style type="text/css" id="xmljellysandwich_css">
       
-#XTractor { margin: 0.5em; padding: 0.5em; border: thin solid black }
+#XTractor { margin: 0.5em; padding: 0.5em; border: thin solid black;
+  background-color: lemonchiffon; color: black }
+
+#XTractor > *:first-child { margin-top: 0em }
+#XTractor > *:last-child { margin-bottom: 0em }
+
+
+html, body
+  { background-color: lightsteelblue }
+  
+a       { color: inherit; font-family: sans-serif; font-size: 90%; text-decoration: none }
+a:hover { text-decoration: underline }
 
       </style>
      
@@ -38,8 +49,8 @@ window.onload = function() {
        
        
        <h3>XSweet at Home</h3>
-       <p style="font-style: italic">Upload your .docx file here ... <input type="file" id="file" name="file" title="Drop docx"/></p>
-       <p style="font-style: italic; text-align: right">... all the data conversion happens <b>on your system</b></p>
+       <p style="font-style: italic">Load your .docx file here ... <input type="file" id="file" name="file" title="Drop docx"/></p>
+       <p style="font-style: italic; margin-left: 20%">... all the data conversion happens <b>on your system</b></p>
        <p class="note">Note: no warranty offered or implied. If your browser crashes, please restart with apologies.</p>
        
        
@@ -53,6 +64,7 @@ window.onload = function() {
       <div id="xmljellysandwich_footer">
          <p>XML+XSLT under JS in the browser using <a href="http://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>, from
             <a href="http://www.saxonica.com">Saxonica</a>, with help from <a href="http://github.com/wendellpiez/XMLjellysandwich">XML Jelly Sandwich</a>.</p>
+        <p><a href="gitlab.coko.foundation/XSweet/">XSweet</a> is supported by the <a href="coko.foundation">Coko Foundation</a></p>
       </div>
    </body>
 </html>
