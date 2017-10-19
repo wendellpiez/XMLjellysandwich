@@ -2,7 +2,11 @@
    <head>
       <title>XML Tractor</title>
       <meta charset="utf-8"><!-- meta --></meta>
-      <style type="text/css" id="xmljellysandwich_css">/* */</style>
+      <style type="text/css" id="xmljellysandwich_css">
+      
+#XTractor { margin: 0.5em; padding: 0.5em; border: thin solid black }
+
+      </style>
      
      <!--<script type="text/javascript" src="../lib/zip.js"><!-\- yea verily yea -\-></script>-->
      <script type="text/javascript"
@@ -33,11 +37,10 @@ window.onload = function() {
        
        
        
-       <h3>Go ahead give it a shot</h3>
-       <p style="font-style: italic">Upload your .docx file here and I will sniff out its content ...</p>
+       <h3>XSweet at Home</h3>
+       <p style="font-style: italic">Upload your .docx file here ... <input type="file" id="file" name="file" title="Drop docx"/></p>
+       <p style="font-style: italic; text-align: right">... all the data conversion happens <b>on your system</b></p>
        <p class="note">Note: no warranty offered or implied. If your browser crashes, please restart with apologies.</p>
-       <input type="file" id="file" name="file" title="Drop docx"/><br class="br"/>
-       
        
        
      </div>
@@ -45,7 +48,7 @@ window.onload = function() {
       <xsl:result-document href="#xmljellysandwich_directory"> .... </xsl:result-document>
     -\-></div>-->
       <div id="XTractor">
-        <p>XTractor</p>
+        <p>... Patience while waiting for the XSweet HTML XTractor ...</p>
       </div>
       <div id="xmljellysandwich_footer">
          <p>XML+XSLT under JS in the browser using <a href="http://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>, from

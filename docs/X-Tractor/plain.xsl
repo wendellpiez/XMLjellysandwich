@@ -19,35 +19,21 @@
 
 <!-- Entry template for XTractor - XML will be whatever was parsed from provided input, good luck! --> 
 <xsl:template name="XTractor-acquire">
-   <xsl:result-document href="#XTractor" method="ixsl:append-content">
+   <xsl:result-document href="#XTractor" method="ixsl:replace-content">
       <xsl:apply-templates mode="flag"/>
    </xsl:result-document>
    
    
 </xsl:template>
    
-   <xsl:mode on-no-match="shallow-copy"/>
-   
-   <xsl:template name="css">
-      <style type="text/css">
-html, body { font-size: 10pt }
-div { margin-left: 1rem }
-.tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }
-
-
-.document { }
-
-</style>
-   </xsl:template>
-
    <xsl:template match="id('file')" mode="ixsl:onchange">
       <!-- pre loading -->
       <xsl:variable name="fileobj" select="map:get( ixsl:get(id('file'),'files'),'0')"/>
       <xsl:result-document href="#xmljellysandwich_header" method="ixsl:append-content">
-         <h2>
-            <xsl:text>reading file </xsl:text>
+         <h4>
+            <xsl:text>... reading file </xsl:text>
             <xsl:value-of select="map:find(ixsl:get(.,'files'),'name')"/>
-         </h2>
+         </h4>
       </xsl:result-document>
       
          <!-- Call to $content will inject transformation results
@@ -74,14 +60,6 @@ div { margin-left: 1rem }
       
    </xsl:template>-->
    
-   <xsl:template priority="-0.4" match="document">
-      <div class="{name()}">
-         <div class="tag">
-            <xsl:value-of select="name()"/>: </div>
-         <xsl:apply-templates/>
-      </div>
-   </xsl:template>
-
    <xsl:function name="XJS:classes">
       <xsl:param name="who" as="element()"/>
       <xsl:sequence select="tokenize($who/@class, '\s+') ! lower-case(.)"/>
@@ -109,4 +87,17 @@ div { margin-left: 1rem }
       </span>
    </xsl:template>
 
+   <xsl:template match="w:document" mode="#all"
+      xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+      <xsl:apply-templates select="w:body"/>
+   </xsl:template>
+   
+   <!-- Assumed by included XSLT, whereas this stylesheet copies through by default -->
+   <xsl:template match="w:*"
+      xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+      <xsl:apply-templates mode="#current"/>
+   </xsl:template>
+   
+   <xsl:include href="../../../../Documents/XSweet/applications/docx-extract/docx-html-extract-mini.xsl"/>
+   
 </xsl:stylesheet>
