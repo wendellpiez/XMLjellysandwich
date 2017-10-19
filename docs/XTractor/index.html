@@ -80,21 +80,26 @@ window.onload = function() {
       <div>
         <h5>Running the XTractor</h5>
         <p>Use the button above to select a <code>docx</code> file on your system. Most of the time,
-          dragging the file icon onto this button also works.</p>
+          dragging a file icon onto this button also works.</p>
         <p>Be patient, depending on the size, complexity and <q>code quality</q> of your
-            <code>docx</code> input, conversion can take a bit of time.</p>
+            <code>docx</code> input, conversion can take a bit of time (probably more than a few
+          seconds but less than minutes). You may also have to click through warnings from your
+          browser, if it is set to complain about time or resource usage.</p>
       </div>
       <div>
         <h5>Limitations</h5>
       </div>
-      <p>Because JSZip has to read the <code>docx</code> and its contents must be parsed for
-        transformation, there will be some latency especially in a browser already loaded with
+      <p>As noted, because JSZip has to read the <code>docx</code> and its contents must be parsed
+        for transformation, there will be some latency especially in a browser already loaded with
         pages. If you have trouble, be patient and/or start with a fresh browser runtime. So far,
         the XSweet HTML XTractor has been tested in Firefox and Chrome.</p>
       <p>In this preliminary implementation, footnotes and endnotes are not handled and Word styles
         are not integrated. Also there's lots more optimization to do over these crude file outputs
         to make them passable code, not only legible on screen. (And XSweet includes much more logic
         than has been invoked so far.)</p>
+      <p>Among other things, you will find this means your page is typically very noisy – reflecting
+        issues of formatting (consistency) in the docx input. In subsequent versions will include
+        ways of cleaning this up.</p>
       <p>Until more interface design work is prioritized, there is no ready way to save out your
         HTML results.</p>
       <p class="note">Note: no warranty offered or implied. If your browser crashes, please restart
