@@ -48,10 +48,9 @@ window.onload = function() {
        
        
        
-       <h3>XSweet at Home</h3>
+       <h3>XSweet HTML XTractor</h3>
        <p style="font-style: italic">Load your .docx file here ... <input type="file" id="file" name="file" title="Drop docx"/></p>
        <p style="font-style: italic; margin-left: 20%">... all the data conversion happens <b>on your system</b></p>
-       <p class="note">Note: no warranty offered or implied. If your browser crashes, please restart with apologies.</p>
        
        
      </div>
@@ -60,6 +59,47 @@ window.onload = function() {
     -\-></div>-->
       <div id="XTractor">
         <p>... Patience while waiting for the XSweet HTML XTractor ...</p>
+      <div>
+        <h5>What is the XSweet HTML XTractor</h5>
+        <p>Internally, Word's <code>docx</code> format is expressed as XML. <a
+            href="http://gitlab.coko.foundation/XSweet/XSweet">XSweet</a> provides an XSLT
+          transformation that can convert this XML into a rough-and-ready but tolerable HTML, a
+            <em>lingua franca</em> for your browser. Using <a
+            href="http://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>, an XSLT processor
+          implemented in Javascript, this conversion can be performed in memory on your system. No
+          file is uploaded to the cloud or indeed copied anywhere: a Javascript utility (JSZip) is
+          simply used to read the <code>docx</code> file you designate on your file system, and XML
+          discovered therein passed to SaxonJS for processing. If you are reading this, it is
+          already set up to run.</p>
+      </div>
+      <div>
+        <h5>Installation Instructions.</h5>
+        <p>None. The scripts and configurations are loaded with this page so you are ready to
+          go.</p>
+      </div>
+      <div>
+        <h5>Running the XTractor</h5>
+        <p>Use the button above to select a <code>docx</code> file on your system. Most of the time,
+          dragging the file icon onto this button also works.</p>
+        <p>Be patient, depending on the size, complexity and <q>code quality</q> of your
+            <code>docx</code> input, conversion can take a bit of time.</p>
+      </div>
+      <div>
+        <h5>Limitations</h5>
+      </div>
+      <p>Because JSZip has to read the <code>docx</code> and its contents must be parsed for
+        transformation, there will be some latency especially in a browser already loaded with
+        pages. If you have trouble, be patient and/or start with a fresh browser runtime. So far,
+        the XSweet HTML XTractor has been tested in Firefox and Chrome.</p>
+      <p>In this preliminary implementation, footnotes and endnotes are not handled and Word styles
+        are not integrated. Also there's lots more optimization to do over these crude file outputs
+        to make them passable code, not only legible on screen. (And XSweet includes much more logic
+        than has been invoked so far.)</p>
+      <p>Until more interface design work is prioritized, there is no ready way to save out your
+        HTML results.</p>
+      <p class="note">Note: no warranty offered or implied. If your browser crashes, please restart
+        with apologies.</p>
+        
       </div>
       <div id="xmljellysandwich_footer">
          <p>XML+XSLT under JS in the browser using <a href="http://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>, from
