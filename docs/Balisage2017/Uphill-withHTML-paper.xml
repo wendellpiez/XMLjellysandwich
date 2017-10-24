@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="balisage-proceedings-html.xsl"?>
-<?xml-stylesheet type="text/css" href="../../../Balisage/lib/balisage-author.css" alternate="yes"?>
-<?xml-model href="../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-stylesheet type="text/css" href="../../../Documents/Balisage/lib/balisage-author.css"?>
+<?xml-stylesheet type="text/css" href="../../../../Documents/Balisage/lib/balisage-author.css" title="Forms interface" alternate="no"?>
+<?xml-model href="../../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0-subset Balisage-1.3"
   xml:id="HR-23632987-8973" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <title>Uphill to XML with XSLT, XProc … and HTML</title>
@@ -172,14 +171,17 @@
             for many purposes (for publishing documentary data it might be much like Peter Flynn's
             generic universal document format). More commonly, carrier formats are made by adapting
             another format to this use, typically by relaxing it. Carrier formats are hard to see
-            because they take the forms of other formats. What characterizes them as carriers is
-            that they need to follow the rules <emphasis>neither</emphasis> of hub nor of
-            application, since their point is to mediate between them. Consequently they follow the
-            rules (and must impose constraints), but progressively, relatively, and not always
-            equally, or not right away.</para>
+            because they look like other formats – often especially, they look like applications of
+            hub formats, which is more or less what they are albeit "throwaway" variants. What
+            characterizes them as carriers is that they need to follow the rules
+              <emphasis>neither</emphasis> of hub nor of application, since their point is to
+            mediate between them. Consequently they follow the rules (and must impose constraints),
+            but progressively, relatively, and not always equally, or not right away.</para>
           <para>Note that, somewhat confusing, someone's carrier format, may be someone else's
             application format. That is, what is a carrier for you (internally) becomes for them, an
-            interface that they have to target (externally).</para>
+            interface that they have to target (externally). It is really only a carrier format if
+            you also have the scope to change and adapt it; if not, it is another
+            application.</para>
           <para>Thus it's typical to try and cheat, using an application format as a carrier format
             and vice versa. That is what we are doing here – even if the format we opt for, as a
             carrier (namely HTML) has some of the features of both application, and hub
@@ -191,21 +193,29 @@
         <listitem>
           <para>Finally, it should be noted that actual control over a data set may be exerted, even
             without a fully specified hub format – inasmuch as control mechanisms may take other
-            forms than the classic constraints over markup languages (which focuses validation on
-            element type names, containment as represented syntactically, and attribute flags.
-            Sometimes the hub format or essential aspects or elements of the hub are better regarded
-            as a projections of other, further abstracted models or taxonomies.</para>
-          <para>It is frequently difficult, when considering a system especially that has grown over
-            time, to determine exactly where the control points actually are. Especially since where
-            they are actually controlled (operationally) and where they are nominally dictated, are
-            often two different things. Documentation, it is sad to say, is more often than not out
-            of date.</para>
-          <para>These entanglements are all reasons, it may be, not to rely on a hub format to do
-            every job in the world. Imposing a requirement that a process artifact (even a temporary
-            one) conform to a hub format (designed for another purpose) may be an arbitrary
-            imposition as often as it's a neat trick. Better to keep the hub format for the good
-            data, the controls in place – and with the data that is not so good or not yet so good,
-            don't make such demands.</para>
+            forms than the classic constraints over markup languages (as enforced, for example, by
+            grammar-based validation languages). Sometimes the hub format or essential aspects or
+            elements of the hub are better regarded as a projections of other, further abstracted
+            models or taxonomies.</para>
+          <para>Add to this the premise that we even have the control over the data that we think we
+            have. Often, the regularities we exploit in processing are not being formally ensured or
+            validated at all – that is to say, there are no real controls, or the only controls are
+            informal ones.</para>
+          <para>Indeed it is sometimes difficult, when considering a system especially that has
+            grown over time, to determine exactly where the control points actually are. If and
+            where they are actually controlled (operationally) and where they are declared or
+            dictated (that is, whether their implicit contracts are spelled out), are often two
+            different things. Documentation, it is sad to say, is not always accurate: systems
+            analysis is an exploration every time. Sometimes, purported hubs have become
+            applications; frequently they are invested with application logic and sometimes
+            unavoidably.</para>
+          <para>These entanglements are all reasons, it may be, not to try rely on a hub format to
+            do every job in the world. Imposing a requirement that a process artifact (even a
+            temporary one) validate to constraints appropriate to a hub format (designed for another
+            purpose) may be an arbitrary imposition – even while it is sometimes a neat trick. In
+            general it may be better to keep the hub format for the good data, the controls in place
+            – and with the data that is not so good or not yet so good, don't make such
+            demands.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -240,15 +250,16 @@
                 <para>Gustav Fechner (<link xmlns:xlink="http://www.w3.org/1999/xlink"
                     xlink:href="http://piez.org/wendell/projects/buechlein/"><emphasis role="ital"
                       >Life After Death: a Manual</emphasis></link>)</para>
-                <para>Aiming for "functional facsimile" of 1904 print edition</para>
+                <para>Aiming for "functional facsimile" of a 1904 translation (print edition)</para>
               </listitem>
               <listitem>
                 <para>Chas. Woodbury (<link xmlns:xlink="http://www.w3.org/1999/xlink"
                     xlink:href="http://pausepress.net/TalksWithEmerson.xml"><emphasis role="ital"
-                      >Talks with Emerson</emphasis></link>, 1890, with new annotations)</para>
+                      >Talks with Emerson</emphasis></link>, 1890, TEI transcription with new
+                  annotations</para>
               </listitem>
               <listitem>
-                <para>Demonstrated that XSLT pipelines are capable</para>
+                <para>Demonstrated that XSLT is well-suited for upconversion</para>
                 <itemizedlist>
                   <listitem>
                     <para>In XSLT: 2.0 grouping, temporary trees/pipelining, regular expressions
@@ -270,10 +281,7 @@
                   editors)</para>
               </listitem>
               <listitem>
-                <para>Still present formidable obstacles</para>
-              </listitem>
-              <listitem>
-                <para>See, e.g., BITSLab examples</para>
+                <para>Demonstrate that HTML->hub (TEI, JATS, what have you) is feasible</para>
               </listitem>
             </itemizedlist>
           </listitem>
@@ -282,9 +290,6 @@
                 xlink:href="https://gitlab.coko.foundation/wendell/XSweet">XSweet</link> with Coko
               Foundation</para>
             <para>Developing pipelines producing HTML from Word <code>docx</code>.</para>
-            <para>For example, <link xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="http://pausepress.net/EpigramMicrophone"><emphasis role="ital">Epigram
-                  Microphone</emphasis></link> by Mark Scott</para>
           </listitem>
         </itemizedlist>
       </blockquote>
@@ -319,7 +324,11 @@
           <listitem>
             <para>Question of the moment (say): if <citation>docx</citation> is my source, and BITS
               is my target, is HTML a reasonable way station?</para>
-            <para>(Epigram Microphone)</para>
+            <para>For example, <link xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="http://pausepress.net/EpigramMicrophone"><emphasis role="ital">Epigram
+                  Microphone</emphasis></link> by Mark Scott</para>
+            <para>Word <code>docx</code> → HTML → JATS/BITS is complete from author to
+              archive</para>
           </listitem>
         </itemizedlist>
       </blockquote>
@@ -422,14 +431,15 @@
       </blockquote>
       <para>It is actually fairly interesting to contemplate how HTML has come to be in its present
         state, a product as it is of evolutionary pressures as well as a locus for design intent.
-        Arguably it started (nearly 30 years ago) as an application format, but appearances are also
-        that the earlier format on which it was based, and the format HTML quickly became, had
-        pretenses at being a hub format in a document architecture. It is hub formats that are
-        associated with the ideology of "single sourcing" that has accompanied and tends to
-        accompany all "missionary" tag sets (HTML included). Nonetheless HTML in all its
-        incarnations has teetered between the requirements of a hub format, an application format
-        and now a carrier format, tipping one direction in usage one way, another direction in use
-        another way.</para>
+        Arguably it started (nearly 30 years ago) as an application format, even if the earlier
+        format on which it was based – like the format HTML quickly became – had pretenses at being
+        a hub format in a document architecture. It is hub formats that are associated with the
+        ideology of "single sourcing" that has accompanied and tends to accompany all "missionary"
+        tag sets (HTML included). Yet HTML was never truly a hub despite its ambitions, hardly ever
+        being used for anything but browser display of web pages. It would be truer to say that HTML
+        in all its incarnations has teetered between the requirements of a hub format, an
+        application format and now a carrier format, tipping one direction in usage one way, another
+        direction in use another way.</para>
     </section>
   </section>
   <section>
@@ -559,7 +569,7 @@
         explicable.</para>
     </section>
     <section>
-      <title>Pipelines, meta-pipelines, pipelines of pipelines</title>
+      <title>Pipelines, meta-pipelines, pipeline lines</title>
       <blockquote>
         <para>Examples of complex pipelines</para>
         <itemizedlist>
@@ -576,11 +586,13 @@
             <para>Metadata-driven resource architectures</para>
           </listitem>
         </itemizedlist>
+        <para>Examples in XSweet</para>
         <itemizedlist>
           <listitem>
             <para>HTML tweaking</para>
-            <para>Arbitrary tweak of HTML @class / @style - add/remove</para>
-            <para>Configured for runtime w/ XML driver</para>
+            <para>Arbitrary tweak (add/remove) of HTML <code>@class</code> /
+              <code>@style</code></para>
+            <para>Configured for runtime w/ XML driver (so, adjust per input)</para>
           </listitem>
           <listitem>
             <para>Header promotion by induction<itemizedlist>
@@ -614,30 +626,35 @@
         branch.</para>
       <para>Because XSLT is syntactically homoiconic (canonically expressed in the same notation
         that it reads and produces, i.e. XML), it is a straightforward exercise to construct a
-        pipeline whose transformation is itself generated dynamically. This is useful if we don't
-        know what XSLT we will want, until runtime. If we can specify inputs to produce a
-        transformation programmatically, we can delay its actual production until we have the
-        data.</para>
+        pipeline whose transformation is itself generated dynamically. (Indeed, since this is true
+        at the level of data model as well as syntax, this can be done without ever writing an XSLT
+        to file, simply producing its tree and making it available for compilation or execution.)
+        This is useful if we don't know what XSLT we will want, until runtime. If we can specify
+        inputs to produce a transformation programmatically, we can delay its actual production
+        until we have the data.</para>
       <para>An example is the header promotion transformation as described above – a transformation
-        of HTML data in which paragraphs (p elements) can be mapped into h1-h6 based on properties
-        either assigned to them (in the data) or accessible and measurable. This is not a trivial
-        operation, but it can be achieved using pipelines in and with XSLT.</para>
+        of HTML data in which paragraphs (<code>p</code> elements) can be mapped into h1-h6 based on
+        properties either assigned to them (in the data) or accessible and measurable. This is not a
+        trivial operation, but it can be achieved using pipelines in and with XSLT.</para>
       <para>The difficulty is that such a transformation depends on an assessment of which
         properties assigned to which paragraphs, separately and together, warrant promotion for that
         (type) of paragraph. The particulars of this assessment may only be fully discovered in view
         of the data itself. So a pipeline has to "inspect" and "assess" the data itself before it
         can produce its set of rules for handling it.</para>
-      <para>Thus, in a pipeline, header promotion can proceed in three steps: in the first step, and
+      <para>Thus, in a pipeline, header promotion can proceed in three steps: in the first step, an
         analysis of the data is conducted in which candidate (types of) block-level or
           <code>p</code> elements are selected and bound to (different levels of) header elements.
         In a second step, this analysis (result) is fed to a generic "meta-transformation" XSLT that
         produces a one-time use XSLT specifically for the data set. The third step is the
         application of this one-time custom-fit XSLT to the data, matching elements appropriately to
         produce headers from the <code>p</code> elements as directed.</para>
+      <para>In effect this permits matches to be inferred and constructed specifically for the data
+        at hand, offering match criteria that are simply not (in the general case) indicative of
+        "header" status.</para>
       <para>As noted, HTML's lack of any kind of structural enforcement over its element set, is
         very advantageous here. A header promotion transformation can litter the result file with h1
-        - h6 elements, all without (much) concern either for formal validation or for predictable
-        behavior in tools.</para>
+        - h6 elements, all without (much) concern for structure, or even for predictable behavior in
+        tools.</para>
       <para>To be sure, such raw data may not be ready to bring into a structured environment, which
         will not permit such a free representation: but then, that is the point. The inference of
           <code>div</code> or section boundaries, once headers are in place, is another fairly

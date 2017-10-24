@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="19.0">
+    <meta>
+        <filters directoryPatterns="" filePatterns="Balisage2017.xpr" positiveFilePatterns="*.xml" showHiddenFiles="false"/>
+        <options>
+            <serialized version="19.0" xml:space="preserve">
+                <serializableOrderedMap>
+                    <entry>
+                        <String>document.types</String>
+                        <documentTypeDescriptor-array/>
+                    </entry>
+                    <entry>
+                        <String>document.types.order</String>
+                        <documentTypeEntry-array>
+                            <documentTypeEntry>
+                                <field name="documentTypeID">
+                                    <String>6/docbook/docbook4.framework/DocBook 4</String>
+                                </field>
+                                <field name="enable">
+                                    <Boolean>false</Boolean>
+                                </field>
+                            </documentTypeEntry>
+                            <documentTypeEntry>
+                                <field name="documentTypeID">
+                                    <String>6/docbook/docbook5.framework/DocBook 5</String>
+                                </field>
+                                <field name="enable">
+                                    <Boolean>false</Boolean>
+                                </field>
+                            </documentTypeEntry>
+                        </documentTypeEntry-array>
+                    </entry>
+                    <entry>
+                        <String>key.editor.document.type.association.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                </serializableOrderedMap>
+            </serialized>
+        </options>
+    </meta>
+    <projectTree name="Balisage2017.xpr">
+        <folder path="."/>
+    </projectTree>
+</project>

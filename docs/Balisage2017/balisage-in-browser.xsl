@@ -207,8 +207,13 @@ img { max-width: 100% }
 .figure-contents { margin-left: 0em }
 .figure-contents div { text-align: center }
 
+.figure { max-width: 30%; display: inline-block; margin-right: 2% }
+.figure:hover { max-width: 100% }
+
 .figure > .title { display: none }
 
+.variablelist td { vertical-align: top; border-top: thin solid black;
+  margin-top: 0.5em; padding-top: 0.5em }
 
 .caption { text-align: center; margin-top: 0.5em; font-size: 80% }
 .caption * { margin: 0pt }

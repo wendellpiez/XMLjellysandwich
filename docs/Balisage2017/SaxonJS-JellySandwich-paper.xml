@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="balisage-proceedings-html.xsl"?>
-<?xml-stylesheet type="text/css" href="../../../Documents/Balisage/lib/balisage-author.css" title="Forms interface" alternate="no"?>
-<?xml-model href="../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/css" href="../../../../Documents/Balisage/lib/balisage-author.css" title="Forms interface" alternate="no"?>
+<?xml-model href="../../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0-subset Balisage-1.3"
   xml:id="Balisage2017Piez01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <title>Interactive web applications demonstrating SaxonJS</title>
@@ -32,9 +32,9 @@
     
   </info>
   <note>
-    <para>Sections of this article were presented as slides. Here, some of them are altered or
-      expanded into prose, while others are touched, amended or annotated. For slides, <link
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+    <para>Sections of this article were presented as conference slides. Here, some of them are
+      altered or expanded into prose, while others are merely touched (slightly amended or
+      embellished). For the slides, <link xmlns:xlink="http://www.w3.org/1999/xlink"
         xlink:href="https://wendellpiez.github.io/XMLjellysandwich/Balisage2017/balisage2017-slides.html"
         >see Github.io</link> or link above.</para>
   </note>
@@ -45,7 +45,7 @@
       <para>XSLT was originally designed with client-side processing in mind</para>
       <para>This never (quite) happened or did it? with XSLT 1.0<itemizedlist>
           <listitem>
-            <para>Yes, you can (sorta) get it to work ...</para>
+            <para>Yes, you can (sort of) get it to work ...</para>
           </listitem>
         </itemizedlist></para>
       <para>Impediments to this effort<itemizedlist>
@@ -66,8 +66,8 @@
         regarding the web are dead, while we have barely begun to think about the fullest
         implications of a worldwide publishing platform that is only too prone to fragmentation and
         misuse. Yet at the same time, there is nevertheless unrealized potential, if not for the web
-        as a whole (how can we design that which no one has designed) then for us as users of it. I
-        think the web as we know it has been compromised by a few issues, both economic and architectural-structural:<itemizedlist>
+        as a whole (which has been “designed” by no one) then for us as users of it. I think the web
+        as we know it has been compromised by a few issues, both economic and architectural-structural:<itemizedlist>
           <listitem>
             <para>The predominant advertising-supported business model has offered (some measure of)
               economic viability (or its promise) to ventures on the web, at the cost of “noise” in
@@ -82,7 +82,8 @@
               effect of equalizing production values across the economic and institutional spectrum.
               The New York Times looks like anyone's spoof of the New York Times (and neither of
               them actually looks very good). Especially when either one is seen through the lens of
-              Facebook. One result is a collapse in authority.</para>
+              Facebook. One result is a collapse in authority. Everyone is a hacker, it's only a
+              question of who's paying the check.</para>
           </listitem>
           <listitem>
             <para>Consequently, in a flattened world, indexing becomes everything, and page ranking
@@ -116,14 +117,15 @@
               finger in the pie.</para>
             <para>What a moment for owning and controlling the format and encoding of your data set
               – not just the data itself, but for practical purposes, <emphasis>access</emphasis> to
-              it (that which is paradoxically blocked by proprietary stacks).</para>
+              it (that which is paradoxically blocked by proprietary stacks). This, first and above
+              all, has been what XML has always been about.</para>
           </listitem>
           <listitem>
-            <para>Yet (again, paradoxically) open source and even “open information” has also shown
-              it can be economically viable – can “pay for itself” – if it is linked organically to
-              some market-driven, productive (and hence remunerative) activity. This may (see above)
-              happen only on the edges of an industry. But providers who can <emphasis role="ital"
-                >both</emphasis> give away / “share”, and “own and control”, may have a shot at
+            <para>Again paradoxically, open source and even “open information” has also shown it can
+              (also) be economically viable – can “pay for itself” – if it is linked organically to
+              some demand-driven, productive activity. This may (see above) happen only on the edges
+              of an industry. But providers who can <emphasis role="ital">both</emphasis> give away
+              / “share”, <emphasis role="ital">and</emphasis> “own and control”, may have a shot at
               viability.</para>
           </listitem>
         </itemizedlist></para>
@@ -131,13 +133,17 @@
         maybe is it just arriving?</para>
     </section>
     <section>
-      <title>The browser has emerged as a platform</title>
+      <title>Like any ecosystem</title>
+      <para>The web is dying and growing at the same time</para>
       <para>The web subsists / evolves / matures as a capable medium</para>
+      <para>The semantics of this stack are a layering of CSS, HTML, and standard Javascript
+        (ECMAScript)</para>
       <para>Ubiquitous, capable, improving: more standard and stable</para>
       <para>There must always be a “reductio” (“base”) medium to which other media / channels can
         appeal</para>
       <para>Thus the web remains a way to get stuff in front of people</para>
-      <para>(One at a time or within defined communities of interest, if not en masse)</para>
+      <para>(One at a time or within defined communities of interest, if not en masse, and even if
+        the ultimate channel or platform is not on the web)</para>
     </section>
     <section>
       <title>Opportunity of the moment</title>
@@ -157,7 +163,7 @@
             <para>Write your XML</para>
           </listitem>
           <listitem>
-            <para>If necessary, write your XSLT and compile it</para>
+            <para>Write (or find/acquire) and compile your XSLT</para>
           </listitem>
         </itemizedlist>
         <itemizedlist>
@@ -167,7 +173,7 @@
         </itemizedlist>
         <itemizedlist>
           <listitem>
-            <para>Drop all these, plus the Saxon libraries, onto a web server and publish its
+            <para>Drop all these, plus the SaxonJS libraries, onto a web server and publish its
               address</para>
           </listitem>
         </itemizedlist>
@@ -188,36 +194,64 @@
               stylesheets</para>
           </listitem>
           <listitem>
-            <para>SaxonJS is licensed but your XML, XSLT, compiled SEF and design all belong to
-              you</para>
+            <para>Running the SaxonJS compiler and distributing the SaxonJS runtime, require a
+              license. However a single developer license suffices: the distribution is free to your
+              users and indeed unnoticed by them as it happens in the background. Meanwhile the XML,
+              XSLT, compiled SEF and design all belong to you.</para>
           </listitem>
           <listitem>
-            <para>The only long-term dependency – http server + Javascript-capable browser(s) – is
-              sustainable?</para>
+            <para>The only other long-term dependency – http server + Javascript-capable browser(s)
+              – is sustainable?</para>
           </listitem>
         </itemizedlist></para>
       <para>This creates new kinds of leverage in exploiting the power of XML, and available now,
-        i.e. potentially already helping to capitalize on your earlier investment</para>
-      <para>Might it even motivate new users of XML/XSLT? Why not start benefiting not only from
-        this architecture but from other longer-term demonstrable advantages including long-term
-        stability and reusability?</para>
+        i.e. potentially already helping to capitalize on your earlier investments in the
+        technology.</para>
+      <para>If you already have XML/XSLT, costs and risks are low and potential benefits are
+        high.</para>
+      <para>Might it even motivate new users of XML/XSLT?</para>
+      <para>(Answer: it <emphasis role="ital">contributes</emphasis> to the case even if it is not
+        determinative.)</para>
     </section>
     <section>
       <title>What about the business case</title>
-      <para>It's still difficult to argue for “giving away the semantics”.</para>
+      <para>It's still difficult to argue for “giving away the semantics”. This is only sometimes a
+        feature or even a good idea.</para>
       <para>Yet while XML can expose the source, with SaxonJS we get (some, relative) obfuscation of
         the processing, for free.</para>
-      <para>(Plus, the XML is behind a link - that crawler has to read that. Then too we can still
-        protect or obfuscate the source if we want to.)</para>
+      <para>Plus, the XML is behind a link - that crawler has to read that. Then too we can still
+        protect or obfuscate the source if we want to.</para>
       <para>This places stress on XSLT (compiled into SEF) as (site of) “added value”: not the
         information “bare” but also its rendition (logic), what we are making of it.</para>
       <para><emphasis>The application as a whole differentiates</emphasis>, not just the data. (How
         can this be better than a nice PDF, for example? Seeing is believing.)</para>
-      <para>Entire new kinds of hypertext and/or dynamic interactions with data are thinkable using
-        templating in XSLT …</para>
+      <para>New kinds of hypertext and/or dynamic interactions with data become thinkable given XSLT
+        as an abstraction layer …</para>
       <para>(And in principle such applications would be more difficult to reverse engineer, spoof
         or even emulate than pre-cooked HTML/CSS/Javascript.)</para>
     </section>
+  </section>
+  <section>
+    <title>Demonstrations</title>
+    <itemizedlist>
+      <listitem>
+        <para>Demonstrations including demonstrations given with this paper are listed at <link
+            xlink:href="https://wendellpiez.github.io/XMLjellysandwich/"
+            xmlns:xlink="http://www.w3.org/1999/xlink"/></para>
+      </listitem>
+      <listitem>
+        <para>At <link>https://github.com/wendellpiez/XMLjellysandwich</link> is a git repository
+          with source code for several of the demos, as well as all the code you need to "bootstrap"
+          your own SaxonJS application as described below and on the site (oXygen XML Developer or
+          Editor is recommended).</para>
+      </listitem>
+      <listitem>
+        <para>Also see the <link
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="http://www.saxonica.com/saxon-js/documentation/index.html#!samples">SaxonJS
+            documentation</link> for (links to) more demonstrations</para>
+      </listitem>
+    </itemizedlist>
   </section>
   <section>
     <title>Implications</title>
@@ -228,7 +262,7 @@
             <para>So, the resource, site or work, not so much the view</para>
           </listitem>
           <listitem>
-            <para>Inter-resource linking is now robust, rich and inexpensive</para>
+            <para>Inter-resource linking is now robust, rich and easy</para>
             <para>(No longer limited, expensive and prone to break)</para>
           </listitem>
         </itemizedlist></para>
@@ -254,7 +288,11 @@
           <para>XSLT is all the techniques of application</para>
         </listitem>
         <listitem>
-          <para>Matching elements in the (rendered) page is as easy as matching anywhere else</para>
+          <para>Our model is … our model!</para>
+        </listitem>
+        <listitem>
+          <para>But matching elements in the (rendered) page is now as easy as matching anywhere
+            else</para>
         </listitem>
       </itemizedlist>
       <para>XML publication becomes its own archive</para>
@@ -264,14 +302,19 @@
       <para>(Edit XML in git repo, then render via XSLT/SaxonJS calling public libraries?)</para>
       <section>
         <title>An example</title>
-        <para>In the application, we wish the reader to be able to click on any arbitrary span in
-          the text, and the selected span along with all other spans with the same values of @class
-          (i.e. 'class' assignments, note plural) – both in the document and in an associated SVG
-          diagram – should receive highlight or visual emphasis. (See the Irish Airman demo to see
-          it in action)</para>
+        <para>A powerful feature SaxonJS offers is specialized modes whereby the XSLT can declare
+          alterations to be made directly in the rendered page in response to events such as button
+          or mouse clicks.</para>
+        <para>In the application here, we wish the reader to be able to click on any arbitrary span
+          in the text, and the selected span along with all other spans with the same values of
+            <code>@class</code> (i.e. 'class' assignments, note plural) – both in the document and
+          in an associated SVG diagram – should receive highlight or visual emphasis. (See the Irish
+          Airman demo to see this in action.)</para>
         <programlisting>&lt;xsl:template match="span | svg:tspan" mode="ixsl:onclick">
-  &lt;xsl:apply-templates mode="off" select="key('classmates', 'ON')"/>
-  &lt;xsl:apply-templates mode="on"  select="key('classmates', tokenize(@class,'\s+'))"/>
+  &lt;xsl:apply-templates mode="off"
+     select="key('classmates', 'ON')"/>
+  &lt;xsl:apply-templates mode="on"
+     select="key('classmates', tokenize(@class,'\s+'))"/>
 &lt;/xsl:template>
 
 &lt;xsl:key name="classmates" match="span | svg:tspan" use="tokenize(@class,'\s+')"/>
@@ -311,10 +354,10 @@
             <listitem>
               <para>When invoked, this template does two things: it turns all spans in the document
                 off (by applying templates to them), and it turns selected spans on (similarly).
-                “Turning the element on” (or off) takes the form of adding, or removing, the value
-                “ON” from its class attribute. Since the “on” template comes second, it will take
-                effect on any spans selected both times – that is, it is possible for a span to go
-                “off” with the first apply-templates instruction, then “on” again with the
+                “Turning the element off” (or on) takes the form of removing (or adding) the value
+                “ON” from its <code>class</code> attribute. Since the instruction (apply-templates)
+                to go “on”, it will supersede on any spans selected both times – that is, it is
+                possible for a span to go “off” with the first instruction, then “on” again with the
                 second.</para>
               <para>The key matches all spans and tspans according to their various
                   <code>@class</code> values. Note especially that the set of elements returned by
@@ -357,6 +400,9 @@
             <para>“Small Arcane Non-trivial Datasets” cf <citation linkend="Lubell2014">Josh Lubell
                 2014</citation></para>
           </listitem>
+          <listitem>
+            <para>Special, bespoke, project data ...</para>
+          </listitem>
         </itemizedlist></para>
     </section>
     <section>
@@ -381,8 +427,10 @@
           <para>A “host” HTML landing page with syntax and callouts</para>
         </listitem>
         <listitem>
-          <para>A “starter” XSLT with templates (“asleep”) matching elements in the source
+          <para>A “starter” XSLT with templates already written, matching elements in the source
             XML</para>
+          <para>(It also distinguishes between block and inline elements in your XML, casting them
+            to HTML accordingly.)</para>
         </listitem>
         <listitem>
           <para>A normalized-as-standalone XML document copy</para>
@@ -396,24 +444,16 @@
           <para>Client-side XSLT was always fun - until you hit the wall</para>
         </listitem>
         <listitem>
+          <para>With XSLT 3.0 – there is no more wall – just more ranges to climb</para>
+        </listitem>
+        <listitem>
           <para>Now we can better contemplate learning XSLT from the inside out</para>
         </listitem>
         <listitem>
-          <para>New forms of “meaningful learning application” should become possible</para>
+          <para>New forms of “meaningful learning application” will become possible</para>
         </listitem>
       </itemizedlist>
     </section>
-  </section>
-  <section>
-    <title>Demonstrations</title>
-    <itemizedlist>
-      <listitem>
-        <para>Links to demonstrations are now given at <link
-            xlink:href="https://wendellpiez.github.io/XMLjellysandwich/"
-            xmlns:xlink="http://www.w3.org/1999/xlink"/>, where you can also find a Git repo
-          containing all the code you need (oXygen XML Developer or Editor is recommended).</para>
-      </listitem>
-    </itemizedlist>
   </section>
   <bibliography>
     <title>Some references</title>
