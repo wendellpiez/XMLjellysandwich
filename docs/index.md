@@ -18,6 +18,8 @@ The Thalaba demo calls a file in a fork of E Beshero-Bandar's [TEI Thalaba](http
 
 The Constitutional Convention is as mostly restored from a 2002 SVG original produced by Jim Surkamp with the developer. It still relies on original SVG declarative animations -- YMMV on different browsers (try Firefox).
 
+Note that while SaxonJS is a dependency for these demonstrations, the XML Jelly Sandwich XSLTS were only an expediency, not a requirement. The Jelly Sandwich utilities have simply made these easy to set up and launch.
+
 ## Maintained in this repository
 
 * [JATSCon presentation slides](JATSCon2017)
