@@ -12,6 +12,7 @@ Each of the demonstrations listed is provided with source XSLT, if you know wher
 * Rob't Southey's [Thalaba](http://pellucidliterature.org/Thalaba) in TEI encoding
 * [Epigram Microphone](http://pausepress.net/EpigramMicrophone), by Mark Scott
 * [Constitutional Convention 1787](http://pellucidliterature.org/ConstitutionalConvention), by Jim Surkamp
+* [George Herbert, Love III](http://pellucidliterature.org/LoveIII), a "timed rendition" of seventeenth-century lyric poetry
 
 The Thalaba demo calls a file in a fork of E Beshero-Bandar's [TEI Thalaba](https://github.com/ebeshero/Thalaba). Thanks Elisa!
 
