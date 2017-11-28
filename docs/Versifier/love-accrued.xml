@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><pub>
+    <title>Love III</title>
+    <author>George Herbert</author>
+    <verse>
+        <stanza>
+            <l><d d="13">Love bade me welcome,</d><d d="16"> yet my soul drew back,</d></l>
+            <l><d d="20">Guilty of dust and sin.</d></l>
+            <l><d d="28">But quick-ey’d Love,</d><d d="31"> observing me grow slack</d></l>
+            <l><d d="32">From my first entrance in,</d></l>
+            <l><d d="36">Drew nearer to me,</d><d d="39"> sweetly questioning</d></l>
+            <l><d d="40">If I lack’d anything.</d></l>
+        </stanza>
+        <stanza>
+            <l><i><d d="60">A guest,</d></i><d d="63"> I answer’d,</d><d d="66"> </d><i><d d="66">worthy to be here</d></i><d d="66">;</d></l>
+            <l><d d="72">Love said,</d><d d="75"> </d><love><d d="75">You shall be he.</d></love></l>
+            <l><i><d d="83">I,</d><d d="86"> the unkind,</d><d d="89"> the ungrateful? ah my dear,</d></i></l>
+            <l><i><d d="93">I cannot look on thee.</d></i></l>
+            <l><d d="101">Love took my hand and smiling did reply,</d></l>
+            <l><love><d d="105">Who made the eyes but I?</d></love></l>
+        </stanza>
+        <stanza>
+            <l><i><d d="118">Truth,</d><d d="121"> Lord,</d><d d="124"> but I have marr’d them;</d><d d="129"> let my shame</d></i></l>
+            <l><i><d d="130">Go where it doth deserve.</d></i></l>
+            <l><love><d d="138">And know you not,</d></love><d d="141"> says Love,</d><d d="144"> </d><love><d d="144">who bore the blame?</d></love></l>
+            <l><i><d d="145">My dear,</d><d d="148"> then I will serve.</d></i></l>
+            <l><love><d d="156">You must sit down,</d></love><d d="159"> says Love,</d><d d="162"> </d><love><d d="162">and taste my meat.</d></love></l>
+            <l><d d="170">So I did sit and eat.</d></l>
+        </stanza>
+    </verse>
+</pub>

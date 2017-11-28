@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-11-22T16:58:04.262-05:00" target="JS">
+ <co id="0" binds="1 2 1 2">
+  <mode name="Q{http://saxonica.com/ns/interactiveXSLT}onmouseover" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="1" rank="0" minImp="0" slots="0" flags="os" line="213" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.genNode role="match" type="element(Q{}span)">
+     <filter vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="213" flags="p">
+      <slash simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='span';"/>
+      </slash>
+      <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="0">
+       <dot type="element(Q{}span)"/>
+       <str val="love"/>
+      </ufCall>
+     </filter>
+    </p.genNode>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="214" mode="Q{}on" flags="t" bSlot="1">
+     <fn role="select" name="key">
+      <str val="spans-by-class"/>
+      <str val="love"/>
+     </fn>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="205" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.genNode role="match" type="element(Q{}span)">
+     <filter vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="205" flags="p">
+      <slash simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='span';"/>
+      </slash>
+      <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="2">
+       <dot type="element(Q{}span)"/>
+       <str val="i"/>
+      </ufCall>
+     </filter>
+    </p.genNode>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="206" mode="Q{}on" flags="t" bSlot="3">
+     <fn role="select" name="key">
+      <str val="spans-by-class"/>
+      <str val="i"/>
+     </fn>
+    </applyT>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="3" binds="4">
+  <template name="Q{}show" flags="os" line="129" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" slots="0">
+   <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="132">
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:set-attribute" type="item()*">
+     <str val="class"/>
+     <fn name="string-join">
+      <filter flags="b">
+       <forEach line="235">
+        <fn name="tokenize">
+         <cvUntyped to="xs:string">
+          <data>
+           <slash line="130" simple="1">
+            <treat as="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;" diag="0|0||XJS:classes">
+             <dot flags="a"/>
+            </treat>
+            <axis line="235" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+           </slash>
+          </data>
+         </cvUntyped>
+         <str val="\s+"/>
+         <str val=""/>
+        </fn>
+        <fn name="lower-case">
+         <dot type="xs:string"/>
+        </fn>
+       </forEach>
+       <fn name="not">
+        <gc op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+         <data>
+          <dot/>
+         </data>
+         <str val="hidden"/>
+        </gc>
+       </fn>
+      </filter>
+      <str val=" "/>
+     </fn>
+    </ifCall>
+    <applyT line="133" mode="Q{}spill" flags="t" bSlot="0">
+     <first role="select">
+      <slash>
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+        <dot flags="a"/>
+       </treat>
+       <union op="|">
+        <axis name="child" nodeTest="node()" jsTest="return SaxonJS.U.isNode(item);"/>
+        <axis name="following" nodeTest="node()" jsTest="return SaxonJS.U.isNode(item);"/>
+       </union>
+      </slash>
+     </first>
+    </applyT>
+   </sequence>
+  </template>
+ </co>
+ <co id="5" binds="">
+  <globalVariable name="Q{}terminalchars" type="xs:string" line="34" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+   <str val="!,;\.\?"/>
+  </globalVariable>
+ </co>
+ <co id="6" binds="1 1 1 1 6 1">
+  <mode name="Q{}pause" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="7" rank="1" minImp="0" slots="0" flags="os" as="xs:integer" line="149" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.genNode role="match" type="element()">
+     <filter vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="149" flags="p">
+      <slash simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="element()" jsTest="return item.nodeType==1;"/>
+      </slash>
+      <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="0">
+       <dot type="element()"/>
+       <str val="l"/>
+      </ufCall>
+     </filter>
+    </p.genNode>
+    <int role="action" val="3"/>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="6" rank="1" minImp="0" slots="0" flags="os" as="xs:integer" line="148" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.genNode role="match" type="element()">
+     <filter vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="148" flags="p">
+      <slash simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="element()" jsTest="return item.nodeType==1;"/>
+      </slash>
+      <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="1">
+       <dot type="element()"/>
+       <str val="stanza"/>
+      </ufCall>
+     </filter>
+    </p.genNode>
+    <int role="action" val="12"/>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="8" rank="1" minImp="0" slots="0" flags="os" as="xs:integer" line="154" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.genNode role="match" type="element(Q{}span)">
+     <filter vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="154" flags="p">
+      <slash simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='span';"/>
+      </slash>
+      <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="2">
+       <dot type="element(Q{}span)"/>
+       <str val="phr"/>
+      </ufCall>
+     </filter>
+    </p.genNode>
+    <treat role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="155" as="xs:integer" jsTest="return SaxonJS.U.Atomic.integer.matches(item);" diag="7|0|XTTE0505|match=&#34;span[XJS:has-class(.,'phr')]&#34; mode=&#34;pause&#34;">
+     <check card="1" diag="7|0|XTTE0505|match=&#34;span[XJS:has-class(.,'phr')]&#34; mode=&#34;pause&#34;">
+      <cvUntyped to="xs:integer">
+       <sequence>
+        <choose>
+         <is op="is">
+          <dot type="element(Q{}span)"/>
+          <slash>
+           <root/>
+           <first>
+            <filter flags="p">
+             <axis name="descendant" nodeTest="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='span';"/>
+             <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="3" eval="7 0">
+              <dot type="element(Q{}span)"/>
+              <str val="phr"/>
+             </ufCall>
+            </filter>
+           </first>
+          </slash>
+         </is>
+         <atomic val="0" type="xs:untypedAtomic"/>
+        </choose>
+        <data line="156">
+         <applyT mode="Q{}pause" flags="t" bSlot="4">
+          <slash role="select" simple="1">
+           <first>
+            <filter flags="p">
+             <slash simple="1">
+              <dot type="element(Q{}span)"/>
+              <axis name="preceding" nodeTest="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='span';"/>
+             </slash>
+             <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="5" eval="7 0">
+              <dot type="element(Q{}span)"/>
+              <str val="phr"/>
+             </ufCall>
+            </filter>
+           </first>
+           <axis name="child" nodeTest="text()" jsTest="return item.nodeType==3;"/>
+          </slash>
+         </applyT>
+        </data>
+       </sequence>
+      </cvUntyped>
+     </check>
+    </treat>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="5" rank="1" minImp="0" slots="0" flags="os" as="xs:integer" line="145" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==3;"/>
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="145" name="ends-with">
+      <cvUntyped to="xs:string">
+       <data>
+        <dot type="text()"/>
+       </data>
+      </cvUntyped>
+      <str val=","/>
+     </fn>
+    </p.withPredicate>
+    <int role="action" val="4"/>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="4" rank="1" minImp="0" slots="0" flags="os" as="xs:integer" line="144" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==3;"/>
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="144" name="ends-with">
+      <cvUntyped to="xs:string">
+       <data>
+        <dot type="text()"/>
+       </data>
+      </cvUntyped>
+      <str val=";"/>
+     </fn>
+    </p.withPredicate>
+    <int role="action" val="5"/>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="3" rank="1" minImp="0" slots="0" flags="os" as="xs:integer" line="143" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==3;"/>
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="143" name="ends-with">
+      <cvUntyped to="xs:string">
+       <data>
+        <dot type="text()"/>
+       </data>
+      </cvUntyped>
+      <str val="?"/>
+     </fn>
+    </p.withPredicate>
+    <int role="action" val="5"/>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="2" rank="1" minImp="0" slots="0" flags="os" as="xs:integer" line="142" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==3;"/>
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="142" name="ends-with">
+      <cvUntyped to="xs:string">
+       <data>
+        <dot type="text()"/>
+       </data>
+      </cvUntyped>
+      <str val="!"/>
+     </fn>
+    </p.withPredicate>
+    <int role="action" val="5"/>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="1" rank="1" minImp="0" slots="0" flags="os" as="xs:integer" line="141" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==3;"/>
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="141" name="ends-with">
+      <cvUntyped to="xs:string">
+       <data>
+        <dot type="text()"/>
+       </data>
+      </cvUntyped>
+      <str val="."/>
+     </fn>
+    </p.withPredicate>
+    <int role="action" val="7"/>
+   </templateRule>
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" as="xs:integer" line="138" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="( element() | text() | comment() | processing-instruction() )" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType==1 || item.nodeType==3 || item.nodeType==7 || item.nodeType==8);"/>
+    <int role="action" val="0"/>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="7" binds="">
+  <template name="Q{}css" flags="os" line="159" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" slots="0">
+   <elem role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="160" name="style" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+    <sequence>
+     <att name="type" flags="l">
+      <str val="text/css"/>
+     </att>
+     <valueOf flags="l">
+      <str val="&#xA;         html, body { background-color: white }&#xA;         &#xA;         .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }&#xA;         &#xA;         &#xA;         .pub { }&#xA;         &#xA;         .title { }&#xA;         &#xA;         .author { }&#xA;         &#xA;         .verse { clear: both; margin-top: 1em; margin-bottom: 1em }&#xA;         &#xA;         .stanza { margin-top: 1em; margin-bottom: 1em; margin-right: 2%; &#xA;                   width: 28%; float: left; line-height: 150%; opacity: 1;&#xA;                  transition: opacity 10s ease-in;&#xA;                  -moz-transition: opacity 10s ease-in;&#xA;                  -webkit-transition: opacity 10s ease-in;&#xA;         } &#xA;         &#xA;         .l { padding-left: 2em; text-indent: -2em }&#xA;         &#xA;         .indent { padding-left: 6em; text-indent: -2em }&#xA;         &#xA;         .l * { display: inline }&#xA;         &#xA;         span.phr {transition: color 1s ease-in;&#xA;              -moz-transition: color 1s ease-in;&#xA;              -webkit-transition: color 1s ease-in; }&#xA;         &#xA;         .ON { font-style: italic; font-weight: bold }&#xA;         &#xA;         .hidden { color: white }&#xA;         &#xA;         .stanza.hidden { opacity: 0.5 }&#xA;         &#xA;         #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;&#xA;          border-top: thin solid black; padding-top: 2em;&#xA;          font-family: 'Roboto Slab', sans-serif }&#xA;         &#xA;         &#xA;      "/>
+     </valueOf>
+    </sequence>
+   </elem>
+  </template>
+ </co>
+ <co id="2" binds="">
+  <mode name="Q{}on" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="226" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="228" name="ixsl:set-attribute" type="item()*">
+     <str val="class"/>
+     <fn name="string-join">
+      <sequence>
+       <filter flags="b">
+        <fn name="tokenize">
+         <cvUntyped to="xs:string">
+          <data>
+           <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+          </data>
+         </cvUntyped>
+         <str val="\s+"/>
+         <str val=""/>
+        </fn>
+        <vc op="ne" onEmpty="1" comp="CCC">
+         <dot type="xs:string"/>
+         <str val="ON"/>
+        </vc>
+       </filter>
+       <str val="ON"/>
+      </sequence>
+      <str val=" "/>
+     </fn>
+    </ifCall>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="4" binds="6 3 4">
+  <mode name="Q{}spill" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="2" rank="2" minImp="0" slots="0" flags="os" line="127" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="127" name="not">
+      <gcEE op="=" card="N:1" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+       <homCheck>
+        <slash>
+         <fn name="reverse">
+          <axis name="ancestor-or-self" nodeTest="element()" jsTest="return item.nodeType==1;"/>
+         </fn>
+         <forEach line="235">
+          <fn name="tokenize">
+           <cvUntyped to="xs:string">
+            <data>
+             <slash line="127" simple="1">
+              <dot type="element()"/>
+              <axis line="235" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+             </slash>
+            </data>
+           </cvUntyped>
+           <str val="\s+"/>
+           <str val=""/>
+          </fn>
+          <fn name="lower-case">
+           <dot type="xs:string"/>
+          </fn>
+         </forEach>
+        </slash>
+       </homCheck>
+       <str val="verse"/>
+      </gcEE>
+     </fn>
+    </p.withPredicate>
+    <empty role="action"/>
+   </templateRule>
+   <templateRule prec="0" prio="-0.2" seq="0" rank="1" minImp="0" slots="1" flags="os" line="107" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+    <let role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="109" var="pause" as="document-node()" slot="0" eval="7">
+     <doc line="110" base="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" validation="preserve">
+      <applyT mode="Q{}pause" bSlot="0">
+       <dot role="select" type="element()"/>
+      </applyT>
+     </doc>
+     <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" line="115" name="ixsl:schedule-action" type="item()*">
+      <arith line="113" op="+" calc="i+i">
+       <cast as="xs:integer" emptiable="0">
+        <arith op="*" calc="d*d">
+         <cvUntyped to="xs:double">
+          <data>
+           <varRef name="pause" slot="0"/>
+          </data>
+         </cvUntyped>
+         <int val="360"/>
+        </arith>
+       </cast>
+       <int val="1"/>
+      </arith>
+      <empty/>
+      <callT line="116" name="show" bSlot="1"/>
+     </ifCall>
+    </let>
+   </templateRule>
+   <templateRule prec="0" prio="-0.5" seq="1" rank="0" minImp="0" slots="0" flags="os" line="122" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="( element() | text() | comment() | processing-instruction() )" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType==1 || item.nodeType==3 || item.nodeType==7 || item.nodeType==8);"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="123" mode="Q{}spill" flags="t" bSlot="2">
+     <first role="select">
+      <union op="|">
+       <axis name="child" nodeTest="node()" jsTest="return SaxonJS.U.isNode(item);"/>
+       <axis name="following" nodeTest="node()" jsTest="return SaxonJS.U.isNode(item);"/>
+      </union>
+     </first>
+    </applyT>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="1" binds="">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="238" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" eval="7" flags="pU" as="item()*" slots="2">
+   <arg name="who" as="element()"/>
+   <arg name="ilk" as="xs:string+"/>
+   <gcEE role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="241" op="=" card="M:N" comp="GAC|http://www.w3.org/2005/xpath-functions/collation/codepoint">
+    <varRef name="ilk" slot="1"/>
+    <forEach line="235">
+     <fn name="tokenize">
+      <cvUntyped to="xs:string">
+       <data>
+        <slash line="241" simple="1">
+         <varRef name="who" slot="0"/>
+         <axis line="235" name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+        </slash>
+       </data>
+      </cvUntyped>
+      <str val="\s+"/>
+      <str val=""/>
+     </fn>
+     <fn name="lower-case">
+      <dot type="xs:string"/>
+     </fn>
+    </forEach>
+   </gcEE>
+  </function>
+ </co>
+ <co id="8" binds="">
+  <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="233" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" eval="3" flags="pU" as="item()*" slots="1">
+   <arg name="who" as="element()"/>
+   <forEach role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="235">
+    <fn name="tokenize">
+     <cvUntyped to="xs:string">
+      <data>
+       <slash simple="1">
+        <varRef name="who" slot="0"/>
+        <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+       </slash>
+      </data>
+     </cvUntyped>
+     <str val="\s+"/>
+     <str val=""/>
+    </fn>
+    <fn name="lower-case">
+     <dot type="xs:string"/>
+    </fn>
+   </forEach>
+  </function>
+ </co>
+ <co id="9" binds="7 10 4 1">
+  <template name="Q{}xmljellysandwich_pack" flags="os" line="20" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" slots="0">
+   <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="22">
+    <resultDoc global="#&#xA;#Wed Nov 22 16:58:04 EST 2017&#xA;" local="#&#xA;#Wed Nov 22 16:58:04 EST 2017&#xA;">
+     <str role="href" val="#xmljellysandwich_css"/>
+     <callT role="content" line="23" name="css" bSlot="0"/>
+    </resultDoc>
+    <resultDoc line="25" global="#&#xA;#Wed Nov 22 16:58:04 EST 2017&#xA;" local="#&#xA;#Wed Nov 22 16:58:04 EST 2017&#xA;">
+     <str role="href" val="#xmljellysandwich_body"/>
+     <applyT role="content" line="26" flags="i" bSlot="1">
+      <slash role="select" simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="13|0|XTTE0510|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="node()" jsTest="return true;"/>
+      </slash>
+     </applyT>
+    </resultDoc>
+    <applyT line="30" mode="Q{}spill" flags="t" bSlot="2">
+     <docOrder role="select" intra="1">
+      <slash>
+       <slash simple="1">
+        <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:page" type="document-node()?"/>
+        <axis name="descendant-or-self" nodeTest="node()" jsTest="return true;"/>
+       </slash>
+       <filter flags="p">
+        <axis name="child" nodeTest="element()" jsTest="return item.nodeType==1;"/>
+        <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="3" eval="7 0">
+         <dot type="element()"/>
+         <str val="verse"/>
+        </ufCall>
+       </filter>
+      </slash>
+     </docOrder>
+    </applyT>
+   </sequence>
+  </template>
+ </co>
+ <co id="11" binds="">
+  <mode name="Q{}off" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="221" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="223" name="ixsl:set-attribute" type="item()*">
+     <str val="class"/>
+     <fn name="string-join">
+      <filter flags="b">
+       <fn name="tokenize">
+        <cvUntyped to="xs:string">
+         <data>
+          <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+         </data>
+        </cvUntyped>
+        <str val="\s+"/>
+        <str val=""/>
+       </fn>
+       <vc op="ne" onEmpty="1" comp="CCC">
+        <dot type="xs:string"/>
+        <str val="ON"/>
+       </vc>
+      </filter>
+      <str val=" "/>
+     </fn>
+    </ifCall>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="12" binds="1 11 1 11">
+  <mode name="Q{http://saxonica.com/ns/interactiveXSLT}onmouseout" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="1" rank="0" minImp="0" slots="0" flags="os" line="217" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.genNode role="match" type="element(Q{}span)">
+     <filter vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="217" flags="p">
+      <slash simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='span';"/>
+      </slash>
+      <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="0">
+       <dot type="element(Q{}span)"/>
+       <str val="love"/>
+      </ufCall>
+     </filter>
+    </p.genNode>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="218" mode="Q{}off" flags="t" bSlot="1">
+     <fn role="select" name="key">
+      <str val="spans-by-class"/>
+      <str val="love"/>
+     </fn>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="209" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.genNode role="match" type="element(Q{}span)">
+     <filter vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="209" flags="p">
+      <slash simple="1">
+       <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
+        <dot flags="a"/>
+       </treat>
+       <axis name="child" nodeTest="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='span';"/>
+      </slash>
+      <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" tailCall="false" bSlot="2">
+       <dot type="element(Q{}span)"/>
+       <str val="i"/>
+      </ufCall>
+     </filter>
+    </p.genNode>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="210" mode="Q{}off" flags="t" bSlot="3">
+     <fn role="select" name="key">
+      <str val="spans-by-class"/>
+      <str val="i"/>
+     </fn>
+    </applyT>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="13" binds="5 5">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1218289091" type="xs:string" line="37" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+   <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="37" name="concat">
+    <str val="[^"/>
+    <gVarRef name="Q{}terminalchars" bSlot="0"/>
+    <str val="]*["/>
+    <gVarRef name="Q{}terminalchars" bSlot="1"/>
+    <str val="]"/>
+   </fn>
+  </globalVariable>
+ </co>
+ <co id="10" binds="10 10 10 10 10 10 10 10 10 13">
+  <mode onNo="TC" flags="dW" patternSlots="0">
+   <templateRule prec="0" prio="0.0" seq="2" rank="0" minImp="0" slots="0" flags="os" line="57" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}verse)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='verse';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="58" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="verse"/>
+      </att>
+      <applyT line="59" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="9" rank="0" minImp="0" slots="0" flags="os" line="95" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}i)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='i';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="96" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="i"/>
+      </att>
+      <applyT line="97" flags="i" bSlot="1">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="10" rank="0" minImp="0" slots="0" flags="os" line="101" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}love)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='love';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="102" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="love"/>
+      </att>
+      <applyT line="103" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="8" rank="0" minImp="0" slots="0" flags="os" line="89" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='l';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="90" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="concat">
+        <str val="l"/>
+        <choose>
+         <arith op="mod" calc="i%i">
+          <fn name="count">
+           <slash simple="1">
+            <dot type="element(Q{}l)"/>
+            <axis name="preceding-sibling" nodeTest="element()" jsTest="return item.nodeType==1;"/>
+           </slash>
+          </fn>
+          <int val="2"/>
+         </arith>
+         <str val=" indent"/>
+         <true/>
+         <str val=""/>
+        </choose>
+       </fn>
+      </att>
+      <applyT line="91" flags="i" bSlot="3">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="5" rank="1" minImp="0" slots="0" flags="os" line="71" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.withUpper role="match" axis="parent" upFirst="false">
+     <p.nodeTest test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+     <p.nodeTest test="element(Q{}source)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='source';"/>
+    </p.withUpper>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="73" name="i" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <applyT flags="i" bSlot="4">
+      <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+     </applyT>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="4" rank="0" minImp="0" slots="0" flags="os" line="69" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='title';"/>
+    <empty role="action"/>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="os" line="51" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='pub';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="52" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="pub"/>
+      </att>
+      <applyT line="53" flags="i" bSlot="5">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="6" rank="0" minImp="0" slots="0" flags="os" line="77" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}author)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='author';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="78" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="author"/>
+      </att>
+      <applyT line="79" flags="i" bSlot="6">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="3" rank="0" minImp="0" slots="0" flags="os" line="63" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}stanza)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='stanza';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="64" name="div" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="stanza hidden"/>
+      </att>
+      <applyT line="65" flags="i" bSlot="7">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="7" rank="0" minImp="0" slots="0" flags="os" line="83" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.nodeTest role="match" test="element(Q{}source)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='source';"/>
+    <elem role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="84" name="p" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="source"/>
+      </att>
+      <applyT line="85" flags="i" bSlot="8">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="os" line="36" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl">
+    <p.withUpper role="match" axis="ancestor" upFirst="false">
+     <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==3;"/>
+     <p.nodeTest test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='l';"/>
+    </p.withUpper>
+    <analyzeString role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="37">
+     <cvUntyped role="select" to="xs:string">
+      <data>
+       <dot type="text()"/>
+      </data>
+     </cvUntyped>
+     <gVarRef role="regex" name="Q{http://saxon.sf.net/generated-variable}gg1218289091" bSlot="9"/>
+     <str role="flags" val=""/>
+     <elem role="matching" line="39" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+      <sequence>
+       <att name="class" flags="l">
+        <str val="phr hidden"/>
+       </att>
+       <valueOf line="40" flags="l">
+        <dot type="xs:string"/>
+       </valueOf>
+      </sequence>
+     </elem>
+     <elem role="nonMatching" line="44" name="span" namespaces="xs=http://www.w3.org/2001/XMLSchema XJS=http://github.com/wendellpiez/XMLjellysandwich">
+      <sequence>
+       <att name="class" flags="l">
+        <str val="phr hidden"/>
+       </att>
+       <valueOf line="45" flags="l">
+        <dot type="xs:string"/>
+       </valueOf>
+      </sequence>
+     </elem>
+    </analyzeString>
+   </templateRule>
+  </mode>
+ </co>
+ <overridden/>
+ <key name="Q{}spans-by-class" line="231" module="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" binds="8">
+  <p.nodeTest test="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='span';"/>
+  <data vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/LoveIII/thetemple.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="231">
+   <ufCall name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" tailCall="false" bSlot="0">
+    <dot type="element(Q{}span)"/>
+   </ufCall>
+  </data>
+ </key>
+ <output>
+  <property name="{http://saxon.sf.net/}stylesheet-version" value="30"/>
+ </output>
+ <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
+</package>
+<?Σ bd8dee1c?>
