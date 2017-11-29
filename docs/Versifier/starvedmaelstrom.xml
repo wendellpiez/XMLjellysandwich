@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pub>
+    <title>As the Starved Maelstrom Laps the Navies</title>
+    <author>Emily Dickinson</author>
+    <style>
+        .verse { clear: both; margin-top: 1em; margin-bottom: 1em }
+        .stanza { margin-top: 1em; line-height: 140%; margin-left: 30% }
+        .l:nth-child(2n) { padding-left: 4em } </style>
+    <verse>
+        <stanza>
+            <l>As the Starved Maelstrom laps the Navies </l>
+            <l>As the Vulture teased </l>
+            <l>Forces the Broods in lonely Valleys </l>
+            <l>As the Tiger eased </l>
+        </stanza>
+        <stanza pause="0">
+            <l>By but a Crumb of Blood, fasts Scarlet </l>
+            <l>Till he meet a Man </l>
+            <l>Dainty adorned with Veins and Tissues </l>
+            <l>And partakes — his Tongue </l>
+        </stanza>
+        <stanza pause="0">
+            <l>Cooled by the Morsel for a moment </l>
+            <l>Grows a fiercer thing </l>
+            <l>Till he esteem his Dates and Cocoa </l>
+            <l>A Nutrition mean </l>
+        </stanza>
+        <stanza>
+            <l>I, of a finer Famine </l>
+            <l>Deem my Supper dry </l>
+            <l>For but a Berry of Domingo </l>
+            <l>And a Torrid Eye. </l>
+        </stanza>
+    </verse>
+</pub>

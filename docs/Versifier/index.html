@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>Love III</title>
+      <title>Versifier</title>
       <meta charset="utf-8"/>
      <link href="https://fonts.googleapis.com/css?family=Alegreya|Roboto+Slab" rel="stylesheet"/> 
      <style type="text/css">
@@ -8,33 +8,26 @@
        h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', sans-serif }
 
      </style>
-      <style type="text/css" id="xmljellysandwich_css"><!-- Include your CSS here ... or target #xmljellysandwich_css from your XSLT ... --></style>
-      <script type="text/javascript"
+     <style type="text/css" id="xmljellysandwich_css"><!-- Include your CSS here ... or target #xmljellysandwich_css from your XSLT ... --></style>
+     <style type="text/css" id="versifier_css"><!-- each poem gets its own CSS here --></style>
+     <script type="text/javascript"
               src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
       <script>
         
-        function loadFromZip (filepath) {
+              window.onload = function() {
           SaxonJS.transform({
-            sourceLocation:     "loveiii.xml",
-            stylesheetLocation: "thetemple.sef",
-            initialTemplate:    "xmljellysandwich_pack"
-          });
-        }
-        
-<!--          window.onload = function() {
-          SaxonJS.transform({
-            sourceLocation:     filepath,
+            sourceLocation:     "catalog.xml",
             stylesheetLocation: "versifier.sef",
             initialTemplate:    "xmljellysandwich_pack"
           });
-          }-->     
+          }   
         </script>
    </head>
    <body>
       <div id="xmljellysandwich_header">
-         <h1 id="xmljellysandwich_title">Love III<!-- target with
+         <h3 id="xmljellysandwich_title">Versifier 2018<!-- target with
       <xsl:result-document href="#xmljellysandwich_title"> .... </xsl:result-document>
-    --></h1>
+    --></h3>
       </div>
       <div id="xmljellysandwich_directory"><!-- target with
       <xsl:result-document href="#xmljellysandwich_directory"> .... </xsl:result-document>
@@ -43,7 +36,7 @@
       <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document>
     --></div>
       <div id="xmljellysandwich_footer">
-        <p>Rendition by Wendell Piez (Pellucid Literature) 2017.</p>
+        <p>By Wendell Piez (Pellucid Literature) 2017, 2018.</p>
          <p>XML+XSLT under JS in the browser using <a href="http://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>, from
             <a href="http://www.saxonica.com">Saxonica</a>, with help from <a href="http://github.com/wendellpiez/XMLjellysandwich">XML Jelly Sandwich</a>.</p>
       </div>

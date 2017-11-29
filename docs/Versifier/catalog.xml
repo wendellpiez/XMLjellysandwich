@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <card src="loveiii.xml">
+        <title>Love III</title>
+        <author>George Herbert</author>
+        <date>1633</date>
+        <source><title>The Temple</title></source>
+    </card>
+    <card src="exequy.xml">
+        <title>Exequy</title>
+        <author>Henry King</author>
+    </card>
+    <card src="starvedmaelstrom.xml">
+        <title>Starved Maelstrom</title>
+        <author>Emily Dickinson</author>
+    </card>
+</catalog>
