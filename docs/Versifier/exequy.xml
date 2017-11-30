@@ -2,10 +2,10 @@
 <pub>
     <author>Henry King</author>
     <title>Exequy</title>
-<styles>
+<style>
         .verse-para {  padding: 1em 10%  }
     
-</styles>
+</style>
     <verse>
         <verse-para>
             <couplet><l>Accept, thou shrine of my dead saint,</l>

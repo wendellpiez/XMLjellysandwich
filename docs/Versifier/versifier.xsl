@@ -67,9 +67,10 @@
    
    <!-- In the contents documents ...  -->
    <xsl:template match="pub">
-      <!--<xsl:result-document href="#xmljellysandwich_css">
-         <xsl:call-template name="css"/>
-      </xsl:result-document>-->
+      <xsl:result-document href="#xmljellysandwich_header" method="ixsl:replace-content">
+         <h3>Versifier 2018</h3>
+         <xsl:apply-templates select="title, author, source"/>
+      </xsl:result-document>
       
       <xsl:apply-templates select="style, verse"/>
       
@@ -78,6 +79,25 @@
       
    </xsl:template>
  
+   <xsl:template match="pub/title">
+      <h1>
+         <xsl:apply-templates/>
+      </h1>
+   </xsl:template>
+   
+   <xsl:template match="pub/author">
+      <h2>
+         <xsl:apply-templates/>
+      </h2>
+   </xsl:template>
+   
+   <xsl:template match="pub/source">
+      <h3>
+         <xsl:apply-templates/>
+         <xsl:for-each select="../date"> (<xsl:value-of select="."/>)</xsl:for-each>
+      </h3>
+   </xsl:template>
+   
    <xsl:template match="pub/style">
       <xsl:result-document href="#versifier_css"  method="ixsl:replace-content">
          <xsl:apply-templates/>
@@ -248,7 +268,7 @@
          .hidden { color: white }
          
          #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;
-          border-top: thin solid black; padding-top: 2em;
+          border-top: thin solid black; padding-top: 1em;
           font-family: 'Roboto Slab', sans-serif }
          
          #xmljellysandwich_directory {
