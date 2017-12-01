@@ -297,7 +297,7 @@
          
          .author { }
          
-         .l { padding-left: 2em; text-indent: -2em }
+         .l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }
          
          .l * { display: inline }
          

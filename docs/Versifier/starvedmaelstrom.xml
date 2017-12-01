@@ -3,8 +3,9 @@
     <title>As the Starved Maelstrom Laps the Navies</title>
     <author>Emily Dickinson</author>
     <style>
-        .verse { clear: both; margin-top: 1em; margin-bottom: 1em }
-        .stanza { margin-top: 1em; line-height: 140%; margin-left: 30% }
+        .verse { clear: both; margin-top: 1em; margin-bottom: 1em; columns: 2 }
+        .verse > *:first-child { margin-top: 0em }
+        .stanza { margin-top: 1em; line-height: 180%; margin-left: 20% }
         .l:nth-child(2n) { padding-left: 4em } </style>
     <verse>
         <stanza>
