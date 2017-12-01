@@ -4,7 +4,7 @@
     <author>John Keats</author>
     <style> 
         .verse     { clear: both; padding: 2em 1em }
-        .stanza    { padding-top: 1em; line-height: 140%; margin-left: 30% }
+        .stanza    { padding-top: 1em; line-height: 130% }
         .l.b, .l.d { padding-left: 4em }
         .l.e       { padding-left: 6em } </style>
     <verse>

@@ -7,6 +7,7 @@
                 extension-element-prefixes="ixsl"
     exclude-result-prefixes="#all">
 
+
 <!--Starter XSLT written courtesy of XML Jelly Sandwich -->
 
 
@@ -30,8 +31,42 @@
          <!-- Processing the catalog document -->
          <xsl:apply-templates mode="toc"/>
       </xsl:result-document>
+      <xsl:apply-templates select="catalog" mode="full-directory"/>
    </xsl:template>
 
+  <xsl:variable name="source-catalog" select="/"/>
+   
+   <xsl:template name="show-directory">
+      <xsl:apply-templates select="$source-catalog" mode="full-directory"/>
+   </xsl:template>
+   
+   
+   <xsl:template match="catalog" mode="full-directory">
+      <xsl:result-document href="#xmljellysandwich_body"  method="ixsl:replace-content">
+         <div class="catalog">
+            <xsl:apply-templates mode="#current"/>
+         </div>
+      </xsl:result-document>
+   </xsl:template>
+   
+   <xsl:template match="card" mode="full-directory">
+      <section class="card toc-entry" data-src="{@src}">
+         <xsl:apply-templates mode="#current"/>
+      </section>
+   </xsl:template>
+   
+   <xsl:template match="card/title" priority="1" mode="full-directory">
+      <p class="{ local-name() }">
+         <xsl:apply-templates mode="#current"/>
+      </p>
+   </xsl:template>
+   
+   <xsl:template match="card/*" mode="full-directory">
+      <p class="{ local-name() }">
+         <xsl:apply-templates mode="#current"/>
+      </p>
+   </xsl:template>
+   
    <xsl:template match="catalog" mode="toc">
       <div class="toc">
          <xsl:apply-templates mode="#current"/>
@@ -54,12 +89,16 @@
       <xsl:variable name="where" select="resolve-uri(@data-src)"/>
       <!--<xsl:message>Whee </xsl:message>-->
       <ixsl:schedule-action document="{$where}">
-        <xsl:call-template name="load-poem">
-           <xsl:with-param name="where" select="$where"/>
-        </xsl:call-template>
+         <xsl:call-template name="load-poem">
+            <xsl:with-param name="where" select="$where"/>
+         </xsl:call-template>
       </ixsl:schedule-action>
    </xsl:template>
-
+   
+   <xsl:template match="id('page-title')" mode="ixsl:onclick">
+      <xsl:call-template name="show-directory"/>
+   </xsl:template>
+   
    <xsl:template name="load-poem">
       <xsl:param name="where" as="xs:anyURI" required="yes"/>
       <xsl:apply-templates select="document($where)"/>
@@ -67,10 +106,10 @@
    
    <!-- In the contents documents ...  -->
    <xsl:template match="pub">
-      <xsl:result-document href="#xmljellysandwich_header" method="ixsl:replace-content">
+      <!--<xsl:result-document href="#xmljellysandwich_header" method="ixsl:replace-content">
          <h3>Versifier 2018</h3>
          <xsl:apply-templates select="title, author, source"/>
-      </xsl:result-document>
+      </xsl:result-document>-->
       
       <xsl:apply-templates select="style, verse"/>
       
@@ -106,6 +145,7 @@
    
    <xsl:template match="pub/verse">
       <xsl:result-document href="#xmljellysandwich_body"  method="ixsl:replace-content">
+         <xsl:apply-templates select="../(title, author, source)"/>
          <div class="verse" id="{replace(document-uri(/),'^.*/|\..*$','')}">
             <xsl:apply-templates/>
          </div>
@@ -270,16 +310,26 @@
          .hidden { color: white }
          
          #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;
-          border-top: thin solid black; padding-top: 1em;
-          font-family: 'Roboto Slab', sans-serif }
+          border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;
+          font-family: 'Roboto Slab', sans-serif;
+          margin-top: 1em }
+         
+         #xmljellysandwich_header {
+         top: 1em; right: 1em; position: fixed }
          
          #xmljellysandwich_directory {
-           top: 1em; right: 1em; position: fixed }
+         bottom: 1em; right: 1em; position: fixed }
          
-         .toc-entry { display: inline-block; margin: 0em }
-         .toc-entry:before { content: " ❖ ☙ " }
-         .toc-entry:first-child:before { content: "" }
+         h5.toc-entry { display: inline-block; margin: 0em }
+         // .toc-entry:before { content: " ❖ " }
+         h5.toc-entry:before { content: " ☙ " }
+         h5.toc-entry:first-child:before { content: "" }
          
+         .catalog { max-width: 60% }
+         section { margin-top: 1em; border: thin solid black; padding: 1em }
+         section * { margin: 0em }
+         section .title { font-weight: bold }
+         section .source { font-style: italic }
          
    </xsl:template>
    

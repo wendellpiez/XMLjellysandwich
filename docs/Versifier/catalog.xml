@@ -17,5 +17,6 @@
     <card src="toautumn.xml">
         <title>Ode, To Autumn</title>
         <author>John Keats</author>
+        <date>1819</date>
     </card>
 </catalog>
