@@ -6,8 +6,7 @@
         .verse { clear: both; margin-top: 1em; margin-bottom: 1em }
         .verse > *:first-child { margin-top: 0em }
         
-        .stanza    { float: left; max-width: 32%; padding: 1em; line-height: 180%
-        }
+        .stanza    { padding: 1em; line-height: 180%}
         .l.b, .l.d { padding-left: 4em }
         .l.e       { padding-left: 6em } </style>
     <verse>
