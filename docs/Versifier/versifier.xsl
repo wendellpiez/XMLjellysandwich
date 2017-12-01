@@ -162,11 +162,13 @@
    </xsl:template>
    
    <xsl:template match="l">
-      <p class="l hidden">
+      <p class="l hidden { @r }">
          <xsl:apply-templates select="@*"/>
          <xsl:apply-templates/>
       </p>
    </xsl:template>
+
+   <xsl:template match="l/@r"/>
 
    <xsl:template match="i">
       <span class="i">
@@ -275,7 +277,7 @@
            top: 1em; right: 1em; position: fixed }
          
          .toc-entry { display: inline-block; margin: 0em }
-         .toc-entry:before { content: " ⬥ " }
+         .toc-entry:before { content: " ❖ ☙ " }
          .toc-entry:first-child:before { content: "" }
          
          

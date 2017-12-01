@@ -14,4 +14,8 @@
         <title>Starved Maelstrom</title>
         <author>Emily Dickinson</author>
     </card>
+    <card src="toautumn.xml">
+        <title>Ode, To Autumn</title>
+        <author>John Keats</author>
+    </card>
 </catalog>

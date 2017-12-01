@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pub>
+    <title>To Autumn</title>
+    <author>John Keats</author>
+    <style> 
+        .verse    { clear: both; margin-top: 1em; margin-bottom: 1em }
+        .stanza   { margin-top: 1em; line-height: 140%; margin-left: 30% }
+        .l.b .l.d { padding-left: 4em }
+        .l.e      { padding-left: 6em } </style>
+    <verse>
+        <stanza>
+            <l r="a">Season of mists and mellow fruitfulness!</l>
+            <l r="b">﻿Close bosom-friend of the maturing sun;</l>
+            <l r="a">Conspiring with him how to load and bless</l>
+            <l r="b">﻿With fruit the vines that round the thatch-eaves run;</l>
+            <l r="c">To bend with apples the moss'd cottage-trees,</l>
+            <l r="d">﻿And fill all fruit with ripeness to the core;</l>
+            <l r="e">﻿﻿To swell the gourd, and plump the hazel shells</l>
+            <l r="d">﻿With a sweet kernel; to set budding more,</l>
+            <l r="c">And still more, later flowers for the bees,</l>
+            <l r="c">Until they think warm days will never cease,</l>
+            <l r="e">﻿For Summer has o'er-brimm'd their clammy cells.</l>
+        </stanza>
+        <stanza>
+            <l r="a">Who hath not seen thee oft amid thy store?</l>
+            <l r="b">﻿Sometimes whoever seeks abroad may find</l>
+            <l r="a">Thee sitting careless on a granary floor,</l>
+            <l r="b">﻿Thy hair soft-lifted by the winnowing wind;</l>
+            <l r="c">Or on a half-reap'd furrow sound asleep,</l>
+            <l r="d">﻿Drowsed with the fume of poppies, while thy hook</l>
+            <l r="e">﻿﻿Spares the next swath and all its twined flowers;</l>
+            <l r="c">And sometime like a gleaner thou dost keep</l>
+            <l r="d">﻿Steady thy laden head across a brook;</l>
+            <l r="d">﻿Or by a cider-press, with patient look,</l>
+            <l r="e">﻿﻿Thou watchest the last oozings, hours by hours.</l>
+        </stanza>
+        <stanza>
+            <l r="a">Where are the songs of Spring? Ay, where are they?</l>
+            <l r="b">﻿Think not of them, thou hast thy music too.</l>
+            <l r="a">While barred clouds bloom the soft-dying day,</l>
+            <l r="b">﻿And touch the stubble-plains with rosy hue;</l>
+            <l r="c">Then in a wailful choir the small gnats mourn</l>
+            <l r="d">﻿Among the river sallows, borne aloft</l>
+            <l r="e">﻿﻿Or sinking as the light wind lives or dies;</l>
+            <l r="c">And full-grown lambs loud bleat from hilly bourn:</l>
+            <l r="d">﻿Hedge-crickets sing; and now with treble soft</l>
+            <l r="d">﻿The redbreast whistles from a garden-croft,</l>
+            <l r="e">﻿﻿And gathering swallows twitter in the skies.</l>
+        </stanza>
+    </verse>
+</pub>
