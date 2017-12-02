@@ -85,7 +85,7 @@
       <xsl:text>)</xsl:text>
    </xsl:template>
    
-   <xsl:template match="*[XJS:has-class(.,'toc-entry')]" mode="ixsl:onclick">
+   <xsl:template match="*[XJS:has-class(.,'toc-entry')]" mode="ixsl:click">
       <xsl:variable name="where" select="resolve-uri(@data-src)"/>
       <!--<xsl:message>Whee </xsl:message>-->
       <ixsl:schedule-action document="{$where}">
@@ -95,7 +95,7 @@
       </ixsl:schedule-action>
    </xsl:template>
    
-   <xsl:template match="id('page-title')" mode="ixsl:onclick">
+   <xsl:template match="id('page-title')" mode="ixsl:click">
       <xsl:call-template name="show-directory"/>
    </xsl:template>
    

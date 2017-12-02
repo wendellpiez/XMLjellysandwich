@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-12-01T18:00:30.088-05:00" target="JS">
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-12-02T13:47:40.477-05:00" target="JS">
  <co id="0" binds="1">
   <template name="Q{}show" flags="os" line="247" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
    <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="250">
@@ -157,7 +157,7 @@
    </templateRule>
    <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="os" line="44" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.nodeTest role="match" test="element(Q{}catalog)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='catalog';"/>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="45" global="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;" local="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="45" global="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;" local="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#xmljellysandwich_body"/>
      <elem role="content" line="46" name="div">
       <sequence>
@@ -470,7 +470,7 @@
   </template>
  </co>
  <co id="10" binds="11 8 5">
-  <mode name="Q{http://saxonica.com/ns/interactiveXSLT}onclick" onNo="TC" flags="W" patternSlots="0">
+  <mode name="Q{http://saxonica.com/ns/interactiveXSLT}click" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="0" prio="0.5" seq="1" rank="0" minImp="0" slots="0" flags="os" line="98" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.nodeSet role="match" type="element()">
      <fn vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="98" name="id">
@@ -520,17 +520,6 @@
     </let>
    </templateRule>
   </mode>
- </co>
- <co id="12" binds="4 4">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg219215364" type="xs:string" line="159" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
-   <fn vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="159" name="concat">
-    <str val="[^"/>
-    <gVarRef name="Q{}terminalchars" bSlot="0"/>
-    <str val="]*["/>
-    <gVarRef name="Q{}terminalchars" bSlot="1"/>
-    <str val="]"/>
-   </fn>
-  </globalVariable>
  </co>
  <co id="1" binds="7 0 1">
   <mode name="Q{}spill" onNo="TC" flags="W" patternSlots="0">
@@ -609,6 +598,17 @@
    </templateRule>
   </mode>
  </co>
+ <co id="12" binds="4 4">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg568517780" type="xs:string" line="159" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+   <fn vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="159" name="concat">
+    <str val="[^"/>
+    <gVarRef name="Q{}terminalchars" bSlot="0"/>
+    <str val="]*["/>
+    <gVarRef name="Q{}terminalchars" bSlot="1"/>
+    <str val="]"/>
+   </fn>
+  </globalVariable>
+ </co>
  <co id="11" binds="6 13">
   <template name="Q{}show-directory" flags="os" line="39" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
    <applyT role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="40" mode="Q{}full-directory" flags="t" bSlot="0">
@@ -667,11 +667,11 @@
  <co id="15" binds="9 2 6">
   <template name="Q{}xmljellysandwich_pack" flags="os" line="25" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
    <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="27">
-    <resultDoc global="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;" local="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;">
+    <resultDoc global="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;" local="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;">
      <str role="href" val="#xmljellysandwich_css"/>
      <callT role="content" line="28" name="css" bSlot="0"/>
     </resultDoc>
-    <resultDoc line="30" global="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;" local="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;">
+    <resultDoc line="30" global="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;" local="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;">
      <str role="href" val="#xmljellysandwich_directory"/>
      <applyT role="content" line="32" mode="Q{}toc" flags="i" bSlot="1">
       <slash role="select" simple="1">
@@ -706,7 +706,7 @@
      <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='pub';"/>
     </p.withUpper>
     <sequence role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="147">
-     <resultDoc global="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;" local="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc global="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;" local="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#xmljellysandwich_body"/>
       <sequence role="content" line="148">
        <applyT bSlot="0">
@@ -881,7 +881,7 @@
      <p.nodeTest test="element(Q{}style)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='style';"/>
      <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='pub';"/>
     </p.withUpper>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="141" global="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;" local="#&#xA;#Fri Dec 01 18:00:30 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema" line="141" global="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;" local="#&#xA;#Sat Dec 02 13:47:40 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#versifier_css"/>
      <applyT role="content" line="142" flags="i" bSlot="11">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
@@ -1052,7 +1052,7 @@
        <dot type="text()"/>
       </data>
      </cvUntyped>
-     <gVarRef role="regex" name="Q{http://saxon.sf.net/generated-variable}gg219215364" bSlot="19"/>
+     <gVarRef role="regex" name="Q{http://saxon.sf.net/generated-variable}gg568517780" bSlot="19"/>
      <str role="flags" val=""/>
      <elem role="matching" line="161" name="span">
       <sequence>
@@ -1084,4 +1084,4 @@
  </output>
  <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
 </package>
-<?Σ cc93acb5?>
+<?Σ 1b6e4215?>
