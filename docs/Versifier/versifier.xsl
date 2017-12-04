@@ -42,6 +42,7 @@
    
    
    <xsl:template match="catalog" mode="full-directory">
+      <xsl:result-document href="#versifier_css"  method="ixsl:replace-content"/>
       <xsl:result-document href="#xmljellysandwich_body"  method="ixsl:replace-content">
          <div class="catalog">
             <xsl:apply-templates mode="#current"/>
@@ -50,7 +51,8 @@
    </xsl:template>
    
    <xsl:template match="card" mode="full-directory">
-      <section class="card toc-entry" data-src="{@src}">
+      <!-- @onclick is so Safari makes the div 'clickable' -->
+      <section class="card toc-entry" data-src="{@src}" onclick="void(0)">
          <xsl:apply-templates mode="#current"/>
       </section>
    </xsl:template>
@@ -74,7 +76,7 @@
    </xsl:template>
    
    <xsl:template match="card" mode="toc">
-      <h5 class="toc-entry" data-src="{@src}">
+      <h5 class="toc-entry" data-src="{@src}" onclick="void(0)">
          <xsl:apply-templates select="title, date" mode="toc"/>
       </h5>
    </xsl:template>

@@ -2,7 +2,10 @@
 <pub>
     <title>To Autumn</title>
     <author>John Keats</author>
-    <style> 
+    <style>
+        html, body { background-color: darkred; color: gold }
+        .hidden { color: darkred }
+        
         .verse { clear: both; margin-top: 1em; margin-bottom: 1em }
         .verse > *:first-child { margin-top: 0em }
         
