@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pub>
+    <author>Alfred Tennyson</author>
+    <title>Tithonus</title>
+    <style>
+.verse { padding-left: 2em }
+.verse-para { padding-top: 1em }
+.verse-para > *:first-child { padding-left: 4em } /* first line of a para */
+.verse-para:first-child > *:first-child { padding-left: 2em } /* first line of first para */ </style>
+    <verse>
+        <verse-para>
+            <l>The woods decay, the woods decay and fall,</l>
+            <l>The vapours weep their burthen to the ground,</l>
+            <l>Man comes and tills the field and lies beneath,</l>
+            <l>And after many a summer dies the swan.</l>
+            <l>Me only cruel immortality</l>
+            <l>Consumes: I wither slowly in thine arms,</l>
+            <l>Here at the quiet limit of the world,</l>
+            <l>A white-hair’d shadow roaming like a dream</l>
+            <l>The ever-silent spaces of the East,</l>
+            <l>Far-folded mists, and gleaming halls of morn.</l>
+        </verse-para>
+        <verse-para>
+            <l>Alas! for this gray shadow, once a man—</l>
+            <l>So glorious in his beauty and thy choice,</l>
+            <l>Who madest him thy chosen, that he seem’d</l>
+            <l>To his great heart none other than a God!</l>
+            <l>I ask’d thee, ‘Give me immortality.’</l>
+            <l>Then didst thou grant mine asking with a smile,</l>
+            <l>Like wealthy men, who care not how they give.</l>
+            <l>But thy strong Hours indignant work’d their wills,</l>
+            <l>And beat me down and marr’d and wasted me,</l>
+            <l>And tho’ they could not end me, left me maim’d</l>
+            <l>To dwell in presence of immortal youth,</l>
+            <l>Immortal age beside immortal youth,</l>
+            <l>And all I was, in ashes. Can thy love,</l>
+            <l>Thy beauty, make amends, tho’ even now,</l>
+            <l>Close over us, the silver star, thy guide,</l>
+            <l>Shines in those tremulous eyes that fill with tears</l>
+            <l>To hear me? Let me go: take back thy gift:</l>
+            <l>Why should a man desire in any way</l>
+            <l>To vary from the kindly race of men</l>
+            <l>Or pass beyond the goal of ordinance</l>
+            <l>Where all should pause, as is most meet for all?</l>
+        </verse-para>
+        <verse-para>
+            <l>A soft air fans the cloud apart; there comes</l>
+            <l>A glimpse of that dark world where I was born.</l>
+            <l>Once more the old mysterious glimmer steals</l>
+            <l>From thy pure brows, and from thy shoulders pure,</l>
+            <l>And bosom beating with a heart renew’d.</l>
+            <l>Thy cheek begins to redden thro’ the gloom,</l>
+            <l>Thy sweet eyes brighten slowly close to mine,</l>
+            <l>Ere yet they blind the stars, and the wild team</l>
+            <l>Which love thee, yearning for thy yoke, arise,</l>
+            <l>And shake the darkness from their loosen’d manes,</l>
+            <l>And beat the twilight into flakes of fire.</l>
+        </verse-para>
+        <verse-para>
+            <l>Lo! ever thus thou growest beautiful</l>
+            <l>In silence, then before thine answer given</l>
+            <l>Departest, and thy tears are on my cheek.</l>
+        </verse-para>
+        <verse-para>
+            <l>Why wilt thou ever scare me with thy tears,</l>
+            <l>And make me tremble lest a saying learnt,</l>
+            <l>In days far-off, on that dark earth, be true?</l>
+            <l>‘The Gods themselves cannot recall their gifts.’</l>
+        </verse-para>
+        <verse-para>
+            <l>Ay me! ay me! with what another heart</l>
+            <l>In days far-off, and with what other eyes</l>
+            <l>I used to watch—if I be he that watch’d—</l>
+            <l>The lucid outline forming round thee; saw</l>
+            <l>The dim curls kindle into sunny rings;</l>
+            <l>Changed with thy mystic change, and felt my blood</l>
+            <l>Glow with the glow that slowly crimson’d all</l>
+            <l>Thy presence and thy portals, while I lay,</l>
+            <l>Mouth, forehead, eyelids, growing dewy-warm</l>
+            <l>With kisses balmier than half-opening buds</l>
+            <l>Of April, and could hear the lips that kiss’d</l>
+            <l>Whispering I knew not what of wild and sweet,</l>
+            <l>Like that strange song I heard Apollo sing,</l>
+            <l>While Ilion like a mist rose into towers.</l>
+        </verse-para>
+        <verse-para>
+            <l>Yet hold me not for ever in thine East:</l>
+            <l>How can my nature longer mix with thine?</l>
+            <l>Coldly thy rosy shadows bathe me, cold</l>
+            <l>Are all thy lights, and cold my wrinkled feet</l>
+            <l>Upon thy glimmering thresholds, when the steam</l>
+            <l>Floats up from those dim fields about the homes</l>
+            <l>Of happy men that have the power to die,</l>
+            <l>And grassy barrows of the happier dead.</l>
+            <l>Release me, and restore me to the ground;</l>
+            <l>Thou seëst all things, thou wilt see my grave:</l>
+            <l>Thou wilt renew thy beauty morn by morn;</l>
+            <l>I earth in earth forget these empty courts,</l>
+            <l>And thee returning on thy silver wheels.</l>
+        </verse-para>
+    </verse>
+</pub>

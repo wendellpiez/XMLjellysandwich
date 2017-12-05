@@ -19,4 +19,8 @@
         <author>John Keats</author>
         <date>1819</date>
     </card>
+    <card src="tithonus.xml">
+        <title>Tithonus</title>
+        <author>Alfred Tennyson</author>
+    </card>
 </catalog>
