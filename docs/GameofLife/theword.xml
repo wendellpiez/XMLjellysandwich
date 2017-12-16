@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+<tr id="tribe1">
+   <td id="1A" class="cell" data-neighbors="1B 2A 2B"> </td>
+   <td id="1B" class="cell" data-neighbors="1A 1C 2A 2B 2C"> </td>
+   <td id="1C" class="cell" data-neighbors="1B 1D 2B 2C 2D"> </td>
+   <td id="1D" class="cell" data-neighbors="1C 1E 2C 2D 2E"> </td>
+   <td id="1E" class="cell" data-neighbors="1D 1F 2D 2E 2F"> </td>
+   <td id="1F" class="cell" data-neighbors="1E 1G 2E 2F 2G"> </td>
+   <td id="1G" class="cell" data-neighbors="1F 1H 2F 2G 2H"> </td>
+   <td id="1H" class="cell" data-neighbors="1G 1I 2G 2H 2I"> </td>
+   <td id="1I" class="cell" data-neighbors="1H 1J 2H 2I 2J"> </td>
+   <td id="1J" class="cell" data-neighbors="1I 2I 2J"> </td>
+</tr>
+<tr id="tribe2">
+   <td id="2A" class="cell" data-neighbors="1A 1B 2B 3A 3B"> </td>
+   <td id="2B" class="cell" data-neighbors="1A 1B 1C 2A 2C 3A 3B 3C"> </td>
+   <td id="2C" class="cell" data-neighbors="1B 1C 1D 2B 2D 3B 3C 3D"> </td>
+   <td id="2D" class="cell" data-neighbors="1C 1D 1E 2C 2E 3C 3D 3E"> </td>
+   <td id="2E" class="cell" data-neighbors="1D 1E 1F 2D 2F 3D 3E 3F"> </td>
+   <td id="2F" class="cell" data-neighbors="1E 1F 1G 2E 2G 3E 3F 3G"> </td>
+   <td id="2G" class="cell" data-neighbors="1F 1G 1H 2F 2H 3F 3G 3H"> </td>
+   <td id="2H" class="cell" data-neighbors="1G 1H 1I 2G 2I 3G 3H 3I"> </td>
+   <td id="2I" class="cell" data-neighbors="1H 1I 1J 2H 2J 3H 3I 3J"> </td>
+   <td id="2J" class="cell" data-neighbors="1I 1J 2I 3I 3J"> </td>
+</tr>
+<tr id="tribe3">
+   <td id="3A" class="cell" data-neighbors="2A 2B 3B 4A 4B"> </td>
+   <td id="3B" class="cell" data-neighbors="2A 2B 2C 3A 3C 4A 4B 4C"> </td>
+   <td id="3C" class="cell" data-neighbors="2B 2C 2D 3B 3D 4B 4C 4D"> </td>
+   <td id="3D" class="cell" data-neighbors="2C 2D 2E 3C 3E 4C 4D 4E"> </td>
+   <td id="3E" class="cell" data-neighbors="2D 2E 2F 3D 3F 4D 4E 4F"> </td>
+   <td id="3F" class="cell" data-neighbors="2E 2F 2G 3E 3G 4E 4F 4G"> </td>
+   <td id="3G" class="cell" data-neighbors="2F 2G 2H 3F 3H 4F 4G 4H"> </td>
+   <td id="3H" class="cell" data-neighbors="2G 2H 2I 3G 3I 4G 4H 4I"> </td>
+   <td id="3I" class="cell" data-neighbors="2H 2I 2J 3H 3J 4H 4I 4J"> </td>
+   <td id="3J" class="cell" data-neighbors="2I 2J 3I 4I 4J"> </td>
+</tr>
+<tr id="tribe4">
+   <td id="4A" class="cell" data-neighbors="3A 3B 4B 5A 5B"> </td>
+   <td id="4B" class="cell" data-neighbors="3A 3B 3C 4A 4C 5A 5B 5C"> </td>
+   <td id="4C" class="cell" data-neighbors="3B 3C 3D 4B 4D 5B 5C 5D"> </td>
+   <td id="4D" class="cell" data-neighbors="3C 3D 3E 4C 4E 5C 5D 5E"> </td>
+   <td id="4E" class="cell" data-neighbors="3D 3E 3F 4D 4F 5D 5E 5F"> </td>
+   <td id="4F" class="cell" data-neighbors="3E 3F 3G 4E 4G 5E 5F 5G"> </td>
+   <td id="4G" class="cell" data-neighbors="3F 3G 3H 4F 4H 5F 5G 5H"> </td>
+   <td id="4H" class="cell" data-neighbors="3G 3H 3I 4G 4I 5G 5H 5I"> </td>
+   <td id="4I" class="cell" data-neighbors="3H 3I 3J 4H 4J 5H 5I 5J"> </td>
+   <td id="4J" class="cell" data-neighbors="3I 3J 4I 5I 5J"> </td>
+</tr>
+<tr id="tribe5">
+   <td id="5A" class="cell" data-neighbors="4A 4B 5B 6A 6B"> </td>
+   <td id="5B" class="cell" data-neighbors="4A 4B 4C 5A 5C 6A 6B 6C"> </td>
+   <td id="5C" class="cell" data-neighbors="4B 4C 4D 5B 5D 6B 6C 6D"> </td>
+   <td id="5D" class="cell" data-neighbors="4C 4D 4E 5C 5E 6C 6D 6E"> </td>
+   <td id="5E" class="cell" data-neighbors="4D 4E 4F 5D 5F 6D 6E 6F"> </td>
+   <td id="5F" class="cell" data-neighbors="4E 4F 4G 5E 5G 6E 6F 6G"> </td>
+   <td id="5G" class="cell" data-neighbors="4F 4G 4H 5F 5H 6F 6G 6H"> </td>
+   <td id="5H" class="cell" data-neighbors="4G 4H 4I 5G 5I 6G 6H 6I"> </td>
+   <td id="5I" class="cell" data-neighbors="4H 4I 4J 5H 5J 6H 6I 6J"> </td>
+   <td id="5J" class="cell" data-neighbors="4I 4J 5I 6I 6J"> </td>
+</tr>
+<tr id="tribe6">
+   <td id="6A" class="cell" data-neighbors="5A 5B 6B 7A 7B"> </td>
+   <td id="6B" class="cell" data-neighbors="5A 5B 5C 6A 6C 7A 7B 7C"> </td>
+   <td id="6C" class="cell" data-neighbors="5B 5C 5D 6B 6D 7B 7C 7D"> </td>
+   <td id="6D" class="cell" data-neighbors="5C 5D 5E 6C 6E 7C 7D 7E"> </td>
+   <td id="6E" class="cell" data-neighbors="5D 5E 5F 6D 6F 7D 7E 7F"> </td>
+   <td id="6F" class="cell" data-neighbors="5E 5F 5G 6E 6G 7E 7F 7G"> </td>
+   <td id="6G" class="cell" data-neighbors="5F 5G 5H 6F 6H 7F 7G 7H"> </td>
+   <td id="6H" class="cell" data-neighbors="5G 5H 5I 6G 6I 7G 7H 7I"> </td>
+   <td id="6I" class="cell" data-neighbors="5H 5I 5J 6H 6J 7H 7I 7J"> </td>
+   <td id="6J" class="cell" data-neighbors="5I 5J 6I 7I 7J"> </td>
+</tr>
+<tr id="tribe7">
+   <td id="7A" class="cell" data-neighbors="6A 6B 7B 8A 8B"> </td>
+   <td id="7B" class="cell" data-neighbors="6A 6B 6C 7A 7C 8A 8B 8C"> </td>
+   <td id="7C" class="cell" data-neighbors="6B 6C 6D 7B 7D 8B 8C 8D"> </td>
+   <td id="7D" class="cell" data-neighbors="6C 6D 6E 7C 7E 8C 8D 8E"> </td>
+   <td id="7E" class="cell" data-neighbors="6D 6E 6F 7D 7F 8D 8E 8F"> </td>
+   <td id="7F" class="cell" data-neighbors="6E 6F 6G 7E 7G 8E 8F 8G"> </td>
+   <td id="7G" class="cell" data-neighbors="6F 6G 6H 7F 7H 8F 8G 8H"> </td>
+   <td id="7H" class="cell" data-neighbors="6G 6H 6I 7G 7I 8G 8H 8I"> </td>
+   <td id="7I" class="cell" data-neighbors="6H 6I 6J 7H 7J 8H 8I 8J"> </td>
+   <td id="7J" class="cell" data-neighbors="6I 6J 7I 8I 8J"> </td>
+</tr>
+<tr id="tribe8">
+   <td id="8A" class="cell" data-neighbors="7A 7B 8B 9A 9B"> </td>
+   <td id="8B" class="cell" data-neighbors="7A 7B 7C 8A 8C 9A 9B 9C"> </td>
+   <td id="8C" class="cell" data-neighbors="7B 7C 7D 8B 8D 9B 9C 9D"> </td>
+   <td id="8D" class="cell" data-neighbors="7C 7D 7E 8C 8E 9C 9D 9E"> </td>
+   <td id="8E" class="cell" data-neighbors="7D 7E 7F 8D 8F 9D 9E 9F"> </td>
+   <td id="8F" class="cell" data-neighbors="7E 7F 7G 8E 8G 9E 9F 9G"> </td>
+   <td id="8G" class="cell" data-neighbors="7F 7G 7H 8F 8H 9F 9G 9H"> </td>
+   <td id="8H" class="cell" data-neighbors="7G 7H 7I 8G 8I 9G 9H 9I"> </td>
+   <td id="8I" class="cell" data-neighbors="7H 7I 7J 8H 8J 9H 9I 9J"> </td>
+   <td id="8J" class="cell" data-neighbors="7I 7J 8I 9I 9J"> </td>
+</tr>
+<tr id="tribe9">
+   <td id="9A" class="cell" data-neighbors="8A 8B 9B 10A 10B"> </td>
+   <td id="9B" class="cell" data-neighbors="8A 8B 8C 9A 9C 10A 10B 10C"> </td>
+   <td id="9C" class="cell" data-neighbors="8B 8C 8D 9B 9D 10B 10C 10D"> </td>
+   <td id="9D" class="cell" data-neighbors="8C 8D 8E 9C 9E 10C 10D 10E"> </td>
+   <td id="9E" class="cell" data-neighbors="8D 8E 8F 9D 9F 10D 10E 10F"> </td>
+   <td id="9F" class="cell" data-neighbors="8E 8F 8G 9E 9G 10E 10F 10G"> </td>
+   <td id="9G" class="cell" data-neighbors="8F 8G 8H 9F 9H 10F 10G 10H"> </td>
+   <td id="9H" class="cell" data-neighbors="8G 8H 8I 9G 9I 10G 10H 10I"> </td>
+   <td id="9I" class="cell" data-neighbors="8H 8I 8J 9H 9J 10H 10I 10J"> </td>
+   <td id="9J" class="cell" data-neighbors="8I 8J 9I 10I 10J"> </td>
+</tr>
+<tr id="tribe10">
+   <td id="10A" class="cell" data-neighbors="9A 9B 10B"> </td>
+   <td id="10B" class="cell" data-neighbors="9A 9B 9C 10A 10C"> </td>
+   <td id="10C" class="cell" data-neighbors="9B 9C 9D 10B 10D"> </td>
+   <td id="10D" class="cell" data-neighbors="9C 9D 9E 10C 10E"> </td>
+   <td id="10E" class="cell" data-neighbors="9D 9E 9F 10D 10F"> </td>
+   <td id="10F" class="cell" data-neighbors="9E 9F 9G 10E 10G"> </td>
+   <td id="10G" class="cell" data-neighbors="9F 9G 9H 10F 10H"> </td>
+   <td id="10H" class="cell" data-neighbors="9G 9H 9I 10G 10I"> </td>
+   <td id="10I" class="cell" data-neighbors="9H 9I 9J 10H 10J"> </td>
+   <td id="10J" class="cell" data-neighbors="9I 9J 10I"> </td>
+</tr>
+</table>

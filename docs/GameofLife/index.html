@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>John Conway's Game of Life</title>
+      <meta charset="utf-8"/>
+      <style type="text/css" id="xmljellysandwich_css">
+        
+        td { border: thin solid black; width:1em; height: 1em }
+        
+        .alive { background-color: pink }
+        </style>
+      <script type="text/javascript"
+              src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
+      <script>
+          window.onload = function() {
+          SaxonJS.transform({
+            stylesheetLocation: "creation.sef",
+            initialTemplate:    "incipit"
+          });
+          }     
+        </script>
+   </head>
+   <body>
+      <div id="page_header">
+         <h1 id="page_title">John Conway's Game of Life</h1>
+        <h2>In XSLT</h2>
+      </div>
+     <div id="page_body"><!-- target with
+      <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
+    </div>
+     <div id="controller" style="padding-top: 1em">
+       <!--<button id="do_it_button">Do It</button>-->
+       
+     </div>
+     <div id="page_footer">
+         <p>Dedicated to the hackers and the pure at heart <span id="stopgo"><button id="go_button">Go</button></span></p>
+      </div>
+   </body>
+</html>

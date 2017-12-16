@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-12-15T18:28:50.645-05:00" target="JS">
+ <co id="0" binds="">
+  <template name="Q{}grid" flags="os" line="23" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" slots="11">
+   <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="24">
+    <param name="scale" slot="0" as="xs:integer">
+     <int role="select" val="24"/>
+     <treat role="conversion" as="xs:integer" jsTest="return SaxonJS.U.Atomic.integer.matches(item);" diag="8|0|XTTE0590|scale">
+      <check card="1" diag="8|0|XTTE0590|scale">
+       <cvUntyped to="xs:integer">
+        <data>
+         <supplied slot="0"/>
+        </data>
+       </cvUntyped>
+      </check>
+     </treat>
+    </param>
+    <elem line="26" name="table">
+     <sequence>
+      <att name="id" flags="l">
+       <str val="world"/>
+      </att>
+      <let line="27" var="vv:loc909202590" as="xs:integer*" slot="1" eval="3">
+       <to line="30">
+        <int val="1"/>
+        <varRef name="scale" slot="0"/>
+       </to>
+       <forEach>
+        <to>
+         <int val="1"/>
+         <varRef name="scale" slot="0"/>
+        </to>
+        <let line="28" var="tribe" as="xs:integer" slot="2" eval="7">
+         <dot type="xs:integer"/>
+         <elem line="29" name="tr" flags="l">
+          <sequence>
+           <att name="id" flags="l">
+            <fn name="concat">
+             <str val="tribe"/>
+             <convert from="xs:integer" to="xs:string">
+              <dot type="xs:integer"/>
+             </convert>
+            </fn>
+           </att>
+           <let line="30" var="vv:loc2027042719" as="xs:integer*" slot="3" eval="3">
+            <filter line="33" flags="b">
+             <to>
+              <arith op="-" calc="i-i">
+               <varRef name="tribe" slot="2"/>
+               <int val="1"/>
+              </arith>
+              <arith op="+" calc="i+i">
+               <varRef name="tribe" slot="2"/>
+               <int val="1"/>
+              </arith>
+             </to>
+             <and op="and">
+              <fn name="not">
+               <compareToInt op="lt" val="1">
+                <dot type="xs:integer"/>
+               </compareToInt>
+              </fn>
+              <vc op="le" onEmpty="1" comp="CAVC">
+               <dot type="xs:integer"/>
+               <varRef name="scale" slot="0"/>
+              </vc>
+             </and>
+            </filter>
+            <let var="vv:loc245351892" as="xs:string" slot="4" eval="8">
+             <convert line="46" from="xs:integer" to="xs:string">
+              <varRef name="tribe" slot="2"/>
+             </convert>
+             <forEach>
+              <varRef line="27" name="vv:loc909202590" slot="1"/>
+              <let line="31" var="family" as="xs:integer" slot="5" eval="7">
+               <dot type="xs:integer"/>
+               <let line="44" var="label" as="xs:untypedAtomic" slot="6" eval="7">
+                <cast line="46" as="xs:untypedAtomic" emptiable="0">
+                 <fn name="string-join">
+                  <convert from="xs:untypedAtomic" to="xs:string">
+                   <data>
+                    <mergeAdj>
+                     <sequence>
+                      <valueOf>
+                       <varRef line="30" name="vv:loc245351892" slot="4"/>
+                      </valueOf>
+                      <valueOf line="47">
+                       <xslNumber>
+                        <dot role="value" type="xs:integer"/>
+                        <str role="format" val="A"/>
+                        <int role="startAt" val="1"/>
+                       </xslNumber>
+                      </valueOf>
+                     </sequence>
+                    </mergeAdj>
+                   </data>
+                  </convert>
+                  <str val=""/>
+                 </fn>
+                </cast>
+                <elem line="50" name="td" flags="l">
+                 <sequence>
+                  <att name="id" flags="l">
+                   <convert from="xs:untypedAtomic" to="xs:string">
+                    <varRef name="label" slot="6"/>
+                   </convert>
+                  </att>
+                  <att name="data-neighbors" flags="l">
+                   <fn name="string-join">
+                    <let var="vv:loc699355903" as="xs:string" slot="7" eval="7">
+                     <cast as="xs:string" emptiable="0">
+                      <varRef name="label" slot="6"/>
+                     </cast>
+                     <filter flags="b">
+                      <let line="33" var="vv:loc1982267722" as="xs:integer*" slot="8" eval="3">
+                       <filter line="36" flags="b">
+                        <to>
+                         <arith op="-" calc="i-i">
+                          <varRef name="family" slot="5"/>
+                          <int val="1"/>
+                         </arith>
+                         <arith op="+" calc="i+i">
+                          <varRef name="family" slot="5"/>
+                          <int val="1"/>
+                         </arith>
+                        </to>
+                        <and op="and">
+                         <fn name="not">
+                          <compareToInt op="lt" val="1">
+                           <dot type="xs:integer"/>
+                          </compareToInt>
+                         </fn>
+                         <vc op="le" onEmpty="1" comp="CAVC">
+                          <dot type="xs:integer"/>
+                          <varRef name="scale" slot="0"/>
+                         </vc>
+                        </and>
+                       </filter>
+                       <forEach>
+                        <varRef line="30" name="vv:loc2027042719" slot="3"/>
+                        <let line="34" var="y" as="xs:integer" slot="9" eval="7">
+                         <dot type="xs:integer"/>
+                         <forEach line="36">
+                          <varRef line="33" name="vv:loc1982267722" slot="8"/>
+                          <let line="37" var="x" as="xs:untypedAtomic" slot="10" eval="7">
+                           <cast line="38" as="xs:untypedAtomic" emptiable="0">
+                            <xslNumber>
+                             <dot role="value" type="xs:integer"/>
+                             <str role="format" val="A"/>
+                             <int role="startAt" val="1"/>
+                            </xslNumber>
+                           </cast>
+                           <fn line="40" name="concat">
+                            <varRef name="y" slot="9"/>
+                            <varRef name="x" slot="10"/>
+                           </fn>
+                          </let>
+                         </forEach>
+                        </let>
+                       </forEach>
+                      </let>
+                      <vc op="ne" onEmpty="1" comp="CCC">
+                       <dot type="xs:string"/>
+                       <varRef name="vv:loc699355903" slot="7"/>
+                      </vc>
+                     </filter>
+                    </let>
+                    <str val=" "/>
+                   </fn>
+                  </att>
+                  <valueOf flags="l">
+                   <str val=" "/>
+                  </valueOf>
+                 </sequence>
+                </elem>
+               </let>
+              </let>
+             </forEach>
+            </let>
+           </let>
+          </sequence>
+         </elem>
+        </let>
+       </forEach>
+      </let>
+     </sequence>
+    </elem>
+   </sequence>
+  </template>
+ </co>
+ <co id="1" binds="1 2 3 2">
+  <mode name="Q{}regenerate" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="1" flags="os" line="93" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="93" name="id">
+      <str val="world"/>
+     </fn>
+    </p.nodeSet>
+    <let role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="94" var="was" as="document-node()" slot="0" eval="7">
+     <doc line="95" base="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" validation="preserve">
+      <copyOf flags="vsc">
+       <dot type="element()"/>
+      </copyOf>
+     </doc>
+     <applyT line="97" mode="Q{}regenerate" flags="t" bSlot="0">
+      <axis role="select" name="descendant" nodeTest="element(Q{}td)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='td';"/>
+      <withParam name="was" as="document-node()">
+       <doc line="99" base="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" validation="preserve">
+        <copyOf flags="vsc">
+         <dot type="element()"/>
+        </copyOf>
+       </doc>
+      </withParam>
+     </applyT>
+    </let>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="5" flags="os" line="104" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.nodeTest role="match" test="element(Q{}td)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='td';"/>
+    <sequence role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="105">
+     <param name="was" slot="0" flags="r" as="document-node()">
+      <treat role="conversion" as="document-node()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType==9||item.nodeType==11);" diag="8|0|XTTE0590|was">
+       <check card="1" diag="8|0|XTTE0590|was">
+        <supplied slot="0"/>
+       </check>
+      </treat>
+     </param>
+     <let line="106" var="neighbor-cells" as="element()*" slot="1" eval="3">
+      <filter flags="b">
+       <forEach>
+        <fn name="tokenize">
+         <cvUntyped to="xs:string">
+          <data>
+           <axis name="attribute" nodeTest="attribute(Q{}data-neighbors)" jsTest="return item.name=='data-neighbors'"/>
+          </data>
+         </cvUntyped>
+         <str val=" "/>
+         <str val=""/>
+        </fn>
+        <fn name="id">
+         <dot type="xs:string"/>
+         <varRef name="was" slot="0"/>
+        </fn>
+       </forEach>
+       <gc op="=" card="1:1" comp="CCC">
+        <data>
+         <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+        </data>
+        <str val="alive"/>
+       </gc>
+      </filter>
+      <sequence line="107">
+       <applyT mode="Q{}kill" bSlot="1">
+        <let role="select" var="vv:loc1708834829" as="xs:boolean" slot="2" eval="7">
+         <compareToInt op="lt" val="2">
+          <fn name="count">
+           <fn name="subsequence">
+            <varRef name="neighbor-cells" slot="1"/>
+            <int val="1"/>
+            <int val="3"/>
+           </fn>
+          </fn>
+         </compareToInt>
+         <filter flags="ib">
+          <dot type="element(Q{}td)"/>
+          <varRef name="vv:loc1708834829" slot="2"/>
+         </filter>
+        </let>
+       </applyT>
+       <applyT line="108" mode="Q{}spawn" bSlot="2">
+        <let role="select" var="vv:loc362481671" as="xs:boolean" slot="3" eval="7">
+         <compareToInt op="eq" val="3">
+          <fn name="count">
+           <fn name="subsequence">
+            <varRef name="neighbor-cells" slot="1"/>
+            <int val="1"/>
+            <int val="4"/>
+           </fn>
+          </fn>
+         </compareToInt>
+         <filter flags="ib">
+          <dot type="element(Q{}td)"/>
+          <varRef name="vv:loc362481671" slot="3"/>
+         </filter>
+        </let>
+       </applyT>
+       <applyT line="109" mode="Q{}kill" flags="t" bSlot="3">
+        <let role="select" var="vv:loc2090642404" as="xs:boolean" slot="4" eval="8">
+         <fn name="exists">
+          <tail start="4">
+           <varRef name="neighbor-cells" slot="1"/>
+          </tail>
+         </fn>
+         <filter flags="ib">
+          <dot type="element(Q{}td)"/>
+          <varRef name="vv:loc2090642404" slot="4"/>
+         </filter>
+        </let>
+       </applyT>
+      </sequence>
+     </let>
+    </sequence>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="3" binds="">
+  <mode name="Q{}spawn" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="117" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="118" name="ixsl:set-attribute" type="item()*">
+     <str val="class"/>
+     <str val="alive"/>
+    </ifCall>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="2" binds="">
+  <mode name="Q{}kill" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="os" line="113" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1;"/>
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="114" name="ixsl:remove-attribute" type="item()*">
+     <str val="class"/>
+     <str val=""/>
+    </ifCall>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="4" binds="5 1 2 3">
+  <mode name="Q{http://saxonica.com/ns/interactiveXSLT}click" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="4" rank="1" minImp="0" slots="0" flags="os" line="89" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="89" name="id">
+      <str val="stop_button"/>
+     </fn>
+    </p.nodeSet>
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="90" global="#&#xA;#Fri Dec 15 18:28:50 EST 2017&#xA;indent=yes&#xA;" local="#&#xA;#Fri Dec 15 18:28:50 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#stopgo"/>
+     <elem role="content" name="button">
+      <sequence>
+       <att name="id" flags="l">
+        <str val="go_button"/>
+       </att>
+       <valueOf flags="Sl">
+        <str val="Go"/>
+       </valueOf>
+      </sequence>
+     </elem>
+    </resultDoc>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="3" rank="1" minImp="0" slots="0" flags="os" line="70" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="70" name="id">
+      <str val="go_button"/>
+     </fn>
+    </p.nodeSet>
+    <sequence role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="71">
+     <resultDoc global="#&#xA;#Fri Dec 15 18:28:50 EST 2017&#xA;indent=yes&#xA;" local="#&#xA;#Fri Dec 15 18:28:50 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+      <str role="href" val="#stopgo"/>
+      <elem role="content" name="button">
+       <sequence>
+        <att name="id" flags="l">
+         <str val="stop_button"/>
+        </att>
+        <valueOf flags="Sl">
+         <str val="Stop"/>
+        </valueOf>
+       </sequence>
+      </elem>
+     </resultDoc>
+     <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" line="72" name="ixsl:schedule-action" type="item()*">
+      <int val="10"/>
+      <empty/>
+      <callT line="73" name="go-again" bSlot="0"/>
+     </ifCall>
+    </sequence>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="2" rank="1" minImp="0" slots="0" flags="os" line="66" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="66" name="id">
+      <str val="do_it_button"/>
+     </fn>
+    </p.nodeSet>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="67" mode="Q{}regenerate" flags="t" bSlot="1">
+     <fn role="select" name="id">
+      <str val="world"/>
+      <check card="1" diag="0|1||id">
+       <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:page" type="document-node()?"/>
+      </check>
+     </fn>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="os" line="57" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="element(Q{}td)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='td';"/>
+     <gc vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="57" op="=" card="1:1" comp="CCC">
+      <data>
+       <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
+      </data>
+      <str val="alive"/>
+     </gc>
+    </p.withPredicate>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="58" mode="Q{}kill" flags="t" bSlot="2">
+     <dot role="select" type="element(Q{}td)"/>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="os" line="62" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl">
+    <p.nodeTest role="match" test="element(Q{}td)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='td';"/>
+    <applyT role="action" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="63" mode="Q{}spawn" flags="t" bSlot="3">
+     <dot role="select" type="element(Q{}td)"/>
+    </applyT>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="6" binds="0">
+  <template name="Q{}incipit" flags="os" line="14" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" slots="0">
+   <resultDoc role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="16" global="#&#xA;#Fri Dec 15 18:28:50 EST 2017&#xA;indent=yes&#xA;" local="#&#xA;#Fri Dec 15 18:28:50 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <str role="href" val="#page_body"/>
+    <callT role="content" line="17" name="grid" bSlot="0"/>
+   </resultDoc>
+  </template>
+ </co>
+ <co id="5" binds="1 5">
+  <template name="Q{}go-again" flags="os" line="78" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" slots="0">
+   <choose role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="80">
+    <fn name="exists">
+     <fn name="id">
+      <str val="stop_button"/>
+      <check card="1" diag="0|1||id">
+       <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:page" type="document-node()?"/>
+      </check>
+     </fn>
+    </fn>
+    <sequence line="81">
+     <applyT mode="Q{}regenerate" bSlot="0">
+      <fn role="select" name="id">
+       <str val="world"/>
+       <check card="1" diag="0|1||id">
+        <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" name="ixsl:page" type="document-node()?"/>
+       </check>
+      </fn>
+     </applyT>
+     <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" line="82" name="ixsl:schedule-action" type="item()*">
+      <int val="10"/>
+      <empty/>
+      <callT line="83" name="go-again" bSlot="1"/>
+     </ifCall>
+    </sequence>
+   </choose>
+  </template>
+ </co>
+ <co id="7" binds="5">
+  <template name="Q{}go" flags="os" line="70" module="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" slots="0">
+   <sequence role="body" vn="31" baseUri="file:/home/wendell/public_html/pellucidliterature/GameofLife/creation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="71">
+    <resultDoc global="#&#xA;#Fri Dec 15 18:28:50 EST 2017&#xA;indent=yes&#xA;" local="#&#xA;#Fri Dec 15 18:28:50 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#stopgo"/>
+     <elem role="content" name="button">
+      <sequence>
+       <att name="id" flags="l">
+        <str val="stop_button"/>
+       </att>
+       <valueOf flags="Sl">
+        <str val="Stop"/>
+       </valueOf>
+      </sequence>
+     </elem>
+    </resultDoc>
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" line="72" name="ixsl:schedule-action" type="item()*">
+     <int val="10"/>
+     <empty/>
+     <callT line="73" name="go-again" bSlot="0"/>
+    </ifCall>
+   </sequence>
+  </template>
+ </co>
+ <co id="8" binds="">
+  <mode onNo="TC" flags="dW" patternSlots="0"/>
+ </co>
+ <overridden/>
+ <output>
+  <property name="indent" value="yes"/>
+  <property name="{http://saxon.sf.net/}stylesheet-version" value="30"/>
+ </output>
+ <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
+</package>
+<?Σ 65d7dc88?>
