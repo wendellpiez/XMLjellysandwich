@@ -29,28 +29,38 @@
                 <xsl:for-each select="1 to $dim">
                     <xsl:variable name="family" select="."/>
                     <xsl:variable name="neighbors" as="xs:string*">
-                        <xsl:for-each select="(($tribe - 1) to ($tribe + 1))[not(. lt 1) and not(. gt $dim)]">
-                              <xsl:variable name="y" select="."/>
-                            <xsl:for-each
-                                select="(($family - 1) to ($family + 1))[not(. lt 1) and not(. gt $dim)]">
-                                <xsl:variable name="x">
-                                    <xsl:number value="." format="A"/>
-                                </xsl:variable>
-                                <xsl:sequence select="$y || $x"/>
-                            </xsl:for-each>
-                        </xsl:for-each>
+                        <xsl:call-template name="triple">
+                            <xsl:with-param name="tribe"  select="$tribe"/>
+                            <xsl:with-param name="family" select="$family"/>
+                        </xsl:call-template>
                     </xsl:variable>
                     <xsl:variable name="label">
                         <xsl:value-of>
                             <xsl:value-of select="$tribe"/>
-                            <xsl:number value="." format="A"/>
+                            <xsl:number value="$family" format="A"/>
                         </xsl:value-of>
                     </xsl:variable>              
-                    <td id="{$label}" data-neighbors="{$neighbors[not(.=$label)]}">&#xA0;</td>
+                    <td id="{$label}" data-neighbors="{$neighbors[not(.=$label)]}"  onclick="void(0)">&#x200b;</td><!-- zero-width space-->
                 </xsl:for-each>
             </tr>
         </xsl:for-each>
         </table>
+    </xsl:template>
+    
+    <xsl:template name="triple">
+        <xsl:param name="tribe"/>
+        <xsl:param name="family"/>
+        <!-- we skip testing for row 0 and row $dim + 1 b/c they can fail later at less cost than testing -->
+        <xsl:for-each select="(($tribe - 1) to ($tribe + 1)) ">
+            <xsl:variable name="y" select="."/>
+            <xsl:for-each select="(($family - 1) to ($family + 1))">
+                <xsl:variable name="x">
+                    <xsl:number value="." format="A"/>
+                </xsl:variable>
+                <!-- So, 1A 1B 1C etc including zero and $dim + 1 rows -->
+                <xsl:sequence select="$y || $x"/>
+            </xsl:for-each>
+        </xsl:for-each>
     </xsl:template>
                         
     <xsl:template match="td[@class='alive']" mode="ixsl:click">
@@ -68,7 +78,7 @@
     
     <xsl:template name="go" match="id('go_button')" mode="ixsl:click" >
         <xsl:result-document href="#stopgo" method="ixsl:replace-content"><button id="stop_button">Stop</button></xsl:result-document>
-        <ixsl:schedule-action wait="5">
+        <ixsl:schedule-action wait="1">
             <xsl:call-template name="go-again"/>
         </ixsl:schedule-action>
         
