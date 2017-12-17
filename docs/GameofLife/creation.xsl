@@ -9,7 +9,7 @@
     
     <xsl:output indent="yes"/>
     
-    <!--<xsl:param name="scale" as="xs:integer">10</xsl:param>-->
+    <xsl:param name="dim" as="xs:integer">16</xsl:param>
     
     <xsl:template name="incipit">
         <!-- Target page components by assigning transformation results to them via their IDs in the host page. -->
@@ -21,19 +21,18 @@
     </xsl:template>
     
     <xsl:template name="grid">
-        <xsl:param name="scale" as="xs:integer">24</xsl:param>
         
         <table id="world">
-        <xsl:for-each select="1 to $scale">
+        <xsl:for-each select="1 to $dim">
             <xsl:variable name="tribe" select="."/>
             <tr id="tribe{.}">
-                <xsl:for-each select="1 to $scale">
+                <xsl:for-each select="1 to $dim">
                     <xsl:variable name="family" select="."/>
                     <xsl:variable name="neighbors" as="xs:string*">
-                        <xsl:for-each select="(($tribe - 1) to ($tribe + 1))[not(. lt 1) and not(. gt $scale)]">
+                        <xsl:for-each select="(($tribe - 1) to ($tribe + 1))[not(. lt 1) and not(. gt $dim)]">
                               <xsl:variable name="y" select="."/>
                             <xsl:for-each
-                                select="(($family - 1) to ($family + 1))[not(. lt 1) and not(. gt $scale)]">
+                                select="(($family - 1) to ($family + 1))[not(. lt 1) and not(. gt $dim)]">
                                 <xsl:variable name="x">
                                     <xsl:number value="." format="A"/>
                                 </xsl:variable>
