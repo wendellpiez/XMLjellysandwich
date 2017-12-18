@@ -1,19 +1,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>John Conway's Game of Life</title>
+      <title>Life in XSLT</title>
       <meta charset="utf-8"/>
       <style type="text/css" id="xmljellysandwich_css">
         
-        td { border: medium solid green; background-color: lemon chiffon; width: 2vw; height: 2.5vw }
+        td { border: medium solid skyblue; border-radius: 40%; background-color: aliceblue; width: 1.5em; height: 1.5em }
         
-        .alive { background-color: lightgreen }
+        .alive { background-color: forestgreen; border-color: forestgreen }
+        
+       
         </style>
       <script type="text/javascript"
               src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
       <script>
           window.onload = function() {
           SaxonJS.transform({
-            stylesheetLocation: "creation.sef",
+            stylesheetLocation: "generation.sef",
             initialTemplate:    "incipit"
           });
           }     
@@ -21,7 +23,7 @@
    </head>
    <body>
       <div id="page_header">
-         <h1 id="page_title">John Conway's Game of Life <small>in XSLT</small></h1>
+         <h1 id="page_title">John Conway's Game of Life <sub>in XSLT</sub></h1>
       </div>
      <div id="page_body"><!-- target with
       <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
@@ -31,7 +33,8 @@
        
      </div>
      <div id="page_footer">
-         <p>Dedicated to the hackers and the pure at heart <span id="stopgo"><button id="go_button">Go</button></span></p>
+         <p>Dedicated to the pure at heart <span id="stopgo"><button id="go_button">Go</button></span></p>
+       <p style="font-size: smaller">To learn about Conway's Life and other cellular automata, you could do worse than <a href="http://www.conwaylife.com">ConwayLife.com</a>. Here, feel free to <a href="generation.xsl">inspect the XSLT</a>.</p>
       </div>
    </body>
 </html>
