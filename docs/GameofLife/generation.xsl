@@ -7,8 +7,6 @@
     extension-element-prefixes="ixsl"
     version="3.0">
     
-    <xsl:output indent="yes"/>
-    
     <xsl:variable name="dim" as="xs:integer">24</xsl:variable>
     
     <xsl:template name="incipit">
@@ -22,7 +20,7 @@
         <table id="world">
             <tbody>
                 <xsl:for-each select="1 to $dim"><!-- as many rows as stipulated -->
-                 <xsl:variable name="gens" select="."/>
+                <xsl:variable name="gens" select="."/>
                 <tr id="gens{.}">
                     <xsl:for-each select="1 to $dim"><!-- and as many columns -->
                         <xsl:variable name="clan" select="."/>
@@ -34,18 +32,16 @@
                                 for $y in (($gens - 1) to ($gens + 1)),
                                     $x in (($clan - 1) to ($clan + 1))
                                 return
-                                    (string($y) || format-integer($x, 'A'))"> </xsl:variable>
-                        <td id="{$label}" data-neighborhood="{$neighborhood}" onclick="void(0)"
-                            >&#x200b;</td>
+                                    (string($y) || format-integer($x, 'A'))"/> 
+                        <td id="{$label}" data-neighborhood="{$neighborhood}" onclick="void(0)">&#x200b;</td>
                         <!-- zero-width space-->
-
                     </xsl:for-each>
                 </tr>
             </xsl:for-each>
             </tbody>
         </table>
 
-        <!-- Would like to do SVG but id() isn't binding to it, HTML DOM how sad ...
+        <!-- One might prefer SVG to HTML but the id() function isn't binding to it, HTML DOM how sad ...
         <svg:svg  xmlns:svg="http://www.w3.org/2000/svg"
             id="world" version="1.1" width="100%" viewBox="0.5 0.5 {$dim} {$dim}">
             <svg:circle id="{{$label}}" data-neighborhood="{{$neighborhood}}" onclick="void(0)"
@@ -64,6 +60,7 @@
         <xsl:apply-templates select="." mode="grow"/>
     </xsl:template>
     
+    <!-- "Do it" does a single generation (if it's included)   -->
     <xsl:template match="id('do_it_button')" mode="ixsl:click">
         <xsl:apply-templates select="id('world',ixsl:page())" mode="regenerate"/>
     </xsl:template>
@@ -103,23 +100,29 @@
         </xsl:apply-templates>
     </xsl:template>
     
+    <!-- The logic accounts for both live cells and empty ones. -->
     <xsl:template mode="regenerate" match="td">
         <xsl:param name="was" required="yes" as="document-node()"/>
-        <xsl:variable name="population" select="count( (tokenize(@data-neighborhood,' ') ! id(.,$was) )[@class='alive'] )"/>
-        <!--<xsl:message> population <xsl:value-of select="$population"/></xsl:message>-->
-        <!-- overcrowded -->
-        <xsl:apply-templates select=".[$population gt 4]" mode="kill"/>
-        <!-- spawning, or already spawned and sustaining -->
-        <xsl:apply-templates select=".[$population = 3]"  mode="grow"/>
-        <!-- starving -->
-        <xsl:apply-templates select=".[$population lt 3]" mode="kill"/>
+        <xsl:variable name="population"
+            select="count( (tokenize(@data-neighborhood,' ') ! id(.,$was) )[@class='alive'] )"/>
+        <xsl:choose>
+            <xsl:when test="$population lt 3">
+                <xsl:call-template name="kill"/>
+            </xsl:when>
+            <xsl:when test="$population gt 4">
+                <xsl:call-template name="kill"/>
+            </xsl:when>
+            <xsl:when test="$population eq 3">
+                <xsl:call-template name="grow"/>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="*" mode="kill">
+    <xsl:template name="kill">
         <ixsl:remove-attribute name="class"/>
     </xsl:template>
     
-    <xsl:template match="*" mode="grow">
+    <xsl:template name="grow">
         <ixsl:set-attribute name="class" select="'alive'"/>
     </xsl:template>
 
