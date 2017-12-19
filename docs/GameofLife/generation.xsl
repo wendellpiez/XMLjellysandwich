@@ -51,13 +51,13 @@
     
     <!-- Interactivity: toggle cells alive and dead. -->
     <xsl:template mode="ixsl:click" match="td[@class='alive']">
-        <xsl:apply-templates select="." mode="kill"/>
+        <xsl:call-template name="kill"/>
     </xsl:template>
     
     <!-- Implicit @priority="0" loses to priority 0.5 template above. -->
     <!-- Also svg:circle (some day) -->
     <xsl:template mode="ixsl:click" match="td">
-        <xsl:apply-templates select="." mode="grow"/>
+        <xsl:call-template name="grow"/>
     </xsl:template>
     
     <!-- "Do it" does a single generation (if it's included)   -->

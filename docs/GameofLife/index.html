@@ -15,10 +15,9 @@
               src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
       <script>
           window.onload = function() {
-          SaxonJS.transform({
-            stylesheetLocation: "generation.sef",
-            initialTemplate:    "incipit"
-          });
+          SaxonJS.transform(
+            { stylesheetLocation: "generation.sef",
+              initialTemplate:    "incipit" } );
           }     
         </script>
    </head>
