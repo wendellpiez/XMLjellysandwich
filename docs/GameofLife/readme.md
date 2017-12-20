@@ -2,6 +2,8 @@
 
 *By Wendell Piez - wapiez (at) wendellpiez.com, Dec 2017* 
 
+See the game in action at https://wendellpiez.github.io/XMLjellysandwich/GameofLife/
+
 Tickle a search engine to learn about Conway's Game of Life, a simple cellular automaton.
 
 This one plays by the rules -- and also implements the logic in XSLT. Not for the first time -- but now, in SaxonJS, we can actually make it work in your browser.
