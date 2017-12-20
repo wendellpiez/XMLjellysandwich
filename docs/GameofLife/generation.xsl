@@ -61,20 +61,25 @@
     </xsl:template>
     
     <!-- "Do it" does a single generation (if it's included)   -->
-    <xsl:template match="id('do_it_button')" mode="ixsl:click">
+    <xsl:template mode="ixsl:click" match="id('do_it_button')">
         <xsl:apply-templates select="id('world',ixsl:page())" mode="regenerate"/>
     </xsl:template>
     
     <!-- Clicking the Stop button replaces it with the Go button (only) -->
-    <xsl:template match="id('stop_button')" mode="ixsl:click">
-        <xsl:result-document href="#stopgo" method="ixsl:replace-content">
-            <button id="go_button">Go</button>
+    <xsl:template mode="ixsl:click" match="id('stop_button')" name="stop">
+        <xsl:result-document href="#dashboard" method="ixsl:replace-content">
+            <button id="go_button">
+                <xsl:choose>
+                  <xsl:when test="id('world',ixsl:page())/tbody/tr/td/@class='alive'">Go on</xsl:when>
+                  <xsl:otherwise>Go again</xsl:otherwise>
+                </xsl:choose>
+            </button>
         </xsl:result-document>
     </xsl:template>
 
     <!-- Clicking the go button does the same, and also ... goes  ... -->
-    <xsl:template match="id('go_button')" mode="ixsl:click" >
-        <xsl:result-document href="#stopgo" method="ixsl:replace-content">
+    <xsl:template mode="ixsl:click" match="id('go_button')">
+        <xsl:result-document href="#dashboard" method="ixsl:replace-content">
             <button id="stop_button">Stop</button>
         </xsl:result-document>
         <xsl:call-template name="go"/>
@@ -86,9 +91,20 @@
             <xsl:apply-templates select="id('world', ixsl:page())" mode="regenerate"/>
             <!-- The delay could be parameterized and a controller offered once Saxon supports variables -->
             <ixsl:schedule-action wait="500">
-                <xsl:call-template name="go"/>
+                <xsl:call-template name="go-again"/>
             </ixsl:schedule-action>
         </xsl:if>
+    </xsl:template>
+    
+    <xsl:template name="go-again">
+        <xsl:choose>
+            <xsl:when test="not(id('world',ixsl:page())/tbody/tr/td/@class='alive')">
+                <xsl:call-template name="stop"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:call-template name="go"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template mode="regenerate" match="id('world')">

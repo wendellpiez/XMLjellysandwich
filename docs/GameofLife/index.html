@@ -3,13 +3,15 @@
      <title>Conway’s Life, in XSLT</title>
       <meta charset="utf-8"/>
       <style type="text/css" id="xmljellysandwich_css">
+        
         a { color: darkgreen; text-decoration: none }
         a:hover { text-decoration: underline }
         td { border: medium solid lightgreen; border-radius: 45%; background-color: cornsilk; width: 1.5em; height: 1.5em }
         
         .alive { background-color: forestgreen; border-color: forestgreen }
         
-        #page_footer { border-top: thin solid black; margin-top:1m; padding-top: 1em }
+        #page_body   { border-top: medium groove black; padding-top: 1em; padding-bottom: 1em }
+        #page_footer { border-top: medium groove black; margin-top:1m; padding-top: 1em }
         #page_footer > * { margin: 0.5em 0em }
         </style>
       <script type="text/javascript"
@@ -26,16 +28,15 @@
       <div id="page_header">
          <h1 id="page_title">John Conway’s Game of Life <sub>in XSLT</sub></h1>
       </div>
+     <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
+       Select cells to spawn. Then <button id="go_button">Go</button>
+       <!--<button id="do_it_button">Do It</button>-->
+     </div>
      <div id="page_body"><!-- target with
       <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
     </div>
-     <div id="controller" style="padding-top: 1em">
-       <!--<button id="do_it_button">Do It</button>-->
-       
-     </div>
      <div id="page_footer">
-         <p>Dedicated to the pure in heart, the hackers and anyone who has coded <i>Life</i>, especially in XSLT.</p>
-       <p style="font-size: smaller">Select cells to wake them up. Then <span id="stopgo"><button id="go_button">Go</button></span></p>
+         <p>Dedicated to the old hackers (pure in heart) and to anyone who has coded <i>Life</i>, especially in XSLT.</p>
        <p style="font-size: smaller">Learn about cellular automata at <a href="http://www.conwaylife.com" target="new">ConwayLife.com</a>. Here, feel free to <a href="generation.xsl">inspect the XSLT</a> or <a href="https://github.com/wendellpiez/XMLjellysandwich/tree/master/docs/GameofLife">examine the repo</a>.</p>
       </div>
    </body>
