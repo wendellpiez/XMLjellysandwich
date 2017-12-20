@@ -8,9 +8,9 @@ Tickle a search engine to learn about Conway's Game of Life, a simple cellular a
 
 This one plays by the rules -- and also implements the logic in XSLT. Not for the first time -- but now, in SaxonJS, we can actually make it work in your browser.
 
-(Admittedly a 4GL designed for tree transformations may not be your first choice for performance, if only because the stack is so high. But look how sweet is the code: take out the UI and the game itself is hardly there at all.)
+(Admittedly a 4GL designed for tree transformations may not be your first choice for performance, if only because the stack is so high. But look how sweet is the code: take out all the UI stuff and the game itself is hardly there at all.)
 
-As for the interface, it aims to be almost as simple as possible while still functioning. A later version might add form controls for features such as:
+As for the interface, it was almost as simple as I could make it, and then it wasn't. But it does aim for (a) utility while (b) showing off a little event handling in Saxon's extensions to XSLT. A later version might add form controls for features such as:
 
 * User can adjust 'pulse' (slow it down)
   * when SaxonJS supports dynamic `xsi:schedule-event/@wait` (right now 500ms)

@@ -74,17 +74,23 @@
                   <xsl:otherwise>Go again</xsl:otherwise>
                 </xsl:choose>
             </button>
+            <xsl:text>&#xA0;</xsl:text>
+            <button id="clear_button">Clear</button>
         </xsl:result-document>
     </xsl:template>
 
     <!-- Clicking the go button does the same, and also ... goes  ... -->
     <xsl:template mode="ixsl:click" match="id('go_button')">
         <xsl:result-document href="#dashboard" method="ixsl:replace-content">
-            <button id="stop_button">Stop</button>
+            <button id="stop_button">Stop</button>&#xA0;<button id="clear_button">Clear</button>
         </xsl:result-document>
         <xsl:call-template name="go"/>
     </xsl:template>
-
+    
+    <xsl:template mode="ixsl:click" match="id('clear_button')">
+        <xsl:apply-templates select="id('world',ixsl:page())/tbody/tr/td[@class='alive']" mode="kill"/>
+    </xsl:template>
+    
     <xsl:template name="go">
         <!-- We go only if the stop button shows we are still 'going' -->
         <xsl:if test="exists(id('stop_button', ixsl:page()))">
@@ -134,7 +140,7 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template name="kill">
+    <xsl:template name="kill" mode="kill" match="td">
         <ixsl:remove-attribute name="class"/>
     </xsl:template>
     
