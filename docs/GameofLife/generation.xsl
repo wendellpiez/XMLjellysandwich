@@ -66,7 +66,7 @@
     </xsl:template>
     
     <!-- Clicking the Stop button replaces it with the Go button (only) -->
-    <xsl:template mode="ixsl:click" match="id('stop_button')" name="stop">
+    <xsl:template name="stop" mode="ixsl:click" match="id('stop_button')">
         <xsl:result-document href="#dashboard" method="ixsl:replace-content">
             <button id="go_button">
                 <xsl:choose>

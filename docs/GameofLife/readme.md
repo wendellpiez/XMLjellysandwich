@@ -8,7 +8,7 @@ Tickle a search engine to learn about Conway's Game of Life, a simple cellular a
 
 This one plays by the rules -- and also implements the logic in XSLT. Not for the first time -- but now, in SaxonJS, we can actually make it work in your browser.
 
-(Yes, we know that a 4GL designed for tree transformations may not be your first choice for performance - if only because the stack is so high. But look how sweet is the code, most of which is devoted not to the same but to the UI. (The game is like, uh, four lines?)
+(Yes, we know that a 4GL designed for tree transformations may not be your first choice for performance - if only because the stack is so high. But look how sweet is the code.)
 
 As for the UI, it aims to be almost as simple as possible while still functioning. A later version might add form controls for features such as:
 
