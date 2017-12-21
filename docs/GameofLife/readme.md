@@ -13,7 +13,7 @@ This one plays by the rules -- and also implements the logic in XSLT. Not for th
 As for the interface, it was almost as simple as I could make it, and then it wasn't. But it does aim for (a) utility while (b) showing off a little event handling in Saxon's extensions to XSLT. A later version might add form controls for features such as:
 
 * User can adjust 'pulse' (slow it down)
-  * when SaxonJS supports dynamic `xsi:schedule-event/@wait` (right now 500ms)
+  * when SaxonJS supports dynamic `xsi:schedule-event/@wait` (right now 1000ms)
 * User can set a grid size (setting `$dim`)
 * User can pseudo-randomly auto-populate the grid
 * Generation ticker since (re)start

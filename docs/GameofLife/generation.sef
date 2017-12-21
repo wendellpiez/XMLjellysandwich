@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-12-20T20:29:30.075-05:00" target="JS">
+<package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.7.0.15" timeStamp="2017-12-20T21:07:06.083-05:00" target="JS">
  <co id="0" binds="">
   <globalVariable name="Q{}dim" type="xs:integer" line="10" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.integer.cast(val);" jsCardCheck="function c(n) {return n==1;};">
    <int val="24"/>
   </globalVariable>
  </co>
  <co id="1" binds="">
-  <template name="Q{}grow" flags="os" line="142" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" slots="0">
-   <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="143" name="ixsl:set-attribute" type="item()*">
+  <template name="Q{}grow" flags="os" line="143" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" slots="0">
+   <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="144" name="ixsl:set-attribute" type="item()*">
     <str val="class"/>
     <str val="alive"/>
    </ifCall>
@@ -15,7 +15,7 @@
  </co>
  <co id="2" binds="">
   <template name="Q{}stop" flags="os" line="69" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" slots="0">
-   <resultDoc role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="70" global="#&#xA;#Wed Dec 20 20:29:30 EST 2017&#xA;" local="#&#xA;#Wed Dec 20 20:29:30 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+   <resultDoc role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="70" global="#&#xA;#Wed Dec 20 21:07:06 EST 2017&#xA;" local="#&#xA;#Wed Dec 20 21:07:06 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
     <str role="href" val="#dashboard"/>
     <sequence role="content" line="71">
      <elem name="button">
@@ -54,7 +54,7 @@
      </att>
      <elem line="22" name="tbody" flags="l">
       <forEach>
-       <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg1854796452" bSlot="0"/>
+       <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg1479533738" bSlot="0"/>
        <let line="23" var="gens" as="xs:integer" slot="0" eval="7">
         <dot type="xs:integer"/>
         <elem line="24" name="tr" flags="l">
@@ -67,7 +67,7 @@
             </convert>
            </fn>
           </att>
-          <let line="25" var="vv:loc1874764385" as="xs:integer*" slot="1" eval="3">
+          <let line="25" var="vv:loc435711539" as="xs:integer*" slot="1" eval="3">
            <to line="35">
             <arith op="-" calc="i-i">
              <varRef name="gens" slot="0"/>
@@ -79,7 +79,7 @@
             </arith>
            </to>
            <forEach>
-            <gVarRef line="22" name="Q{http://saxon.sf.net/generated-variable}gg803281582" bSlot="1"/>
+            <gVarRef line="22" name="Q{http://saxon.sf.net/generated-variable}gg1779171582" bSlot="1"/>
             <let line="26" var="clan" as="xs:integer" slot="2" eval="7">
              <dot type="xs:integer"/>
              <elem line="36" name="td" flags="l">
@@ -97,7 +97,7 @@
                </att>
                <att name="data-neighborhood" flags="l">
                 <fn name="string-join">
-                 <let line="35" var="vv:loc640475174" as="xs:integer*" slot="3" eval="3">
+                 <let line="35" var="vv:loc34996477" as="xs:integer*" slot="3" eval="3">
                   <to>
                    <arith op="-" calc="i-i">
                     <varRef name="clan" slot="2"/>
@@ -109,15 +109,15 @@
                    </arith>
                   </to>
                   <for var="y" as="xs:integer" slot="4">
-                   <varRef role="in" line="25" name="vv:loc1874764385" slot="1"/>
-                   <let role="return" var="vv:loc394915266" as="xs:string" slot="5" eval="8">
+                   <varRef role="in" line="25" name="vv:loc435711539" slot="1"/>
+                   <let role="return" var="vv:loc1634403284" as="xs:string" slot="5" eval="8">
                     <fn name="string">
                      <varRef name="y" slot="4"/>
                     </fn>
                     <for var="x" as="xs:integer" slot="6">
-                     <varRef role="in" name="vv:loc640475174" slot="3"/>
+                     <varRef role="in" name="vv:loc34996477" slot="3"/>
                      <fn role="return" name="concat">
-                      <varRef name="vv:loc394915266" slot="5"/>
+                      <varRef name="vv:loc1634403284" slot="5"/>
                       <atomSing card="?" diag="0|1||concat">
                        <fn name="format-integer">
                         <varRef name="x" slot="6"/>
@@ -152,6 +152,14 @@
    </elem>
   </template>
  </co>
+ <co id="4" binds="0">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1479533738" type="xs:integer*" line="22" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.integer.cast(val);" jsCardCheck="function c() {return true;};">
+   <to vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="22">
+    <int val="1"/>
+    <gVarRef name="Q{}dim" bSlot="0"/>
+   </to>
+  </globalVariable>
+ </co>
  <co id="6" binds="6 7 7 1">
   <mode name="Q{}regenerate" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="os" line="111" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl">
@@ -177,9 +185,9 @@
      </withParam>
     </applyT>
    </templateRule>
-   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="2" flags="os" line="121" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl">
+   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="2" flags="os" line="123" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl">
     <p.nodeTest role="match" test="element(Q{}td)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='td';"/>
-    <sequence role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="122">
+    <sequence role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="124">
      <param name="was" slot="0" flags="r" as="document-node()">
       <treat role="conversion" as="document-node()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType==9||item.nodeType==11);" diag="8|0|XTTE0590|was">
        <check card="1" diag="8|0|XTTE0590|was">
@@ -187,24 +195,16 @@
        </check>
       </treat>
      </param>
-     <let line="124" var="population" as="xs:integer" slot="1" eval="8">
+     <let line="125" var="population" as="xs:integer" slot="1" eval="8">
       <fn name="count">
        <filter flags="b">
-        <forEach>
-         <fn name="tokenize">
-          <cvUntyped to="xs:string">
-           <data>
-            <axis name="attribute" nodeTest="attribute(Q{}data-neighborhood)" jsTest="return item.name=='data-neighborhood'"/>
-           </data>
-          </cvUntyped>
-          <str val=" "/>
-          <str val=""/>
-         </fn>
-         <fn name="id">
-          <dot type="xs:string"/>
-          <varRef name="was" slot="0"/>
-         </fn>
-        </forEach>
+        <fn name="key">
+         <str val="td-by-neighbor"/>
+         <data>
+          <axis name="attribute" nodeTest="attribute(Q{}id)" jsTest="return item.name=='id'"/>
+         </data>
+         <varRef name="was" slot="0"/>
+        </fn>
         <gc op="=" card="1:1" comp="CCC">
          <data>
           <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name=='class'"/>
@@ -213,19 +213,19 @@
         </gc>
        </filter>
       </fn>
-      <choose line="126">
+      <choose line="127">
        <compareToInt op="lt" val="3">
         <varRef name="population" slot="1"/>
        </compareToInt>
-       <callT line="127" name="kill" bSlot="1"/>
-       <compareToInt line="129" op="gt" val="4">
+       <callT line="128" name="kill" bSlot="1"/>
+       <compareToInt line="130" op="gt" val="4">
         <varRef name="population" slot="1"/>
        </compareToInt>
-       <callT line="130" name="kill" bSlot="2"/>
-       <compareToInt line="132" op="eq" val="3">
+       <callT line="131" name="kill" bSlot="2"/>
+       <compareToInt line="133" op="eq" val="3">
         <varRef name="population" slot="1"/>
        </compareToInt>
-       <callT line="133" name="grow" bSlot="3"/>
+       <callT line="134" name="grow" bSlot="3"/>
       </choose>
      </let>
     </sequence>
@@ -233,8 +233,8 @@
   </mode>
  </co>
  <co id="7" binds="">
-  <template name="Q{}kill" flags="os" line="138" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" slots="0">
-   <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="139" name="ixsl:remove-attribute" type="item()*">
+  <template name="Q{}kill" flags="os" line="139" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" slots="0">
+   <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="140" name="ixsl:remove-attribute" type="item()*">
     <str val="class"/>
     <str val=""/>
    </ifCall>
@@ -242,9 +242,9 @@
  </co>
  <co id="8" binds="">
   <mode name="Q{}kill" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="os" line="138" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl">
+   <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="os" line="139" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl">
     <p.nodeTest role="match" test="element(Q{}td)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='td';"/>
-    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="139" name="ixsl:remove-attribute" type="item()*">
+    <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="140" name="ixsl:remove-attribute" type="item()*">
      <str val="class"/>
      <str val=""/>
     </ifCall>
@@ -298,7 +298,7 @@
      </fn>
     </p.nodeSet>
     <sequence role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="79">
-     <resultDoc global="#&#xA;#Wed Dec 20 20:29:30 EST 2017&#xA;" local="#&#xA;#Wed Dec 20 20:29:30 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc global="#&#xA;#Wed Dec 20 21:07:06 EST 2017&#xA;" local="#&#xA;#Wed Dec 20 21:07:06 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#dashboard"/>
       <sequence role="content" line="80">
        <elem name="button">
@@ -335,7 +335,7 @@
       <str val="stop_button"/>
      </fn>
     </p.nodeSet>
-    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="70" global="#&#xA;#Wed Dec 20 20:29:30 EST 2017&#xA;" local="#&#xA;#Wed Dec 20 20:29:30 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc role="action" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="70" global="#&#xA;#Wed Dec 20 21:07:06 EST 2017&#xA;" local="#&#xA;#Wed Dec 20 21:07:06 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#dashboard"/>
      <sequence role="content" line="71">
       <elem name="button">
@@ -399,27 +399,11 @@
  </co>
  <co id="11" binds="3">
   <template name="Q{}incipit" flags="os" line="12" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" slots="0">
-   <resultDoc role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="14" global="#&#xA;#Wed Dec 20 20:29:30 EST 2017&#xA;" local="#&#xA;#Wed Dec 20 20:29:30 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+   <resultDoc role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="14" global="#&#xA;#Wed Dec 20 21:07:06 EST 2017&#xA;" local="#&#xA;#Wed Dec 20 21:07:06 EST 2017&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
     <str role="href" val="#page_body"/>
     <callT role="content" line="15" name="grid" bSlot="0"/>
    </resultDoc>
   </template>
- </co>
- <co id="5" binds="0">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg803281582" type="xs:integer*" line="25" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.integer.cast(val);" jsCardCheck="function c() {return true;};">
-   <to vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="25">
-    <int val="1"/>
-    <gVarRef name="Q{}dim" bSlot="0"/>
-   </to>
-  </globalVariable>
- </co>
- <co id="4" binds="0">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1854796452" type="xs:integer*" line="22" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.integer.cast(val);" jsCardCheck="function c() {return true;};">
-   <to vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="22">
-    <int val="1"/>
-    <gVarRef name="Q{}dim" bSlot="0"/>
-   </to>
-  </globalVariable>
  </co>
  <co id="12" binds="2 10">
   <template name="Q{}go-again" flags="os" line="100" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" slots="0">
@@ -455,6 +439,14 @@
    </choose>
   </template>
  </co>
+ <co id="5" binds="0">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1779171582" type="xs:integer*" line="25" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.integer.cast(val);" jsCardCheck="function c() {return true;};">
+   <to vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="25">
+    <int val="1"/>
+    <gVarRef name="Q{}dim" bSlot="0"/>
+   </to>
+  </globalVariable>
+ </co>
  <co id="10" binds="6 12">
   <template name="Q{}go" flags="os" line="89" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" slots="0">
    <choose role="body" vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="91">
@@ -476,7 +468,7 @@
       </fn>
      </applyT>
      <ifCall xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" line="94" name="ixsl:schedule-action" type="item()*">
-      <int val="500"/>
+      <int val="1000"/>
       <empty/>
       <callT line="95" name="go-again" bSlot="1"/>
      </ifCall>
@@ -488,9 +480,21 @@
   <mode onNo="TC" flags="dW" patternSlots="0"/>
  </co>
  <overridden/>
+ <key name="Q{}td-by-neighbor" line="120" module="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" binds="">
+  <p.nodeTest test="element(Q{}td)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType==1 &amp;&amp; q.uri==''&amp;&amp;q.local=='td';"/>
+  <fn vn="31" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/GameofLife/generation.xsl" ns="xsl=http://www.w3.org/1999/XSL/Transform ixsl=http://saxonica.com/ns/interactiveXSLT xs=http://www.w3.org/2001/XMLSchema math=http://www.w3.org/2005/xpath-functions/math" line="120" name="tokenize">
+   <cvUntyped to="xs:string">
+    <data>
+     <axis name="attribute" nodeTest="attribute(Q{}data-neighborhood)" jsTest="return item.name=='data-neighborhood'"/>
+    </data>
+   </cvUntyped>
+   <str val=" "/>
+   <str val=""/>
+  </fn>
+ </key>
  <output>
   <property name="{http://saxon.sf.net/}stylesheet-version" value="30"/>
  </output>
  <decimalFormat decimal-separator="46" grouping-separator="44" digit="35" minus-sign="45" percent="37" per-mille="8240" zero-digit="48" exponent-separator="101" pattern-separator="59" infinity="Infinity" NaN="NaN"/>
 </package>
-<?Σ f91ba3f4?>
+<?Σ 3658ab74?>

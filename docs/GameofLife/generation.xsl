@@ -91,7 +91,7 @@
         <xsl:if test="exists(id('stop_button', ixsl:page()))">
             <xsl:apply-templates select="id('world', ixsl:page())" mode="regenerate"/>
             <!-- The delay could be parameterized and a controller offered once Saxon supports variables -->
-            <ixsl:schedule-action wait="500">
+            <ixsl:schedule-action wait="1000">
                 <xsl:call-template name="go-again"/>
             </ixsl:schedule-action>
         </xsl:if>
@@ -117,11 +117,12 @@
         </xsl:apply-templates>
     </xsl:template>
     
+    <xsl:key name="td-by-neighbor" match="td" use="tokenize(@data-neighborhood,' ')"/>
+    
     <!-- The logic accounts for both live cells and empty ones. -->
     <xsl:template mode="regenerate" match="td">
         <xsl:param name="was" required="yes" as="document-node()"/>
-        <xsl:variable name="population"
-            select="count( (tokenize(@data-neighborhood,' ') ! id(.,$was) )[@class='alive'] )"/>
+        <xsl:variable name="population" select="count(key('td-by-neighbor',@id,$was)[@class='alive'])"/>
         <xsl:choose>
             <xsl:when test="$population lt 3">
                 <xsl:call-template name="kill"/>
