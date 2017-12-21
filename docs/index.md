@@ -6,6 +6,13 @@ The demonstrations, and XML Jelly Sandwich in general, are entirely dependent on
 
 Each of the demonstrations listed is provided with source XSLT, if you know where to find it. 
 
+## Latest
+
+These may (also) be published elsewhere but are maintained here for long-term accessibility.
+
+* [The Versifier](Versifier/)
+* [Conway's Life - in XSLT](GameofLife/)
+
 ## Published at large
 
 * W.B. Yeats' [Irish Airman (an SVG rendering)](http:pellucidliterature.org/IrishAirman)
@@ -20,7 +27,7 @@ The Constitutional Convention is as mostly restored from a 2002 SVG original pro
 
 Note that while SaxonJS is a dependency for these demonstrations, the XML Jelly Sandwich XSLTS were only an expediency, not a requirement. The Jelly Sandwich utilities have simply made these easy to set up and launch.
 
-## Maintained in this repository
+## Also maintained in this repository
 
 * [JATSCon presentation slides](JATSCon2017)
 * [Balisage Upconversion Workshop slides](Balisage2017/workshop-slides.html)
