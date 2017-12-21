@@ -68,12 +68,7 @@
     <!-- Clicking the Stop button replaces it with the Go button (only) -->
     <xsl:template name="stop" mode="ixsl:click" match="id('stop_button')">
         <xsl:result-document href="#dashboard" method="ixsl:replace-content">
-            <button id="go_button">
-                <xsl:choose>
-                  <xsl:when test="id('world',ixsl:page())/tbody/tr/td/@class='alive'">Go on</xsl:when>
-                  <xsl:otherwise>Go again</xsl:otherwise>
-                </xsl:choose>
-            </button>
+            <button id="go_button">Go</button>
             <xsl:text>&#xA0;</xsl:text>
             <button id="clear_button">Clear</button>
         </xsl:result-document>
