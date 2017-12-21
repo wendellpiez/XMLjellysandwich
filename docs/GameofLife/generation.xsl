@@ -74,14 +74,17 @@
         </xsl:result-document>
     </xsl:template>
 
-    <!-- Clicking the go button does the same, and also ... goes  ... -->
+    <!-- Clicking the go button replaces it with the Stop button, and also ... goes  ... -->
     <xsl:template mode="ixsl:click" match="id('go_button')">
         <xsl:result-document href="#dashboard" method="ixsl:replace-content">
-            <button id="stop_button">Stop</button>&#xA0;<button id="clear_button">Clear</button>
+            <button id="stop_button">Stop</button>
+            <xsl:text>&#xA0;</xsl:text>
+            <button id="clear_button">Clear</button>
         </xsl:result-document>
         <xsl:call-template name="go"/>
     </xsl:template>
     
+    <!--  The Clear button clears the grid (even if still going)  -->
     <xsl:template mode="ixsl:click" match="id('clear_button')">
         <xsl:apply-templates select="id('world',ixsl:page())/tbody/tr/td[@class='alive']" mode="kill"/>
     </xsl:template>
