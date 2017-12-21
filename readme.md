@@ -1,9 +1,8 @@
 # XML Jelly Sandwich
 
-Starter kit for client-side XSLT using SaxonJS
+Starter kit for XSLT 3.0 in the browser using SaxonJS
 
 (Might have named it "XSLT Jump Start" except for the excellent book of that title, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, tasty, nutritious, and portable.)
-
 
 To see examples: http://wendellpiez.github.io/XMLjellysandwich
 
@@ -17,11 +16,15 @@ You have XML and you wish to style it in the browser with XSLT.
 
 ### Initial (web site/server) setup
 
+If you wish to publish on your own localhost or must set up a server for any reason ...
+
 As described in Saxonica docs, copy the SaxonJS libraries into a `/lib/saxon` subdirectory on your web server. (Or some other subdirectory.) Here is the v1.0 download: http://www.saxonica.com/saxon-js/download/Saxon-JS-1.0.0.zip.
 
 Just in case, copy the `.htaccess` file to your web server or otherwise configure it to serve up SEF as XML.
 
 (Cf http://www.saxonica.com/saxon-js/documentation/#!starting/export)
+
+Alternatively, skip all this and simply run off a plain vanilla web site from a commercial provider. Even works under Github Pages.
 
 ### Runtime resources
 
@@ -32,6 +35,8 @@ Once you have XML, making it available via SaxonJS entails:
 * A harness or "host" file (landing page) where a browser can find what it needs
 * XSLT written to process your XML, compiled into SEF
 * Your XML source data (this file or a syntax-normalized copy
+
+Check out the Saxon docs as always for more background / guidance.
 
 #### 'hosting' (HTML) page
 
