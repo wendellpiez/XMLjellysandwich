@@ -58,6 +58,7 @@
           <xsl:value-of select="."/>
         </xsl:attribute>
       </xsl:for-each>
+      <xsl:attribute name="exclude-result-prefixes">XJS</xsl:attribute>
       <!--<xsl:copy-of select="$element-analysis"/>-->
       
       <xsl:copy-of select="$lf2"/>
