@@ -4,9 +4,9 @@ XML Jelly Sandwich is a library of XSLTs you can use to create XML/XSLT applicat
 
 The demonstrations, and XML Jelly Sandwich in general, are entirely dependent on SaxonJS and would hardly have been conceivable without the contributions of [Saxonica](http://saxonica.com) and [oXygen XML IDE](http://oxygenxml.com) among many others.
 
-Each of the demonstrations listed is provided with source XSLT, if you know where to find it. 
+Each of the demonstrations listed is provided with source XSLT. The page code will show you where: if a call to SaxonJS inside an HTML page says to invoke `stylesheet: 'transform.sef'`, the stylesheet (from which the compiled `.sef` file was produced) will be there as file `transform.xsl`.
 
-## Latest
+## Latest Demonstrations
 
 These may (also) be published elsewhere but are maintained here for long-term accessibility.
 
