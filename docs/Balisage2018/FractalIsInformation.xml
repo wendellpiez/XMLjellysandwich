@@ -87,20 +87,27 @@
       distinguish:<programlisting>This is a text</programlisting>from<programlisting>{\*\ftnsep\chftnsep}\pgndec\pard\plain \s0\widctlpar\hyphpar0\cf0\kerning1\dbch\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\rtlch \ltrch\loch
 This is a text}
 \par }</programlisting></para>
-    <para>Many readers will recognize the second of these as <quote>This is a text</quote> embedded
-      in a (piece of) an RTF document. (This is lines 15-17 of a 17-line file for this line of
-      writing.) They, however, as they know, are exceptions: most people seeing this (even most
-      readers) may not know that this is RTF. They do, however – indeed, demonstrating a
-      sophisticated kind of pattern matching, can readily separate the text from the encoding. They
-      might agree that the text is not quite <quote>plain</quote> subject to some definition of that
+    <para>Many Balisage readers will recognize the second of these as <quote>This is a text</quote>
+      embedded in a (piece of) an RTF document. (This is lines 15-17 of a 17-line file for this line
+      of writing.) They, however, as they know, are exceptions: most people seeing this (even most
+      readers) may not know what this is, much less that this is RTF or what RTF is or even that
+      there is or necessarily should be such a thing. They do, however, as literate readers –
+      indeed, demonstrating a sophisticated kind of pattern matching which might be taken to define
+        <quote>literacy</quote> – can readily separate the <quote>text</quote> from the
+        <quote>encoding</quote>. And due to this fact only, they might agree that this chunk of text
+      taken (in toto) is not quite <quote>plain</quote> subject to some definition of that
       term.</para>
     <para>And this comes up despite (what is also paradoxical) how <emphasis>both</emphasis>
-      examples above are plain text, as distinguished from some other sort of encoded information
-      (which would not, indeed, submit readily to transcription here).</para>
-    <para>So for these purposes let us define plain text as <quote>an arbitrary but finite sequence
+      examples above are <quote>plain text</quote>, as distinguished from some other sort of encoded
+      information (which would not, indeed, submit readily to transcription here), a (so-called)
+        <quote>binary</quote> format. (Which here, means only <quote>not text</quote>, since all
+      digital electronic formats are binary.) The point here is that <quote>plain text</quote> is
+      hard to define – as is <quote>text</quote>. This fact is noteworthy.</para>
+    <para>Yet if one is to make certain kinds of discriminations, some boundary must be drawn. So
+      for these purposes let us define plain text as <quote>an arbitrary but finite sequence
         (string) of Unicode characters</quote> (or of an analogous abstraction we can call a
-        <quote>character</quote>) - fully aware that this is both too broad and too narrow. But it
-      is a place to start, with the understanding that there will be edge cases.</para>
+        <quote>character</quote>), fully aware that this is both too broad and too narrow. But it is
+      a place to start, with the understanding that there will be edge cases.</para>
     <para>Among sorts of varieties of applications of plain text include what we might call
         <quote>raw</quote> - that is, without markup or inline encoding of any sort, through a
       spectrum up through rather complex organizations optimized for certain kinds of processing,
@@ -119,6 +126,9 @@ This is a text}
         <para>A <quote>slope of optimization</quote>, as described in 2012</para>
       </caption>
     </mediaobject>
+  </section>
+  <section>
+    <title>Reassessed in 2018</title>
     <mediaobject>
       <imageobject>
         <imagedata fileref="notations-at-large.svg"/>
@@ -158,8 +168,7 @@ This is a text}
       control and regulation - where our capability of imposing full control and regulation - may be
       (in some important ways) more the exception than the rule. This is the world of real data and
       information. Not everything all nicely organized up front. But organization is there, amidst
-      the mix and mess. And organization, once resolved, can underlie architectures.</para>
-    <para/>
+      the mix and mess. And organization, once resolved, can also underlie architectures.</para>
   </section>
   <section>
     <title>XML: an Ace in the Hole</title>
@@ -190,7 +199,7 @@ This is a text}
   </section>
   <section>
     <title>All language is an early optimization</title>
-    <para>Master the thing by representing it</para>
+    <para>Master the thing by representing it.</para>
   </section>
   <section>
     <title>Meanwhile, the real world</title>
