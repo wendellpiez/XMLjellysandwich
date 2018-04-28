@@ -77,23 +77,6 @@
   </section>
   <section>
     <title>Semantic staircase: the example of plain text</title>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="order-chaos.svg"/>
-      </imageobject>
-      <caption>
-        <para>A <quote>slope of optimization</quote>, as described in 2012</para>
-      </caption>
-    </mediaobject>
-    <mediaobject>
-      <imageobject>
-        <imagedata fileref="notations-at-large.svg"/>
-      </imageobject>
-      <caption>
-        <para>Rendered as a <quote>staircase</quote> with some more examples projected onto it
-          (2018)</para>
-      </caption>
-    </mediaobject>
     <para>We call it <quote>plain text</quote> because we mean to distinguish it with
         <quote>formatted text</quote>, at least as it presupposes that the <quote>format</quote> of
       text is something other than text itself, moreover not represented directly by it (<quote>not
@@ -128,16 +111,77 @@ This is a text}
       the form of constraints over the text - that is, the rules of its use, including the use of
       embedded encodings, invocations of spirits and powers, and all sorts of magical incantations.
       For these to be operational and effective, they have to be done right.</para>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="order-chaos.svg"/>
+      </imageobject>
+      <caption>
+        <para>A <quote>slope of optimization</quote>, as described in 2012</para>
+      </caption>
+    </mediaobject>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="notations-at-large.svg"/>
+      </imageobject>
+      <caption>
+        <para>Rendered as a <quote>staircase</quote> with some more examples projected onto it
+          (2018)</para>
+      </caption>
+    </mediaobject>
+    <para>A few years later, it becomes possible to reflect on this. The picture has not changed,
+      but it has fleshed out. HTML is fairly well entrenched, with its more mature models. Markdown
+      especially among <quote>bespoke</quote> syntaxes has become more prevalent, especially given
+      its evident utility for tight-cycle documentation. Too often unmentioned are the twin facts
+      that for the most part, markdown syntaxes merely <quote>mask</quote> an HTML data model (okay,
+      that is fair enough for a utilitarian model) – although markdown syntaxes for DITA and JATS
+      have been demonstrated – while on the other hand, most markdown parsers are actually fairly
+      poor, the language itself is underspecified (markdown, which markdown?), and tools are often
+      incapable of handling the actual richness of structure in text-as-discovered (text <quote>in
+        the wild</quote>, that is, the text before this text). Markdown parsers are various and
+      sundry, but one thing they all have in common is, they aren't finished.</para>
+    <para>At the high end, we see the emergence of structured data formats such as YAML, which would
+      indeed show how encoding this high on the <quote>commitments ladder</quote> becomes both
+      hugely powerful (especially when aggregated en masse), yet at the same time very inflexible
+      and focused. This contrast with formats lower on the stack – where things are typically not
+      managed as well (since quality of data sets generally corresponds, for whatever reason, with
+      quality of encoding), suggests why markdown and YAML make such a great pairing, for simple
+      sorts of texts whose structures will never get very <quote>deep</quote>, only broad (such as,
+      for example, a personal blog with subject tagging).</para>
     <para>This can be called a staircase because what is important here is not the slope, or whether
       the slope is curved, or indeed whether two dimensions is adequate to the problem, but rather
       the incremental nature of the sorts of commitments that can be made. Note that since each step
       represents a new commitment, it entails a <emphasis>narrowing</emphasis>: an achievement of
       expressive power in one domain, at the cost of expression in others.</para>
-    <para/>
+    <para>The point I tried to make in 2012 with this diagram, however, remains valid: what is
+      needed is not any particular format on any point of the staircase, but rather, capable formats
+      at all of them, plus tools that enable us to move data in and out of environments where
+      control and regulation - where our capability of imposing full control and regulation - may be
+      (in some important ways) more the exception than the rule. This is the world of real data and
+      information. Not everything all nicely organized up front. But organization is there, amidst
+      the mix and mess. And organization, once resolved, can underlie architectures.</para>
     <para/>
   </section>
   <section>
-    <title>Bottom / no bottom</title>
+    <title>XML: an Ace in the Hole</title>
+    <para>Does an XML practitioner have anything to fear or regret from the mass adoption of JSON,
+      just to mention today's example, over XML as an alternative for [name your application here]?
+      I believe not, inasmuch as I see the XML stack (especially in the form of XSLT and XQuery
+      support) as perfectly capable for all these sorts of operations.</para>
+    <para>With respect to aligning with JSON, the 2017 adoption of XSLT 3.0 was a milestone in this
+      development, because the standard now includes (with the XPath 3.1 function library) support
+      for casting between arbitrary JSON, and an XML "JSON analog" format. Externally specified in
+      its own right, this format can serve as an intermediary representation enabling XML tools to
+        <quote>see</quote> JSON data. [Examples can be given, and can be found in the specs.]
+      Effectively, this means that JSON can be integrated freely as either an input, or an output
+      (result) of an XML-based transformation or pipeline. [Robin LaFontaine has demonstrated the
+      viability of handling JSON in this way.]</para>
+    <para>Similarly, on an XML stack, getting in and out of markdown is not more challenging than
+      working with markdown in other contexts. Producing markdown from any XML tool chain is
+      straightforward: a recommended method is to produce HTML, then use a general utility (such as
+      a second XSLT) to produce a markdown syntax "rendition" of this HTML. Parsing markdown,
+      however, is a challenge - precisely because tools higher on the stair will be more or less
+      unable to deal with arbitrary data lower down, so we need (in effect) specialized parsers. Yet
+      parsing markdown is also a challenge when only HTML is its intended form of use.</para>
   </section>
   <section>
     <title>Who doesn't want their own bespoke syntax?</title>
