@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="balisage-proceedings-html.xsl"?>
+<?xml-stylesheet type="text/css" href="../../../../Documents/Balisage/lib/balisage-author.css" title="Forms interface" alternate="no"?>
+<?xml-model href="../../../../Documents/Balisage/lib/balisage-1-3.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0-subset Balisage-1.3"
+  xml:id="HR-23632987-8973" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>Fractal is Information</title>
+  <info>
+    <abstract><para>What are markup languages aiming to achieve? A more precise wording of the question is what
+        are we trying to achieve with markup languages. Mostly when we pose it, we are content with
+        very local and specific answers: <quote>I am using XML [not JSON] because ...</quote>. To
+        pose it more generally might seem perilous, as it quickly takes us to the outer reaches of
+        philosophical abstraction, but one paraphrase of one answer might be, <quote>to help me cope
+          with the chaos</quote>.</para>
+      <para>This paper proposes that here, there is self-similarity across scales.</para></abstract>
+    <author>
+      <personname>
+        <firstname>Wendell</firstname><surname>Piez</surname>
+      </personname>
+      <personblurb>
+        <para>Wendell Piez is an independent consultant specializing in XML and XSLT, based in
+          Rockville MD.</para>
+      </personblurb>
+    </author>
+    
+  </info>
+  <section>
+    <title>Information is fractal</title>
+    <para>Let's postpone for a moment the question of whether to consider <quote>fractal</quote>
+      here in its literal, or in a merely analogical sense. (That is, the phenomena we witness and
+      register are like fractals, or fractal-like.) What are fractals like?</para>
+    <itemizedlist>
+      <listitem>
+        <para>Self-similarity across scales</para>
+        <para>Disparate parts are similar (<quote>alike</quote>) but also different</para>
+        <para>Boundaries become <quote>shaggy</quote> whenever we zoom in</para>
+      </listitem>
+      <listitem>
+        <para>There are rules, and there are also exceptions to the rules</para>
+        <para>Another way to put it: regular, but also irregular</para>
+        <para>Regularity punctuated by irregularities that may have their own (higher-level)
+          regularity</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Scales of resolution</title>
+    <para>Examples can be given</para>
+    <itemizedlist>
+      <listitem>
+        <para>Cultural production</para>
+        <para>The archive!</para>
+      </listitem>
+      <listitem>
+        <para><quote>Documentary</quote> production (or: <quote>the written word</quote>)</para>
+      </listitem>
+      <listitem>
+        <para>Electronic/documentary media</para>
+      </listitem>
+      <listitem>
+        <para>Non-proprietary, open, standards-based media</para>
+      </listitem>
+      <listitem>
+        <para>Text-based formats</para>
+      </listitem>
+      <listitem>
+        <para>Formalisms, formal languages, programming languages</para>
+      </listitem>
+      <listitem>
+        <para>Markup languages and data description syntaxes</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>The archetypal pattern?</title>
+    <para>The box or envelope, with a label</para>
+  </section>
+  <section>
+    <title>Semantic staircase: the example of plain text</title>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="order-chaos.svg"/>
+      </imageobject>
+      <caption>
+        <para>A <quote>slope of optimization</quote>, as described in 2012</para>
+      </caption>
+    </mediaobject>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="notations-at-large.svg"/>
+      </imageobject>
+      <caption>
+        <para>Rendered as a <quote>staircase</quote> with some more examples projected onto it
+          (2018)</para>
+      </caption>
+    </mediaobject>
+    <para>We call it <quote>plain text</quote> because we mean to distinguish it with
+        <quote>formatted text</quote>, at least as it presupposes that the <quote>format</quote> of
+      text is something other than text itself, moreover not represented directly by it (<quote>not
+        in Unicode</quote>) and thus to be expressed as more text, except now not text but the
+      text-that-is-not-a-text. The irony and arbitrariness of this will be left for another paper.
+      Nonetheless it is worth remarking how commonplace and ordinary it eventually seems that we can
+      so easily
+      distinguish:<programlisting>This is a text</programlisting>from<programlisting>{\*\ftnsep\chftnsep}\pgndec\pard\plain \s0\widctlpar\hyphpar0\cf0\kerning1\dbch\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\rtlch \ltrch\loch
+This is a text}
+\par }</programlisting></para>
+    <para>Many readers will recognize the second of these as <quote>This is a text</quote> embedded
+      in a (piece of) an RTF document. (This is lines 15-17 of a 17-line file for this line of
+      writing.) They, however, as they know, are exceptions: most people seeing this (even most
+      readers) may not know that this is RTF. They do, however – indeed, demonstrating a
+      sophisticated kind of pattern matching, can readily separate the text from the encoding. They
+      might agree that the text is not quite <quote>plain</quote> subject to some definition of that
+      term.</para>
+    <para>And this comes up despite (what is also paradoxical) how <emphasis>both</emphasis>
+      examples above are plain text, as distinguished from some other sort of encoded information
+      (which would not, indeed, submit readily to transcription here).</para>
+    <para>So for these purposes let us define plain text as <quote>an arbitrary but finite sequence
+        (string) of Unicode characters</quote> (or of an analogous abstraction we can call a
+        <quote>character</quote>) - fully aware that this is both too broad and too narrow. But it
+      is a place to start, with the understanding that there will be edge cases.</para>
+    <para>Among sorts of varieties of applications of plain text include what we might call
+        <quote>raw</quote> - that is, without markup or inline encoding of any sort, through a
+      spectrum up through rather complex organizations optimized for certain kinds of processing,
+      data mining, and execution. One might indeed draw a map showing the <quote>tradeoff
+        space</quote> between different approaches to plain text, with two axes representing (a)
+      readily accessible processibility (that is, the explicit, overt and ready capabilities of the
+      text for automated data processing operations), vs (b) the necessary up front commitment in
+      the form of constraints over the text - that is, the rules of its use, including the use of
+      embedded encodings, invocations of spirits and powers, and all sorts of magical incantations.
+      For these to be operational and effective, they have to be done right.</para>
+    <para>This can be called a staircase because what is important here is not the slope, or whether
+      the slope is curved, or indeed whether two dimensions is adequate to the problem, but rather
+      the incremental nature of the sorts of commitments that can be made. Note that since each step
+      represents a new commitment, it entails a <emphasis>narrowing</emphasis>: an achievement of
+      expressive power in one domain, at the cost of expression in others.</para>
+    <para/>
+    <para/>
+  </section>
+  <section>
+    <title>Bottom / no bottom</title>
+  </section>
+  <section>
+    <title>Who doesn't want their own bespoke syntax?</title>
+    <para>Especially if they can help design it</para>
+    <para>(Everyone loves a hobby horse!)</para>
+  </section>
+  <section>
+    <title>All language is an early optimization</title>
+    <para>Master the thing by representing it</para>
+  </section>
+  <section>
+    <title>Meanwhile, the real world</title>
+    <para>We haven't got it completely figured out yet.</para>
+    <para>Check back later.</para>
+  </section>
+     
+</article>

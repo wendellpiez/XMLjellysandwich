@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="800" height="600"
+  viewBox="0 0 800 600">
+    
+    <defs>
+      <path id="tick" stroke="black" stroke-width="4" d="M 0 -10 v 20" transform="rotate(37)"/>
+      
+      <linearGradient id="slant">
+        <stop offset="40%"  stop-color="grey" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="grey" stop-opacity="0"/>
+      </linearGradient>
+      
+      <marker id="startarrowhead" markerWidth="10" markerHeight="8"
+        refX="7" refY="4" orient="auto" fill="black">
+        <path d="M 7 6 L 1 4 L 7 2 z"/>
+      </marker>
+      
+      <marker id="endarrowhead" markerWidth="10" markerHeight="8"
+        refX="1" refY="4" orient="auto" fill="black">
+        <path d="M 1 6 L 7 4 L 1 2 z"/>
+      </marker>
+      
+      <marker id="fletching" markerWidth="10" markerHeight="8" refX="5" refY="4" orient="auto">
+        <path fill="black" stroke-width="1" d="M 7 4 L 5 6 L 1 6 L 3 4 L 1 2 L 5 2 Z"/>
+      </marker>
+      
+    </defs>
+  
+    <!--<rect fill="lavender" width="100%" height="100%"/>-->
+    
+  <g transform="translate(400 300) rotate(-37)" font-family="Cambria"
+    font-size="24" font-weight="bold" fill="black">
+    <g transform="translate(-230 0) rotate(37)">
+        <rect x="0" y="-500" width="650" height="700" 
+        fill="url(#slant)" stroke="black" stroke-width="1" stroke-dasharray="1 5"/>
+      <text x="80" y="45" transform="rotate(-90)"
+        font-size="40" fill="none" stroke="grey" stroke-width="1">range models</text>
+      <!--<text x="-140" y="105">graph models</text>
+      <text x="-40" y="155">XML</text>-->
+    </g>
+    <g transform="translate(-140 0) rotate(37)">
+      <rect x="0" y="-450" width="650" height="700" 
+        fill="url(#slant)" stroke="black" stroke-width="1" stroke-dasharray="1 4"/>
+      <text x="80" y="45" transform="rotate(-90)"
+        font-size="40" fill="none" stroke="grey" stroke-width="1">graph models</text>
+    </g>
+    <g transform="translate(-50 0) rotate(37)">
+      <rect x="0" y="-400" width="650" height="700" 
+        fill="url(#slant)" stroke="black" stroke-width="1" stroke-dasharray="1 3"/>
+      <text x="20" y="-160" transform=""
+        font-size="60" fill="none" stroke="grey" stroke-width="1">XML</text>
+    </g>
+    <g transform="translate(0 0) rotate(37)">
+      <rect x="0" y="-120" width="650" height="700" 
+        fill="url(#slant)" stroke="black" stroke-width="1" stroke-dasharray="1 3"/>
+      <text x="5" y="-100" transform=""
+        font-size="20" fill="none" stroke="grey" stroke-width="1">SGML</text>
+    </g>
+    
+    <path fill="none" stroke="black" stroke-width="4" d="M -400 0 h 800"
+      marker-start="url(#startarrowhead)" marker-end="url(#endarrowhead)"/>
+    
+    <g transform="translate(-400 0)">
+      <text x="10" y="20" transform="rotate(37)">(bits)</text>
+    </g>
+    <g transform="translate(-340 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)">plain text</text>
+    </g>
+    <g transform="translate(-280 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)">text + syntax</text>
+    </g>
+    <g transform="translate(-230 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)" font-size="80%">tag grammars</text>
+    </g>
+    <g transform="translate(-180 0)">
+      <text x="10" y="20" transform="rotate(37)" font-size="60%">tagging rules</text>
+    </g>
+    <g transform="translate(-140 0)">
+      <text x="10" y="20" transform="rotate(37)" font-size="60%">arbitrary overlap</text>
+    </g>
+    <g transform="translate(-95 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)" font-size="80%">MCH (multiple concurrent hierarchies)</text>
+    </g>
+    <g transform="translate(-50 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)" font-size="80%">simple hierarchies (&#8220;trees&#8221;)</text>
+    </g>
+    <g transform="translate(0 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)" font-size="80%">document grammars / schema validation</text>
+    </g>
+    <g transform="translate(50 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)" font-size="60%">(no) recursive structures</text>
+    </g>
+    <g transform="translate(100 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="15" transform="rotate(37)" font-size="60%">(no) mixed inline content</text>
+      <text x="10" y="30" transform="rotate(37)" font-size="50%">(text and element siblings)</text>
+    </g>
+    <g transform="translate(150 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="10" transform="rotate(37)" font-size="60%">(no) mixed element content</text>
+      <text x="10" y="25" transform="rotate(37)" font-size="50%">(optional/repeatable content)</text>
+    </g>
+    <g transform="translate(200 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)">tables</text>
+    </g>
+    <g transform="translate(250 0)">
+      <text x="10" y="20" transform="rotate(37)" font-size="60%">typed &amp; compiled objects</text>
+      <path fill="none" stroke="black" stroke-width="3" d="M 0 -15 h 10 Q 50 -15 75 -45"
+        marker-start="url(#fletching)" marker-end="url(#endarrowhead)"/>
+    </g>
+    
+  </g>
+
+  <g text-anchor="middle" font-size="18" font-style="italic">
+    <g transform="translate(600 500)">
+      <path fill="none" stroke="black" stroke-width="2" stroke-dasharray="6 3"
+        d="M -100 -20 h 200"
+        marker-start="url(#fletching)" marker-end="url(#endarrowhead)"/>
+      <text>Constraints and costs</text>
+      <text y="20" font-size="80%">(including opportunity costs)</text>
+    </g>
+    <g transform="translate(100 300) rotate(-90)">
+      <path fill="none" stroke="black" stroke-width="2" stroke-dasharray="6 3"
+        d="M -100 -20 h 200"
+        marker-start="url(#fletching)" marker-end="url(#endarrowhead)"/>
+      <text>Power</text>
+    </g>
+  </g>
+    
+</svg>
