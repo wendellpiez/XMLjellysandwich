@@ -37,9 +37,15 @@
       </listitem>
       <listitem>
         <para>There are rules, and there are also exceptions to the rules</para>
+        <para>(Or, more strictly: there are rules; but how the rules apply in the given context,
+          must be determined dynamically; it cannot be known ahead.)</para>
         <para>Another way to put it: regular, but also irregular</para>
         <para>Regularity punctuated by irregularities that may have their own (higher-level)
           regularity</para>
+      </listitem>
+      <listitem>
+        <para>Where there is a fractal, there is sure to be some kind of
+            <emphasis role="ital">recursion</emphasis> in the neighborhood</para>
       </listitem>
     </itemizedlist>
   </section>
@@ -97,7 +103,7 @@ This is a text}
         <quote>encoding</quote>. And due to this fact only, they might agree that this chunk of text
       taken (in toto) is not quite <quote>plain</quote> subject to some definition of that
       term.</para>
-    <para>And this comes up despite (what is also paradoxical) how <emphasis>both</emphasis>
+    <para>And this comes up despite (what is also paradoxical) how <emphasis role="ital">both</emphasis>
       examples above are <quote>plain text</quote>, as distinguished from some other sort of encoded
       information (which would not, indeed, submit readily to transcription here), a (so-called)
         <quote>binary</quote> format. (Which here, means only <quote>not text</quote>, since all
@@ -118,6 +124,9 @@ This is a text}
       the form of constraints over the text - that is, the rules of its use, including the use of
       embedded encodings, invocations of spirits and powers, and all sorts of magical incantations.
       For these to be operational and effective, they have to be done right.</para>
+    <para>I drew such a map as a speculative exercise in my 2012 paper, <citation>Three Questions
+        and an Experiment</citation>, in opening a symposium on data modeling at Brown
+      University:</para>
     <mediaobject>
       <imageobject>
         <imagedata fileref="order-chaos.svg"/>
@@ -138,64 +147,141 @@ This is a text}
           (2018)</para>
       </caption>
     </mediaobject>
-    <para>A few years later, it becomes possible to reflect on this. The picture has not changed,
-      but it has fleshed out. HTML is fairly well entrenched, with its more mature models. Markdown
-      especially among <quote>bespoke</quote> syntaxes has become more prevalent, especially given
-      its evident utility for tight-cycle documentation. Too often unmentioned are the twin facts
-      that for the most part, markdown syntaxes merely <quote>mask</quote> an HTML data model (okay,
-      that is fair enough for a utilitarian model) – although markdown syntaxes for DITA and JATS
-      have been demonstrated – while on the other hand, most markdown parsers are actually fairly
-      poor, the language itself is underspecified (markdown, which markdown?), and tools are often
-      incapable of handling the actual richness of structure in text-as-discovered (text <quote>in
-        the wild</quote>, that is, the text before this text). Markdown parsers are various and
-      sundry, but one thing they all have in common is, they aren't finished.</para>
-    <para>At the high end, we see the emergence of structured data formats such as YAML, which would
-      indeed show how encoding this high on the <quote>commitments ladder</quote> becomes both
-      hugely powerful (especially when aggregated en masse), yet at the same time very inflexible
-      and focused. This contrast with formats lower on the stack – where things are typically not
-      managed as well (since quality of data sets generally corresponds, for whatever reason, with
-      quality of encoding), suggests why markdown and YAML make such a great pairing, for simple
-      sorts of texts whose structures will never get very <quote>deep</quote>, only broad (such as,
-      for example, a personal blog with subject tagging).</para>
-    <para>This can be called a staircase because what is important here is not the slope, or whether
-      the slope is curved, or indeed whether two dimensions is adequate to the problem, but rather
-      the incremental nature of the sorts of commitments that can be made. Note that since each step
-      represents a new commitment, it entails a <emphasis>narrowing</emphasis>: an achievement of
-      expressive power in one domain, at the cost of expression in others.</para>
+    <para>A few years later, it becomes possible to reflect on this further. The picture has not
+      changed, but it has fleshed out. HTML is fairly well entrenched, with its more mature models
+      (to say nothing of the binding of model to syntax represented in HTML5). Markdown especially
+      among <quote>bespoke</quote> syntaxes has become more prevalent, especially given its evident
+      utility for tight-cycle documentation. (For posting Issues on Github, it offers much to like.)
+      Too often unmentioned are the twin facts that for the most part, markdown syntaxes merely
+        <quote>mask</quote> an HTML data model (okay, that is fair enough for a utilitarian tag set)
+      – although markdown syntaxes for DITA and JATS have been demonstrated – while on the other
+      hand, most markdown parsers are actually fairly poor, the language itself is underspecified
+      (markdown, which markdown?), and tools are often incapable of handling the actual richness of
+      structure in text-as-discovered (text <quote>in the wild</quote>, that is, the text before the
+      text). Markdown parsers are various and sundry, but one thing they mostly have in common is,
+      they aren't finished.</para>
+    <para>At the high end of the stairway, we see the emergence of structured data formats such as
+      YAML, which would indeed show how encoding this high on the <quote>commitments ladder</quote>
+      becomes both hugely powerful (especially when aggregated en masse), yet at the same time
+      rather inflexible as a reflection of its focus. This contrast with formats lower on the stack
+      – where things are typically not managed as well (since quality of data sets generally
+      corresponds, for whatever reason, with quality of encoding, and the real world is filled with
+      schlocky data), suggests why markdown and YAML make such a great pairing, for simple sorts of
+      texts whose structures will never get very <quote>deep</quote>, only broad (such as, for
+      example, a personal blog with subject tagging).</para>
+    <para>What is clearer in 2018 that this graduation might better be called a staircase, because
+      what is important here is not the slope, or whether the slope is curved, or indeed whether two
+      dimensions is adequate to the problem, but rather the incremental nature of the sorts of
+      commitments that can be made. Note that since each step represents a new commitment, it
+      entails a <emphasis role="ital">narrowing</emphasis>: an achievement of expressive power in
+      one domain, at the cost of expression in others. This is true whether the commitment be made
+      at the level of syntax (reserved tokens and rules for combining them) but also when, how and
+      by whom, names are given to things. A generalized tagging syntax like XML, for example,
+      settles one set of rules while allowing others to set other sets of rules, at higher levels.
+      (See Piez, Markup Technologies as Nomic Games).</para>
     <para>The point I tried to make in 2012 with this diagram, however, remains valid: what is
       needed is not any particular format on any point of the staircase, but rather, capable formats
-      at all of them, plus tools that enable us to move data in and out of environments where
-      control and regulation - where our capability of imposing full control and regulation - may be
-      (in some important ways) more the exception than the rule. This is the world of real data and
-      information. Not everything all nicely organized up front. But organization is there, amidst
-      the mix and mess. And organization, once resolved, can also underlie architectures.</para>
+      at all of them, plus tools that enable us to move data up and down the stairway –which is to
+      say, into and out of environments where control and regulation - where our capability of
+      imposing full control and regulation - may be (in some important ways) sometimes be more the
+      exception than the rule. This is the world of real data and information. Not everything all
+      nicely organized up front. But organization is there, amidst the mix and mess. And
+      organization, once resolved, can also underlie architectures.</para>
   </section>
   <section>
-    <title>XML: an Ace in the Hole</title>
+    <title>XML: A generalized metalanguage</title>
     <para>Does an XML practitioner have anything to fear or regret from the mass adoption of JSON,
       just to mention today's example, over XML as an alternative for [name your application here]?
       I believe not, inasmuch as I see the XML stack (especially in the form of XSLT and XQuery
-      support) as perfectly capable for all these sorts of operations.</para>
-    <para>With respect to aligning with JSON, the 2017 adoption of XSLT 3.0 was a milestone in this
-      development, because the standard now includes (with the XPath 3.1 function library) support
-      for casting between arbitrary JSON, and an XML "JSON analog" format. Externally specified in
-      its own right, this format can serve as an intermediary representation enabling XML tools to
-        <quote>see</quote> JSON data. [Examples can be given, and can be found in the specs.]
-      Effectively, this means that JSON can be integrated freely as either an input, or an output
-      (result) of an XML-based transformation or pipeline. [Robin LaFontaine has demonstrated the
-      viability of handling JSON in this way.]</para>
-    <para>Similarly, on an XML stack, getting in and out of markdown is not more challenging than
-      working with markdown in other contexts. Producing markdown from any XML tool chain is
+      support) as perfectly capable for all these sorts of operations. Accordingly, building on an
+      XML stack still works out: I have everything I used to have, and then some.</para>
+    <para>With respect to aligning with JSON, the 2017 adoption of XSLT 3.0 was a milestone, because
+      the standard now includes (with the XPath 3.1 function library) support for casting between
+      arbitrary JSON, and an XML "JSON analog" format. Externally specified in its own right, this
+      format can serve as an intermediary representation enabling XML tools to <quote>see</quote>
+      JSON data ( (because it can be readily parsed and rendered). [Examples can be given, and can
+      be found in the specs.] Effectively, this means that JSON can be integrated freely as either
+      an input, or an output (result) of an XML-based transformation or pipeline. [Robin LaFontaine
+      has demonstrated the viability of handling JSON in this way: see Balisage 2017.]</para>
+    <para>At the other end,getting into and out of markdown on an XML stack is not more challenging
+      than working with markdown in other contexts. Producing markdown from any XML tool chain is
       straightforward: a recommended method is to produce HTML, then use a general utility (such as
       a second XSLT) to produce a markdown syntax "rendition" of this HTML. Parsing markdown,
-      however, is a challenge - precisely because tools higher on the stair will be more or less
-      unable to deal with arbitrary data lower down, so we need (in effect) specialized parsers. Yet
-      parsing markdown is also a challenge when only HTML is its intended form of use.</para>
+      however, is a challenge – yet parsing markdown is also a challenge when only HTML is its
+      intended target format.</para>
+  </section>
+  <section>
+    <title>Mappings</title>
+    <para>XML ↔ JSON is a syntactic mapping with some modeling limitations in JSON that may require
+      constraining the XML to match</para>
+    <para>XML ↔ YAML is similar: an arbitrary YAML instance can be cast without loss into a
+      semantically equivalent XML, while coming the other way may (or may not!) entails restricting
+      the XML so as to avoid certain problematic features. Like JSON (and unlike more
+        <quote>tabular</quote> serialization formats, such as CSV), YAML supports recursive
+      structures: but this does not mean just any XML will map cleanly to YAML. Again, arbitrary
+      mixed content is going to be a challenge, for example. (So it is forbidden in the canonical
+      XML-YAML mapping as described at http://yaml.org/xml.html.)</para>
+    <para>These are because JSON and YAML (serving as serializations of abstract data models) sit
+      higher on the semantic staircase than many kinds of XML, including (most significantly) the
+      major documentary formats with their arbitrary mixed (inline) content.</para>
+    <para>At the bottom end of the staircase, Markdown presents another set of problems. Presumably,
+      markdown works by <quote>masking</quote> in an attractive, amenable text-based syntax, the
+      complexities otherwise requiring the cumbersome overhead of tagging, with its pointy angle
+      brackets:<programlisting>Who doesn't like *donuts*?</programlisting><programlisting>&lt;p>Who doesn't like &lt;em>donuts&lt;/em>?&lt;/p></programlisting>In
+      doing this, markdown does indeed offer an interface that makes it suitable for a range of
+      tasks. But it gets you only so far. For example, here it is only arbitrary and conventional
+      that a line of text such as this should become a <citation>p</citation>? Equally plausible (at
+      least in the general case), one might suppose, it should be mapped to a <citation>q</citation>
+      not a <citation>p</citation>, or anything else. More importantly, however, once having mapped
+      an unmarked line to p, the markdown version has forsaken any possibility of mapping lines to
+      anything else but p in the future. There will never be any mixing of p elements with q
+      elements. As XML practitioners know, this limitation on the sorts of things you can do with
+      blocks and lines, simply doesn't scale to real-world complexities. Markdown-based static site
+      generators, accordingly, will tend to do a lot of postprocessing and working with not just the
+      raw markdown itself, but its HTML analog. i.e., no longer markdown, at all.</para>
+    <para>Moreover, the semantic staircase shows that any problems we encounter marrying XML to
+      markdown, will arise again as soon be similar to those encountered marrying markdown to
+      anything better than whatever markup analog (usually HTML) there is of the given markdown
+      syntax. Encoding documentary information in markdown, within a file that is otherwise JSON or
+      YAML, is more or less impossible. While Markdown, that is, appears to be working at a low
+      level of semantic commitment – with the corresponding benefit that it is easy to produce and
+      maintain – in fact it is working by asserting a prior binding to a format (namely HTML or the
+      markup analog) that is higher up the stack. The user, in other words, has already paid the
+      price for more functionality by accepting limits on what she (or he) can do in the markdown.
+      The fact that many or most markdown syntaxes are themselves underspecified and supported only
+      by semi-buggy processors - which limits the capability of these systems to manage highly and
+      deeply structured data, only goes to suggest further that a bit of sleight of hand is going
+      on.</para>
+    <para>The friction point is clearly mixed inline content, especially when such mixed content has
+      semantics that go beyond formatting.</para>
+    <para>Nonetheless the success and appeal of markdown syntaxes is very revealing, suggesting that
+      they do in fact play a role, and indeed one complimentary to the role of either generalized
+      markup syntaxes, or more structured data formats. The question is, getting the data across the
+      boundaries. Only when we can parse and map markdown syntaxes as easily as we can XML document
+      models (or indeed JSON objects), will we be able to take full advantage of them.</para>
   </section>
   <section>
     <title>Who doesn't want their own bespoke syntax?</title>
     <para>Especially if they can help design it</para>
     <para>(Everyone loves a hobby horse!)</para>
+  </section>
+  <section>
+    <title>But transformation is easy</title>
+    <para>It used to be, you had to parse anything</para>
+    <para>Generalized syntaxes (XML, JSON, YAML) make this much easier</para>
+    <para>… MUCH easier … once we have XSLT/XQuery and their analogs</para>
+    <para>What is <emphasis role="ital">not</emphasis> easy is finding the middle ground for
+      representation</para>
+    <para>Stakeholders often fight over it as if transformation is hard</para>
+  </section>
+  <section>
+    <title>How to make it easier …?</title>
+    <para>Adapt to a world of multifarious data exchange</para>
+    <para>Be eclectic in your tolerance of formats</para>
+    <para>Establish and maintain semantic mappings across boundary lines</para>
+    <para>(This helps expose actual issues as well as regulate interchange)</para>
+    <para>Tolerate controlled data degradation</para>
+    <para>(Some lossy transformations are okay if we understand what is being lost)</para>
   </section>
   <section>
     <title>All language is an early optimization</title>
