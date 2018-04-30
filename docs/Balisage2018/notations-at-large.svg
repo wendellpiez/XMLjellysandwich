@@ -98,19 +98,20 @@
       <use xlink:href="#tick"/>
       <text x="10" y="20" transform="rotate(37)" font-size="80%">document grammars / schema validation</text>
     </g>
-    <g transform="translate(50 0)">
-      <use xlink:href="#tick"/>
-      <text x="10" y="20" transform="rotate(37)" font-size="60%">(no) recursive structures</text>
-    </g>
-    <g transform="translate(100 0)">
-      <use xlink:href="#tick"/>
-      <text x="10" y="15" transform="rotate(37)" font-size="60%">(no) mixed inline content</text>
-      <text x="10" y="30" transform="rotate(37)" font-size="50%">(text and element siblings)</text>
-    </g>
-    <g transform="translate(150 0)">
+    <g transform="translate(50 0)" fill="black" font-style="italic">
       <use xlink:href="#tick"/>
       <text x="10" y="10" transform="rotate(37)" font-size="60%">(no) mixed element content</text>
       <text x="10" y="25" transform="rotate(37)" font-size="50%">(optional/repeatable content)</text>
+      
+    </g>
+    <g transform="translate(100 0)">
+      <use xlink:href="#tick"/>
+      <text x="10" y="10" transform="rotate(37)" font-size="60%">(no) mixed inline content</text>
+      <text x="10" y="25" transform="rotate(37)" font-size="50%">(text and element siblings)</text>
+    </g>
+    <g transform="translate(150 0)" fill="black" font-style="italic">
+      <use xlink:href="#tick"/>
+      <text x="10" y="20" transform="rotate(37)" font-size="60%">(no) recursive structures</text>
     </g>
     <g transform="translate(200 0)">
       <use xlink:href="#tick"/>
@@ -155,7 +156,8 @@
     <text y="-63" fill="black">HTML</text>
     <text y="100" x="-260" fill="black">markdown</text>
     <text y="-150" x="120" fill="black">JSON</text>
-    <text y="-180" x="150" fill="black">YAML</text>
+    <text y="-180" x="120" fill="black">YAML</text>
+    <text y="-90" x="200" fill="black" font-size="80%">spreadsheets</text>
   </g>
   <rect fill="white" fill-opacity="0.4" width="100%" height="100%"/>
 </svg>
