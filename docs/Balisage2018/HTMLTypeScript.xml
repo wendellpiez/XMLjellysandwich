@@ -6,7 +6,13 @@
     xml:id="HR-23632987-8973" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <title>HTML Typescript: Evolution and Revolution</title>
     <info>
-        <abstract><para></para></abstract>
+        <abstract><para>By HTML Typescript, we mean an application of a loosely structured, presentational HTML used
+                to represent works early in the editorial phase of the publishing lifecycle. Its
+                virtue, oddly, is in its imperfection, its not-readiness, since in its mess it can
+                faithfully represent (for example) the otherwise-illegible mess created by authors
+                in their Word documents. In doing so, it opens up the logic of the conversion
+                process – something otherwise very difficult to expose. This might have surprising
+                consequences.</para></abstract>
         <author>
             <personname>
                 <firstname>Adam </firstname><surname>Hyde</surname>
@@ -109,6 +115,19 @@
                 installed on in this case), can now design workflows dependent on who they think would
                 be best placed to do the work. That is pretty interesting. Such a small design decision
                 might actually cause pretty radical changes to workflow.</para>
+    <bibliography>
+        <title>Short bibliography</title>
+        <bibliomixed>Hyde, Adam. “HTML Typescript – redistributing labor.”
+            https://www.adamhyde.net/typescript-redistributing-labor/</bibliomixed>
+        <bibliomixed>Hyde, Adam. “Why HTML Typescript is a good idea.”
+            https://www.adamhyde.net/why-html-typescript-is-a-good-idea/</bibliomixed>
+        <bibliomixed>Piez, Wendell “HTML First? Testing an alternative approach to producing JATS
+            from arbitrary (unconstrained or ‘wild’) .docx (WordML) format.” 2017.
+            https://www.ncbi.nlm.nih.gov/books/NBK425546/</bibliomixed>
+        <bibliomixed>Piez, Wendell. “Uphill to XML with XSLT, XProc … and HTML.” Balisage Series on
+            Markup Technologies, vol. 20 (2017).
+            https://doi.org/10.4242/BalisageVol20.Piez02</bibliomixed>
+    </bibliography>
         
         
     
