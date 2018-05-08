@@ -1003,7 +1003,18 @@
    </templateRule>
   </mode>
  </co>
- <co id="17" binds="">
+ <co id="17" binds="18">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg2082930761" type="element(Q{http://docbook.org/ns/docbook}section)*" line="59" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://docbook.org/ns/docbook'&amp;&amp;q.local==='section';};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c() {return true;};">
+   <slash baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" defaultElementNS="http://docbook.org/ns/docbook" ns="xsl=~ xjs=http://github.com/wendellpiez/XMLjellysandwich b=http://docbook.org/ns/docbook ixsl=~ xs=~ xsi=~ xlink=http://www.w3.org/1999/xlink" line="59">
+    <slash simple="1">
+     <gVarRef name="Q{}doc" bSlot="0"/>
+     <axis name="child" nodeTest="element(Q{http://docbook.org/ns/docbook}article)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri==='http://docbook.org/ns/docbook'&amp;&amp;q.local==='article';"/>
+    </slash>
+    <axis name="child" nodeTest="element(Q{http://docbook.org/ns/docbook}section)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri==='http://docbook.org/ns/docbook'&amp;&amp;q.local==='section';"/>
+   </slash>
+  </globalVariable>
+ </co>
+ <co id="19" binds="">
   <template name="Q{}balisage-header" flags="os" line="126" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" slots="0">
    <elem role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" ns="xsl=~ d=http://docbook.org/ns/docbook xlink=http://www.w3.org/1999/xlink" line="127" name="div" nsuri="">
     <sequence>
@@ -1034,7 +1045,7 @@
    </elem>
   </template>
  </co>
- <co id="18" binds="">
+ <co id="20" binds="">
   <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}has-class" line="262" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" eval="7" flags="pU" as="item()*" slots="2">
    <arg name="who" as="element()"/>
    <arg name="ilk" as="xs:string"/>
@@ -1060,7 +1071,7 @@
    </gc>
   </function>
  </co>
- <co id="19" binds="">
+ <co id="21" binds="">
   <template name="Q{}balisage-footer" flags="os" line="135" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" slots="0">
    <elem role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" ns="xsl=~ d=http://docbook.org/ns/docbook xlink=http://www.w3.org/1999/xlink" line="136" name="div" nsuri="">
     <sequence>
@@ -1091,7 +1102,7 @@
    </elem>
   </template>
  </co>
- <co id="20" binds="2">
+ <co id="22" binds="2">
   <mode name="Q{}nav-link" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="1" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="s" line="73" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl">
     <p.nodeTest role="match" test="element(Q{http://docbook.org/ns/docbook}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://docbook.org/ns/docbook'&amp;&amp;q.local==='title';"/>
@@ -1131,17 +1142,6 @@
     </elem>
    </templateRule>
   </mode>
- </co>
- <co id="21" binds="22">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg2013063881" type="xs:string?" line="102" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n&lt;=1;};">
-   <convert baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" ns="xsl=~ d=http://docbook.org/ns/docbook xlink=http://www.w3.org/1999/xlink" line="102" from="xs:anyAtomicType" to="xs:string">
-    <first>
-     <data>
-      <gVarRef name="Q{}css-file" bSlot="0"/>
-     </data>
-    </first>
-   </convert>
-  </globalVariable>
  </co>
  <co id="23" binds="2 4 3 0 3 4 3 3 2">
   <mode name="Q{}xref" onNo="TC" flags="W" patternSlots="0">
@@ -1797,18 +1797,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="24" binds="25">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1825160690" type="element(Q{http://docbook.org/ns/docbook}section)*" line="59" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://docbook.org/ns/docbook'&amp;&amp;q.local==='section';};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c() {return true;};">
-   <slash baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" defaultElementNS="http://docbook.org/ns/docbook" ns="xsl=~ xjs=http://github.com/wendellpiez/XMLjellysandwich b=http://docbook.org/ns/docbook ixsl=~ xs=~ xsi=~ xlink=http://www.w3.org/1999/xlink" line="59">
-    <slash simple="1">
-     <gVarRef name="Q{}doc" bSlot="0"/>
-     <axis name="child" nodeTest="element(Q{http://docbook.org/ns/docbook}article)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri==='http://docbook.org/ns/docbook'&amp;&amp;q.local==='article';"/>
-    </slash>
-    <axis name="child" nodeTest="element(Q{http://docbook.org/ns/docbook}section)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri==='http://docbook.org/ns/docbook'&amp;&amp;q.local==='section';"/>
-   </slash>
-  </globalVariable>
- </co>
- <co id="26" binds="">
+ <co id="24" binds="">
   <template name="Q{}toc" flags="os" line="55" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" slots="0">
    <empty role="body"/>
   </template>
@@ -1864,7 +1853,7 @@
    </sequence>
   </template>
  </co>
- <co id="22" vis="PUBLIC" binds="">
+ <co id="25" vis="PUBLIC" binds="">
   <globalParam name="Q{}css-file" type="item()*" line="94" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" visibility="PUBLIC" jsAcceptor="return val;" jsCardCheck="function c() {return true;};">
    <doc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" ns="xsl=~ d=http://docbook.org/ns/docbook xlink=http://www.w3.org/1999/xlink" line="94" base="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" flags="t" text="balisage-plain.css" validation="preserve">
     <valueOf flags="Sl">
@@ -1873,7 +1862,7 @@
    </doc>
   </globalParam>
  </co>
- <co id="27" binds="14">
+ <co id="26" binds="14">
   <template name="Q{}footnotes" flags="os" line="996" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" slots="0">
    <choose role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" ns="xsl=~ d=http://docbook.org/ns/docbook xlink=http://www.w3.org/1999/xlink" line="997">
     <fn name="exists">
@@ -1911,7 +1900,7 @@
    </choose>
   </template>
  </co>
- <co id="28" binds="">
+ <co id="27" binds="">
   <mode name="Q{}style" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="0" prio="0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="631" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl">
     <p.withUpper role="match" axis="parent" upFirst="true">
@@ -1930,7 +1919,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="7" binds="2 7 7 7 2 2 2 2 29 2 29 2 2">
+ <co id="7" binds="2 7 7 7 2 2 2 2 28 2 28 2 2">
   <mode name="Q{}titlepage" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="0" prio="0.0" seq="3" rank="0" minImp="0" slots="0" flags="s" line="195" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl">
     <p.nodeTest role="match" test="element(Q{http://docbook.org/ns/docbook}personname)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://docbook.org/ns/docbook'&amp;&amp;q.local==='personname';"/>
@@ -2085,7 +2074,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="30" binds="31 18 15 18 32 18">
+ <co id="29" binds="30 20 15 20 31 20">
   <mode name="Q{http://saxonica.com/ns/interactiveXSLT}onclick" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="1" prio="0.5" seq="2" rank="0" minImp="0" slots="0" flags="s" line="95" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl">
     <p.withUpper role="match" axis="ancestor" upFirst="false">
@@ -2185,7 +2174,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="29" binds="0">
+ <co id="28" binds="0">
   <template name="Q{}attach-id" flags="os" line="1148" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" slots="1">
    <let role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" ns="xsl=~ d=http://docbook.org/ns/docbook xlink=http://www.w3.org/1999/xlink" line="1149" var="id" as="document-node()" slot="0" eval="7">
     <doc line="1150" base="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" validation="preserve">
@@ -2210,7 +2199,7 @@
    </let>
   </template>
  </co>
- <co id="33" binds="24 20 20">
+ <co id="32" binds="17 22 22">
   <template name="Q{}nav" flags="os" line="57" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" slots="0">
    <elem role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" defaultElementNS="http://docbook.org/ns/docbook" ns="xsl=~ xjs=http://github.com/wendellpiez/XMLjellysandwich b=http://docbook.org/ns/docbook ixsl=~ xs=~ xsi=~ xlink=http://www.w3.org/1999/xlink" line="58" name="div" nsuri="">
     <sequence>
@@ -2218,7 +2207,7 @@
       <str val="nav"/>
      </att>
      <forEach line="59">
-      <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg1825160690" bSlot="0"/>
+      <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg2082930761" bSlot="0"/>
       <sequence line="61">
        <elem name="h4" nsuri="" flags="l">
         <sequence>
@@ -2299,7 +2288,7 @@
    </valueOf>
   </template>
  </co>
- <co id="32" binds="">
+ <co id="31" binds="">
   <mode name="Q{}shut" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="1" prio="-0.5" seq="0" rank="0" minImp="0" slots="1" flags="s" line="105" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
@@ -2333,12 +2322,12 @@
    </templateRule>
   </mode>
  </co>
- <co id="25" binds="">
+ <co id="18" binds="">
   <globalVariable name="Q{}doc" type="document-node()" line="16" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c(n) {return n==1;};">
    <root baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" defaultElementNS="http://docbook.org/ns/docbook" ns="xsl=~ xjs=http://github.com/wendellpiez/XMLjellysandwich b=http://docbook.org/ns/docbook ixsl=~ xs=~ xsi=~ xlink=http://www.w3.org/1999/xlink" line="16"/>
   </globalVariable>
  </co>
- <co id="31" binds="">
+ <co id="30" binds="">
   <mode name="Q{}open-or-shut" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="1" prio="-0.5" seq="0" rank="0" minImp="0" slots="1" flags="s" line="117" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
@@ -2378,6 +2367,17 @@
    </templateRule>
   </mode>
  </co>
+ <co id="33" binds="25">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg958619732" type="xs:string?" line="102" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n&lt;=1;};">
+   <convert baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-html.xsl" ns="xsl=~ d=http://docbook.org/ns/docbook xlink=http://www.w3.org/1999/xlink" line="102" from="xs:anyAtomicType" to="xs:string">
+    <first>
+     <data>
+      <gVarRef name="Q{}css-file" bSlot="0"/>
+     </data>
+    </first>
+   </convert>
+  </globalVariable>
+ </co>
  <co id="34" binds="">
   <function name="Q{http://github.com/wendellpiez/XMLjellysandwich}classes" line="257" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" eval="3" flags="pU" as="item()*" slots="1">
    <arg name="who" as="element()"/>
@@ -2400,10 +2400,10 @@
    </forEach>
   </function>
  </co>
- <co id="35" binds="2 2 13 33">
+ <co id="35" binds="2 2 13 32">
   <template name="Q{}xmljellysandwich_pack" flags="os" line="26" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" slots="0">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl" defaultElementNS="http://docbook.org/ns/docbook" ns="xsl=~ xjs=http://github.com/wendellpiez/XMLjellysandwich b=http://docbook.org/ns/docbook ixsl=~ xs=~ xsi=~ xlink=http://www.w3.org/1999/xlink" line="29">
-    <resultDoc global="#&#xA;#Fri Apr 20 13:03:38 EDT 2018&#xA;" local="#&#xA;#Fri Apr 20 13:03:38 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc global="#&#xA;#Tue May 08 16:36:54 EDT 2018&#xA;" local="#&#xA;#Tue May 08 16:36:54 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#xmljellysandwich_header"/>
      <elem role="content" line="30" name="div" nsuri="">
       <sequence>
@@ -2426,13 +2426,13 @@
        </forEach>
        <elem line="34" name="h3" nsuri="" flags="l">
         <valueOf flags="l">
-         <str val="Wendell Piez · Balisage 2018 · Rockville Maryland"/>
+         <str val="Balisage 2018 · Rockville Maryland"/>
         </valueOf>
        </elem>
       </sequence>
      </elem>
     </resultDoc>
-    <resultDoc line="37" global="#&#xA;#Fri Apr 20 13:03:38 EDT 2018&#xA;" local="#&#xA;#Fri Apr 20 13:03:38 EDT 2018&#xA;">
+    <resultDoc line="37" global="#&#xA;#Tue May 08 16:36:54 EDT 2018&#xA;" local="#&#xA;#Tue May 08 16:36:54 EDT 2018&#xA;">
      <str role="href" val="#xmljellysandwich_body"/>
      <applyT role="content" line="38" flags="i" bSlot="1">
       <slash role="select" simple="1">
@@ -2443,11 +2443,11 @@
       </slash>
      </applyT>
     </resultDoc>
-    <resultDoc line="40" global="#&#xA;#Fri Apr 20 13:03:38 EDT 2018&#xA;" local="#&#xA;#Fri Apr 20 13:03:38 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc line="40" global="#&#xA;#Tue May 08 16:36:54 EDT 2018&#xA;" local="#&#xA;#Tue May 08 16:36:54 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#xmljellysandwich_css"/>
      <callT role="content" line="41" name="css" bSlot="2"/>
     </resultDoc>
-    <resultDoc line="43" global="#&#xA;#Fri Apr 20 13:03:38 EDT 2018&#xA;" local="#&#xA;#Fri Apr 20 13:03:38 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc line="43" global="#&#xA;#Tue May 08 16:36:54 EDT 2018&#xA;" local="#&#xA;#Tue May 08 16:36:54 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#xmljellysandwich_directory"/>
      <callT role="content" line="44" name="nav" bSlot="3"/>
     </resultDoc>
@@ -2464,7 +2464,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="2" binds="2 8 21 17 2 19 2 3 29 0 2 2 2 2 2 4 29 5 10 16 2 2 2 29 5 2 23 0 29 2 2 29 2 29 2 2 29 12 2 2 2 2 2 2 29 2 23 0 2 3 4 2 4 29 5 2 29 2 29 3 2 2 2 2 2 4 2 29 2 29 5 2 6 26 2 27 2 2 29 3 2 12 2 2 4 3 2 2 0 3 2 2 2 29 2 29 2 2 2 29 2 2">
+ <co id="2" binds="2 8 33 19 2 21 2 3 28 0 2 2 2 2 2 4 28 5 10 16 2 2 2 28 5 2 23 0 28 2 2 28 2 28 2 2 28 12 2 2 2 2 2 2 28 2 23 0 2 3 4 2 4 28 5 2 28 2 28 3 2 2 2 2 2 4 2 28 2 28 5 2 6 24 2 26 2 2 28 3 2 12 2 2 4 3 2 2 0 3 2 2 2 28 2 28 2 2 2 28 2 2">
   <mode onNo="TC" flags="dW" patternSlots="0">
    <templateRule prec="1" prio="-0.5" seq="55" rank="3" minImp="0" slots="0" flags="s" line="21" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Balisage2018/balisage-in-browser.xsl">
     <p.nodeTest role="match" test="document-node()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);"/>
@@ -2490,7 +2490,7 @@
            <str val="stylesheet"/>
           </att>
           <att name="href" flags="l">
-           <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg2013063881" bSlot="2"/>
+           <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg958619732" bSlot="2"/>
           </att>
           <att name="type" flags="l">
            <str val="text/css"/>
@@ -4476,4 +4476,4 @@
  <stripJS test="if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='tr') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='thead') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='colgroup') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='col') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='table') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='informaltable') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='tbody') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='tfoot') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='xref') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='footnoteref') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='imagedata') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='imageobject') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='inlinemediaobject') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='mediaobject') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='figure') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='varlistentry') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='variablelist') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='listitem') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='orderedlist') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='itemizedlist') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='equation') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='caption') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='footnote') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='note') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='blockquote') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='section') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='affiliation') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='personblurb') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='personname') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='confgroup') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='keywordset') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='legalnotice') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='author') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='abstract') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='bibliography') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='appendix') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='info') return true;if (uri=='http://docbook.org/ns/docbook' &amp;&amp; local=='article') return true;  return false;"/>
  <decimalFormat/>
 </package>
-<?Σ 24edd5d4?>
+<?Σ dc9728fd?>
