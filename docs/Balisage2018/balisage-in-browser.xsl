@@ -31,7 +31,7 @@
         <xsl:for-each select="/article/title">
         <h2 ><xsl:apply-templates/></h2>
       </xsl:for-each>
-      <h3>Wendell Piez · Balisage 2018 · Rockville Maryland</h3>
+      <h3>Balisage 2018 · Rockville Maryland</h3>
       </div>
     </xsl:result-document>
     <xsl:result-document href="#xmljellysandwich_body">
