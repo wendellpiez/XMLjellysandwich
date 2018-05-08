@@ -1,0 +1,75 @@
+Small design changes can have huge consequences for publishing workflows. With the introduction of the word processor came the ability to change copy easily and consequently the author assumed more of this role and the copy editor’s role was redefined. The small change I am proposing here is what we call HTML Typescript. It is nothing fancy, nothing new, but it is a fresh look at how we can bring offline word processing workflows into the browser. It is a small change, but with larger consequences.
+
+
+
+
+===== notes by wap =====
+
+This wasn't what HTML was designed for or the way we ordinarily expect it to be used. (The point of the encoding is to improve it and make it into something better.) But it turns out to be pretty good for this purpose.
+
+Small changes to technology can have large effects on workflow. Why? Because workflow is all about sequence. And a small change, can change the sequencing of things.
+
+SIMPLIFIED leaves out all the "sub-editorial" work (permissions, graphics wrangling, citations/bibliography)
+
+Writer writes (longhand)
+writer or secretary transcribes (fair copy)
+Editing cycle: editor and author circulate fair copies with markup
+Prep of new fair copy (corrected)
+printer sets type (proofs)
+printer resets type (final)
+  aesthetic choices are made and enforced only at the end, however much
+    author or editor gets to determine them
+
+Up until say 1985
+Writer writes (longhand or typewriter)
+Secretary transcribes (fair copy typescript) - to be a "professional writer" is one who makes her own fair copy typescripts (as opposed to say an academic or executive, who still writes longhand or dictates)
+  Only difference from before is that this second stage is now (more) skilled / "clerical"
+  Also, at the other end (the publishers) things have gotten much more complex
+    more value added
+    e.g. metadata, indexing, marketing/exposure/credibility
+
+Introduce word processor w/ promise / myth of "DTP"
+  Notice DTP implies going "all the way" (to the reader)
+In practice/reality, this can cut out the secretary but the editorial cycle is still paper based
+  and what editors have offered is *not* just access to production (see above)
+Even "track changes" does not move the word processor into the editorial/production phase
+  (while it can enable certain kinds of collaboration)
+  At best, PDF is an unhappy compromise btw paper- and e- workflows
+    (worst of both worlds - hard to change, brittle and inflexible
+      while also complicated, easy to lose, hard to manage)
+  
+Main difference between paper and e-media?
+  1. Transmissibility. No more latency. Wow!
+  2. Fungibility - improve / edit w/o having to invest in an entire transcription
+  3. E-media is not just about presentation any more and "presentational fidelity" in some designed artifact is no longer enough.
+
+Anyone who publishes his own work has a fool for an editor
+
+How do we fulfill the actual promise of e-media?
+  Answer is *not* a top-to-bottom, integrated stack, some Electronic Utopia or Xanadu
+  Instead, it is in a market/jungle of uneasily integrated channels and capabilities
+  We need to foster tech that enables transitions from one format to another
+    Exposing that actual not only the purported "semantic impedance mismatches" across them
+      e.g. flat vs nested mixed content models
+  Obvious for this going forward for the foreseeable future, the web is key for this
+    As all application logic moves into the browser
+    The only way to keep the data exposed is to work with and exploit formats compatible with it
+      This means some things for structured formats hey why not?
+      Other things for less structured formats?
+
+Integrating the front and back ends on an electronic platform
+  Obviously its capabilities (feature set) need to bridge the gap and address both needs
+    * Represent the inchoate order-coming-to-be -- "implicit order" and "bespoke order" of any author anywhere
+    * While simultaneously being capable of being well-structured, rich and clean
+HTML Typescript on the web is that platform.
+We need to (continue) to improve our toolkit for:
+  HTML improvement/amelioration
+  Easy data acquisition not just Word but markdown (hey: another front end for HTML typescript!)
+  Interfacing with production pipelines many and various
+    Both HTML/web based, and not
+  Targeting well-established industry standards
+    As supported by tools, repositories, aggregators and indexers
+
+  Interfacing with other partners e.g. aggregators indexers
+
+  

@@ -10,8 +10,8 @@
         are we trying to achieve with markup languages. Mostly when we pose it, we are content with
         very local and specific answers: <quote>I am using XML [not JSON] because ...</quote>. To
         pose it more generally might seem perilous, as it quickly takes us to the outer reaches of
-        philosophical abstraction, but one paraphrase of one answer might be, <quote>to help me cope
-          with the chaos</quote>.</para>
+        philosophical abstraction (to say nothing of culture and ethics), but one paraphrase of one
+        answer might be, <quote>to help me cope with the chaos</quote>.</para>
       <para>This paper proposes that here, there is self-similarity across scales.</para></abstract>
     <author>
       <personname>
@@ -26,9 +26,6 @@
   </info>
   <section>
     <title>Information is fractal</title>
-    <para>[Note to reviewers: please forgive the roughness of this early draft. In particular, I am
-      aware how much literature needs to be cited here. Please feel free to offer any leads I should
-      pursue on any of the "big" or "small" arguments.]</para>
     <para>Let's postpone for a moment the question of whether to consider <quote>fractal</quote>
       here in its literal, or in a merely analogical sense. (That is, the phenomena we witness and
       register are like fractals, or fractal-like.) What are fractals like?</para>
@@ -211,10 +208,13 @@ This is a text}
       has demonstrated the viability of handling JSON in this way: see Balisage 2017.]</para>
     <para>At the other end,getting into and out of markdown on an XML stack is not more challenging
       than working with markdown in other contexts. Producing markdown from any XML tool chain is
-      straightforward: a recommended method is to produce HTML, then use a general utility (such as
-      a second XSLT) to produce a markdown syntax "rendition" of this HTML. Parsing markdown,
-      however, is a challenge – yet parsing markdown is also a challenge when only HTML is its
-      intended target format.</para>
+      straightforward: a clean approach is to produce HTML, then use a general utility (such as a
+      second XSLT) to produce a markdown syntax "rendition" of this HTML. It is true that even when
+      working with XML, parsing markdown (in order to pull markdown contents into a pipeline)
+      remains is a challenge – yet parsing markdown is also a challenge when only HTML is its
+      intended target format. Yet again, an off-the-shelf parser suffices, if it produces HTML as a
+      waypoint format (whose semantics reflect the semantics of the markdown, if not of the XML to
+      which we are aligning).</para>
   </section>
   <section>
     <title>Mappings</title>
@@ -243,21 +243,25 @@ This is a text}
       anything else but p in the future. There will never be any mixing of p elements with q
       elements. As XML practitioners know, this limitation on the sorts of things you can do with
       blocks and lines, simply doesn't scale to real-world complexities. Markdown-based static site
-      generators, accordingly, will tend to do a lot of postprocessing and working with not just the
-      raw markdown itself, but its HTML analog. i.e., no longer markdown, at all.</para>
-    <para>Moreover, the semantic staircase shows that any problems we encounter marrying XML to
-      markdown, will arise again as soon be similar to those encountered marrying markdown to
-      anything better than whatever markup analog (usually HTML) there is of the given markdown
-      syntax. Encoding documentary information in markdown, within a file that is otherwise JSON or
-      YAML, is more or less impossible. While Markdown, that is, appears to be working at a low
-      level of semantic commitment – with the corresponding benefit that it is easy to produce and
-      maintain – in fact it is working by asserting a prior binding to a format (namely HTML or the
-      markup analog) that is higher up the stack. The user, in other words, has already paid the
-      price for more functionality by accepting limits on what she (or he) can do in the markdown.
-      The fact that many or most markdown syntaxes are themselves underspecified and supported only
-      by semi-buggy processors - which limits the capability of these systems to manage highly and
-      deeply structured data, only goes to suggest further that a bit of sleight of hand is going
-      on.</para>
+      generators, accordingly (just to offer one example), will tend to do a lot of postprocessing
+      and working with not just the raw markdown itself, but its HTML analog. i.e., no longer
+      markdown, at all.</para>
+    <para>Moreover, the semantic staircase suggests that even given a toolkit that can convert any
+      arbitrary markdown instance, into an analogous HTML, only takes you so far. Unextended HTML is
+      still not very semantically rich. To the extent that HTML does carry semantics, they will be
+      presentational in nature (that is, having to do with an intended rendition or display) – or,
+      if (for example) hidden in an HTML microformat, they cannot be written in unextended markdown.
+      This is the paradox, that markdown gives us an easy way up to HTML with a low tagging overhead
+      - but that, as a notation, it can also get us no farther. This is why, in practice, it becomes
+      such a natural thing to embellish markdown with other syntaxes, such as a bit of YAML, for
+      example, to provide the structured parts of the record (saliently, its metadata). Nonetheless
+      there remains a bit of sleight of hand going on here, as we soon discover the limits of this
+      marriage of convenience: it works well up to a level of complexity (as it happens, about the
+      complexity of a blog authored by cooperative, technically savvy users) and not beyond. The
+      fact that many or most markdown syntaxes are themselves underspecified and supported only by
+      semi-buggy processors - which imposes real-time limits (whatever the theory says) on the
+      capability of these systems to manage highly and deeply structured data, only goes to show
+      further that such systems are not the panacea they appear to be.</para>
     <para>The friction point is clearly mixed inline content, especially when such mixed content has
       semantics that go beyond formatting.</para>
     <para>Nonetheless the success and appeal of markdown syntaxes is very revealing, suggesting that
