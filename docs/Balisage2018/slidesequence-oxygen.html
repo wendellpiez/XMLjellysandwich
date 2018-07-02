@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style type="text/css">
+              
+html, body { font-family: "Liberation Serif", serif }
+
+h1, .h1 { font-weight: bold; font-size: 2em }
+h2, .h2 { font-weight: bold; font-size: 1.5em; }
+h3, .h3 { font-weight: bold; font-size: 1.17em; }
+h4, .h4 { font-weight: bold; font-size: 1.12em; }
+h5, .h5 { font-weight: bold; font-size: .83em; }
+h6, .h6 { font-weight: bold; font-size: .75em; }         
+
+            .page {
+                page-break-before: always; min-height: 768px
+            }
+            
+            p {
+                text-indent: -5em;
+                padding-left: 5em
+            }
+            
+            .x2emy3em { margin-top: 2em; margin-left: 3em }
+            
+            .x4em { margin-left: 4em }
+            
+            .announce { font-size: smaller }
+            
+            #howtotell {  } 
+            
+            .page#spaces { background-color: darkgreen }
+            .page#spaces .masked { color: darkgreen }
+            
+            .page#fractals {
+                background-image: url("Mandelbrot_Set-2-SEAHORSE_VALLEY-large.jpg");
+                background-repeat: no-repeat;
+                image-resolution: 96dpi;
+                color: gold;
+            }
+            
+            #fractalsAbout { padding: 16px; background-color: gold; width: 80%;
+            z-index: 1; position: relative; top: -20em; left: 2em; max-width: 40em;  
+            }
+            
+            .credits {
+                max-width: 100px;
+                font-size: 60%}
+            
+            .marqueeListing { text-align: center; font-size: larger; color: darkred }
+            
+            .pagehead {
+                color: white
+            }
+            .urgent { font-style: italic; font-size: larger }
+            
+            .diagramLabel { margin-left: 120px; margin-top: 120px; padding: 16px; background-color: gainsboro; width: 520px; font-size: 64% }
+            
+            .quibble { font-size: smaller; margin-left: 3em }
+            
+            table.panels {
+                width: 100%;
+                font-size: 50%;
+                border-spacing: 0.5em;
+            }
+            table td {
+                margin: 0.5em;
+                padding: 0.5em;
+                background-color: lavender
+            }
+            
+            .block {
+                margin: 1em
+                
+            
+            }
+        .aside { text-align: right; font-size: smaller; margin-right: 40px }
+        
+        #plaintexts pre { background-color: cornsilk; border: thin solid sienna; padding: 0.5em }</style>
+    </head>
+    <body>
+        <div class="boundary-box" style="height: 768px; z-index: -1; border-bottom: thin dotted black">&#xA0;</div>
+        <div class="page" id="titlepage">
+            <div class="block">
+                <h1>Information Fractal Is</h1>
+                <p class="h2">Information Fractal Is</p>
+                <p class="h3">Information Fractal Is</p>
+                <p class="h4">Information Fractal Is</p>
+                <p class="h5">Information Fractal Is</p>
+                <p class="h6">Information Fractal Is</p>
+                <div class="credits" style="margin-left: 60%">
+                    <p>Wendell Piez</p>
+                    <p>Balisage 2018</p>
+                    <p>Rockville, Maryland</p>
+                </div>
+            </div>
+        </div>
+        <div class="page" id="fractals">
+            <h2 style="color: lightblue; margin-left: 30%; padding-top: 10%; font-size: 60%">How to tell a
+                fractal</h2>
+
+            <div class="announce x2emy3em">
+                <p>Fractals come in many forms.</p>
+                <p>More than can be counted.</p>
+            </div>
+            <div id="howtotell" class="x4em" >
+                <p class="h2">How to tell a fractal</p>
+                <p>Complexity: ordered, but not completely; regular, but <q>ragged</q></p>
+                <p>Self-similarity across scales</p>
+                <p>Somewhere in the neighborhood we probably find recurrence or recursion</p>
+            </div>
+        </div>
+        <div class="page" id="spaces">
+            <img src="2560x1600_sunflower-field.jpg" height="768" alt="field of sunflowers"/>
+            <h2 class="masked">What we know, and don't</h2>
+            <div id="fractalsAbout">
+                <p>We <i>conceive</i> fractals with mathematics</p>
+                <p>We <i>observe</i> fractals in nature</p>
+                <p>Cultural productions also exhibit fractal features</p>
+                <p>... whether by <q>accident</q> or <q>design</q></p>
+            </div>
+        </div>
+       <div class="page" id="relevance">
+            <div class="block">
+                <p>This matters to us because ...</p>
+                <p>It's all about regularity</p>
+                <p>Or (contrary-wise) scope definition and exception handling</p>
+                <p><q>How granular is your information?</q> is like <q>How long is your coastline?</q></p>
+                <p>Spoiler alert: with <i>control</i> comes <i>dependency</i></p>
+            </div>
+            <div class="block marqueeListing">
+                <p class="h1">Cultural production - the archive! </p>
+                <p class="h2">Documentary production (or: the written word) </p>
+                <p class="h3">Electronic/documentary media </p>
+                <p class="h4">Non-proprietary, open, standards-based media</p>
+                <p class="h4">Text-based formats</p>
+                <p class="h5">Formalisms, formal languages, programming languages </p>
+                <p class="h6">Markup languages and data description syntaxes</p>
+            </div>
+       </div>
+        <div><h2>Why is this hard?</h2>
+        <div class="block">
+            <p>If transformational linguistics were (entirely) correct, this would be no problem</p>
+            <p>We could proceed by observing the (perfect) regularity, then describing it</p>
+            <p class="quibble">(If dinosaurs could always fly, we would not have to explain how birds learned to)</p>
+            <p>Instead, we have the semantic soup of human language and culture</p>
+            <p class="quibble">(To say nothing of whale-, crow- or elephant-speak)</p>
+            <p class="urgent">Somehow, we manage to make sense out of the mishmash is everywhere!</p>
+            <p>Nor does it seem transformation linguistics is entirely wrong &#8212; the truth is somewhere <i>between</i>.</p>
+        </div>
+        </div>
+         <div class="page" id="diagram1">
+            <img src="order-chaos.svg" height="768" alt="constraints (a diagram)"/>
+            <h2>Constraint Space</h2>
+            <div class="diagramLabel">
+                <p>Tradeoffs include <em>power</em> for <em>future flexibility</em></p>
+            </div>
+        </div>
+        <div class="page" id="plaintexts">
+           <div class="block" style="font-size: 50%">
+               <pre>Example of plain text</pre>
+               <pre>Example of *plain text*</pre>
+               <pre>&lt;p>Example of &lt;em>plain text&lt;/em>&lt;/p></pre>
+               <pre>Example of }{\i\ai\rtlch \ltrch\loch
+plain text}
+\par }</pre>
+               <pre>{
+   "p": {
+      "em": "plain text",
+      "__text": "Example of"
+   }
+}</pre>
+               <pre style="margin-left: 200px">&lt;p>Example of &lt;em>plain text&lt;/em>
+but with &lt;em>even more fun mixed content&lt;/em>&lt;/p></pre>
+               <pre style="margin-left: 200px">{
+   "p": {
+      "em": [
+         "plain text",
+         "even more fun mixed content"
+      ],
+      "__text": "Example of \n but with"
+   }
+}</pre>
+           </div>
+        </div>
+        <div class="page" id="order-matters">
+            <div class="block">
+                <h2>When Order Matters</h2>
+                <p><i>Order matters</i> ... especially when <q>it can be in any order</q> (B. Tommie
+                    Usdin)</p>
+                <p>Translation: wherever order is unconstrained in the model (it doesn't matter), it may carry information in the instance (it matters)</p>
+                            <pre>&lt;p>It was getting hot. Strangely, the kettle whistled.&lt;/p>
+&lt;p>I woke up with a start. What a dream.&lt;/p></pre>
+                <div>
+                    <p>When you don't know if it matters or not ...</p>
+                    <p>... if sometimes it does, and sometimes is doesn't ...</p>
+                    <p>... isn't that as much as to say, it matters?</p>
+                    <p><i>It's not supposed to matter</i> -- kiss of death</p>
+                </div>
+            </div>
+        </div>
+                <div class="page" id="rough-comparison">
+                    <div class="block">
+                        <table class="panels">
+                    <tr>
+                        <td>
+                            <pre>&lt;branch>&lt;leaf/>&lt;/branch></pre>
+                        </td>
+                        <td>
+                            <pre>&lt;branch>&lt;leaf/>&lt;/branch></pre>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="page" id="piranesi">
+            <img src="Giovanni_Battista_Piranesi_-_Carceri._Folder_7_-_Google_Art_Project.jpg"
+                alt="Piranesi's Carceri" height="768"/>
+            <h2>Disorientation</h2>
+            <div
+                style="float: right; margin-left: 120px; margin-top: 120px; padding: 16px; background-color: gainsboro; width: 520px; font-size: 64%">
+                <p>This can all be rather confusing</p>
+            </div>
+        </div>
+            <div class="page" id="piranesi">
+                <!--<img src="Giovanni_Battista_Piranesi_-_Carceri._Folder_7_-_Google_Art_Project.jpg"
+                    alt="Piranesi's Carceri" height="768"/>-->
+                <h2>Robot Armies</h2>
+                <div>
+                    <p>We like Markdown because it's so tasty!</p>
+                    <p>We like JSON because it's easy to digest!</p>
+                    <p>We like YAML because there's no mess!</p>
+                    <p>We like XML because it's nutritious!</p>
+                    <p class="aside i">None of these do justice to what we know, namely
+                    that the syntax matters less than the aptness of the 
+                    vocabulary and the fitness of the model.</p>
+                </div>
+            </div>
+            
+        <div class="page" id="diagram2">
+            <img src="notations-at-large.svg" height="768" alt="contraints (a revised diagram)"/>
+            <h2>The Semantic Stairway</h2>
+            <div class="diagramLabel">
+                <p>The importance of being able to go up and down</p>
+                <p>Managing complexity by being willing to translate between implicit-and-contextual,
+                and explicit-and-governed.</p>
+            </div>
+        </div>
+            <div class="page">
+                <!--<img src="notations-at-large.svg" height="768" alt="contraints (a revised diagram)"/>-->
+                <h2>What we need</h2>
+                <div
+                    style="margin-left: 120px; margin-top: 120px; padding: 16px; background-color: gainsboro; width: 520px; font-size: 64%">
+                    <p>More / easier up and down the stairway</p>
+                    <p>This means tools, parsers, utilities</p>
+                    <p>Tolerance for <q>foreign formats</q></p>
+                    <p>More innovations to bridge the gaps</p>
+                    <p>How about <q>dynamic markdown</q>?</p>
+                    <p>How about metaschemas?</p>
+                    <p>How about Generic Spreadsheet Language?</p>
+                </div>
+            </div>
+                <div><h2>Dynamic markdown</h2>
+                    <p>Map a conventional markdown syntax to a small abstract tag set</p>
+                    <p>Add a convention for semantic tagging</p>
+                    <p>Implicitly support structural induction (with maybe an escape hatch)</p>
+                    <p>Then permit users/systems to declare their own semantic bindings</p>
+                    <pre>[*: em]
+[**: b]
+[()[]: a|@href]
+
+## My note
+
+.note Here's my note in my own personal markdown. It even has a (link)[http://example.com].
+
+### Subsection
+
+No markup, no semantics.
+
+.special When we have markup ... we have semantics.
+
+.quote "Those who have art and science, have religion. Those who have no art and no science -- they can have religion." [Goethe]</pre>
+            </div>
+                <div>
+                    <h2>Metaschemas</h2></div>
+            <p>All mature tagging languages end up with metaschemas. Name your favorite tag set and there is likely to be some technology behind its schema maintenance.</p>
+            <p>How about metaschemas that are specifically built to bridge the gaps between formats?</p>
+            <p>Architectural Forms showed a way to do this with markup vocabularies</p>
+            <p>We can go even further if (for example) our metaschema enforces constraint sets for both
+            XML and JSON, at the same time.</p>
+        
+                <div>
+                    <h2>Generic Spreadsheet Language</h2>
+                    <p>There are millions of people who will never write ("plain-text based") code</p>
+                    <p>But who <q>program</q> routinely in the form of spreadsheets</p>
+                    <p>How about a generic spreadsheet language? We could call it GSML</p>
+                    <p>It would be one step away from a User Interface</p>
+                    <p>Could serve as a back end in / for (spreadsheet-ish) applications</p>
+                    <p>And an interchange <q>pivot</q> format to richer semantics</p>
+                    <p style="font-size: smaller">As HTML is for web pages</p>
+                    <p style="font-style: italic">Don't we already have this ... isn't it MS Excel?</p>
+                    <p>Maybe we need an XSweet for Excel ... extract from Office Open .xslx to
+                        a clean intermediary ...</p>
+                </div>
+            <div class="page" id="finis">
+                <div class="credits" style="margin-left: 800px; margin-top: 600px; ">
+                    <p>Wendell Piez</p>
+                    <p>Balisage 2018</p>
+                    <p>Rockville, Maryland</p>
+                </div>
+            </div>
+                    
+        <!-- By pgFR58dxJPdbfw at Google Cultural Institute maximum zoom level, Public Domain, https://commons.wikimedia.org/w/index.php?curid=23690422       -->
+        <!-- Constraint slope Piranesi Constrait stairway Bologna towers?          -->
+                
+    </body>
+</html>

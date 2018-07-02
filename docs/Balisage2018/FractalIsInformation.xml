@@ -89,7 +89,7 @@
         <quote>formatted text</quote>, at least as it presupposes that the <quote>format</quote> of
       text is something other than text itself, moreover not represented directly by it (<quote>not
         in Unicode</quote>) and thus to be expressed as more text, except now not as (the
-      presumptive) <quote>text itself</quote>  but, paradoxically, as the text-that-is-not-a-text.
+      presumptive) <quote>text itself</quote> but, paradoxically, as the text-that-is-not-a-text.
         (<quote>Code</quote> or <quote>markup</quote>._ The irony and arbitrariness of this will be
       left for another paper. Nonetheless it is worth remarking how commonplace and ordinary it
       eventually seems that we can so easily
@@ -106,29 +106,34 @@ This is a text}
       separate the <quote>text</quote> from the <quote>encoding</quote>. And due to this fact only,
       they might agree that this chunk of text taken (in toto) is not quite <quote>plain</quote>
       subject to some definition of that term.</para>
-    <para>And this comes up despite (what is also paradoxical) how <emphasis role="ital">both</emphasis>
-      examples above are <quote>plain text</quote>, as distinguished from some other sort of encoded
-      information (which would not, indeed, submit readily to transcription here), a (so-called)
-        <quote>binary</quote> format. (Which here, means only <quote>not text</quote>, since all
-      digital electronic formats are binary.) The point here is that <quote>plain text</quote> is
-      hard to define – as is <quote>text</quote>. This fact is noteworthy.</para>
+    <para>And this comes up despite (what is also paradoxical) how <emphasis role="ital"
+        >both</emphasis> examples above are <quote>plain text</quote>, as distinguished from some
+      other sort of encoded information (which would not, indeed, submit readily to transcription
+      here), a (so-called) <quote>binary</quote> format. (Which here, means only <quote>not
+        text</quote>, since all digital electronic formats are binary.) The point here is that
+        <quote>plain text</quote> is hard to define – as is <quote>text</quote>. This fact is
+      noteworthy.</para>
     <para>Yet if one is to make certain kinds of discriminations, some boundary must be drawn. So
       for these purposes let us define plain text as <quote>an arbitrary but finite sequence
         (string) of Unicode characters</quote> (or of an analogous abstraction we can call a
         <quote>character</quote>), fully aware that this is both too broad and too narrow. But it is
       a place to start, with the understanding that there will be edge cases.</para>
-    <para>Among sorts of varieties of applications of plain text include what we might call
-        <quote>raw</quote> - that is, without markup or inline encoding of any sort, through a
-      spectrum up through rather complex organizations optimized for certain kinds of processing,
-      data mining, and execution. One might indeed draw a map showing the <quote>tradeoff
-        space</quote> between different approaches to plain text, with two axes representing (a)
-      readily accessible processibility (that is, the explicit, overt and ready capabilities of the
-      text for automated data processing operations), vs (b) the necessary up front commitment in
-      the form of constraints over the text - that is, the rules of its use, including the use of
-      embedded encodings, invocations of spirits and powers, and all sorts of magical incantations.
-      For these to be operational and effective, they have to be done right.</para>
-    <para>I drew such a map as a speculative exercise in my 2012 paper, <citation>Three Questions and
-        an Experiment</citation>, in opening a symposium on data modeling at Brown
+  </section>
+  <section>
+    <title>From stream, to structure</title>
+    <para>Among sorts of varieties of applications of plain text, however, is an extremely wide
+      range of different formats, including everything from what we might call <quote>raw</quote> -
+      that is, text without markup or inline encoding of any sort, through a spectrum up through
+      rather complex organizations optimized for certain kinds of processing, data mining, and
+      execution. One might indeed draw a map showing the <quote>tradeoff space</quote> between
+      different approaches to plain text, with two axes representing (a) readily accessible
+      processibility (that is, the explicit, overt and ready capabilities of the text for automated
+      data processing operations), vs (b) the necessary up front commitment in the form of
+      constraints over the text - that is, the rules of its use, including the use of embedded
+      encodings, invocations of spirits and powers, and all sorts of magical incantations. For these
+      to be operational and effective, they have to be done right.</para>
+    <para>I drew such a map as a speculative exercise in my 2012 paper, <citation>Three Questions
+        and an Experiment</citation>, in opening a symposium on data modeling at Brown
       University:</para>
     <mediaobject>
       <imageobject>
