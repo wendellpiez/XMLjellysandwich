@@ -257,7 +257,6 @@
    <!-- catchall: by default we do not pause for anything -->
    <xsl:template mode="pause" match="node()" as="xs:integer">0</xsl:template>
    
-   
    <xsl:variable name="terminalchars" as="xs:string">\.!\?;,:—…</xsl:variable>
    
    <!-- These are the phrase demarcators we set above, $terminalchars !,;\.\?  -->
