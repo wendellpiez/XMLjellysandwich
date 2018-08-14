@@ -32,46 +32,49 @@
           <h3 style="float:right; margin: 0px" id="page-title" onclick="void(0)">Poem Teller 2018</h3>
           <button id="text_select">Text</button>
           <button id="tell_select">Tell</button>
-          <button id="tweak_select">Tweak</button>
+          <button id="tweak_select">Help</button>
         </div>
         <div class="panel" id="tweak_panel">
           <h4>Operating the Poem Teller</h4>
-          <p>Use <code>Tweak</code> to close or open this control panel. (Try it.)</p>
-          <p>Transcribe your poem in <code>Text</code>. <code>Tell</code> to <q>tell</q>
-            it (whatever it takes).</p>
+          <p>The <code class="button">Help</code> button will close or open this control panel. (Try it.)</p>
+          <p><code class="button">Text</code> shows (or hides) a box for your poem.</p>
+          <p>Use <code class="button">Tell</code> to <q>tell</q> it (whatever it takes).</p>
+          <p>This practice help cultivate patience with deliberate latency.</p>
           <p>Verse lines are inferred from line breaks in the input text box.</p>
           <p>Indents on lines are inferred from leading white space.</p>
           <p>When being told, a poem will pause at certain punctuation points, adjusted below. Intervals are measured at approximately 360ms, so to pause for (about) a second, use 3.</p>
           
-          <p>Pause for stanza: <input name="stanza" type="number" id="stanza-pause"
+          <p class="ctrl">Pause for stanza:&#160;<input name="stanza" type="number" id="stanza-pause"
             max="20" min="0" value="9"/></p>
-          <p>Pause for verse paragraph: <input name="." type="number" id="verse-para_pause"
-            max="20" min="0" value="8"/></p>
-          <p>Pause for line: <input name="." type="number" id="line_pause"
+          <!--<p class="ctrl">Pause for verse paragraph:&#160;<input name="." type="number" id="verse-para_pause"
+            max="20" min="0" value="8"/></p>-->
+          <p class="ctrl">Pause for line:&#160;<input name="." type="number" id="line_pause"
             max="20" min="0" value="3"/></p>
-          <p>Pause for '.' (period): <input name="." type="number" id="period_pause"
+          <p class="ctrl">Pause for <q>.</q> (period):&#160;<input name="." type="number" id="period_pause"
             max="20" min="0" value="7"/></p>
-          <p>Pause for '!' (exclamation point): <input name="!" type="number" id="exclamation_pause"
+          <p class="ctrl"><q>!</q> (exclamation point):&#160;<input name="!" type="number" id="exclamation_pause"
             max="20" min="0" value="5"/></p>
-          <p>Pause for '?' (question mark): <input name="?" type="number" id="question_pause"
+          <p class="ctrl"><q>?</q> (question mark):&#160;<input name="?" type="number" id="question_pause"
             max="20" min="0" value="5"/></p>
-          <p>Pause for ';' (semicolon): <input name=";" type="number" id="semicolon_pause"
+          <p class="ctrl"><q>'</q> (semicolon):&#160;<input name=";" type="number" id="semicolon_pause"
             max="20" min="0" value="5"/></p>
-          <p>Pause for ',' (comma): <input name="," type="number" id="comma_pause"
+          <p class="ctrl"><q>,</q> (comma):&#160;<input name="," type="number" id="comma_pause"
             max="20" min="0" value="4"/></p>
-          <p>Pause for ':' (colon): <input name=":" type="number" id="colon_pause"
+          <p class="ctrl"><q>:</q> (colon):&#160;<input name=":" type="number" id="colon_pause"
             max="20" min="0" value="5"/></p>
-          <p>Pause for '—' (em dash): <input name="—" type="number" id="emdash_pause"
+          <p class="ctrl"><q>—</q> (em dash):&#160;<input name="—" type="number" id="emdash_pause"
             max="20" min="0" value="4"/></p>
-          <p>Pause for '…' (ellipsis): <input name="…" type="number" id="ellipsis_pause"
+          <p class="ctrl"><q>…</q> (ellipsis):&#160;<input name="…" type="number" id="ellipsis_pause"
             max="20" min="0" value="5"/></p>
-          <p>Fallback pause: <input name="fallback" type="number" id="fallback_pause"
+          <p class="ctrl">Fallback pause:&#160;<input name="fallback" type="number" id="fallback_pause"
             max="10" min="0" value="0"/></p>
-          
           
         </div>
         <div class="panel ON" id="text_panel" style="float:left">
-          <textarea  rows="28" cols="50" id="poetry-in-motion">Write a line</textarea>
+          <textarea  rows="28" cols="50" id="poetry-in-motion">Oh my luve is like a red, red rose,
+   That's newly sprung in June:
+Oh my luve is like the melodie,
+   That's sweetly play'd in tune.</textarea>
         </div>
         <div class="panel" id="tell_panel">
           

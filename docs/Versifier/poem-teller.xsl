@@ -112,7 +112,7 @@
       <xsl:variable name="pause">
          <xsl:apply-templates select="." mode="pause"/>
       </xsl:variable>
-      <xsl:message>pausing <xsl:value-of select="$pause"/> for <xsl:value-of select="name()"/></xsl:message>
+      <!--<xsl:message>pausing <xsl:value-of select="$pause"/> for <xsl:value-of select="name()"/></xsl:message>-->
       <!-- waiting zero just suspends -->
       <xsl:variable name="wait" select="xs:integer($pause * 360) + 1"/>
       <!--<xsl:message>wait is <xsl:value-of select="$wait"/></xsl:message>-->
@@ -241,10 +241,15 @@
          #tell_panel { margin-left: 24em }
          
          #tweak_panel { z-index: 1; position: fixed; right: 1ex; margin-top: 1ex;
+           width: 50%; float: right; clear: both; text-align: right; 
            background-color: gainsboro; padding: 1em; border: thin outset black;
-           font-family: sans-serif; font-size: 80%; 
-            width: 40%; float: right; clear: both; text-align: right }
+           font-family: sans-serif; font-size: 80%; overflow: auto;
+           max-height: 80% }
          #tweak_panel > *:first-child { margin-top: 0ex }
+         
+         .ctrl { display: inline-block; margin: 0ex }
+         
+         code.button { padding: 0.5ex 1ex; background-color: white; border: thin sold black }
    </xsl:template>
    
    <xsl:template match="*" mode="off">

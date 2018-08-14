@@ -373,7 +373,7 @@
  <co id="7" binds="">
   <template name="Q{}css" flags="os" line="180" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="0">
    <valueOf role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="180">
-    <str val="&#xA;         html, body { background-color: white }&#xA;         &#xA;         .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }&#xA;         &#xA;         &#xA;         .pub { }&#xA;         &#xA;         .title { }&#xA;         &#xA;         .author { }&#xA;         &#xA;         .l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }&#xA;         &#xA;         .l * { display: inline }&#xA;         &#xA;         span.phr {transition: color 1s ease-in;&#xA;              -moz-transition: color 1s ease-in;&#xA;              -webkit-transition: color 1s ease-in; }&#xA;         &#xA;         #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;&#xA;          border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;&#xA;          font-family: 'Roboto Slab', sans-serif;&#xA;          margin-top: 1em }&#xA;         &#xA;         &#xA;         h5.toc-entry { display: inline-block; margin: 0em }&#xA;         // .toc-entry:before { content: &#34; ❖ &#34; }&#xA;         h5.toc-entry:before { content: &#34; ☙ &#34; }&#xA;         h5.toc-entry:first-child:before { content: &#34;&#34; }&#xA;         &#xA;         .catalog { max-width: 60% }&#xA;         section { border: medium solid black; padding: 1ex }&#xA;         section * { margin: 0em }&#xA;         section .title { font-weight: bold }&#xA;         section .source { font-style: italic }&#xA;         &#xA;         section { max-width: 32em }&#xA;         &#xA;         #page { float: right }&#xA;         &#xA;         .verse p { padding-left: 3em; text-indent: -3em }&#xA;         .stanza p { margin-top: 0ex; margin-bottom: 0ex }&#xA;         .stanza { margin-top: 3ex }&#xA;         .stanza:first-child { margin-top: 0ex}&#xA;         &#xA;         .verse .indent1 { padding-left: 3em }&#xA;         .verse .indent2 { padding-left: 4em }&#xA;         .verse .indent3 { padding-left: 5em }&#xA;         .verse .indent4 { padding-left: 6em }&#xA;         .verse .indent5 { padding-left: 7em }&#xA;         .verse .indent6 { padding-left: 8em }&#xA;         .verse .indent7 { padding-left: 9em }&#xA;         .verse .indent8 { padding-left: 10em }&#xA;         .verse .indent9 { padding-left: 11em }&#xA;         &#xA;         .panel { display: none }&#xA;         .panel.ON { display: block }&#xA;         &#xA;         .hide { color: white }&#xA;         &#xA;         #tell_panel { margin-left: 24em }&#xA;         &#xA;         #tweak_panel { z-index: 1; position: fixed; right: 1ex; margin-top: 1ex;&#xA;           background-color: gainsboro; padding: 1em; border: thin outset black;&#xA;           font-family: sans-serif; font-size: 80%; &#xA;            width: 40%; float: right; clear: both; text-align: right }&#xA;         #tweak_panel &gt; *:first-child { margin-top: 0ex }&#xA;   "/>
+    <str val="&#xA;         html, body { background-color: white }&#xA;         &#xA;         .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }&#xA;         &#xA;         &#xA;         .pub { }&#xA;         &#xA;         .title { }&#xA;         &#xA;         .author { }&#xA;         &#xA;         .l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }&#xA;         &#xA;         .l * { display: inline }&#xA;         &#xA;         span.phr {transition: color 1s ease-in;&#xA;              -moz-transition: color 1s ease-in;&#xA;              -webkit-transition: color 1s ease-in; }&#xA;         &#xA;         #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;&#xA;          border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;&#xA;          font-family: 'Roboto Slab', sans-serif;&#xA;          margin-top: 1em }&#xA;         &#xA;         &#xA;         h5.toc-entry { display: inline-block; margin: 0em }&#xA;         // .toc-entry:before { content: &#34; ❖ &#34; }&#xA;         h5.toc-entry:before { content: &#34; ☙ &#34; }&#xA;         h5.toc-entry:first-child:before { content: &#34;&#34; }&#xA;         &#xA;         .catalog { max-width: 60% }&#xA;         section { border: medium solid black; padding: 1ex }&#xA;         section * { margin: 0em }&#xA;         section .title { font-weight: bold }&#xA;         section .source { font-style: italic }&#xA;         &#xA;         section { max-width: 32em }&#xA;         &#xA;         #page { float: right }&#xA;         &#xA;         .verse p { padding-left: 3em; text-indent: -3em }&#xA;         .stanza p { margin-top: 0ex; margin-bottom: 0ex }&#xA;         .stanza { margin-top: 3ex }&#xA;         .stanza:first-child { margin-top: 0ex}&#xA;         &#xA;         .verse .indent1 { padding-left: 3em }&#xA;         .verse .indent2 { padding-left: 4em }&#xA;         .verse .indent3 { padding-left: 5em }&#xA;         .verse .indent4 { padding-left: 6em }&#xA;         .verse .indent5 { padding-left: 7em }&#xA;         .verse .indent6 { padding-left: 8em }&#xA;         .verse .indent7 { padding-left: 9em }&#xA;         .verse .indent8 { padding-left: 10em }&#xA;         .verse .indent9 { padding-left: 11em }&#xA;         &#xA;         .panel { display: none }&#xA;         .panel.ON { display: block }&#xA;         &#xA;         .hide { color: white }&#xA;         &#xA;         #tell_panel { margin-left: 24em }&#xA;         &#xA;         #tweak_panel { z-index: 1; position: fixed; right: 1ex; margin-top: 1ex;&#xA;           width: 50%; float: right; clear: both; text-align: right; &#xA;           background-color: gainsboro; padding: 1em; border: thin outset black;&#xA;           font-family: sans-serif; font-size: 80%; overflow: auto;&#xA;           max-height: 80% }&#xA;         #tweak_panel &gt; *:first-child { margin-top: 0ex }&#xA;         &#xA;         .ctrl { display: inline-block; margin: 0ex }&#xA;         &#xA;         code.button { padding: 0.5ex 1ex; background-color: white; border: thin sold black }&#xA;   "/>
    </valueOf>
   </template>
  </co>
@@ -398,7 +398,7 @@
      </fn>
     </p.nodeSet>
     <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="36">
-     <resultDoc global="#&#xA;#Mon Aug 13 21:45:38 EDT 2018&#xA;" local="#&#xA;#Mon Aug 13 21:45:38 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc global="#&#xA;#Tue Aug 14 10:23:20 EDT 2018&#xA;" local="#&#xA;#Tue Aug 14 10:23:20 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#tell_panel"/>
       <elem role="content" line="37" name="section" nsuri="">
        <sequence>
@@ -546,9 +546,9 @@
  </co>
  <co id="2" binds="">
   <mode name="Q{}on" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="256" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="261" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-    <ifCall role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="258" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
+    <ifCall role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="263" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
      <str val="class"/>
      <fn name="string-join">
       <sequence>
@@ -600,49 +600,23 @@
        <dot role="select" type="element()"/>
       </applyT>
      </doc>
-     <sequence line="115">
-      <message>
-       <sequence role="select">
-        <valueOf>
-         <str val="pausing "/>
-        </valueOf>
-        <valueOf>
-         <convert from="xs:untypedAtomic" to="xs:string">
+     <ifCall line="119" name="Q{http://saxonica.com/ns/interactiveXSLT}schedule-action" type="item()*">
+      <arith line="117" op="+" calc="i+i">
+       <cast as="xs:integer" emptiable="0">
+        <arith op="*" calc="d*d">
+         <cvUntyped to="xs:double">
           <data>
            <varRef name="pause" slot="0"/>
           </data>
-         </convert>
-        </valueOf>
-        <valueOf>
-         <str val=" for "/>
-        </valueOf>
-        <valueOf>
-         <fn name="name">
-          <dot type="element()"/>
-         </fn>
-        </valueOf>
-       </sequence>
-       <str role="terminate" val="no"/>
-       <str role="error" val="Q{http://www.w3.org/2005/xqt-errors}XTMM9000"/>
-      </message>
-      <ifCall line="119" name="Q{http://saxonica.com/ns/interactiveXSLT}schedule-action" type="item()*">
-       <arith line="117" op="+" calc="i+i">
-        <cast as="xs:integer" emptiable="0">
-         <arith op="*" calc="d*d">
-          <cvUntyped to="xs:double">
-           <data>
-            <varRef name="pause" slot="0"/>
-           </data>
-          </cvUntyped>
-          <dbl val="360"/>
-         </arith>
-        </cast>
-        <int val="1"/>
-       </arith>
-       <empty/>
-       <callT line="120" name="show" bSlot="1"/>
-      </ifCall>
-     </sequence>
+         </cvUntyped>
+         <dbl val="360"/>
+        </arith>
+       </cast>
+       <int val="1"/>
+      </arith>
+      <empty/>
+      <callT line="120" name="show" bSlot="1"/>
+     </ifCall>
     </let>
    </templateRule>
    <templateRule prec="0" prio="-0.5" seq="1" rank="0" minImp="0" slots="0" flags="s" line="126" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
@@ -660,7 +634,7 @@
  </co>
  <co id="10" binds="7">
   <template name="Q{}xmljellysandwich_pack" flags="os" line="25" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="0">
-   <resultDoc role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="26" global="#&#xA;#Mon Aug 13 21:45:38 EDT 2018&#xA;" local="#&#xA;#Mon Aug 13 21:45:38 EDT 2018&#xA;">
+   <resultDoc role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="26" global="#&#xA;#Tue Aug 14 10:23:20 EDT 2018&#xA;" local="#&#xA;#Tue Aug 14 10:23:20 EDT 2018&#xA;">
     <str role="href" val="#teller-css"/>
     <callT role="content" line="27" name="css" bSlot="0"/>
    </resultDoc>
@@ -716,9 +690,9 @@
  </co>
  <co id="1" binds="">
   <mode name="Q{}off" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="250" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="255" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="251">
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="256">
      <message>
       <valueOf role="select" flags="S">
        <str val="OFF"/>
@@ -726,7 +700,7 @@
       <str role="terminate" val="no"/>
       <str role="error" val="Q{http://www.w3.org/2005/xqt-errors}XTMM9000"/>
      </message>
-     <ifCall line="253" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
+     <ifCall line="258" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
       <str val="class"/>
       <fn name="string-join">
        <filter flags="b">
@@ -773,4 +747,4 @@
  </output>
  <decimalFormat/>
 </package>
-<?Σ 1e637175?>
+<?Σ a29feacb?>
