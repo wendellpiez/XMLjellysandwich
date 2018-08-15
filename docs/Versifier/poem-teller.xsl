@@ -21,6 +21,11 @@
    
    <!-- Should bind to catalog document -->
    <!--<xsl:variable name="src-uri" select="document-uri(/)"/>-->
+
+
+   <xsl:key name="input-by-name" match="input" use="@name"/>
+   
+   <xsl:key name="button-by-label" match="button" use="string(.)"/>
    
    <xsl:template name="xmljellysandwich_pack">
       <xsl:result-document href="#teller-css">
@@ -72,6 +77,10 @@
    
    <xsl:template match="id('tweak_select')" mode="ixsl:click">
       <xsl:apply-templates select="id('tweak_panel')" mode="switch-in"/>
+   </xsl:template>
+   
+   <xsl:template match="code[@class='button']" mode="ixsl:click">
+      <xsl:apply-templates select="key('button-by-label',string(.))" mode="ixsl:click"/>
    </xsl:template>
    
    
@@ -175,8 +184,6 @@
       <xsl:apply-templates select="preceding::span[contains-token(@class,'phr')][1]/text()" mode="pause"/>
    </xsl:template>
    
-   <xsl:key name="input-by-name" match="input" use="@name"/>
-
 <xsl:template name="css">
          html, body { background-color: white }
          
@@ -237,11 +244,11 @@
          
          .hide { color: white }
          
-         #tell_panel { margin-left: 24em }
+         #tell_panel { margin-left: 24em; background-color: white }
          
          #tweak_panel { z-index: 1; position: fixed; right: 1ex; margin-top: 1ex;
            width: 50%; float: right; clear: both; text-align: right; 
-           background-color: gainsboro; padding: 1em; border: thin outset black;
+           background-color: lavender; padding: 1em; border: thin outset black;
            font-family: sans-serif; font-size: 80%; overflow: auto;
            max-height: 80% }
          #tweak_panel > *:first-child { margin-top: 0ex }

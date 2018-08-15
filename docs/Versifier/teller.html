@@ -32,17 +32,17 @@
           <h3 style="float:right; margin: 0px" id="page-title" onclick="void(0)">Poem Teller 2018</h3>
           <button id="text_select">Text</button>
           <button id="tell_select">Tell</button>
-          <button id="tweak_select">Help</button>
+          <button id="tweak_select">Hints</button>
         </div>
         <div class="panel" id="tweak_panel">
           <h4>Operating the Poem Teller</h4>
-          <p>The <code class="button">Help</code> button will close or open this control panel.</p>
+          <p><code class="button">Hints</code> will close or open this control panel. (Try it.)</p>
           <p><code class="button">Text</code> shows (or hides) a box for your poem.</p>
           <p>Use <code class="button">Tell</code> to <q>tell</q> it (whatever it takes).</p>
           <p>This practice helps cultivate patience with deliberate latency.</p>
-          <p>Verse lines are inferred from line breaks in the input text box.</p>
-          <p>Indents on lines are inferred from leading white space.</p>
-          <p>When (as) told, a poem will be paused with certain punctuation, adjusted below. Intervals are measured at approximately 360ms, so to pause for (about) a second, use 3.</p>
+          <p>Verse lines and stanzas are inferred from line breaks in the input text box.</p>
+          <p>Indents on lines are calculated from white space.</p>
+          <p>When (as) told, a poem will be paused with certain punctuation, adjusted below. Intervals are set to 360ms, so to pause for about a second, use 3.</p>
           
           <p class="ctrl">Pause for stanza:&#160;<input name="stanza" type="number" id="stanza-pause"
             max="20" min="0" value="9"/></p>
