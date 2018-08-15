@@ -64,7 +64,9 @@
 
       <xsl:apply-templates select="id('tweak_panel')"  mode="off"/>
       <xsl:apply-templates select="id('tell_panel')"   mode="on"/>
-      <xsl:apply-templates select="id('tell_panel')/*" mode="spill"/>
+      <!-- Start spilling from the first text node, so as to avoid the initial pause.
+           Thanks RY for the suggestion! -->
+      <xsl:apply-templates select="id('tell_panel')/descendant::text()[1]/.." mode="spill"/>
       
    </xsl:template>
    
@@ -148,11 +150,9 @@
    </xsl:template>
    
    <!-- There are also elements in the tree that give us pause ...  -->
+   
    <xsl:template mode="pause" match="*[contains-token(@class,'stanza')]"     as="xs:integer">
       <xsl:value-of select="(key('input-by-name','stanza',ixsl:page()) ! ixsl:get(., 'value'),12)[1]"/>
-   </xsl:template>
-   <xsl:template mode="pause" match="*[contains-token(@class,'verse-para')]" as="xs:integer">
-      <xsl:value-of select="(key('input-by-name','verse-para',ixsl:page()) ! ixsl:get(., 'value'),8)[1]"/>
    </xsl:template>
    
    <xsl:template mode="pause" match="*[contains-token(@class,'line')]"       as="xs:integer">
@@ -209,14 +209,13 @@
          h5.toc-entry:first-child:before { content: "" }
          
          .catalog { max-width: 60% }
-         section { border: medium solid black; padding: 1ex }
+         section { border: medium solid black; padding: 2ex }
          section * { margin: 0em }
          section .title { font-weight: bold }
          section .source { font-style: italic }
          
          section { max-width: 32em }
          
-         #page { float: right }
          
          .verse p { padding-left: 3em; text-indent: -3em }
          .stanza p { margin-top: 0ex; margin-bottom: 0ex }
