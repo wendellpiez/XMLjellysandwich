@@ -225,6 +225,9 @@
          
          section { max-width: 32em }
          
+         textarea { padding: 0.5em }
+         button { width: 7em }
+         button:hover { font-weight: bold }
          
          .verse p { padding-left: 3em; text-indent: -3em }
          .stanza p { margin-top: 0ex; margin-bottom: 0ex }
@@ -242,7 +245,7 @@
          .verse .indent9 { padding-left: 11em }
          
          .panel { display: none; padding: 2% }
-         .panel.ON { display: inline-block } // way better thanks to AMC
+         .panel.ON { display: inline-block } /* way better thanks to AMC */
          
          .hide { color: white }
           
