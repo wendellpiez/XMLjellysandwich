@@ -17,6 +17,7 @@
       <script> // loading with window so as to get interactivity bindings
         window.onload = function() {
           SaxonJS.transform({
+            sourceLocation:     "catalog.xml",
             stylesheetLocation: "poem-teller.sef",
             initialTemplate:    "xmljellysandwich_pack"
           });
@@ -33,6 +34,13 @@
           <button id="text_select">Text</button>
           <button id="tell_select">Tell</button>
           <button id="tweak_select">Hints</button>
+          <!--<select>
+            <option selected="selected" disabled="disabled">Poem</option>
+            <option>(clear)</option>
+            <option>Wordsworth</option>
+            <option>Shelley</option>
+            <option>Keats</option>
+          </select>-->
         </div>
         <div class="panel" id="tweak_panel">
           <h4>Operating the Poem Teller</h4>
@@ -77,8 +85,8 @@
   Apparelled in celestial light,
 The glory and the freshness of a dream.
 It is not now as it hath been of yore;—
-     Turn wheresoe'er I may,
-       By night or day.
+    Turn wheresoe'er I may,
+      By night or day.
 The things which I have seen I now can see no more.</textarea>
         </div>
         <div class="panel" id="tell_panel">

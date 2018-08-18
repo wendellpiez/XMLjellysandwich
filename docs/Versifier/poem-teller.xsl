@@ -31,6 +31,8 @@
       <xsl:result-document href="#teller-css">
          <xsl:call-template name="css"/>
       </xsl:result-document>
+<!-- Load by (a) populating pull down w/ links, then (b) applying templates
+      to one of them. -->
    </xsl:template>
 
    <xsl:template match="id('text_select')" mode="ixsl:click">
@@ -239,18 +241,18 @@
          .verse .indent8 { padding-left: 10em }
          .verse .indent9 { padding-left: 11em }
          
-         .panel { display: none }
-         .panel.ON { display: block }
+         .panel { display: none; padding: 2% }
+         .panel.ON { display: inline-block } // way better thanks to AMC
          
          .hide { color: white }
+          
+          #tell_panel { background-color: white }
          
-         #tell_panel { margin-left: 24em; background-color: white }
-         
-         #tweak_panel { z-index: 1; position: fixed; right: 1ex; margin-top: 1ex;
-           width: 50%; float: right; clear: both; text-align: right; 
-           background-color: lavender; padding: 1em; border: thin outset black;
-           font-family: sans-serif; font-size: 80%; overflow: auto;
-           max-height: 80% }
+          #tweak_panel { z-index: 1; position: fixed; right: 1ex; margin-top: 1ex;
+          width: 50%; float: right; clear: both; text-align: right; 
+          background-color: lavender; padding: 1em; border: thin outset black;
+          font-family: sans-serif; font-size: 80%; overflow: auto;
+          max-height: 80% }
          #tweak_panel > *:first-child { margin-top: 0ex }
          
          .ctrl { display: inline-block; margin: 0ex }
@@ -259,7 +261,7 @@
    </xsl:template>
    
    <xsl:template match="*" mode="off">
-      <xsl:message>OFF</xsl:message>
+      <!--<xsl:message>OFF</xsl:message>-->
       <ixsl:set-attribute name="class"
          select="string-join( (tokenize(@class,'\s+')[not(. eq 'ON')]), ' ')"/>
    </xsl:template>
