@@ -2,25 +2,25 @@
 <catalog>
     <card src="loveiii.xml">
         <title>Love III</title>
-        <author>George Herbert</author>
+        <author>George <index>Herbert</index></author>
         <date>1633</date>
         <source><title>The Temple</title></source>
     </card>
     <card src="exequy.xml">
         <title>Exequy</title>
-        <author>Henry King</author>
+        <author>Henry <index>King</index></author>
     </card>
     <card src="starvedmaelstrom.xml">
         <title>Starved Maelstrom</title>
-        <author>Emily Dickinson</author>
+        <author>Emily <index>Dickinson</index></author>
     </card>
     <card src="toautumn.xml">
         <title>Ode, To Autumn</title>
-        <author>John Keats</author>
+        <author>John <index>Keats</index></author>
         <date>1819</date>
     </card>
     <card src="tithonus.xml">
         <title>Tithonus</title>
-        <author>Alfred Tennyson</author>
+        <author>Alfred <index>Tennyson</index></author>
     </card>
 </catalog>

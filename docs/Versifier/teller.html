@@ -25,26 +25,22 @@
         </script>
    </head>
    <body>
-      <div id="teller-nav"><!-- target with
-      <xsl:result-document href="#xmljellysandwich_directory"> .... </xsl:result-document>
-    --></div>
       <div id="teller-body">
         <div id="nav" style="padding-bottom: 1ex">
           <h3 style="float:right; margin: 0px" id="page-title" onclick="void(0)">Poem Teller 2018</h3>
           <button id="text_select">Text</button>
           <button id="tell_select">Tell</button>
           <button id="tweak_select">Hints</button>
-          <!--<select>
-            <option selected="selected" disabled="disabled">Poem</option>
-            <option>(clear)</option>
-            <option>Wordsworth</option>
-            <option>Shelley</option>
-            <option>Keats</option>
-          </select>-->
+          <button id="dir_select">Ideas</button>
+          
+<!-- #dir_panel is populated by the XSLT -->
+          
         </div>
+        <div class="pane" id="right_pane">
+          <div class="panel" id="dir_panel"> </div>
         <div class="panel" id="tweak_panel">
           <h4>Operating the Poem Teller</h4>
-          <p><code class="button">Hints</code> will close or open this control panel. (Try it.)</p>
+          <p><code class="button">Hints</code> will close or open this control panel. <code class="button">Ideas</code> will display a list of poems to choose from. Or bring your own.</p>
           <p><code class="button">Text</code> shows (or hides) a box for your poem.</p>
           <p>Use <code class="button">Tell</code> to <q>tell</q> it (whatever it takes).</p>
           <p>This practice helps cultivate patience with deliberate latency.</p>
@@ -78,7 +74,8 @@
             max="10" min="0" value="0"/></p>
           
         </div>
-        <div class="panel ON" id="text_panel" style="float:left">
+        </div>
+        <div class="panel ON" id="text_panel">
           <textarea  rows="28" cols="50" id="poetry-in-motion">There was a time when meadow, grove, and stream,
   The earth, and every common sight,
       To me did seem

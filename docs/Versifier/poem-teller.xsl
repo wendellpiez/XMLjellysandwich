@@ -31,10 +31,48 @@
       <xsl:result-document href="#teller-css">
          <xsl:call-template name="css"/>
       </xsl:result-document>
-<!-- Load by (a) populating pull down w/ links, then (b) applying templates
-      to one of them. -->
+      <xsl:result-document href="#dir_panel" method="ixsl:replace-content">
+         <section class="toc">
+            <xsl:apply-templates select="/*/card" mode="toc"/>
+         </section>
+      </xsl:result-document>
+      <!-- XXX applying templates to click one of these links. -->
    </xsl:template>
-
+            
+   <xsl:template match="id('dir_select')" mode="ixsl:click">
+      <xsl:apply-templates select="id('dir_panel')" mode="switch-in"/>
+   </xsl:template>
+   
+   <xsl:template match="card" mode="toc">
+      <h5 class="toc-entry" data-src="{@src}" onclick="void(0)">
+         <xsl:apply-templates select="title, (author,date)[1]" mode="toc"/>
+      </h5>
+   </xsl:template>
+   
+   <xsl:template match="title" mode="toc">
+      <i>
+         <xsl:apply-templates/>
+      </i>
+   </xsl:template>
+   
+   <xsl:template match="author" mode="toc">
+      <xsl:text> (</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:apply-templates select="../date" mode="toc"/>
+      <xsl:text>)</xsl:text>
+   </xsl:template>
+   
+   <xsl:template match="date[empty(../author)]" mode="toc">
+      <xsl:text> (</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>)</xsl:text>
+   </xsl:template>
+   
+   <xsl:template match="date" mode="toc">
+      <xsl:text>, </xsl:text>
+      <xsl:apply-templates/>
+   </xsl:template>
+   
    <xsl:template match="id('text_select')" mode="ixsl:click">
       <xsl:apply-templates select="id('text_panel')" mode="switch-in"/>
    </xsl:template>
@@ -42,17 +80,28 @@
    <xsl:template match="id('tell_select')" mode="ixsl:click">
       <xsl:result-document href="#tell_panel" method="ixsl:replace-content">
          <section class="verse">
+            <!-- change context to HTML DOM node namely the box where we will find the plain text -->
             <xsl:for-each select="id('poetry-in-motion', ixsl:page())">
+               <!-- now we're at the textarea; the text is the DOM's value property. -->
+               <!-- we break it out by line groups, producing a stanza for each
+                    run of non-ws lines. -->
                <xsl:for-each-group select="tokenize(ixsl:get(., 'value'), '\n')"
                   group-adjacent="matches(., '\S')">
                   <xsl:if test="current-grouping-key()">
                      <div class="stanza">
+                        <!-- now for the lines. -->
                         <xsl:for-each select="current-group()">
+                           <!-- the indent string is any initial ws per line. -->
                            <xsl:variable name="indent" select="replace(., '\S.*$', '')"/>
+                           <!-- remove the tabs to get the spaces. NB tabs are unlikely
+                                given most web browsers but this is general. -->
                            <xsl:variable name="spaces"
                               select="string-length(replace($indent, '\t', ''))"/>
+                           <!-- the other way to get the spaces. -->
                            <xsl:variable name="tabs"
                               select="string-length(replace($indent, ' ', ''))"/>
+                           <!-- The indent will be triple the tabs, plus the spaces.
+                              The nominal space width should probably be narrow. -->
                            <p class="line indent{ ($tabs * 3) + $spaces }">
                               <!--<xsl:value-of select="."/>-->
                               <xsl:call-template name="spill-out">
@@ -62,15 +111,15 @@
                         </xsl:for-each>
                      </div>
                   </xsl:if>
-
                </xsl:for-each-group>
             </xsl:for-each>
             <!--<button id="save_me">Save me</button>-->
          </section>
       </xsl:result-document>
 
-      <xsl:apply-templates select="id('tweak_panel')"  mode="off"/>
-      <xsl:apply-templates select="id('tell_panel')"   mode="on"/>
+      <xsl:apply-templates select="id('dir_panel')"   mode="off"/>
+      <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
+      <xsl:apply-templates select="id('tell_panel')"  mode="on"/>
       <!-- Start spilling from the first text node, so as to avoid the initial pause.
            Thanks RY for the suggestion! -->
       <xsl:apply-templates select="id('tell_panel')/descendant::text()[1]/.." mode="spill"/>
@@ -85,9 +134,99 @@
       <xsl:apply-templates select="key('button-by-label',string(.))" mode="ixsl:click"/>
    </xsl:template>
    
+   <xsl:template match="h5[@class='toc-entry']" mode="ixsl:click">
+      <xsl:variable name="poem" select="document(resolve-uri(@data-src))"/>
+         <xsl:result-document href="#poetry-in-motion" method="ixsl:replace-content">
+           <xsl:apply-templates select="$poem" mode="textonly"/>
+      </xsl:result-document>
+      <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
+      <xsl:apply-templates select="id('text_panel')" mode="on"/>
+   </xsl:template>
    
+   <xsl:template mode="textonly" match="/*">
+      <xsl:apply-templates select="verse" mode="#current"/>
+   </xsl:template>
+   
+   <xsl:template mode="textonly" match="*">
+      <xsl:apply-templates select="." mode="vertical-ws"/>
+      <xsl:apply-templates mode="#current"/>
+   </xsl:template>
+   
+   
+   <xsl:template match="*" mode="vertical-ws">
+      <xsl:text>&#10;</xsl:text>
+   </xsl:template>
+   
+   <xsl:template match="l[. is /descendant::l[1]]" mode="vertical-ws"/>
+   <xsl:template match="stanza[empty(preceding-sibling::stanza)]" mode="vertical-ws"/>
+   <xsl:template match="verse-para[empty(preceding-sibling::verse-para)]" mode="vertical-ws"/>
+   <xsl:template match="couplet[empty(preceding-sibling::couplet)]" mode="vertical-ws"/>
+   
+   <!--<xsl:template mode="textonly" match="*[exists(l)]">
+      <xsl:if test="exists(preceding-sibling::*)">  <xsl:text>&#10;</xsl:text></xsl:if>
+      <xsl:apply-templates mode="#current"/>
+   </xsl:template>-->
+   
+   <xsl:template mode="textonly" match="l">
+      <xsl:apply-templates select="." mode="vertical-ws"/>
+      <xsl:apply-templates select="." mode="indent"/>
+      <xsl:apply-templates/>
+   </xsl:template>
+   
+   <xsl:template mode="textonly" match="text()[not(matches(.,'\S'))]"/>
+   
+   <xsl:template mode="textonly" priority="10" match="l//text()">
+      <xsl:value-of select="."/>
+   </xsl:template>
+   
+   
+   <!--<xsl:template match="l[exists(preceding-sibling::*|../preceding-sibling::*)]">  
+      <xsl:text>&#10;</xsl:text>
+   </xsl:template>-->
+   
+   <!-- Specialized line handling for certain poems
+        to infer indentation where it might be wanted. -->
+   
+   <xsl:template match="pub[title='Exequy']//couplet" priority="10" mode="vertical-ws">
+      <xsl:if test="count(preceding-sibling::l) mod 2">
+         <xsl:text>&#32;&#32;&#32;&#32;&#32;&#32;</xsl:text>
+      </xsl:if>
+   </xsl:template>
+   
+   <xsl:template match="*" mode="indent"/>
+   
+   <xsl:template match="pub[title='Love III']//l" priority="10" mode="indent">
+      <xsl:if test="count(preceding-sibling::l) mod 2">
+         <xsl:text>&#32;&#32;&#32;&#32;&#32;&#32;</xsl:text>
+      </xsl:if>
+   </xsl:template>
+   
+   <xsl:template match="pub[title='As the Starved Maelstrom Laps the Navies']//l" priority="10" mode="indent">
+      <xsl:if test="count(preceding-sibling::l) mod 2">
+         <xsl:text>&#32;&#32;&#32;&#32;</xsl:text>
+      </xsl:if>
+   </xsl:template>
+   
+<!-- Back in unnamed mode ...  -->
+<!-- Special handling of inline markup. -->
+   
+<!-- The Herbert example has special elements 'i' and 'love'  -->
+<!-- NB this is not "italic" 'i' !!!  -->
+   <!-- btw don't take this as a recommendation of good practice, indexing into uncontrolled values like this... -->
+   
+   <xsl:template match="pub[title='Love III']//l/i | pub[title='Love III']//l/love">
+      <xsl:if test="not(preceding::text()[matches(.,'\S')][1]/name(..) = name())">
+         <xsl:text>“</xsl:text>
+      </xsl:if>
+      <xsl:apply-templates mode="#current"/>
+      <xsl:if test="not(following::text()[matches(.,'\S')][1]/name(..) = name())">
+        <xsl:text>”</xsl:text>      
+      </xsl:if>
+   </xsl:template>
 
-<!-- matching div.panel elements, turns its display on and its neighbor div.panel elements, off  -->
+   <!-- Back to regular UI programming -->
+   
+   <!-- matching div.panel elements, turns its display on and its neighbor div.panel elements, off  -->
    <xsl:template mode="switch-in" match="*[contains-token(@class,'ON')]">
             <xsl:apply-templates select="." mode="off"/>
    </xsl:template>
@@ -211,23 +350,13 @@
           font-family: 'Roboto Slab', sans-serif;
           margin-top: 1em }
          
-         
-         h5.toc-entry { display: inline-block; margin: 0em }
-         // .toc-entry:before { content: " ❖ " }
-         h5.toc-entry:before { content: " ☙ " }
-         h5.toc-entry:first-child:before { content: "" }
-         
-         .catalog { max-width: 60% }
-         section { border: medium solid black; padding: 2ex }
-         section * { margin: 0em }
-         section .title { font-weight: bold }
-         section .source { font-style: italic }
-         
-         section { max-width: 32em }
-         
+                  
+        
          textarea { padding: 0.5em }
          button { width: 7em }
          button:hover { font-weight: bold }
+         
+         section.verse { border: medium solid black; padding: 2ex }
          
          .verse p { padding-left: 3em; text-indent: -3em }
          .stanza p { margin-top: 0ex; margin-bottom: 0ex }
@@ -244,19 +373,28 @@
          .verse .indent8 { padding-left: 10em }
          .verse .indent9 { padding-left: 11em }
          
-         .panel { display: none; padding: 2% }
+         .panel { display: none; padding: 2%; vertical-align: text-top }
          .panel.ON { display: inline-block } /* way better thanks to AMC */
          
-         .hide { color: white }
+         .hide { display: none }
           
           #tell_panel { background-color: white }
          
-          #tweak_panel { z-index: 1; position: fixed; right: 1ex; margin-top: 1ex;
-          width: 50%; float: right; clear: both; text-align: right; 
-          background-color: lavender; padding: 1em; border: thin outset black;
-          font-family: sans-serif; font-size: 80%; overflow: auto;
-          max-height: 80% }
+         .pane * { margin-top: 1ex; margin-bottom: 1ex }
+         
+         #right_pane { width: 50%; float: right; clear: both }
+         
+         #tweak_panel { text-align: right;
+         background-color: lavender; padding: 1em; border: thin outset black;
+         font-family: sans-serif; font-size: 80%; overflow: auto;
+         max-height: 80% }
          #tweak_panel > *:first-child { margin-top: 0ex }
+         
+         #dir_panel { 
+            background-color: lightsteelblue;
+            padding: 1em; border: thin outset black;
+            font-family: sans-serif }
+         #dir_panel > *:first-child { margin-top: 0ex }
          
          .ctrl { display: inline-block; margin: 0ex }
          

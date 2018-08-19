@@ -8,19 +8,6 @@
     exclude-result-prefixes="#all">
 
 
-<!--Starter XSLT written courtesy of XML Jelly Sandwich -->
-
-
-   <!-- We'd do this dynamically if SaxonJS supported accumulators - 
-      
-      <xsl:include href="accrue-timing.xsl"/>
-   
-   <xsl:variable name="all-timed">
-      <xsl:call-template name="mark-time"/>
-   </xsl:variable>-->
-   
-   <!-- Should bind to catalog document -->
-   <!--<xsl:variable name="src-uri" select="document-uri(/)"/>-->
    
    <xsl:template name="xmljellysandwich_pack">
 <!-- Target page components by assigning transformation results to them via their IDs in the host page. -->
