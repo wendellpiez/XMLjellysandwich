@@ -36,12 +36,24 @@
             <xsl:apply-templates select="/*/card" mode="toc"/>
          </section>
       </xsl:result-document>
+      <xsl:result-document href="#pause_control" method="ixsl:replace-content">
+            <xsl:sequence select="$pause-defaults"/>
+      </xsl:result-document>
+      
       <!-- XXX applying templates to click one of these links. -->
    </xsl:template>
             
    <xsl:template match="id('dir_select')" mode="ixsl:click">
       <xsl:apply-templates select="id('dir_panel')" mode="switch-in"/>
    </xsl:template>
+   
+   <xsl:template match="id('reset')" mode="ixsl:click">
+      <xsl:result-document href="#pause_control" method="ixsl:replace-content">
+         <xsl:sequence select="$pause-defaults"/>
+      </xsl:result-document>
+   </xsl:template>
+   
+   
    
    <xsl:template match="card" mode="toc">
       <h5 class="toc-entry" data-src="{@src}" onclick="void(0)">
@@ -301,9 +313,38 @@
       <xsl:value-of select="(key('input-by-name','fallback',ixsl:page()) ! ixsl:get(., 'value'),0)[1]"/>
    </xsl:template>
    
+   <xsl:variable name="pause-defaults">
+      <p class="ctrl">Pause for stanza:&#160;<input name="stanza" type="number" id="stanza-pause"
+         max="20" min="0" value="9"/></p>
+      <!--<p class="ctrl">Pause for verse paragraph:&#160;<input name="verse-para" type="number" id="verse-para_pause"
+            max="20" min="0" value="8"/></p>-->
+      <p class="ctrl">Pause for line:&#160;<input name="l" type="number" id="line_pause"
+         max="20" min="0" value="3"/></p>
+      <p class="ctrl">Pause for <q>.</q> (period):&#160;<input name="." type="number" id="period_pause"
+         max="20" min="0" value="7"/></p>
+      <p class="ctrl"><q>!</q> (exclamation point):&#160;<input name="!" type="number" id="exclamation_pause"
+         max="20" min="0" value="5"/></p>
+      <p class="ctrl"><q>?</q> (question mark):&#160;<input name="?" type="number" id="question_pause"
+         max="20" min="0" value="5"/></p>
+      <p class="ctrl"><q>;</q> (semicolon):&#160;<input name=";" type="number" id="semicolon_pause"
+         max="20" min="0" value="5"/></p>
+      <p class="ctrl"><q>,</q> (comma):&#160;<input name="," type="number" id="comma_pause"
+         max="20" min="0" value="4"/></p>
+      <p class="ctrl"><q>:</q> (colon):&#160;<input name=":" type="number" id="colon_pause"
+         max="20" min="0" value="5"/></p>
+      <p class="ctrl"><q>—</q> (em dash):&#160;<input name="—" type="number" id="emdash_pause"
+         max="20" min="0" value="4"/></p>
+      <p class="ctrl"><q>…</q> (ellipsis):&#160;<input name="…" type="number" id="ellipsis_pause"
+         max="20" min="0" value="5"/></p>
+      <p class="ctrl">Fallback pause:&#160;<input name="fallback" type="number" id="fallback_pause"
+         max="10" min="0" value="0"/></p>
+   </xsl:variable>
+   
    <xsl:template mode="pause" match="text()[matches(.,('[' || $terminalchars|| ']$'))]" as="xs:integer">
       <xsl:variable name="char" select="replace(.,('.*([' || $terminalchars|| '])$'),'$1')"/>
-      <xsl:value-of select="(key('input-by-name',$char,ixsl:page()) ! ixsl:get(., 'value'),0)[1]"/>
+      <xsl:variable name="delay" select="xs:integer((key('input-by-name',$char,ixsl:page()) ! ixsl:get(., 'value'),0)[1])"/>
+      <!--<xsl:message>char is <xsl:value-of select="$char"/>, delay is <xsl:value-of select="$delay"/></xsl:message>-->
+      <xsl:sequence select="$delay"/>
    </xsl:template>
    
    <!-- There are also elements in the tree that give us pause ...  -->
@@ -363,7 +404,7 @@
          button { width: 7em }
          button:hover { font-weight: bold }
          
-         section.verse { border: medium solid black; padding: 2ex }
+         section.verse { border: medium double black; padding: 2ex }
          
          .verse p { padding-left: 3em; text-indent: -3em }
          .stanza p { margin-top: 0ex; margin-bottom: 0ex }
