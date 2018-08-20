@@ -14,6 +14,10 @@
         <title>Starved Maelstrom</title>
         <author>Emily <index>Dickinson</index></author>
     </card>
+    <card src="intimations.xml">
+        <title>Intimations of Immortality</title>
+        <author>William <index>Wordsworth</index></author>
+    </card>
     <card src="toautumn.xml">
         <title>Ode, To Autumn</title>
         <author>John <index>Keats</index></author>

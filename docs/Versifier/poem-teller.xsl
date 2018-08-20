@@ -157,6 +157,7 @@
       <xsl:text>&#10;</xsl:text>
    </xsl:template>
    
+   <xsl:template match="verse" mode="vertical-ws"/>
    <xsl:template match="l[. is /descendant::l[1]]" mode="vertical-ws"/>
    <xsl:template match="stanza[empty(preceding-sibling::stanza)]" mode="vertical-ws"/>
    <xsl:template match="verse-para[empty(preceding-sibling::verse-para)]" mode="vertical-ws"/>
@@ -205,6 +206,12 @@
       <xsl:if test="count(preceding-sibling::l) mod 2">
          <xsl:text>&#32;&#32;&#32;&#32;</xsl:text>
       </xsl:if>
+   </xsl:template>
+   
+   <xsl:template match="l[@indent castable as xs:integer]" priority="8" mode="indent">
+      <xsl:for-each select="1 to xs:integer(@indent)">
+         <xsl:text>&#32;</xsl:text>
+      </xsl:for-each>
    </xsl:template>
    
 <!-- Back in unnamed mode ...  -->

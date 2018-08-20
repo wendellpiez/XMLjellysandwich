@@ -2,31 +2,31 @@
 <package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.8.0.12" target="JS" targetVersion="1" relocatable="false">
  <co id="0" binds="1 2">
   <mode name="Q{}switch-in" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="s" line="230" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="s" line="237" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="230" name="contains-token">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="237" name="contains-token">
       <cvUntyped to="xs:string">
        <attVal name="Q{}class" chk="0"/>
       </cvUntyped>
       <str val="ON"/>
      </fn>
     </p.withPredicate>
-    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="231" mode="Q{}off" flags="t" bSlot="0">
+    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="238" mode="Q{}off" flags="t" bSlot="0">
      <dot role="select" type="element()"/>
     </applyT>
    </templateRule>
-   <templateRule prec="0" prio="-0.5" seq="1" rank="0" minImp="0" slots="0" flags="s" line="234" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.5" seq="1" rank="0" minImp="0" slots="0" flags="s" line="241" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="235" mode="Q{}on" flags="t" bSlot="1">
+    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="242" mode="Q{}on" flags="t" bSlot="1">
      <dot role="select" type="element()"/>
     </applyT>
    </templateRule>
   </mode>
  </co>
  <co id="3" binds="4">
-  <template name="Q{}show" flags="os" line="285" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="0">
-   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="287">
+  <template name="Q{}show" flags="os" line="292" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="0">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="294">
     <ifCall name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
      <str val="class"/>
      <fn name="string-join">
@@ -53,7 +53,7 @@
       <str val=" "/>
      </fn>
     </ifCall>
-    <applyT line="288" mode="Q{}spill" flags="t" bSlot="0">
+    <applyT line="295" mode="Q{}spill" flags="t" bSlot="0">
      <first role="select">
       <slash>
        <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
@@ -164,7 +164,7 @@
   </mode>
  </co>
  <co id="7" binds="">
-  <globalVariable name="Q{}terminalchars" type="xs:string" line="239" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+  <globalVariable name="Q{}terminalchars" type="xs:string" line="246" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
    <str val="\.!\?;,:—…"/>
   </globalVariable>
  </co>
@@ -190,26 +190,26 @@
      </applyT>
     </sequence>
    </templateRule>
-   <templateRule prec="0" prio="0.0" seq="2" rank="1" minImp="0" slots="0" flags="s" line="170" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.0" seq="2" rank="1" minImp="0" slots="0" flags="s" line="171" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='l';"/>
-    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="171">
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="172">
      <applyT mode="Q{}vertical-ws" bSlot="1">
       <dot role="select" type="element(Q{}l)"/>
      </applyT>
-     <applyT line="172" mode="Q{}indent" bSlot="2">
+     <applyT line="173" mode="Q{}indent" bSlot="2">
       <dot role="select" type="element(Q{}l)"/>
      </applyT>
-     <applyT line="173" flags="ti" bSlot="3">
+     <applyT line="174" flags="ti" bSlot="3">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
      </applyT>
     </sequence>
    </templateRule>
-   <templateRule prec="0" prio="10.0" seq="4" rank="3" minImp="0" slots="0" flags="s" line="178" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="10.0" seq="4" rank="3" minImp="0" slots="0" flags="s" line="179" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withUpper role="match" axis="ancestor" upFirst="false">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
      <p.nodeTest test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='l';"/>
     </p.withUpper>
-    <valueOf role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="179">
+    <valueOf role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="180">
      <convert from="xs:untypedAtomic" to="xs:string">
       <data>
        <dot type="text()"/>
@@ -217,10 +217,10 @@
      </convert>
     </valueOf>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="3" rank="2" minImp="0" slots="0" flags="s" line="176" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="3" rank="2" minImp="0" slots="0" flags="s" line="177" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="176" name="not">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="177" name="not">
       <fn name="matches">
        <cvUntyped to="xs:string">
         <data>
@@ -238,16 +238,16 @@
  </co>
  <co id="10" binds="">
   <mode name="Q{}indent" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="196" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="197" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
     <empty role="action"/>
    </templateRule>
-   <templateRule prec="0" prio="10.0" seq="2" rank="1" minImp="0" slots="0" flags="s" line="204" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="10.0" seq="2" rank="2" minImp="0" slots="0" flags="s" line="205" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withUpper role="match" axis="ancestor" upFirst="false">
      <p.nodeTest test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='l';"/>
      <p.withPredicate>
       <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
-      <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="204" op="=" card="M:N" comp="CCC">
+      <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="205" op="=" card="M:N" comp="CCC">
        <data>
         <axis name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
        </data>
@@ -255,7 +255,7 @@
       </gc>
      </p.withPredicate>
     </p.withUpper>
-    <choose role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="205">
+    <choose role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="206">
      <arith op="mod" calc="i%i">
       <fn name="count">
        <slash simple="1">
@@ -270,12 +270,12 @@
      </valueOf>
     </choose>
    </templateRule>
-   <templateRule prec="0" prio="10.0" seq="1" rank="1" minImp="0" slots="0" flags="s" line="198" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="10.0" seq="1" rank="2" minImp="0" slots="0" flags="s" line="199" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withUpper role="match" axis="ancestor" upFirst="false">
      <p.nodeTest test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='l';"/>
      <p.withPredicate>
       <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
-      <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="198" op="=" card="M:N" comp="CCC">
+      <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="199" op="=" card="M:N" comp="CCC">
        <data>
         <axis name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
        </data>
@@ -283,7 +283,7 @@
       </gc>
      </p.withPredicate>
     </p.withUpper>
-    <choose role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="199">
+    <choose role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="200">
      <arith op="mod" calc="i%i">
       <fn name="count">
        <slash simple="1">
@@ -298,16 +298,35 @@
      </valueOf>
     </choose>
    </templateRule>
+   <templateRule prec="0" prio="8.0" seq="3" rank="1" minImp="0" slots="0" flags="s" line="211" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+    <p.withPredicate role="match">
+     <p.nodeTest test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='l';"/>
+     <castable baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="211" as="xs:integer" emptiable="0">
+      <axis name="attribute" nodeTest="attribute(Q{}indent)" jsTest="return item.name==='indent'"/>
+     </castable>
+    </p.withPredicate>
+    <forEach role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="212">
+     <to>
+      <int val="1"/>
+      <cast as="xs:integer" emptiable="1">
+       <attVal name="Q{}indent" chk="0"/>
+      </cast>
+     </to>
+     <valueOf>
+      <str val=" "/>
+     </valueOf>
+    </forEach>
+   </templateRule>
   </mode>
  </co>
  <co id="11" binds="11 7 7">
   <mode name="Q{}pause" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="1.0" seq="4" rank="2" minImp="0" slots="0" flags="s" as="xs:integer" line="312" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="1.0" seq="4" rank="2" minImp="0" slots="0" flags="s" as="xs:integer" line="319" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <axis baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="312" name="attribute" nodeTest="attribute(Q{}data-pause)" jsTest="return item.name==='data-pause'"/>
+     <axis baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="319" name="attribute" nodeTest="attribute(Q{}data-pause)" jsTest="return item.name==='data-pause'"/>
     </p.withPredicate>
-    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="313" to="xs:integer">
+    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="320" to="xs:integer">
      <cast as="xs:untypedAtomic" emptiable="0">
       <fn name="string">
        <convert from="xs:integer" to="xs:string">
@@ -319,17 +338,17 @@
      </cast>
     </cvUntyped>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="3" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="308" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="3" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="315" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="308" name="contains-token">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="315" name="contains-token">
       <cvUntyped to="xs:string">
        <attVal name="Q{}class" chk="0"/>
       </cvUntyped>
       <str val="line"/>
      </fn>
     </p.withPredicate>
-    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="309" to="xs:integer">
+    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="316" to="xs:integer">
      <cast as="xs:untypedAtomic" emptiable="0">
       <fn name="string-join">
        <convert from="xs:anyAtomicType" to="xs:string">
@@ -359,17 +378,17 @@
      </cast>
     </cvUntyped>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="2" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="304" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="2" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="311" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="304" name="contains-token">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="311" name="contains-token">
       <cvUntyped to="xs:string">
        <attVal name="Q{}class" chk="0"/>
       </cvUntyped>
       <str val="stanza"/>
      </fn>
     </p.withPredicate>
-    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="305" to="xs:integer">
+    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="312" to="xs:integer">
      <cast as="xs:untypedAtomic" emptiable="0">
       <fn name="string-join">
        <convert from="xs:anyAtomicType" to="xs:string">
@@ -399,10 +418,10 @@
      </cast>
     </cvUntyped>
    </templateRule>
-   <templateRule prec="0" prio="10.0" seq="5" rank="3" minImp="0" slots="0" flags="s" as="xs:integer" line="321" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="10.0" seq="5" rank="3" minImp="0" slots="0" flags="s" as="xs:integer" line="328" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='span';"/>
-     <is baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="321" op="is">
+     <is baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="328" op="is">
       <dot type="element(Q{}span)"/>
       <slash>
        <fn name="root">
@@ -424,17 +443,17 @@
     </p.withPredicate>
     <int role="action" val="0"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="6" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="323" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="6" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="330" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='span';"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="323" name="contains-token">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="330" name="contains-token">
       <cvUntyped to="xs:string">
        <attVal name="Q{}class" chk="0"/>
       </cvUntyped>
       <str val="phr"/>
      </fn>
     </p.withPredicate>
-    <treat role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="325" as="xs:integer" jsTest="return SaxonJS.U.Atomic.integer.matches(item);" diag="7|0|XTTE0505|match=&#34;span[contains-token(@class,'phr')]&#34; mode=&#34;pause&#34;">
+    <treat role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="332" as="xs:integer" jsTest="return SaxonJS.U.Atomic.integer.matches(item);" diag="7|0|XTTE0505|match=&#34;span[contains-token(@class,'phr')]&#34; mode=&#34;pause&#34;">
      <check card="1" diag="7|0|XTTE0505|match=&#34;span[contains-token(@class,'phr')]&#34; mode=&#34;pause&#34;">
       <cvUntyped to="xs:integer">
        <data>
@@ -462,10 +481,10 @@
      </check>
     </treat>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="1" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="297" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="1" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="304" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="297" name="matches">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="304" name="matches">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -479,7 +498,7 @@
       <str val=""/>
      </fn>
     </p.withPredicate>
-    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="299" to="xs:integer">
+    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="306" to="xs:integer">
      <cast as="xs:untypedAtomic" emptiable="0">
       <fn name="string-join">
        <convert from="xs:anyAtomicType" to="xs:string">
@@ -489,7 +508,7 @@
            <forEach>
             <fn name="key">
              <str val="input-by-name"/>
-             <fn line="298" name="replace">
+             <fn line="305" name="replace">
               <cvUntyped to="xs:string">
                <data>
                 <dot type="text()"/>
@@ -522,9 +541,9 @@
      </cast>
     </cvUntyped>
    </templateRule>
-   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" as="xs:integer" line="293" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" as="xs:integer" line="300" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="( element() | text() | comment() | processing-instruction() )" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===1 || item.nodeType===3 || item.nodeType===7 || item.nodeType===8);"/>
-    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="294" to="xs:integer">
+    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="301" to="xs:integer">
      <cast as="xs:untypedAtomic" emptiable="0">
       <fn name="string-join">
        <convert from="xs:anyAtomicType" to="xs:string">
@@ -557,8 +576,8 @@
   </mode>
  </co>
  <co id="12" binds="">
-  <template name="Q{}css" flags="os" line="328" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="0">
-   <valueOf role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="328">
+  <template name="Q{}css" flags="os" line="335" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="0">
+   <valueOf role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="335">
     <str val="&#xA;         html, body { background-color: white }&#xA;         &#xA;         .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }&#xA;         &#xA;         &#xA;         .pub { }&#xA;         &#xA;         .title { }&#xA;         &#xA;         .author { }&#xA;         &#xA;         .l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }&#xA;         &#xA;         .l * { display: inline }&#xA;         &#xA;         span.phr {transition: color 1s ease-in;&#xA;              -moz-transition: color 1s ease-in;&#xA;              -webkit-transition: color 1s ease-in; }&#xA;         &#xA;         #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;&#xA;          border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;&#xA;          font-family: 'Roboto Slab', sans-serif;&#xA;          margin-top: 1em }&#xA;         &#xA;                  &#xA;        &#xA;         textarea { padding: 0.5em }&#xA;         button { width: 7em }&#xA;         button:hover { font-weight: bold }&#xA;         &#xA;         section.verse { border: medium solid black; padding: 2ex }&#xA;         &#xA;         .verse p { padding-left: 3em; text-indent: -3em }&#xA;         .stanza p { margin-top: 0ex; margin-bottom: 0ex }&#xA;         .stanza { margin-top: 3ex }&#xA;         .stanza:first-child { margin-top: 0ex}&#xA;         &#xA;         .verse .indent1 { padding-left: 3em }&#xA;         .verse .indent2 { padding-left: 4em }&#xA;         .verse .indent3 { padding-left: 5em }&#xA;         .verse .indent4 { padding-left: 6em }&#xA;         .verse .indent5 { padding-left: 7em }&#xA;         .verse .indent6 { padding-left: 8em }&#xA;         .verse .indent7 { padding-left: 9em }&#xA;         .verse .indent8 { padding-left: 10em }&#xA;         .verse .indent9 { padding-left: 11em }&#xA;         &#xA;         .panel { display: none; padding: 2%; vertical-align: text-top }&#xA;         .panel.ON { display: inline-block } /* way better thanks to AMC */&#xA;         &#xA;         .hide { display: none }&#xA;          &#xA;          #tell_panel { background-color: white }&#xA;         &#xA;         .pane * { margin-top: 1ex; margin-bottom: 1ex }&#xA;         &#xA;         #right_pane { width: 50%; float: right; clear: both }&#xA;         &#xA;         #tweak_panel { text-align: right;&#xA;         background-color: lavender; padding: 1em; border: thin outset black;&#xA;         font-family: sans-serif; font-size: 80%; overflow: auto;&#xA;         max-height: 80% }&#xA;         #tweak_panel &gt; *:first-child { margin-top: 0ex }&#xA;         &#xA;         #dir_panel { &#xA;            background-color: lightsteelblue;&#xA;            padding: 1em; border: thin outset black;&#xA;            font-family: sans-serif }&#xA;         #dir_panel &gt; *:first-child { margin-top: 0ex }&#xA;         &#xA;         .ctrl { display: inline-block; margin: 0ex }&#xA;         &#xA;         code.button { padding: 0.5ex 1ex; background-color: white; border: thin sold black }&#xA;   "/>
    </valueOf>
   </template>
@@ -584,7 +603,7 @@
      </fn>
     </p.nodeSet>
     <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="81">
-     <resultDoc global="#&#xA;#Sun Aug 19 15:41:49 EDT 2018&#xA;" local="#&#xA;#Sun Aug 19 15:41:49 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc global="#&#xA;#Mon Aug 20 11:38:22 EDT 2018&#xA;" local="#&#xA;#Mon Aug 20 11:38:22 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#tell_panel"/>
       <elem role="content" line="82" name="section" nsuri="">
        <sequence>
@@ -761,7 +780,7 @@
      </gc>
     </p.withPredicate>
     <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="139">
-     <resultDoc global="#&#xA;#Sun Aug 19 15:41:49 EDT 2018&#xA;" local="#&#xA;#Sun Aug 19 15:41:49 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc global="#&#xA;#Mon Aug 20 11:38:22 EDT 2018&#xA;" local="#&#xA;#Mon Aug 20 11:38:22 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#poetry-in-motion"/>
       <applyT role="content" line="140" mode="Q{}textonly" bSlot="8">
        <fn role="select" line="138" name="document">
@@ -812,30 +831,34 @@
      <str val="&#xA;"/>
     </valueOf>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="3" rank="1" minImp="0" slots="0" flags="s" line="162" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="4" rank="2" minImp="0" slots="0" flags="s" line="163" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element(Q{}verse-para)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse-para';"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="162" name="empty">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="163" name="empty">
       <axis name="preceding-sibling" nodeTest="element(Q{}verse-para)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse-para';"/>
      </fn>
     </p.withPredicate>
     <empty role="action"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="2" rank="1" minImp="0" slots="0" flags="s" line="161" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.0" seq="1" rank="1" minImp="0" slots="0" flags="s" line="160" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+    <p.nodeTest role="match" test="element(Q{}verse)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse';"/>
+    <empty role="action"/>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="3" rank="2" minImp="0" slots="0" flags="s" line="162" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element(Q{}stanza)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='stanza';"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="161" name="empty">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="162" name="empty">
       <axis name="preceding-sibling" nodeTest="element(Q{}stanza)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='stanza';"/>
      </fn>
     </p.withPredicate>
     <empty role="action"/>
    </templateRule>
-   <templateRule prec="0" prio="10.0" seq="5" rank="2" minImp="0" slots="0" flags="s" line="190" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="10.0" seq="6" rank="3" minImp="0" slots="0" flags="s" line="191" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withUpper role="match" axis="ancestor" upFirst="false">
      <p.nodeTest test="element(Q{}couplet)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='couplet';"/>
      <p.withPredicate>
       <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
-      <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="190" op="=" card="M:N" comp="CCC">
+      <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="191" op="=" card="M:N" comp="CCC">
        <data>
         <axis name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
        </data>
@@ -843,7 +866,7 @@
       </gc>
      </p.withPredicate>
     </p.withUpper>
-    <choose role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="191">
+    <choose role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="192">
      <arith op="mod" calc="i%i">
       <fn name="count">
        <slash simple="1">
@@ -858,19 +881,19 @@
      </valueOf>
     </choose>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="4" rank="1" minImp="0" slots="0" flags="s" line="163" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="5" rank="2" minImp="0" slots="0" flags="s" line="164" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element(Q{}couplet)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='couplet';"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="163" name="empty">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="164" name="empty">
       <axis name="preceding-sibling" nodeTest="element(Q{}couplet)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='couplet';"/>
      </fn>
     </p.withPredicate>
     <empty role="action"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="1" rank="1" minImp="0" slots="0" flags="s" line="160" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="2" rank="2" minImp="0" slots="0" flags="s" line="161" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='l';"/>
-     <is baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="160" op="is">
+     <is baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="161" op="is">
       <dot type="element(Q{}l)"/>
       <slash>
        <root/>
@@ -886,9 +909,9 @@
  </co>
  <co id="2" binds="">
   <mode name="Q{}on" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="410" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="417" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-    <ifCall role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="412" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
+    <ifCall role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="419" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
      <str val="class"/>
      <fn name="string-join">
       <sequence>
@@ -915,10 +938,10 @@
  </co>
  <co id="4" binds="11 3 4">
   <mode name="Q{}spill" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="0.5" seq="2" rank="2" minImp="0" slots="0" flags="s" line="283" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="2" rank="2" minImp="0" slots="0" flags="s" line="290" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="283" name="empty">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="290" name="empty">
       <filter flags="b">
        <axis name="ancestor-or-self" nodeTest="element()" jsTest="return item.nodeType===1;"/>
        <fn name="contains-token">
@@ -932,16 +955,16 @@
     </p.withPredicate>
     <empty role="action"/>
    </templateRule>
-   <templateRule prec="0" prio="-0.2" seq="0" rank="1" minImp="0" slots="1" flags="s" line="263" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.2" seq="0" rank="1" minImp="0" slots="1" flags="s" line="270" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-    <let role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="264" var="pause" as="document-node()" slot="0" eval="7">
-     <doc line="265" base="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" validation="preserve">
+    <let role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="271" var="pause" as="document-node()" slot="0" eval="7">
+     <doc line="272" base="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" validation="preserve">
       <applyT mode="Q{}pause" bSlot="0">
        <dot role="select" type="element()"/>
       </applyT>
      </doc>
-     <ifCall line="271" name="Q{http://saxonica.com/ns/interactiveXSLT}schedule-action" type="item()*">
-      <arith line="269" op="+" calc="i+i">
+     <ifCall line="278" name="Q{http://saxonica.com/ns/interactiveXSLT}schedule-action" type="item()*">
+      <arith line="276" op="+" calc="i+i">
        <cast as="xs:integer" emptiable="0">
         <arith op="*" calc="d*d">
          <cvUntyped to="xs:double">
@@ -955,13 +978,13 @@
        <int val="1"/>
       </arith>
       <empty/>
-      <callT line="272" name="show" bSlot="1"/>
+      <callT line="279" name="show" bSlot="1"/>
      </ifCall>
     </let>
    </templateRule>
-   <templateRule prec="0" prio="-0.5" seq="1" rank="0" minImp="0" slots="0" flags="s" line="278" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.5" seq="1" rank="0" minImp="0" slots="0" flags="s" line="285" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="( element() | text() | comment() | processing-instruction() )" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===1 || item.nodeType===3 || item.nodeType===7 || item.nodeType===8);"/>
-    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="279" mode="Q{}spill" flags="t" bSlot="2">
+    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="286" mode="Q{}spill" flags="t" bSlot="2">
      <first role="select">
       <union op="|">
        <axis name="child" nodeTest="node()" jsTest="return SaxonJS.U.isNode(item);"/>
@@ -975,11 +998,11 @@
  <co id="15" binds="12 5">
   <template name="Q{}xmljellysandwich_pack" flags="os" line="30" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="0">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="31">
-    <resultDoc global="#&#xA;#Sun Aug 19 15:41:49 EDT 2018&#xA;" local="#&#xA;#Sun Aug 19 15:41:49 EDT 2018&#xA;">
+    <resultDoc global="#&#xA;#Mon Aug 20 11:38:22 EDT 2018&#xA;" local="#&#xA;#Mon Aug 20 11:38:22 EDT 2018&#xA;">
      <str role="href" val="#teller-css"/>
      <callT role="content" line="32" name="css" bSlot="0"/>
     </resultDoc>
-    <resultDoc line="34" global="#&#xA;#Sun Aug 19 15:41:49 EDT 2018&#xA;" local="#&#xA;#Sun Aug 19 15:41:49 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc line="34" global="#&#xA;#Mon Aug 20 11:38:22 EDT 2018&#xA;" local="#&#xA;#Mon Aug 20 11:38:22 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#dir_panel"/>
      <elem role="content" line="35" name="section" nsuri="">
       <sequence>
@@ -1002,8 +1025,8 @@
   </template>
  </co>
  <co id="14" binds="7 7">
-  <template name="Q{}spill-out" flags="os" line="241" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="1">
-   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="242">
+  <template name="Q{}spill-out" flags="os" line="248" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" slots="1">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="249">
     <param name="Q{}spilling" slot="0" flags="i" as="xs:string">
      <treat role="conversion" as="xs:string" jsTest="return SaxonJS.U.Atomic.string.matches(item);" diag="8|0|XTTE0590|spilling">
       <check card="1" diag="8|0|XTTE0590|spilling">
@@ -1015,7 +1038,7 @@
       </check>
      </treat>
     </param>
-    <analyzeString line="244">
+    <analyzeString line="251">
      <varRef role="select" name="spilling" slot="0"/>
      <fn role="regex" name="concat">
       <str val="[^"/>
@@ -1025,22 +1048,22 @@
       <str val="]"/>
      </fn>
      <str role="flags" val=""/>
-     <elem role="matching" line="246" name="span" nsuri="">
+     <elem role="matching" line="253" name="span" nsuri="">
       <sequence>
        <att name="class" flags="l">
         <str val="phr hide"/>
        </att>
-       <valueOf line="247" flags="l">
+       <valueOf line="254" flags="l">
         <dot type="xs:string"/>
        </valueOf>
       </sequence>
      </elem>
-     <elem role="nonMatching" line="251" name="span" nsuri="">
+     <elem role="nonMatching" line="258" name="span" nsuri="">
       <sequence>
        <att name="class" flags="l">
         <str val="phr hide"/>
        </att>
-       <valueOf line="252" flags="l">
+       <valueOf line="259" flags="l">
         <dot type="xs:string"/>
        </valueOf>
       </sequence>
@@ -1051,9 +1074,9 @@
  </co>
  <co id="1" binds="">
   <mode name="Q{}off" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="404" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="411" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-    <ifCall role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="407" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
+    <ifCall role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="414" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
      <str val="class"/>
      <fn name="string-join">
       <filter flags="b">
@@ -1077,14 +1100,14 @@
  </co>
  <co id="6" binds="">
   <mode onNo="TC" flags="dW" patternSlots="0">
-   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="s" line="217" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="s" line="224" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withUpper role="match" axis="parent" upFirst="false">
      <p.nodeTest test="element(Q{}i)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='i';"/>
      <p.withUpper axis="ancestor" upFirst="false">
       <p.nodeTest test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='l';"/>
       <p.withPredicate>
        <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
-       <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="217" op="=" card="M:N" comp="CCC">
+       <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="224" op="=" card="M:N" comp="CCC">
         <data>
          <axis name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
         </data>
@@ -1093,7 +1116,7 @@
       </p.withPredicate>
      </p.withUpper>
     </p.withUpper>
-    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="218">
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="225">
      <choose>
       <fn name="not">
        <gc op="=" card="1:1" comp="CCC">
@@ -1130,10 +1153,10 @@
        <str val="“"/>
       </valueOf>
      </choose>
-     <applyT line="221" flags="ci" bSlot="-1">
+     <applyT line="228" flags="ci" bSlot="-1">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
      </applyT>
-     <choose line="222">
+     <choose line="229">
       <fn name="not">
        <gc op="=" card="1:1" comp="CCC">
         <slash>
@@ -1168,14 +1191,14 @@
      </choose>
     </sequence>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="s" line="217" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.5" seq="0" rank="1" minImp="0" slots="0" flags="s" line="224" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.withUpper role="match" axis="parent" upFirst="false">
      <p.nodeTest test="element(Q{}love)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='love';"/>
      <p.withUpper axis="ancestor" upFirst="false">
       <p.nodeTest test="element(Q{}l)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='l';"/>
       <p.withPredicate>
        <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
-       <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="217" op="=" card="M:N" comp="CCC">
+       <gc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="224" op="=" card="M:N" comp="CCC">
         <data>
          <axis name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
         </data>
@@ -1184,7 +1207,7 @@
       </p.withPredicate>
      </p.withUpper>
     </p.withUpper>
-    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="218">
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="225">
      <choose>
       <fn name="not">
        <gc op="=" card="1:1" comp="CCC">
@@ -1221,10 +1244,10 @@
        <str val="“"/>
       </valueOf>
      </choose>
-     <applyT line="221" flags="ci" bSlot="-1">
+     <applyT line="228" flags="ci" bSlot="-1">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
      </applyT>
-     <choose line="222">
+     <choose line="229">
       <fn name="not">
        <gc op="=" card="1:1" comp="CCC">
         <slash>
@@ -1259,9 +1282,9 @@
      </choose>
     </sequence>
    </templateRule>
-   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="s" line="259" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
+   <templateRule prec="0" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="s" line="266" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl">
     <p.nodeTest role="match" test="attribute(Q{}pause)" jsTest="return SaxonJS.U.isAttr(item) &amp;&amp; item.name==='pause'"/>
-    <att role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="260" name="data-pause">
+    <att role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/poem-teller.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="267" name="data-pause">
      <convert from="xs:untypedAtomic" to="xs:string">
       <data>
        <dot type="attribute(Q{}pause)"/>
@@ -1287,4 +1310,4 @@
  </output>
  <decimalFormat/>
 </package>
-<?Σ e41778cd?>
+<?Σ 3f24741f?>
