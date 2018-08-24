@@ -53,6 +53,12 @@
       </xsl:result-document>
    </xsl:template>
    
+   <xsl:template match="id('zero')" mode="ixsl:click">
+      <xsl:result-document href="#pause_control" method="ixsl:replace-content">
+         <xsl:sequence select="$pause-at-zero"/>
+      </xsl:result-document>
+   </xsl:template>
+   
    
    
    <xsl:template match="card" mode="toc">
@@ -336,6 +342,21 @@
       <xsl:value-of select="(key('input-by-name','fallback',ixsl:page()) ! ixsl:get(., 'value'),0)[1]"/>
    </xsl:template>
    
+   <xsl:variable name="pause-at-zero">
+      <xsl:for-each select="$pause-defaults/p">
+         <xsl:copy>
+            <xsl:copy-of select="@*"/>
+            <xsl:apply-templates mode="set-pause-to-zero"/>
+         </xsl:copy>
+      </xsl:for-each>
+   </xsl:variable>
+   
+  <xsl:mode name="set-pause-to-zero" on-no-match="shallow-copy"/>
+   
+   <xsl:template match="input/@value" mode="set-pause-to-zero">
+      <xsl:attribute name="value">0</xsl:attribute>
+   </xsl:template>
+
    <xsl:variable name="pause-defaults">
       <p class="ctrl">Pause for stanza:&#160;<input name="stanza" type="number" id="stanza-pause"
          max="20" min="0" value="9"/></p>
@@ -462,7 +483,7 @@
          #tweak_panel > *:first-child { margin-top: 0ex }
          
          #dir_panel { 
-            background-color: lightsteelblue;
+            background-color: gainsboro;
             padding: 1em; border: thin outset black;
             font-family: sans-serif }
          #dir_panel > *:first-child { margin-top: 0ex }
