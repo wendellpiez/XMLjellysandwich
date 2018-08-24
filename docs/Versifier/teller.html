@@ -32,6 +32,7 @@
           <button id="tell_select">Tell</button>
           <button id="tweak_select">Hints</button>
           <button id="dir_select">Ideas</button>
+          <button id="clear_select">Clear</button>
           
 <!-- #dir_panel is populated by the XSLT -->
           
@@ -40,9 +41,9 @@
           <div class="panel" id="dir_panel"> </div>
         <div class="panel" id="tweak_panel">
           <h4>Operating the Poem Teller</h4>
-          <p><code class="button">Hints</code> will close or open this control panel. <code class="button">Ideas</code> will display a list of poems to choose from. Or bring your own.</p>
-          <p><code class="button">Text</code> shows (or hides) a box for your poem.</p>
-          <p>Use <code class="button">Tell</code> to <q>tell</q> it (whatever it takes).</p>
+          <p><code class="button">Hints</code> will close or open this control panel. <code class="button">Ideas</code> will display a list of poems to choose from.</p>
+          <p><code class="button">Text</code> shows (or hides) a box for your poem. <code class="button">Clear</code> will clear the box.</p>
+          <p>Use <code class="button">Tell</code> to <q>tell</q> the text (whatever it takes).</p>
           <p>This practice helps cultivate patience with deliberate latency.</p>
           <p>Verse lines and stanzas are inferred from line breaks in the input text box.</p>
           <p>Indents on lines are calculated from white space.</p>
@@ -53,6 +54,8 @@
         </div>
         </div>
         <div class="panel ON" id="text_panel">
+          <h3 contenteditable="true">My Luve is Like a Red Red Rose</h3>
+          <h4 contenteditable="true">Rob’t Burns</h4>
           <textarea  rows="28" cols="50" id="poetry-in-motion">O my Luve is like a red, red rose
   That’s newly sprung in June;
 O my Luve is like the melody

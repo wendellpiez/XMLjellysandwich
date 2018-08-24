@@ -142,14 +142,36 @@
       <xsl:apply-templates select="id('tweak_panel')" mode="switch-in"/>
    </xsl:template>
    
+   <xsl:template match="id('clear_select')" mode="ixsl:click">
+      <xsl:result-document href="#text_panel" method="ixsl:replace-content">
+         <h3 contenteditable="true">[Title]</h3>
+         <h4 contenteditable="true">[Author]</h4>
+         <textarea rows="28" cols="50" id="poetry-in-motion">[ ... text ...]</textarea>
+      </xsl:result-document>
+      <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
+      <xsl:apply-templates select="id('text_panel')" mode="on"/>
+   </xsl:template>
+   
    <xsl:template match="code[@class='button']" mode="ixsl:click">
       <xsl:apply-templates select="key('button-by-label',string(.))" mode="ixsl:click"/>
    </xsl:template>
    
    <xsl:template match="h5[@class='toc-entry']" mode="ixsl:click">
       <xsl:variable name="poem" select="document(resolve-uri(@data-src))"/>
-         <xsl:result-document href="#poetry-in-motion" method="ixsl:replace-content">
-           <xsl:apply-templates select="$poem" mode="textonly"/>
+      <xsl:result-document href="#text_panel" method="ixsl:replace-content">
+         <xsl:for-each select="$poem/descendant::title[1]">
+            <h3 contenteditable="true">
+               <xsl:apply-templates/>
+            </h3>
+         </xsl:for-each>
+         <xsl:for-each select="$poem/pub/author">
+            <h4 contenteditable="true">
+               <xsl:apply-templates/>
+            </h4>
+         </xsl:for-each>
+         <textarea rows="28" cols="50" id="poetry-in-motion">
+            <xsl:apply-templates select="$poem" mode="textonly"/>
+         </textarea>
       </xsl:result-document>
       <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
       <xsl:apply-templates select="id('text_panel')" mode="on"/>
