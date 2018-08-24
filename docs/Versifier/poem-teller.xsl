@@ -143,12 +143,13 @@
    </xsl:template>
    
    <xsl:template match="id('clear_select')" mode="ixsl:click">
+      <xsl:apply-templates select="id('tell_panel')" mode="off"/>
+      <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
       <xsl:result-document href="#text_panel" method="ixsl:replace-content">
          <h3 contenteditable="true">[Title]</h3>
          <h4 contenteditable="true">[Author]</h4>
          <textarea rows="28" cols="50" id="poetry-in-motion">[ ... text ...]</textarea>
       </xsl:result-document>
-      <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
       <xsl:apply-templates select="id('text_panel')" mode="on"/>
    </xsl:template>
    
