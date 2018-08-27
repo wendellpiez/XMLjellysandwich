@@ -243,7 +243,7 @@
       </xsl:result-document>
       <xsl:result-document href="#xmljellysandwich_footer" method="ixsl:replace-content">
          <p><i>The Versifier</i> is a project of Wendell Piez for <a href="http://pellucidliterature.org">Pellucid Literature</a> starting in 2017. <a href="https://github.com/wendellpiez/XMLjellysandwich">Find the source code on Github.</a></p>
-         <p>If you like it you will probably also like the <a href="teller.html">Poem Teller</a>, also on this site.</p>
+         <p>If you like it, check out the <a href="teller.html">Poem Teller</a>, also on this site.</p>
       </xsl:result-document>
       <div id="xmljellysandwich_footer">
       </div>
