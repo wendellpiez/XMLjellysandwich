@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.8.0.12" target="JS" targetVersion="1" relocatable="false">
  <co id="0" binds="1">
-  <template name="Q{}show" flags="os" line="247" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
-   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="250">
+  <template name="Q{}show" flags="os" line="252" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="255">
     <ifCall name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
      <str val="class"/>
      <fn name="string-join">
       <filter flags="b">
-       <fn line="248" name="tokenize">
+       <fn line="253" name="tokenize">
         <cvUntyped to="xs:string">
          <data>
           <slash simple="1">
@@ -29,7 +29,7 @@
       <str val=" "/>
      </fn>
     </ifCall>
-    <applyT line="251" mode="Q{}spill" flags="t" bSlot="0">
+    <applyT line="256" mode="Q{}spill" flags="t" bSlot="0">
      <first role="select">
       <slash>
        <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|3|XPTY0020|">
@@ -101,7 +101,7 @@
   </mode>
  </co>
  <co id="4" binds="">
-  <globalVariable name="Q{}terminalchars" type="xs:string" line="258" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+  <globalVariable name="Q{}terminalchars" type="xs:string" line="263" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
    <str val="\.!\?;,:—…"/>
   </globalVariable>
  </co>
@@ -147,32 +147,14 @@
      </sequence>
     </elem>
    </templateRule>
-   <templateRule prec="0" prio="1.0" seq="2" rank="2" minImp="0" slots="0" flags="s" line="46" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.withUpper role="match" axis="parent" upFirst="false">
-     <p.nodeTest test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
-     <p.nodeTest test="element(Q{}card)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='card';"/>
-    </p.withUpper>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="47" name="p" nsuri="">
-     <sequence>
-      <att name="class" flags="l">
-       <fn name="local-name">
-        <dot type="element(Q{}title)"/>
-       </fn>
-      </att>
-      <applyT line="48" flags="ci" bSlot="-1">
-       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-      </applyT>
-     </sequence>
-    </elem>
-   </templateRule>
    <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="s" line="30" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.nodeTest role="match" test="element(Q{}catalog)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='catalog';"/>
     <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="31">
-     <resultDoc global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc global="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#versifier_css"/>
       <empty role="content"/>
      </resultDoc>
-     <resultDoc line="32" global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc line="32" global="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#xmljellysandwich_body"/>
       <elem role="content" line="33" name="div" nsuri="">
        <sequence>
@@ -208,16 +190,34 @@
      </sequence>
     </elem>
    </templateRule>
+   <templateRule prec="0" prio="1.0" seq="2" rank="2" minImp="0" slots="0" flags="s" line="46" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.withUpper role="match" axis="parent" upFirst="false">
+     <p.nodeTest test="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
+     <p.nodeTest test="element(Q{}card)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='card';"/>
+    </p.withUpper>
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="47" name="p" nsuri="">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="local-name">
+        <dot type="element(Q{}title)"/>
+       </fn>
+      </att>
+      <applyT line="48" flags="ci" bSlot="-1">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
   </mode>
  </co>
  <co id="7" binds="7">
   <mode name="Q{}pause" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="1.0" seq="12" rank="2" minImp="0" slots="0" flags="s" as="xs:integer" line="275" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="1.0" seq="12" rank="2" minImp="0" slots="0" flags="s" as="xs:integer" line="280" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <axis baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="275" name="attribute" nodeTest="attribute(Q{}data-pause)" jsTest="return item.name==='data-pause'"/>
+     <axis baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="280" name="attribute" nodeTest="attribute(Q{}data-pause)" jsTest="return item.name==='data-pause'"/>
     </p.withPredicate>
-    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="276" to="xs:integer">
+    <cvUntyped role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="281" to="xs:integer">
      <cast as="xs:untypedAtomic" emptiable="0">
       <fn name="string">
        <convert from="xs:integer" to="xs:string">
@@ -229,10 +229,10 @@
      </cast>
     </cvUntyped>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="11" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="273" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="11" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="278" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="273" name="contains-token">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="278" name="contains-token">
       <cvUntyped to="xs:string">
        <attVal name="Q{}class" chk="0"/>
       </cvUntyped>
@@ -241,10 +241,10 @@
     </p.withPredicate>
     <int role="action" val="3"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="10" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="272" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="10" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="277" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="272" name="contains-token">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="277" name="contains-token">
       <cvUntyped to="xs:string">
        <attVal name="Q{}class" chk="0"/>
       </cvUntyped>
@@ -253,10 +253,10 @@
     </p.withPredicate>
     <int role="action" val="8"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="9" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="271" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="9" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="276" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="271" name="contains-token">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="276" name="contains-token">
       <cvUntyped to="xs:string">
        <attVal name="Q{}class" chk="0"/>
       </cvUntyped>
@@ -265,17 +265,17 @@
     </p.withPredicate>
     <int role="action" val="12"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="13" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="282" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="13" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="287" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element(Q{}span)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='span';"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="282" name="contains-token">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="287" name="contains-token">
       <cvUntyped to="xs:string">
        <attVal name="Q{}class" chk="0"/>
       </cvUntyped>
       <str val="phr"/>
      </fn>
     </p.withPredicate>
-    <treat role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="283" as="xs:integer" jsTest="return SaxonJS.U.Atomic.integer.matches(item);" diag="7|0|XTTE0505|match=&#34;span[contains-token(@class,'phr')]&#34; mode=&#34;pause&#34;">
+    <treat role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="288" as="xs:integer" jsTest="return SaxonJS.U.Atomic.integer.matches(item);" diag="7|0|XTTE0505|match=&#34;span[contains-token(@class,'phr')]&#34; mode=&#34;pause&#34;">
      <check card="1" diag="7|0|XTTE0505|match=&#34;span[contains-token(@class,'phr')]&#34; mode=&#34;pause&#34;">
       <cvUntyped to="xs:integer">
        <sequence>
@@ -299,7 +299,7 @@
          </is>
          <atomic val="0" type="xs:untypedAtomic"/>
         </choose>
-        <data line="284">
+        <data line="289">
          <applyT mode="Q{}pause" flags="t" bSlot="0">
           <slash role="select" simple="1">
            <first>
@@ -325,10 +325,10 @@
      </check>
     </treat>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="8" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="268" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="8" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="273" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="268" name="ends-with">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="273" name="ends-with">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -339,10 +339,10 @@
     </p.withPredicate>
     <int role="action" val="5"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="7" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="267" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="7" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="272" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="267" name="ends-with">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="272" name="ends-with">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -353,10 +353,10 @@
     </p.withPredicate>
     <int role="action" val="4"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="6" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="266" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="6" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="271" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="266" name="ends-with">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="271" name="ends-with">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -367,10 +367,10 @@
     </p.withPredicate>
     <int role="action" val="5"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="5" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="265" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="5" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="270" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="265" name="ends-with">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="270" name="ends-with">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -381,10 +381,10 @@
     </p.withPredicate>
     <int role="action" val="4"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="4" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="264" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="4" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="269" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="264" name="ends-with">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="269" name="ends-with">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -395,10 +395,10 @@
     </p.withPredicate>
     <int role="action" val="5"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="3" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="263" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="3" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="268" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="263" name="ends-with">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="268" name="ends-with">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -409,10 +409,10 @@
     </p.withPredicate>
     <int role="action" val="5"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="2" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="262" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="2" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="267" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="262" name="ends-with">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="267" name="ends-with">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -423,10 +423,10 @@
     </p.withPredicate>
     <int role="action" val="5"/>
    </templateRule>
-   <templateRule prec="0" prio="0.5" seq="1" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="261" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="0.5" seq="1" rank="1" minImp="0" slots="0" flags="s" as="xs:integer" line="266" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="261" name="ends-with">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="266" name="ends-with">
       <cvUntyped to="xs:string">
        <data>
         <dot type="text()"/>
@@ -437,16 +437,16 @@
     </p.withPredicate>
     <int role="action" val="7"/>
    </templateRule>
-   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" as="xs:integer" line="256" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" as="xs:integer" line="261" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.nodeTest role="match" test="( element() | text() | comment() | processing-instruction() )" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===1 || item.nodeType===3 || item.nodeType===7 || item.nodeType===8);"/>
     <int role="action" val="0"/>
    </templateRule>
   </mode>
  </co>
  <co id="8" binds="">
-  <template name="Q{}css" flags="os" line="287" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
-   <valueOf role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="287">
-    <str val="&#xA;         html, body { background-color: white }&#xA;         &#xA;         .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }&#xA;         &#xA;         &#xA;         .pub { }&#xA;         &#xA;         .title { }&#xA;         &#xA;         .author { }&#xA;         &#xA;         .l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }&#xA;         &#xA;         .l * { display: inline }&#xA;         &#xA;         span.phr {transition: color 1s ease-in;&#xA;              -moz-transition: color 1s ease-in;&#xA;              -webkit-transition: color 1s ease-in; }&#xA;         &#xA;         .ON { font-style: italic; font-weight: bold }&#xA;         &#xA;         .hidden { display: none }&#xA;         &#xA;         #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;&#xA;          border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;&#xA;          font-family: 'Roboto Slab', sans-serif;&#xA;          margin-top: 1em }&#xA;         &#xA;         #xmljellysandwich_header {&#xA;         top: 1em; right: 1em; position: fixed }&#xA;         &#xA;         #xmljellysandwich_directory {&#xA;         bottom: 1em; right: 1em; position: fixed }&#xA;         &#xA;         &#xA;         .catalog { max-width: 60% }&#xA;         section { margin-top: 1em; border: thin solid black; padding: 1em }&#xA;         section * { margin: 0em }&#xA;         section .title { font-weight: bold }&#xA;         section .source { font-style: italic }&#xA;         &#xA;   "/>
+  <template name="Q{}css" flags="os" line="292" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
+   <valueOf role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="292">
+    <str val="&#xA;         html, body { background-color: white }&#xA;         &#xA;         .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }&#xA;         &#xA;         &#xA;         .pub { }&#xA;         &#xA;         .title { }&#xA;         &#xA;         .author { }&#xA;         &#xA;         .l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }&#xA;         &#xA;         .l * { display: inline }&#xA;         &#xA;         span.phr {transition: color 1s ease-in;&#xA;              -moz-transition: color 1s ease-in;&#xA;              -webkit-transition: color 1s ease-in; }&#xA;         &#xA;         .ON { font-style: italic; font-weight: bold }&#xA;         &#xA;         .hidden { display: none }&#xA;         &#xA;         #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;&#xA;          border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;&#xA;          font-family: 'Roboto Slab', sans-serif;&#xA;          margin-top: 1em }&#xA;         &#xA;         #xmljellysandwich_header {&#xA;         top: 1em; right: 1em; position: fixed }&#xA;         &#xA;         #xmljellysandwich_directory {&#xA;         bottom: 20%; right: 1em; position: fixed }&#xA;         &#xA;         &#xA;         .catalog { max-width: 60% }&#xA;         section { margin-top: 1em; border: thin solid black; padding: 1em }&#xA;         section * { margin: 0em }&#xA;         section .title { font-weight: bold }&#xA;         section .source { font-style: italic }&#xA;         &#xA;   "/>
    </valueOf>
   </template>
  </co>
@@ -512,12 +512,79 @@
       </filter>
      </fn>
     </p.withPredicate>
-    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="241" global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;">
-     <str role="href" val="#xmljellysandwich_directory"/>
-     <applyT role="content" line="242" mode="Q{}toc" bSlot="0">
-      <gVarRef role="select" name="Q{}source-catalog" bSlot="1"/>
-     </applyT>
-    </resultDoc>
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="241">
+     <resultDoc global="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;">
+      <str role="href" val="#xmljellysandwich_directory"/>
+      <applyT role="content" line="242" mode="Q{}toc" bSlot="0">
+       <gVarRef role="select" name="Q{}source-catalog" bSlot="1"/>
+      </applyT>
+     </resultDoc>
+     <resultDoc line="244" global="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+      <str role="href" val="#xmljellysandwich_footer"/>
+      <sequence role="content" line="245">
+       <elem name="p" nsuri="">
+        <sequence>
+         <elem name="i" nsuri="" flags="l">
+          <valueOf flags="l">
+           <str val="The Versifier"/>
+          </valueOf>
+         </elem>
+         <valueOf flags="l">
+          <str val=" is a project of Wendell Piez for "/>
+         </valueOf>
+         <elem name="a" nsuri="" flags="l">
+          <sequence>
+           <att name="href" flags="l">
+            <str val="http://pellucidliterature.org"/>
+           </att>
+           <valueOf flags="l">
+            <str val="Pellucid Literature"/>
+           </valueOf>
+          </sequence>
+         </elem>
+         <valueOf flags="l">
+          <str val=" starting in 2017. "/>
+         </valueOf>
+         <elem name="a" nsuri="" flags="l">
+          <sequence>
+           <att name="href" flags="l">
+            <str val="https://github.com/wendellpiez/XMLjellysandwich"/>
+           </att>
+           <valueOf flags="l">
+            <str val="Find the source code on Github."/>
+           </valueOf>
+          </sequence>
+         </elem>
+        </sequence>
+       </elem>
+       <elem line="246" name="p" nsuri="">
+        <sequence>
+         <valueOf flags="l">
+          <str val="If you like it you will probably also like the "/>
+         </valueOf>
+         <elem name="a" nsuri="" flags="l">
+          <sequence>
+           <att name="href" flags="l">
+            <str val="teller.html"/>
+           </att>
+           <valueOf flags="l">
+            <str val="Poem Teller"/>
+           </valueOf>
+          </sequence>
+         </elem>
+         <valueOf flags="l">
+          <str val=", also on this site."/>
+         </valueOf>
+        </sequence>
+       </elem>
+      </sequence>
+     </resultDoc>
+     <elem line="248" name="div" nsuri="">
+      <att name="id" flags="l">
+       <str val="xmljellysandwich_footer"/>
+      </att>
+     </elem>
+    </sequence>
    </templateRule>
    <templateRule prec="0" prio="-0.2" seq="0" rank="1" minImp="0" slots="1" flags="s" line="219" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
@@ -562,7 +629,7 @@
  <co id="10" binds="6 11">
   <template name="Q{}show-directory" flags="os" line="23" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="25">
-    <resultDoc global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc global="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#xmljellysandwich_directory"/>
      <empty role="content"/>
     </resultDoc>
@@ -575,7 +642,7 @@
  <co id="12" binds="8 6">
   <template name="Q{}xmljellysandwich_pack" flags="os" line="12" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="14">
-    <resultDoc global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;">
+    <resultDoc global="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;">
      <str role="href" val="#xmljellysandwich_css"/>
      <callT role="content" line="15" name="css" bSlot="0"/>
     </resultDoc>
@@ -595,8 +662,180 @@
    <root baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="21"/>
   </globalVariable>
  </co>
- <co id="3" binds="3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 4 4">
+ <co id="3" binds="3 3 3 3 3 3 3 3 3 1 3 3 3 3 3 3 3 3 4 4">
   <mode onNo="TC" flags="dW" patternSlots="0">
+   <templateRule prec="0" prio="0.0" seq="15" rank="1" minImp="0" slots="0" flags="s" line="207" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.nodeTest role="match" test="element(Q{}love)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='love';"/>
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="208" name="span" nsuri="">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="love"/>
+      </att>
+      <applyT line="209" flags="i" bSlot="0">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="2" rank="2" minImp="0" slots="0" flags="s" line="115" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.withUpper role="match" axis="parent" upFirst="false">
+     <p.nodeTest test="element(Q{}author)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='author';"/>
+     <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
+    </p.withUpper>
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="117" name="h2" nsuri="">
+     <applyT flags="i" bSlot="1">
+      <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+     </applyT>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="11" rank="1" minImp="0" slots="0" flags="s" line="186" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.nodeTest role="match" test="element(Q{}author)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='author';"/>
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="187" name="p" nsuri="">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="local-name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <applyT line="188" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="9" rank="1" minImp="0" slots="0" flags="s" line="173" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.nodeTest role="match" test="element(Q{}stanza)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='stanza';"/>
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="174" name="div" nsuri="">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="concat">
+        <fn name="local-name">
+         <dot type="element()"/>
+        </fn>
+        <str val=" hidden"/>
+       </fn>
+      </att>
+      <applyT line="175" bSlot="3">
+       <axis role="select" name="attribute" nodeTest="attribute()" jsTest="return SaxonJS.U.isAttr(item)"/>
+      </applyT>
+      <applyT line="176" flags="i" bSlot="4">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="s" line="96" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.nodeTest role="match" test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
+    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="102" flags="t" bSlot="5">
+     <sequence role="select">
+      <axis name="child" nodeTest="element(Q{}style)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='style';"/>
+      <axis name="child" nodeTest="element(Q{}verse)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse';"/>
+     </sequence>
+    </applyT>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="14" rank="1" minImp="0" slots="0" flags="s" line="201" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.nodeTest role="match" test="element(Q{}i)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='i';"/>
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="202" name="span" nsuri="">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="i"/>
+      </att>
+      <applyT line="203" flags="i" bSlot="6">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="5" rank="2" minImp="0" slots="0" flags="s" line="134" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.withUpper role="match" axis="parent" upFirst="false">
+     <p.nodeTest test="element(Q{}verse)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse';"/>
+     <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
+    </p.withUpper>
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="135">
+     <resultDoc global="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+      <str role="href" val="#xmljellysandwich_body"/>
+      <sequence role="content" line="136">
+       <applyT bSlot="7">
+        <docOrder role="select" intra="1">
+         <slash>
+          <axis name="parent" nodeTest="(document-node()|element())" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11||item.nodeType===1);"/>
+          <sequence>
+           <axis name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
+           <axis name="child" nodeTest="element(Q{}author)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='author';"/>
+           <axis name="child" nodeTest="element(Q{}source)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='source';"/>
+          </sequence>
+         </slash>
+        </docOrder>
+       </applyT>
+       <elem line="137" name="div" nsuri="">
+        <sequence>
+         <att name="class" flags="l">
+          <str val="verse"/>
+         </att>
+         <att name="id" flags="l">
+          <fn name="replace">
+           <fn name="document-uri">
+            <root/>
+           </fn>
+           <str val="^.*/|\..*$"/>
+           <str val=""/>
+           <str val=""/>
+          </fn>
+         </att>
+         <applyT line="138" flags="i" bSlot="8">
+          <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+         </applyT>
+        </sequence>
+       </elem>
+      </sequence>
+     </resultDoc>
+     <applyT line="142" mode="Q{}spill" flags="t" bSlot="9">
+      <filter role="select" flags="b">
+       <slash simple="1">
+        <ifCall name="Q{http://saxonica.com/ns/interactiveXSLT}page" type="document-node()?"/>
+        <axis name="descendant" nodeTest="element()" jsTest="return item.nodeType===1;"/>
+       </slash>
+       <fn name="contains-token">
+        <cvUntyped to="xs:string">
+         <attVal name="Q{}class" chk="0"/>
+        </cvUntyped>
+        <str val="verse"/>
+       </fn>
+      </filter>
+     </applyT>
+    </sequence>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="8" rank="1" minImp="0" slots="0" flags="s" line="166" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.nodeTest role="match" test="element(Q{}verse)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse';"/>
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="167" name="div" nsuri="">
+     <sequence>
+      <att name="class" flags="l">
+       <str val="verse"/>
+      </att>
+      <applyT line="168" bSlot="10">
+       <axis role="select" name="attribute" nodeTest="attribute()" jsTest="return SaxonJS.U.isAttr(item)"/>
+      </applyT>
+      <applyT line="169" flags="i" bSlot="11">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
+   <templateRule prec="0" prio="0.0" seq="11" rank="1" minImp="0" slots="0" flags="s" line="186" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
+    <p.nodeTest role="match" test="element(Q{}date)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='date';"/>
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="187" name="p" nsuri="">
+     <sequence>
+      <att name="class" flags="l">
+       <fn name="local-name">
+        <dot type="element()"/>
+       </fn>
+      </att>
+      <applyT line="188" flags="i" bSlot="2">
+       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
+      </applyT>
+     </sequence>
+    </elem>
+   </templateRule>
    <templateRule prec="0" prio="0.5" seq="3" rank="2" minImp="0" slots="0" flags="s" line="121" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.withUpper role="match" axis="parent" upFirst="false">
      <p.nodeTest test="element(Q{}source)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='source';"/>
@@ -604,7 +843,7 @@
     </p.withUpper>
     <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="123" name="h3" nsuri="">
      <sequence>
-      <applyT flags="i" bSlot="0">
+      <applyT flags="i" bSlot="12">
        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
       </applyT>
       <forEach line="124">
@@ -640,7 +879,7 @@
         <dot type="element()"/>
        </fn>
       </att>
-      <applyT line="188" flags="i" bSlot="1">
+      <applyT line="188" flags="i" bSlot="2">
        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
       </applyT>
      </sequence>
@@ -658,10 +897,10 @@
         <str val=" hidden"/>
        </fn>
       </att>
-      <applyT line="175" bSlot="2">
+      <applyT line="175" bSlot="3">
        <axis role="select" name="attribute" nodeTest="attribute()" jsTest="return SaxonJS.U.isAttr(item)"/>
       </applyT>
-      <applyT line="176" flags="i" bSlot="3">
+      <applyT line="176" flags="i" bSlot="4">
        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
       </applyT>
      </sequence>
@@ -672,9 +911,9 @@
      <p.nodeTest test="element(Q{}style)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='style';"/>
      <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
     </p.withUpper>
-    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="129" global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="129" global="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:52:44 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#versifier_css"/>
-     <applyT role="content" line="130" flags="i" bSlot="4">
+     <applyT role="content" line="130" flags="i" bSlot="13">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
      </applyT>
     </resultDoc>
@@ -693,10 +932,10 @@
         </fn>
        </fn>
       </att>
-      <applyT line="194" bSlot="5">
+      <applyT line="194" bSlot="14">
        <axis role="select" name="attribute" nodeTest="attribute()" jsTest="return SaxonJS.U.isAttr(item)"/>
       </applyT>
-      <applyT line="195" flags="i" bSlot="6">
+      <applyT line="195" flags="i" bSlot="15">
        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
       </applyT>
      </sequence>
@@ -712,7 +951,7 @@
       <att name="class" flags="l">
        <str val="title"/>
       </att>
-      <applyT line="182" flags="i" bSlot="7">
+      <applyT line="182" flags="i" bSlot="16">
        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
       </applyT>
      </sequence>
@@ -724,7 +963,7 @@
      <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
     </p.withUpper>
     <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="111" name="h1" nsuri="">
-     <applyT flags="i" bSlot="8">
+     <applyT flags="i" bSlot="17">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
      </applyT>
     </elem>
@@ -738,179 +977,7 @@
         <dot type="element()"/>
        </fn>
       </att>
-      <applyT line="188" flags="i" bSlot="1">
-       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-      </applyT>
-     </sequence>
-    </elem>
-   </templateRule>
-   <templateRule prec="0" prio="0.0" seq="15" rank="1" minImp="0" slots="0" flags="s" line="207" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.nodeTest role="match" test="element(Q{}love)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='love';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="208" name="span" nsuri="">
-     <sequence>
-      <att name="class" flags="l">
-       <str val="love"/>
-      </att>
-      <applyT line="209" flags="i" bSlot="9">
-       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-      </applyT>
-     </sequence>
-    </elem>
-   </templateRule>
-   <templateRule prec="0" prio="0.0" seq="14" rank="1" minImp="0" slots="0" flags="s" line="201" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.nodeTest role="match" test="element(Q{}i)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='i';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="202" name="span" nsuri="">
-     <sequence>
-      <att name="class" flags="l">
-       <str val="i"/>
-      </att>
-      <applyT line="203" flags="i" bSlot="10">
-       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-      </applyT>
-     </sequence>
-    </elem>
-   </templateRule>
-   <templateRule prec="0" prio="0.5" seq="2" rank="2" minImp="0" slots="0" flags="s" line="115" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.withUpper role="match" axis="parent" upFirst="false">
-     <p.nodeTest test="element(Q{}author)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='author';"/>
-     <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
-    </p.withUpper>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="117" name="h2" nsuri="">
-     <applyT flags="i" bSlot="11">
-      <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-     </applyT>
-    </elem>
-   </templateRule>
-   <templateRule prec="0" prio="0.0" seq="11" rank="1" minImp="0" slots="0" flags="s" line="186" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.nodeTest role="match" test="element(Q{}author)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='author';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="187" name="p" nsuri="">
-     <sequence>
-      <att name="class" flags="l">
-       <fn name="local-name">
-        <dot type="element()"/>
-       </fn>
-      </att>
-      <applyT line="188" flags="i" bSlot="1">
-       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-      </applyT>
-     </sequence>
-    </elem>
-   </templateRule>
-   <templateRule prec="0" prio="0.0" seq="9" rank="1" minImp="0" slots="0" flags="s" line="173" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.nodeTest role="match" test="element(Q{}stanza)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='stanza';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="174" name="div" nsuri="">
-     <sequence>
-      <att name="class" flags="l">
-       <fn name="concat">
-        <fn name="local-name">
-         <dot type="element()"/>
-        </fn>
-        <str val=" hidden"/>
-       </fn>
-      </att>
-      <applyT line="175" bSlot="2">
-       <axis role="select" name="attribute" nodeTest="attribute()" jsTest="return SaxonJS.U.isAttr(item)"/>
-      </applyT>
-      <applyT line="176" flags="i" bSlot="3">
-       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-      </applyT>
-     </sequence>
-    </elem>
-   </templateRule>
-   <templateRule prec="0" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="s" line="96" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.nodeTest role="match" test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
-    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="102" flags="t" bSlot="12">
-     <sequence role="select">
-      <axis name="child" nodeTest="element(Q{}style)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='style';"/>
-      <axis name="child" nodeTest="element(Q{}verse)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse';"/>
-     </sequence>
-    </applyT>
-   </templateRule>
-   <templateRule prec="0" prio="0.5" seq="5" rank="2" minImp="0" slots="0" flags="s" line="134" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.withUpper role="match" axis="parent" upFirst="false">
-     <p.nodeTest test="element(Q{}verse)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse';"/>
-     <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
-    </p.withUpper>
-    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="135">
-     <resultDoc global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
-      <str role="href" val="#xmljellysandwich_body"/>
-      <sequence role="content" line="136">
-       <applyT bSlot="13">
-        <docOrder role="select" intra="1">
-         <slash>
-          <axis name="parent" nodeTest="(document-node()|element())" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11||item.nodeType===1);"/>
-          <sequence>
-           <axis name="child" nodeTest="element(Q{}title)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='title';"/>
-           <axis name="child" nodeTest="element(Q{}author)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='author';"/>
-           <axis name="child" nodeTest="element(Q{}source)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='source';"/>
-          </sequence>
-         </slash>
-        </docOrder>
-       </applyT>
-       <elem line="137" name="div" nsuri="">
-        <sequence>
-         <att name="class" flags="l">
-          <str val="verse"/>
-         </att>
-         <att name="id" flags="l">
-          <fn name="replace">
-           <fn name="document-uri">
-            <root/>
-           </fn>
-           <str val="^.*/|\..*$"/>
-           <str val=""/>
-           <str val=""/>
-          </fn>
-         </att>
-         <applyT line="138" flags="i" bSlot="14">
-          <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-         </applyT>
-        </sequence>
-       </elem>
-      </sequence>
-     </resultDoc>
-     <applyT line="142" mode="Q{}spill" flags="t" bSlot="15">
-      <filter role="select" flags="b">
-       <slash simple="1">
-        <ifCall name="Q{http://saxonica.com/ns/interactiveXSLT}page" type="document-node()?"/>
-        <axis name="descendant" nodeTest="element()" jsTest="return item.nodeType===1;"/>
-       </slash>
-       <fn name="contains-token">
-        <cvUntyped to="xs:string">
-         <attVal name="Q{}class" chk="0"/>
-        </cvUntyped>
-        <str val="verse"/>
-       </fn>
-      </filter>
-     </applyT>
-    </sequence>
-   </templateRule>
-   <templateRule prec="0" prio="0.0" seq="8" rank="1" minImp="0" slots="0" flags="s" line="166" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.nodeTest role="match" test="element(Q{}verse)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='verse';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="167" name="div" nsuri="">
-     <sequence>
-      <att name="class" flags="l">
-       <str val="verse"/>
-      </att>
-      <applyT line="168" bSlot="16">
-       <axis role="select" name="attribute" nodeTest="attribute()" jsTest="return SaxonJS.U.isAttr(item)"/>
-      </applyT>
-      <applyT line="169" flags="i" bSlot="17">
-       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-      </applyT>
-     </sequence>
-    </elem>
-   </templateRule>
-   <templateRule prec="0" prio="0.0" seq="11" rank="1" minImp="0" slots="0" flags="s" line="186" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
-    <p.nodeTest role="match" test="element(Q{}date)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='date';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="187" name="p" nsuri="">
-     <sequence>
-      <att name="class" flags="l">
-       <fn name="local-name">
-        <dot type="element()"/>
-       </fn>
-      </att>
-      <applyT line="188" flags="i" bSlot="1">
+      <applyT line="188" flags="i" bSlot="2">
        <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
       </applyT>
      </sequence>
@@ -998,4 +1065,4 @@
  </output>
  <decimalFormat/>
 </package>
-<?Σ a5ce2e25?>
+<?Σ fd193707?>
