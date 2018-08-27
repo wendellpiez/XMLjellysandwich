@@ -168,11 +168,11 @@
    <templateRule prec="0" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="s" line="30" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl">
     <p.nodeTest role="match" test="element(Q{}catalog)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='catalog';"/>
     <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="31">
-     <resultDoc global="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#versifier_css"/>
       <empty role="content"/>
      </resultDoc>
-     <resultDoc line="32" global="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc line="32" global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#xmljellysandwich_body"/>
       <elem role="content" line="33" name="div" nsuri="">
        <sequence>
@@ -512,7 +512,7 @@
       </filter>
      </fn>
     </p.withPredicate>
-    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="241" global="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;">
+    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="241" global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;">
      <str role="href" val="#xmljellysandwich_directory"/>
      <applyT role="content" line="242" mode="Q{}toc" bSlot="0">
       <gVarRef role="select" name="Q{}source-catalog" bSlot="1"/>
@@ -562,7 +562,7 @@
  <co id="10" binds="6 11">
   <template name="Q{}show-directory" flags="os" line="23" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="25">
-    <resultDoc global="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#xmljellysandwich_directory"/>
      <empty role="content"/>
     </resultDoc>
@@ -575,7 +575,7 @@
  <co id="12" binds="8 6">
   <template name="Q{}xmljellysandwich_pack" flags="os" line="12" module="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" slots="0">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="14">
-    <resultDoc global="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;">
+    <resultDoc global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;">
      <str role="href" val="#xmljellysandwich_css"/>
      <callT role="content" line="15" name="css" bSlot="0"/>
     </resultDoc>
@@ -672,7 +672,7 @@
      <p.nodeTest test="element(Q{}style)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='style';"/>
      <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
     </p.withUpper>
-    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="129" global="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="129" global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#versifier_css"/>
      <applyT role="content" line="130" flags="i" bSlot="4">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
@@ -832,7 +832,7 @@
      <p.nodeTest test="element(Q{}pub)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri===''&amp;&amp;q.local==='pub';"/>
     </p.withUpper>
     <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/Versifier/versifier.xsl" ns="xsl=~ XJS=http://github.com/wendellpiez/XMLjellysandwich ixsl=~ xs=~" line="135">
-     <resultDoc global="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 14:46:37 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <resultDoc global="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;" local="#&#xA;#Mon Aug 27 16:45:29 EDT 2018&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
       <str role="href" val="#xmljellysandwich_body"/>
       <sequence role="content" line="136">
        <applyT bSlot="13">
@@ -998,4 +998,4 @@
  </output>
  <decimalFormat/>
 </package>
-<?Σ a5ccce25?>
+<?Σ a5ce2e25?>

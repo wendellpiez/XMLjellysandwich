@@ -249,12 +249,25 @@
       </xsl:if>
    </xsl:template>
    
+   <xsl:template match="pub[title='To Autumn']//l" priority="10" mode="indent">
+      <xsl:if test="@r=('b','d')">
+         <xsl:text>&#32;&#32;</xsl:text>
+      </xsl:if>
+      <xsl:if test="@r='e'">
+         <xsl:text>&#32;&#32;&#32;&#32;</xsl:text>
+      </xsl:if>
+   </xsl:template>
+   
    <xsl:template match="l[@meter castable as xs:integer]" priority="8" mode="indent">
       <xsl:for-each select="1 to xs:integer(@indent)">
          <xsl:text>&#32;&#32;</xsl:text>
       </xsl:for-each>
    </xsl:template>
    
+<!--
+      Conspiring with him how to load and bless
+﻿With fruit the vines that round the thatch-eaves run;
+   -->
 <!-- Back in unnamed mode ...  -->
 <!-- Special handling of inline markup. -->
    
