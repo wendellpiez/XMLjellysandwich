@@ -14,16 +14,15 @@
       <xsl:result-document href="#xmljellysandwich_css">
          <xsl:call-template name="css"/>
       </xsl:result-document>
-      <xsl:result-document href="#xmljellysandwich_directory">
-         <!-- Processing the catalog document -->
-         <xsl:apply-templates mode="toc"/>
-      </xsl:result-document>
       <xsl:apply-templates select="catalog" mode="full-directory"/>
    </xsl:template>
 
-  <xsl:variable name="source-catalog" select="/"/>
+   
+   <xsl:variable name="source-catalog" select="/"/>
    
    <xsl:template name="show-directory">
+      <!-- Clearing sidebar ToC -->
+      <xsl:result-document href="#xmljellysandwich_directory" method="ixsl:replace-content"/>
       <xsl:apply-templates select="$source-catalog" mode="full-directory"/>
    </xsl:template>
    
@@ -74,7 +73,7 @@
       <xsl:text>)</xsl:text>
    </xsl:template>
    
-   <xsl:template match="*[XJS:has-class(.,'toc-entry')]" mode="ixsl:click">
+   <xsl:template match="*[contains-token(@class,'toc-entry')]" mode="ixsl:click">
       <xsl:variable name="where" select="resolve-uri(@data-src)"/>
       <!--<xsl:message>Whee </xsl:message>-->
       <ixsl:schedule-action document="{$where}">
@@ -140,7 +139,7 @@
          </div>
       </xsl:result-document>
       
-      <xsl:apply-templates select="ixsl:page()//*[XJS:has-class(.,'verse')]" xpath-default-namespace="" mode="spill"/>
+      <xsl:apply-templates select="ixsl:page()//*[contains-token(@class,'verse')]" xpath-default-namespace="" mode="spill"/>
    </xsl:template>
    
    
@@ -211,6 +210,12 @@
       </span>
    </xsl:template>
 
+   <xsl:template match="@*">
+      <xsl:attribute name="data-{local-name()}">
+         <xsl:value-of select="."/>
+      </xsl:attribute>
+   </xsl:template>
+   
    <xsl:template match="*" priority="-0.2" mode="spill">
       <!--<xsl:message>spilling <xsl:value-of select="local-name()"/></xsl:message>-->
       <xsl:variable name="pause">
@@ -231,10 +236,16 @@
    </xsl:template>
    
    <!-- stop spilling -->
-   <xsl:template match="*[not(ancestor-or-self::*/XJS:classes(.)='verse')]" mode="spill"/>
+   <xsl:template match="*[not(ancestor-or-self::*[contains-token(@class,'verse')])]" mode="spill">
+      
+      <xsl:result-document href="#xmljellysandwich_directory">
+         <xsl:apply-templates select="$source-catalog" mode="toc"/>
+      </xsl:result-document>
+      
+   </xsl:template>
    
    <xsl:template name="show">
-      <xsl:variable name="already-has" select="XJS:classes(.)"/>
+      <xsl:variable name="already-has" select="tokenize(@class,'\s+')"/>
       <ixsl:set-attribute name="class"
          select="string-join($already-has[not(. = 'hidden')], ' ')"/>
       <xsl:apply-templates select="(child::node() | following::node())[1]" mode="spill"/>
@@ -257,9 +268,9 @@
    <xsl:template mode="pause" match="text()[ends-with(.,'…')]" as="xs:integer">5</xsl:template>
    
    <!-- There are also elements in the tree that give us pause ...  -->
-   <xsl:template mode="pause" match="*[XJS:has-class(.,'stanza')]"     as="xs:integer">12</xsl:template>
-   <xsl:template mode="pause" match="*[XJS:has-class(.,'verse-para')]" as="xs:integer">8</xsl:template>
-   <xsl:template mode="pause" match="*[XJS:has-class(.,'l')]"          as="xs:integer">3</xsl:template>
+   <xsl:template mode="pause" match="*[contains-token(@class,'stanza')]"     as="xs:integer">12</xsl:template>
+   <xsl:template mode="pause" match="*[contains-token(@class,'verse-para')]" as="xs:integer">8</xsl:template>
+   <xsl:template mode="pause" match="*[contains-token(@class,'l')]"          as="xs:integer">3</xsl:template>
 
    <xsl:template mode="pause" match="*[@data-pause]" priority="1" as="xs:integer" expand-text="true">
      <xsl:value-of select="xs:integer(@data-pause)"/>
@@ -268,9 +279,9 @@
    
    <!-- This is the tricky part - -->
    <!-- each phrase looks back at the phrase before, for its pause -->
-   <xsl:template mode="pause" xpath-default-namespace="" match="span[XJS:has-class(.,'phr')]" as="xs:integer">
-      <xsl:if test=". is /descendant::span[XJS:has-class(.,'phr')][1]">0</xsl:if>
-      <xsl:apply-templates select="preceding::span[XJS:has-class(.,'phr')][1]/text()" mode="pause"/>
+   <xsl:template mode="pause" xpath-default-namespace="" match="span[contains-token(@class,'phr')]" as="xs:integer">
+      <xsl:if test=". is /descendant::span[contains-token(@class,'phr')][1]">0</xsl:if>
+      <xsl:apply-templates select="preceding::span[contains-token(@class,'phr')][1]/text()" mode="pause"/>
    </xsl:template>
    
    <xsl:template name="css">
@@ -295,7 +306,7 @@
          
          .ON { font-style: italic; font-weight: bold }
          
-         .hidden { color: white }
+         .hidden { display: none }
          
          #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;
           border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;
@@ -308,10 +319,6 @@
          #xmljellysandwich_directory {
          bottom: 1em; right: 1em; position: fixed }
          
-         h5.toc-entry { display: inline-block; margin: 0em }
-         // .toc-entry:before { content: " ❖ " }
-         h5.toc-entry:before { content: " ☙ " }
-         h5.toc-entry:first-child:before { content: "" }
          
          .catalog { max-width: 60% }
          section { margin-top: 1em; border: thin solid black; padding: 1em }
@@ -320,44 +327,16 @@
          section .source { font-style: italic }
          
    </xsl:template>
-   
-   <!--
-   <xsl:template mode="ixsl:onmouseover" match="span[XJS:has-class(.,'i')]">
-      <xsl:apply-templates select="key('spans-by-class','i')" mode="on"/>
-   </xsl:template>
-   
-   <xsl:template mode="ixsl:onmouseout"  match="span[XJS:has-class(.,'i')]">
-      <xsl:apply-templates select="key('spans-by-class','i')" mode="off"/>
-   </xsl:template>
-   
-   <xsl:template mode="ixsl:onmouseover" match="span[XJS:has-class(.,'love')]">
-      <xsl:apply-templates select="key('spans-by-class','love')" mode="on"/>
-   </xsl:template>
-   
-   <xsl:template mode="ixsl:onmouseout"  match="span[XJS:has-class(.,'love')]">
-      <xsl:apply-templates select="key('spans-by-class','love')" mode="off"/>
-   </xsl:template>
-   
-   <xsl:template match="*" mode="off">
-      <ixsl:set-attribute name="class"
-         select="string-join( (tokenize(@class,'\s+')[not(. eq 'ON')]), ' ')"/>
-   </xsl:template>
-   
-   <xsl:template match="*" mode="on">
-      <ixsl:set-attribute name="class"
-         select="string-join( (tokenize(@class,'\s+')[not(. eq 'ON')],'ON'), ' ')"/>
-   </xsl:template>
-   
-   <xsl:key name="spans-by-class" match="span" xpath-default-namespace="" use="XJS:classes(.)"/>-->
-   
-   <xsl:function name="XJS:classes">
+
+
+   <!--<xsl:function name="XJS:classes">
       <xsl:param name="who" as="element()"/>
       <xsl:sequence select="tokenize($who/@class, '\s+') ! lower-case(.)"/>
-   </xsl:function>
+   </xsl:function>-->
 
-   <xsl:function name="XJS:has-class">
+   <!--<xsl:function name="XJS:has-class">
       <xsl:param name="who" as="element()"/>
       <xsl:param name="ilk" as="xs:string+"/>
       <xsl:sequence select="$ilk = XJS:classes($who)"/>
-   </xsl:function>
+   </xsl:function>-->
 </xsl:stylesheet>

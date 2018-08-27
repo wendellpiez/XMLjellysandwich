@@ -2,236 +2,241 @@
 <pub>
     <author>William Wordsworth</author>
     <title>Intimations of Immortality</title>
-    <style> .stanza { padding: 1em 10% } </style>
+    <style> .stanza { padding: 1em 10% }
+    
+    .l[data-meter='4'] { padding-left: 3em }
+    .l[data-meter='3'] { padding-left: 4em }
+    .l[data-meter='2'] { padding-left: 5em }
+    </style>
     <verse>
         <stanza>
-            <l>There was a time when meadow, grove, and stream,</l>
-            <l indent="2">The earth, and every common sight,</l>
-            <l indent="6">To me did seem</l>
-            <l indent="2">Apparelled in celestial light,</l>
-            <l>The glory and the freshness of a dream.</l>
-            <l>It is not now as it hath been of yore;—</l>
-            <l indent="4">Turn wheresoe'er I may,</l>
-            <l indent="6">By night or day.</l>
-            <l>The things which I have seen I now can see no more.</l>
+            <l meter="5">There was a time when meadow, grove, and stream,</l>
+            <l meter="4">The earth, and every common sight,</l>
+            <l meter="2">To me did seem</l>
+            <l meter="4">Apparelled in celestial light,</l>
+            <l meter="5">The glory and the freshness of a dream.</l>
+            <l meter="5">It is not now as it hath been of yore;—</l>
+            <l meter="3">Turn wheresoe'er I may,</l>
+            <l meter="2">By night or day.</l>
+            <l meter="6">The things which I have seen I now can see no more.</l>
         </stanza>
         <stanza>
-            <l indent="4">The Rainbow comes and goes,</l>
-            <l indent="4">And lovely is the Rose,</l>
-            <l indent="4">The Moon doth with delight</l>
-            <l indent="2">Look round her when the heavens are bare;</l>
-            <l indent="2">Waters on a starry night</l>
-            <l indent="4">Are beautiful and fair;</l>
-            <l indent="2">The sunshine is a glorious birth;</l>
-            <l indent="2">But yet I know, where'er I go,</l>
-            <l>That there hath past away a glory from the earth.</l>
+            <l meter="3">The Rainbow comes and goes,</l>
+            <l meter="3">And lovely is the Rose,</l>
+            <l meter="3">The Moon doth with delight</l>
+            <l meter="4">Look round her when the heavens are bare;</l>
+            <l meter="3">Waters on a starry night</l>
+            <l meter="3">Are beautiful and fair;</l>
+            <l meter="4">The sunshine is a glorious birth;</l>
+            <l meter="4">But yet I know, where'er I go,</l>
+            <l meter="6">That there hath past away a glory from the earth.</l>
         </stanza>
         <stanza>
-            <l>Now, while the birds thus sing a joyous song,</l>
-            <l indent="4">And while the young lambs bound</l>
-            <l indent="4">As to the tabor's sound,</l>
-            <l>To me alone there came a thought of grief:</l>
-            <l>A timely utterance gave that thought relief,</l>
-            <l indent="4">And I again am strong:</l>
-            <l>The cataracts blow their trumpets from the steep;</l>
-            <l>No more shall grief of mine the season wrong;</l>
-            <l>I hear the Echoes through the mountains throng,</l>
-            <l>The Winds come to me from the fields of sleep,</l>
-            <l indent="4">And all the earth is gay;</l>
-            <l indent="6">Land and sea</l>
-            <l indent="2">Give themselves up to jollity,</l>
-            <l indent="4">And with the heart of May</l>
-            <l indent="2">Doth every Beast keep holiday; -</l>
-            <l indent="6">Thou Child of Joy,</l>
-            <l>Shout round me, let me hear thy shouts, thou happy Shepherd-boy!</l>
+            <l meter="5">Now, while the birds thus sing a joyous song,</l>
+            <l meter="3">And while the young lambs bound</l>
+            <l meter="3">As to the tabor's sound,</l>
+            <l meter="5">To me alone there came a thought of grief:</l>
+            <l meter="5">A timely utterance gave that thought relief,</l>
+            <l meter="3">And I again am strong:</l>
+            <l meter="5">The cataracts blow their trumpets from the steep;</l>
+            <l meter="5">No more shall grief of mine the season wrong;</l>
+            <l meter="5">I hear the Echoes through the mountains throng,</l>
+            <l meter="5">The Winds come to me from the fields of sleep,</l>
+            <l meter="3">And all the earth is gay;</l>
+            <l meter="2">Land and sea</l>
+            <l meter="4">Give themselves up to jollity,</l>
+            <l meter="3">And with the heart of May</l>
+            <l meter="4">Doth every Beast keep holiday; -</l>
+            <l meter="2">Thou Child of Joy,</l>
+            <l meter="7">Shout round me, let me hear thy shouts, thou happy Shepherd-boy!</l>
         </stanza>
         <stanza>
-            <l>Ye blesse`d Creatures, I have heard the call</l>
-            <l indent="2">Ye to each other make; I see</l>
-            <l>The heavens laugh with you in your jubilee;</l>
-            <l indent="2">My heart is at your festival,</l>
-            <l indent="2">My head hath its coronal,</l>
-            <l>The fulness of your bliss, I feel- I feel it all.</l>
-            <l indent="2">Oh evil day! if I were sullen</l>
-            <l indent="2">While the Earth herself is adorning,</l>
-            <l indent="4">This sweet May-morning,</l>
-            <l indent="2">And the Children are culling</l>
-            <l indent="4">On every side,</l>
-            <l>In a thousand valleys far and wide,</l>
-            <l>Fresh flowers; while the sun shines warm,</l>
-            <l>And the Babe leaps up on his Mother's arm:-</l>
-            <l indent="2">I hear, I hear, with joy I hear!</l>
-            <l indent="2"> - But there's a Tree, of many, one,</l>
-            <l>A single Field which I have looked upon,</l>
-            <l>Both of them speak of something that is gone:</l>
-            <l indent="4">The Pansy at my feet</l>
-            <l indent="4">Doth the same tale repeat:</l>
-            <l>Whither is fled the visionary gleam?</l>
-            <l>Where is it now, the glory and the dream?</l>
+            <l meter="5">Ye blesse`d Creatures, I have heard the call</l>
+            <l meter="4">Ye to each other make; I see</l>
+            <l meter="5">The heavens laugh with you in your jubilee;</l>
+            <l meter="4">My heart is at your festival,</l>
+            <l meter="4">My head hath its coronal,</l>
+            <l meter="5">The fulness of your bliss, I feel- I feel it all.</l>
+            <l meter="4">Oh evil day! if I were sullen</l>
+            <l meter="4">While the Earth herself is adorning,</l>
+            <l meter="3">This sweet May-morning,</l>
+            <l meter="3">And the Children are culling</l>
+            <l meter="3">On every side,</l>
+            <l meter="5">In a thousand valleys far and wide,</l>
+            <l meter="5">Fresh flowers; while the sun shines warm,</l>
+            <l meter="5">And the Babe leaps up on his Mother's arm:-</l>
+            <l meter="4">I hear, I hear, with joy I hear!</l>
+            <l meter="4">— But there's a Tree, of many, one,</l>
+            <l meter="5">A single Field which I have looked upon,</l>
+            <l meter="5">Both of them speak of something that is gone:</l>
+            <l meter="3">The Pansy at my feet</l>
+            <l meter="3">Doth the same tale repeat:</l>
+            <l meter="5">Whither is fled the visionary gleam?</l>
+            <l meter="5">Where is it now, the glory and the dream?</l>
         </stanza>
         <stanza>
-            <l>Our birth is but a sleep and a forgetting:</l>
-            <l>The Soul that rises with us, our life's Star,</l>
-            <l indent="4">Hath had elsewhere its setting,</l>
-            <l indent="4">And cometh from afar:</l>
-            <l indent="4">Not in entire forgetfulness,</l>
-            <l indent="4">And not in utter nakedness,</l>
-            <l>But trailing clouds of glory do we come</l>
-            <l indent="4">From God, who is our home:</l>
-            <l>Heaven lies about us in our infancy!</l>
-            <l>Shades of the prison-house begin to close</l>
-            <l indent="4">Upon the growing Boy,</l>
-            <l>But He beholds the light, and whence it flows,</l>
-            <l indent="4">He sees it in his joy;</l>
-            <l>The Youth, who daily farther from the east</l>
-            <l indent="2">Must travel, still is Nature's Priest,</l>
-            <l indent="4">And by the vision splendid</l>
-            <l indent="4">Is on his way attended;</l>
-            <l>At length the Man perceives it die away,</l>
-            <l>And fade into the light of common day.</l>
+            <l meter="5">Our birth is but a sleep and a forgetting:</l>
+            <l meter="5">The Soul that rises with us, our life's Star,</l>
+            <l meter="3">Hath had elsewhere its setting,</l>
+            <l meter="3">And cometh from afar:</l>
+            <l meter="4">Not in entire forgetfulness,</l>
+            <l meter="4">And not in utter nakedness,</l>
+            <l meter="5">But trailing clouds of glory do we come</l>
+            <l meter="3">From God, who is our home:</l>
+            <l meter="5">Heaven lies about us in our infancy!</l>
+            <l meter="5">Shades of the prison-house begin to close</l>
+            <l meter="3">Upon the growing Boy,</l>
+            <l meter="5">But He beholds the light, and whence it flows,</l>
+            <l meter="3">He sees it in his joy;</l>
+            <l meter="5">The Youth, who daily farther from the east</l>
+            <l meter="4">Must travel, still is Nature's Priest,</l>
+            <l meter="3">And by the vision splendid</l>
+            <l meter="3">Is on his way attended;</l>
+            <l meter="5">At length the Man perceives it die away,</l>
+            <l meter="5">And fade into the light of common day.</l>
         </stanza>
         <stanza>
-            <l>Earth fills her lap with pleasures of her own;</l>
-            <l>Yearnings she hath in her own natural kind,</l>
-            <l>And, even with something of a Mother's mind,</l>
-            <l indent="4">And no unworthy aim,</l>
-            <l indent="2">The homely Nurse doth all she can</l>
-            <l>To make her Foster-child, her Inmate Man,</l>
-            <l indent="2">Forget the glories he hath known,</l>
-            <l>And that imperial palace whence he came.</l>
+            <l meter="5">Earth fills her lap with pleasures of her own;</l>
+            <l meter="5">Yearnings she hath in her own natural kind,</l>
+            <l meter="5">And, even with something of a Mother's mind,</l>
+            <l meter="3">And no unworthy aim,</l>
+            <l meter="4">The homely Nurse doth all she can</l>
+            <l meter="5">To make her Foster-child, her Inmate Man,</l>
+            <l meter="4">Forget the glories he hath known,</l>
+            <l meter="5">And that imperial palace whence he came.</l>
         </stanza>
         <stanza>
-            <l>Behold the Child among his new-born blisses,</l>
-            <l>A six years' Darling of a pigmy size!</l>
-            <l>See, where 'mid work of his own hand he lies,</l>
-            <l>Fretted by sallies of his mother's kisses,</l>
-            <l>With light upon him from his father's eyes!</l>
-            <l>See, at his feet, some little plan or chart,</l>
-            <l>Some fragment from his dream of human life,</l>
-            <l>Shaped by himself with newly-learned art;</l>
-            <l indent="4">A wedding or a festival,</l>
-            <l indent="4">A mourning or a funeral;</l>
-            <l indent="4">And this hath now his heart,</l>
-            <l indent="2">And unto this he frames his song:</l>
-            <l indent="2">Then will he fit his tongue</l>
-            <l>To dialogues of business, love, or strife;</l>
-            <l indent="4">But it will not be long</l>
-            <l indent="4">Ere this be thrown aside,</l>
-            <l indent="4">And with new joy and pride</l>
-            <l>The little Actor cons another part;</l>
-            <l>Filling from time to time his 'humorous stage'</l>
-            <l>With all the Persons, down to palsied Age,</l>
-            <l>That Life brings with her in her equipage;</l>
-            <l indent="4">As if his whole vocation</l>
-            <l indent="4">Were endless imitation.</l>
+            <l meter="5">Behold the Child among his new-born blisses,</l>
+            <l meter="5">A six years' Darling of a pigmy size!</l>
+            <l meter="5">See, where 'mid work of his own hand he lies,</l>
+            <l meter="5">Fretted by sallies of his mother's kisses,</l>
+            <l meter="5">With light upon him from his father's eyes!</l>
+            <l meter="5">See, at his feet, some little plan or chart,</l>
+            <l meter="5">Some fragment from his dream of human life,</l>
+            <l meter="5">Shaped by himself with newly-learned art;</l>
+            <l meter="3">A wedding or a festival,</l>
+            <l meter="3">A mourning or a funeral;</l>
+            <l meter="3">And this hath now his heart,</l>
+            <l meter="4">And unto this he frames his song:</l>
+            <l meter="3">Then will he fit his tongue</l>
+            <l meter="5">To dialogues of business, love, or strife;</l>
+            <l meter="3">But it will not be long</l>
+            <l meter="3">Ere this be thrown aside,</l>
+            <l meter="3">And with new joy and pride</l>
+            <l meter="5">The little Actor cons another part;</l>
+            <l meter="5">Filling from time to time his 'humorous stage'</l>
+            <l meter="5">With all the Persons, down to palsied Age,</l>
+            <l meter="5">That Life brings with her in her equipage;</l>
+            <l meter="3">As if his whole vocation</l>
+            <l meter="3">Were endless imitation.</l>
         </stanza>
         <stanza>
-            <l>Thou, whose exterior semblance doth belie</l>
-            <l indent="4">Thy Soul's immensity;</l>
-            <l>Thou best Philosopher, who yet dost keep</l>
-            <l>Thy heritage, thou Eye among the blind,</l>
-            <l>That, deaf and silent, read'st the eternal deep,</l>
-            <l>Haunted for ever by the eternal mind,-</l>
-            <l indent="4">Mighty Prophet! Seer blest!</l>
-            <l indent="4">On whom those truths do rest,</l>
-            <l>Which we are toiling all our lives to find,</l>
-            <l>In darkness lost, the darkness of the grave;</l>
-            <l>Thou, over whom thy Immortality</l>
-            <l>Broods like the Day, a Master o'er a Slave,</l>
-            <l>A Presence which is not to be put by;</l>
-            <l indent="4">To whom the grave</l>
-            <l>Is but a lonely bed without the sense or sight</l>
-            <l indent="4">Of day or the warm light,</l>
-            <l>A place of thought where we in waiting lie;</l>
-            <l>Thou little Child, yet glorious in the might</l>
-            <l>Of heaven-born freedom on thy being's height,</l>
-            <l>Why with such earnest pains dost thou provoke</l>
-            <l>The years to bring the inevitable yoke,</l>
-            <l>Thus blindly with thy blessedness at strife?</l>
-            <l>Full soon thy Soul shall have her earthly freight,</l>
-            <l>And custom lie upon thee with a weight,</l>
-            <l>Heavy as frost, and deep almost as life!</l>
+            <l meter="5">Thou, whose exterior semblance doth belie</l>
+            <l meter="3">Thy Soul's immensity;</l>
+            <l meter="5">Thou best Philosopher, who yet dost keep</l>
+            <l meter="5">Thy heritage, thou Eye among the blind,</l>
+            <l meter="5">That, deaf and silent, read'st the eternal deep,</l>
+            <l meter="5">Haunted for ever by the eternal mind,-</l>
+            <l meter="3">Mighty Prophet! Seer blest!</l>
+            <l meter="3">On whom those truths do rest,</l>
+            <l meter="5">Which we are toiling all our lives to find,</l>
+            <l meter="5">In darkness lost, the darkness of the grave;</l>
+            <l meter="5">Thou, over whom thy Immortality</l>
+            <l meter="5">Broods like the Day, a Master o'er a Slave,</l>
+            <l meter="5">A Presence which is not to be put by;</l>
+            <l meter="3">To whom the grave</l>
+            <l meter="5">Is but a lonely bed without the sense or sight</l>
+            <l meter="3">Of day or the warm light,</l>
+            <l meter="5">A place of thought where we in waiting lie;</l>
+            <l meter="5">Thou little Child, yet glorious in the might</l>
+            <l meter="5">Of heaven-born freedom on thy being's height,</l>
+            <l meter="5">Why with such earnest pains dost thou provoke</l>
+            <l meter="5">The years to bring the inevitable yoke,</l>
+            <l meter="5">Thus blindly with thy blessedness at strife?</l>
+            <l meter="5">Full soon thy Soul shall have her earthly freight,</l>
+            <l meter="5">And custom lie upon thee with a weight,</l>
+            <l meter="5">Heavy as frost, and deep almost as life!</l>
         </stanza>
         <stanza>
-            <l indent="4">O joy! that in our embers</l>
-            <l indent="4">Is something that doth live,</l>
-            <l indent="4">That nature yet remembers</l>
-            <l indent="4">What was so fugitive!</l>
-            <l>The thought of our past years in me doth breed</l>
-            <l>Perpetual benediction: not indeed</l>
-            <l>For that which is most worthy to be blest;</l>
-            <l>Delight and liberty, the simple creed</l>
-            <l>Of Childhood, whether busy or at rest,</l>
-            <l>With new-fledged hope still fluttering in his breast:-</l>
-            <l indent="4">Not for these I raise</l>
-            <l indent="4">The song of thanks and praise;</l>
-            <l indent="2">But for those obstinate questionings</l>
-            <l indent="4">Of sense and outward things,</l>
-            <l indent="4">Fallings from us, vanishings;</l>
-            <l indent="2">Blank misgivings of a Creature</l>
-            <l>Moving about in worlds not realised,</l>
-            <l>High instincts before which our mortal Nature</l>
-            <l>Did tremble like a guilty Thing surprised:</l>
-            <l indent="2">But for those first affections,</l>
-            <l indent="2">Those shadowy recollections,</l>
-            <l indent="2">Which, be they what they may,</l>
-            <l>Are yet the fountain-light of all our day,</l>
-            <l>Are yet a master-light of all our seeing;</l>
-            <l>Uphold us, cherish, and have power to make</l>
-            <l>Our noisy years seem moments in the being</l>
-            <l>Of the eternal Silence: truths that wake,</l>
-            <l indent="6">To perish never;</l>
-            <l>Which neither listlessness, nor mad endeavor,</l>
-            <l indent="6">Nor Man nor Boy,</l>
-            <l indent="2">Nor all that is at enmity with joy,</l>
-            <l>Can utterly abolish or destroy!</l>
-            <l>Hence in a season of calm weather</l>
-            <l indent="4">Though inland far we be,</l>
-            <l>Our Souls have sight of that immortal sea</l>
-            <l indent="4">Which brought us hither,</l>
-            <l indent="2">Can in a moment travel thither,</l>
-            <l>And see the Children sport upon the shore,</l>
-            <l>And hear the mighty waters rolling evermore.</l>
+            <l meter="3">O joy! that in our embers</l>
+            <l meter="3">Is something that doth live,</l>
+            <l meter="3">That nature yet remembers</l>
+            <l meter="3">What was so fugitive!</l>
+            <l meter="5">The thought of our past years in me doth breed</l>
+            <l meter="5">Perpetual benediction: not indeed</l>
+            <l meter="5">For that which is most worthy to be blest;</l>
+            <l meter="5">Delight and liberty, the simple creed</l>
+            <l meter="5">Of Childhood, whether busy or at rest,</l>
+            <l meter="5">With new-fledged hope still fluttering in his breast:-</l>
+            <l meter="3">Not for these I raise</l>
+            <l meter="3">The song of thanks and praise;</l>
+            <l meter="4">But for those obstinate questionings</l>
+            <l meter="3">Of sense and outward things,</l>
+            <l meter="3">Fallings from us, vanishings;</l>
+            <l meter="4">Blank misgivings of a Creature</l>
+            <l meter="5">Moving about in worlds not realised,</l>
+            <l meter="5">High instincts before which our mortal Nature</l>
+            <l meter="5">Did tremble like a guilty Thing surprised:</l>
+            <l meter="4">But for those first affections,</l>
+            <l meter="4">Those shadowy recollections,</l>
+            <l meter="4">Which, be they what they may,</l>
+            <l meter="5">Are yet the fountain-light of all our day,</l>
+            <l meter="5">Are yet a master-light of all our seeing;</l>
+            <l meter="5">Uphold us, cherish, and have power to make</l>
+            <l meter="5">Our noisy years seem moments in the being</l>
+            <l meter="5">Of the eternal Silence: truths that wake,</l>
+            <l meter="2">To perish never;</l>
+            <l meter="5">Which neither listlessness, nor mad endeavor,</l>
+            <l meter="2">Nor Man nor Boy,</l>
+            <l meter="4">Nor all that is at enmity with joy,</l>
+            <l meter="5">Can utterly abolish or destroy!</l>
+            <l meter="5">Hence in a season of calm weather</l>
+            <l meter="3">Though inland far we be,</l>
+            <l meter="5">Our Souls have sight of that immortal sea</l>
+            <l meter="3">Which brought us hither,</l>
+            <l meter="4">Can in a moment travel thither,</l>
+            <l meter="5">And see the Children sport upon the shore,</l>
+            <l meter="5">And hear the mighty waters rolling evermore.</l>
         </stanza>
         <stanza>
-            <l>Then sing, ye Birds, sing, sing a joyous song!</l>
-            <l indent="4">And yet the young Lambs bound</l>
-            <l indent="4">As to the tabor's sound!</l>
-            <l indent="2">We in thought will join your throng,</l>
-            <l indent="2">Ye that pipe and ye that play,</l>
-            <l indent="2">Ye that through your hearts to-day</l>
-            <l indent="2">Feel the gladness of the May!</l>
-            <l>What though the radiance which was once so bright</l>
-            <l>Be now for ever taken from my sight,</l>
-            <l>Though nothing can bring back the hour</l>
-            <l>Of splendour in the grass, of glory in the flower;</l>
-            <l indent="2">We will grieve not, rather find</l>
-            <l indent="2">Strength in what remains behind;</l>
-            <l indent="2">In the primal sympathy</l>
-            <l indent="2">Which having been must ever be;</l>
-            <l indent="2">In the soothing thoughts that spring</l>
-            <l indent="2">Out of human suffering;</l>
-            <l indent="2">In the faith that looks through death,</l>
-            <l>In years that bring the philosophic mind.</l>
+            <l meter="5">Then sing, ye Birds, sing, sing a joyous song!</l>
+            <l meter="3">And yet the young Lambs bound</l>
+            <l meter="3">As to the tabor's sound!</l>
+            <l meter="4">We in thought will join your throng,</l>
+            <l meter="4">Ye that pipe and ye that play,</l>
+            <l meter="4">Ye that through your hearts to-day</l>
+            <l meter="4">Feel the gladness of the May!</l>
+            <l meter="5">What though the radiance which was once so bright</l>
+            <l meter="5">Be now for ever taken from my sight,</l>
+            <l meter="4">Though nothing can bring back the hour</l>
+            <l meter="5">Of splendour in the grass, of glory in the flower;</l>
+            <l meter="4">We will grieve not, rather find</l>
+            <l meter="4">Strength in what remains behind;</l>
+            <l meter="3">In the primal sympathy</l>
+            <l meter="4">Which having been must ever be;</l>
+            <l meter="4">In the soothing thoughts that spring</l>
+            <l meter="3">Out of human suffering;</l>
+            <l meter="4">In the faith that looks through death,</l>
+            <l meter="5">In years that bring the philosophic mind.</l>
         </stanza>
         <stanza>
-            <l>And O, ye Fountains, Meadows, Hills, and Groves,</l>
-            <l>Forebode not any severing of our loves!</l>
-            <l>Yet in my heart of hearts I feel your might;</l>
-            <l>I only have relinquished one delight</l>
-            <l>To live beneath your more habitual sway.</l>
-            <l>I love the Brooks which down their channels fret,</l>
-            <l>Even more than when I tripped lightly as they;</l>
-            <l>The innocent brightness of a new-born Day</l>
-            <l indent="6">Is lovely yet;</l>
-            <l>The Clouds that gather round the setting sun</l>
-            <l>Do take a sober colouring from an eye</l>
-            <l>That hath kept watch o'er man's mortality;</l>
-            <l>Another race hath been, and other palms are won.</l>
-            <l>Thanks to the human heart by which we live,</l>
-            <l>Thanks to its tenderness, its joys, and fears,</l>
-            <l>To me the meanest flower that blows can give</l>
-            <l>Thoughts that do often lie too deep for tears.</l>
+            <l meter="5">And O, ye Fountains, Meadows, Hills, and Groves,</l>
+            <l meter="5">Forebode not any severing of our loves!</l>
+            <l meter="5">Yet in my heart of hearts I feel your might;</l>
+            <l meter="5">I only have relinquished one delight</l>
+            <l meter="5">To live beneath your more habitual sway.</l>
+            <l meter="5">I love the Brooks which down their channels fret,</l>
+            <l meter="5">Even more than when I tripped lightly as they;</l>
+            <l meter="5">The innocent brightness of a new-born Day</l>
+            <l meter="2">Is lovely yet;</l>
+            <l meter="5">The Clouds that gather round the setting sun</l>
+            <l meter="5">Do take a sober colouring from an eye</l>
+            <l meter="5">That hath kept watch o'er man's mortality;</l>
+            <l meter="5">Another race hath been, and other palms are won.</l>
+            <l meter="5">Thanks to the human heart by which we live,</l>
+            <l meter="5">Thanks to its tenderness, its joys, and fears,</l>
+            <l meter="5">To me the meanest flower that blows can give</l>
+            <l meter="5">Thoughts that do often lie too deep for tears.</l>
         </stanza>
     </verse>
 </pub>

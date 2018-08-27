@@ -11,6 +11,12 @@
           width: 28%; float: left; line-height: 150%; opacity: 1 }
         
 .l:nth-child(2n) { padding-left: 6em }
+
+/* moving toc to bottom */
+h5.toc-entry { display: inline-block; margin: 0em }
+h5.toc-entry:before { content: " ☙ " }
+h5.toc-entry:first-child:before { content: "" }
+
     </style>
     <verse>
         <stanza>
