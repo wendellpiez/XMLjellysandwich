@@ -249,9 +249,9 @@
       </xsl:if>
    </xsl:template>
    
-   <xsl:template match="l[@indent castable as xs:integer]" priority="8" mode="indent">
+   <xsl:template match="l[@meter castable as xs:integer]" priority="8" mode="indent">
       <xsl:for-each select="1 to xs:integer(@indent)">
-         <xsl:text>&#32;</xsl:text>
+         <xsl:text>&#32;&#32;</xsl:text>
       </xsl:for-each>
    </xsl:template>
    
