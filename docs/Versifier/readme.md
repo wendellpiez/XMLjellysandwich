@@ -25,15 +25,17 @@ To the extent that more than CSS is needed to support new/extended behaviors, se
 
 The Versifier is deployed as a SaxonJS application, under whose licensing terms, a license for the Enterprise version of Saxon (Saxon-EE) is required in order to produce its "transformation runtimes".
 
-If you have this license, you can rewrite or add to the XSLT here for more/better everything.
+This means you are free to use the SEF files I have produced, but you need a license to produce your own. As a temporary "primer" for this technology - which should be ubiquitous - this is arguably a reasonable expediency (the developers have school bills to pay). And since licenses are not altogether hard to come by (see below) it's something we can live with.
 
-This is the way to extend or rework the Versifier to do pretty much anything you like!
+Armed with forementioned SaxonEE license, you can rewrite or add to the XSLT here for more/better everything. *This is the way to extend or rework the Versifier to do pretty much anything you like.*
 
 All the stylesheets here are pretty easy to patch for small things, emulate for similar/different things, or completely overturn.
 
 \[Plug: The (oXygen XML Editor)[https://www.oxygenxml.com] comes with a license for SaxonEE and the SaxonJS compiler, and is available at educational rates.\]
 
-\[SaxonJS from Saxonica: http://saxonica.com/saxon-js/index.xml see especially [licensing](http://saxonica.com/license/license.xml).\]
+\[\Plug: email the developer for an additional discount code for oXygen.]
+
+(SaxonJS is at Saxonica)[ http://saxonica.com/saxon-js/index.xml] - see especially [licensing](http://saxonica.com/license/license.xml).\]
 
 ### Step Three
 
