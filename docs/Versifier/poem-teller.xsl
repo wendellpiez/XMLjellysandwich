@@ -237,11 +237,13 @@
    
    <xsl:template match="*" mode="indent"/>
    
+<!--  The next two are examples of ballad meter or a/b/a/b indentation -->
    <xsl:template match="pub[title='Love III']//l" priority="10" mode="indent">
       <xsl:if test="count(preceding-sibling::l) mod 2">
          <xsl:text>&#32;&#32;&#32;&#32;&#32;&#32;</xsl:text>
       </xsl:if>
    </xsl:template>
+   
    
    <xsl:template match="pub[title='As the Starved Maelstrom Laps the Navies']//l" priority="10" mode="indent">
       <xsl:if test="count(preceding-sibling::l) mod 2">
@@ -249,6 +251,8 @@
       </xsl:if>
    </xsl:template>
    
+<!-- 'To Autumn' indents based on rhyme scheme: a and c are flush left,
+        b and d are indented, e is indented twice. -->
    <xsl:template match="pub[title='To Autumn']//l" priority="10" mode="indent">
       <xsl:if test="@r=('b','d')">
          <xsl:text>&#32;&#32;</xsl:text>
@@ -258,6 +262,7 @@
       </xsl:if>
    </xsl:template>
    
+<!-- In the Wordsworth ode, meter is marked, and we indent further for shorter lines.  -->
    <xsl:template match="l[@meter castable as xs:integer]" priority="8" mode="indent">
       <xsl:for-each select="1 to xs:integer(@indent)">
          <xsl:text>&#32;&#32;</xsl:text>

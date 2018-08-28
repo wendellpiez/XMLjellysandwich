@@ -6,6 +6,8 @@ Starter kit for XSLT 3.0 in the browser using SaxonJS
 
 To see examples: http://wendellpiez.github.io/XMLjellysandwich
 
+Also, a couple of demonstration applications here can be used as starter frameworks for XML/CSS editing (no XSLT required). See the docs for more on that.
+
 To use: try any of the XSLT stylesheets on your XML. Its result will be either an HTML file, an XSLT stylesheet (which happens to match elements in your source XML), or a normalized XML copy of your input, depending on the stylesheet. Assemble the results of these (several) transformations, make your adjustments, compile the stylesheet, and you have a complete application you can park on a web server. (More details below.)
 
 SaxonJS is documented here: http://www.saxonica.com/saxon-js/documentation/index.html
