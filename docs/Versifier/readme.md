@@ -4,8 +4,8 @@ Copy the Versifier to a directory readable by a web server, point your browser t
 
 The Versifier comes with the Poem Teller. So try both the entry points:
 
-(Versifier)[index.html] - (try it)[https://wendellpiez.github.io/XMLjellysandwich/Versifier/]
-(Poem Teller)[teller.html] - (this too)[https://wendellpiez.github.io/XMLjellysandwich/Versifier/teller.html]
+- [Versifier](index.html) - [try it](https://wendellpiez.github.io/XMLjellysandwich/Versifier/)
+- [Poem Teller](teller.html) - [this too](https://wendellpiez.github.io/XMLjellysandwich/Versifier/teller.html)
 
 ## Modding / Extending
 
