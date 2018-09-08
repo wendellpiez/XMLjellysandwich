@@ -61,6 +61,9 @@
       </div>
    </xsl:template>
    
+<!-- template should match when the card is already loaded  -->
+   <xsl:template mode="toc" match="card[exists(id(replace(@src,'^.*/|\..*$',''),ixsl:page()))]"/>
+   
    <xsl:template match="card" mode="toc">
       <h5 class="toc-entry" data-src="{@src}" onclick="void(0)">
          <xsl:apply-templates select="title, date" mode="toc"/>
@@ -132,6 +135,8 @@
    </xsl:template>
    
    <xsl:template match="pub/verse">
+      <xsl:result-document href="#xmljellysandwich_directory" method="ixsl:replace-content"/>
+      <xsl:result-document href="#xmljellysandwich_footer" method="ixsl:replace-content"/>
       <xsl:result-document href="#xmljellysandwich_body"  method="ixsl:replace-content">
          <xsl:apply-templates select="../(title, author, source)"/>
          <div class="verse" id="{replace(document-uri(/),'^.*/|\..*$','')}">
@@ -237,10 +242,10 @@
    
    <!-- stop spilling -->
    <xsl:template match="*[not(ancestor-or-self::*[contains-token(@class,'verse')])]" mode="spill">
-      
-      <xsl:result-document href="#xmljellysandwich_directory">
+      <xsl:result-document href="#xmljellysandwich_directory" method="ixsl:replace-content">
          <xsl:apply-templates select="$source-catalog" mode="toc"/>
       </xsl:result-document>
+      
       <xsl:result-document href="#xmljellysandwich_footer" method="ixsl:replace-content">
          <p><i>The Versifier</i> is a project of Wendell Piez for <a href="http://pellucidliterature.org">Pellucid Literature</a> starting in 2017. <a href="https://github.com/wendellpiez/XMLjellysandwich">Find the source code on Github.</a></p>
          <p>If you like it, check out the <a href="teller.html">Poem Teller</a>, also on this site.</p>

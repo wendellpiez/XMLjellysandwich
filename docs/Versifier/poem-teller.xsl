@@ -151,9 +151,10 @@
    <xsl:template match="id('clear_select')" mode="ixsl:click">
       <xsl:apply-templates select="id('tell_panel')" mode="off"/>
       <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
+      <xsl:result-document href="#text_title" method="ixsl:replace-content">[Title]</xsl:result-document>
+      <xsl:result-document href="#text_byline" method="ixsl:replace-content">[Author]</xsl:result-document>
+      
       <xsl:result-document href="#text_panel" method="ixsl:replace-content">
-         <h3 contenteditable="true">[Title]</h3>
-         <h4 contenteditable="true">[Author]</h4>
          <textarea rows="28" cols="50" id="poetry-in-motion">[ ... text ...]</textarea>
       </xsl:result-document>
       <xsl:apply-templates select="id('text_panel')" mode="on"/>
@@ -165,17 +166,14 @@
    
    <xsl:template match="h5[@class='toc-entry']" mode="ixsl:click">
       <xsl:variable name="poem" select="document(resolve-uri(@data-src))"/>
+      <xsl:result-document href="#text_title" method="ixsl:replace-content">
+         <xsl:apply-templates select="$poem/descendant::title[1]/node()"/>
+      </xsl:result-document>
+      <xsl:result-document href="#text_byline" method="ixsl:replace-content">
+         <xsl:apply-templates select="$poem//pub/author/node()"/>
+      </xsl:result-document>
       <xsl:result-document href="#text_panel" method="ixsl:replace-content">
-         <xsl:for-each select="$poem/descendant::title[1]">
-            <h3 contenteditable="true">
-               <xsl:apply-templates/>
-            </h3>
-         </xsl:for-each>
-         <xsl:for-each select="$poem/pub/author">
-            <h4 contenteditable="true">
-               <xsl:apply-templates/>
-            </h4>
-         </xsl:for-each>
+         
          <textarea rows="28" cols="50" id="poetry-in-motion">
             <xsl:apply-templates select="$poem" mode="textonly"/>
          </textarea>
@@ -466,8 +464,7 @@
          button { width: 7em }
          button:hover { font-weight: bold }
          
-         section.verse { border: medium double black; padding: 2ex }
-         
+                 
          .verse p { padding-left: 3em; text-indent: -3em }
          .stanza p { margin-top: 0ex; margin-bottom: 0ex }
          .stanza { margin-top: 3ex }
@@ -482,6 +479,8 @@
          .verse .indent7 { padding-left: 9em }
          .verse .indent8 { padding-left: 10em }
          .verse .indent9 { padding-left: 11em }
+         
+         #text_title, #text_byline { padding-left: 2% }
          
          .panel { display: none; padding: 2%; vertical-align: text-top }
          .panel.ON { display: inline-block } /* way better thanks to AMC */
