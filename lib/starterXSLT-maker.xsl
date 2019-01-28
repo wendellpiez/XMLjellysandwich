@@ -13,6 +13,9 @@
   <!-- Set $xsl-version to 1.0 and you get an XSLT that will run in any old browser. -->
   <xsl:param name="xsl-version">3.0</xsl:param>
   
+  <!-- Include the XJS utility functions -->
+  <xsl:param as="xs:string" name="functions-wanted">no</xsl:param>
+  
   <!-- The assumption is, elements in the input data sample will fall into
     three classes:
     'wrappers' are elements that never contain text directly, only elements.
@@ -149,7 +152,7 @@ div { margin-left: 1rem }
           </XJS:template>
         </xsl:if>
       
-      <xsl:if test="not($xsl-version = '1.0')">
+      <xsl:if test="not($xsl-version = '1.0') and ($functions-wanted='yes')">
         <xsl:copy-of select="$lf2"/>
         <xsl:copy-of select="$lf2"/>
         <XJS:function name="XJS:classes">

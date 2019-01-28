@@ -11,6 +11,7 @@ Each of the demonstrations listed is provided with source XSLT. The page code wi
 These may (also) be published elsewhere but are maintained here for long-term accessibility.
 
 * [The Versifier](Versifier/)
+* [The Poem Teller](Versifier/teller.html)
 * [Conway's Life - in XSLT](GameofLife/)
 
 ## Published at large

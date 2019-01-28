@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="19.0">
+<project version="20.1">
     <meta>
         <filters directoryPatterns="" filePatterns="Versifier.xpr" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="19.0" xml:space="preserve">
+            <serialized version="20.1" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>scenario.associations</String>
@@ -122,5 +122,6 @@
     </meta>
     <projectTree name="Versifier.xpr">
         <folder path="."/>
+        <file name="../GameofLife/index.html"/>
     </projectTree>
 </project>
