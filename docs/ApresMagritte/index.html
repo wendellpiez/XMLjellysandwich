@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+     <title>Après Magritte</title>
+      <meta charset="utf-8"/>
+      <style type="text/css" id="xmljellysandwich_css">
+        
+        a { color: darkgreen; text-decoration: none }
+        a:hover { text-decoration: underline }
+        td { border: medium solid lightgreen; border-radius: 45%; background-color: cornsilk; width: 1.5em; height: 1.5em }
+        
+        #page_body   { border-top: medium groove black; padding-top: 1em; padding-bottom: 1em }
+        #page_footer { border-top: medium groove black; margin-top:1m; padding-top: 1em }
+        #page_footer > * { margin: 0.5em 0em }
+        
+        #time-setting { display: none }
+        
+        h1#page_title { font-size: 90%; margin-top: 3em }
+        
+        #clock { height: 67% }
+        </style>
+      <script type="text/javascript"
+              src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
+     
+     
+      <script>
+        /*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
+window.onload = initiate()
+          
+function initiate() {
+          SaxonJS.transform(
+            { stylesheetLocation: "die_uhr.sef",
+              initialTemplate:    "tell",
+              stylesheetParams: {
+                clockSet: nowAsString()
+              } } );
+          }
+                    
+function nowAsString() {
+          var now = new Date();
+          var hh = now.getHours();         var hh = (10 > hh) ? '0'+hh : ''+hh;
+          var mm = (now.getMinutes() + 1); var mm = (10 > mm) ? '0'+mm : ''+mm;
+          var ss = now.getSeconds();       var ss = (10 > ss) ? '0'+ss : ''+ss;
+          return hh + ':' + mm + ':' + ss;
+          }
+          
+        </script>
+   </head>
+   <body>
+      <div id="page_header">
+         <h1 id="page_title">Après Magritte</h1>
+      </div>
+     <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
+       <button id="noon-reset_button">Noon</button>
+       <!--<button id="local-reset_button">Page load time</button>-->
+       <button id="system-reset-button" onclick="initiate();">System</button>
+       <!--<button id="standard-reset_button">NIST clock</button>-->
+     </div>
+     <div id="page_body">
+         <svg id="clock" xmlns="http://www.w3.org/2000/svg">
+          
+           <!--<rect width="100%" height="100%" fill="lemonchiffon"/>-->
+           <text x="10" y="50" font-size="3vw" font-style="italic">Ist das nicht eine Uhr?</text>
+           <!-- <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
+         </svg> 
+     </div>
+   </body>
+</html>
