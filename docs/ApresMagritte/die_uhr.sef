@@ -4,7 +4,7 @@
   <template name="Q{}hands" flags="os" line="90" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="6">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="91">
     <param name="Q{}when" slot="0" as="xs:time">
-     <gVarRef role="select" name="Q{http://saxon.sf.net/generated-variable}gg1831694847" bSlot="0"/>
+     <gVarRef role="select" name="Q{http://saxon.sf.net/generated-variable}gg1174540789" bSlot="0"/>
      <treat role="conversion" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0590|when">
       <check card="1" diag="8|0|XTTE0590|when">
        <cvUntyped to="xs:time">
@@ -387,6 +387,19 @@
    </fn>
   </globalParam>
  </co>
+ <co id="1" binds="4">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1174540789" type="xs:time" line="91" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.time.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+   <treat baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="91" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0600|when">
+    <check card="1" diag="8|0|XTTE0600|when">
+     <cvUntyped to="xs:time">
+      <data>
+       <gVarRef name="Q{}load-time" bSlot="0"/>
+      </data>
+     </cvUntyped>
+    </check>
+   </treat>
+  </globalVariable>
+ </co>
  <co id="7" binds="4 3">
   <template name="Q{}tell" flags="os" line="26" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="1">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="27">
@@ -394,7 +407,7 @@
      <gVarRef role="select" name="Q{}load-time" bSlot="0"/>
      <supplied role="conversion" slot="0"/>
     </param>
-    <resultDoc line="29" global="#&#xA;#Tue Feb 11 20:26:18 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Tue Feb 11 20:26:18 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc line="29" global="#&#xA;#Wed Feb 12 21:13:38 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Wed Feb 12 21:13:38 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#page_body"/>
      <callT role="content" line="30" name="draw-clock" bSlot="1">
       <withParam name="Q{}now" flags="c">
@@ -477,19 +490,6 @@
    </forEach>
   </template>
  </co>
- <co id="1" binds="4">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1831694847" type="xs:time" line="91" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.time.cast(val);" jsCardCheck="function c(n) {return n==1;};">
-   <treat baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="91" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0600|when">
-    <check card="1" diag="8|0|XTTE0600|when">
-     <cvUntyped to="xs:time">
-      <data>
-       <gVarRef name="Q{}load-time" bSlot="0"/>
-      </data>
-     </cvUntyped>
-    </check>
-   </treat>
-  </globalVariable>
- </co>
  <co id="9" binds="3 4">
   <mode onNo="TC" flags="dW" patternSlots="0">
    <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="20" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
@@ -510,4 +510,4 @@
  </output>
  <decimalFormat/>
 </package>
-<?Σ b2b2b470?>
+<?Σ f07fe270?>

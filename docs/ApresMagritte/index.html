@@ -37,10 +37,10 @@ function initiate() {
                     
 function nowAsString() {
           var now = new Date();
-          var hh = now.getHours();         var hh = (10 > hh) ? '0'+hh : ''+hh;
-          var mm = (now.getMinutes() + 1); var mm = (10 > mm) ? '0'+mm : ''+mm;
-          var ss = now.getSeconds();       var ss = (10 > ss) ? '0'+ss : ''+ss;
-          return hh + ':' + mm + ':' + ss;
+          var hh  = now.getHours();   var hh = (hh > 10) ? ''+hh : '0'+hh;
+          var mm  = now.getMinutes(); var mm = (mm > 10) ? ''+mm : '0'+mm;
+          var ss  = now.getSeconds(); var ss = (ss > 10) ? ''+ss : '0'+ss;
+          return (hh + ':' + mm + ':' + ss);
           }
           
         </script>
