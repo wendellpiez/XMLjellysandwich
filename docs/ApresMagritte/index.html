@@ -14,8 +14,9 @@
         
         #time-setting { display: none }
         
-        h1#page_title { font-size: 90%; margin-top: 3em }
+        h1#page_title { font-size: 140%; margin-top: 1em }
         
+        h1 small { font-size: 60% }
         #clock { height: 67% }
         </style>
       <script type="text/javascript"
@@ -31,15 +32,15 @@ function initiate() {
             { stylesheetLocation: "die_uhr.sef",
               initialTemplate:    "tell",
               stylesheetParams: {
-                clockSet: nowAsString()
+                clockSet: nanjikan()
               } } );
           }
                     
-function nowAsString() {
+function nanjikan() {
           var now = new Date();
-          var hh  = now.getHours();   var hh = (hh > 10) ? ''+hh : '0'+hh;
-          var mm  = now.getMinutes(); var mm = (mm > 10) ? ''+mm : '0'+mm;
-          var ss  = now.getSeconds(); var ss = (ss > 10) ? ''+ss : '0'+ss;
+          var hh  = now.getHours();   var hh = (hh > 9) ? ''+hh : '0'+hh;
+          var mm  = now.getMinutes(); var mm = (mm > 9) ? ''+mm : '0'+mm;
+          var ss  = now.getSeconds(); var ss = (ss > 9) ? ''+ss : '0'+ss;
           return (hh + ':' + mm + ':' + ss);
           }
           
@@ -47,7 +48,7 @@ function nowAsString() {
    </head>
    <body>
       <div id="page_header">
-         <h1 id="page_title">Après Magritte</h1>
+        <h1 id="page_title">The Treachery of Appearances <small>(Après Magritte)</small></h1>
       </div>
      <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
        <button id="noon-reset_button">Noon</button>
