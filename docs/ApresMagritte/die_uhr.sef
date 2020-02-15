@@ -1,10 +1,394 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://ns.saxonica.com/xslt/export" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vv="http://saxon.sf.net/generated-variable" xmlns:java-type="http://saxon.sf.net/java-type" version="30" packageVersion="1" saxonVersion="9.8.0.12" target="JS" targetVersion="1" relocatable="false">
- <co id="0" binds="1">
-  <template name="Q{}hands" flags="os" line="90" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="6">
-   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="91">
+ <co id="0" binds="">
+  <template name="Q{}ticks" flags="os" line="106" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="0">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="107">
+    <forEach>
+     <range from="1" to="11"/>
+     <elem line="109" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
+      <sequence>
+       <att name="stroke-width" flags="l">
+        <str val="2"/>
+       </att>
+       <att name="d" flags="l">
+        <str val="M 0 -85 v -10"/>
+       </att>
+       <att name="stroke" flags="l">
+        <str val="black"/>
+       </att>
+       <att name="fill" flags="l">
+        <str val="none"/>
+       </att>
+       <att name="transform" flags="l">
+        <fn name="concat">
+         <str val="rotate("/>
+         <convert from="xs:integer" to="xs:string">
+          <arith op="*" calc="i*i">
+           <dot type="xs:integer"/>
+           <int val="30"/>
+          </arith>
+         </convert>
+         <str val=")"/>
+        </fn>
+       </att>
+      </sequence>
+     </elem>
+    </forEach>
+    <elem line="111" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
+     <sequence>
+      <att name="stroke-width" flags="l">
+       <str val="2"/>
+      </att>
+      <att name="d" flags="l">
+       <str val="M -3 -80 v -15"/>
+      </att>
+      <att name="stroke" flags="l">
+       <str val="black"/>
+      </att>
+      <att name="fill" flags="l">
+       <str val="none"/>
+      </att>
+     </sequence>
+    </elem>
+    <elem line="112" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
+     <sequence>
+      <att name="stroke-width" flags="l">
+       <str val="2"/>
+      </att>
+      <att name="d" flags="l">
+       <str val="M 3  -80 v -15"/>
+      </att>
+      <att name="stroke" flags="l">
+       <str val="black"/>
+      </att>
+      <att name="fill" flags="l">
+       <str val="none"/>
+      </att>
+     </sequence>
+    </elem>
+   </sequence>
+  </template>
+ </co>
+ <co id="1" binds="2 0 3 4 5">
+  <template name="Q{}draw-clock" flags="os" line="35" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="2">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="36">
+    <param name="Q{}now" slot="0">
+     <gVarRef role="select" name="Q{}load-time" bSlot="0"/>
+     <supplied role="conversion" slot="0"/>
+    </param>
+    <param line="37" name="Q{}show-plain" slot="1">
+     <true role="select"/>
+     <supplied role="conversion" slot="1"/>
+    </param>
+    <elem line="38" name="svg" nsuri="http://www.w3.org/2000/svg" flags="d">
+     <sequence>
+      <att name="id" flags="l">
+       <str val="clock"/>
+      </att>
+      <att name="viewBox" flags="l">
+       <str val="0 0 400 300"/>
+      </att>
+      <elem line="40" name="text" nsuri="http://www.w3.org/2000/svg" flags="dl">
+       <sequence>
+        <att name="x" flags="l">
+         <str val="200"/>
+        </att>
+        <att name="y" flags="l">
+         <str val="250"/>
+        </att>
+        <att name="text-anchor" flags="l">
+         <str val="middle"/>
+        </att>
+        <att name="font-size" flags="l">
+         <str val="14"/>
+        </att>
+        <att name="font-style" flags="l">
+         <str val="italic"/>
+        </att>
+        <valueOf flags="l">
+         <str val="Ist das&#xA;                nicht eine Uhr?"/>
+        </valueOf>
+       </sequence>
+      </elem>
+      <elem line="42" name="text" nsuri="http://www.w3.org/2000/svg" flags="dl">
+       <sequence>
+        <att name="x" flags="l">
+         <str val="10"/>
+        </att>
+        <att name="y" flags="l">
+         <str val="50"/>
+        </att>
+        <att name="id" flags="l">
+         <str val="time-setting"/>
+        </att>
+        <valueOf line="43" flags="l">
+         <fn name="format-time">
+          <treat as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="0|0||fn:format-time">
+           <check card="?" diag="0|0||fn:format-time">
+            <cvUntyped to="xs:time">
+             <data>
+              <varRef name="now" slot="0"/>
+             </data>
+            </cvUntyped>
+           </check>
+          </treat>
+          <str val="[h]:[m02] [Pn]"/>
+         </fn>
+        </valueOf>
+       </sequence>
+      </elem>
+      <elem line="45" name="g" nsuri="http://www.w3.org/2000/svg" flags="dl">
+       <sequence>
+        <att name="transform" flags="l">
+         <str val="translate(200 120)"/>
+        </att>
+        <elem line="46" name="g" nsuri="http://www.w3.org/2000/svg" flags="dl">
+         <sequence>
+          <att name="id" flags="l">
+           <str val="legible-view"/>
+          </att>
+          <att name="class" flags="l">
+           <fn name="concat">
+            <str val="timeView"/>
+            <choose>
+             <varRef name="show-plain" slot="1"/>
+             <str val=" opened"/>
+             <true/>
+             <str val=""/>
+            </choose>
+           </fn>
+          </att>
+          <elem line="48" name="circle" nsuri="http://www.w3.org/2000/svg" flags="dl">
+           <sequence>
+            <att name="r" flags="l">
+             <str val="90"/>
+            </att>
+            <att name="fill" flags="l">
+             <str val="none"/>
+            </att>
+            <att name="fill-opacity" flags="l">
+             <str val="0.2"/>
+            </att>
+            <att name="stroke" flags="l">
+             <str val="steelblue"/>
+            </att>
+            <att name="stroke-opacity" flags="l">
+             <str val="0.2"/>
+            </att>
+            <att name="stroke-width" flags="l">
+             <str val="10"/>
+            </att>
+           </sequence>
+          </elem>
+          <callT line="49" name="ticks" bSlot="1"/>
+          <callT line="50" name="dots" bSlot="2"/>
+          <callT line="51" name="basic" bSlot="3">
+           <withParam name="Q{}when" flags="c" as="xs:time">
+            <treat line="52" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0590|when">
+             <check card="1" diag="8|0|XTTE0590|when">
+              <cvUntyped to="xs:time">
+               <data>
+                <varRef name="now" slot="0"/>
+               </data>
+              </cvUntyped>
+             </check>
+            </treat>
+           </withParam>
+          </callT>
+         </sequence>
+        </elem>
+        <elem line="55" name="g" nsuri="http://www.w3.org/2000/svg" flags="dl">
+         <sequence>
+          <att name="id" flags="l">
+           <str val="literal-view"/>
+          </att>
+          <att name="class" flags="l">
+           <fn name="concat">
+            <str val="timeView"/>
+            <choose>
+             <varRef name="show-plain" slot="1"/>
+             <str val=""/>
+             <true/>
+             <str val=" opened"/>
+            </choose>
+           </fn>
+          </att>
+          <callT line="56" name="freaky" bSlot="4">
+           <withParam name="Q{}when" flags="c" as="xs:time">
+            <treat line="57" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0590|when">
+             <check card="1" diag="8|0|XTTE0590|when">
+              <cvUntyped to="xs:time">
+               <data>
+                <varRef name="now" slot="0"/>
+               </data>
+              </cvUntyped>
+             </check>
+            </treat>
+           </withParam>
+          </callT>
+         </sequence>
+        </elem>
+       </sequence>
+      </elem>
+     </sequence>
+    </elem>
+   </sequence>
+  </template>
+ </co>
+ <co id="6" vis="PUBLIC" binds="">
+  <globalParam name="Q{}clockSet" type="item()*" line="14" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" visibility="PUBLIC" jsAcceptor="return val;" jsCardCheck="function c() {return true;};">
+   <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="14" name="format-time">
+    <fn name="current-time"/>
+    <str val="[H01]:[m01]:[s01]"/>
+   </fn>
+  </globalParam>
+ </co>
+ <co id="7" binds="">
+  <mode name="Q{}label-rewrite" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="1" rank="0" minImp="0" slots="0" flags="s" line="84" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
+    <p.withPredicate role="match">
+     <p.nodeSet type="element()">
+      <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="84" name="id">
+       <str val="view-toggle"/>
+      </fn>
+     </p.nodeSet>
+     <vc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="84" op="eq" comp="CCC">
+      <cast as="xs:string" emptiable="0">
+       <data>
+        <dot type="element()"/>
+       </data>
+      </cast>
+      <str val="Legible"/>
+     </vc>
+    </p.withPredicate>
+    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="85" global="#&#xA;#Sat Feb 15 17:01:17 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Sat Feb 15 17:01:17 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#view-toggle"/>
+     <valueOf role="content" flags="S">
+      <str val="Literal"/>
+     </valueOf>
+    </resultDoc>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="80" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
+    <p.withPredicate role="match">
+     <p.nodeSet type="element()">
+      <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="80" name="id">
+       <str val="view-toggle"/>
+      </fn>
+     </p.nodeSet>
+     <vc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="80" op="eq" comp="CCC">
+      <cast as="xs:string" emptiable="0">
+       <data>
+        <dot type="element()"/>
+       </data>
+      </cast>
+      <str val="Literal"/>
+     </vc>
+    </p.withPredicate>
+    <resultDoc role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="81" global="#&#xA;#Sat Feb 15 17:01:17 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Sat Feb 15 17:01:17 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#view-toggle"/>
+     <valueOf role="content" flags="S">
+      <str val="Legible"/>
+     </valueOf>
+    </resultDoc>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="8" binds="2 1">
+  <template name="Q{}tell" flags="os" line="24" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="1">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="25">
+    <param name="Q{}when" slot="0">
+     <gVarRef role="select" name="Q{}load-time" bSlot="0"/>
+     <supplied role="conversion" slot="0"/>
+    </param>
+    <resultDoc line="27" global="#&#xA;#Sat Feb 15 17:01:17 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Sat Feb 15 17:01:17 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+     <str role="href" val="#page_body"/>
+     <callT role="content" line="28" name="draw-clock" bSlot="1">
+      <withParam name="Q{}now" flags="c">
+       <varRef line="29" name="when" slot="0"/>
+      </withParam>
+      <withParam name="Q{}show-plain" flags="c" as="xs:boolean">
+       <gc line="30" op="=" card="N:1" comp="CCC">
+        <data>
+         <fn name="id">
+          <str val="view-toggle"/>
+          <check card="1" diag="0|1||fn:id">
+           <ifCall name="Q{http://saxonica.com/ns/interactiveXSLT}page" type="document-node()?"/>
+          </check>
+         </fn>
+        </data>
+        <str val="Literal"/>
+       </gc>
+      </withParam>
+     </callT>
+    </resultDoc>
+   </sequence>
+  </template>
+ </co>
+ <co id="9" binds="7 10 8 8">
+  <mode name="Q{http://saxonica.com/ns/interactiveXSLT}click" onNo="TC" flags="W" patternSlots="0">
+   <templateRule prec="0" prio="0.5" seq="2" rank="0" minImp="0" slots="0" flags="s" line="89" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="89" name="id">
+      <str val="view-toggle"/>
+     </fn>
+    </p.nodeSet>
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="90">
+     <applyT mode="Q{}label-rewrite" bSlot="0">
+      <dot role="select" type="element()"/>
+     </applyT>
+     <forEach line="92">
+      <union op="|">
+       <fn name="id">
+        <str val="literal-view"/>
+       </fn>
+       <fn name="id">
+        <str val="legible-view"/>
+       </fn>
+      </union>
+      <callT line="93" name="open-or-shut" bSlot="1"/>
+     </forEach>
+    </sequence>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="1" rank="0" minImp="0" slots="0" flags="s" line="74" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="74" name="id">
+      <str val="local-reset_button"/>
+     </fn>
+    </p.nodeSet>
+    <callT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="75" name="tell" bSlot="2" flags="t">
+     <withParam name="Q{}when" flags="c" as="xs:time">
+      <fn line="76" name="current-time"/>
+     </withParam>
+    </callT>
+   </templateRule>
+   <templateRule prec="0" prio="0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="67" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
+    <p.nodeSet role="match" type="element()">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="67" name="id">
+      <str val="noon-reset_button"/>
+     </fn>
+    </p.nodeSet>
+    <callT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="68" name="tell" bSlot="3" flags="t">
+     <withParam name="Q{}when" flags="c" as="xs:time">
+      <atomic val="00:00:00" type="xs:time"/>
+     </withParam>
+    </callT>
+   </templateRule>
+  </mode>
+ </co>
+ <co id="2" vis="PUBLIC" binds="6">
+  <globalParam name="Q{}load-time" type="item()*" line="16" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" visibility="PUBLIC" jsAcceptor="return val;" jsCardCheck="function c() {return true;};">
+   <cast baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="16" as="xs:time" emptiable="1">
+    <atomSing card="?" diag="2|0||cast as">
+     <gVarRef name="Q{}clockSet" bSlot="0"/>
+    </atomSing>
+   </cast>
+  </globalParam>
+ </co>
+ <co id="5" binds="11">
+  <template name="Q{}freaky" flags="os" line="148" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="6">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="149">
     <param name="Q{}when" slot="0" as="xs:time">
-     <gVarRef role="select" name="Q{http://saxon.sf.net/generated-variable}gg1174540789" bSlot="0"/>
+     <gVarRef role="select" name="Q{http://saxon.sf.net/generated-variable}gg1405755907" bSlot="0"/>
      <treat role="conversion" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0590|when">
       <check card="1" diag="8|0|XTTE0590|when">
        <cvUntyped to="xs:time">
@@ -15,19 +399,331 @@
       </check>
      </treat>
     </param>
-    <let line="93" var="minutes" as="xs:integer" slot="1" eval="8">
+    <let line="151" var="minutes" as="xs:integer" slot="1" eval="8">
      <fn name="minutes-from-time">
       <varRef name="when" slot="0"/>
      </fn>
-     <let line="94" var="seconds" as="xs:decimal" slot="2" eval="8">
+     <let line="152" var="seconds" as="xs:decimal" slot="2" eval="8">
       <fn name="seconds-from-time">
        <varRef name="when" slot="0"/>
       </fn>
-      <sequence line="95">
+      <elem line="153" name="g" nsuri="http://www.w3.org/2000/svg" flags="d">
+       <sequence>
+        <att name="font-family" flags="l">
+         <str val="sans-serif"/>
+        </att>
+        <att name="text-anchor" flags="l">
+         <str val="middle"/>
+        </att>
+        <elem line="155" name="g" nsuri="http://www.w3.org/2000/svg" flags="dl">
+         <sequence>
+          <elem name="text" nsuri="http://www.w3.org/2000/svg" flags="dl">
+           <sequence>
+            <att name="font-size" flags="l">
+             <str val="108"/>
+            </att>
+            <att name="fill" flags="l">
+             <str val="darkgrey"/>
+            </att>
+            <valueOf flags="Sl">
+             <str val="O"/>
+            </valueOf>
+           </sequence>
+          </elem>
+          <let line="156" var="hour-at" as="xs:decimal" slot="3" eval="7">
+           <arith op="+" calc="c+c">
+            <arith op="*" calc="i*i">
+             <arith line="150" op="mod" calc="i%i">
+              <fn name="hours-from-time">
+               <varRef name="when" slot="0"/>
+              </fn>
+              <int val="12"/>
+             </arith>
+             <int val="30"/>
+            </arith>
+            <arith op="div" calc="i/i">
+             <varRef name="minutes" slot="1"/>
+             <int val="2"/>
+            </arith>
+           </arith>
+           <elem line="158" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
+            <sequence>
+             <att name="attributeName" flags="l">
+              <str val="transform"/>
+             </att>
+             <att name="attributeType" flags="l">
+              <str val="XML"/>
+             </att>
+             <att name="type" flags="l">
+              <str val="rotate"/>
+             </att>
+             <att name="from" flags="l">
+              <convert from="xs:decimal" to="xs:string">
+               <varRef name="hour-at" slot="3"/>
+              </convert>
+             </att>
+             <att name="to" flags="l">
+              <convert from="xs:decimal" to="xs:string">
+               <arith op="+" calc="c+c">
+                <int val="360"/>
+                <varRef name="hour-at" slot="3"/>
+               </arith>
+              </convert>
+             </att>
+             <att name="dur" flags="l">
+              <str val="43200s"/>
+             </att>
+             <att name="repeatCount" flags="l">
+              <str val="indefinite"/>
+             </att>
+            </sequence>
+           </elem>
+          </let>
+         </sequence>
+        </elem>
+        <elem line="161" name="g" nsuri="http://www.w3.org/2000/svg" flags="dl">
+         <sequence>
+          <elem name="text" nsuri="http://www.w3.org/2000/svg" flags="dl">
+           <sequence>
+            <att name="y" flags="l">
+             <str val="-30"/>
+            </att>
+            <att name="font-size" flags="l">
+             <str val="48"/>
+            </att>
+            <valueOf flags="Sl">
+             <str val="R"/>
+            </valueOf>
+           </sequence>
+          </elem>
+          <let line="162" var="minutes-at" as="xs:decimal" slot="4" eval="7">
+           <arith op="+" calc="c+c">
+            <arith op="*" calc="i*i">
+             <varRef name="minutes" slot="1"/>
+             <int val="6"/>
+            </arith>
+            <arith op="div" calc="c/c">
+             <varRef name="seconds" slot="2"/>
+             <int val="10"/>
+            </arith>
+           </arith>
+           <elem line="165" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
+            <sequence>
+             <att name="attributeName" flags="l">
+              <str val="transform"/>
+             </att>
+             <att name="attributeType" flags="l">
+              <str val="XML"/>
+             </att>
+             <att name="type" flags="l">
+              <str val="rotate"/>
+             </att>
+             <att name="from" flags="l">
+              <convert from="xs:decimal" to="xs:string">
+               <varRef name="minutes-at" slot="4"/>
+              </convert>
+             </att>
+             <att name="to" flags="l">
+              <convert from="xs:decimal" to="xs:string">
+               <arith op="+" calc="c+c">
+                <int val="360"/>
+                <varRef name="minutes-at" slot="4"/>
+               </arith>
+              </convert>
+             </att>
+             <att name="dur" flags="l">
+              <str val="3600s"/>
+             </att>
+             <att name="repeatCount" flags="l">
+              <str val="indefinite"/>
+             </att>
+            </sequence>
+           </elem>
+          </let>
+         </sequence>
+        </elem>
+        <elem line="168" name="g" nsuri="http://www.w3.org/2000/svg" flags="dl">
+         <sequence>
+          <elem name="text" nsuri="http://www.w3.org/2000/svg" flags="dl">
+           <sequence>
+            <att name="y" flags="l">
+             <str val="-80"/>
+            </att>
+            <att name="font-size" flags="l">
+             <str val="40"/>
+            </att>
+            <valueOf flags="Sl">
+             <str val="A"/>
+            </valueOf>
+           </sequence>
+          </elem>
+          <let line="169" var="seconds-at" as="xs:decimal" slot="5" eval="7">
+           <arith op="*" calc="c*c">
+            <varRef name="seconds" slot="2"/>
+            <int val="6"/>
+           </arith>
+           <elem line="172" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
+            <sequence>
+             <att name="attributeName" flags="l">
+              <str val="transform"/>
+             </att>
+             <att name="attributeType" flags="l">
+              <str val="XML"/>
+             </att>
+             <att name="type" flags="l">
+              <str val="rotate"/>
+             </att>
+             <att name="from" flags="l">
+              <convert from="xs:decimal" to="xs:string">
+               <varRef name="seconds-at" slot="5"/>
+              </convert>
+             </att>
+             <att name="to" flags="l">
+              <convert from="xs:decimal" to="xs:string">
+               <arith op="+" calc="c+c">
+                <int val="360"/>
+                <varRef name="seconds-at" slot="5"/>
+               </arith>
+              </convert>
+             </att>
+             <att name="dur" flags="l">
+              <str val="60s"/>
+             </att>
+             <att name="repeatCount" flags="l">
+              <str val="indefinite"/>
+             </att>
+            </sequence>
+           </elem>
+          </let>
+         </sequence>
+        </elem>
+        <elem line="174" name="text" nsuri="http://www.w3.org/2000/svg" flags="dl">
+         <sequence>
+          <att name="y" flags="l">
+           <str val="-12"/>
+          </att>
+          <att name="font-size" flags="l">
+           <str val="16"/>
+          </att>
+          <valueOf flags="Sl">
+           <str val="H"/>
+          </valueOf>
+         </sequence>
+        </elem>
+       </sequence>
+      </elem>
+     </let>
+    </let>
+   </sequence>
+  </template>
+ </co>
+ <co id="3" binds="">
+  <template name="Q{}dots" flags="os" line="116" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="0">
+   <forEach role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="117">
+    <range from="1" to="59"/>
+    <elem line="119" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
+     <sequence>
+      <att name="stroke-width" flags="l">
+       <str val="1"/>
+      </att>
+      <att name="d" flags="l">
+       <str val="M 0 -90 v 1"/>
+      </att>
+      <att name="stroke" flags="l">
+       <str val="black"/>
+      </att>
+      <att name="fill" flags="l">
+       <str val="none"/>
+      </att>
+      <att name="transform" flags="l">
+       <fn name="concat">
+        <str val="rotate("/>
+        <convert from="xs:integer" to="xs:string">
+         <arith op="*" calc="i*i">
+          <dot type="xs:integer"/>
+          <int val="6"/>
+         </arith>
+        </convert>
+        <str val=")"/>
+       </fn>
+      </att>
+     </sequence>
+    </elem>
+   </forEach>
+  </template>
+ </co>
+ <co id="10" binds="">
+  <template name="Q{}open-or-shut" flags="os" line="97" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="1">
+   <let role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="98" var="already-has" as="xs:string*" slot="0" eval="3">
+    <fn name="tokenize">
+     <cvUntyped to="xs:string">
+      <data>
+       <slash simple="1">
+        <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="14|2|XPTY0020|">
+         <dot flags="a"/>
+        </treat>
+        <axis name="attribute" nodeTest="attribute(Q{}class)" jsTest="return item.name==='class'"/>
+       </slash>
+      </data>
+     </cvUntyped>
+     <str val="\s+"/>
+     <str val=""/>
+    </fn>
+    <ifCall line="103" name="Q{http://saxonica.com/ns/interactiveXSLT}set-attribute" type="item()*">
+     <str val="class"/>
+     <fn name="string-join">
+      <sequence>
+       <filter flags="b">
+        <varRef name="already-has" slot="0"/>
+        <vc op="ne" onEmpty="1" comp="CCC">
+         <dot type="xs:string"/>
+         <str val="opened"/>
+        </vc>
+       </filter>
+       <choose>
+        <gc op="=" card="N:1" comp="CCC">
+         <varRef name="already-has" slot="0"/>
+         <str val="opened"/>
+        </gc>
+        <str val=""/>
+        <true/>
+        <str val="opened"/>
+       </choose>
+      </sequence>
+      <str val=" "/>
+     </fn>
+    </ifCall>
+   </let>
+  </template>
+ </co>
+ <co id="4" binds="11">
+  <template name="Q{}basic" flags="os" line="124" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="6">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="125">
+    <param name="Q{}when" slot="0" as="xs:time">
+     <gVarRef role="select" name="Q{http://saxon.sf.net/generated-variable}gg1405755907" bSlot="0"/>
+     <treat role="conversion" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0590|when">
+      <check card="1" diag="8|0|XTTE0590|when">
+       <cvUntyped to="xs:time">
+        <data>
+         <supplied slot="0"/>
+        </data>
+       </cvUntyped>
+      </check>
+     </treat>
+    </param>
+    <let line="127" var="minutes" as="xs:integer" slot="1" eval="8">
+     <fn name="minutes-from-time">
+      <varRef name="when" slot="0"/>
+     </fn>
+     <let line="128" var="seconds" as="xs:decimal" slot="2" eval="8">
+      <fn name="seconds-from-time">
+       <varRef name="when" slot="0"/>
+      </fn>
+      <sequence line="129">
        <elem name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
         <sequence>
          <att name="d" flags="l">
-          <str val="M 0 3 v -45"/>
+          <str val="M 0 3 v -50"/>
          </att>
          <att name="stroke-width" flags="l">
           <str val="5"/>
@@ -38,10 +734,10 @@
          <att name="fill" flags="l">
           <str val="none"/>
          </att>
-         <let line="96" var="hour-at" as="xs:decimal" slot="3" eval="7">
+         <let line="130" var="hour-at" as="xs:decimal" slot="3" eval="7">
           <arith op="+" calc="c+c">
            <arith op="*" calc="i*i">
-            <arith line="92" op="mod" calc="i%i">
+            <arith line="126" op="mod" calc="i%i">
              <fn name="hours-from-time">
               <varRef name="when" slot="0"/>
              </fn>
@@ -54,7 +750,7 @@
             <int val="2"/>
            </arith>
           </arith>
-          <elem line="100" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
+          <elem line="132" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
            <sequence>
             <att name="attributeName" flags="l">
              <str val="transform"/>
@@ -89,7 +785,7 @@
          </let>
         </sequence>
        </elem>
-       <elem line="102" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
+       <elem line="134" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
         <sequence>
          <att name="d" flags="l">
           <str val="M 0 5 v -85"/>
@@ -103,7 +799,7 @@
          <att name="fill" flags="l">
           <str val="none"/>
          </att>
-         <let line="103" var="minutes-at" as="xs:decimal" slot="4" eval="7">
+         <let line="135" var="minutes-at" as="xs:decimal" slot="4" eval="7">
           <arith op="+" calc="c+c">
            <arith op="*" calc="i*i">
             <varRef name="minutes" slot="1"/>
@@ -114,7 +810,7 @@
             <int val="10"/>
            </arith>
           </arith>
-          <elem line="107" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
+          <elem line="138" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
            <sequence>
             <att name="attributeName" flags="l">
              <str val="transform"/>
@@ -149,7 +845,7 @@
          </let>
         </sequence>
        </elem>
-       <elem line="109" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
+       <elem line="140" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
         <sequence>
          <att name="d" flags="l">
           <str val="M 0 6 v -96"/>
@@ -163,12 +859,12 @@
          <att name="fill" flags="l">
           <str val="none"/>
          </att>
-         <let line="110" var="seconds-at" as="xs:decimal" slot="5" eval="7">
+         <let line="141" var="seconds-at" as="xs:decimal" slot="5" eval="7">
           <arith op="*" calc="c*c">
            <varRef name="seconds" slot="2"/>
            <int val="6"/>
           </arith>
-          <elem line="114" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
+          <elem line="143" name="animateTransform" nsuri="http://www.w3.org/2000/svg" flags="dl">
            <sequence>
             <att name="attributeName" flags="l">
              <str val="transform"/>
@@ -203,7 +899,7 @@
          </let>
         </sequence>
        </elem>
-       <elem line="116" name="circle" nsuri="http://www.w3.org/2000/svg" flags="d">
+       <elem line="145" name="circle" nsuri="http://www.w3.org/2000/svg" flags="d">
         <sequence>
          <att name="r" flags="l">
           <str val="3"/>
@@ -219,177 +915,9 @@
    </sequence>
   </template>
  </co>
- <co id="2" binds="">
-  <template name="Q{}ticks" flags="os" line="72" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="0">
-   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="73">
-    <forEach>
-     <range from="1" to="11"/>
-     <elem line="75" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
-      <sequence>
-       <att name="stroke-width" flags="l">
-        <str val="2"/>
-       </att>
-       <att name="d" flags="l">
-        <str val="M 0 -85 v -10"/>
-       </att>
-       <att name="stroke" flags="l">
-        <str val="black"/>
-       </att>
-       <att name="fill" flags="l">
-        <str val="none"/>
-       </att>
-       <att name="transform" flags="l">
-        <fn name="concat">
-         <str val="rotate("/>
-         <convert from="xs:integer" to="xs:string">
-          <arith op="*" calc="i*i">
-           <dot type="xs:integer"/>
-           <int val="30"/>
-          </arith>
-         </convert>
-         <str val=")"/>
-        </fn>
-       </att>
-      </sequence>
-     </elem>
-    </forEach>
-    <elem line="77" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
-     <sequence>
-      <att name="stroke-width" flags="l">
-       <str val="2"/>
-      </att>
-      <att name="d" flags="l">
-       <str val="M -3 -80 v -15"/>
-      </att>
-      <att name="stroke" flags="l">
-       <str val="black"/>
-      </att>
-      <att name="fill" flags="l">
-       <str val="none"/>
-      </att>
-     </sequence>
-    </elem>
-    <elem line="78" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
-     <sequence>
-      <att name="stroke-width" flags="l">
-       <str val="2"/>
-      </att>
-      <att name="d" flags="l">
-       <str val="M 3  -80 v -15"/>
-      </att>
-      <att name="stroke" flags="l">
-       <str val="black"/>
-      </att>
-      <att name="fill" flags="l">
-       <str val="none"/>
-      </att>
-     </sequence>
-    </elem>
-   </sequence>
-  </template>
- </co>
- <co id="3" binds="4 2 5 0">
-  <template name="Q{}draw-clock" flags="os" line="36" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="1">
-   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="37">
-    <param name="Q{}now" slot="0">
-     <gVarRef role="select" name="Q{}load-time" bSlot="0"/>
-     <supplied role="conversion" slot="0"/>
-    </param>
-    <elem line="38" name="svg" nsuri="http://www.w3.org/2000/svg" flags="d">
-     <sequence>
-      <att name="id" flags="l">
-       <str val="clock"/>
-      </att>
-      <att name="viewBox" flags="l">
-       <str val="0 0 400 300"/>
-      </att>
-      <elem line="40" name="text" nsuri="http://www.w3.org/2000/svg" flags="dl">
-       <sequence>
-        <att name="x" flags="l">
-         <str val="200"/>
-        </att>
-        <att name="y" flags="l">
-         <str val="250"/>
-        </att>
-        <att name="text-anchor" flags="l">
-         <str val="middle"/>
-        </att>
-        <att name="font-size" flags="l">
-         <str val="14"/>
-        </att>
-        <att name="font-style" flags="l">
-         <str val="italic"/>
-        </att>
-        <valueOf flags="l">
-         <str val="Ist das nicht eine Uhr?"/>
-        </valueOf>
-       </sequence>
-      </elem>
-      <elem line="41" name="text" nsuri="http://www.w3.org/2000/svg" flags="dl">
-       <sequence>
-        <att name="x" flags="l">
-         <str val="10"/>
-        </att>
-        <att name="y" flags="l">
-         <str val="50"/>
-        </att>
-        <att name="id" flags="l">
-         <str val="time-setting"/>
-        </att>
-        <valueOf line="42" flags="l">
-         <fn name="format-time">
-          <treat as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="0|0||fn:format-time">
-           <check card="?" diag="0|0||fn:format-time">
-            <cvUntyped to="xs:time">
-             <data>
-              <varRef name="now" slot="0"/>
-             </data>
-            </cvUntyped>
-           </check>
-          </treat>
-          <str val="[h]:[m02] [Pn]"/>
-         </fn>
-        </valueOf>
-       </sequence>
-      </elem>
-      <elem line="44" name="g" nsuri="http://www.w3.org/2000/svg" flags="dl">
-       <sequence>
-        <att name="transform" flags="l">
-         <str val="translate(200 120)"/>
-        </att>
-        <callT line="47" name="ticks" bSlot="1"/>
-        <callT line="48" name="dots" bSlot="2"/>
-        <callT line="49" name="hands" bSlot="3">
-         <withParam name="Q{}when" flags="c" as="xs:time">
-          <treat line="50" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0590|when">
-           <check card="1" diag="8|0|XTTE0590|when">
-            <cvUntyped to="xs:time">
-             <data>
-              <varRef name="now" slot="0"/>
-             </data>
-            </cvUntyped>
-           </check>
-          </treat>
-         </withParam>
-        </callT>
-       </sequence>
-      </elem>
-     </sequence>
-    </elem>
-   </sequence>
-  </template>
- </co>
- <co id="6" vis="PUBLIC" binds="">
-  <globalParam name="Q{}clockSet" type="item()*" line="16" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" visibility="PUBLIC" jsAcceptor="return val;" jsCardCheck="function c() {return true;};">
-   <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="16" name="format-time">
-    <fn name="current-time"/>
-    <str val="[H01]:[m01]:[s01]"/>
-   </fn>
-  </globalParam>
- </co>
- <co id="1" binds="4">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1174540789" type="xs:time" line="91" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.time.cast(val);" jsCardCheck="function c(n) {return n==1;};">
-   <treat baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="91" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0600|when">
+ <co id="11" binds="2">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1405755907" type="xs:time" line="125" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.time.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+   <treat baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="125" as="xs:time" jsTest="return SaxonJS.U.Atomic.time.matches(item);" diag="8|0|XTTE0600|when">
     <check card="1" diag="8|0|XTTE0600|when">
      <cvUntyped to="xs:time">
       <data>
@@ -400,103 +928,13 @@
    </treat>
   </globalVariable>
  </co>
- <co id="7" binds="4 3">
-  <template name="Q{}tell" flags="os" line="26" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="1">
-   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="27">
-    <param name="Q{}when" slot="0">
-     <gVarRef role="select" name="Q{}load-time" bSlot="0"/>
-     <supplied role="conversion" slot="0"/>
-    </param>
-    <resultDoc line="29" global="#&#xA;#Wed Feb 12 21:13:38 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Wed Feb 12 21:13:38 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
-     <str role="href" val="#page_body"/>
-     <callT role="content" line="30" name="draw-clock" bSlot="1">
-      <withParam name="Q{}now" flags="c">
-       <varRef line="31" name="when" slot="0"/>
-      </withParam>
-     </callT>
-    </resultDoc>
-   </sequence>
-  </template>
- </co>
- <co id="8" binds="7 7">
-  <mode name="Q{http://saxonica.com/ns/interactiveXSLT}click" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="0" prio="0.5" seq="1" rank="0" minImp="0" slots="0" flags="s" line="66" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
-    <p.nodeSet role="match" type="element()">
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="66" name="id">
-      <str val="local-reset_button"/>
-     </fn>
-    </p.nodeSet>
-    <callT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="67" name="tell" bSlot="0" flags="t">
-     <withParam name="Q{}when" flags="c" as="xs:time">
-      <fn line="68" name="current-time"/>
-     </withParam>
-    </callT>
-   </templateRule>
-   <templateRule prec="0" prio="0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="59" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
-    <p.nodeSet role="match" type="element()">
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="59" name="id">
-      <str val="noon-reset_button"/>
-     </fn>
-    </p.nodeSet>
-    <callT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="60" name="tell" bSlot="1" flags="t">
-     <withParam name="Q{}when" flags="c" as="xs:time">
-      <atomic val="00:00:00" type="xs:time"/>
-     </withParam>
-    </callT>
-   </templateRule>
-  </mode>
- </co>
- <co id="4" vis="PUBLIC" binds="6">
-  <globalParam name="Q{}load-time" type="item()*" line="18" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" visibility="PUBLIC" jsAcceptor="return val;" jsCardCheck="function c() {return true;};">
-   <cast baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="18" as="xs:time" emptiable="1">
-    <atomSing card="?" diag="2|0||cast as">
-     <gVarRef name="Q{}clockSet" bSlot="0"/>
-    </atomSing>
-   </cast>
-  </globalParam>
- </co>
- <co id="5" binds="">
-  <template name="Q{}dots" flags="os" line="82" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" slots="0">
-   <forEach role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="83">
-    <range from="1" to="59"/>
-    <elem line="85" name="path" nsuri="http://www.w3.org/2000/svg" flags="d">
-     <sequence>
-      <att name="stroke-width" flags="l">
-       <str val="1"/>
-      </att>
-      <att name="d" flags="l">
-       <str val="M 0 -90 v 1"/>
-      </att>
-      <att name="stroke" flags="l">
-       <str val="black"/>
-      </att>
-      <att name="fill" flags="l">
-       <str val="none"/>
-      </att>
-      <att name="transform" flags="l">
-       <fn name="concat">
-        <str val="rotate("/>
-        <convert from="xs:integer" to="xs:string">
-         <arith op="*" calc="i*i">
-          <dot type="xs:integer"/>
-          <int val="6"/>
-         </arith>
-        </convert>
-        <str val=")"/>
-       </fn>
-      </att>
-     </sequence>
-    </elem>
-   </forEach>
-  </template>
- </co>
- <co id="9" binds="3 4">
+ <co id="12" binds="1 2">
   <mode onNo="TC" flags="dW" patternSlots="0">
-   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="20" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
+   <templateRule prec="0" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="18" module="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl">
     <p.nodeTest role="match" test="document-node()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);"/>
-    <callT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="21" name="draw-clock" bSlot="0" flags="t">
+    <callT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/ApresMagritte/die_uhr.xsl" ns="xsl=~ =http://www.w3.org/2000/svg ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="19" name="draw-clock" bSlot="0" flags="t">
      <withParam name="Q{}now" flags="c">
-      <gVarRef line="22" name="Q{}load-time" bSlot="1"/>
+      <gVarRef line="20" name="Q{}load-time" bSlot="1"/>
      </withParam>
     </callT>
    </templateRule>
@@ -510,4 +948,4 @@
  </output>
  <decimalFormat/>
 </package>
-<?Σ f07fe270?>
+<?Σ ffa568df?>

@@ -10,6 +10,21 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>../iching/cast-yarrow-sticks.xsl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>XSLT on itself (version 3.0)</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XML</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>die_uhr.xsl</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -145,5 +160,6 @@
     <projectTree name="NichtEinUhr.xpr">
         <folder path="."/>
         <folder path="../GameofLife/"/>
+        <folder path="../iching/"/>
     </projectTree>
 </project>
