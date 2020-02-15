@@ -7,15 +7,16 @@
     exclude-result-prefixes="xs math"
     version="3.0">
     
-<!-- Run just once or repeatedly, over a binary bagua document like bagua.xml  -->
+<!-- Run just once or repeatedly, over a binary chart document like chart.xml  -->
     
-<!-- This stylesheet knows how to interpret the 'bare' bagua and map it to trigrams and hexagrams -->
+<!-- This stylesheet knows how to interpret the 'bare' lines  and map them in their
+        combinations to trigrams and hexagrams -->
     
-    <!--NB the base (root) of the Bagua tree is the *bottom* not top of the hex-->
+    <!--NB the base (root) of the tree representing a tri or hex is its *bottom* not its top -->
   <xsl:mode on-no-match="shallow-copy"/>
 
 
-  <xsl:template match="bagua/*/*/* | bagua/*/*/*/*/*/*">
+  <xsl:template match="chart/*/*/* | chart/*/*/*/*/*/*">
       <xsl:variable name="glyph">
           <xsl:apply-templates select="." mode="trigram"/>
       </xsl:variable>
@@ -48,7 +49,8 @@
     <xsl:template match="日/月/日" mode="trigram">☲</xsl:template>
     <xsl:template match="日/日/月" mode="trigram">☱</xsl:template>
     
-    <xsl:template match="月/月/月/日/日/日" mode="hexagram">䷀</xsl:template>
+    
+    <xsl:template match="日/日/日/日/日/日" mode="hexagram">䷀</xsl:template>
     <xsl:template match="月/月/月/月/月/月" mode="hexagram">䷁</xsl:template>
     <xsl:template match="日/月/月/月/日/月" mode="hexagram">䷂</xsl:template>
     <xsl:template match="月/日/月/月/月/日" mode="hexagram">䷃</xsl:template>

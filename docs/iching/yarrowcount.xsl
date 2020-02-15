@@ -15,7 +15,13 @@
 
     <!-- so, mix it up further with this -->
     <xsl:param name="mantra" as="xs:string"> Blessings to all sentient beings </xsl:param>
-
+    
+<!-- when running in a system not supporting the random number generator, a randomized sequence
+     of values 6,7,8,9 (distributed according to their proper probabilities) can be provided externally
+     as a sequence of integers. -->
+    <xsl:param name="yarrow-sequence" as="xs:string" select="'6 6 6 9 9 9'"/>
+    <xsl:variable name="yarrow-readings" select="tokenize($yarrow-sequence,' ') ! xs:integer(.)"/>
+    
     <xsl:variable name="hexagram">
 
         <!-- a hex is contructed as a tree, six nodes deep -->
@@ -24,9 +30,52 @@
 
     <xsl:template name="build-hex">
         <!-- a hexagram is a tree six deep of monogram elements -->
-        <xsl:call-template name="add-line"/>
+        <xsl:choose>
+            <xsl:when test="exists($yarrow-readings)">
+                <xsl:call-template name="build-from-yarrow"/>
+            </xsl:when>
+            <xsl:when test="function-available('random-number-generator')">
+<!-- otherwise we build a random one using $seed, $mantra and the system time -->
+            <xsl:call-template name="add-line"/>
+        </xsl:when>
+        </xsl:choose>
     </xsl:template>
 
+    <xsl:template name="build-from-yarrow">
+        <!-- build a tree, given a sequence of values (6|7|8|9) in the usual form -->
+        <xsl:param name="lines-left" select="$yarrow-readings"/>
+        <xsl:if test="exists($lines-left)">
+            <xsl:variable name="proxy">
+                <xsl:apply-templates select="$lines-left[1]" mode="line-proxy"/>
+            </xsl:variable>
+            <xsl:for-each select="$proxy/*">
+                <xsl:copy>
+                    <xsl:copy-of select="@*"/>
+                    <xsl:call-template name="build-from-yarrow">
+                        <xsl:with-param name="lines-left" select="remove($lines-left,1)"/>
+                    </xsl:call-template>
+                </xsl:copy>
+            </xsl:for-each>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template mode="line-proxy" match=".">
+        <boo/>
+    </xsl:template>
+    
+    <xsl:template mode="line-proxy" match=".[xs:integer(.) eq 6]">
+        <月 to="日"/>
+    </xsl:template>
+    <xsl:template mode="line-proxy" match=".[xs:integer(.) eq 7]">
+        <月/>
+    </xsl:template>
+    <xsl:template mode="line-proxy" match=".[xs:integer(.) eq 8]">
+        <日/>
+    </xsl:template>
+    <xsl:template mode="line-proxy" match=".[xs:integer(.) eq 9]">
+        <日 to="月"/>
+    </xsl:template>
+    
     <xsl:variable name="example">
         <日>
             <月>
@@ -42,9 +91,11 @@
     </xsl:variable>
 
     <xsl:variable name="dateString"
-        select="format-dateTime(current-dateTime(), '[Y0001]-[M01]-[D01] [H01]:[m01]:[s01]')"/>
+        select="format-dateTime(current-dateTime(), '[Y0001] [MNn] [D1] [h1]:[m01]:[s01] [P]')"/>
 
-    <xsl:template name="add-line">
+    <!-- silenced here b/c the random-number-generator function trips SaxonHE -->
+    <xsl:template name="add-line"/>
+    <xsl:template name="add-line" xmlns:xsl="hideme">
         <xsl:param name="seed" select="string($seed) || $dateString || $mantra"/>
         <xsl:param name="generator" select="random-number-generator($seed)"/>
         <xsl:param name="level" select="6"/>
@@ -62,11 +113,12 @@
                 </xsl:copy>
             </xsl:for-each>
         </xsl:if>
+            
     </xsl:template>
 
    
 
-    <xsl:template match="/">
+    <xsl:template match="/" name="reading">
         <reading time="{$dateString}">
             <current>
                 <xsl:apply-templates select="$hexagram" mode="detail-hexagram"/>
@@ -97,20 +149,19 @@
     </xsl:template>
 
     <xsl:template match="*" mode="transmute">
-        <xsl:element name="{(@to,name())[1]}">
+        <xsl:element name="{(@to,name())[1]}" namespace="http://wendellpiez.com/iching">
             <xsl:apply-templates mode="#current"/>
         </xsl:element>
     </xsl:template>
 
     <xsl:variable name="probabilities" as="element()">
-        <!-- ⚊ yang monogram ⚋ yin monogram -->
-<!-- But we use kanji for sun and moon for Yang and Yin
-     (element names)
-        note their actual characters
+        <!-- Probabilies are as given here: https://en.wikibooks.org/wiki/I_Ching/The_Ancient_Yarrow_Stalk_Method
         
+        yin/yang, traditional Han 陰陽
+        yin/yang, simplified Chinese 阴阳
+        here we use 月 ('moon') and 日 ('sun') for the sake of legibility 
         -->
-        <!-- Probabilies are as given here: https://en.wikibooks.org/wiki/I_Ching/The_Ancient_Yarrow_Stalk_Method -->
-        
+        <!-- ⚊ yang monogram ⚋ yin monogram -->
         <chart>
             <日 to="月"/>
             <!-- changing yang -->
@@ -136,7 +187,9 @@
     </xsl:variable>
 
     <!-- p 722 Richard Wilhelm (Bollingen ed.) -->
-    <xsl:template mode="draw" match="日">———————</xsl:template>
+    <!-- xpath-default-namespace="http://wendellpiez.com/iching"
+       -->
+    <xsl:template mode="draw" match="日" >———————</xsl:template>
     <xsl:template mode="draw" match="日[@to = '月']">———o———</xsl:template>
     <xsl:template mode="draw" match="月">——— ———</xsl:template>
     <xsl:template mode="draw" match="月[@to = '日']">———x———</xsl:template>

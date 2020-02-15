@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+     <title>I Ching reading</title>
+      <meta charset="utf-8"/>
+      <style type="text/css" id="xmljellysandwich_css">
+        
+        a { color: darkgreen; text-decoration: none }
+        a:hover { text-decoration: underline }
+        td { border: medium solid lightgreen; border-radius: 45%; background-color: cornsilk; width: 1.5em; height: 1.5em }
+        
+        #page_body   { border-top: medium groove black; padding-top: 1em; padding-bottom: 1em }
+        #page_footer { border-top: medium groove black; margin-top:1m; padding-top: 1em }
+        #page_footer > * { margin: 0.5em 0em }
+        
+        #time-setting { display: none }
+        
+        h1#page_title { font-size: 140%; margin-top: 1em }
+        
+        h1 small { font-size: 60% }
+        #clock { height: 67% }
+        </style>
+      <script type="text/javascript"
+              src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
+     
+     
+      <script>
+        /*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
+window.onload = initiate()
+          
+function initiate() {
+          SaxonJS.transform(
+            { stylesheetLocation: "caststicks.sef",
+              initialTemplate:    "cast",
+              stylesheetParams: {
+                yarrowSequence: castSticks() }
+            } );
+          }
+
+function castSticks() { 
+           var Sticks = [6,7,7,7,7,7,7,7,8,8,8,8,8,9,9,9];
+           var drawSticks = Array.from({length: 6}, () => Sticks[Math.floor(Math.random() * 16)] );
+           return drawSticks.join(' ');
+    }
+ 
+ function saveTextAsFile()
+{
+    var textToSave = document.getElementById("readingXML").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/xml"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    // var fileNameToSaveAs = document.getElementById("reading-today.xml").value;
+    var fileNameToSaveAs = "reading-today.xml";
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ 
+         </script>
+   </head>
+   <body>
+      <div id="page_header">
+        <h1 id="page_title">I Ching Reading</h1>
+      </div>
+     <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
+       <button id="system-reset-button" onclick="location.reload();">Cast</button>
+       <button onclick="saveTextAsFile()">Savee</button>
+       <input id="framing" type="text"/>
+       <!--<button id="standard-reset_button">NIST clock</button>-->
+     </div>
+     <div id="page_body">
+           <!-- <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
+     </div>
+   </body>
+</html>
