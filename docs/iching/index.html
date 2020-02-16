@@ -41,31 +41,7 @@ function castSticks() {
            var drawSticks = Array.from({length: 6}, () => Sticks[Math.floor(Math.random() * 16)] );
            return drawSticks.join(' ');
     }
- 
- function saveTextAsFile()
-{
-    var textToSave = document.getElementById("readingXML").value;
-    var textToSaveAsBlob = new Blob([textToSave], {type:"text/xml"});
-    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-    // var fileNameToSaveAs = document.getElementById("reading-today.xml").value;
-    var fileNameToSaveAs = "reading-today.xml";
- 
-    var downloadLink = document.createElement("a");
-    downloadLink.download = fileNameToSaveAs;
-    downloadLink.innerHTML = "Download File";
-    downloadLink.href = textToSaveAsURL;
-    downloadLink.onclick = destroyClickedElement;
-    downloadLink.style.display = "none";
-    document.body.appendChild(downloadLink);
- 
-    downloadLink.click();
-}
-
-function destroyClickedElement(event)
-{
-    document.body.removeChild(event.target);
-}
- 
+  
          </script>
    </head>
    <body>
@@ -74,12 +50,14 @@ function destroyClickedElement(event)
       </div>
      <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
        <button id="system-reset-button" onclick="location.reload();">Cast</button>
-       <button onclick="saveTextAsFile()">Savee</button>
-       <input id="framing" type="text"/>
+       <!--<button onclick="downloadReading('reading-today.xml')">Save</button>-->
+       <!--<input id="framing" type="text"/>-->
+       <span id="anchor-placement"><!-- anchor here --></span>
        <!--<button id="standard-reset_button">NIST clock</button>-->
      </div>
      <div id="page_body">
            <!-- <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
      </div>
+     <div id="diagnostic"/>
    </body>
 </html>

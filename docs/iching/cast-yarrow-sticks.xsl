@@ -2,10 +2,11 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
-    exclude-result-prefixes="xs math"
+    exclude-result-prefixes="#all"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://www.w3.org/1999/xhtml"
     xpath-default-namespace="http://wendellpiez.com/iching"
+    xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT"
     version="3.0">
     
     <!-- produces an HTML page reporting the results
@@ -40,21 +41,89 @@
         
     </xsl:template>
     
+    <xsl:template name="make-download-link">
+        <xsl:param name="payload" select="()"/>
+        <xsl:variable name="as-written" select="serialize($payload)"/>
+        <xsl:variable name="data-href">
+            <xsl:text>data:text/html;charset=utf-8,</xsl:text>
+            <xsl:value-of select="$as-written"/>
+        </xsl:variable>
+        <xsl:variable name="fileName" select="format-dateTime(current-dateTime(),'[Y][M01][D01]-[H01][m01][s01]') || '-reading.html'"/>
+        <xsl:result-document href="#anchor-placement" method="ixsl:replace">
+            <a href="{$data-href}" download="{$fileName}"><button>Save</button></a>
+        </xsl:result-document>
+        <!--<xsl:result-document href="#diagnostic" method="ixsl:replace">
+            <pre>
+            <xsl:copy-of select="$as-written"/>
+        </pre>
+        </xsl:result-document>-->
+    </xsl:template>
+    
+    <!--
+    function download-reading(filename) {
+    var reading = document.getElementById('SaveThisPiece').value;
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(reading));
+    element.setAttribute('download', filename);
+    
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    
+    element.click();
+    
+    document.body.removeChild(element);
+    }
+    
+    /*
+    function saveTextAsFile()
+    {
+    var textToSave = document.getElementById("saveThisPiece").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    // var fileNameToSaveAs = document.getElementById("saveAsFile").value;
+    var fileNameToSaveAs = "reading-today.xml";
+    
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    
+    downloadLink.click();
+    }
+    */
+    function destroyClickedElement(event)
+    {
+    document.body.removeChild(event.target);
+    }
+    -->
     <xsl:template name="cast">
         <xsl:variable name="cast">
-          <xsl:call-template name="reading"/>
+            <xsl:call-template name="reading"/>
         </xsl:variable>
         <xsl:result-document href="#page_body">
             <main>
-        <xsl:apply-templates select="$cast" mode="read"/>
-        <div style="font-size:smaller">
-            <p>The notes given are from Wikipedia: please refer to your sources.</p>
-        </div>
-                <pre id="readingXML">
-                    <xsl:value-of select="serialize($cast)"/>
-                </pre>
+                <xsl:apply-templates select="$cast" mode="read"/>
+                <div style="font-size:smaller">
+                    <p>The notes given are from Wikipedia: please refer to your sources.</p>
+                </div>
             </main>
         </xsl:result-document>
+        <xsl:call-template name="make-download-link">
+            <xsl:with-param name="payload">
+                <html>
+                    <head>
+                        <title>I Ching reading</title>
+                        <meta charset="utf-8"/>
+                    </head>
+                    <body>
+                        <xsl:apply-templates select="$cast" mode="read"/>
+                    </body>
+                </html>
+            </xsl:with-param>
+        </xsl:call-template>
     </xsl:template>
         
     <xsl:template mode="read" match="reading" expand-text="true">
