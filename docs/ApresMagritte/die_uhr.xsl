@@ -69,7 +69,8 @@
             <xsl:with-param name="when" select="xs:time('00:00:00')"/>
         </xsl:call-template>
     </xsl:template>
-
+    
+    
     <!-- System resets to whatever comes back by asking for the time -->
     <xsl:template mode="ixsl:click" match="id('local-reset_button')">
         <xsl:call-template name="tell">
