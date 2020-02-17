@@ -32,10 +32,7 @@
             </head>
             <body>
                 <xsl:apply-templates select="$cast" mode="read"/>
-                <div style="font-size:smaller">
-                    <p>The notes given are from Wikipedia: please refer to your sources.</p>
-                </div>
-                <div id="footer">
+                <div id="footer" style="font-size: smaller">
                     <p><i>I Ching</i> implementation by Wendell Piez, 2019-2020.</p>
                 </div>
             </body>
@@ -47,16 +44,16 @@
     <xsl:template name="make-download-link">
         <xsl:param name="payload" select="()"/>
         <xsl:variable name="tag" expand-text="true">{
-            $payload/descendant::*:h1[1]!replace(.,'\s+','')
-            }-{
+            $payload/descendant::*:h1[1] ! replace(.,'\s+','') ! replace(.,'\W','_') 
+            }_{
             replace($yarrowSequence,'\s+','') }</xsl:variable>
         <xsl:variable name="as-written" select="serialize($payload)"/>
         <xsl:variable name="data-href">
             <xsl:text>data:text/html;charset=utf-8,</xsl:text>
             <xsl:value-of select="$as-written"/>
         </xsl:variable>
-        <xsl:variable name="fileName" expand-text="true">{format-dateTime(current-dateTime(),'[Y][M01][D01]-[H01][m01][s01]')}-{$tag}.html</xsl:variable>
-        <xsl:result-document href="#anchor-placement" method="ixsl:replace">
+        <xsl:variable name="fileName" expand-text="true">{format-dateTime(current-dateTime(),'[Y][M01][D01]-[H01][m01][s01]')}_{$tag}.html</xsl:variable>
+        <xsl:result-document href="#anchor-placement" method="ixsl:replace-content">
             <a href="{$data-href}" download="{$fileName}"><button>Save</button></a>
         </xsl:result-document>
         <!--<xsl:result-document href="#diagnostic" method="ixsl:replace">
@@ -67,36 +64,72 @@
     </xsl:template>
 
     <xsl:template name="cast">
-        <xsl:variable name="cast">
-            <xsl:call-template name="reading"/>
-        </xsl:variable>
-        <xsl:result-document href="#page_body">
-            <main>
-                <xsl:apply-templates select="$cast" mode="read"/>
-                <div style="font-size:smaller">
-                    <p>The notes given are from Wikipedia: please refer to your sources.</p>
-                </div>
-            </main>
-        </xsl:result-document>
-        <xsl:call-template name="make-download-link">
-            <xsl:with-param name="payload">
-                <html>
-                    <head>
-                        <title>I Ching reading</title>
-                        <meta charset="utf-8"/>
-                    </head>
-                    <body>
-                        <xsl:apply-templates select="$cast" mode="read"/>
-                    </body>
-                </html>
-            </xsl:with-param>
-        </xsl:call-template>
+        <xsl:param name="framing" select="id('framing',ixsl:page())"/>
+        <xsl:variable name="framing-text" select="ixsl:get($framing,'value')"/>
+        <xsl:choose>
+            <xsl:when test="normalize-space($framing-text)">
+                <xsl:variable name="cast">
+                    <xsl:call-template name="reading"/>
+                </xsl:variable>
+                <xsl:result-document href="#page_body">
+                    <main>
+                        <xsl:apply-templates select="$cast" mode="read">
+                            <xsl:with-param name="framing-text" select="$framing-text"/>
+                        </xsl:apply-templates>
+                        
+                    </main>
+                </xsl:result-document>
+                <xsl:call-template name="make-download-link">
+                    <xsl:with-param name="payload">
+                        <html>
+                            <head>
+                                <title>I Ching reading</title>
+                                <meta charset="utf-8"/>
+                            </head>
+                            <body>
+                                <xsl:apply-templates select="$cast" mode="read">
+                                    <xsl:with-param name="framing-text" select="$framing-text"/>
+                                </xsl:apply-templates>
+                                <div id="page_footer" style="font-size: smaller; border-top: medium groove black">
+                                    <p>Reading produced by <a href="https://github.com/wendellpiez/XMLjellysandwich">XMLjellysandwich <i>I Ching</i></a> (Wendell Piez, 2019-2020).</p>
+                                    <p>Dedicated to the teachers and transmitters, especially Thomas Cleary, <a href="ctext.org">CTP</a> and all open-source I Ching.</p>
+                                    <p>Don't be a robot! Never click without consciousness or deliberation.</p>
+                                </div>
+                            </body>
+                        </html>
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:result-document href="#page_body">
+                    <main>
+                <p class="framing">Offer a prompt (context or question) and cast.</p>
+                </main>
+                </xsl:result-document>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
         
     <xsl:template mode="read" match="reading" expand-text="true">
+        <xsl:param name="framing-text" select="''"/>
+        <!-- draw an SVG here :-) -->
+        <div id="ideogram-block" style="float:right">
+            <xsl:apply-templates select="current/*" mode="svg-gram"/>
+        </div>
+        
+        
         <h2>{ @time }</h2>
+        <xsl:if test="normalize-space($framing-text)">
+            <p class="framing"><b>Prompt</b>: <xsl:value-of select="$framing-text"/></p>
+        </xsl:if>
         <xsl:apply-templates mode="read"/>
-    </xsl:template>
+        <div style="font-size:smaller">
+            <p>The notes given are from Wikipedia: please refer to your sources.</p>
+        </div>
+            </xsl:template>
+    
+    <!-- Here things are matching in any namespace to work around
+         namespace issues in internal pipelining? -->
     
     <xsl:key name="section-by-char"
         match="*:section" use="tokenize(@class,'\s+')[2]"/>
@@ -105,7 +138,7 @@
     <xsl:template match="current" mode="read">
         <xsl:variable name="character" select="@char"/>
         <div class="hex current">
-<!-- draw an SVG here :-) -->
+            
             <xsl:apply-templates 
                 xpath-default-namespace="http://www.w3.org/1999/xhtml"
                 mode="read" select="key('section-by-char',$character,$kingwen)/*:header"/>
@@ -115,9 +148,7 @@
                 <h1>King Wen is visible for { $character } at { namespace-uri(.) }:{ local-name(.) }</h1>
             </xsl:for-each>-->
             
-            <div id="svg-block">
-         <xsl:apply-templates mode="svg-gram"/>
-            </div>
+            
          <xsl:apply-templates select="." mode="changing"/>
             
             <!--<xsl:copy-of select="."/>-->
@@ -183,7 +214,7 @@
     
 <!-- should match an 'a' whose @href we can just splice   -->
     <xsl:template mode="ctext-link" match="*">
-        <p>Link to <a target="ctext" href="http://ctext.org/{@href}"
+        <p class="link">Link to <a target="ctext" href="http://ctext.org/{@href}"
             xsl:expand-text="true">Chinese Text Project on { . }</a></p>
     </xsl:template>
 

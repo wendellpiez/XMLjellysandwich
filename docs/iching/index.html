@@ -4,7 +4,9 @@
       <meta charset="utf-8"/>
       <style type="text/css" id="xmljellysandwich_css">
         
-        a { color: darkgreen; text-decoration: none }
+        h1 { color: darkred }
+        
+        a { color: darkred; text-decoration: none }
         a:hover { text-decoration: underline }
         td { border: medium solid lightgreen; border-radius: 45%; background-color: cornsilk; width: 1.5em; height: 1.5em }
         
@@ -15,6 +17,12 @@
         #time-setting { display: none }
         
         h1#page_title { font-size: 140%; margin-top: 1em }
+        
+        .link  { padding: 0.3em; border: thin solid black;
+                 font-size: 90%; font-family: sans-serif; display: inline-block }
+ 
+ 
+        .changing  { font-size: 90%; font-style: italic }
         
         h1 small { font-size: 60% }
         #clock { height: 67% }
@@ -46,12 +54,11 @@ function castSticks() {
    </head>
    <body>
       <div id="page_header">
-        <h1 id="page_title">I Ching Reading</h1>
+        <h1 id="page_title"><i>I Ching</i> Reading</h1>
       </div>
      <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
-       <button id="system-reset-button" onclick="location.reload();">Cast</button>
-       <!--<button onclick="downloadReading('reading-today.xml')">Save</button>-->
-       <!--<input id="framing" type="text"/>-->
+       <input size="37" id="framing" type="text" onchange="location.reload()"/>
+       <button id="system-reset-button" onclick="location.reload()">Cast</button>
        <span id="anchor-placement"><!-- anchor here --></span>
        <!--<button id="standard-reset_button">NIST clock</button>-->
      </div>
@@ -59,9 +66,10 @@ function castSticks() {
            <!-- <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
      </div>
      <div id="diagnostic"/>
-     <div id="page_footer">
-       <p><i>I Ching</i> implementation by Wendell Piez, 2019-2020.</p>
-       <p>Dedicated to the teachers and transmitters.</p>
+     <div id="page_footer" style="font-size: smaller">
+         <p>Reading produced by <a href="https://github.com/wendellpiez/XMLjellysandwich">XMLjellysandwich <i>I Ching</i></a> (Wendell Piez, 2019-2020).</p>
+         <p>Dedicated to the teachers and transmitters, especially Thomas Cleary, <a href="http://ctext.org">CTP</a> and all open-source I Ching.</p>
+       <p>Don't be a robot! Never click without consciousness or deliberation.</p>
      </div>
    </body>
 </html>

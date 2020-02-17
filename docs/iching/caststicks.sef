@@ -208,65 +208,167 @@
   </template>
  </co>
  <co id="11" binds="6 12 13 12">
-  <template name="Q{}cast" flags="os" line="66" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" slots="1">
-   <let role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="67" var="cast" as="document-node()" slot="0" eval="7">
-    <doc line="68" base="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" validation="preserve">
-     <callT name="reading" bSlot="0"/>
-    </doc>
-    <sequence line="70">
-     <resultDoc global="#&#xA;#Sun Feb 16 21:49:05 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Sun Feb 16 21:49:05 EST 2020&#xA;">
-      <str role="href" val="#page_body"/>
-      <elem role="content" line="72" name="main" nsuri="http://www.w3.org/1999/xhtml" flags="d">
-       <sequence>
-        <applyT mode="Q{}read" bSlot="1">
-         <varRef role="select" name="cast" slot="0"/>
-        </applyT>
-        <elem line="73" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-         <sequence>
-          <att name="style" flags="l">
-           <str val="font-size:smaller"/>
-          </att>
-          <elem line="74" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-           <valueOf flags="l">
-            <str val="The notes given are from Wikipedia: please refer to your sources."/>
-           </valueOf>
-          </elem>
-         </sequence>
-        </elem>
-       </sequence>
-      </elem>
-     </resultDoc>
-     <callT line="78" name="make-download-link" bSlot="2" flags="t">
-      <withParam name="Q{}payload" flags="c" as="document-node()">
-       <doc line="82" base="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" validation="preserve">
-        <elem name="html" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-         <sequence>
-          <elem name="head" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-           <sequence>
-            <elem name="title" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-             <valueOf flags="l">
-              <str val="I Ching reading"/>
-             </valueOf>
-            </elem>
-            <elem line="83" name="meta" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-             <att name="charset" flags="l">
-              <str val="utf-8"/>
-             </att>
-            </elem>
-           </sequence>
-          </elem>
-          <elem line="86" name="body" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-           <applyT mode="Q{}read" bSlot="3">
-            <varRef role="select" name="cast" slot="0"/>
-           </applyT>
-          </elem>
-         </sequence>
-        </elem>
+  <template name="Q{}cast" flags="os" line="66" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" slots="3">
+   <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="67">
+    <param name="Q{}framing" slot="0">
+     <fn role="select" name="id">
+      <str val="framing"/>
+      <check card="1" diag="0|1||fn:id">
+       <ifCall name="Q{http://saxonica.com/ns/interactiveXSLT}page" type="document-node()?"/>
+      </check>
+     </fn>
+     <supplied role="conversion" slot="0"/>
+    </param>
+    <let line="68" var="framing-text" as="item()*" slot="1" eval="8">
+     <ifCall name="Q{http://saxonica.com/ns/interactiveXSLT}get" type="item()*">
+      <check card="?" diag="0|0||ixsl:get">
+       <varRef name="framing" slot="0"/>
+      </check>
+      <str val="value"/>
+     </ifCall>
+     <choose line="70">
+      <fn name="normalize-space">
+       <treat as="xs:string" jsTest="return SaxonJS.U.Atomic.string.matches(item);" diag="0|0||fn:normalize-space">
+        <check card="?" diag="0|0||fn:normalize-space">
+         <cvUntyped to="xs:string">
+          <data>
+           <varRef name="framing-text" slot="1"/>
+          </data>
+         </cvUntyped>
+        </check>
+       </treat>
+      </fn>
+      <let line="71" var="cast" as="document-node()" slot="2" eval="7">
+       <doc line="72" base="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" validation="preserve">
+        <callT name="reading" bSlot="0"/>
        </doc>
-      </withParam>
-     </callT>
-    </sequence>
-   </let>
+       <sequence line="74">
+        <resultDoc global="#&#xA;#Mon Feb 17 14:21:55 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Mon Feb 17 14:21:55 EST 2020&#xA;">
+         <str role="href" val="#page_body"/>
+         <elem role="content" line="76" name="main" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+          <applyT mode="Q{}read" bSlot="1">
+           <varRef role="select" name="cast" slot="2"/>
+           <withParam name="Q{}framing-text">
+            <varRef line="77" name="framing-text" slot="1"/>
+           </withParam>
+          </applyT>
+         </elem>
+        </resultDoc>
+        <callT line="82" name="make-download-link" bSlot="2" flags="t">
+         <withParam name="Q{}payload" flags="c" as="document-node()">
+          <doc line="86" base="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" validation="preserve">
+           <elem name="html" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <sequence>
+             <elem name="head" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+              <sequence>
+               <elem name="title" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                <valueOf flags="l">
+                 <str val="I Ching reading"/>
+                </valueOf>
+               </elem>
+               <elem line="87" name="meta" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                <att name="charset" flags="l">
+                 <str val="utf-8"/>
+                </att>
+               </elem>
+              </sequence>
+             </elem>
+             <elem line="90" name="body" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+              <sequence>
+               <applyT mode="Q{}read" bSlot="3">
+                <varRef role="select" name="cast" slot="2"/>
+                <withParam name="Q{}framing-text">
+                 <varRef line="91" name="framing-text" slot="1"/>
+                </withParam>
+               </applyT>
+               <elem line="93" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                <sequence>
+                 <att name="id" flags="l">
+                  <str val="page_footer"/>
+                 </att>
+                 <att name="style" flags="l">
+                  <str val="font-size: smaller; border-top: medium groove black"/>
+                 </att>
+                 <elem line="94" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                  <sequence>
+                   <valueOf flags="l">
+                    <str val="Reading produced by "/>
+                   </valueOf>
+                   <elem name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                    <sequence>
+                     <att name="href" flags="l">
+                      <str val="https://github.com/wendellpiez/XMLjellysandwich"/>
+                     </att>
+                     <valueOf flags="l">
+                      <str val="XMLjellysandwich "/>
+                     </valueOf>
+                     <elem name="i" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                      <valueOf flags="l">
+                       <str val="I Ching"/>
+                      </valueOf>
+                     </elem>
+                    </sequence>
+                   </elem>
+                   <valueOf flags="l">
+                    <str val=" (Wendell Piez, 2019-2020)."/>
+                   </valueOf>
+                  </sequence>
+                 </elem>
+                 <elem line="95" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                  <sequence>
+                   <valueOf flags="l">
+                    <str val="Dedicated to the teachers and transmitters, especially Thomas Cleary, "/>
+                   </valueOf>
+                   <elem name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                    <sequence>
+                     <att name="href" flags="l">
+                      <str val="ctext.org"/>
+                     </att>
+                     <valueOf flags="Sl">
+                      <str val="CTP"/>
+                     </valueOf>
+                    </sequence>
+                   </elem>
+                   <valueOf flags="l">
+                    <str val=" and all open-source I Ching."/>
+                   </valueOf>
+                  </sequence>
+                 </elem>
+                 <elem line="96" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+                  <valueOf flags="l">
+                   <str val="Don't be a robot! Never click without consciousness or deliberation."/>
+                  </valueOf>
+                 </elem>
+                </sequence>
+               </elem>
+              </sequence>
+             </elem>
+            </sequence>
+           </elem>
+          </doc>
+         </withParam>
+        </callT>
+       </sequence>
+      </let>
+      <true/>
+      <resultDoc line="104" global="#&#xA;#Mon Feb 17 14:21:55 EST 2020&#xA;indent=yes&#xA;method=xml&#xA;" local="#&#xA;#Mon Feb 17 14:21:55 EST 2020&#xA;">
+       <str role="href" val="#page_body"/>
+       <elem role="content" line="106" name="main" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+        <elem name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+         <sequence>
+          <att name="class" flags="l">
+           <str val="framing"/>
+          </att>
+          <valueOf flags="l">
+           <str val="Offer a prompt (context or question) and cast."/>
+          </valueOf>
+         </sequence>
+        </elem>
+       </elem>
+      </resultDoc>
+     </choose>
+    </let>
+   </sequence>
   </template>
  </co>
  <co id="14" binds="">
@@ -1619,14 +1721,17 @@
  </co>
  <co id="15" binds="">
   <mode name="Q{}ctext-link" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="3" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="182" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="216" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="183" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="217" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="d">
      <sequence>
+      <att name="class" flags="l">
+       <str val="link"/>
+      </att>
       <valueOf flags="l">
        <str val="Link to "/>
       </valueOf>
-      <elem line="184" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+      <elem line="218" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
        <sequence>
         <att name="target" flags="l">
          <str val="ctext"/>
@@ -1730,15 +1835,15 @@
  </co>
  <co id="17" binds="">
   <mode name="Q{}name" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="3" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="s" line="152" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="s" line="186" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element(Q{http://wendellpiez.com/iching}月)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='月';"/>
-    <valueOf role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="152" flags="S">
+    <valueOf role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="186" flags="S">
      <str val="six"/>
     </valueOf>
    </templateRule>
-   <templateRule prec="3" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="s" line="151" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="0.0" seq="0" rank="0" minImp="0" slots="0" flags="s" line="185" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element(Q{http://wendellpiez.com/iching}日)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='日';"/>
-    <valueOf role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="151" flags="S">
+    <valueOf role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="185" flags="S">
      <str val="nine"/>
     </valueOf>
    </templateRule>
@@ -1875,8 +1980,8 @@
   </mode>
  </co>
  <co id="19" binds="">
-  <globalVariable name="Q{}ctext" type="document-node()" line="590" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c(n) {return n==1;};">
-   <doc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="594" base="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" validation="preserve">
+  <globalVariable name="Q{}ctext" type="document-node()" line="624" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c(n) {return n==1;};">
+   <doc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="628" base="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" validation="preserve">
     <elem name="html" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
      <sequence>
       <elem name="head" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
@@ -1886,7 +1991,7 @@
         </valueOf>
        </elem>
       </elem>
-      <elem line="600" name="body" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+      <elem line="634" name="body" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
        <sequence>
         <valueOf flags="l">
          <str val="　1. "/>
@@ -1901,12 +2006,12 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="601" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="635" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="style" flags="l">
            <str val="display: inline-block; zoom: 1; *display: inline;'"/>
           </att>
-          <elem line="603" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="637" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <sequence>
             <att name="href" flags="l">
              <str val="discuss.pl?if=en&amp;bookid=25006"/>
@@ -1920,7 +2025,7 @@
             <valueOf flags="l">
              <str val="Related discussion"/>
             </valueOf>
-            <elem line="604" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <elem line="638" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
              <att name="style" flags="l">
               <str val="display: inline;"/>
              </att>
@@ -1929,7 +2034,7 @@
           </elem>
          </sequence>
         </elem>
-        <elem line="605" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="639" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -1937,7 +2042,7 @@
         <valueOf flags="l">
          <str val="　2. "/>
         </valueOf>
-        <elem line="605" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="639" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/kun"/>
@@ -1947,7 +2052,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="606" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="640" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -1955,7 +2060,7 @@
         <valueOf flags="l">
          <str val="　3. "/>
         </valueOf>
-        <elem line="606" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="640" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/zhun"/>
@@ -1965,7 +2070,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="607" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="641" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -1973,7 +2078,7 @@
         <valueOf flags="l">
          <str val="　4. "/>
         </valueOf>
-        <elem line="607" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="641" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/meng"/>
@@ -1983,7 +2088,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="608" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="642" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -1991,7 +2096,7 @@
         <valueOf flags="l">
          <str val="　5. "/>
         </valueOf>
-        <elem line="608" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="642" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/xu"/>
@@ -2001,7 +2106,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="609" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="643" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2009,7 +2114,7 @@
         <valueOf flags="l">
          <str val="　6. "/>
         </valueOf>
-        <elem line="609" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="643" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/song"/>
@@ -2019,7 +2124,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="610" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="644" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2027,7 +2132,7 @@
         <valueOf flags="l">
          <str val="　7. "/>
         </valueOf>
-        <elem line="610" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="644" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/shi"/>
@@ -2037,7 +2142,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="611" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="645" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2045,7 +2150,7 @@
         <valueOf flags="l">
          <str val="　8. "/>
         </valueOf>
-        <elem line="611" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="645" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/bi"/>
@@ -2055,7 +2160,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="612" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="646" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2063,7 +2168,7 @@
         <valueOf flags="l">
          <str val="　9. "/>
         </valueOf>
-        <elem line="612" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="646" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/xiao-xu"/>
@@ -2073,7 +2178,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="613" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="647" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2081,7 +2186,7 @@
         <valueOf flags="l">
          <str val="　10. "/>
         </valueOf>
-        <elem line="613" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="647" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/lu"/>
@@ -2091,7 +2196,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="614" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="648" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2099,7 +2204,7 @@
         <valueOf flags="l">
          <str val="　11. "/>
         </valueOf>
-        <elem line="614" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="648" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/tai"/>
@@ -2109,7 +2214,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="615" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="649" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2117,7 +2222,7 @@
         <valueOf flags="l">
          <str val="　12. "/>
         </valueOf>
-        <elem line="615" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="649" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/pi"/>
@@ -2127,7 +2232,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="616" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="650" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2135,7 +2240,7 @@
         <valueOf flags="l">
          <str val="　13. "/>
         </valueOf>
-        <elem line="616" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="650" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/tong-ren"/>
@@ -2145,7 +2250,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="617" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="651" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2153,7 +2258,7 @@
         <valueOf flags="l">
          <str val="　14. "/>
         </valueOf>
-        <elem line="617" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="651" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/da-you"/>
@@ -2163,7 +2268,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="618" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="652" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2171,7 +2276,7 @@
         <valueOf flags="l">
          <str val="　15. "/>
         </valueOf>
-        <elem line="618" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="652" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/qian1"/>
@@ -2181,7 +2286,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="619" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="653" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2189,7 +2294,7 @@
         <valueOf flags="l">
          <str val="　16. "/>
         </valueOf>
-        <elem line="619" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="653" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/yu"/>
@@ -2199,7 +2304,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="620" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="654" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2207,7 +2312,7 @@
         <valueOf flags="l">
          <str val="　17. "/>
         </valueOf>
-        <elem line="620" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="654" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/sui"/>
@@ -2217,7 +2322,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="621" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="655" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2225,7 +2330,7 @@
         <valueOf flags="l">
          <str val="　18. "/>
         </valueOf>
-        <elem line="621" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="655" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/gu"/>
@@ -2235,7 +2340,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="622" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="656" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2243,7 +2348,7 @@
         <valueOf flags="l">
          <str val="　19. "/>
         </valueOf>
-        <elem line="622" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="656" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/lin"/>
@@ -2253,7 +2358,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="623" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="657" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2261,7 +2366,7 @@
         <valueOf flags="l">
          <str val="　20. "/>
         </valueOf>
-        <elem line="623" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="657" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/guan"/>
@@ -2271,7 +2376,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="624" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="658" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2279,7 +2384,7 @@
         <valueOf flags="l">
          <str val="　21. "/>
         </valueOf>
-        <elem line="624" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="658" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/shi-he"/>
@@ -2289,7 +2394,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="625" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="659" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2297,7 +2402,7 @@
         <valueOf flags="l">
          <str val="　22. "/>
         </valueOf>
-        <elem line="625" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="659" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/bi1"/>
@@ -2307,7 +2412,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="626" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="660" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2315,7 +2420,7 @@
         <valueOf flags="l">
          <str val="　23. "/>
         </valueOf>
-        <elem line="626" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="660" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/bo"/>
@@ -2325,7 +2430,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="627" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="661" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2333,7 +2438,7 @@
         <valueOf flags="l">
          <str val="　24. "/>
         </valueOf>
-        <elem line="627" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="661" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/fu"/>
@@ -2343,7 +2448,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="628" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="662" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2351,7 +2456,7 @@
         <valueOf flags="l">
          <str val="　25. "/>
         </valueOf>
-        <elem line="628" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="662" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/wu-wang"/>
@@ -2361,7 +2466,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="629" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="663" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2369,7 +2474,7 @@
         <valueOf flags="l">
          <str val="　26. "/>
         </valueOf>
-        <elem line="629" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="663" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/da-xu"/>
@@ -2379,12 +2484,12 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="630" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="664" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="style" flags="l">
            <str val="display: inline-block; zoom: 1; *display: inline;'"/>
           </att>
-          <elem line="632" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="666" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <sequence>
             <att name="href" flags="l">
              <str val="discuss.pl?if=en&amp;bookid=25460"/>
@@ -2398,7 +2503,7 @@
             <valueOf flags="l">
              <str val="Related discussion"/>
             </valueOf>
-            <elem line="633" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <elem line="667" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
              <att name="style" flags="l">
               <str val="display: inline;"/>
              </att>
@@ -2407,7 +2512,7 @@
           </elem>
          </sequence>
         </elem>
-        <elem line="634" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="668" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2415,7 +2520,7 @@
         <valueOf flags="l">
          <str val="　27. "/>
         </valueOf>
-        <elem line="634" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="668" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/yi"/>
@@ -2425,7 +2530,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="635" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="669" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2433,7 +2538,7 @@
         <valueOf flags="l">
          <str val="　28. "/>
         </valueOf>
-        <elem line="635" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="669" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/da-guo"/>
@@ -2443,7 +2548,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="636" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="670" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2451,7 +2556,7 @@
         <valueOf flags="l">
          <str val="　29. "/>
         </valueOf>
-        <elem line="636" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="670" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/kan"/>
@@ -2461,7 +2566,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="637" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="671" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2469,7 +2574,7 @@
         <valueOf flags="l">
          <str val="　30. "/>
         </valueOf>
-        <elem line="637" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="671" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/li"/>
@@ -2479,7 +2584,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="638" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="672" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2487,7 +2592,7 @@
         <valueOf flags="l">
          <str val="　31. "/>
         </valueOf>
-        <elem line="638" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="672" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/xian"/>
@@ -2497,7 +2602,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="639" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="673" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2505,7 +2610,7 @@
         <valueOf flags="l">
          <str val="　32. "/>
         </valueOf>
-        <elem line="639" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="673" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/heng"/>
@@ -2515,7 +2620,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="640" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="674" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2523,7 +2628,7 @@
         <valueOf flags="l">
          <str val="　33. "/>
         </valueOf>
-        <elem line="640" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="674" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/dun"/>
@@ -2533,7 +2638,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="641" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="675" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2541,7 +2646,7 @@
         <valueOf flags="l">
          <str val="　34. "/>
         </valueOf>
-        <elem line="641" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="675" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/da-zhuang"/>
@@ -2551,12 +2656,12 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="642" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="676" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="style" flags="l">
            <str val="display: inline-block; zoom: 1; *display: inline;'"/>
           </att>
-          <elem line="644" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="678" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <sequence>
             <att name="href" flags="l">
              <str val="discuss.pl?if=en&amp;bookid=25601"/>
@@ -2570,7 +2675,7 @@
             <valueOf flags="l">
              <str val="Related discussion"/>
             </valueOf>
-            <elem line="645" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <elem line="679" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
              <att name="style" flags="l">
               <str val="display: inline;"/>
              </att>
@@ -2579,7 +2684,7 @@
           </elem>
          </sequence>
         </elem>
-        <elem line="646" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="680" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2587,7 +2692,7 @@
         <valueOf flags="l">
          <str val="　35. "/>
         </valueOf>
-        <elem line="646" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="680" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/jin"/>
@@ -2597,7 +2702,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="647" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="681" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2605,7 +2710,7 @@
         <valueOf flags="l">
          <str val="　36. "/>
         </valueOf>
-        <elem line="647" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="681" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/ming-yi"/>
@@ -2615,7 +2720,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="648" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="682" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2623,7 +2728,7 @@
         <valueOf flags="l">
          <str val="　37. "/>
         </valueOf>
-        <elem line="648" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="682" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/jia-ren"/>
@@ -2633,7 +2738,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="649" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="683" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2641,7 +2746,7 @@
         <valueOf flags="l">
          <str val="　38. "/>
         </valueOf>
-        <elem line="649" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="683" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/kui"/>
@@ -2651,12 +2756,12 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="650" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="684" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="style" flags="l">
            <str val="display: inline-block; zoom: 1; *display: inline;'"/>
           </att>
-          <elem line="652" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="686" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <sequence>
             <att name="href" flags="l">
              <str val="discuss.pl?if=en&amp;bookid=25673"/>
@@ -2670,7 +2775,7 @@
             <valueOf flags="l">
              <str val="Related discussion"/>
             </valueOf>
-            <elem line="653" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <elem line="687" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
              <att name="style" flags="l">
               <str val="display: inline;"/>
              </att>
@@ -2679,7 +2784,7 @@
           </elem>
          </sequence>
         </elem>
-        <elem line="654" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="688" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2687,7 +2792,7 @@
         <valueOf flags="l">
          <str val="　39. "/>
         </valueOf>
-        <elem line="654" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="688" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/jian"/>
@@ -2697,7 +2802,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="655" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="689" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2705,7 +2810,7 @@
         <valueOf flags="l">
          <str val="　40. "/>
         </valueOf>
-        <elem line="655" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="689" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/jie"/>
@@ -2715,7 +2820,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="656" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="690" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2723,7 +2828,7 @@
         <valueOf flags="l">
          <str val="　41. "/>
         </valueOf>
-        <elem line="656" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="690" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/sun"/>
@@ -2733,7 +2838,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="657" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="691" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2741,7 +2846,7 @@
         <valueOf flags="l">
          <str val="　42. "/>
         </valueOf>
-        <elem line="657" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="691" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/yi1"/>
@@ -2751,7 +2856,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="658" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="692" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2759,7 +2864,7 @@
         <valueOf flags="l">
          <str val="　43. "/>
         </valueOf>
-        <elem line="658" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="692" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/guai"/>
@@ -2769,7 +2874,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="659" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="693" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2777,7 +2882,7 @@
         <valueOf flags="l">
          <str val="　44. "/>
         </valueOf>
-        <elem line="659" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="693" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/gou"/>
@@ -2787,7 +2892,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="660" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="694" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2795,7 +2900,7 @@
         <valueOf flags="l">
          <str val="　45. "/>
         </valueOf>
-        <elem line="660" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="694" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/cui"/>
@@ -2805,7 +2910,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="661" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="695" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2813,7 +2918,7 @@
         <valueOf flags="l">
          <str val="　46. "/>
         </valueOf>
-        <elem line="661" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="695" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/sheng"/>
@@ -2823,7 +2928,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="662" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="696" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2831,7 +2936,7 @@
         <valueOf flags="l">
          <str val="　47. "/>
         </valueOf>
-        <elem line="662" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="696" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/kun1"/>
@@ -2841,7 +2946,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="663" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="697" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2849,7 +2954,7 @@
         <valueOf flags="l">
          <str val="　48. "/>
         </valueOf>
-        <elem line="663" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="697" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/jing"/>
@@ -2859,7 +2964,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="664" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="698" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2867,7 +2972,7 @@
         <valueOf flags="l">
          <str val="　49. "/>
         </valueOf>
-        <elem line="664" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="698" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/ge"/>
@@ -2877,7 +2982,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="665" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="699" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2885,7 +2990,7 @@
         <valueOf flags="l">
          <str val="　50. "/>
         </valueOf>
-        <elem line="665" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="699" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/ding"/>
@@ -2895,7 +3000,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="666" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="700" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2903,7 +3008,7 @@
         <valueOf flags="l">
          <str val="　51. "/>
         </valueOf>
-        <elem line="666" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="700" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/zhen"/>
@@ -2913,7 +3018,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="667" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="701" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2921,7 +3026,7 @@
         <valueOf flags="l">
          <str val="　52. "/>
         </valueOf>
-        <elem line="667" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="701" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/gen"/>
@@ -2931,7 +3036,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="668" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="702" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2939,7 +3044,7 @@
         <valueOf flags="l">
          <str val="　53. "/>
         </valueOf>
-        <elem line="668" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="702" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/jian1"/>
@@ -2949,7 +3054,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="669" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="703" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2957,7 +3062,7 @@
         <valueOf flags="l">
          <str val="　54. "/>
         </valueOf>
-        <elem line="669" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="703" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/gui-mei"/>
@@ -2967,7 +3072,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="670" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="704" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2975,7 +3080,7 @@
         <valueOf flags="l">
          <str val="　55. "/>
         </valueOf>
-        <elem line="670" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="704" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/feng"/>
@@ -2985,7 +3090,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="671" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="705" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -2993,7 +3098,7 @@
         <valueOf flags="l">
          <str val="　56. "/>
         </valueOf>
-        <elem line="671" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="705" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/lu1"/>
@@ -3003,12 +3108,12 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="672" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="706" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="style" flags="l">
            <str val="display: inline-block; zoom: 1; *display: inline;'"/>
           </att>
-          <elem line="674" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="708" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <sequence>
             <att name="href" flags="l">
              <str val="discuss.pl?if=en&amp;bookid=25998"/>
@@ -3022,7 +3127,7 @@
             <valueOf flags="l">
              <str val="Related discussion"/>
             </valueOf>
-            <elem line="675" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <elem line="709" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
              <att name="style" flags="l">
               <str val="display: inline;"/>
              </att>
@@ -3031,7 +3136,7 @@
           </elem>
          </sequence>
         </elem>
-        <elem line="676" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="710" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -3039,7 +3144,7 @@
         <valueOf flags="l">
          <str val="　57. "/>
         </valueOf>
-        <elem line="676" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="710" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/xun"/>
@@ -3049,7 +3154,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="677" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="711" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -3057,7 +3162,7 @@
         <valueOf flags="l">
          <str val="　58. "/>
         </valueOf>
-        <elem line="677" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="711" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/dui"/>
@@ -3067,7 +3172,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="678" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="712" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -3075,7 +3180,7 @@
         <valueOf flags="l">
          <str val="　59. "/>
         </valueOf>
-        <elem line="678" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="712" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/huan"/>
@@ -3085,7 +3190,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="679" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="713" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -3093,7 +3198,7 @@
         <valueOf flags="l">
          <str val="　60. "/>
         </valueOf>
-        <elem line="679" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="713" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/jie1"/>
@@ -3103,7 +3208,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="680" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="714" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -3111,7 +3216,7 @@
         <valueOf flags="l">
          <str val="　61. "/>
         </valueOf>
-        <elem line="680" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="714" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/zhong-fu"/>
@@ -3121,7 +3226,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="681" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="715" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -3129,7 +3234,7 @@
         <valueOf flags="l">
          <str val="　62. "/>
         </valueOf>
-        <elem line="681" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="715" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/xiao-guo"/>
@@ -3139,7 +3244,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="682" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="716" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -3147,7 +3252,7 @@
         <valueOf flags="l">
          <str val="　63. "/>
         </valueOf>
-        <elem line="682" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="716" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/ji-ji"/>
@@ -3157,7 +3262,7 @@
           </valueOf>
          </sequence>
         </elem>
-        <elem line="683" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="717" name="br" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <att name="class" flags="l">
           <str val="br"/>
          </att>
@@ -3165,7 +3270,7 @@
         <valueOf flags="l">
          <str val="　64. "/>
         </valueOf>
-        <elem line="683" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="717" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="href" flags="l">
            <str val="book-of-changes/wei-ji"/>
@@ -3687,8 +3792,8 @@
   </template>
  </co>
  <co id="27" binds="">
-  <globalVariable name="Q{}kingwen" type="document-node()" line="189" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c(n) {return n==1;};">
-   <doc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="193" base="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" validation="preserve">
+  <globalVariable name="Q{}kingwen" type="document-node()" line="223" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c(n) {return n==1;};">
+   <doc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="227" base="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" validation="preserve">
     <elem name="html" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
      <sequence>
       <elem name="head" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
@@ -3698,313 +3803,313 @@
         </valueOf>
        </elem>
       </elem>
-      <elem line="196" name="body" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+      <elem line="230" name="body" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
        <sequence>
         <elem name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷀"/>
           </att>
-          <elem line="197" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="231" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="1 ䷀ The Creative Heaven"/>
            </valueOf>
           </elem>
-          <elem line="198" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="232" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 1 is named 乾 (qián), &#34;Force&#34;. Other variations include &#34;the creative&#34;, &#34;strong&#xA;            action&#34;, &#34;the key&#34;, and &#34;god&#34;. Its inner (lower) trigram is ☰ (乾 qián) force = (天)&#xA;            heaven, and its outer (upper) trigram is the same."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="202" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="236" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷁"/>
           </att>
-          <elem line="203" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="237" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="2 ䷁ The Receptive Earth"/>
            </valueOf>
           </elem>
-          <elem line="204" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="238" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 2 is named 坤 (kūn), &#34;Field&#34;. Other variations include &#34;the receptive&#34;,&#xA;            &#34;acquiescence&#34;, and &#34;the flow&#34;. Its inner (lower) trigram is ☷ (坤 kūn) field = (地)&#xA;            earth, and its outer (upper) trigram is identical."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="208" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="242" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷂"/>
           </att>
-          <elem line="209" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="243" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="3 ䷂ Difficulty at the Beginning"/>
            </valueOf>
           </elem>
-          <elem line="210" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="244" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 3 is named 屯 (zhūn), &#34;Sprouting&#34;. Other variations include &#34;difficulty at the&#xA;            beginning&#34;, &#34;gathering support&#34;, and &#34;hoarding&#34;. Its inner (lower) trigram is ☳ (震 zhèn)&#xA;            shake = (雷) thunder, and its outer (upper) trigram is ☵ (坎 kǎn) gorge = (水) water."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="214" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="248" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷃"/>
           </att>
-          <elem line="215" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="249" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="4 ䷃ Youthful Folly"/>
            </valueOf>
           </elem>
-          <elem line="216" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="250" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 4 is named 蒙 (méng), &#34;Enveloping&#34;. Other variations include &#34;youthful folly&#34;,&#xA;            &#34;the young shoot&#34;, and &#34;discovering&#34;. Its inner trigram is ☵ (坎 kǎn) gorge = (水) water.&#xA;            Its outer trigram is ☶ (艮 gèn) bound = (山) mountain."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="220" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="254" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷄"/>
           </att>
-          <elem line="221" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="255" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="5 ䷄ Waiting"/>
            </valueOf>
           </elem>
-          <elem line="222" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="256" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 5 is named 需 (xū), &#34;Attending&#34;. Other variations include &#34;waiting&#34;,&#xA;            &#34;moistened&#34;, and &#34;arriving&#34;. Its inner (lower) trigram is ☰ (乾 qián) force = (天) heaven,&#xA;            and its outer (upper) trigram is ☵ (坎 kǎn) gorge = (水) water."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="226" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="260" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷅"/>
           </att>
-          <elem line="227" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="261" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="6 ䷅ Conflict"/>
            </valueOf>
           </elem>
-          <elem line="228" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="262" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 6 is named 訟 (sòng), &#34;Arguing&#34;. Other variations include &#34;conflict&#34; and&#xA;            &#34;lawsuit&#34;. Its inner (lower) trigram is ☵ (坎 kǎn) gorge = (水) water, and its outer&#xA;            (upper) trigram is ☰ (乾 qián) force = (天) heaven."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="232" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="266" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷆"/>
           </att>
-          <elem line="233" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="267" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="7 ䷆ The Army"/>
            </valueOf>
           </elem>
-          <elem line="234" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="268" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 7 is named 師 (shī), &#34;Leading&#34;. Other variations include &#34;the army&#34; and &#34;the&#xA;            troops&#34;. Its inner (lower) trigram is ☵ (坎 kǎn) gorge = (水) water, and its outer (upper)&#xA;            trigram is ☷ (坤 kūn) field = (地) earth."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="238" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="272" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷇"/>
           </att>
-          <elem line="239" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="273" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="8 ䷇ Holding Together"/>
            </valueOf>
           </elem>
-          <elem line="240" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="274" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 8 is named 比 (bǐ), &#34;Grouping&#34;. Other variations include &#34;holding together&#34; and&#xA;            &#34;alliance&#34;. Its inner (lower) trigram is ☷ (坤 kūn) field = (地) earth, and its outer&#xA;            (upper) trigram is ☵ (坎 kǎn) gorge = (水) water."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="244" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="278" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷈"/>
           </att>
-          <elem line="245" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="279" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="9 ䷈ Small Taming"/>
            </valueOf>
           </elem>
-          <elem line="246" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="280" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 9 is named 小畜 (xiǎo chù), &#34;Small Accumulating&#34;. Other variations include &#34;the&#xA;            taming power of the small&#34; and &#34;small harvest&#34;. Its inner (lower) trigram is ☰ (乾 qián)&#xA;            force = (天) heaven, and its outer (upper) trigram is ☴ (巽 xùn) ground = (風) wind."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="250" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="284" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷉"/>
           </att>
-          <elem line="251" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="285" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="10 ䷉ Treading"/>
            </valueOf>
           </elem>
-          <elem line="252" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="286" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 10 is named 履 (lǚ), &#34;Treading&#34;. Other variations include &#34;treading (conduct)&#34;&#xA;            and &#34;continuing&#34;. Its inner (lower) trigram is ☱ (兌 duì) open = (澤) swamp, and its outer&#xA;            (upper) trigram is ☰ (乾 qián) force = (天) heaven."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="256" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="290" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷊"/>
           </att>
-          <elem line="257" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="291" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="11 ䷊ Peace"/>
            </valueOf>
           </elem>
-          <elem line="258" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="292" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 11 is named 泰 (tài), &#34;Pervading&#34;. Other variations include &#34;peace&#34; and&#xA;            &#34;greatness&#34;. Its inner (lower) trigram is ☰ (乾 qián) force = (天) heaven, and its outer&#xA;            (upper) trigram is ☷ (坤 kūn) field = (地) earth."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="262" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="296" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷋"/>
           </att>
-          <elem line="263" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="297" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="12 ䷋ Standstill"/>
            </valueOf>
           </elem>
-          <elem line="264" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="298" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 12 is named 否 (pǐ), &#34;Obstruction&#34;. Other variations include &#34;standstill&#xA;            (stagnation)&#34; and &#34;selfish persons&#34;. Its inner (lower) trigram is ☷ (坤 kūn) field = (地)&#xA;            earth, and its outer (upper) trigram is ☰ (乾 qián) force = (天) heaven."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="268" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="302" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷌"/>
           </att>
-          <elem line="269" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="303" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="13 ䷌ Fellowship"/>
            </valueOf>
           </elem>
-          <elem line="270" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="304" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 13 is named 同人 (tóng rén), &#34;Concording People&#34;. Other variations include&#xA;            &#34;fellowship with men&#34; and &#34;gathering men&#34;. Its inner (lower) trigram is ☲ (離 lí)&#xA;            radiance = (火) fire, and its outer (upper) trigram is ☰ (乾 qián) force = (天) heaven."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="274" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="308" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷍"/>
           </att>
-          <elem line="275" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="309" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="14 ䷍ Great Possession"/>
            </valueOf>
           </elem>
-          <elem line="276" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="310" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 14 is named 大有 (dà yǒu), &#34;Great Possessing&#34;. Other variations include&#xA;            &#34;possession in great measure&#34; and &#34;the great possession&#34;. Its inner (lower) trigram is ☰&#xA;            (乾 qián) force = (天) heaven, and its outer (upper) trigram is ☲ (離 lí) radiance = (火)&#xA;            fire."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="281" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="315" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷎"/>
           </att>
-          <elem line="282" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="316" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="15 ䷎ Modesty"/>
            </valueOf>
           </elem>
-          <elem line="283" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="317" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 15 is named 謙 (qiān), &#34;Humbling&#34;. Other variations include &#34;modesty&#34;. Its inner&#xA;            (lower) trigram is ☶ (艮 gèn) bound = (山) mountain and its outer (upper) trigram is ☷ (坤&#xA;            kūn) field = (地) earth."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="287" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="321" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷏"/>
           </att>
-          <elem line="288" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="322" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="16 ䷏ Enthusiasm"/>
            </valueOf>
           </elem>
-          <elem line="289" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="323" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 16 is named 豫 (yù), &#34;Providing-For&#34;. Other variations include &#34;enthusiasm&#34; and&#xA;            &#34;excess&#34;. Its inner (lower) trigram is ☷ (坤 kūn) field = (地) earth, and its outer&#xA;            (upper) trigram is ☳ (震 zhèn) shake = (雷) thunder."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="293" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="327" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷐"/>
           </att>
-          <elem line="294" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="328" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="17 ䷐ Following"/>
            </valueOf>
           </elem>
-          <elem line="295" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="329" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 17 is named 隨 (suí), &#34;Following&#34;. Its inner (lower) trigram is ☳ (震 zhèn) shake&#xA;            = (雷) thunder, and its outer (upper) trigram is ☱ (兌 duì) open = (澤) swamp."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="298" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="332" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷑"/>
           </att>
-          <elem line="299" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="333" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="18 ䷑ Work on the Decayed"/>
            </valueOf>
           </elem>
-          <elem line="300" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="334" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <sequence>
             <valueOf flags="l">
              <str val="Hexagram 18 is named 蠱 (gǔ), &#34;Correcting&#34;. Other variations include &#34;work on what has&#xA;            been spoiled (decay)&#34;, decaying and &#34;branch&#34;."/>
             </valueOf>
-            <elem line="302" name="sup" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <elem line="336" name="sup" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
              <sequence>
               <att name="id" flags="l">
                <str val="cite_ref-1"/>
@@ -4024,56 +4129,56 @@
           </elem>
          </sequence>
         </elem>
-        <elem line="306" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="340" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷒"/>
           </att>
-          <elem line="307" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="341" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="19 ䷒ Approach"/>
            </valueOf>
           </elem>
-          <elem line="308" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="342" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 19 is named 臨 (lín), &#34;Nearing&#34;. Other variations include &#34;approach&#34; and &#34;the&#xA;            forest&#34;. Its inner (lower) trigram is ☱ (兌 duì) open = (澤) swamp, and its outer (upper)&#xA;            trigram is ☷ (坤 kūn) field = (地) earth."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="312" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="346" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷓"/>
           </att>
-          <elem line="313" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="347" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="20 ䷓ Contemplation"/>
            </valueOf>
           </elem>
-          <elem line="314" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="348" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 20 is named 觀 (guān), &#34;Viewing&#34;. Other variations include &#34;contemplation&#xA;            (view)&#34; and &#34;looking up&#34;. Its inner (lower) trigram is ☷ (坤 kūn) field = (地) earth, and&#xA;            its outer (upper) trigram is ☴ (巽 xùn) ground = (風) wind."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="318" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="352" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷔"/>
           </att>
-          <elem line="319" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="353" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="21 ䷔ Biting Through"/>
            </valueOf>
           </elem>
-          <elem line="320" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="354" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <sequence>
             <valueOf flags="l">
              <str val="Hexagram 21 is named 噬嗑 (shì kè), &#34;Gnawing Bite&#34;. Other variations include &#34;biting&#xA;            through&#34; and &#34;biting and chewing&#34;. Its inner (lower) trigram is ☳ (震 zhèn) shake = (雷)&#xA;            thunder, and its outer trigram is ☲ (離 lí) radiance = (火) fire. "/>
             </valueOf>
-            <elem line="323" name="sup" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <elem line="357" name="sup" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
              <sequence>
               <att name="id" flags="l">
                <str val="cite_ref-2"/>
@@ -4090,22 +4195,22 @@
           </elem>
          </sequence>
         </elem>
-        <elem line="325" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="359" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷕"/>
           </att>
-          <elem line="326" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="360" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="22 ䷕ Grace"/>
            </valueOf>
           </elem>
-          <elem line="327" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="361" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <sequence>
             <valueOf flags="l">
              <str val="Hexagram 22 is named 賁 (bì), &#34;Adorning&#34;. Other variations include &#34;grace&#34; and&#xA;            &#34;luxuriance&#34;. Its inner (lower) trigram is ☲ (離 lí) radiance = (火) fire, and its outer&#xA;            (upper) trigram is ☶ (艮 gèn) bound = (山) mountain. "/>
             </valueOf>
-            <elem line="330" name="sup" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+            <elem line="364" name="sup" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
              <sequence>
               <att name="id" flags="l">
                <str val="cite_ref-3"/>
@@ -4122,714 +4227,714 @@
           </elem>
          </sequence>
         </elem>
-        <elem line="332" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="366" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷖"/>
           </att>
-          <elem line="333" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="367" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="23 ䷖ Splitting Apart"/>
            </valueOf>
           </elem>
-          <elem line="334" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="368" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 23 is named 剝 (bō), &#34;Stripping&#34;. Other variations include &#34;splitting apart&#34; and&#xA;            &#34;flaying&#34;. Its inner trigram is ☷ (坤 kūn) field = (地) earth, and its outer trigram is ☶&#xA;            (艮 gèn) bound = (山) mountain."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="338" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="372" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷗"/>
           </att>
-          <elem line="339" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="373" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="24 ䷗ Return"/>
            </valueOf>
           </elem>
-          <elem line="340" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="374" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 24 is named 復 (fù), &#34;Returning&#34;. Other variations include &#34;return (the turning&#xA;            point)&#34;. Its inner trigram is ☳ (震 zhèn) shake = (雷) thunder, and its outer trigram is ☷&#xA;            (坤 kūn) field = (地) earth."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="344" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="378" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷘"/>
           </att>
-          <elem line="345" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="379" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="25 ䷘ Innocence"/>
            </valueOf>
           </elem>
-          <elem line="346" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="380" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 25 is named 無妄 (wú wàng), &#34;Without Embroiling&#34;. Other variations include&#xA;            &#34;innocence (the unexpected)&#34; and &#34;pestilence&#34;. Its inner trigram is ☳ (震 zhèn) shake =&#xA;            (雷) thunder, and its outer trigram is ☰ (乾 qián) force = (天) heaven."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="350" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="384" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷙"/>
           </att>
-          <elem line="351" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="385" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="26 ䷙ Great Taming"/>
            </valueOf>
           </elem>
-          <elem line="352" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="386" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 26 is named 大畜 (dà chù), &#34;Great Accumulating&#34;. Other variations include &#34;the&#xA;            taming power of the great&#34;, &#34;great storage&#34;, and &#34;potential energy&#34;. Its inner trigram&#xA;            is ☰ (乾 qián) force = (天) heaven, and its outer trigram is ☶ (艮 gèn) bound = (山)&#xA;            mountain."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="357" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="391" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷚"/>
           </att>
-          <elem line="358" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="392" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="27 ䷚ Mouth Corners"/>
            </valueOf>
           </elem>
-          <elem line="359" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="393" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 27 is named 頤 (yí), &#34;Swallowing&#34;. Other variations include &#34;the corners of the&#xA;            mouth (providing nourishment)&#34;, &#34;jaws&#34; and &#34;comfort/security&#34;. Its inner trigram is ☳ (震&#xA;            zhèn) shake = (雷) thunder, and its outer trigram is ☶ (艮 gèn) bound = (山) mountain."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="363" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="397" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷛"/>
           </att>
-          <elem line="364" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="398" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="28 ䷛ Great Preponderance"/>
            </valueOf>
           </elem>
-          <elem line="365" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="399" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 28 is named 大過 (dà guò), &#34;Great Exceeding&#34;. Other variations include&#xA;            &#34;preponderance of the great&#34;, &#34;great surpassing&#34; and &#34;critical mass&#34;. Its inner trigram&#xA;            is ☴ (巽 xùn) ground = (風) wind, and its outer trigram is ☱ (兌 duì) open = (澤) swamp."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="369" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="403" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷜"/>
           </att>
-          <elem line="370" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="404" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="29 ䷜ The Abysmal Water"/>
            </valueOf>
           </elem>
-          <elem line="371" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="405" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 29 is named 坎 (kǎn), &#34;Gorge&#34;. Other variations include &#34;the abyss&#34; (in the&#xA;            oceanographic sense) and &#34;repeated entrapment&#34;. Its inner trigram is ☵ (坎 kǎn) gorge =&#xA;            (水) water, and its outer trigram is identical."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="375" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="409" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷝"/>
           </att>
-          <elem line="376" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="410" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="30 ䷝ The Clinging Fire"/>
            </valueOf>
           </elem>
-          <elem line="377" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="411" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 30 is named 離 (lí), &#34;Radiance&#34;. Other variations include &#34;the clinging, fire&#34;&#xA;            and &#34;the net&#34;. Its inner trigram is ☲ (離 lí) radiance = (火) fire, and its outer trigram&#xA;            is identical. The origin of the character has its roots in symbols of long-tailed birds&#xA;            such as the peacock or the legendary phoenix."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="382" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="416" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷞"/>
           </att>
-          <elem line="383" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="417" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="31 ䷞ Influence"/>
            </valueOf>
           </elem>
-          <elem line="384" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="418" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 31 is named 咸 (xián), &#34;Conjoining&#34;. Other variations include &#34;influence&#xA;            (wooing)&#34; and &#34;feelings&#34;. Its inner trigram is ☶ (艮 gèn) bound = (山) mountain, and its&#xA;            outer trigram is ☱ (兌 duì) open = (澤) swamp."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="388" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="422" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷟"/>
           </att>
-          <elem line="389" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="423" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="32 ䷟ Duration"/>
            </valueOf>
           </elem>
-          <elem line="390" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="424" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 32 is named 恆 (héng), &#34;Persevering&#34;. Other variations include &#34;duration&#34; and&#xA;            &#34;constancy&#34;. Its inner trigram is ☴ (巽 xùn) ground = (風) wind, and its outer trigram is&#xA;            ☳ (震 zhèn) shake = (雷) thunder."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="394" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="428" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷠"/>
           </att>
-          <elem line="395" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="429" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="33 ䷠ Retreat"/>
            </valueOf>
           </elem>
-          <elem line="396" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="430" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 33 is named 遯 (dùn), &#34;Retiring&#34;. Other variations include &#34;retreat&#34; and&#xA;            &#34;yielding&#34;. Its inner trigram is ☶ (艮 gèn) bound = (山) mountain, and its outer trigram&#xA;            is ☰ (乾 qián) force = (天) heaven."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="400" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="434" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷡"/>
           </att>
-          <elem line="401" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="435" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="34 ䷡ Great Power"/>
            </valueOf>
           </elem>
-          <elem line="402" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="436" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 34 is named 大壯 (dà zhuàng), &#34;Great Invigorating&#34;. Other variations include &#34;the&#xA;            power of the great&#34; and &#34;great maturity&#34;. Its inner trigram is ☰ (乾 qián) force = (天)&#xA;            heaven, and its outer trigram is ☳ (震 zhèn) shake = (雷) thunder."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="406" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="440" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷢"/>
           </att>
-          <elem line="407" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="441" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="35 ䷢ Progress"/>
            </valueOf>
           </elem>
-          <elem line="408" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="442" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 35 is named 晉 (jìn), &#34;Prospering&#34;. Other variations include &#34;progress&#34; and&#xA;            &#34;aquas&#34;. Its inner trigram is ☷ (坤 kūn) field = (地) earth, and its outer trigram is ☲ (離&#xA;            lí) radiance = (火) fire."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="412" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="446" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷣"/>
           </att>
-          <elem line="413" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="447" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="36 ䷣ Darkening of the Light"/>
            </valueOf>
           </elem>
-          <elem line="414" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="448" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 36 is named 明夷 (míng yí), &#34;Darkening of the Light&#34;. Other variations include&#xA;            &#34;brilliance injured&#34; and &#34;intelligence hidden&#34;. Its inner trigram is ☲ (離 lí) radiance =&#xA;            (火) fire, and its outer trigram is ☷ (坤 kūn) field = (地) earth."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="418" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="452" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷤"/>
           </att>
-          <elem line="419" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="453" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="37 ䷤ The Family"/>
            </valueOf>
           </elem>
-          <elem line="420" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="454" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 37 is named 家人 (jiā rén), &#34;Dwelling People&#34;. Other variations include &#34;the&#xA;            family (the clan)&#34; and &#34;family members&#34;. Its inner trigram is ☲ (離 lí) radiance = (火)&#xA;            fire, and its outer trigram is ☴ (巽 xùn) ground = (風) wind."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="424" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="458" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷥"/>
           </att>
-          <elem line="425" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="459" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="38 ䷥ Opposition"/>
            </valueOf>
           </elem>
-          <elem line="426" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="460" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 38 is named 睽 (kuí), &#34;Polarising&#34;. Other variations include &#34;opposition&#34; and&#xA;            &#34;perversion&#34;. Its inner trigram is ☱ (兌 duì) open = (澤) swamp, and its outer trigram is&#xA;            ☲ (離 lí) radiance = (火) fire."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="430" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="464" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷦"/>
           </att>
-          <elem line="431" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="465" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="39 ䷦ Obstruction"/>
            </valueOf>
           </elem>
-          <elem line="432" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="466" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 39 is named 蹇 (jiǎn), &#34;Limping&#34;. Other variations include &#34;obstruction&#34; and&#xA;            &#34;afoot&#34;. Its inner trigram is ☶ (艮 gèn) bound = (山) mountain, and its outer trigram is ☵&#xA;            (坎 kǎn) gorge = (水) water."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="436" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="470" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷧"/>
           </att>
-          <elem line="437" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="471" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="40 ䷧ Deliverance"/>
            </valueOf>
           </elem>
-          <elem line="438" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="472" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 40 is named 解 (xiè), &#34;Taking-Apart&#34;. Other variations include &#34;deliverance&#34; and&#xA;            &#34;untangled&#34;. Its inner trigram is ☵ (坎 kǎn) gorge = (水) water, and its outer trigram is&#xA;            ☳ (震 zhèn) shake = (雷) thunder."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="442" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="476" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷨"/>
           </att>
-          <elem line="443" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="477" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="41 ䷨ Decrease"/>
            </valueOf>
           </elem>
-          <elem line="444" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="478" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 41 is named 損 (sǔn), &#34;Diminishing&#34;. Other variations include &#34;decrease&#34;. Its&#xA;            inner trigram is ☱ (兌 duì) open = (澤) swamp, and its outer trigram is ☶ (艮 gèn) bound =&#xA;            (山) mountain."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="448" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="482" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷩"/>
           </att>
-          <elem line="449" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="483" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="42 ䷩ Increase"/>
            </valueOf>
           </elem>
-          <elem line="450" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="484" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 42 is named 益 (yì), &#34;Augmenting&#34;. Other variations include &#34;increase&#34;. Its&#xA;            inner trigram is ☳ (震 zhèn) shake = (雷) thunder, and its outer trigram is ☴ (巽 xùn)&#xA;            ground = (風) wind."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="454" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="488" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷪"/>
           </att>
-          <elem line="455" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="489" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="43 ䷪ Breakthrough"/>
            </valueOf>
           </elem>
-          <elem line="456" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="490" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 43 is named 夬 (guài), &#34;Displacement&#34;. Other variations include &#34;resoluteness&#34;,&#xA;            &#34;parting&#34;, and &#34;break-through&#34;. Its inner trigram is ☰ (乾 qián) force = (天) heaven, and&#xA;            its outer trigram is ☱ (兌 duì) open = (澤) swamp."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="460" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="494" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷫"/>
           </att>
-          <elem line="461" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="495" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="44 ䷫ Coming to Meet"/>
            </valueOf>
           </elem>
-          <elem line="462" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="496" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 44 is named 姤 (gòu), &#34;Coupling&#34;. Other variations include &#34;coming to meet&#34; and&#xA;            &#34;meeting&#34;. Its inner trigram is ☴ (巽 xùn) ground = (風) wind, and its outer trigram is ☰&#xA;            (乾 qián) force = (天) heaven."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="466" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="500" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷬"/>
           </att>
-          <elem line="467" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="501" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="45 ䷬ Gathering Together"/>
            </valueOf>
           </elem>
-          <elem line="468" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="502" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 45 is named 萃 (cuì), &#34;Clustering&#34;. Other variations include &#34;gathering together&#xA;            (massing)&#34; and &#34;finished&#34;. Its inner trigram is ☷ (坤 kūn) field = (地) earth, and its&#xA;            outer trigram is ☱ (兌 duì) open = (澤) swamp."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="472" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="506" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷭"/>
           </att>
-          <elem line="473" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="507" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="46 ䷭ Pushing Upward"/>
            </valueOf>
           </elem>
-          <elem line="474" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="508" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 46 is named 升 (shēng), &#34;Ascending&#34;. Other variations include &#34;pushing upward&#34;.&#xA;            Its inner trigram is ☴ (巽 xùn) ground = (風) wind, and its outer trigram is ☷ (坤 kūn)&#xA;            field = (地) earth."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="478" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="512" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷮"/>
           </att>
-          <elem line="479" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="513" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="47 ䷮ Oppression"/>
            </valueOf>
           </elem>
-          <elem line="480" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="514" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 47 is named 困 (kùn), &#34;Confining&#34;. Other variations include &#34;oppression&#xA;            (exhaustion)&#34; and &#34;entangled&#34;. Its inner trigram is ☵ (坎 kǎn) gorge = (水) water, and its&#xA;            outer trigram is ☱ (兌 duì) open = (澤) swamp."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="484" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="518" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷯"/>
           </att>
-          <elem line="485" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="519" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="48 ䷯ The Well"/>
            </valueOf>
           </elem>
-          <elem line="486" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="520" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 48 is named 井 (jǐng), &#34;Welling&#34;. Other variations include &#34;the well&#34;. Its inner&#xA;            trigram is ☴ (巽 xùn) ground = (風) wind, and its outer trigram is ☵ (坎 kǎn) gorge = (水)&#xA;            water."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="490" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="524" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷰"/>
           </att>
-          <elem line="491" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="525" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="49 ䷰ Revolution"/>
            </valueOf>
           </elem>
-          <elem line="492" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="526" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 49 is named 革 (gé), &#34;Skinning&#34;. Other variations include &#34;revolution (molting)&#34;&#xA;            and &#34;the bridle&#34;. Its inner trigram is ☲ (離 lí) radiance = (火) fire, and its outer&#xA;            trigram is ☱ (兌 duì) open = (澤) swamp."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="496" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="530" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷱"/>
           </att>
-          <elem line="497" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="531" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="50 ䷱ The Cauldron"/>
            </valueOf>
           </elem>
-          <elem line="498" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="532" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 50 is named 鼎 (dǐng), &#34;Holding&#34;. Other variations include &#34;the cauldron&#34;. Its&#xA;            inner trigram is ☴ (巽 xùn) ground = (風) wind, and its outer trigram is ☲ (離 lí) radiance&#xA;            = (火) fire."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="502" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="536" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷲"/>
           </att>
-          <elem line="503" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="537" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="51 ䷲ The Arousing Thunder"/>
            </valueOf>
           </elem>
-          <elem line="504" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="538" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 51 is named 震 (zhèn), &#34;Shake&#34;. Other variations include &#34;the arousing (shock,&#xA;            thunder)&#34; and &#34;thunder&#34;. Both its inner and outer trigrams are ☳ (震 zhèn) shake = (雷)&#xA;            thunder."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="508" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="542" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷳"/>
           </att>
-          <elem line="509" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="543" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="52 ䷳ The Keeping Still Mountain"/>
            </valueOf>
           </elem>
-          <elem line="510" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="544" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 52 is named 艮 (gèn), &#34;Bound&#34;. Other variations include &#34;keeping still,&#xA;            mountain&#34; and &#34;stilling&#34;. Both its inner and outer trigrams are ☶ (艮 gèn) bound = (山)&#xA;            mountain."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="514" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="548" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷴"/>
           </att>
-          <elem line="515" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="549" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="53 ䷴ Development"/>
            </valueOf>
           </elem>
-          <elem line="516" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="550" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 53 is named 漸 (jiàn), &#34;Infiltrating&#34;. Other variations include &#34;development&#xA;            (gradual progress)&#34; and &#34;advancement&#34;. Its inner trigram is ☶ (艮 gèn) bound = (山)&#xA;            mountain, and its outer trigram is ☴ (巽 xùn) ground = (風) wind."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="520" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="554" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷵"/>
           </att>
-          <elem line="521" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="555" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="54 ䷵ The Marrying Maiden"/>
            </valueOf>
           </elem>
-          <elem line="522" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="556" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 54 is named 歸妹 (guī mèi), &#34;Converting the Maiden&#34;. Other variations include&#xA;            &#34;the marrying maiden&#34; and &#34;returning maiden&#34;. Its inner trigram is ☱ (兌 duì) open = (澤)&#xA;            swamp, and its outer trigram is ☳ (震 zhèn) shake = (雷) thunder."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="526" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="560" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷶"/>
           </att>
-          <elem line="527" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="561" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="55 ䷶ Abundance"/>
            </valueOf>
           </elem>
-          <elem line="528" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="562" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 55 is named 豐 (fēng), &#34;Abounding&#34;. Other variations include &#34;abundance&#34; and&#xA;            &#34;fullness&#34;. Its inner trigram is ☲ (離 lí) radiance = (火) fire, and its outer trigram is&#xA;            ☳ (震 zhèn) shake = (雷) thunder."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="532" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="566" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷷"/>
           </att>
-          <elem line="533" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="567" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="56 ䷷ The Wanderer"/>
            </valueOf>
           </elem>
-          <elem line="534" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="568" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 56 is named 旅 (lǚ), &#34;Sojourning&#34;. Other variations include &#34;the wanderer&#34; and&#xA;            &#34;traveling&#34;. Its inner trigram is ☶ (艮 gèn) bound = (山) mountain, and its outer trigram&#xA;            is ☲ (離 lí) radiance = (火) fire."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="538" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="572" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷸"/>
           </att>
-          <elem line="539" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="573" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="57 ䷸ The Gentle Wind"/>
            </valueOf>
           </elem>
-          <elem line="540" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="574" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 57 is named 巽 (xùn), &#34;Ground&#34;. Other variations include &#34;the gentle (the&#xA;            penetrating, wind)&#34; and &#34;calculations&#34;. Both its inner and outer trigrams are ☴ (巽 xùn)&#xA;            ground = (風) wind."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="544" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="578" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷹"/>
           </att>
-          <elem line="545" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="579" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="58 ䷹ The Joyous Lake"/>
            </valueOf>
           </elem>
-          <elem line="546" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="580" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 58 is named 兌 (duì), &#34;Open&#34;. Other variations include &#34;the joyous, lake&#34; and&#xA;            &#34;usurpation&#34;. Both its inner and outer trigrams are ☱ (兌 duì) open = (澤) swamp."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="549" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="583" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷺"/>
           </att>
-          <elem line="550" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="584" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="59 ䷺ Dispersion"/>
            </valueOf>
           </elem>
-          <elem line="551" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="585" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 59 is named 渙 (huàn), &#34;Dispersing&#34;. Other variations include &#34;dispersion&#xA;            (dissolution)&#34; and &#34;dispersal&#34;. Its inner trigram is ☵ (坎 kǎn) gorge = (水) water, and&#xA;            its outer trigram is ☴ (巽 xùn) ground = (風) wind."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="555" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="589" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷻"/>
           </att>
-          <elem line="556" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="590" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="60 ䷻ Limitation"/>
            </valueOf>
           </elem>
-          <elem line="557" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="591" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 60 is named 節 (jié), &#34;Articulating&#34;. Other variations include &#34;limitation&#34; and&#xA;            &#34;moderation&#34;. Its inner trigram is ☱ (兌 duì) open = (澤) swamp, and its outer trigram is&#xA;            ☵ (坎 kǎn) gorge = (水) water."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="561" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="595" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷼"/>
           </att>
-          <elem line="562" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="596" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="61 ䷼ Inner Truth"/>
            </valueOf>
           </elem>
-          <elem line="563" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="597" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 61 is named 中孚 (zhōng fú), &#34;Center Returning&#34;. Other variations include &#34;inner&#xA;            truth&#34; and &#34;central return&#34;. Its inner trigram is ☱ (兌 duì) open = (澤) swamp, and its&#xA;            outer trigram is ☴ (巽 xùn) ground = (風) wind."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="567" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="601" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷽"/>
           </att>
-          <elem line="568" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="602" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="62 ䷽ Small Preponderance"/>
            </valueOf>
           </elem>
-          <elem line="569" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="603" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 62 is named 小過 (xiǎo guò), &#34;Small Exceeding&#34;. Other variations include&#xA;            &#34;preponderance of the small&#34; and &#34;small surpassing&#34;. Its inner trigram is ☶ (艮 gèn)&#xA;            bound = (山) mountain, and its outer trigram is ☳ (震 zhèn) shake = (雷) thunder."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="573" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="607" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷾"/>
           </att>
-          <elem line="574" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="608" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="63 ䷾ After Completion"/>
            </valueOf>
           </elem>
-          <elem line="575" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="609" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 63 is named 既濟 (jì jì), &#34;Already Fording&#34;. Other variations include &#34;after&#xA;            completion&#34; and &#34;already completed&#34; or &#34;already done&#34; . Its inner trigram is ☲ (離 lí)&#xA;            radiance = (火) fire, and its outer trigram is ☵ (坎 kǎn) gorge = (水) water."/>
            </valueOf>
           </elem>
          </sequence>
         </elem>
-        <elem line="579" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <elem line="613" name="section" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
          <sequence>
           <att name="class" flags="l">
            <str val="hexagram ䷿"/>
           </att>
-          <elem line="580" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="614" name="header" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="64 ䷿ Before Completion"/>
            </valueOf>
           </elem>
-          <elem line="581" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <elem line="615" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
            <valueOf flags="l">
             <str val="Hexagram 64 is named 未濟 (wèi jì), &#34;Not Yet Fording&#34;. Other variations include &#34;before&#xA;            completion&#34; and &#34;not yet completed&#34;. Its inner trigram is ☵ (坎 kǎn) gorge = (水) water,&#xA;            and its outer trigram is ☲ (離 lí) radiance = (火) fire."/>
            </valueOf>
@@ -4940,7 +5045,7 @@
   </globalParam>
  </co>
  <co id="31" binds="">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg284882242" type="xs:string" line="55" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg828590772" type="xs:string" line="55" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
    <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="55" name="string">
     <fn name="format-dateTime">
      <fn name="current-dateTime"/>
@@ -4956,7 +5061,7 @@
      <empty role="select"/>
      <supplied role="conversion" slot="0"/>
     </param>
-    <resultDoc line="56" global="#&#xA;#Sun Feb 16 21:49:05 EST 2020&#xA;indent=yes&#xA;" local="#&#xA;#Sun Feb 16 21:49:05 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace&#xA;">
+    <resultDoc line="56" global="#&#xA;#Mon Feb 17 14:21:55 EST 2020&#xA;indent=yes&#xA;" local="#&#xA;#Mon Feb 17 14:21:55 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#anchor-placement"/>
      <elem role="content" line="57" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="d">
       <sequence>
@@ -4981,46 +5086,54 @@
         <convert from="xs:untypedAtomic" to="xs:string">
          <cast line="55" as="xs:untypedAtomic" emptiable="0">
           <fn name="concat">
-           <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg284882242" bSlot="0"/>
-           <str val="-"/>
+           <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg828590772" bSlot="0"/>
+           <str val="_"/>
            <convert line="47" from="xs:untypedAtomic" to="xs:string">
             <cast as="xs:untypedAtomic" emptiable="0">
              <fn name="concat">
               <fn name="string-join">
                <forEach>
-                <conditionalSort>
-                 <fn name="exists">
-                  <tail start="2">
-                   <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="1|0|XPTY0019|/">
-                    <varRef name="payload" slot="0"/>
-                   </treat>
-                  </tail>
+                <forEach>
+                 <conditionalSort>
+                  <fn name="exists">
+                   <tail start="2">
+                    <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="1|0|XPTY0019|/">
+                     <varRef name="payload" slot="0"/>
+                    </treat>
+                   </tail>
+                  </fn>
+                  <docOrder intra="0">
+                   <slash>
+                    <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="1|0|XPTY0019|/">
+                     <varRef name="payload" slot="0"/>
+                    </treat>
+                    <first>
+                     <axis name="descendant" nodeTest="*:h1" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1&amp;&amp;q.local==='h1'"/>
+                    </first>
+                   </slash>
+                  </docOrder>
+                 </conditionalSort>
+                 <fn name="replace">
+                  <cvUntyped to="xs:string">
+                   <data>
+                    <dot type="*:h1"/>
+                   </data>
+                  </cvUntyped>
+                  <str val="\s+"/>
+                  <str val=""/>
+                  <str val=""/>
                  </fn>
-                 <docOrder intra="0">
-                  <slash>
-                   <treat as="node()" jsTest="return SaxonJS.U.isNode(item);" diag="1|0|XPTY0019|/">
-                    <varRef name="payload" slot="0"/>
-                   </treat>
-                   <first>
-                    <axis name="descendant" nodeTest="*:h1" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1&amp;&amp;q.local==='h1'"/>
-                   </first>
-                  </slash>
-                 </docOrder>
-                </conditionalSort>
+                </forEach>
                 <fn name="replace">
-                 <cvUntyped to="xs:string">
-                  <data>
-                   <dot type="*:h1"/>
-                  </data>
-                 </cvUntyped>
-                 <str val="\s+"/>
-                 <str val=""/>
+                 <dot type="xs:string"/>
+                 <str val="\W"/>
+                 <str val="_"/>
                  <str val=""/>
                 </fn>
                </forEach>
                <str val=" "/>
               </fn>
-              <str val="-"/>
+              <str val="_"/>
               <fn name="replace">
                <gVarRef name="Q{}yarrowSequence" bSlot="1"/>
                <str val="\s+"/>
@@ -5046,97 +5159,159 @@
    </sequence>
   </template>
  </co>
- <co id="12" binds="12 12 12 12 27 15 19 12 27 29 32 12 27 15 19">
+ <co id="12" binds="12 12 29 12 12 27 15 19 12 27 32 12 27 15 19">
   <mode name="Q{}read" onNo="SC" flags="W" patternSlots="0">
-   <templateRule prec="3" prio="0.5" seq="4" rank="3" minImp="0" slots="0" flags="s" line="166" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="0.5" seq="4" rank="3" minImp="0" slots="0" flags="s" line="200" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.withUpper role="match" axis="parent" upFirst="false">
      <p.nodeTest test="*:header" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1&amp;&amp;q.local==='header'"/>
      <p.nodeTest test="*:section" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1&amp;&amp;q.local==='section'"/>
     </p.withUpper>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="168" name="h1" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="202" name="h1" nsuri="http://www.w3.org/1999/xhtml" flags="d">
      <applyT mode="Q{}read" flags="i" bSlot="0">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
      </applyT>
     </elem>
    </templateRule>
-   <templateRule prec="3" prio="-0.25" seq="3" rank="1" minImp="0" slots="0" flags="s" line="163" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="-0.25" seq="3" rank="1" minImp="0" slots="0" flags="s" line="197" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="*:section" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1&amp;&amp;q.local==='section'"/>
-    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="164" mode="Q{}read" flags="ti" bSlot="1">
+    <applyT role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="198" mode="Q{}read" flags="ti" bSlot="1">
      <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
     </applyT>
    </templateRule>
-   <templateRule prec="3" prio="0.0" seq="0" rank="2" minImp="0" slots="0" flags="s" line="93" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="0.0" seq="0" rank="2" minImp="0" slots="1" flags="s" line="113" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element(Q{http://wendellpiez.com/iching}reading)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='reading';"/>
-    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="94">
-     <elem name="h2" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="114">
+     <param name="Q{}framing-text" slot="0">
+      <str role="select" val=""/>
+      <supplied role="conversion" slot="0"/>
+     </param>
+     <elem line="116" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+      <sequence>
+       <att name="id" flags="l">
+        <str val="ideogram-block"/>
+       </att>
+       <att name="style" flags="l">
+        <str val="float:right"/>
+       </att>
+       <applyT line="117" mode="Q{}svg-gram" bSlot="2">
+        <slash role="select">
+         <axis name="child" nodeTest="element(Q{http://wendellpiez.com/iching}current)" jsTest="var q=SaxonJS.U.nameOfNode(item); return item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='current';"/>
+         <axis name="child" nodeTest="element()" jsTest="return item.nodeType===1;"/>
+        </slash>
+       </applyT>
+      </sequence>
+     </elem>
+     <elem line="121" name="h2" nsuri="http://www.w3.org/1999/xhtml" flags="d">
       <valueOf flags="el">
        <convert from="xs:untypedAtomic" to="xs:string">
         <attVal name="Q{}time" chk="0"/>
        </convert>
       </valueOf>
      </elem>
-     <applyT line="95" mode="Q{}read" flags="ti" bSlot="2">
+     <choose line="122">
+      <fn name="normalize-space">
+       <treat as="xs:string" jsTest="return SaxonJS.U.Atomic.string.matches(item);" diag="0|0||fn:normalize-space">
+        <check card="?" diag="0|0||fn:normalize-space">
+         <cvUntyped to="xs:string">
+          <data>
+           <varRef name="framing-text" slot="0"/>
+          </data>
+         </cvUntyped>
+        </check>
+       </treat>
+      </fn>
+      <elem line="123" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+       <sequence>
+        <att name="class" flags="l">
+         <str val="framing"/>
+        </att>
+        <elem name="b" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+         <valueOf flags="Sel">
+          <str val="Prompt"/>
+         </valueOf>
+        </elem>
+        <valueOf flags="el">
+         <str val=": "/>
+        </valueOf>
+        <valueOf flags="l">
+         <fn name="string-join">
+          <convert from="xs:anyAtomicType" to="xs:string">
+           <data>
+            <mergeAdj>
+             <varRef name="framing-text" slot="0"/>
+            </mergeAdj>
+           </data>
+          </convert>
+          <str val=" "/>
+         </fn>
+        </valueOf>
+       </sequence>
+      </elem>
+     </choose>
+     <applyT line="125" mode="Q{}read" flags="i" bSlot="3">
       <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
      </applyT>
+     <elem line="126" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+      <sequence>
+       <att name="style" flags="l">
+        <str val="font-size:smaller"/>
+       </att>
+       <elem line="127" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+        <valueOf flags="el">
+         <str val="The notes given are from Wikipedia: please refer to your sources."/>
+        </valueOf>
+       </elem>
+      </sequence>
+     </elem>
     </sequence>
    </templateRule>
-   <templateRule prec="3" prio="0.0" seq="2" rank="2" minImp="0" slots="0" flags="s" line="155" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="0.0" seq="2" rank="2" minImp="0" slots="0" flags="s" line="189" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element(Q{http://wendellpiez.com/iching}becoming)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='becoming';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="156" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="190" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="d">
      <sequence>
       <att name="class" flags="l">
        <str val="hex becoming"/>
       </att>
-      <applyT line="157" mode="Q{}read" bSlot="3">
+      <applyT line="191" mode="Q{}read" bSlot="4">
        <fn role="select" name="key">
         <str val="section-by-char"/>
         <attVal name="Q{}char" chk="0"/>
-        <gVarRef name="Q{}kingwen" bSlot="4"/>
+        <gVarRef name="Q{}kingwen" bSlot="5"/>
        </fn>
       </applyT>
-      <applyT line="158" mode="Q{}ctext-link" bSlot="5">
+      <applyT line="192" mode="Q{}ctext-link" bSlot="6">
        <fn role="select" name="key">
         <str val="anchor-for-hex"/>
         <attVal name="Q{}char" chk="0"/>
-        <gVarRef name="Q{}ctext" bSlot="6"/>
+        <gVarRef name="Q{}ctext" bSlot="7"/>
        </fn>
       </applyT>
      </sequence>
     </elem>
    </templateRule>
-   <templateRule prec="3" prio="0.0" seq="1" rank="2" minImp="0" slots="0" flags="s" line="102" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="0.0" seq="1" rank="2" minImp="0" slots="0" flags="s" line="138" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element(Q{http://wendellpiez.com/iching}current)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='current';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="104" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="140" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="d">
      <sequence>
       <att name="class" flags="l">
        <str val="hex current"/>
       </att>
-      <applyT line="108" mode="Q{}read" bSlot="7">
+      <applyT line="144" mode="Q{}read" bSlot="8">
        <docOrder role="select" intra="1">
         <slash>
          <fn name="key">
           <str val="section-by-char"/>
           <attVal name="Q{}char" chk="0"/>
-          <gVarRef name="Q{}kingwen" bSlot="8"/>
+          <gVarRef name="Q{}kingwen" bSlot="9"/>
          </fn>
          <axis name="child" nodeTest="*:header" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1&amp;&amp;q.local==='header'"/>
         </slash>
        </docOrder>
       </applyT>
-      <elem line="115" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-       <sequence>
-        <att name="id" flags="l">
-         <str val="svg-block"/>
-        </att>
-        <applyT line="116" mode="Q{}svg-gram" flags="i" bSlot="9">
-         <axis role="select" name="child" nodeTest="node()" jsTest="return true;"/>
-        </applyT>
-       </sequence>
-      </elem>
-      <applyT line="118" mode="Q{}changing" bSlot="10">
+      <applyT line="152" mode="Q{}changing" bSlot="10">
        <dot role="select" type="element(Q{http://wendellpiez.com/iching}current)"/>
       </applyT>
-      <applyT line="122" mode="Q{}read" bSlot="11">
+      <applyT line="156" mode="Q{}read" bSlot="11">
        <docOrder role="select" intra="1">
         <slash>
          <fn name="key">
@@ -5148,7 +5323,7 @@
         </slash>
        </docOrder>
       </applyT>
-      <applyT line="123" mode="Q{}ctext-link" bSlot="13">
+      <applyT line="157" mode="Q{}ctext-link" bSlot="13">
        <fn role="select" name="key">
         <str val="anchor-for-hex"/>
         <attVal name="Q{}char" chk="0"/>
@@ -5158,9 +5333,9 @@
      </sequence>
     </elem>
    </templateRule>
-   <templateRule prec="3" prio="-0.5" seq="5" rank="0" minImp="0" slots="0" flags="s" line="172" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="-0.5" seq="5" rank="0" minImp="0" slots="0" flags="s" line="206" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="text()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===3;"/>
-    <valueOf role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="173">
+    <valueOf role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="207">
      <fn name="normalize-space">
       <cvUntyped to="xs:string">
        <data>
@@ -5179,21 +5354,21 @@
  </co>
  <co id="32" binds="17 32">
   <mode name="Q{}changing" onNo="TC" flags="W" patternSlots="0">
-   <templateRule prec="3" prio="-0.5" seq="2" rank="0" minImp="0" slots="0" flags="s" line="143" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="-0.5" seq="2" rank="0" minImp="0" slots="0" flags="s" line="177" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
-    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="147">
+    <sequence role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="181">
      <applyT mode="Q{}name" bSlot="0">
       <dot role="select" type="element()"/>
      </applyT>
-     <valueOf line="148" flags="e">
+     <valueOf line="182" flags="e">
       <fn name="concat">
        <str val=" in "/>
        <fn name="string-join">
-        <forEach line="145">
+        <forEach line="179">
          <cast as="xs:date" emptiable="0">
           <fn name="concat">
            <str val="2000-01-0"/>
-           <arith line="144" op="-" calc="i-i">
+           <arith line="178" op="-" calc="i-i">
             <fn name="count">
              <slash simple="1">
               <dot type="element()"/>
@@ -5204,7 +5379,7 @@
            </arith>
           </fn>
          </cast>
-         <fn line="146" name="format-date">
+         <fn line="180" name="format-date">
           <dot type="xs:date"/>
           <str val="[Dwo]"/>
          </fn>
@@ -5216,17 +5391,17 @@
      </valueOf>
     </sequence>
    </templateRule>
-   <templateRule prec="3" prio="0.5" seq="1" rank="2" minImp="0" slots="0" flags="s" line="139" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="0.5" seq="1" rank="2" minImp="0" slots="0" flags="s" line="173" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.withPredicate role="match">
      <p.nodeTest test="element(Q{http://wendellpiez.com/iching}current)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='current';"/>
-     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="139" name="empty">
+     <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="173" name="empty">
       <slash>
        <axis name="descendant" nodeTest="element()" jsTest="return item.nodeType===1;"/>
        <axis name="attribute" nodeTest="attribute(Q{}to)" jsTest="return item.name==='to'"/>
       </slash>
      </fn>
     </p.withPredicate>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="140" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="174" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="d">
      <sequence>
       <att name="class" flags="l">
        <str val="changing"/>
@@ -5237,9 +5412,9 @@
      </sequence>
     </elem>
    </templateRule>
-   <templateRule prec="3" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="s" line="128" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
+   <templateRule prec="3" prio="0.0" seq="0" rank="1" minImp="0" slots="0" flags="s" line="162" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element(Q{http://wendellpiez.com/iching}current)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='current';"/>
-    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="129" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="d">
+    <elem role="action" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="163" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="d">
      <sequence>
       <att name="class" flags="l">
        <str val="changing"/>
@@ -5247,14 +5422,14 @@
       <valueOf flags="l">
        <str val="Changing lines: "/>
       </valueOf>
-      <forEach line="131">
+      <forEach line="165">
        <filter flags="b">
         <axis name="descendant" nodeTest="element()" jsTest="return item.nodeType===1;"/>
         <fn name="exists">
          <axis name="attribute" nodeTest="attribute(Q{}to)" jsTest="return item.name==='to'"/>
         </fn>
        </filter>
-       <sequence line="132">
+       <sequence line="166">
         <choose>
          <fn name="not">
           <compareToInt op="eq" val="1">
@@ -5265,7 +5440,7 @@
           <str val=", "/>
          </valueOf>
         </choose>
-        <applyT line="134" mode="Q{}changing" bSlot="1">
+        <applyT line="168" mode="Q{}changing" bSlot="1">
          <dot role="select" type="element()"/>
         </applyT>
        </sequence>
@@ -5315,13 +5490,23 @@
          </applyT>
          <elem line="35" name="div" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
           <sequence>
+           <att name="id" flags="l">
+            <str val="footer"/>
+           </att>
            <att name="style" flags="l">
-            <str val="font-size:smaller"/>
+            <str val="font-size: smaller"/>
            </att>
            <elem line="36" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-            <valueOf flags="l">
-             <str val="The notes given are from Wikipedia: please refer to your sources."/>
-            </valueOf>
+            <sequence>
+             <elem name="i" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+              <valueOf flags="l">
+               <str val="I Ching"/>
+              </valueOf>
+             </elem>
+             <valueOf flags="l">
+              <str val=" implementation by Wendell Piez, 2019-2020."/>
+             </valueOf>
+            </sequence>
            </elem>
           </sequence>
          </elem>
@@ -5476,9 +5661,9 @@
   </globalVariable>
  </co>
  <overridden/>
- <key name="Q{}section-by-char" line="99" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" binds="" flags="u">
+ <key name="Q{}section-by-char" line="135" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" binds="" flags="u">
   <p.nodeTest test="*:section" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1&amp;&amp;q.local==='section'"/>
-  <subscript baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="99">
+  <subscript baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="135">
    <fn name="tokenize">
     <cvUntyped to="xs:string">
      <attVal name="Q{}class" chk="0"/>
@@ -5489,9 +5674,9 @@
    <int val="2"/>
   </subscript>
  </key>
- <key name="Q{}anchor-for-hex" line="179" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" binds="" flags="u">
+ <key name="Q{}anchor-for-hex" line="213" module="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" binds="" flags="u">
   <p.nodeTest test="*:a" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1&amp;&amp;q.local==='a'"/>
-  <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="179" name="substring">
+  <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/iching/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="213" name="substring">
    <cvUntyped to="xs:string">
     <data>
      <dot type="*:a"/>
@@ -5507,4 +5692,4 @@
  </output>
  <decimalFormat/>
 </package>
-<?Σ d4ff251f?>
+<?Σ 94e49459?>
