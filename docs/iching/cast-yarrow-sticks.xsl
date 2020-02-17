@@ -28,7 +28,7 @@
         
         <html>
             <head>
-                <title xsl:expand-text="true">I Ching Reading: { $cast/*/@time }</title>
+                <title xsl:expand-text="true">I Ching reading: { $cast/*/@time }</title>
             </head>
             <body>
                 <xsl:apply-templates select="$cast" mode="read"/>
@@ -43,12 +43,16 @@
     
     <xsl:template name="make-download-link">
         <xsl:param name="payload" select="()"/>
+        <xsl:variable name="tag" expand-text="true">{
+            $payload/descendant::*:h1[1]!replace(.,'\s+','')
+            }-{
+            replace($yarrowSequence,'\s+','') }</xsl:variable>
         <xsl:variable name="as-written" select="serialize($payload)"/>
         <xsl:variable name="data-href">
             <xsl:text>data:text/html;charset=utf-8,</xsl:text>
             <xsl:value-of select="$as-written"/>
         </xsl:variable>
-        <xsl:variable name="fileName" select="format-dateTime(current-dateTime(),'[Y][M01][D01]-[H01][m01][s01]') || '-reading.html'"/>
+        <xsl:variable name="fileName" expand-text="true">{format-dateTime(current-dateTime(),'[Y][M01][D01]-[H01][m01][s01]')}-{$tag}.html</xsl:variable>
         <xsl:result-document href="#anchor-placement" method="ixsl:replace">
             <a href="{$data-href}" download="{$fileName}"><button>Save</button></a>
         </xsl:result-document>
@@ -58,47 +62,7 @@
         </pre>
         </xsl:result-document>-->
     </xsl:template>
-    
-    <!--
-    function download-reading(filename) {
-    var reading = document.getElementById('SaveThisPiece').value;
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(reading));
-    element.setAttribute('download', filename);
-    
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    
-    element.click();
-    
-    document.body.removeChild(element);
-    }
-    
-    /*
-    function saveTextAsFile()
-    {
-    var textToSave = document.getElementById("saveThisPiece").value;
-    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
-    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-    // var fileNameToSaveAs = document.getElementById("saveAsFile").value;
-    var fileNameToSaveAs = "reading-today.xml";
-    
-    var downloadLink = document.createElement("a");
-    downloadLink.download = fileNameToSaveAs;
-    downloadLink.innerHTML = "Download File";
-    downloadLink.href = textToSaveAsURL;
-    downloadLink.onclick = destroyClickedElement;
-    downloadLink.style.display = "none";
-    document.body.appendChild(downloadLink);
-    
-    downloadLink.click();
-    }
-    */
-    function destroyClickedElement(event)
-    {
-    document.body.removeChild(event.target);
-    }
-    -->
+
     <xsl:template name="cast">
         <xsl:variable name="cast">
             <xsl:call-template name="reading"/>
@@ -127,7 +91,7 @@
     </xsl:template>
         
     <xsl:template mode="read" match="reading" expand-text="true">
-        <h2>I Ching reading: { @time }</h2>
+        <h2>{ @time }</h2>
         <xsl:apply-templates mode="read"/>
     </xsl:template>
     
