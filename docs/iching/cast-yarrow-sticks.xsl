@@ -35,6 +35,9 @@
                 <div style="font-size:smaller">
                     <p>The notes given are from Wikipedia: please refer to your sources.</p>
                 </div>
+                <div id="footer">
+                    <p><i>I Ching</i> implementation by Wendell Piez, 2019-2020.</p>
+                </div>
             </body>
         </html>
         <!--<xsl:copy-of select="$cast"/>-->
