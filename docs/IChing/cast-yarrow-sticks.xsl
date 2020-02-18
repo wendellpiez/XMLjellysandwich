@@ -63,18 +63,18 @@
         </xsl:result-document>-->
     </xsl:template>
 
+    <xsl:param name="framingText" select="''"/>
+        
     <xsl:template name="cast">
-        <xsl:param name="framing" select="id('framing',ixsl:page())"/>
-        <xsl:variable name="framing-text" select="ixsl:get($framing,'value')"/>
         <xsl:choose>
-            <xsl:when test="normalize-space($framing-text)">
+            <xsl:when test="normalize-space($framingText)">
                 <xsl:variable name="cast">
                     <xsl:call-template name="reading"/>
                 </xsl:variable>
-                <xsl:result-document href="#page_body">
+                <xsl:result-document href="#page_body" method="ixsl:replace-content">
                     <main>
                         <xsl:apply-templates select="$cast" mode="read">
-                            <xsl:with-param name="framing-text" select="$framing-text"/>
+                            <xsl:with-param name="framing-text" select="$framingText"/>
                         </xsl:apply-templates>
                         
                     </main>
@@ -88,7 +88,7 @@
                             </head>
                             <body>
                                 <xsl:apply-templates select="$cast" mode="read">
-                                    <xsl:with-param name="framing-text" select="$framing-text"/>
+                                    <xsl:with-param name="framing-text" select="$framingText"/>
                                 </xsl:apply-templates>
                                 <div id="page_footer" style="font-size: smaller; border-top: medium groove black">
                                     <p>Reading produced by <a href="https://github.com/wendellpiez/XMLjellysandwich">XMLjellysandwich <i>I Ching</i></a> (Wendell Piez, 2019-2020).</p>
@@ -101,7 +101,7 @@
                 </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:result-document href="#page_body">
+                <xsl:result-document href="#page_body" method="ixsl:replace-content">
                     <main>
                 <p class="framing">Offer a prompt (context or question) and cast.</p>
                 </main>

@@ -160,6 +160,6 @@
     <projectTree name="NichtEinUhr.xpr">
         <folder path="."/>
         <folder path="../GameofLife/"/>
-        <folder path="../iching/"/>
+        <folder path="../IChing/"/>
     </projectTree>
 </project>

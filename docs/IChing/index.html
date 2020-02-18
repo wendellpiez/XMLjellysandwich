@@ -30,17 +30,15 @@
       <script type="text/javascript"
               src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
      
-     
-      <script>
+     <script>
         /*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
-window.onload = initiate()
-          
-function initiate() {
+function initiate(context9n,sticks) {
           SaxonJS.transform(
             { stylesheetLocation: "caststicks.sef",
               initialTemplate:    "cast",
               stylesheetParams: {
-                yarrowSequence: castSticks() }
+                "yarrowSequence": sticks,
+                "framingText": context9n }
             } );
           }
 
@@ -51,25 +49,28 @@ function castSticks() {
     }
   
          </script>
+      
    </head>
    <body>
       <div id="page_header">
         <h1 id="page_title"><i>I Ching</i> Reading</h1>
       </div>
      <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
-       <input size="37" id="framing" type="text" onchange="location.reload()"/>
-       <button id="system-reset-button" onclick="location.reload()">Cast</button>
+       <input size="37" id="framingInput" type="text" onchange="initiate(this.value,castSticks())" value="???"/>
        <span id="anchor-placement"><!-- anchor here --></span>
        <!--<button id="standard-reset_button">NIST clock</button>-->
      </div>
      <div id="page_body">
+       <p>Enter a question or prompt.</p>
            <!-- <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
      </div>
      <div id="diagnostic"/>
      <div id="page_footer" style="font-size: smaller">
          <p>Reading produced by <a href="https://github.com/wendellpiez/XMLjellysandwich">XMLjellysandwich <i>I Ching</i></a> (Wendell Piez, 2019-2020).</p>
          <p>Dedicated to the teachers and transmitters, especially Thomas Cleary, <a href="http://ctext.org">CTP</a> and all open-source I Ching.</p>
-       <p>Don't be a robot! Never click without consciousness or deliberation.</p>
+       <p>Don't be a robot! Never click without consciousness or deliberation. two</p>
      </div>
+     
    </body>
+  
 </html>
