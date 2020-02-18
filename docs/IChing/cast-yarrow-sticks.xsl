@@ -124,7 +124,7 @@
         </xsl:if>
         <xsl:apply-templates mode="read"/>
         <div style="font-size:smaller">
-            <p>The notes given are from Wikipedia: please refer to your sources.</p>
+            <p>The notes given are from <a target="wikipedia" href="https://en.wikipedia.org/wiki/List_of_hexagrams_of_the_I_Ching">Wikipedia</a>: please refer to your sources.</p>
         </div>
             </xsl:template>
     

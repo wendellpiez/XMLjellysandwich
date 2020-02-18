@@ -145,7 +145,22 @@
    </doc>
   </globalVariable>
  </co>
- <co id="4" binds="0">
+ <co id="4" binds="5">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg63307806" type="xs:string" line="70" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+   <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="70" name="normalize-space">
+    <treat as="xs:string" jsTest="return SaxonJS.U.Atomic.string.matches(item);" diag="0|0||fn:normalize-space">
+     <check card="?" diag="0|0||fn:normalize-space">
+      <cvUntyped to="xs:string">
+       <data>
+        <gVarRef name="Q{}framingText" bSlot="0"/>
+       </data>
+      </cvUntyped>
+     </check>
+    </treat>
+   </fn>
+  </globalVariable>
+ </co>
+ <co id="6" binds="0">
   <mode name="Q{}draw-lines" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="1" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="197" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
@@ -163,7 +178,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="5" binds="">
+ <co id="7" binds="">
   <globalVariable name="Q{}seed" type="element()*" line="13" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c() {return true;};">
    <slash baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" ns="xsl=~ =http://wendellpiez.com/iching xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="13" simple="1">
     <root/>
@@ -171,7 +186,7 @@
    </slash>
   </globalVariable>
  </co>
- <co id="6" binds="7 8 9 10 9 9 8">
+ <co id="8" binds="9 10 11 12 11 11 10">
   <template name="Q{}reading" flags="os" line="121" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" slots="2">
    <elem role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" ns="xsl=~ =http://wendellpiez.com/iching xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="122" name="reading" nsuri="http://wendellpiez.com/iching" flags="d" namespaces="#">
     <sequence>
@@ -207,16 +222,16 @@
    </elem>
   </template>
  </co>
- <co id="11" binds="12 6 13 14 15 13 14">
+ <co id="13" binds="4 8 14 5 15 14 5">
   <template name="Q{}cast" flags="os" line="68" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" slots="1">
    <choose role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="70">
-    <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg2111693307" bSlot="0"/>
+    <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg63307806" bSlot="0"/>
     <let line="71" var="cast" as="document-node()" slot="0" eval="7">
      <doc line="72" base="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" validation="preserve">
       <callT name="reading" bSlot="1"/>
      </doc>
      <sequence line="74">
-      <resultDoc global="#&#xA;#Tue Feb 18 17:25:42 EST 2020&#xA;indent=yes&#xA;" local="#&#xA;#Tue Feb 18 17:25:42 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+      <resultDoc global="#&#xA;#Tue Feb 18 17:39:08 EST 2020&#xA;indent=yes&#xA;" local="#&#xA;#Tue Feb 18 17:39:08 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
        <str role="href" val="#page_body"/>
        <elem role="content" line="76" name="main" nsuri="http://www.w3.org/1999/xhtml" flags="d">
         <applyT mode="Q{}read" bSlot="2">
@@ -324,7 +339,7 @@
      </sequence>
     </let>
     <true/>
-    <resultDoc line="104" global="#&#xA;#Tue Feb 18 17:25:42 EST 2020&#xA;indent=yes&#xA;" local="#&#xA;#Tue Feb 18 17:25:42 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc line="104" global="#&#xA;#Tue Feb 18 17:39:08 EST 2020&#xA;indent=yes&#xA;" local="#&#xA;#Tue Feb 18 17:39:08 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#page_body"/>
      <elem role="content" line="106" name="main" nsuri="http://www.w3.org/1999/xhtml" flags="d">
       <elem name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
@@ -1735,16 +1750,6 @@
   </mode>
  </co>
  <co id="18" binds="">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1531860342" type="xs:string" line="55" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
-   <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="55" name="string">
-    <fn name="format-dateTime">
-     <fn name="current-dateTime"/>
-     <str val="[Y][M01][D01]-[H01][m01][s01]"/>
-    </fn>
-   </fn>
-  </globalVariable>
- </co>
- <co id="19" binds="">
   <mode name="Q{}line-proxy" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="1" prio="1.0" seq="4" rank="1" minImp="0" slots="0" flags="s" line="75" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl">
     <p.booleanExp role="match">
@@ -1814,7 +1819,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="20" binds="">
+ <co id="19" binds="">
   <mode name="Q{}name" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="3" prio="0.0" seq="1" rank="0" minImp="0" slots="0" flags="s" line="186" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element(Q{http://wendellpiez.com/iching}月)" jsTest="var q=SaxonJS.U.nameOfNode(item); return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1 &amp;&amp; q.uri==='http://wendellpiez.com/iching'&amp;&amp;q.local==='月';"/>
@@ -1829,6 +1834,16 @@
     </valueOf>
    </templateRule>
   </mode>
+ </co>
+ <co id="20" binds="">
+  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg1954380684" type="xs:string" line="55" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
+   <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="55" name="string">
+    <fn name="format-dateTime">
+     <fn name="current-dateTime"/>
+     <str val="[Y][M01][D01]-[H01][m01][s01]"/>
+    </fn>
+   </fn>
+  </globalVariable>
  </co>
  <co id="2" binds="">
   <mode name="Q{}draw" onNo="TC" flags="W" patternSlots="0">
@@ -1870,7 +1885,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="8" binds="16 21 21">
+ <co id="10" binds="16 21 21">
   <mode name="Q{}detail-hexagram" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="1" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="138" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl">
     <p.nodeTest role="match" test="document-node()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);"/>
@@ -3268,22 +3283,7 @@
    </doc>
   </globalVariable>
  </co>
- <co id="12" binds="14">
-  <globalVariable name="Q{http://saxon.sf.net/generated-variable}gg2111693307" type="xs:string" line="70" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n==1;};">
-   <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="70" name="normalize-space">
-    <treat as="xs:string" jsTest="return SaxonJS.U.Atomic.string.matches(item);" diag="0|0||fn:normalize-space">
-     <check card="?" diag="0|0||fn:normalize-space">
-      <cvUntyped to="xs:string">
-       <data>
-        <gVarRef name="Q{}framingText" bSlot="0"/>
-       </data>
-      </cvUntyped>
-     </check>
-    </treat>
-   </fn>
-  </globalVariable>
- </co>
- <co id="10" binds="">
+ <co id="12" binds="">
   <mode name="Q{}transmute" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="1" prio="-0.5" seq="0" rank="0" minImp="0" slots="0" flags="s" line="151" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
@@ -3613,7 +3613,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="7" binds="">
+ <co id="9" binds="">
   <globalVariable name="Q{}dateString" type="xs:string?" line="94" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" visibility="PRIVATE" jsAcceptor="return SaxonJS.U.Atomic.string.cast(val);" jsCardCheck="function c(n) {return n&lt;=1;};">
    <fn baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" ns="xsl=~ =http://wendellpiez.com/iching xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="94" name="format-dateTime">
     <fn name="current-dateTime"/>
@@ -3740,7 +3740,7 @@
    <gVarRef baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="22" name="Q{}yarrowSequence" bSlot="0"/>
   </globalParam>
  </co>
- <co id="26" binds="25 19 26">
+ <co id="26" binds="25 18 26">
   <template name="Q{}build-from-yarrow" flags="os" line="44" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" slots="3">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" ns="xsl=~ =http://wendellpiez.com/iching xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="46">
     <param name="Q{}lines-left" slot="0">
@@ -5028,7 +5028,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="9" binds="24">
+ <co id="11" binds="24">
   <globalVariable name="Q{}hexagram" type="document-node()" line="25" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" visibility="PRIVATE" jsAcceptor="function test(item) {return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);};if (test(val)) {return val;} else {throw SaxonJS.XError('Conversion failed', 'XTTE0590');}" jsCardCheck="function c(n) {return n==1;};">
    <doc baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" ns="xsl=~ =http://wendellpiez.com/iching xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="28" base="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/yarrowcount.xsl" validation="preserve">
     <callT name="build-hex" bSlot="0"/>
@@ -5040,19 +5040,19 @@
    <str val="6 6 6 9 9 9"/>
   </globalParam>
  </co>
- <co id="14" vis="PUBLIC" binds="">
+ <co id="5" vis="PUBLIC" binds="">
   <globalParam name="Q{}framingText" type="item()*" line="66" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" visibility="PUBLIC" jsAcceptor="return val;" jsCardCheck="function c() {return true;};">
    <str val=""/>
   </globalParam>
  </co>
- <co id="15" binds="18 29">
+ <co id="15" binds="20 29">
   <template name="Q{}make-download-link" flags="os" line="44" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" slots="1">
    <sequence role="body" baseUri="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl" defaultElementNS="http://wendellpiez.com/iching" ns="xsl=~ =http://www.w3.org/1999/xhtml h=http://www.w3.org/1999/xhtml ixsl=~ xs=~ math=http://www.w3.org/2005/xpath-functions/math" line="45">
     <param name="Q{}payload" slot="0">
      <empty role="select"/>
      <supplied role="conversion" slot="0"/>
     </param>
-    <resultDoc line="56" global="#&#xA;#Tue Feb 18 17:25:42 EST 2020&#xA;indent=yes&#xA;" local="#&#xA;#Tue Feb 18 17:25:42 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
+    <resultDoc line="56" global="#&#xA;#Tue Feb 18 17:39:08 EST 2020&#xA;indent=yes&#xA;" local="#&#xA;#Tue Feb 18 17:39:08 EST 2020&#xA;method={http\://saxonica.com/ns/interactiveXSLT}replace-content&#xA;">
      <str role="href" val="#anchor-placement"/>
      <elem role="content" line="57" name="a" nsuri="http://www.w3.org/1999/xhtml" flags="d">
       <sequence>
@@ -5077,7 +5077,7 @@
         <convert from="xs:untypedAtomic" to="xs:string">
          <cast line="55" as="xs:untypedAtomic" emptiable="0">
           <fn name="concat">
-           <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg1531860342" bSlot="0"/>
+           <gVarRef name="Q{http://saxon.sf.net/generated-variable}gg1954380684" bSlot="0"/>
            <str val="_"/>
            <convert line="47" from="xs:untypedAtomic" to="xs:string">
             <cast as="xs:untypedAtomic" emptiable="0">
@@ -5150,7 +5150,7 @@
    </sequence>
   </template>
  </co>
- <co id="13" binds="13 13 32 13 13 30 17 22 13 30 34 13 30 17 22">
+ <co id="14" binds="14 14 32 14 14 30 17 22 14 30 34 14 30 17 22">
   <mode name="Q{}read" onNo="SC" flags="W" patternSlots="0">
    <templateRule prec="3" prio="0.5" seq="4" rank="3" minImp="0" slots="0" flags="s" line="200" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl">
     <p.withUpper role="match" axis="parent" upFirst="false">
@@ -5248,9 +5248,27 @@
         <str val="font-size:smaller"/>
        </att>
        <elem line="127" name="p" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
-        <valueOf flags="el">
-         <str val="The notes given are from Wikipedia: please refer to your sources."/>
-        </valueOf>
+        <sequence>
+         <valueOf flags="el">
+          <str val="The notes given are from "/>
+         </valueOf>
+         <elem name="a" nsuri="http://www.w3.org/1999/xhtml" flags="dl">
+          <sequence>
+           <att name="target" flags="l">
+            <str val="wikipedia"/>
+           </att>
+           <att name="href" flags="l">
+            <str val="https://en.wikipedia.org/wiki/List_of_hexagrams_of_the_I_Ching"/>
+           </att>
+           <valueOf flags="Sel">
+            <str val="Wikipedia"/>
+           </valueOf>
+          </sequence>
+         </elem>
+         <valueOf flags="el">
+          <str val=": please refer to your sources."/>
+         </valueOf>
+        </sequence>
        </elem>
       </sequence>
      </elem>
@@ -5343,7 +5361,7 @@
    <empty role="body"/>
   </template>
  </co>
- <co id="34" binds="20 34">
+ <co id="34" binds="19 34">
   <mode name="Q{}changing" onNo="TC" flags="W" patternSlots="0">
    <templateRule prec="3" prio="-0.5" seq="2" rank="0" minImp="0" slots="0" flags="s" line="177" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="element()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; item.nodeType===1;"/>
@@ -5441,7 +5459,7 @@
    </templateRule>
   </mode>
  </co>
- <co id="33" binds="13 7 8 9 10 9 9 8 21 33 33">
+ <co id="33" binds="14 9 10 11 12 11 11 10 21 33 33">
   <mode onNo="SC" flags="dW" patternSlots="0">
    <templateRule prec="3" prio="-0.5" seq="2" rank="2" minImp="0" slots="1" flags="s" line="24" module="file:/home/wendell/public_html/XMLjellysandwich/docs/IChing/cast-yarrow-sticks.xsl">
     <p.nodeTest role="match" test="document-node()" jsTest="return SaxonJS.U.isNode(item) &amp;&amp; (item.nodeType===9||item.nodeType===11);"/>
@@ -5683,4 +5701,4 @@
  </output>
  <decimalFormat/>
 </package>
-<?Σ 513d76de?>
+<?Σ a33d9cb9?>
