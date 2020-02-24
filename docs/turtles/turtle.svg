@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="turtles.xsl"?>
+<!--<?xml-stylesheet type="text/xsl" href="turtles.xsl"?>-->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     width="100%" height="100%" viewBox="0 0 800 600">
@@ -28,12 +28,47 @@
             <!--<g transform="translate( 300 -240)  scale(0.6)"/>-->
         </g>
         <g id="turtle" fill="midnightblue" fill-opacity="0.5" stroke-width="5" stroke="black">
-            <ellipse cx="0" cy="-85" rx="20" ry="30" transform="rotate(5)"/>
-            <path d="M 20 30 L 70 80 C 90 30 50 10 20 30 z"/>
-            <path d="M 20 30 L 70 80 C 90 30 50 10 20 30 z" transform="scale(-1 1)"/>
-            <path d="M 25 -20 L 80 -40 C 60 -80 20 -50 25 -20 z"/>
-            <path d="M 25 -20 L 80 -40 C 60 -80 20 -50 25 -20 z" transform="scale(-1 1)"/>
-            <path d="M 10 80 Q 10 100 -20 120 Q 0 100 -10 80 z"/>
+            <ellipse cx="0" cy="0" rx="20" ry="30" fill-opacity="1"/>
+            <ellipse cx="0" cy="0" rx="45" ry="60" fill-opacity="0.7"/>
+            <ellipse cx="0" cy="-80" rx="20" ry="30" transform="rotate(5)"/>
+            <path d="M 20 30 L 70 80 C 90 30 50 10 20 30 z">
+                <animateTransform id="FlapRightHindDown" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="0" to="10" dur="6s" begin="2s;FlapRightHindUp.end"/>
+                <animateTransform id="FlapRightHindUp" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="10" to="0" dur="2s" begin="FlapRightHindDown.end"/>
+            </path>
+            <path d="M -20 30 L -70 80 C -90 30 -50 10 -20 30 z">
+                <animateTransform id="FlapLeftHindDown" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="0" to="-10" dur="6s" begin="6s;FlapLeftHindUp.end"/>
+                <animateTransform id="FlapLeftHindUp" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="-10" to="0" dur="2s" begin="FlapLeftHindDown.end"/>
+            </path>
+            <path d="M 25 -20 L 80 -40 C 60 -80 20 -50 25 -20 z">
+                <animateTransform id="FlapRightFrontDown" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="0" to="10" dur="6s" begin="4s;FlapRightFrontUp.end"/>
+                <animateTransform id="FlapRightFrontUp" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="10" to="0" dur="2s" begin="FlapRightFrontDown.end"/>
+            </path>
+            <path d="M -25 -20 L -80 -40 C -60 -80 -20 -50 -25 -20 z">
+                <animateTransform id="FlapLeftFrontDown" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="0" to="-10" dur="6s" begin="0s;FlapLeftFrontUp.end"/>
+                <animateTransform id="FlapLeftFrontUp" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="-10" to="0" dur="2s" begin="FlapLeftFrontDown.end"/>
+                
+            </path>
+            <path d="M 10 60 Q 10 80 -20 100 Q 0 80 -10 60 z">
+                <animateTransform id="wag-tail" attributeType="XML"
+                    attributeName="transform" type="rotate"
+                    from="5" to="-5" dur="3s" repeatDur="indefinite"/>
+            </path>
             <ellipse cx="0" cy="10" rx="55" ry="75" fill="steelblue" transform="rotate(-2)"
                 fill-opacity="0.8" stroke-width="8" stroke-opacity="1"/>
         </g>
@@ -41,18 +76,19 @@
     <desc>Turtles, all the way down</desc>
     
     <!--<rect width="100%" height="100%" fill="gainsboro"/>-->
-    <g id="pond" transform="translate(540 0)">
-       <!--<animateTransform attributeName="transform"
-            type="translate" from="0 0" to="120 200"
-            begin="0s" dur="20s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform"
-            type="scale" from="1" to="0.85"
-            begin="0s" dur="20s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform"
-                type="rotate" from="0" to="55"
-                begin="0s" dur="20s" repeatCount="indefinite"/>-->
-            
-        <use xlink:href="#turtle" transform="rotate(120)"/>
+    <g id="pond" transform="translate(400 300)">
+        <g transform="rotate(120)" id="turtle-1">
+            <animateTransform id="turtle-1-tip-Left" attributeType="XML"
+                attributeName="transform" type="rotate" fill="freeze"
+                from="120" to="150" begin="turtle-1.mouseover" dur="3s"/>
+            <!--<animateTransform id="turtle-1-tip-right" attributeType="XML"
+                attributeName="transform" type="rotate" fill="freeze"
+                from="124" to="115" begin="turtle-1-tip-left.end" dur="1s"/>
+            <animateTransform id="tip-left-again" attributeType="XML"
+                attributeName="transform" type="rotate" fill="freeze"
+                from="115" to="120" begin="turtle-1-tip-right.end" dur="1s"/>-->
+            <use xlink:href="#turtle"/>
+        </g>
     </g>
 
 </svg>
