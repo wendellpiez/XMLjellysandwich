@@ -19,29 +19,23 @@
         </xsl:copy>
     </xsl:template>
     
-    <xsl:template match="svg:use">
-        <xsl:apply-templates select="." mode="perambulate"/>
+    <xsl:template match="svg:defs//svg:use">
+        <xsl:copy-of select="."/>
     </xsl:template>
     
-    <xsl:template match="svg:use" mode="perambulate">
-        <xsl:param name="gen" select="48"/>
-        <xsl:if test="$gen > 1">
+    <xsl:template match="svg:use">
+        <xsl:apply-templates select="." mode="spawn"/>
+    </xsl:template>
+    
+    <xsl:template match="svg:use" mode="spawn">
+        <xsl:param name="gen" select="42"/>
+        <xsl:if test="$gen &gt;= 1">
             <xsl:apply-templates mode="round" select="$specs">
                 <xsl:with-param name="who" select="."/>
                 <xsl:with-param name="gen" select="$gen"/>
             </xsl:apply-templates>
         </xsl:if>
-        
-        <!--<xsl:for-each select="$specs">
-            <xsl:copy>
-                <xsl:copy-of select="@*"/>
-                <xsl:copy-of select="*"/>
-                <xsl:apply-templates select="$me" mode="perambulate">
-                    <xsl:with-param name="gen" select="$gen - 1"/>
-                </xsl:apply-templates>
-            </xsl:copy>
-        </xsl:for-each>
-        </xsl:if>-->
+     
     </xsl:template>
     
     <xsl:template match="*" mode="round">
@@ -61,13 +55,14 @@
     <xsl:template match="svg:g[@id='spawn']" mode="round">
         <xsl:param name="who"/>
         <xsl:param name="gen"/>
+        <xsl:variable name="tag" select="concat('turtle_',$gen)"/>
         <xsl:copy>
             <xsl:copy-of select="@*"/>
-            <xsl:apply-templates select="$who" mode="perambulate">
+            <xsl:copy-of select="$who"/>
+            <xsl:apply-templates select="$who" mode="spawn">
                 <xsl:with-param name="gen" select="$gen - 1"/>
             </xsl:apply-templates>
-            <xsl:copy-of select="$who"/>
-            
+                    <!--</g>-->
         </xsl:copy>
     </xsl:template>
     
