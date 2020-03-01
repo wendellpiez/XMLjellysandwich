@@ -151,28 +151,28 @@
         <xsl:variable name="hours" select="hours-from-time($when) mod 12"/>
         <xsl:variable name="minutes" select="minutes-from-time($when)"/>
         <xsl:variable name="seconds" select="seconds-from-time($when)"/>
-        <g font-family="sans-serif" text-anchor="middle">
+        <g text-anchor="middle" font-size="18" font-family="monospace">
             <g>
-                <text font-size="108" fill="darkgrey">O</text>
-                <xsl:variable name="hour-at" select="($hours * 30) + ($minutes div 2)"/>
+                <text y="-90">H</text>
+                <xsl:variable name="seconds-at" select="$seconds * 6"/>
                 <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                    from="{$hour-at}" to="{360 + $hour-at}" dur="43200s" repeatCount="indefinite"/>
+                    from="{$seconds-at}" to="{360 + $seconds-at}" dur="60s" repeatCount="indefinite"
+                />
             </g>
             <g>
-                <text y="-30" font-size="48">R</text>
+                <text y="-60">O</text>
                 <xsl:variable name="minutes-at" select="($minutes * 6) + ($seconds div 10)"/>
                 <animateTransform attributeName="transform" attributeType="XML" type="rotate"
                     from="{$minutes-at }" to="{360 + $minutes-at}" dur="3600s"
                     repeatCount="indefinite"/>
             </g>
             <g>
-                <text y="-80" font-size="40">A</text>
-                <xsl:variable name="seconds-at" select="$seconds * 6"/>
+                <text y="-30">R</text>
+                <xsl:variable name="hour-at" select="($hours * 30) + ($minutes div 2)"/>
                 <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                    from="{$seconds-at}" to="{360 + $seconds-at}" dur="60s" repeatCount="indefinite"
-                />
+                    from="{$hour-at}" to="{360 + $hour-at}" dur="43200s" repeatCount="indefinite"/>
             </g>
-            <text y="-12" font-size="16">H</text>
+            <text y="0">A</text>
 
         </g>
     </xsl:template>
