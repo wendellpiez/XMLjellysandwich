@@ -23,8 +23,12 @@
         <author>John <index>Keats</index></author>
         <date>1819</date>
     </card>
-    <card src="tithonus.xml">
-        <title>Tithonus</title>
-        <author>Alfred <index>Tennyson</index></author>
-    </card>
+  <card src="tithonus.xml">
+    <title>Tithonus</title>
+    <author>Alfred <index>Tennyson</index></author>
+  </card>
+  <card src="theworld.xml">
+    <title>The World</title>
+    <author>Henry <index>Vaughan</index></author>
+  </card>
 </catalog>

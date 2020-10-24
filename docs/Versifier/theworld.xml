@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pub>
+  <author>Henry Vaughan</author>
+  <title>The World</title>
+  <style xml:space="preserve"> .stanza { padding: 1em 10% }
+    .l[data-meter='5'] { padding-left: 2em }
+    .l[data-meter='4'] { padding-left: 3em }
+    .l[data-meter='2'] { padding-left: 5em }
+  </style>
+  <verse>
+    <stanza>
+      <l meter="5">I saw Eternity the other night,</l>
+      <l meter="5">Like a great ring of pure and endless light,</l>
+      <l meter="4">All calm, as it was bright;</l>
+      <l meter="5">And round beneath it, Time in hours, days, years,</l>
+      <l meter="2">Driv’n by the spheres</l>
+      <l meter="5">Like a vast shadow mov’d; in which the world</l>
+      <l meter="4">And all her train were hurl’d.</l>
+      <l meter="5">The doting lover in his quaintest strain</l>
+      <l meter="2">Did there complain;</l>
+      <l meter="5">Near him, his lute, his fancy, and his flights,</l>
+      <l meter="2">Wit’s sour delights,</l>
+      <l meter="5">With gloves, and knots, the silly snares of pleasure,</l>
+      <l meter="2">Yet his dear treasure</l>
+      <l meter="5">All scatter’d lay, while he his eyes did pour</l>
+      <l meter="2">Upon a flow’r.</l>
+    </stanza>
+    <stanza>
+      <l meter="5">The darksome statesman hung with weights and woe,</l>
+      <l meter="5">Like a thick midnight-fog mov’d there so slow,</l>
+      <l meter="4">He did not stay, nor go;</l>
+      <l meter="5">Condemning thoughts (like sad eclipses) scowl</l>
+      <l meter="2">Upon his soul,</l>
+      <l meter="5">And clouds of crying witnesses without</l>
+      <l meter="4">Pursued him with one shout.</l>
+      <l meter="5">Yet digg’d the mole, and lest his ways be found,</l>
+      <l meter="2">Work’d under ground,</l>
+      <l meter="5">Where he did clutch his prey; but one did see</l>
+      <l meter="2">That policy;</l>
+      <l meter="5">Churches and altars fed him; perjuries</l>
+      <l meter="2">Were gnats and flies;</l>
+      <l meter="5">It rain’d about him blood and tears, but he</l>
+      <l meter="2">Drank them as free.</l>
+    </stanza>
+    <stanza>
+      <l meter="5">The fearful miser on a heap of rust</l>
+      <l meter="5">Sate pining all his life there, did scarce trust</l>
+      <l meter="4">His own hands with the dust,</l>
+      <l meter="5">Yet would not place one piece above, but lives</l>
+      <l meter="2">In fear of thieves;</l>
+      <l meter="5">Thousands there were as frantic as himself,</l>
+      <l meter="4">And hugg’d each one his pelf;</l>
+      <l meter="5">The downright epicure plac’d heav’n in sense,</l>
+      <l meter="2">And scorn’d pretence,</l>
+      <l meter="5">While others, slipp’d into a wide excess,</l>
+      <l meter="2">Said little less;</l>
+      <l meter="5">The weaker sort slight, trivial wares enslave,</l>
+      <l meter="2">Who think them brave;</l>
+      <l meter="5">And poor despised Truth sate counting by</l>
+      <l meter="2">Their victory.</l>
+    </stanza>
+    <stanza>
+      <l meter="5">Yet some, who all this while did weep and sing,</l>
+      <l meter="5">And sing, and weep, soar’d up into the ring;</l>
+      <l meter="4">But most would use no wing.</l>
+      <l meter="5">O fools (said I) thus to prefer dark night</l>
+      <l meter="2">Before true light,</l>
+      <l meter="5">To live in grots and caves, and hate the day</l>
+      <l meter="4">Because it shews the way,</l>
+      <l meter="5">The way, which from this dead and dark abode</l>
+      <l meter="2">Leads up to God,</l>
+      <l meter="5">A way where you might tread the sun, and be</l>
+      <l meter="2">More bright than he.</l>
+      <l meter="5">But as I did their madness so discuss</l>
+      <l meter="2">One whisper’d thus,</l>
+      <l meter="5">“This ring the Bridegroom did for none provide,</l>
+      <l meter="2">But for his bride. ”</l>
+    </stanza>
+  </verse>
+</pub>
