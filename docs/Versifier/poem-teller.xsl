@@ -433,81 +433,82 @@
       <xsl:apply-templates select="preceding::span[contains-token(@class,'phr')][1]/text()" mode="pause"/>
    </xsl:template>
    
-<xsl:template name="css">
-         html, body { background-color: white }
-         
-         .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }
-         
-         
-         .pub { }
-         
-         .title { }
-         
-         .author { }
-         
-         .l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }
-         
-         .l * { display: inline }
-         
-         span.phr {transition: color 1s ease-in;
-              -moz-transition: color 1s ease-in;
-              -webkit-transition: color 1s ease-in; }
-         
-         #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;
-          border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;
-          font-family: 'Roboto Slab', sans-serif;
-          margin-top: 1em }
-         
-                  
+<xsl:template name="css" xml:space="preserve">
+html, body { background-color: white }
+
+.tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }
+
+.pub { }
+
+.title { }
+
+.author { }
+
+.l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }
+
+.l * { display: inline }
+
+span.phr {transition: color 1s ease-in;
+    -moz-transition: color 1s ease-in;
+    -webkit-transition: color 1s ease-in; }
+
+#xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;
+  border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;
+  font-family: 'Roboto Slab', sans-serif;
+  margin-top: 1em }
+
         
-         textarea { padding: 0.5em }
-         button { width: 7em }
-         button:hover { font-weight: bold }
-         
-                 
-         .verse p { padding-left: 3em; text-indent: -3em }
-         .stanza p { margin-top: 0ex; margin-bottom: 0ex }
-         .stanza { margin-top: 3ex }
-         .stanza:first-child { margin-top: 0ex}
-         
-         .verse .indent1 { padding-left: 3em }
-         .verse .indent2 { padding-left: 4em }
-         .verse .indent3 { padding-left: 5em }
-         .verse .indent4 { padding-left: 6em }
-         .verse .indent5 { padding-left: 7em }
-         .verse .indent6 { padding-left: 8em }
-         .verse .indent7 { padding-left: 9em }
-         .verse .indent8 { padding-left: 10em }
-         .verse .indent9 { padding-left: 11em }
-         
-         #text_title, #text_byline { padding-left: 2% }
-         
-         .panel { display: none; padding: 2%; vertical-align: text-top }
-         .panel.ON { display: inline-block } /* way better thanks to AMC */
-         
-         .hide { display: none }
-          
-          #tell_panel { background-color: white }
-         
-         .pane * { margin-top: 1ex; margin-bottom: 1ex }
-         
-         #right_pane { width: 50%; float: right; clear: both }
-         
-         #tweak_panel { text-align: right;
-         background-color: lavender; padding: 1em; border: thin outset black;
-         font-family: sans-serif; font-size: 80%; overflow: auto;
-         max-height: 80% }
-         #tweak_panel > *:first-child { margin-top: 0ex }
-         
-         #dir_panel { 
-            background-color: gainsboro;
-            padding: 1em; border: thin outset black;
-            font-family: sans-serif }
-         #dir_panel > *:first-child { margin-top: 0ex }
-         
-         .ctrl { display: inline-block; margin: 0ex }
-         
-         code.button { padding: 0.5ex 1ex; background-color: white; border: thin sold black }
+
+textarea { padding: 0.5em }
+button { width: 7em }
+button:hover { font-weight: bold }
+
+       
+.verse p { padding-left: 3em; text-indent: -3em }
+.stanza p { margin-top: 0ex; margin-bottom: 0ex }
+.stanza { margin-top: 3ex }
+.stanza:first-child { margin-top: 0ex}
+
+.verse .indent1 { padding-left: 3em }
+.verse .indent2 { padding-left: 4em }
+.verse .indent3 { padding-left: 5em }
+.verse .indent4 { padding-left: 6em }
+.verse .indent5 { padding-left: 7em }
+.verse .indent6 { padding-left: 8em }
+.verse .indent7 { padding-left: 9em }
+.verse .indent8 { padding-left: 10em }
+.verse .indent9 { padding-left: 11em }
+
+#text_title, #text_byline { padding-left: 2% }
+
+.panel { display: none; padding: 2%; vertical-align: text-top }
+.panel.ON { display: inline-block } /* way better thanks to AMC */
+
+.hide { display: none }
+
+#tell_panel { background-color: white }
+
+.pane * { margin-top: 1ex; margin-bottom: 1ex }
+
+#right_pane { width: 50%; float: right; clear: both }
+
+#tweak_panel { text-align: right;
+  background-color: lavender; padding: 1em; border: thin outset black;
+  font-family: sans-serif; font-size: 80%; overflow: auto; max-height: 80% }
+  
+#tweak_panel > *:first-child { margin-top: 0ex }
+
+#dir_panel { 
+  background-color: gainsboro;
+  padding: 1em; border: thin outset black;
+  font-family: sans-serif }
+#dir_panel > *:first-child { margin-top: 0ex }
+
+.toc-entry { cursor: pointer }  /* enhancement courtesy of GI */
+
+.ctrl { display: inline-block; margin: 0ex }
+
+code.button { padding: 0.5ex 1ex; background-color: white; border: thin sold black }
    </xsl:template>
    
    <xsl:template match="*" mode="off">
