@@ -294,48 +294,51 @@
       <xsl:apply-templates select="preceding::span[contains-token(@class,'phr')][1]/text()" mode="pause"/>
    </xsl:template>
    
-   <xsl:template name="css">
-         html, body { background-color: white }
-         
-         .tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }
-         
-         
-         .pub { }
-         
-         .title { }
-         
-         .author { }
-         
-         .l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }
-         
-         .l * { display: inline }
-         
-         span.phr {transition: color 1s ease-in;
-              -moz-transition: color 1s ease-in;
-              -webkit-transition: color 1s ease-in; }
-         
-         .ON { font-style: italic; font-weight: bold }
-         
-         .hidden { display: none }
-         
-         #xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;
-          border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;
-          font-family: 'Roboto Slab', sans-serif;
-          margin-top: 1em }
-         
-         #xmljellysandwich_header {
-         top: 1em; right: 1em; position: fixed }
-         
-         #xmljellysandwich_directory {
-         bottom: 20%; right: 1em; position: fixed }
-         
-         
-         .catalog { max-width: 60% }
-         section { margin-top: 1em; border: thin solid black; padding: 1em }
-         section * { margin: 0em }
-         section .title { font-weight: bold }
-         section .source { font-style: italic }
-         
+   <xsl:template name="css" xml:space="preserve">
+html, body { background-color: white }
+
+.tag { color: green; font-family: sans-serif; font-size: 80%; font-weight: bold }
+
+
+.pub { }
+
+.title { }
+
+.author { }
+
+.l { padding-left: 2em; text-indent: -2em; margin-top: 0ex; margin-bottom: 0ex }
+
+.l * { display: inline }
+
+span.phr {transition: color 1s ease-in;
+    -moz-transition: color 1s ease-in;
+    -webkit-transition: color 1s ease-in; }
+
+.ON { font-style: italic; font-weight: bold }
+
+.hidden { display: none }
+
+#xmljellysandwich_footer { clear: both; width: 100%; font-size: 80%;
+  border-top: thin solid black; padding-top: 1em; padding-bottom: 2em;
+  font-family: 'Roboto Slab', sans-serif;
+  margin-top: 1em }
+
+#xmljellysandwich_header {
+top: 1em; right: 1em; position: fixed }
+
+#xmljellysandwich_directory {
+bottom: 20%; right: 1em; position: fixed }
+
+
+.catalog { max-width: 60% }
+section { margin-top: 1em; border: thin solid black; padding: 1em }
+section * { margin: 0em }
+section .title { font-weight: bold }
+section .source { font-style: italic }
+
+
+.toc-entry { cursor: pointer }  /* enhancement courtesy of GI */
+
    </xsl:template>
 
 

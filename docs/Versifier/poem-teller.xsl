@@ -504,7 +504,7 @@ button:hover { font-weight: bold }
   font-family: sans-serif }
 #dir_panel > *:first-child { margin-top: 0ex }
 
-.toc-entry { cursor: pointer }  /* enhancement courtesy of GI */
+.toc-entry { cursor: pointer }  /* enhancement courtesy of Gerrit I */
 
 .ctrl { display: inline-block; margin: 0ex }
 
