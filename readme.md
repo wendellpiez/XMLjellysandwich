@@ -41,11 +41,11 @@ Once you have XML, making it available via SaxonJS entails:
 
 Check out the Saxon docs as always for more background / guidance.
 
-#### 'hosting' (HTML) page
+#### ‘hosting’ (HTML) page
 
-Produce and adjust your HTML 'hosting' file, either by hand (copy/alter) or by using the XSLT as described below. Adjust it to match your settings.
+The HTML (or XHTML) ‘hosting’ file is the landing page that is loaded into the user’s browser to kick everything else off. You can create one by copying and then altering any one of the `index.html` files from one of the `docs/*/` directories of this repository, or by using the “starter maker” XSLT program described [below](#starter-xslt-maker).
 
-It has a few control points:
+Either way, the ‘hosting’ HTML page needs a few control points:
 
 - There should be a `script[@src='lib/saxon/SaxonJS.min.js']`, or equivalent. The named Javascript file must be in the location mentioned
 
@@ -54,8 +54,7 @@ It has a few control points:
         src="../lib/saxon/SaxonJS.min.js"><!-- cosmetic comment --></script>
 ```
 
-- Within a second `script` element there are settings for your source XML and your SEF (compiled XSLT) some as follows:
-
+- Within a second `script` element the SaxonJS.transform() function should be set up with settings for your source XML and your SEF (compiled XSLT).  In the example below `{$resource_filename}` should give the path to the XML file you plan to deliver, relative to the hosting page. The `{$transform_href}` should point to your your SEF, also from the hosting page. The `{$xmljellysandwich_pack}` identifies the entry point for the stylesheet (this names a template appearing in XSLTs produced by the starter-maker, but your XSLT could offer its own entry points). Adjust as necessary for your XSLT.
 
 ```
 <script>
@@ -69,16 +68,15 @@ It has a few control points:
 </script>
 ```
 
+ - Either on the `<body>` element of the HTML, or somewhere inside it, make sure to put in a dummy element that has an `@id` attribute. This dummy element will be replaced with whatever the SEFed stylesheet writes to that ID using `<xsl:result-document>`. The `hostHTMLfile-maker.xsl` program (described [below](#host-html-file-maker)) uses the IDs “header”, “directory”, “body”, and “footer”, each prefixed with “xmljellysandwich_”.  These dummy elements (which could be just one element, the entire `<body>`, if you like) will be replaced by a `<xsl:result-document>` instruction in the XSLT-turned-SEF.”.
 
-`$resource_filename` should name the XML file you plan to deliver. `transform_href` should point to your your SEF. `xmljellysandwich_pack` identifies the entry point for the stylesheet (this names a template appearing in XSLTs produced by the starter-maker, but your XSLT could offer its own entry points). Adjust as necessary for your XSLT. You are done with the host file. (You can come back.)
+Note that these and many other runtime options for SaxonJS are documented at http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform.
 
-These and many other runtime options for SaxonJS are documented at http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform.
-
-See examples of hosting pages in any of the projects in `docs`. A hosting file can be named `index.html` if you like.
+A hosting file can be named `index.html` if you like.
 
 #### XSLT compiled into SEF
 
-You may already have XSLT that is capable of performing the necessary transformations on the XML to render and present it in the browser. (Presumably it specifies a tranformation from an XML language or dialect, into HTML/CSS or perhaps SVG/CSS; in any case its target notation is browser-digestible.) Or you may write this yourself. Or you can produce a functional "starter" XSLT using the utility as described below, getting something "good enough to improve" without having to start from scratch.
+You may already have XSLT that is capable of performing the necessary transformations on the XML to render and present it in the browser. (Presumably it specifies a tranformation from an XML language or dialect, into HTML/CSS or perhaps SVG/CSS; in any case its target format is browser-digestible.) Or you may write this yourself. Or you can produce a functional "starter" XSLT using the utility as described below, getting something "good enough to improve" without having to start from scratch.
 
 In any case, you will need to compile the XSLT for SaxonJS or have it compiled, into Saxon's SEF notation (an XML application that configures an XSLT runtime.) You will need a licensed copy of Saxon or of a toolkit that contains it (such as oXygen XMl Editor/Developer) to do this.
 
