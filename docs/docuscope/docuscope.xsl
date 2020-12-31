@@ -78,22 +78,25 @@
                             <span class="lit">{ (namespace-uri(/*)[matches(.,'\S')],'[none]')[1]
                                 }</span>
                         </td>
+                        <td class="n"><q>[none]</q> means the root element is not assigned a namespace</td>
                     </tr>
                     <tr>
                         <th>
-                            <span class="lbl">First element (value) named <q>title</q></span>
+                            <span class="lbl">(Value of) First element named <q>title</q></span>
                         </th>
                         <td>
                             <span class="lit">{ /descendant::*:title[1] }</span>
                         </td>
+                        <td class="n">[todo: XPath to this node]</td>
                     </tr>
                     <tr>
                         <th>
-                            <span class="lbl">Nominal root</span>
+                            <span class="lbl">Root element name as given</span>
                         </th>
                         <td>
                             <span class="lit">{ name(/*) }</span>
                         </td>
+                        <td class="n"> </td>
                     </tr>
                     <tr>
                         <th>
@@ -102,6 +105,7 @@
                         <td>
                             <span class="ct">{ count( //* ) }</span>
                         </td>
+                        <td class="n"> </td>
                     </tr>
                     <tr>
                         <th>
@@ -110,8 +114,9 @@
                         <td>
                             <span class="ct">{ XJS:word-count( /* ) }</span>
                         </td>
+                        <td class="n">* <q>word</q> as sequence of non-whitespace characters</td>
                     </tr>
-                    <xsl:call-template name="element-list">
+                    <xsl:call-template name="element-histogram">
                         <xsl:with-param name="elements" select="//*"/>
                         <xsl:with-param name="label">
                             <span class="lbl">Elements</span>
@@ -122,20 +127,39 @@
         </div>
     </xsl:template>
 
-    <xsl:template name="element-list" expand-text="true">
+    <xsl:template name="element-histogram" expand-text="true">
         <xsl:param name="elements" required="true"/>
         <xsl:param name="label">&#xA0;</xsl:param>
         <tr>
             <th>
                 <xsl:sequence select="$label"/>
             </th>
-            <td>
+            <td colspan="2">
+                <table class="histogram">
+                <xsl:variable name="elemcount" select="count(//*)"/>
                 <xsl:for-each-group select="$elements" group-by="name()">
                     <xsl:sort select="count(current-group())" order="descending"/>
-                    <xsl:if test="not(position() eq 1)">, </xsl:if>
-                    <span class="lit">{ current-grouping-key() }</span>
-                    <xsl:text> ({ count(current-group() ) })</xsl:text>
+                        <tr>
+                            <th><span class="lit">{ current-grouping-key() }</span></th>
+                            <td>({ count(current-group() ) })</td>
+                            <td>({ (count(current-group()) div $elemcount) => round(3) })</td>
+                            <td class="bar">
+                                <xsl:for-each select="current-group()">
+                                    <!-- &#8226; is a bullet  &#9646; a vertical rectangle -->
+                                    <xsl:variable name="class">
+                                        <xsl:choose>
+                                            <xsl:when test="empty(child::*|child::text()[matches(.,'\S')] )">e</xsl:when>
+                                            <xsl:when test="empty(child::text()[matches(.,'\S')] )">s</xsl:when>
+                                            <xsl:otherwise>t</xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:variable>
+                                    <b class="{ $class }">&#9646;</b>
+                                </xsl:for-each>
+                            </td>
+                        </tr>
                 </xsl:for-each-group>
+                </table>
+                
             </td>
         </tr>
     </xsl:template>
