@@ -9,7 +9,7 @@
         
 .stanza { margin-top: 1em; margin-bottom: 1em; margin-right: 2%; 
           width: 28%; float: left; line-height: 150%; opacity: 1 }
-        
+
 .l:nth-child(2n) { padding-left: 6em }
 
 /* moving toc to bottom */

@@ -1,0 +1,16 @@
+The source code and documentation of Saxon-JS are 
+
+    Copyright (c) 2018 Saxonica Limited
+
+except for third-party components listed at
+http://www.saxonica.com/saxon-js/documentation/index.html#!conditions/third-party-components
+
+For licensing purposes Saxon-JS is considered to be part of Saxon Enterprise Edition, and purchasing
+a Saxon-EE license entitles you to use and deploy Saxon-JS. The actual license conditions can be
+found at http://www.saxonica.com/license/license.xml
+
+Although there are no technical measures protecting the Saxon-JS code from copying or modification,
+such actions (except to the extent permitted by the license conditions) constitute an infringement
+of copyright and are therefore illegal.
+
+Saxon-JS is NOT open source.

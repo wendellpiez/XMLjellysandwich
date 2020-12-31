@@ -1,0 +1,10 @@
+# IDE files
+.vscode
+.DS_Store
+
+# Working files
+scratch
+xspec
+
+# modules
+node_modules/

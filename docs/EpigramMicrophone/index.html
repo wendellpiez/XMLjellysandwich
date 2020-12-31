@@ -4,12 +4,12 @@
       <meta charset="utf-8"/>
       <style type="text/css" id="xmljellysandwich_css"><!-- Include your CSS here ... or target #xmljellysandwich_css from your XSLT ... --></style>
       <script type="text/javascript"
-              src="../lib/saxon/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
+              src="../lib/Saxon-JS-1.2.0/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
       <script>
           window.onload = function() {
           SaxonJS.transform({
             sourceLocation:     "EpigramMicrophone2017.xml",
-            stylesheetLocation: "epmic-bits.sef",
+            stylesheetLocation: "epmic-bits2020.sef",
             initialTemplate:    "xmljellysandwich_fetch"
           });
           }     
