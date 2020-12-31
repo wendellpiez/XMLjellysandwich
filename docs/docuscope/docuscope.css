@@ -1,0 +1,9 @@
+th, td { padding: 0em 0.5em }
+
+.smmry th:first-child { text-align: right }
+.lbl { font-weight: bold; font-family: sans-serif }
+.smmry .lit { font-family: 'IBM Plex Mono', monospace; background-color: gainsboro }
+
+
+div.sketch { margin: 1em; padding: 1em; border:thin solid black }
+

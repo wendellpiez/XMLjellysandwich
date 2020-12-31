@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>docuscope</title>
+        <meta charset="utf-8" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&amp;family=Literata&amp;family=Open+Sans&amp;display=swap"  />
+        <link rel="stylesheet" href="docuscope.css" />
+        <style type="text/css" xml:space="preserve">
+      html body { font-family: 'Literata', serif }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', sans-serif }
+      a { color: inherit; text-decoration: none }
+      a:hover { text-decoration: underline }
+     </style>
+        <script type="text/javascript" src="../lib/Saxon-JS-2.0/SaxonJS2.js"> </script>
+        <script xml:space="preserve">
+            function documentScope(fileSet) {
+                for (const eachFile of fileSet) {
+                    let frdr    = new FileReader();
+                    frdr.onload = function () {
+                        SaxonJS.transform({
+                            sourceText:         frdr.result,
+                            stylesheetLocation: "docuscope.sef.json",
+                            initialTemplate:    "append-to-body",
+                            stylesheetParams: {
+                                "fileName": eachFile.name
+                            }
+                        })
+                    }
+                    frdr.readAsText(eachFile);
+                }
+            }</script>
+
+    </head>
+    <body>
+        <div id="dpheader">
+            <h3 id="page-title" onclick="void(0)">Docuscope</h3>
+            <p style="font-style: italic">Load your XML file here ... <input multiple="" type="file"
+                    id="stampfile" name="stampfile" title="Drop XML"
+                    onchange="documentScope(this.files)" /></p>
+        </div>
+        <div id="dpbody">
+            <!--<p>body</p>-->
+        </div>
+        <div id="dpfooter">
+            <!--<p>foot</p>-->
+        </div>
+    </body>
+</html>

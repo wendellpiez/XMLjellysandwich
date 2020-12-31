@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+    <a1>
+        <a2>
+            <a3/>
+        </a2>
+    </a1>
+    <b1>
+        <b2>
+            <b3/>
+        </b2>
+    </b1>
+</test>
