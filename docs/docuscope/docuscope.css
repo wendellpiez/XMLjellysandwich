@@ -5,6 +5,7 @@ th, td { padding: 0em 0.5em }
 .lbl { font-weight: bold; font-family: sans-serif }
 .smmry .lit { font-family: 'IBM Plex Mono', monospace; background-color: gainsboro }
 
+pre { font-family: 'IBM Plex Mono', monospace }
 
 
 div.sketch { margin: 1em; padding: 1em; border:thin solid black }

@@ -142,7 +142,7 @@
                         <tr>
                             <th><span class="lit">{ current-grouping-key() }</span></th>
                             <td>({ count(current-group() ) })</td>
-                            <td>({ (count(current-group()) div $elemcount) => round(3) })</td>
+                            <td>{ ((count(current-group()) div $elemcount) => round(3) ) * 100 }%</td>
                             <td class="bar">
                                 <xsl:for-each select="current-group()">
                                     <!-- &#8226; is a bullet  &#9646; a vertical rectangle -->
