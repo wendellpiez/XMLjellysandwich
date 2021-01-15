@@ -6,7 +6,8 @@
     xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT"
     xmlns:XJS="http://github.com/wendellpiez/XMLjellysandwich"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map" extension-element-prefixes="ixsl"
-    exclude-result-prefixes="#all" xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0">
+    exclude-result-prefixes="#all" xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0"
+    xmlns:fn="http://www.example.com/fn">
 
     <xsl:output indent="yes"/>
 
@@ -18,6 +19,7 @@
     mark 'withdrawn' controls
     rewrite td/@colspan with an increment ...
     -->
+    
     <xsl:variable name="indented-serialization" as="element()">
         <output:serialization-parameters
             xmlns:output="http://www.w3.org/2010/xslt-xquery-serialization">
@@ -25,23 +27,113 @@
         </output:serialization-parameters>
     </xsl:variable>
 
-
     <!-- 'initialize' is called with a copy of the Rev 5 catalog as input
           we could save cycles by doing this statically up front, but for now -->
     <xsl:template name="initialize">
-        <xsl:result-document href="#bxbody" method="ixsl:append-content">
-            <xsl:call-template name="make-full-table"/>
-        </xsl:result-document>
-    </xsl:template>
-
-    <xsl:template match="/" name="make-full-table">
         <xsl:variable name="ready-catalog">
             <xsl:apply-templates select="/*" mode="capture-controls"/>
         </xsl:variable>
-        <xsl:apply-templates select="$ready-catalog" mode="make-table"/>
+        <xsl:result-document href="#family-directory" method="ixsl:append-content">
+            <!--<div class="families-ui">
+                <button id="show-all-button">Show All</button>
+                <button id="clear-all-button">Clear All</button>
+            </div>-->
+            <div id="directory">
+            <xsl:apply-templates select="$ready-catalog" mode="make-family-directory"/>
+            </div>
+        </xsl:result-document>
+        <xsl:result-document href="#bxbody" method="ixsl:append-content">
+            <div class="families-ui">
+                <button id="expand-all-button">Expand All</button>
+                <button id="collapse-all-button">Collapse All</button>
+            </div>
+            <xsl:apply-templates select="$ready-catalog" mode="filter-tables"/>
+        </xsl:result-document>
     </xsl:template>
 
-
+    <xsl:template match="/" mode="make-family-directory">
+        <xsl:for-each select="catalog/group" expand-text="true">
+            <div class="family-item">
+            <input type="checkbox" id="toggle-{@id}" value="show" checked="checked"/>
+                <label for="toggle-{@id}">
+                    <xsl:apply-templates select="title"/>
+                    <xsl:text> </xsl:text>
+                    <a class="family-link" href="#{@id}">({ upper-case(@id) })</a>
+                </label>
+            </div>
+        </xsl:for-each>
+    </xsl:template> 
+    
+    <xsl:template match="html:div[@id='directory']/html:div[@class='family-item']/html:input" mode="ixsl:onchange">
+        <xsl:variable name="family-id" select="substring-after(@id,'toggle-')"/>
+        <xsl:apply-templates select="id($family-id)" mode="show-or-hide">
+            <xsl:with-param name="show" select="ixsl:get(.,'checked')"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="../child::html:label/child::html:a" mode="show-or-hide">
+            <xsl:with-param name="show" select="ixsl:get(.,'checked')"/>
+            <xsl:with-param name="as" select="'inline'"/>
+        </xsl:apply-templates>
+    </xsl:template>
+    
+    <xsl:template match="html:div[@id='directory']/html:div[@class='family-item']/html:label/html:a" mode="ixsl:onclick">
+        <xsl:variable name="family-id" select="substring-after(@href,'#')"/>
+        <xsl:message expand-text="true">clicked for { $family-id }</xsl:message>
+        <xsl:for-each select="id($family-id)">
+            <ixsl:set-attribute name="open" select="'open'"/>
+        </xsl:for-each>
+    </xsl:template>
+    
+    <!--<xsl:template match="html:button[@id='show-all-button']" mode="ixsl:onclick">
+        <xsl:for-each select="id('directory')//html:input[@type='checkbox']">
+            <ixsl:set-property name="checked" select="true()"/>
+            <ixsl:add-attribute name="checked" select="'checked'"/>
+        </xsl:for-each>
+        <xsl:apply-templates select="id('directory')//html:label/child::html:a" mode="show-or-hide">
+            <xsl:with-param name="show" select="true()"/>
+            <xsl:with-param name="as" select="'inline'"/>
+        </xsl:apply-templates>
+    </xsl:template>
+    
+    <xsl:template match="html:button[@id='clear-all-button']" mode="ixsl:onclick">
+        <xsl:apply-templates select="id('directory')//html:label/child::html:a" mode="show-or-hide">
+            <xsl:with-param name="show" select="false()"/>
+            <xsl:with-param name="as" select="'inline'"/>
+        </xsl:apply-templates>
+        <xsl:for-each select="id('directory')//html:input[@type='checkbox']">
+            <ixsl:set-property name="checked" select="false()"/>
+            <ixsl:remove-attribute name="checked"/>
+        </xsl:for-each>
+    </xsl:template>-->
+    
+    <xsl:template match="html:button[@id='expand-all-button']" mode="ixsl:onclick">
+        <xsl:for-each select="ixsl:page()//html:details[@class = 'family']">
+          <ixsl:set-attribute name="open" select="'open'"/>
+        </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template match="html:button[@id='collapse-all-button']" mode="ixsl:onclick">
+        <xsl:for-each select="ixsl:page()//html:details[@class = 'family']">
+            <ixsl:remove-attribute name="open"/>
+        </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template match="html:*" mode="show-or-hide">
+        <xsl:param name="show" as="xs:boolean" required="true"/>
+        <xsl:param name="as" select="'block'"/>
+        <xsl:choose>    
+            <xsl:when test="$show">
+                <ixsl:set-style name="display" select="$as"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <ixsl:set-style name="display" select="'none'"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="/" mode="filter-tables" name="make-full-table">
+        <xsl:apply-templates mode="filter-tables"/>
+    </xsl:template>
+    
     <xsl:mode name="capture-controls" on-no-match="text-only-copy"/>
 
     <xsl:template match="catalog" mode="capture-controls">
@@ -55,7 +147,6 @@
             <xsl:copy-of select="title"/>
         </xsl:copy>
     </xsl:template>
-
 
     <xsl:template match="group" mode="capture-controls">
         <xsl:copy>
@@ -74,14 +165,13 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:mode name="make-table" on-no-match="text-only-copy"/>
+    <xsl:mode name="filter-tables" on-no-match="text-only-copy"/>
 
-
-    <xsl:template match="catalog" mode="make-table">
+    <xsl:template match="catalog" mode="filter-tables">
         <xsl:apply-templates select="group" mode="#current"/>
     </xsl:template>
 
-    <xsl:template match="catalog/group" mode="make-table" expand-text="true">
+    <xsl:template match="catalog/group" mode="filter-tables" expand-text="true">
         <details class="family" id="{@id}">
           <summary>
             <xsl:apply-templates select="title" mode="#current"/>
@@ -92,12 +182,12 @@
                     <!--extra 'span' wrapper to accommodate CSS -->
                     <th class="controltitle">Control name<br class="br"/><span class="enhancement"><span class="title">control enhancement name</span></span></th>
                 </tr>
-                <xsl:apply-templates select="group | control" mode="make-table"/>
+                <xsl:apply-templates select="group | control" mode="filter-tables"/>
             </table>
         </details>
     </xsl:template>
 
-    <xsl:template match="group/title" mode="make-table" expand-text="true">
+    <xsl:template match="group/title" mode="filter-tables" expand-text="true">
         <span class="h2 title">
             <xsl:apply-templates/>
             <xsl:text> family </xsl:text>
@@ -106,7 +196,7 @@
     </xsl:template>
 
 
-    <xsl:template match="control" mode="make-table">
+    <xsl:template match="control" mode="filter-tables">
         <xsl:variable name="withdrawn" select="prop[@name='status']='withdrawn'"/>
         <tr id="{@id}"
             class="{ if (contains(@class,'enhancement') or exists(parent::control)) then 'enhancement' else 'control' } lineitem{ ' withdrawn'[$withdrawn] }">
@@ -123,6 +213,15 @@
                     <xsl:text>: Incorporated into </xsl:text>
                     <xsl:variable name="control-targets" select="current-group()/@href ! replace(.,'^#','')"/>
                     <xsl:value-of select="$control-targets ! XJS:label-for-id(.)" separator=", "/>
+                    
+                   <!--
+                       to test key functionality:
+                       
+                    <xsl:variable name="b" select="root()//control[@id=$control-targets]"/>
+                    <xsl:variable name="k" select="key('control-by-id',$control-targets,root())"/>
+                    
+                    <xsl:text expand-text="true"> ({ count($b) }: { $b/@id => string-join(', ') })</xsl:text>
+                    <xsl:text expand-text="true"> [{ count($k) }: { $k/@id => string-join(', ') }]</xsl:text>-->
                 </xsl:for-each-group>
             </td>
             </xsl:if>
@@ -130,6 +229,22 @@
         <xsl:apply-templates mode="#current" select="control"/>
     </xsl:template>
 
+    <xsl:template mode="filter-tables" match="control/prop[@name = 'label']">
+        <a target="oob-docs" href="https://nvd.nist.gov/800-53/Rev4/control/{.}">
+            <xsl:apply-templates/>
+        </a>
+    </xsl:template>
+    
+    <xsl:template mode="filter-tables" match="control/control/prop[@name = 'label']" priority="5">
+        <xsl:variable name="controlno" select="substring-before(.,'(')"/>
+        <xsl:variable name="enhancementno" select="substring-after(.,$controlno) => replace('\D','')"/>
+        <a target="oob-docs" href="https://nvd.nist.gov/800-53/Rev4/control/{$controlno}#enhancement-{$enhancementno}">
+            <xsl:apply-templates/>
+        </a>
+    </xsl:template>
+    
+    <xsl:key name="control-by-id" match="control" use="@id"/>
+    
     <xsl:function name="XJS:label-for-id" as="xs:string">
         <xsl:param name="id" as="xs:string"/>
         <xsl:value-of>
@@ -150,13 +265,13 @@
         <xsl:value-of select="prop[@name='label']"/>
     </xsl:template>
     
-    <xsl:template match="title" mode="make-table">
+    <xsl:template match="title" mode="filter-tables">
         <span class="title">
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>
 
-    <xsl:template match="prop" mode="make-table">
+    <xsl:template match="prop" mode="filter-tables">
         <span class="{@name}">
             <xsl:apply-templates mode="#current"/>
         </span>
@@ -175,26 +290,10 @@
         </xsl:sequence>
       </xsl:variable>
     
-        <xsl:result-document href="#file-roster" method="ixsl:append-content" expand-text="true">
-            <div class="filelisting">
-                <h4>
-                  <span class="profilecode">
-                    <xsl:sequence select="$profile-code"/>
-                  </span>
-                  <xsl:text> file: { $fileName }</xsl:text>
-                </h4>
-                <p>
-                  <xsl:apply-templates select="$baseline-profile/profile/metadata/title"/>
-                </p>
-                <!--<p>Tests okay: <code>{ $is-okay-as-sp800-53-profile }</code></p>
-                <details>
-                    <summary>XML source</summary>
-                    <pre>
-                <xsl:value-of select="serialize($baseline-profile, $indented-serialization)"/>
-            </pre>
-                </details>-->
-            </div>
-        </xsl:result-document>
+    <xsl:call-template name="update-file-roster">
+        <xsl:with-param name="profile-code" select="$profile-code"/>
+        <xsl:with-param name="baseline-profile" select="$baseline-profile"/>
+    </xsl:call-template>
 
         <!-- we aim for the families currently displayed on the page -->
       <xsl:variable name="families"
@@ -212,6 +311,48 @@
             </xsl:result-document>
         </xsl:for-each>
 
+    </xsl:template>
+    
+    <xsl:template name="update-file-roster">
+        <xsl:param name="profile-code"/>
+        <xsl:param name="baseline-profile"/>
+        <xsl:result-document href="#file-roster" method="ixsl:append-content" expand-text="true">
+            <div class="filelisting">
+                <h4>
+                    <span class="profilecode">
+                        <xsl:sequence select="$profile-code"/>
+                    </span>
+                    <xsl:text> file: { $fileName }</xsl:text>
+                </h4>
+                <p>
+                    <xsl:apply-templates select="$baseline-profile/profile/metadata/title"/>
+                </p>
+                <xsl:where-populated>
+                    <h5>Imports</h5>
+                    <ul>
+                        <xsl:for-each select="$baseline-profile/profile/import">
+                            <xsl:variable name="importing" select="XJS:okay-for-import(.)"/>
+                            <li class="import{' importing'[$importing]}">{ @href }</li>
+                        </xsl:for-each>
+                    </ul>
+                </xsl:where-populated>
+                <xsl:choose>
+                    <xsl:when test="empty($baseline-profile/profile)">
+                        <p class="ineligible">Ineligible: the loaded document is not an <a href="https://pages.nist.gov/OSCAL/documentation/schema/profile-layer/" target="oob-docs">OSCAL profile</a>.</p>
+                    </xsl:when>
+                    <xsl:when test="empty($baseline-profile/profile/import[XJS:okay-for-import(.)])">
+                        <p class="ineligible">Ineligible: does not import SP800-53 Rev 5</p>
+                    </xsl:when>
+                </xsl:choose>
+                <!--<p>Tests okay: <code>{ $is-okay-as-sp800-53-profile }</code></p>
+                <details>
+                    <summary>XML source</summary>
+                    <pre>
+                <xsl:value-of select="serialize($baseline-profile, $indented-serialization)"/>
+            </pre>
+                </details>-->
+            </div>
+        </xsl:result-document>
     </xsl:template>
 
     <!-- Mostly the new table is a copy of the old one -->
@@ -266,11 +407,16 @@
         </td>
     </xsl:template>
     
+    <xsl:function name="XJS:okay-for-import">
+        <xsl:param name="who" as="element(import)"/>
+        <xsl:sequence select="ends-with($who/@href,'NIST_SP-800-53_rev5_catalog.xml')"/>
+    </xsl:function>
+    
     <xsl:function name="XJS:mark-baseline-occurrence">
       <xsl:param name="profile" as="document-node()"/>
       <xsl:param name="controlid" as="xs:string"/>
       <xsl:variable name="imports"
-            select="$profile/profile/import[@href = 'NIST_SP-800-53_rev5_catalog.xml']"/>
+          select="$profile/profile/import[XJS:okay-for-import(.)]"/>
         <xsl:choose>
             <xsl:when
                 test="

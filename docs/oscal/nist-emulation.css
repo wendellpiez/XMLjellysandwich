@@ -1,5 +1,7 @@
 html, body { font-family: Calibri, Arial, sans-serif }
 
+#bxbody { margin-top: 1em; padding-top: 1em; border-top: medium solid black }
+
 table.control-matrix { border-collapse: collapse;
   border-bottom: 1.4em solid #1f497d  }
   
@@ -13,7 +15,12 @@ table.control-matrix td { background-color: #dbe5f1 } /* lighter dusky blue  */
 tr.control-matrix-header > * { text-transform: uppercase }
 tr.control-matrix-header > th.controlno { font-size: 80% }
 
+#directory { columns: auto 2 }
+#directory div { break-inside: avoid }
 
+#directory input[type='checkbox'] + label { color: grey }
+#directory input[type='checkbox']:checked + label { color: black }
+    
 #file-roster { display: grid; grid-auto-columns: max-content }
 
 .filelisting { margin-top: 0.8em; padding: 0.2em;
@@ -27,6 +34,10 @@ span.profilecode { text-transform: uppercase; font-size: 80%;
 .withdrawn { color: grey }
 
 .withdrawnnotice { font-size: 90% }
+
+.import { color: darkgrey }
+.importing { color: forestgreen; font-weight: bold }
+.ineligible { color: darkred; font-style: italic }
 
 .family { margin-top: 1em }
 
