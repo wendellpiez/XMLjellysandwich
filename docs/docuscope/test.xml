@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<test>
-    <a1>
-        <a2>
+<test xmlns="">
+    <a1 flag="a">
+        <a2 flag="a">
             <a3/>
         </a2>
     </a1>

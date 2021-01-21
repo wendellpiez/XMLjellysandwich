@@ -13,22 +13,21 @@
      </style>
         <script type="text/javascript" src="../lib/Saxon-JS-2.0/SaxonJS2.js"> </script>
         <script xml:space="preserve">
-            function documentScope(fileSet) {
-                for (const eachFile of fileSet) {
-                    let frdr    = new FileReader();
-                    frdr.onload = function () {
-                        SaxonJS.transform({
-                            sourceText:         frdr.result,
-                            stylesheetLocation: "docuscope.sef.json",
-                            initialTemplate:    "append-to-body",
-                            stylesheetParams: {
-                                "fileName": eachFile.name
-                            }
-                        })
-                    }
-                    frdr.readAsText(eachFile);
-                }
-            }</script>
+    function documentScope(fileSet) {
+      for (const eachFile of fileSet) {
+        let frdr = new FileReader();
+        frdr.onload = function () {
+          SaxonJS.transform({
+            sourceText: frdr.result,
+            stylesheetLocation: "docuscope.sef.json",
+            initialTemplate: "append-to-body",
+            stylesheetParams: {
+              "fileName": eachFile.name
+            }
+          },"async") }
+        frdr.readAsText(eachFile);
+      }
+    }</script>
 
     </head>
     <body>

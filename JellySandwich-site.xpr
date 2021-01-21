@@ -31,7 +31,23 @@
                         </documentTypeEntry-array>
                     </entry>
                     <entry>
+                        <String>editor.indent.size.v9.2</String>
+                        <Integer>2</Integer>
+                    </entry>
+                    <entry>
+                        <String>editor.line.wrap</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
                         <String>key.editor.document.type.association.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.editor.format.option.pane.group</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.text.editor.option.pane</String>
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>

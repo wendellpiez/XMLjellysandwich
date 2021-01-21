@@ -20,6 +20,10 @@
     rewrite td/@colspan with an increment ...
     -->
     
+    <xsl:template match="/">
+        <xsl:apply-templates mode="filter-tables"/>
+    </xsl:template>
+    
     <xsl:variable name="indented-serialization" as="element()">
         <output:serialization-parameters
             xmlns:output="http://www.w3.org/2010/xslt-xquery-serialization">
@@ -47,7 +51,9 @@
                 <button id="expand-all-button">Expand All</button>
                 <button id="collapse-all-button">Collapse All</button>
             </div>
-            <xsl:apply-templates select="$ready-catalog" mode="filter-tables"/>
+            <xsl:apply-templates select="$ready-catalog" mode="filter-tables">
+                <xsl:with-param tunnel="true" name="catalog" select="$ready-catalog"/>
+            </xsl:apply-templates>
         </xsl:result-document>
     </xsl:template>
 
@@ -130,10 +136,6 @@
         </xsl:choose>
     </xsl:template>
     
-    <xsl:template match="/" mode="filter-tables" name="make-full-table">
-        <xsl:apply-templates mode="filter-tables"/>
-    </xsl:template>
-    
     <xsl:mode name="capture-controls" on-no-match="text-only-copy"/>
 
     <xsl:template match="catalog" mode="capture-controls">
@@ -165,6 +167,10 @@
         </xsl:copy>
     </xsl:template>
 
+    <xsl:template match="/" mode="filter-tables" name="make-full-table">
+        <xsl:apply-templates mode="filter-tables"/>
+    </xsl:template>
+    
     <xsl:mode name="filter-tables" on-no-match="text-only-copy"/>
 
     <xsl:template match="catalog" mode="filter-tables">
@@ -197,6 +203,7 @@
 
 
     <xsl:template match="control" mode="filter-tables">
+        <xsl:param tunnel="true" name="catalog" as="document-node()" required="true"/>
         <xsl:variable name="withdrawn" select="prop[@name='status']='withdrawn'"/>
         <tr id="{@id}"
             class="{ if (contains(@class,'enhancement') or exists(parent::control)) then 'enhancement' else 'control' } lineitem{ ' withdrawn'[$withdrawn] }">
@@ -214,14 +221,13 @@
                     <xsl:variable name="control-targets" select="current-group()/@href ! replace(.,'^#','')"/>
                     <xsl:value-of select="$control-targets ! XJS:label-for-id(.)" separator=", "/>
                     
-                   <!--
-                       to test key functionality:
+                   
+                       <!--to test key functionality:-->
                        
                     <xsl:variable name="b" select="root()//control[@id=$control-targets]"/>
-                    <xsl:variable name="k" select="key('control-by-id',$control-targets,root())"/>
-                    
+                    <xsl:variable name="k" select="key('control-by-id',$control-targets)"/>
                     <xsl:text expand-text="true"> ({ count($b) }: { $b/@id => string-join(', ') })</xsl:text>
-                    <xsl:text expand-text="true"> [{ count($k) }: { $k/@id => string-join(', ') }]</xsl:text>-->
+                    <xsl:text expand-text="true"> [{ count($k) }: { $k/@id => string-join(', ') }]</xsl:text>
                 </xsl:for-each-group>
             </td>
             </xsl:if>
@@ -243,7 +249,7 @@
         </a>
     </xsl:template>
     
-    <xsl:key name="control-by-id" match="control" use="@id"/>
+    <xsl:key name="control-by-id" match="o:control" use="@id" xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"/>
     
     <xsl:function name="XJS:label-for-id" as="xs:string">
         <xsl:param name="id" as="xs:string"/>

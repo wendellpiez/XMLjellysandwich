@@ -27,7 +27,10 @@
         </xsl:result-document>
     </xsl:template>
 
-
+    <xsl:key name="element-by-name" match="*" use="local-name()"/>
+    
+    <xsl:key name="docbook-element-by-name" match="docbook:*" use="local-name()" xmlns:docbook="http://docbook.org/ns/docbook"/>
+    
     <xsl:template match="/">
 
         <!-- pipeline is handled internally for now -->
@@ -88,6 +91,15 @@
                             <span class="lit">{ /descendant::*:title[1] }</span>
                         </td>
                         <td class="n">[todo: XPath to this node]</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <span class="lbl">Testing key() function: how many docbook 'title' elements do we see?</span>
+                        </th>
+                        <td>
+                            <span class="lit">{ count(key('docbook-element-by-name','title')) }</span>
+                        </td>
+                        <td class="n">docbook is construed to be anything bound to http://docbook.org/ns/docbook</td>
                     </tr>
                     <tr>
                         <th>
