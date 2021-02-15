@@ -1,0 +1,104 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Profile Import Examiner: An OSCAL profile analyzer</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../nist-emulation.css" />
+        <style type="text/css" xml:space="preserve">
+      a { color: inherit; text-decoration: none }
+      a:hover { text-decoration: underline }
+      
+      section.examination { display: grid; grid-template-columns: 1fr auto; grid-gap: 1em }
+      
+      section.notifications > section { margin-top: 1em; padding: 0.5em; border: thin dotted black }
+      section.notifications > section > *:first-child { margin-top: 0em }
+      
+      section.map p { margin: 0em }
+      section.map div div.element { margin-left: 1em; margin-top: 0.2em }
+      section.map p.tag { display: inline-block; background-color: midnightblue; color: aliceblue; padding: 0.2em }
+      section.map p.tag.ON {  background-color: deepskyblue }
+      p.tag span.flag { display: inline-block; background-color: aliceblue; color: black; padding: 0.1em; margin-left: 0.5em }
+      
+      
+      div.report { display: grid; grid-template-columns: 1fr 2fr 1fr;
+        background-color: aliceblue; border: thin solid black; padding: 0.4em; margin-top: 1em }
+      div.report > * { margin: 0em; padding: 0.2em }
+      div.report .title  { grid-column: 1 }
+      div.report .msg { grid-column: 2 }
+      div.report .path { grid-column: 3 }
+      
+      div.control-list { display: grid; grid-template-columns: auto auto }
+      div.control-list > * { margin: 0em; padding: 0.2em }
+      
+      
+      .msg    { ; background-color: lightgreen }
+      .red    { background-color: pink; border: thin solid red }
+      .orange { background-color: yellow; border: thin solid orange }
+      .path   { font-family: monospace; padding-left: 0.2em }
+      
+     </style>
+        <script type="text/javascript" src="../../lib/Saxon-JS-2.0/SaxonJS2.js"> </script>
+        <script xml:space="preserve">
+  /*  window.onload = function () {
+      SaxonJS.transform({
+        sourceLocation: "NIST_SP-800-53_rev5_catalog.xml",
+        stylesheetLocation: "profile-matrix.sef.json",
+        initialTemplate: "initialize"
+      });
+    } */
+    
+    function applyTransform(fileSet) {
+      for (const eachFile of fileSet) {
+        let frdr = new FileReader();
+        frdr.onload = function () {
+          SaxonJS.transform({
+            sourceText: frdr.result,
+            stylesheetLocation: "profile-checker.sef.json",
+            initialTemplate: "examine-profile",
+            stylesheetParams: {
+              "fileName": eachFile.name
+            }
+          },"async")
+        }
+        frdr.readAsText(eachFile);
+      }
+    }</script>
+
+    </head>
+    <body>
+        <div id="bxheader">
+          <h3 id="page-title" onclick="void(0)">OSCAL Profile Import Examiner</h3>
+          <h4>Checking your OSCAL profile with reference to the NIST SP 800-53 (revision 5) control catalog</h4>
+          <p>Load your OSCAL profile XML file(s) here for instant analysis of its control catalog imports (in your browser)... <input
+                type="file" accept=".xml,text/xml"
+                id="stampfile" name="stampfile" title="Drop XML"
+                onchange="applyTransform(this.files)" /></p>
+            <details style="margin-top: 1em">
+              <summary style="font-style:italic">What kind of analysis?</summary>
+              <p>The <i>Profile Examiner</i> reads an arbitrary XML document and reports back:</p>
+              <ul>
+                <li>If it is (not) a <code>profile</code> XML document in the OSCAL namespace (i.e., represented to be an OSCAL profile)</li>
+                <li>For an OSCAL profile, we examine its imports. We are interested in two things:
+                  <ul>
+                    <li>Does the import make reference to a file whose name indicates SP800-53, Rev 5?</li>
+                    <li>How do its controls appear in reference to SP800-53, Rev 5?
+                    <ul><li>For an import that appears to reference Rev 5, are all its control calls in order?</li>
+                      <li>For any import, do its controls appear to reference Rev 5 or a close relation (such as an overlay, or an earlier version such as Rev 4)?</li>
+                    </ul></li>
+                  </ul>
+                </li>
+              </ul>
+              <p>Note: this analysis does not examine the documents actually linked (imported) by your profile. Instead, it examines every import directive as if the SP800-653 Rev 5 catalog were its intended source. For reference and comparison, please see the <a href="../NIST_SP-800-53_rev5_catalog.xml">SP 800-53 Rev 5 catalog (copy) in this repository</a>.</p>
+              <p>Using this analysis you can quickly and easily determine whether your OSCAL profile, considered as a baseline or overlay of Rev 5 or of its overlays (such as the NIST or FedRAMP HIGH, MODERATE or LOW baselines), will resolve correctly into a control selection for an OSCAL processor according to OSCAL profile semantics.</p>
+              <p>Provided with back end infrastructure (in the form of appropriate file sets, metadata, and match criteria between import statements and upstream catalogs), this tool can offer the same analysis against arbitrary catalogs. NIST SP 800-53 is selected for this demonstration due to its ubiquity and ready availability in OSCAL.</p>
+              <p>A subsequent version of this tool may provide further analytic operations over OSCAL profiles, such as representing the merged organization, validating parameter link integrity and settings, and more.</p>
+            </details>
+        </div>
+      <div id="bxbody">
+            <!--<p>body</p>-->
+        </div>
+        <div id="bxfooter">
+            <p>SP-800-53 Profile (Import) Examiner is an <a href="https://pages.nist.gov/OSCAL/">OSCAL</a> demonstration. Use with appropriate caution as disclaimers apply.</p>
+            <p>Data processing on this page runs entirely in your browser, under <a href="https://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>. No data is transferred to any other party, monitored or analyzed in any way other than what is displayed.</p>
+        </div>
+    </body>
+</html>

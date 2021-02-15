@@ -21,7 +21,9 @@
     -->
     
     <xsl:template match="/">
-        <xsl:apply-templates mode="filter-tables"/>
+        <xsl:apply-templates mode="filter-tables">
+            <xsl:with-param tunnel="true" name="catalog" select="."/>
+        </xsl:apply-templates>
     </xsl:template>
     
     <xsl:variable name="indented-serialization" as="element()">
@@ -163,10 +165,18 @@
         <xsl:copy>
             <xsl:copy-of select="@*"/>
             <xsl:copy-of select="title, prop, link[@rel='incorporated-into']"/>
-            <xsl:apply-templates select="control" mode="#current"/>
+            <xsl:apply-templates select="part | control" mode="#current"/>
         </xsl:copy>
     </xsl:template>
-
+    
+    <xsl:template match="part" mode="capture-controls">
+        <xsl:copy>
+            <xsl:copy-of select="@*"/>
+            <xsl:copy-of select="title, prop"/>
+            <xsl:apply-templates select="part | control" mode="#current"/>
+        </xsl:copy>
+    </xsl:template>
+    
     <xsl:template match="/" mode="filter-tables" name="make-full-table">
         <xsl:apply-templates mode="filter-tables"/>
     </xsl:template>
@@ -201,6 +211,7 @@
         </span>
     </xsl:template>
 
+    <!-- xslt3 -t -xsl:dp.xsl -export:dp.sef.json -nogo   -->
 
     <xsl:template match="control" mode="filter-tables">
         <xsl:param tunnel="true" name="catalog" as="document-node()" required="true"/>
@@ -218,17 +229,35 @@
                 <xsl:text>W</xsl:text>
                 <xsl:for-each-group select="link[@rel='incorporated-into']" group-by="true()">
                     <xsl:text>: Incorporated into </xsl:text>
-                    <xsl:variable name="control-targets" select="current-group()/@href ! replace(.,'^#','')"/>
-                    <xsl:value-of select="$control-targets ! XJS:label-for-id(.)" separator=", "/>
+                    <xsl:variable name="targets" select="current-group()/key('cross-reference',@href)"/>
+                    <xsl:for-each select="$targets">
+                        <xsl:if test="position() gt 1">
+                            <xsl:if test="last() gt 2">
+                                <xsl:text>,</xsl:text>
+                            </xsl:if>
+                            <xsl:if test="position() eq last()"> and </xsl:if>   
+                        </xsl:if>
+                        <!-- linking to the group or nearest ancestor control -->
+                        <a href="#{ (self::group | ancestor-or-self::control[1])/@id}">
+                            <xsl:apply-templates select="." mode="label"/>
+                        </a>
+                    </xsl:for-each>
+                    <xsl:if test="not(matches($targets[last()]/prop[@name='label'],'\.\s*$'))">.</xsl:if>
+                </xsl:for-each-group>
+                
+                <!--<xsl:for-each-group select="link[@rel='incorporated-into']" group-by="true()">
+                    <xsl:text>: Incorporated into </xsl:text>
+                    <xsl:variable name="item-targets" select="current-group()/@href ! replace(.,'^#','')"/>
+                    <xsl:value-of select="$item-targets ! XJS:label-for-id(.)" separator=", "/>
                     
                    
-                       <!--to test key functionality:-->
+                       <!-\-to test key functionality:-\->
                        
-                    <xsl:variable name="b" select="root()//control[@id=$control-targets]"/>
-                    <xsl:variable name="k" select="key('control-by-id',$control-targets)"/>
+                    <xsl:variable name="b" select="root()//*[@id=$item-targets]"/>
+                    <xsl:variable name="k" select="key('item-by-id',$item-targets)"/>
                     <xsl:text expand-text="true"> ({ count($b) }: { $b/@id => string-join(', ') })</xsl:text>
                     <xsl:text expand-text="true"> [{ count($k) }: { $k/@id => string-join(', ') }]</xsl:text>
-                </xsl:for-each-group>
+                </xsl:for-each-group>-->
             </td>
             </xsl:if>
         </tr>
@@ -249,7 +278,9 @@
         </a>
     </xsl:template>
     
-    <xsl:key name="control-by-id" match="o:control" use="@id" xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"/>
+    <xsl:key name="item-by-id" match="o:control | o:part" use="@id" xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"/>
+    
+    <xsl:key name="cross-reference" match="o:control | o:part" use="'#' || @id" xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"/>
     
     <xsl:function name="XJS:label-for-id" as="xs:string">
         <xsl:param name="id" as="xs:string"/>
@@ -267,8 +298,12 @@
         </xsl:value-of>
     </xsl:function>
     
-    <xsl:template mode="control-label" match="control">
+    <xsl:template mode="label" match="control">
         <xsl:value-of select="prop[@name='label']"/>
+    </xsl:template>
+    
+    <xsl:template mode="label" match="part">
+        <xsl:value-of select="ancestor-or-self::*/prop[@name='label']" separator=""/>
     </xsl:template>
     
     <xsl:template match="title" mode="filter-tables">
