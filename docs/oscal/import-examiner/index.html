@@ -89,11 +89,10 @@
                 id="loadfileInput" name="loadfileInput" title="Drop XML"
                 onchange="loadOSCAL(this.files)" /></p>
             <details style="margin-top: 1em" id="overview">
-              <summary style="font-style:italic">What kind of analysis?</summary>
+              <summary style="font-style:italic">Explanation</summary>
               <p>The <i>Import Examiner</i> reads an arbitrary XML document and reports back:</p>
               <ul>
                 <li>If it is (not) a <code>profile</code> XML document in the OSCAL namespace (i.e., represented to be an OSCAL profile)</li>
-                <li>(In later versions we will support tests of imports in other OSCAL documents.)</li>
                 <li>For an OSCAL profile, we examine its imports. We are interested in two things:
                   <ul>
                     <li>Does the import make reference to a file whose name indicates SP800-53 in some form?</li>
@@ -101,7 +100,8 @@
                   </ul>
                 </li>
                 <li>Included is support for checking your control selections against four sources: the (full) SP 800-53 control catalog; and three
-                control sets derived from it, i.e. the NIST <code>HIGH</code>, <code>MODERATE</code> and <code>LOW</code> control baselines.</li>
+                  control sets derived from it, i.e. the NIST <code>HIGH</code>, <code>MODERATE</code> and <code>LOW</code> control baselines.</li>
+                <li>In later versions we plan support of testing imports in other OSCAL documents as well as testing constraints over OSCAL data in general, with respect to their imports.</li>
               </ul>
               <p>Note: this analysis does not examine the documents actually linked (imported) by your profile. Instead, it examines every import directive as if the SP800-653 Rev 5 catalog (or other selected baseline) were its intended source. For reference and comparison, please see the <a href="../NIST_SP-800-53_rev5_catalog.xml">SP 800-53 Rev 5 catalog (copy) in this repository</a>.</p>
               <p>Using this analysis you can quickly and easily determine whether your OSCAL profile, considered as a baseline or overlay of Rev 5 or of its overlays (such as the NIST or FedRAMP HIGH, MODERATE or LOW baselines), will resolve correctly into a control selection for an OSCAL processor according to OSCAL profile semantics.</p>

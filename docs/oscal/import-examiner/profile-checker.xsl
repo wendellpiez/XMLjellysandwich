@@ -57,7 +57,7 @@
             <xsl:variable name="profile-xml" select="id('profile-source',ixsl:page()) => parse-xml()"/>
             
             <xsl:apply-templates select="$profile-xml/*/import[ ($import-index + 1) ]" mode="refresh-import">
-                <xsl:with-param name="refreshing" select="true()"/>
+                <xsl:with-param tunnel="true" name="refreshing" select="true()"/>
             </xsl:apply-templates>
             <!--<h4>{ $baseline }</h4>
             <h3>{ $baseline-title }</h3>-->
@@ -154,7 +154,7 @@
     
 <!--    -->
     <xsl:template match="import" mode="refresh-import">
-        <xsl:param name="refreshing" select="false()"/>
+        <xsl:param name="refreshing" tunnel="true" select="false()"/>
         <div class="report">
             <xsl:call-template name="tell">
                 <xsl:with-param name="when" select="empty(@href)"/>
@@ -183,7 +183,7 @@
             </xsl:call-template>
             <xsl:call-template name="tell">
                 <xsl:with-param name="when"
-                    select="empty( include/call[not(@control-id = $all-rev5-controls/@id)] )"/>
+                    select="exists(include/call) and empty( include/call[not(@control-id = $all-rev5-controls/@id)] )"/>
                 <xsl:with-param name="title">Viable as SP 800-53?</xsl:with-param>
                 <xsl:with-param name="msg">Included controls do not include any <i>not</i> appearing in SP 800-53, rev 5.</xsl:with-param>
                 <xsl:with-param name="status">
@@ -205,7 +205,7 @@
                 </xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="tell">
-                <xsl:with-param name="when" select="not($baseline='sp800-53rev5') and empty(include/call[ not(@control-id = $baseline-controls/@id) ])"/>
+                <xsl:with-param name="when" select="not($baseline='sp800-53rev5') and exists(include/call) and empty(include/call[ not(@control-id = $baseline-controls/@id) ])"/>
                 <xsl:with-param name="title">Viable selecting from this baseline?</xsl:with-param>
                 <xsl:with-param name="msg" expand-text="true">Included controls do not include any <i>not</i> appearing in <b>{ $baseline-title }</b>.</xsl:with-param>
                 <xsl:with-param name="status">
@@ -263,6 +263,7 @@
     </xsl:template>
     
     <xsl:template match="call" mode="examine" expand-text="true">
+        <xsl:param name="refreshing" tunnel="true" select="false()"/>
         <xsl:variable name="me" select="."/>
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="not(@control-id= $baseline-controls/@id)"/>
@@ -275,10 +276,10 @@
             <xsl:with-param name="msg">Control <code>{ @control-id }</code> is called more than once.</xsl:with-param>
         </xsl:call-template>
         <xsl:call-template name="tell">
-            <xsl:with-param name="when" select="not(@control-id= $baseline-controls/@id) and (@control-id= $baseline-controls/@id)"/>
-            <xsl:with-param name="title">Calling an SP 800-53 control</xsl:with-param>
-            <xsl:with-param name="msg">A control <code>{ @control-id }</code> appears in SP 800-53, Rev 5.</xsl:with-param>
-            <xsl:with-param name="status">orange</xsl:with-param>
+            <xsl:with-param name="when" select="$refreshing and (@control-id= $baseline-controls/@id)"/>
+            <xsl:with-param name="title">Calling a recognized control</xsl:with-param>
+            <xsl:with-param name="msg">A control <code>{ @control-id }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
+            <xsl:with-param name="status">green</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
     
@@ -356,11 +357,11 @@
     </xsl:template>
     
     <xsl:template match="*" mode="tag" expand-text="true">
-        <p class="tag" id="tag-{generate-id()}">{ name() }</p>
+        <p class="tag" id="tag-{XJS:xid(.)}">{ name() }</p>
     </xsl:template>
     
     <xsl:template match="import" mode="tag" expand-text="true">
-        <p class="tag" id="tag-{generate-id()}">
+        <p class="tag" id="tag-{XJS:xid(.)}">
             <xsl:text>import</xsl:text>
             <span class="flag">
                 <xsl:apply-templates select="." mode="get-href"/>
@@ -374,7 +375,7 @@
     </xsl:template>
     
     <xsl:template match="call" mode="tag" expand-text="true">
-        <p class="tag" id="tag-{generate-id()}">
+        <p class="tag" id="tag-{XJS:xid(.)}">
             <xsl:text>call</xsl:text>
             <span class="flag">
                 <xsl:value-of select="@control-id"/>
@@ -432,7 +433,7 @@
             <xsl:sequence select="$ifnot[not($when)]"/>
         </p>
         <xsl:if test="$when">
-            <p class="path" id="path-{generate-id()}">
+            <p class="path" id="path-{XJS:xid(.)}">
                 <xsl:apply-templates select="." mode="xpath"/>
             </p>
         </xsl:if>
@@ -446,6 +447,13 @@
         <xsl:if test="exists(../* except .)" expand-text="true">[{ count(.|preceding-sibling::*[node-name() eq node-name($me)]) }]</xsl:if>
     </xsl:template>
     
+    <xsl:template mode="xid" match="*">
+        <xsl:apply-templates select="parent::*" mode="xid"/>
+        <xsl:variable name="me" select="."/>
+        <xsl:text expand-text="true">_{ name($me) }</xsl:text>
+        <xsl:if test="exists(../* except .)" expand-text="true">-{ count(.|preceding-sibling::*[node-name() eq node-name($me)]) }</xsl:if>
+    </xsl:template>
+    
     <xsl:variable name="indented-serialization" as="element()">
         <output:serialization-parameters
             xmlns:output="http://www.w3.org/2010/xslt-xquery-serialization">
@@ -454,6 +462,11 @@
     </xsl:variable>
         
     <xsl:key name="linked-resource" match="oscal:resource" use="'#' || @uuid"/>
+    
+    <xsl:function name="XJS:xid">
+        <xsl:param name="who" as="element()"/>
+        <xsl:apply-templates select="$who" mode="xid"/>
+    </xsl:function>
     
     <xsl:function name="XJS:rev5-import">
         <xsl:param name="who" as="element(import)"/>
