@@ -16,7 +16,7 @@
   <import href="some-catalog.xml">
     <include>
       <call control-id="ac-1"/>
-      <call control-id="c1"/>
+      <call control-id="ac-4"/><!-- ac-4 is in rev5 but not LOW -->
     </include>
   </import>
   <import href="../NIST_SP-800-53_rev5_catalog.xml">
