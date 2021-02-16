@@ -1,5 +1,7 @@
 html, body { font-family: Calibri, Arial, sans-serif }
 
+code { font-family: Consolas, monospace }
+
 #bxbody { margin-top: 1em; padding-top: 1em; border-top: medium solid black }
 
 table.control-matrix { border-collapse: collapse;

@@ -127,9 +127,9 @@
         <xsl:variable name="pos0" select="count(preceding-sibling::import)"/>
         
         <section>
-            <h3>Import { @href }</h3>
+            <h3>Import <code>{ @href }</code></h3>
             <p class="control-widget">
-                <xsl:text>Run again with reference to (catalog or baseline) </xsl:text>
+                <xsl:text>Run again with reference to </xsl:text>
                 <select onchange="refreshBaseline(this.value,{ ($pos0 ) })">
                     <xsl:for-each select="$baseline-options/*">
                         <xsl:copy>
@@ -185,7 +185,7 @@
                 <xsl:with-param name="when"
                     select="exists(include/call) and empty( include/call[not(@control-id = $all-rev5-controls/@id)] )"/>
                 <xsl:with-param name="title">Viable as SP 800-53?</xsl:with-param>
-                <xsl:with-param name="msg">Included controls do not include any <i>not</i> appearing in SP 800-53, rev 5.</xsl:with-param>
+                <xsl:with-param name="msg"><em>All included controls</em> appear in SP 800-53, rev 5.</xsl:with-param>
                 <xsl:with-param name="status">
                     <xsl:choose>
                         <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">orange</xsl:when>
@@ -207,7 +207,7 @@
             <xsl:call-template name="tell">
                 <xsl:with-param name="when" select="not($baseline='sp800-53rev5') and exists(include/call) and empty(include/call[ not(@control-id = $baseline-controls/@id) ])"/>
                 <xsl:with-param name="title">Viable selecting from this baseline?</xsl:with-param>
-                <xsl:with-param name="msg" expand-text="true">Included controls do not include any <i>not</i> appearing in <b>{ $baseline-title }</b>.</xsl:with-param>
+                <xsl:with-param name="msg" expand-text="true"><em>All included controls</em> appear in <b>{ $baseline-title }</b>.</xsl:with-param>
                 <xsl:with-param name="status">
                     <xsl:choose>
                         <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">orange</xsl:when>
