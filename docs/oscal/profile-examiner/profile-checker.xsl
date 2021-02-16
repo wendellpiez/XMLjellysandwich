@@ -20,6 +20,8 @@
 
     <xsl:variable name="rev5-catalog" select="document('../NIST_SP-800-53_rev5_catalog.xml')"/>
     
+    <xsl:variable name="rev5-controls" select="$rev5-catalog//control"/>
+    
     <xsl:template name="examine-profile">
         <xsl:result-document href="#bxbody" method="ixsl:append-content">
             <details>
@@ -121,7 +123,7 @@
                 </xsl:call-template>
                 <xsl:call-template name="tell">
                     <!-- TODO: support UUID to back matter -->
-                    <xsl:with-param name="when" select="not(XJS:rev5-import(.)) and exists(include/call[not(@control-id=$rev5-catalog/@id)])"/>
+                    <xsl:with-param name="when" select="not(XJS:rev5-import(.)) and exists(include/call[not(@control-id= $rev5-controls/@id)])"/>
                     <xsl:with-param name="title">Viable as SP 800-53?</xsl:with-param>
                     <xsl:with-param name="msg">Import source is not given as SP 800-53, but one or more SP 800-53 control IDs are called.</xsl:with-param>
                     <xsl:with-param name="status">orange</xsl:with-param>
@@ -129,7 +131,7 @@
                 <xsl:call-template name="tell">
                     <xsl:with-param name="when" select="exists(oscal:include/oscal:all) and empty(oscal:exclude/*)"/>
                     <xsl:with-param name="title">Including all, excluding none</xsl:with-param>
-                    <xsl:with-param name="msg">With <code>include/all</code> and nothing excluded, { count($rev5-catalog//oscal:control) } controls and enhancements will appear.</xsl:with-param>
+                    <xsl:with-param name="msg">With <code>include/all</code> and nothing excluded, { count($rev5-controls) } controls and enhancements will appear.</xsl:with-param>
                     <xsl:with-param name="status">green</xsl:with-param>
                 </xsl:call-template>
             </div>
@@ -142,7 +144,7 @@
         <xsl:where-populated>
         <div class="report">
             <xsl:sequence>
-                <xsl:variable name="rev5-calls" select="child::call[@control-id = $rev5-catalog//oscal:control/@id]"/>
+                <xsl:variable name="rev5-calls" select="child::call[@control-id = $rev5-controls/@id]"/>
                 <xsl:call-template name="tell">
                     <xsl:with-param name="when" select="empty(child::all | $rev5-calls)"/>
                     <xsl:with-param name="title">No Rev 5 controls</xsl:with-param>
@@ -163,7 +165,7 @@
     
     <xsl:template priority="12" match="import[XJS:rev5-import(.)]//call" mode="examine" expand-text="true">
         <xsl:call-template name="tell">
-            <xsl:with-param name="when" select="not(@control-id=$rev5-catalog//control/@id)"/>
+            <xsl:with-param name="when" select="not(@control-id= $rev5-controls/@id)"/>
             <xsl:with-param name="title">Calling an unknown control</xsl:with-param>
             <xsl:with-param name="msg">Control <code>{ @control-id }</code> is not found in SP 800-53, Rev 5.</xsl:with-param>
         </xsl:call-template>
@@ -172,7 +174,7 @@
     
     <xsl:template priority="12" match="import[not(XJS:rev5-import(.))]//call" mode="examine" expand-text="true">
         <xsl:call-template name="tell">
-            <xsl:with-param name="when" select="@control-id=$rev5-catalog//control/@id"/>
+            <xsl:with-param name="when" select="@control-id= $rev5-controls/@id"/>
             <xsl:with-param name="title">Calling an SP 800-53 control</xsl:with-param>
             <xsl:with-param name="msg">A control <code>{ @control-id }</code> appears in SP 800-53, Rev 5.</xsl:with-param>
             <xsl:with-param name="status">orange</xsl:with-param>
