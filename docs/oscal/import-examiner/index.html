@@ -110,6 +110,11 @@
               <p>Using this analysis you can quickly and easily determine whether your OSCAL profile, considered as a baseline or overlay of Rev 5 or of its overlays (such as the NIST or FedRAMP HIGH, MODERATE or LOW baselines), will resolve correctly into a control selection for an OSCAL processor according to OSCAL profile semantics.</p>
               <p>Provided with further back end infrastructure (in the form of appropriate file sets, metadata, and match criteria between import statements and upstream catalogs), this tool can offer the same analysis against arbitrary catalogs. NIST SP 800-53 and its baselines are selected for this demonstration for their ubiquity and ready availability in OSCAL.</p>
               <p>A subsequent version of this tool will provide similar import-based analysis of other OSCAL document types including System Security Plans (SSPs) and POA&amp;Ms (Plans of Action and Milestones).</p>
+              <p>Limitations / tdb:</p>
+              <ul>
+                <li>Supports <code>call/@control-id</code> only, not <code>call/@matches</code></li>
+                <li>Does not support <code>call/@with-child-controls</code></li>
+              </ul>
             </details>
         </div>
       <div id="bxbody">

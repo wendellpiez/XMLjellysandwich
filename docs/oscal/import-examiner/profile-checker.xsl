@@ -129,7 +129,7 @@
         <section>
             <h3>Import <code>{ @href }</code></h3>
             <p class="control-widget">
-                <xsl:text>Run again with reference to </xsl:text>
+                <xsl:text>Examined with reference to </xsl:text>
                 <select onchange="refreshBaseline(this.value,{ ($pos0 ) })">
                     <xsl:for-each select="$baseline-options/*">
                         <xsl:copy>
@@ -169,11 +169,12 @@
                     <xsl:with-param name="ifnot">Appears to call SP 800-53.</xsl:with-param>
                 </xsl:call-template>
             </xsl:if>
+            <xsl:variable name="good-calls" select="include/call[@control-id = $all-rev5-controls/@id]"/>
             <xsl:call-template name="tell">
                 <xsl:with-param name="when"
-                    select="exists( include/call[@control-id = $all-rev5-controls/@id] )"/>
+                    select="exists( $good-calls )"/>
                 <xsl:with-param name="title">Viable as SP 800-53?</xsl:with-param>
-                <xsl:with-param name="msg">One or more SP 800-53 control IDs are called.</xsl:with-param>
+                <xsl:with-param name="msg" expand-text="true">{ count($good-calls) } SP 800-53 control { if (count($good-calls) eq 1) then 'ID is' else 'IDs are'} called.</xsl:with-param>
                 <xsl:with-param name="status">
                     <xsl:choose>
                         <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">remarkable</xsl:when>
@@ -278,7 +279,7 @@
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="$refreshing and (@control-id= $baseline-controls/@id)"/>
             <xsl:with-param name="title">Calling a recognized control</xsl:with-param>
-            <xsl:with-param name="msg">A control <code>{ @control-id }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
+            <xsl:with-param name="msg">Control <code>{ @control-id }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
             <xsl:with-param name="status">noteworthy</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
