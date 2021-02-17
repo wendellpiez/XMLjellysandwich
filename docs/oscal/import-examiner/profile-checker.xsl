@@ -80,7 +80,7 @@
                         <xsl:with-param name="when" select="empty(self::profile)"/>
                         <xsl:with-param name="title">Not an OSCAL profile</xsl:with-param>
                             <xsl:with-param name="msg" expand-text="true">Not an OSCAL profile, this document has element <code>{ name(.) }</code> in namespace <code>{ if (matches(namespace-uri(.),'\S')) then namespace-uri(.) else '[none]' }</code>.</xsl:with-param>
-                        <xsl:with-param name="status">red</xsl:with-param>
+                        <xsl:with-param name="status">problematic</xsl:with-param>
                     </xsl:call-template>
                     <xsl:for-each select="self::profile">
                         <xsl:call-template name="profile-check"/>
@@ -99,7 +99,7 @@
     <xsl:template name="profile-check">
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="empty(import)"/>
-            <xsl:with-param name="title">No imports</xsl:with-param>
+            <xsl:with-param name="title">Import count</xsl:with-param>
             <xsl:with-param name="msg">Profile has no imports ...</xsl:with-param>
             <!-- explicit oscal ns works around a SaxonJS bug? -->
             <xsl:with-param name="ifnot" expand-text="true">{ count(oscal:import)} { if
@@ -109,7 +109,7 @@
             <xsl:with-param name="when" select="empty(merge)"/>
             <xsl:with-param name="title">No merge</xsl:with-param>
             <xsl:with-param name="msg">Profile has no <code>merge</code> ...</xsl:with-param>
-            <xsl:with-param name="status">orange</xsl:with-param>
+            <xsl:with-param name="status">remarkable</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
     
@@ -176,8 +176,8 @@
                 <xsl:with-param name="msg">One or more SP 800-53 control IDs are called.</xsl:with-param>
                 <xsl:with-param name="status">
                     <xsl:choose>
-                        <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">orange</xsl:when>
-                        <xsl:otherwise>green</xsl:otherwise>
+                        <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">remarkable</xsl:when>
+                        <xsl:otherwise>noteworthy</xsl:otherwise>
                     </xsl:choose>
                 </xsl:with-param>
             </xsl:call-template>
@@ -188,8 +188,8 @@
                 <xsl:with-param name="msg"><em>All included controls</em> appear in SP 800-53, rev 5.</xsl:with-param>
                 <xsl:with-param name="status">
                     <xsl:choose>
-                        <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">orange</xsl:when>
-                        <xsl:otherwise>green</xsl:otherwise>
+                        <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">remarkable</xsl:when>
+                        <xsl:otherwise>noteworthy</xsl:otherwise>
                     </xsl:choose>
                 </xsl:with-param>
             </xsl:call-template>
@@ -199,8 +199,8 @@
                 <xsl:with-param name="msg" expand-text="true">One or more control IDs are called from <b>{ $baseline-title }</b>.</xsl:with-param>
                 <xsl:with-param name="status">
                     <xsl:choose>
-                        <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">orange</xsl:when>
-                        <xsl:otherwise>green</xsl:otherwise>
+                        <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">remarkable</xsl:when>
+                        <xsl:otherwise>noteworthy</xsl:otherwise>
                     </xsl:choose>
                 </xsl:with-param>
             </xsl:call-template>
@@ -210,8 +210,8 @@
                 <xsl:with-param name="msg" expand-text="true"><em>All included controls</em> appear in <b>{ $baseline-title }</b>.</xsl:with-param>
                 <xsl:with-param name="status">
                     <xsl:choose>
-                        <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">orange</xsl:when>
-                        <xsl:otherwise>green</xsl:otherwise>
+                        <xsl:when test="not(XJS:rev5-import(.)) or $refreshing">remarkable</xsl:when>
+                        <xsl:otherwise>noteworthy</xsl:otherwise>
                     </xsl:choose>
                 </xsl:with-param>
             </xsl:call-template>
@@ -222,7 +222,7 @@
                 <xsl:with-param name="msg" expand-text="true">With <code>include/all</code> and
                     nothing excluded, { count($baseline-controls) } controls and enhancements will
                     appear.</xsl:with-param>
-                <xsl:with-param name="status">green</xsl:with-param>
+                <xsl:with-param name="status">noteworthy</xsl:with-param>
             </xsl:call-template>
         </div>
         <xsl:apply-templates mode="examine"/>
@@ -240,8 +240,8 @@
                 </xsl:call-template>
                 <xsl:apply-templates mode="examine"/>
                 <!--<xsl:on-empty>
-                    <h4 class="title green"><code>include</code> check</h4>
-                    <p class="msg green">
+                    <h4 class="title noteworthy"><code>include</code> check</h4>
+                    <p class="msg noteworthy">
                         <xsl:text>Checks okay.</xsl:text>
                     <xsl:if test="empty(all)" expand-text="true">{ count( $rev5-calls ) } controls are called.</xsl:if></p>
                 </xsl:on-empty>-->
@@ -279,7 +279,7 @@
             <xsl:with-param name="when" select="$refreshing and (@control-id= $baseline-controls/@id)"/>
             <xsl:with-param name="title">Calling a recognized control</xsl:with-param>
             <xsl:with-param name="msg">A control <code>{ @control-id }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
-            <xsl:with-param name="status">green</xsl:with-param>
+            <xsl:with-param name="status">noteworthy</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
     
@@ -422,7 +422,7 @@
         <xsl:param name="when" select="false()"/>
         <xsl:param name="msg">[none]</xsl:param>
         <xsl:param name="ifnot" select="()"/>
-        <xsl:param name="status">red</xsl:param>
+        <xsl:param name="status">problematic</xsl:param>
         <xsl:param name="title">Test</xsl:param>
         <xsl:if test="$when or exists($ifnot)">
         <h4 class="title { $status[$when] }">
