@@ -108,7 +108,7 @@
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="empty(merge)"/>
             <xsl:with-param name="title">No merge</xsl:with-param>
-            <xsl:with-param name="msg">Profile has no <code>merge</code> ...</xsl:with-param>
+            <xsl:with-param name="msg">Profile has no <code class="drctv">merge</code> ...</xsl:with-param>
             <xsl:with-param name="status">remarkable</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
@@ -220,7 +220,7 @@
                 <xsl:with-param name="when"
                     select="exists(oscal:include/oscal:all) and empty(oscal:exclude/*)"/>
                 <xsl:with-param name="title">Including all, excluding none</xsl:with-param>
-                <xsl:with-param name="msg" expand-text="true">With <code>include/all</code> and
+                <xsl:with-param name="msg" expand-text="true">With <code class="drctv">include/all</code> and
                     nothing excluded, { count($baseline-controls) } controls and enhancements will
                     appear.</xsl:with-param>
                 <xsl:with-param name="status">noteworthy</xsl:with-param>
@@ -257,7 +257,7 @@
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="empty(../include/all) or not(@control-id = ../include/call/@control-id)"/>
             <xsl:with-param name="title">Control excluded but not included</xsl:with-param>
-            <xsl:with-param name="msg">Exclusion of control <code>{ @control-id }</code> is inoperative as it is not included.</xsl:with-param>
+            <xsl:with-param name="msg">Exclusion of control <code class="ctrl">{ @control-id }</code> is inoperative as it is not included.</xsl:with-param>
         </xsl:call-template>
         
         <xsl:next-match/>
@@ -269,17 +269,17 @@
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="not(@control-id= $baseline-controls/@id)"/>
             <xsl:with-param name="title">Calling an unknown control</xsl:with-param>
-            <xsl:with-param name="msg">Control <code>{ @control-id }</code> is not found in <b>{ $baseline-title }</b>.</xsl:with-param>
+            <xsl:with-param name="msg">Control <code class="ctrl">{ @control-id }</code> is not found in <b>{ $baseline-title }</b>.</xsl:with-param>
         </xsl:call-template>
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="exists(preceding-sibling::call[@control-id=$me/@control-id])"/>
             <xsl:with-param name="title">Repeated calls on a control</xsl:with-param>
-            <xsl:with-param name="msg">Control <code>{ @control-id }</code> is called more than once.</xsl:with-param>
+            <xsl:with-param name="msg">Control <code class="ctrl">{ @control-id }</code> is called more than once.</xsl:with-param>
         </xsl:call-template>
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="$refreshing and (@control-id= $baseline-controls/@id)"/>
             <xsl:with-param name="title">Calling a recognized control</xsl:with-param>
-            <xsl:with-param name="msg">Control <code>{ @control-id }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
+            <xsl:with-param name="msg">Control <code class="ctrl">{ @control-id }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
             <xsl:with-param name="status">noteworthy</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
