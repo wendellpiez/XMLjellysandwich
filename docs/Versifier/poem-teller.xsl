@@ -43,17 +43,17 @@
       <!-- XXX applying templates to click one of these links. -->
    </xsl:template>
             
-   <xsl:template match="id('dir_select')" mode="ixsl:click">
+   <xsl:template match="id('dir_select')" mode="ixsl:onclick">
       <xsl:apply-templates select="id('dir_panel')" mode="switch-in"/>
    </xsl:template>
    
-   <xsl:template match="id('reset')" mode="ixsl:click">
+   <xsl:template match="id('reset')" mode="ixsl:onclick">
       <xsl:result-document href="#pause_control" method="ixsl:replace-content">
          <xsl:sequence select="$pause-defaults"/>
       </xsl:result-document>
    </xsl:template>
    
-   <xsl:template match="id('zero')" mode="ixsl:click">
+   <xsl:template match="id('zero')" mode="ixsl:onclick">
       <xsl:result-document href="#pause_control" method="ixsl:replace-content">
          <xsl:sequence select="$pause-at-zero"/>
       </xsl:result-document>
@@ -91,11 +91,11 @@
       <xsl:apply-templates/>
    </xsl:template>
    
-   <xsl:template match="id('text_select')" mode="ixsl:click">
+   <xsl:template match="id('text_select')" mode="ixsl:onclick">
       <xsl:apply-templates select="id('text_panel')" mode="switch-in"/>
    </xsl:template>
   
-   <xsl:template match="id('tell_select')" mode="ixsl:click">
+   <xsl:template match="id('tell_select')" mode="ixsl:onclick">
       <xsl:result-document href="#tell_panel" method="ixsl:replace-content">
          <section class="verse">
             <!-- change context to HTML DOM node namely the box where we will find the plain text -->
@@ -144,11 +144,11 @@
       
    </xsl:template>
    
-   <xsl:template match="id('tweak_select')" mode="ixsl:click">
+   <xsl:template match="id('tweak_select')" mode="ixsl:onclick">
       <xsl:apply-templates select="id('tweak_panel')" mode="switch-in"/>
    </xsl:template>
    
-   <xsl:template match="id('clear_select')" mode="ixsl:click">
+   <xsl:template match="id('clear_select')" mode="ixsl:onclick">
       <xsl:apply-templates select="id('tell_panel')" mode="off"/>
       <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
       <xsl:result-document href="#text_title" method="ixsl:replace-content">[Title]</xsl:result-document>
@@ -160,11 +160,11 @@
       <xsl:apply-templates select="id('text_panel')" mode="on"/>
    </xsl:template>
    
-   <xsl:template match="code[@class='button']" mode="ixsl:click">
-      <xsl:apply-templates select="key('button-by-label',string(.))" mode="ixsl:click"/>
+   <xsl:template match="code[@class='button']" mode="ixsl:onclick">
+      <xsl:apply-templates select="key('button-by-label',string(.))" mode="ixsl:onclick"/>
    </xsl:template>
    
-   <xsl:template match="h5[@class='toc-entry']" mode="ixsl:click">
+   <xsl:template match="h5[@class='toc-entry']" mode="ixsl:onclick">
       <xsl:variable name="poem" select="document(resolve-uri(@data-src))"/>
       <xsl:result-document href="#text_title" method="ixsl:replace-content">
          <xsl:apply-templates select="$poem/descendant::title[1]/node()"/>
@@ -330,7 +330,7 @@
       </xsl:variable>
       <!--<xsl:message>pausing <xsl:value-of select="$pause"/> for <xsl:value-of select="name()"/></xsl:message>-->
       <!-- waiting zero just suspends -->
-      <xsl:variable name="wait" select="xs:integer($pause * 360) + 1"/>
+      <xsl:variable name="wait" select="xs:integer($pause * 720) + 1"/>
       <!--<xsl:message>wait is <xsl:value-of select="$wait"/></xsl:message>-->
       <ixsl:schedule-action wait="$wait">
          <xsl:call-template name="show"/>

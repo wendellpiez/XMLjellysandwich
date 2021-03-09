@@ -16,7 +16,6 @@
       </xsl:result-document>
       <xsl:apply-templates select="catalog" mode="full-directory"/>
    </xsl:template>
-
    
    <xsl:variable name="source-catalog" select="/"/>
    
@@ -25,7 +24,6 @@
       <xsl:result-document href="#xmljellysandwich_directory" method="ixsl:replace-content"/>
       <xsl:apply-templates select="$source-catalog" mode="full-directory"/>
    </xsl:template>
-   
    
    <xsl:template match="catalog" mode="full-directory">
       <xsl:result-document href="#versifier_css"  method="ixsl:replace-content"/>
@@ -76,9 +74,9 @@
       <xsl:text>)</xsl:text>
    </xsl:template>
    
-   <xsl:template match="*[contains-token(@class,'toc-entry')]" mode="ixsl:click">
+   <xsl:template match="*[contains-token(@class,'toc-entry')]" mode="ixsl:onclick">
       <xsl:variable name="where" select="resolve-uri(@data-src)"/>
-      <!--<xsl:message>Whee </xsl:message>-->
+      <xsl:message expand-text="true">Whee { $where }</xsl:message>
       <ixsl:schedule-action document="{$where}">
          <xsl:call-template name="load-poem">
             <xsl:with-param name="where" select="$where"/>
@@ -86,7 +84,7 @@
       </ixsl:schedule-action>
    </xsl:template>
    
-   <xsl:template match="id('page-title')" mode="ixsl:click">
+   <xsl:template match="id('page-title')" mode="ixsl:onclick">
       <xsl:call-template name="show-directory"/>
    </xsl:template>
    
@@ -227,7 +225,7 @@
          <xsl:apply-templates select="." mode="pause"/>
       </xsl:variable>
       <!-- waiting zero just suspends -->
-      <xsl:variable name="wait" select="xs:integer($pause * 360) + 1"/>
+      <xsl:variable name="wait" select="xs:integer($pause * 720) + 1"/>
       <!--<xsl:message>wait is <xsl:value-of select="$wait"/></xsl:message>-->
       <ixsl:schedule-action wait="$wait">
          <xsl:call-template name="show"/>

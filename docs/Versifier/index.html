@@ -12,13 +12,12 @@
      <style type="text/css" id="xmljellysandwich_css"><!-- Include your CSS here ... or target #xmljellysandwich_css from your XSLT ... --></style>
      <style type="text/css" id="versifier_css"><!-- each poem gets its own CSS here --></style>
      <script type="text/javascript"
-              src="../lib/Saxon-JS-1.2.0/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
+              src="../lib/Saxon-JS-2.1/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
       <script>
-        
-              window.onload = function() {
+      window.onload = function() {
           SaxonJS.transform({
             sourceLocation:     "catalog.xml",
-            stylesheetLocation: "versifier.sef",
+            stylesheetLocation: "versifier.sef.json",
             initialTemplate:    "xmljellysandwich_pack"
           });
           }   

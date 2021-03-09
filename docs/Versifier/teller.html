@@ -13,12 +13,12 @@
      </style>
      <style id="teller-css"> <!-- css injection here --> </style>
      <script type="text/javascript"
-              src="../lib/Saxon-JS-1.2.0/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
+              src="../lib/Saxon-JS-2.1/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
       <script> // loading with window so as to get interactivity bindings
         window.onload = function() {
           SaxonJS.transform({
             sourceLocation:     "catalog.xml",
-            stylesheetLocation: "poem-teller.sef",
+            stylesheetLocation: "poem-teller.sef.json",
             initialTemplate:    "xmljellysandwich_pack"
           });
           }   
