@@ -6,11 +6,14 @@ The demonstrations, and XML Jelly Sandwich in general, are entirely dependent on
 
 Each of the demonstrations listed is provided with source XSLT. The page code will show you where: if a call to SaxonJS inside an HTML page says to invoke `stylesheet: 'transform.sef'`, the stylesheet (from which the compiled `.sef` file was produced) will be there as file `transform.xsl`.
 
+They have been made at various times to different versions of Saxon-JS, which continues to improve, so your mileage may vary. *Apologies in advance* if a page fails to load, and please feel free to report bugs via Issues in the Github repository.
+
 ## Latest Demonstrations
 
 These may (also) be published elsewhere but are maintained here for long-term accessibility.
 
 * [Isn't it a clock?](ApresMagritte/)
+* [Cast I Ching](IChing/)
 * [The Versifier](Versifier/)
 * [The Poem Teller](Versifier/teller.html)
 * [Conway's Life - in XSLT](GameofLife/)
