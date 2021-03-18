@@ -8,6 +8,9 @@ Each of the demonstrations listed is provided with source XSLT. The page code wi
 
 They have been made at various times to different versions of Saxon-JS, which continues to improve, so your mileage may vary. *Apologies in advance* if a page fails to load, and please feel free to report bugs via Issues in the Github repository.
 
+> Additional note: Although Saxon-JS libraries are available on this site -- which is designed for maximum transparency -- they are presented for *demonstration only*. When building your own Saxon-JS applications you should not rely on the currency or availability of copies found here, instead maintaining your copies of up-to-date distributable sources from Saxonica.
+
+
 ## Latest Demonstrations
 
 These may (also) be published elsewhere but are maintained here for long-term accessibility.

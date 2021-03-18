@@ -16,9 +16,14 @@ SaxonJS is documented here: http://www.saxonica.com/saxon-js/documentation/index
 Here are the copyright notice and disclaimer that appear with the public license of Saxon-JS (take notice if you fork):
 
 > Software: This license applies to the packages "xslt3" and "saxon-js" distributed via npm (https://www.npmjs.com) and to the modules SaxonJS2.js and SaxonJS2.rt.js available for download from the Saxonica web site (https://www.saxonica.com/).
+>
 > Copyright: The copyright in the Software belongs to Saxonica Ltd, except for third-party components listed in the documentation that are distributed under license.
+>
 > ...
+>
 > DISCLAIMER. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS." ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Additional note: Although Saxon-JS libraries are available on this site -- which is designed for maximum transparency -- they are presented for *demonstration only*. When building your own Saxon-JS applications you should not rely on the currency or availability of copies found here, instead maintaining your copies of up-to-date distributable sources from Saxonica.
 
 Apart from Saxon-JS and similar dependencies as noted, all software on this site is free to borrow, study, use and adapt for any purpose.
 
