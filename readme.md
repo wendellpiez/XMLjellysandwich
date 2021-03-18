@@ -2,7 +2,7 @@
 
 Starter kit for XSLT 3.0 in the browser using SaxonJS
 
-(Might have named it "XSLT Jump Start" except for the excellent book of that title, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, tasty, nutritious, and portable.)
+(Might have named it "XSLT Jump Start" except for the excellent book of that title, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, tasty, nutritious, and portable. Plus an XMLjellysandwich fits neatly into an XMLLunchbox, also in this repository.)
 
 To see examples: http://wendellpiez.github.io/XMLjellysandwich
 
