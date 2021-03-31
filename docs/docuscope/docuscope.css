@@ -3,12 +3,16 @@ th, td { padding: 0em 0.5em }
 .smmry > tr > th, .smmry > tr > td { border: thin solid black; padding: 0.4em }
 .smmry th:first-child { text-align: right }
 .lbl { font-weight: bold; font-family: sans-serif }
-.smmry .lit { font-family: 'IBM Plex Mono', monospace; background-color: gainsboro }
+.lit, .oll { font-family: 'IBM Plex Mono', monospace; background-color: gainsboro }
+
+.rightalign { text-align: right }
+
 
 pre { font-family: 'IBM Plex Mono', monospace }
 
+.xpath { font-family: 'IBM Plex Mono', monospace; font-weight: bold } 
 
-div.sketch { margin: 1em; padding: 1em; border:thin solid black }
+div.sketch { margin: 1em; padding: 1em; border: thin solid black }
 
 table td, table tr { vertical-align: text-top }
 
@@ -18,3 +22,9 @@ th { work-break: keep-all }
 td.bar { word-break: break-all; font-size: 60% }
 b.s { color: forestgreen }
 b.t { color: blue }
+
+.outline { display: flex; flex-flow: row; margin-top: 0em }
+.outline div { flex-grow: 0; vertical-align: middle; margin: 0.1rem  }
+.oll { font-size: 80% }
+.outline div.olt { background-color: lightgreen; line-height: 0.5em }
+

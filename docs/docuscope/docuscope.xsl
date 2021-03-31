@@ -44,8 +44,17 @@
         <div class="docscope">
             <h2><xsl:text expand-text="true">File: { $fileName }</xsl:text></h2>
             <xsl:call-template name="produce-summary"/>
-            <div class="sketch">
+            <!-- <div class="sketch">
                 <xsl:apply-templates mode="draw" select="$measured-tree"/>
+            </div> -->
+            <div class="graph">
+            
+            </div>
+            <div>
+                <details>
+                    <summary>Element structure</summary>
+                    <xsl:apply-templates select="*" mode="outline"/>
+                </details>
             </div>
             <div>
                 <details>
@@ -84,22 +93,22 @@
                         <td class="n"><q>[none]</q> means the root element is not assigned a namespace</td>
                     </tr>
                     <tr>
+                      <xsl:variable name="title1" select="/descendant::*:title[1]"/>
                         <th>
                             <span class="lbl">(Value of) First element named <q>title</q></span>
                         </th>
                         <td>
-                            <span class="lit">{ /descendant::*:title[1] }</span>
+                            <span class="lit">{ $title1 }</span>
                         </td>
-                        <td class="n">[todo: XPath to this node]</td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <span class="lbl">Testing key() function: how many docbook 'title' elements do we see?</span>
-                        </th>
-                        <td>
-                            <span class="lit">{ count(key('docbook-element-by-name','title')) }</span>
+                        <td class="n">
+                        <xsl:for-each select="$title1">
+                            <span class="xpath">
+                                <xsl:apply-templates select="$title1" mode="xpath"/>
+                            </span>
+                        </xsl:for-each>                          
+                            
+                            <xsl:if test="empty($title1)">(none found)</xsl:if>
                         </td>
-                        <td class="n">docbook is construed to be anything bound to http://docbook.org/ns/docbook</td>
                     </tr>
                     <tr>
                         <th>
@@ -138,6 +147,32 @@
             </table>
         </div>
     </xsl:template>
+    
+    <xsl:template mode="xpath" match="*">
+      <xsl:apply-templates select="parent::*" mode="#current"/>
+      <xsl:text expand-text="true">/{ name() }</xsl:text>
+    </xsl:template>
+
+    <xsl:template mode="xpath" match="*[node-name=(../* except current() )/node-name()]">
+      <xsl:apply-templates select="parent::*" mode="#current"/>
+      <xsl:variable name="predecessors" select="preceding-sibling::*[node-name()=current()/node-name()]"/>
+      <xsl:text expand-text="true">/{ name() }[{ count(. | $predecessors) }]</xsl:text>
+    </xsl:template>
+
+    <xsl:template match="*" mode="outline" expand-text="true">
+        <div class="outline">
+            <div class="oll">{ name() }</div>
+            <div class="olc">
+              <xsl:apply-templates mode="outline"/>
+            </div>
+        </div>
+    </xsl:template>
+
+<xsl:template match="text()[matches(.,'^\s+$')]" mode="outline"/>
+
+<xsl:template match="text()" mode="outline">
+        <div class="olt" style="width: { normalize-space(.) ! string-length(.) }; flex-basis: { normalize-space(.) ! string-length(.) }">&#xA0;</div>
+    </xsl:template>
 
     <xsl:template name="element-histogram" expand-text="true">
         <xsl:param name="elements" required="true"/>
@@ -153,8 +188,8 @@
                     <xsl:sort select="count(current-group())" order="descending"/>
                         <tr>
                             <th><span class="lit">{ current-grouping-key() }</span></th>
-                            <td>({ count(current-group() ) })</td>
-                            <td>{ ((count(current-group()) div $elemcount) => round(3) ) * 100 }%</td>
+                            <td class="rightalign">({ count(current-group() ) })</td>
+                            <td class="rightalign">{ ((count(current-group()) div $elemcount) => round(3) ) * 100 }%</td>
                             <td class="bar">
                                 <xsl:for-each select="current-group()">
                                     <!-- &#8226; is a bullet  &#9646; a vertical rectangle -->
