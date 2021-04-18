@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:transform xmlns:pb="http://github.com/wendellpiez/XMLjellsandwich/oscal/validator" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="3.0" xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0" exclude-result-prefixes="#all">
    <xsl:mode name="test" on-no-match="shallow-skip"/>
-   <!-- Generated 2021-04-18T14:18:18.213-04:00 --><!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- --><!-- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- --><!--     Root --><!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -->
+   <!-- Generated 2021-04-18T14:46:17.798-04:00 --><!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- --><!-- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- --><!--     Root --><!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -->
 <xsl:template match="/catalog" mode="test">
       <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-catalog-assembly"/>
@@ -469,6 +469,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-back-matter-resource-rlink-assembly"/>
    </xsl:template>
+   <xsl:template match="param/value/text()" mode="test"/>
    <xsl:template match="param/value" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="condition" select="exists(../(select))"/>
@@ -484,6 +485,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-parameter-value-field"/>
    </xsl:template>
+   <xsl:template match="param/remarks/text()" mode="test"/>
    <xsl:template match="param/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -493,6 +495,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="parameter-constraint/test/remarks/text()" mode="test"/>
    <xsl:template match="parameter-constraint/test/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -502,6 +505,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="metadata/published/text()" mode="test"/>
    <xsl:template match="metadata/published" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -517,6 +521,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-published-field"/>
    </xsl:template>
+   <xsl:template match="metadata/last-modified/text()" mode="test"/>
    <xsl:template match="metadata/last-modified" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -532,6 +537,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-last-modified-field"/>
    </xsl:template>
+   <xsl:template match="metadata/version/text()" mode="test"/>
    <xsl:template match="metadata/version" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -547,6 +553,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-version-field"/>
    </xsl:template>
+   <xsl:template match="metadata/oscal-version/text()" mode="test"/>
    <xsl:template match="metadata/oscal-version" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -562,6 +569,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-oscal-version-field"/>
    </xsl:template>
+   <xsl:template match="metadata/document-id/text()" mode="test"/>
    <xsl:template match="metadata/document-id" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -571,6 +579,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-document-id-field"/>
    </xsl:template>
+   <xsl:template match="metadata/remarks/text()" mode="test"/>
    <xsl:template match="metadata/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -580,6 +589,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="revision/published/text()" mode="test"/>
    <xsl:template match="revision/published" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -595,6 +605,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-published-field"/>
    </xsl:template>
+   <xsl:template match="revision/last-modified/text()" mode="test"/>
    <xsl:template match="revision/last-modified" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -610,6 +621,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-last-modified-field"/>
    </xsl:template>
+   <xsl:template match="revision/version/text()" mode="test"/>
    <xsl:template match="revision/version" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -625,6 +637,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-version-field"/>
    </xsl:template>
+   <xsl:template match="revision/oscal-version/text()" mode="test"/>
    <xsl:template match="revision/oscal-version" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -640,6 +653,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-oscal-version-field"/>
    </xsl:template>
+   <xsl:template match="revision/remarks/text()" mode="test"/>
    <xsl:template match="revision/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -649,6 +663,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="location/email-address/text()" mode="test"/>
    <xsl:template match="location/email-address" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -658,6 +673,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-email-address-field"/>
    </xsl:template>
+   <xsl:template match="location/telephone-number/text()" mode="test"/>
    <xsl:template match="location/telephone-number" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -667,6 +683,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-telephone-number-field"/>
    </xsl:template>
+   <xsl:template match="location/remarks/text()" mode="test"/>
    <xsl:template match="location/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -676,6 +693,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="party/email-address/text()" mode="test"/>
    <xsl:template match="party/email-address" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -685,6 +703,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-email-address-field"/>
    </xsl:template>
+   <xsl:template match="party/telephone-number/text()" mode="test"/>
    <xsl:template match="party/telephone-number" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -694,6 +713,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-telephone-number-field"/>
    </xsl:template>
+   <xsl:template match="party/location-uuid/text()" mode="test"/>
    <xsl:template match="party/location-uuid" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="condition" select="exists(../(address))"/>
@@ -703,6 +723,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-location-uuid-field"/>
    </xsl:template>
+   <xsl:template match="party/remarks/text()" mode="test"/>
    <xsl:template match="party/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -712,6 +733,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="role/remarks/text()" mode="test"/>
    <xsl:template match="role/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -721,6 +743,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="back-matter/resource/document-id/text()" mode="test"/>
    <xsl:template match="back-matter/resource/document-id" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -730,9 +753,11 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-document-id-field"/>
    </xsl:template>
+   <xsl:template match="back-matter/resource/rlink/hash/text()" mode="test"/>
    <xsl:template match="back-matter/resource/rlink/hash" mode="test">
       <xsl:call-template name="require-for-hash-field"/>
    </xsl:template>
+   <xsl:template match="back-matter/resource/remarks/text()" mode="test"/>
    <xsl:template match="back-matter/resource/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -742,6 +767,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="prop/remarks/text()" mode="test"/>
    <xsl:template match="prop/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -751,6 +777,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="responsible-party/party-uuid/text()" mode="test"/>
    <xsl:template match="responsible-party/party-uuid" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -760,6 +787,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-party-uuid-field"/>
    </xsl:template>
+   <xsl:template match="responsible-party/remarks/text()" mode="test"/>
    <xsl:template match="responsible-party/remarks" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -769,6 +797,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-remarks-field"/>
    </xsl:template>
+   <xsl:template match="address/addr-line/text()" mode="test"/>
    <xsl:template match="address/addr-line" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -778,6 +807,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-addr-line-field"/>
    </xsl:template>
+   <xsl:template match="part/title/text()" mode="test"/>
    <xsl:template match="part/title" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -793,6 +823,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-part-title-field"/>
    </xsl:template>
+   <xsl:template match="part/prose/text()" mode="test"/>
    <xsl:template match="part/prose" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -808,6 +839,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-part-prose-field"/>
    </xsl:template>
+   <xsl:template match="param/label/text()" mode="test"/>
    <xsl:template match="param/label" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -823,6 +855,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-parameter-label-field"/>
    </xsl:template>
+   <xsl:template match="param/usage/text()" mode="test"/>
    <xsl:template match="param/usage" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -838,6 +871,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-parameter-usage-field"/>
    </xsl:template>
+   <xsl:template match="parameter-constraint/description/text()" mode="test"/>
    <xsl:template match="parameter-constraint/description" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -853,6 +887,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-parameter-constraint-description-field"/>
    </xsl:template>
+   <xsl:template match="parameter-constraint/test/expression/text()" mode="test"/>
    <xsl:template match="parameter-constraint/test/expression" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -868,6 +903,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-parameter-constraint-test-expression-field"/>
    </xsl:template>
+   <xsl:template match="parameter-guideline/prose/text()" mode="test"/>
    <xsl:template match="parameter-guideline/prose" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -877,9 +913,11 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-parameter-guideline-prose-field"/>
    </xsl:template>
+   <xsl:template match="parameter-selection/choice/text()" mode="test"/>
    <xsl:template match="parameter-selection/choice" mode="test">
       <xsl:call-template name="require-for-parameter-selection-parameter-choice-field"/>
    </xsl:template>
+   <xsl:template match="metadata/title/text()" mode="test"/>
    <xsl:template match="metadata/title" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -895,6 +933,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-metadata-title-field"/>
    </xsl:template>
+   <xsl:template match="revision/title/text()" mode="test"/>
    <xsl:template match="revision/title" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -910,6 +949,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-revision-title-field"/>
    </xsl:template>
+   <xsl:template match="location/title/text()" mode="test"/>
    <xsl:template match="location/title" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -925,6 +965,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-location-title-field"/>
    </xsl:template>
+   <xsl:template match="location/url/text()" mode="test"/>
    <xsl:template match="location/url" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -934,6 +975,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-location-url-field"/>
    </xsl:template>
+   <xsl:template match="party/name/text()" mode="test"/>
    <xsl:template match="party/name" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -949,6 +991,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-party-name-field"/>
    </xsl:template>
+   <xsl:template match="party/short-name/text()" mode="test"/>
    <xsl:template match="party/short-name" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -964,6 +1007,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-party-short-name-field"/>
    </xsl:template>
+   <xsl:template match="party/external-id/text()" mode="test"/>
    <xsl:template match="party/external-id" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -973,6 +1017,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-party-external-id-field"/>
    </xsl:template>
+   <xsl:template match="party/member-of-organization/text()" mode="test"/>
    <xsl:template match="party/member-of-organization" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
@@ -982,6 +1027,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-party-member-of-organization-field"/>
    </xsl:template>
+   <xsl:template match="role/title/text()" mode="test"/>
    <xsl:template match="role/title" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -997,6 +1043,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-role-title-field"/>
    </xsl:template>
+   <xsl:template match="role/short-name/text()" mode="test"/>
    <xsl:template match="role/short-name" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1012,6 +1059,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-role-short-name-field"/>
    </xsl:template>
+   <xsl:template match="role/description/text()" mode="test"/>
    <xsl:template match="role/description" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1027,6 +1075,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-role-description-field"/>
    </xsl:template>
+   <xsl:template match="back-matter/resource/title/text()" mode="test"/>
    <xsl:template match="back-matter/resource/title" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1042,6 +1091,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-back-matter-resource-title-field"/>
    </xsl:template>
+   <xsl:template match="back-matter/resource/description/text()" mode="test"/>
    <xsl:template match="back-matter/resource/description" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1057,6 +1107,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-back-matter-resource-description-field"/>
    </xsl:template>
+   <xsl:template match="back-matter/resource/citation/text/text()" mode="test"/>
    <xsl:template match="back-matter/resource/citation/text" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1072,6 +1123,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-back-matter-resource-citation-text-field"/>
    </xsl:template>
+   <xsl:template match="back-matter/resource/base64/text()" mode="test"/>
    <xsl:template match="back-matter/resource/base64" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1087,6 +1139,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-back-matter-resource-base64-field"/>
    </xsl:template>
+   <xsl:template match="link/text/text()" mode="test"/>
    <xsl:template match="link/text" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1096,6 +1149,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-link-text-field"/>
    </xsl:template>
+   <xsl:template match="address/city/text()" mode="test"/>
    <xsl:template match="address/city" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1111,6 +1165,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-address-city-field"/>
    </xsl:template>
+   <xsl:template match="address/state/text()" mode="test"/>
    <xsl:template match="address/state" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1126,6 +1181,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-address-state-field"/>
    </xsl:template>
+   <xsl:template match="address/postal-code/text()" mode="test"/>
    <xsl:template match="address/postal-code" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1141,6 +1197,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-address-postal-code-field"/>
    </xsl:template>
+   <xsl:template match="address/country/text()" mode="test"/>
    <xsl:template match="address/country" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1150,6 +1207,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-address-country-field"/>
    </xsl:template>
+   <xsl:template match="group/title/text()" mode="test"/>
    <xsl:template match="group/title" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1165,6 +1223,7 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-group-title-field"/>
    </xsl:template>
+   <xsl:template match="control/title/text()" mode="test"/>
    <xsl:template match="control/title" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
@@ -1791,4 +1850,6 @@
       <xsl:apply-templates mode="validate-markup-line"/>
    </xsl:template>
    <xsl:template match="a/@href | img/@src | img/@title" mode="validate-markup-line"/>
+   <xsl:template match="p/text() | li/text() | h1/text() | h2/text() | h3/text() | h4/text() | h5/text() | h6/text()" mode="test"/>
+   <xsl:template match="em/text() | i/text() | strong/text() | b/text() | u/text() | q/text() | code/text() | a/text()" mode="test"/>
 </xsl:transform>

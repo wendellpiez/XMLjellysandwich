@@ -47,7 +47,7 @@
                   <xsl:apply-templates mode="validate"/>
                 </xsl:variable>
                 <xsl:if test="empty($validated-tree//pb:*)">
-                    <h4>Congratulations, there is nothing to report</h4>
+                    <h4>Congratulations: there is nothing to report</h4>
                 </xsl:if>
                 <xsl:apply-templates select="$validated-tree" mode="outline"/>
             </section>
@@ -66,7 +66,12 @@
             <xsl:apply-templates mode="validate"/>
         </xsl:copy>
     </xsl:template>
-
+    
+    <xsl:template match="text()" mode="validate">
+        <xsl:apply-templates select="." mode="test"/>
+        <xsl:next-match/>
+    </xsl:template>
+    
     <!-- wrapper template for testing on each node, to be overridden
          and extended for known elements -->
     <xsl:template match="*" mode="test">
@@ -74,6 +79,16 @@
         <xsl:call-template name="notice">
             <xsl:with-param name="cat">unknown element</xsl:with-param>
             <xsl:with-param name="msg" expand-text="true">Element <code>{ name() }</code> not recognized.</xsl:with-param>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template match="text()[not(matches(.,'\S'))]" mode="test"/>
+        
+    <xsl:template match="text()" mode="test">
+        <!-- report if not recognized -->
+        <xsl:call-template name="notice">
+            <xsl:with-param name="cat">misplaced text</xsl:with-param>
+            <xsl:with-param name="msg" expand-text="true">Text contents not expected here.</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
     
@@ -131,6 +146,27 @@
     <xsl:template mode="xpath" match="@*">
         <xsl:apply-templates select="parent::*" mode="#current"/>
         <xsl:text expand-text="true">/@{ name() }</xsl:text>
+    </xsl:template>
+    
+    <xsl:template mode="xpath" match="text()">
+        <xsl:apply-templates select="parent::*" mode="#current"/>
+        <xsl:variable name="kin" select="../text()"/>
+        <xsl:variable name="place" expand-text="true">[{ count(preceding-sibling::text()|.) }]</xsl:variable>
+        <xsl:text expand-text="true">/text(){ (count($kin)[. gt 1]) ! $place }</xsl:text>
+    </xsl:template>
+    
+    <xsl:template mode="xpath" match="comment()">
+        <xsl:apply-templates select="parent::*" mode="#current"/>
+        <xsl:variable name="kin" select="../comment()"/>
+        <xsl:variable name="place" expand-text="true">[{ count(preceding-sibling::comment()|.) }]</xsl:variable>
+        <xsl:text expand-text="true">/text(){ (count($kin)[. gt 1]) ! $place }</xsl:text>
+    </xsl:template>
+    
+    <xsl:template mode="xpath" match="processing-instruction()">
+        <xsl:apply-templates select="parent::*" mode="#current"/>
+        <xsl:variable name="kin" select="../processing-instruction()"/>
+        <xsl:variable name="place" expand-text="true">[{ count(preceding-sibling::processing-instruction()|.) }]</xsl:variable>
+        <xsl:text expand-text="true">/text(){ (count($kin)[. gt 1]) ! $place }</xsl:text>
     </xsl:template>
     
     <xsl:template match="*" mode="outline" expand-text="true">

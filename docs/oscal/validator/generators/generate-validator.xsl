@@ -102,7 +102,6 @@
         <XSLT:apply-templates mode="validate-markup-multiline"/>
       </XSLT:template>
       
-      
       <XSLT:template match="p | li | h1 | h2 | h3 | h4 | h5 | h6" mode="validate-markup-multiline">
         <XSLT:apply-templates mode="validate-markup-multiline" select="@*"/>
         <XSLT:apply-templates mode="validate-markup-line"/>
@@ -115,6 +114,8 @@
       
       <XSLT:template match="a/@href | img/@src | img/@title" mode="validate-markup-line"/>
       
+      <XSLT:template match="p/text() | li/text() | h1/text() | h2/text() | h3/text() | h4/text() | h5/text() | h6/text()"   mode="test"/>
+      <XSLT:template match="em/text() | i/text() | strong/text() | b/text() | u/text() | q/text() | code/text() | a/text()" mode="test"/>
       
     </XSLT:transform>
   </xsl:template>
@@ -148,8 +149,13 @@
     match="assembly | model//define-assembly | field | model//define-field">
     <xsl:variable name="metaschema-type" select="if (ends-with(local-name(),'assembly')) then 'assembly' else 'field'"/>
     <xsl:variable name="using-name" select="pb:use-name(.)"/>
+    <xsl:variable name="match-path" select="(ancestor::define-assembly | .)/pb:use-name(.) => string-join('/')"/>
+    
     <!-- when in-xml='WITH_WRAPPER' we need to extend to pb:path-step not just pb:use-name   -->
-    <XSLT:template match="{ (ancestor::define-assembly | .)/pb:use-name(.) => string-join('/') }"
+    <xsl:for-each select="self::field | self::define-field">
+      <XSLT:template match="{ $match-path }/text()" mode="test"/>
+    </xsl:for-each>
+    <XSLT:template match="{ $match-path }"
       mode="test">
       <!-- 'test-occurrence' template produces only tests needed to check this occurrence -->
       <xsl:call-template name="test-occurrence">
