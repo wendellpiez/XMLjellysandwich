@@ -29,8 +29,6 @@
 
     <xsl:key name="element-by-name" match="*" use="local-name()"/>
     
-    <xsl:key name="docbook-element-by-name" match="docbook:*" use="local-name()" xmlns:docbook="http://docbook.org/ns/docbook"/>
-    
     <xsl:template match="/">
 
         <!-- pipeline is handled internally for now
@@ -47,8 +45,13 @@
             <!-- <div class="sketch">
                 <xsl:apply-templates mode="draw" select="$measured-tree"/>
             </div> -->
-            <div class="graph">
-            
+            <div>
+                <details>
+                    <summary>Element type frequency (histogram)</summary>
+                    <xsl:call-template name="element-histogram">
+                        <xsl:with-param name="elements" select="//*"/>
+                    </xsl:call-template>
+                </details>
             </div>
             <div>
                 <details>
@@ -75,6 +78,13 @@
             </details>
         </div>-->
 
+            <div>
+                <h3>More ideas</h3>
+                <ul>
+                    <li>Attribute usage survey</li>
+                    <li>Element 'promiscuity' (ratio of parent/child pairs to element types) in the instance (not the same as the schema)</li>
+                </ul>
+            </div>
         </div>
     </xsl:template>
 
@@ -137,12 +147,6 @@
                         </td>
                         <td class="n">* <q>word</q> as sequence of non-whitespace characters</td>
                     </tr>
-                    <xsl:call-template name="element-histogram">
-                        <xsl:with-param name="elements" select="//*"/>
-                        <xsl:with-param name="label">
-                            <span class="lbl">Elements</span>
-                        </xsl:with-param>
-                    </xsl:call-template>
                 </xsl:sequence>
             </table>
         </div>
@@ -168,47 +172,44 @@
         </div>
     </xsl:template>
 
+    <!-- <xsl:template match="*[exists(child::text()[matches(.,'\S')])]" mode="outline" expand-text="true">
+        <div class="oll">{ name() }</div>
+        <xsl:apply-templates mode="outline"/>
+    </xsl:template> -->
+
 <xsl:template match="text()[matches(.,'^\s+$')]" mode="outline"/>
 
-<xsl:template match="text()" mode="outline">
-        <div class="olt" style="width: { normalize-space(.) ! string-length(.) }; flex-basis: { normalize-space(.) ! string-length(.) }">&#xA0;</div>
+<xsl:template match="text()" mode="outline" expand-text="true">
+        <!-- <div class="olt" style="width: { normalize-space(.) ! string-length(.) }; flex-basis: { normalize-space(.) ! string-length(.) }">&#xA0;</div> -->
+        <div class="olt">{ normalize-space(.) }</div>
     </xsl:template>
 
     <xsl:template name="element-histogram" expand-text="true">
         <xsl:param name="elements" required="true"/>
-        <xsl:param name="label">&#xA0;</xsl:param>
-        <tr>
-            <th>
-                <xsl:sequence select="$label"/>
-            </th>
-            <td colspan="2">
-                <table class="histogram">
-                <xsl:variable name="elemcount" select="count(//*)"/>
-                <xsl:for-each-group select="$elements" group-by="name()">
-                    <xsl:sort select="count(current-group())" order="descending"/>
-                        <tr>
-                            <th><span class="lit">{ current-grouping-key() }</span></th>
-                            <td class="rightalign">({ count(current-group() ) })</td>
-                            <td class="rightalign">{ ((count(current-group()) div $elemcount) => round(3) ) * 100 }%</td>
-                            <td class="bar">
-                                <xsl:for-each select="current-group()">
-                                    <!-- &#8226; is a bullet  &#9646; a vertical rectangle -->
-                                    <xsl:variable name="class">
-                                        <xsl:choose>
-                                            <xsl:when test="empty(child::*|child::text()[matches(.,'\S')] )">e</xsl:when>
-                                            <xsl:when test="empty(child::text()[matches(.,'\S')] )">s</xsl:when>
-                                            <xsl:otherwise>t</xsl:otherwise>
-                                        </xsl:choose>
-                                    </xsl:variable>
-                                    <b class="{ $class }">&#9646;</b>
-                                </xsl:for-each>
-                            </td>
-                        </tr>
-                </xsl:for-each-group>
-                </table>
-                
-            </td>
-        </tr>
+            <table class="histogram">
+            <xsl:variable name="elemcount" select="count(//*)"/>
+            <xsl:for-each-group select="$elements" group-by="name()">
+                <xsl:sort select="count(current-group())" order="descending"/>
+                    <tr>
+                        <th><span class="lit">{ current-grouping-key() }</span></th>
+                        <td class="rightalign">({ count(current-group() ) })</td>
+                        <td class="rightalign">{ ((count(current-group()) div $elemcount) => round(3) ) * 100 }%</td>
+                        <td class="bar">
+                            <xsl:for-each select="current-group()">
+                                <!-- &#8226; is a bullet  &#9646; a vertical rectangle -->
+                                <xsl:variable name="class">
+                                    <xsl:choose>
+                                        <xsl:when test="empty(child::*|child::text()[matches(.,'\S')] )">e</xsl:when>
+                                        <xsl:when test="empty(child::text()[matches(.,'\S')] )">s</xsl:when>
+                                        <xsl:otherwise>t</xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:variable>
+                                <b class="{ $class }">&#9646;</b>
+                            </xsl:for-each>
+                        </td>
+                    </tr>
+            </xsl:for-each-group>
+            </table>
     </xsl:template>
 
     <xsl:function name="XJS:word-count" as="xs:integer">

@@ -169,7 +169,7 @@
                     <xsl:with-param name="ifnot">Appears to call SP 800-53.</xsl:with-param>
                 </xsl:call-template>
             </xsl:if>
-            <xsl:variable name="good-calls" select="include/call[@control-id = $all-rev5-controls/@id]"/>
+            <xsl:variable name="good-calls" select="include-controls/with-id[. = $all-rev5-controls/@id]"/>
             <xsl:call-template name="tell">
                 <xsl:with-param name="when"
                     select="exists( $good-calls )"/>
@@ -184,7 +184,7 @@
             </xsl:call-template>
             <xsl:call-template name="tell">
                 <xsl:with-param name="when"
-                    select="exists(include/call) and empty( include/call[not(@control-id = $all-rev5-controls/@id)] )"/>
+                    select="exists(include-controls) and empty( include-controls/with-id[not(. = $all-rev5-controls/@id)] )"/>
                 <xsl:with-param name="title">Viable as SP 800-53?</xsl:with-param>
                 <xsl:with-param name="msg"><em>All included controls</em> appear in SP 800-53, rev 5.</xsl:with-param>
                 <xsl:with-param name="status">
@@ -195,7 +195,7 @@
                 </xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="tell">
-                <xsl:with-param name="when" select="not($baseline='sp800-53rev5') and exists(include/call[ @control-id = $baseline-controls/@id ])"/>
+                <xsl:with-param name="when" select="not($baseline='sp800-53rev5') and exists(include-controls/with-id[ . = $baseline-controls/@id ])"/>
                 <xsl:with-param name="title">Viable selecting from this baseline?</xsl:with-param>
                 <xsl:with-param name="msg" expand-text="true">One or more control IDs are called from <b>{ $baseline-title }</b>.</xsl:with-param>
                 <xsl:with-param name="status">
@@ -206,7 +206,7 @@
                 </xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="tell">
-                <xsl:with-param name="when" select="not($baseline='sp800-53rev5') and exists(include/call) and empty(include/call[ not(@control-id = $baseline-controls/@id) ])"/>
+                <xsl:with-param name="when" select="not($baseline='sp800-53rev5') and exists(include-controls/with-id) and empty(include-controls/with-id[ not(. = $baseline-controls/@id) ])"/>
                 <xsl:with-param name="title">Viable selecting from this baseline?</xsl:with-param>
                 <xsl:with-param name="msg" expand-text="true"><em>All included controls</em> appear in <b>{ $baseline-title }</b>.</xsl:with-param>
                 <xsl:with-param name="status">
@@ -218,7 +218,7 @@
             </xsl:call-template>
             <xsl:call-template name="tell">
                 <xsl:with-param name="when"
-                    select="exists(oscal:include/oscal:all) and empty(oscal:exclude/*)"/>
+                    select="exists(include-all) and empty(exclude-controls)"/>
                 <xsl:with-param name="title">Including all, excluding none</xsl:with-param>
                 <xsl:with-param name="msg" expand-text="true">With <code class="drctv">include/all</code> and
                     nothing excluded, { count($baseline-controls) } controls and enhancements will
@@ -229,13 +229,13 @@
         <xsl:apply-templates mode="examine"/>
     </xsl:template>
     
-    <xsl:template match="include" mode="examine">
+    <xsl:template match="include-controls" mode="examine">
         <xsl:where-populated>
         <div class="report">
             <xsl:sequence>
-                <xsl:variable name="rev5-calls" select="child::call[@control-id = $baseline-controls/@id]"/>
+                <xsl:variable name="rev5-calls" select="child::with-id[. = $baseline-controls/@id]"/>
                 <xsl:call-template name="tell">
-                    <xsl:with-param name="when" select="empty(child::all | $rev5-calls)"/>
+                    <xsl:with-param name="when" select="empty(../include-all | $rev5-calls)"/>
                     <xsl:with-param name="title">No Rev 5 controls</xsl:with-param>
                     <xsl:with-param name="msg">Include directive shows no controls calling SP 800-53 Rev 5 (by control-id).</xsl:with-param>
                 </xsl:call-template>
@@ -252,10 +252,10 @@
             
     </xsl:template>
     
-    <xsl:template match="exclude/call" mode="examine" expand-text="true">
+    <xsl:template match="exclude-controls/with-id" mode="examine" expand-text="true">
         <xsl:variable name="me" select="."/>
         <xsl:call-template name="tell">
-            <xsl:with-param name="when" select="empty(../include/all) or not(@control-id = ../include/call/@control-id)"/>
+            <xsl:with-param name="when" select="empty(../include-all) or not(@control-id = ../include-controls/with-id)"/>
             <xsl:with-param name="title">Control excluded but not included</xsl:with-param>
             <xsl:with-param name="msg">Exclusion of control <code class="ctrl">{ @control-id }</code> is inoperative as it is not included.</xsl:with-param>
         </xsl:call-template>
@@ -263,21 +263,21 @@
         <xsl:next-match/>
     </xsl:template>
     
-    <xsl:template match="call" mode="examine" expand-text="true">
+    <xsl:template match="include-controls/with-id" mode="examine" expand-text="true">
         <xsl:param name="refreshing" tunnel="true" select="false()"/>
         <xsl:variable name="me" select="."/>
         <xsl:call-template name="tell">
-            <xsl:with-param name="when" select="not(@control-id= $baseline-controls/@id)"/>
+            <xsl:with-param name="when" select="not(. = $baseline-controls/@id)"/>
             <xsl:with-param name="title">Calling an unknown control</xsl:with-param>
-            <xsl:with-param name="msg">Control <code class="ctrl">{ @control-id }</code> is not found in <b>{ $baseline-title }</b>.</xsl:with-param>
+            <xsl:with-param name="msg">Control <code class="ctrl">{. }</code> is not found in <b>{ $baseline-title }</b>.</xsl:with-param>
         </xsl:call-template>
         <xsl:call-template name="tell">
-            <xsl:with-param name="when" select="exists(preceding-sibling::call[@control-id=$me/@control-id])"/>
+            <xsl:with-param name="when" select="exists(preceding-sibling::with-id[. = $me])"/>
             <xsl:with-param name="title">Repeated calls on a control</xsl:with-param>
-            <xsl:with-param name="msg">Control <code class="ctrl">{ @control-id }</code> is called more than once.</xsl:with-param>
+            <xsl:with-param name="msg">Control <code class="ctrl">{ . }</code> is called more than once.</xsl:with-param>
         </xsl:call-template>
         <xsl:call-template name="tell">
-            <xsl:with-param name="when" select="$refreshing and (@control-id= $baseline-controls/@id)"/>
+            <xsl:with-param name="when" select="$refreshing and (. = $baseline-controls/@id)"/>
             <xsl:with-param name="title">Calling a recognized control</xsl:with-param>
             <xsl:with-param name="msg">Control <code class="ctrl">{ @control-id }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
             <xsl:with-param name="status">noteworthy</xsl:with-param>

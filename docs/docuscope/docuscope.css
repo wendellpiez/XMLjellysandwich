@@ -1,4 +1,8 @@
-th, td { padding: 0em 0.5em }
+summary { font-size: 120%; font-weight: bold; margin-bottom: 0.5rem}
+
+.docscope > div { margin-top: 1rem }
+
+th, td { padding: 0em 0.5em; text-align: left }
 
 .smmry > tr > th, .smmry > tr > td { border: thin solid black; padding: 0.4em }
 .smmry th:first-child { text-align: right }
@@ -18,13 +22,16 @@ table td, table tr { vertical-align: text-top }
 
 td.n { font-size: 68% }
 
-th { work-break: keep-all }
+th { word-break: keep-all }
 td.bar { word-break: break-all; font-size: 60% }
 b.s { color: forestgreen }
 b.t { color: blue }
 
 .outline { display: flex; flex-flow: row; margin-top: 0em }
 .outline div { flex-grow: 0; vertical-align: middle; margin: 0.1rem  }
+.outline div:first-child { margin-top: 0rem  }
+.outline div:last-child  { margin-bottom: 0rem  }
 .oll { font-size: 80% }
-.outline div.olt { background-color: lightgreen; line-height: 0.5em }
+.outline div.olt { border: thin solid cadetblue; background-color: ivory;
+     padding: 0.1rem; font-size: 60%; font-family: "Open Sans", sans-serif }
 
