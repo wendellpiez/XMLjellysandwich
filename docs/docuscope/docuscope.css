@@ -7,7 +7,8 @@ th, td { padding: 0em 0.5em; text-align: left }
 .smmry > tr > th, .smmry > tr > td { border: thin solid black; padding: 0.4em }
 .smmry th:first-child { text-align: right }
 .lbl { font-weight: bold; font-family: sans-serif }
-.lit, .oll { font-family: 'IBM Plex Mono', monospace; background-color: gainsboro }
+.outline .oll { font-family: 'IBM Plex Mono', monospace; background-color: gainsboro }
+.outline.abstract .oll { font-family: 'IBM Plex Mono', monospace; background-color: lightgreen }
 
 .rightalign { text-align: right }
 

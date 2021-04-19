@@ -163,6 +163,7 @@
     
     <xsl:template match="/*" mode="abstract">
         <xsl:copy>
+            <xsl:attribute name="ABSTRACT">YES</xsl:attribute>
             <xsl:call-template name="group">
                 <xsl:with-param name="next" select="*"/>
             </xsl:call-template>
@@ -193,7 +194,7 @@
     </xsl:template>
 
     <xsl:template match="*" mode="outline" expand-text="true">
-        <div class="outline">
+        <div class="outline{ .[@ABSTRACT='YES'] ! ' abstract' }">
             <div class="oll"><span>{ name() }</span>
                 <xsl:for-each select="@count">
                     <span class="lit"> ({ . })</span>
