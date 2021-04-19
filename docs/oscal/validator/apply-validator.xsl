@@ -216,10 +216,10 @@
     
     <xsl:template mode="test-datatype" match="*"/>
    
-    <xsl:function name="pb:element-position" as="xs:positiveInteger">
+    <xsl:function name="pb:element-position">
         <xsl:param name="for" as="element()"/>
         <xsl:variable name="qname" select="node-name($for)"/>
-        <xsl:sequence select="count(($for | $for/preceding-sibling::*)[node-name() = $qname])"/>
+        <xsl:sequence select="count($for | $for/preceding-sibling::*[node-name() = $qname])"/>
     </xsl:function>
    
     <xsl:template name="check-markup-line-datatype">
