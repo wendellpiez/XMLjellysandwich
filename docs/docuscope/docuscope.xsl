@@ -55,7 +55,16 @@
             </div>
             <div>
                 <details>
-                    <summary>Element structure</summary>
+                    <summary>Element structure - abstract</summary>
+                    <xsl:variable name="abstract-structure">
+                        <xsl:apply-templates select="/*" mode="abstract"/>
+                    </xsl:variable>
+                    <xsl:apply-templates select="$abstract-structure" mode="outline"/>
+                </details>
+            </div>
+            <div>
+                <details>
+                    <summary>Element structure - actual</summary>
                     <xsl:apply-templates select="*" mode="outline"/>
                 </details>
             </div>
@@ -152,6 +161,26 @@
         </div>
     </xsl:template>
     
+    <xsl:template match="/*" mode="abstract">
+        <xsl:copy>
+            <xsl:call-template name="group">
+                <xsl:with-param name="next" select="*"/>
+            </xsl:call-template>
+        </xsl:copy>
+    </xsl:template>
+    
+    <xsl:template name="group">
+        <xsl:param name="next"/>
+        <xsl:for-each-group select="$next" group-by="node-name()">
+          <xsl:copy>
+              <xsl:attribute name="count" select="count(current-group())"/>
+              <xsl:call-template name="group">
+                  <xsl:with-param name="next" select="current-group()/*"/>
+              </xsl:call-template>
+          </xsl:copy>    
+        </xsl:for-each-group>
+    </xsl:template>
+    
     <xsl:template mode="xpath" match="*">
       <xsl:apply-templates select="parent::*" mode="#current"/>
       <xsl:text expand-text="true">/{ name() }</xsl:text>
@@ -165,7 +194,11 @@
 
     <xsl:template match="*" mode="outline" expand-text="true">
         <div class="outline">
-            <div class="oll">{ name() }</div>
+            <div class="oll"><span>{ name() }</span>
+                <xsl:for-each select="@count">
+                    <span class="lit"> ({ . })</span>
+                </xsl:for-each>
+            </div>
             <div class="olc">
               <xsl:apply-templates mode="outline"/>
             </div>
