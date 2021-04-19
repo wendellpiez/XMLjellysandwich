@@ -42,11 +42,21 @@
                 </pre>
             </details>
             <section class="validation">
-                <h3>Annotated tree (with validation findings)</h3>
                 <xsl:variable name="validated-tree">
                   <xsl:apply-templates mode="validate"/>
                 </xsl:variable>
-                <xsl:if test="empty($validated-tree//pb:*)">
+                <xsl:variable name="findings" select="$validated-tree//pb:*"/>
+                
+                <h3>Element (tree) structure<xsl:if test="exists($findings)"> (with validation findings)</xsl:if></h3>
+                <ul>
+                    <xsl:sequence expand-text="true">
+                        <xsl:variable name="elements" select="$validated-tree//* except $findings"/>
+                        <li>elements: {   count($elements) }</li>
+                        <li>attributes: { count($elements/@*) }</li>
+                        <li>findings: {   count($findings) }</li>
+                    </xsl:sequence>
+                </ul>
+                <xsl:if test="empty($findings)">
                     <h4>Congratulations: there is nothing to report</h4>
                 </xsl:if>
                 <xsl:apply-templates select="$validated-tree" mode="outline"/>

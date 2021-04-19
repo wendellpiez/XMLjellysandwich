@@ -16,13 +16,25 @@
     x choice
     x order
     x recursion e.g. part//part ?
+ 
+ group-as/@in-xml=WITH_WRAPPER
+   AFFECTS
+     x required element check w/in parent assembly
+     o order check 'test-occurrence' - move to parent
+       x off child
+       x on parent
+     x match pattern for inline reference
+     x match (grouping) parent in 'test' mode (to silence)
+     x (not) cardinality check
+ 
+    TEST
     o aliasing e.g. assessment-parts (context?) - expand matches to all occurrences
       not only refs but parent's refs to one degree (parents only at top level)
-    
-    @in-xml=unwrapped (on markup-multine)
-    @in-xml=with-wrapper (grouped)
-    markup-line
-    markup-multiline (element content)
+    o @in-xml=unwrapped (on markup-multine)
+    o @in-xml=with-wrapper (grouped)
+    o markup-line
+    o markup-multiline (element content) especially unwrapped
+      o examine for 'prose' element
   
   -->
   
@@ -149,19 +161,25 @@
     match="assembly | model//define-assembly | field | model//define-field">
     <xsl:variable name="metaschema-type" select="if (ends-with(local-name(),'assembly')) then 'assembly' else 'field'"/>
     <xsl:variable name="using-name" select="pb:use-name(.)"/>
-    <xsl:variable name="match-path" select="(ancestor::define-assembly | .)/pb:use-name(.) => string-join('/')"/>
+    <xsl:variable name="match-path" select="(ancestor::define-assembly | .)/pb:match-name(.) => string-join('/')"/>
     
     <!-- when in-xml='WITH_WRAPPER' we need to extend to pb:path-step not just pb:use-name   -->
     <xsl:for-each select="self::field | self::define-field">
       <XSLT:template match="{ $match-path }/text()" mode="test"/>
     </xsl:for-each>
-    <XSLT:template match="{ $match-path }"
-      mode="test">
+    
+    <!-- test ordering with respect to parent when grouped   -->
+    <xsl:if test="group-as/@in-xml='GROUPED'">
+      <XSLT:template match="{ $match-path => replace('/[^/]*$','') }" mode="test">
+        <xsl:call-template name="test-order"/>
+      </XSLT:template>
+    </xsl:if>
+    
+    <XSLT:template match="{ $match-path }" mode="test">
       <!-- 'test-occurrence' template produces only tests needed to check this occurrence -->
       <xsl:call-template name="test-occurrence">
-        <xsl:with-param name="using-name" select="$using-name"/>
-      </xsl:call-template>
-
+          <xsl:with-param name="using-name" select="$using-name"/>
+        </xsl:call-template>
       <!-- while the containment, modeling or datatyping rule is held in a template for the applicable definition -->
       <XSLT:call-template name="require-for-{ pb:definition-name(.) }-{ $metaschema-type }">
         <!--<xsl:if test="exists(use-name)">
@@ -230,14 +248,22 @@
         </XSLT:call-template>
       </xsl:if>
   
-    <xsl:variable name="followers" select="following-sibling::field | following-sibling::assembly |
-      following-sibling::define-field | following-sibling::define-assembly | following-sibling::choice/child::*"/>
+    <xsl:if test="not(group-as/@in-xml='GROUPED')">
+      <xsl:call-template name="test-order"/>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template name="test-order">
+    
+    <xsl:variable name="followers"
+      select="following-sibling::field | following-sibling::assembly |
+        following-sibling::define-field | following-sibling::define-assembly | following-sibling::choice/child::*"/>
     <xsl:if test="exists($followers)" expand-text="true">
       <!--<XSLT:variable name="interlopers" select="{ ($followers ! pb:use-name(.)) ! ('preceding-sibling::' || .) => string-join(' | ') }"/>-->
       <XSLT:call-template name="notice">
         <XSLT:with-param name="cat">ordering</XSLT:with-param>
         <XSLT:with-param name="condition"
-          select="exists( { ($followers ! pb:use-name(.)) ! ('preceding-sibling::' || .) => string-join(' | ') } )"/>
+          select="exists( { ($followers ! pb:match-name(.)) ! ('preceding-sibling::' || .) => string-join(' | ') } )"/>
         <XSLT:with-param name="msg">
           <code>{ pb:use-name(.) }</code>
           <xsl:text> is not expected to follow </xsl:text>
@@ -248,14 +274,13 @@
         </XSLT:with-param>
       </XSLT:call-template>
     </xsl:if>
-    
   </xsl:template>
   
   <xsl:template name="punctuate-or-code-sequence">
     <xsl:param name="items"/>
     <xsl:for-each select="$items" expand-text="true">
       <xsl:call-template name="punctuate-or-item"/>
-      <code>{ pb:use-name(.) }</code>
+      <code>{ pb:match-name(.) }</code>
     </xsl:for-each>
   </xsl:template>
   
@@ -274,7 +299,7 @@
       <xsl:call-template name="require-attributes"/>
       <!-- for each required element ... -->
       <xsl:for-each select="model/(* | choice/*)[@min-occurs ! (number() ge 1)]" expand-text="true">
-        <xsl:variable name="requiring" select="pb:use-name(.)"/>
+        <xsl:variable name="requiring" select="pb:match-name(.)"/>
         <XSLT:call-template name="notice">
           <XSLT:with-param name="cat">required contents</XSLT:with-param>
           <XSLT:with-param name="condition" select="empty({ $requiring })"/>
@@ -286,10 +311,10 @@
       </xsl:if>
     </XSLT:template>
     <xsl:if test="$has-unwrapped-markup-multiline">
-      <xsl:variable name="context" select="pb:use-name(.) || '/'"/>
+      <xsl:variable name="context" select="pb:match-name(.) || '/'"/>
       <!--<xsl:variable name="children" select="model/(.|choice)/(assembly | define-assembly | field | define-field )/pb:use-name(.)"/>-->
       <!--<XSLT:template match="{ $children ! ( $context || . ) => string-join(' | ') }" mode="validate-markup-multiline"/>-->
-      <XSLT:template match="{ pb:use-name(.) }/*" mode="validate-markup-multiline"/>
+      <XSLT:template match="{ pb:match-name(.) }/*" mode="validate-markup-multiline"/>
       <xsl:variable name="markup-elements" select="'p | ul | ol | table | pre | h1 | h2 | h3 | h4 | h5 | h6'"/>
       <XSLT:template match="{ tokenize($markup-elements,' \| ') ! ( $context || . ) => string-join(' | ') }" mode="test"/>
     </xsl:if>
@@ -353,6 +378,12 @@
   <xsl:function name="pb:tag" as="element()" expand-text="true">
     <xsl:param name="n" as="xs:string"/>
     <code>{ $n }</code>
+  </xsl:function>
+  
+<!-- match-name is like use-name, except it accounts for an explicit wrapper on group-as -->
+  <xsl:function name="pb:match-name" as="xs:string?">
+    <xsl:param name="who" as="element()"/>
+    <xsl:text expand-text="true">{ $who/group-as[@in-xml='GROUPED']/@name ! (. || '/') }{ pb:use-name($who) }</xsl:text>
   </xsl:function>
   
   <xsl:function name="pb:use-name" as="xs:string?">

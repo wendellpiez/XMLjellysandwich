@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:transform xmlns:pb="http://github.com/wendellpiez/XMLjellsandwich/oscal/validator" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" version="3.0" xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0" exclude-result-prefixes="#all">
    <xsl:mode name="test" on-no-match="shallow-skip"/>
-   <!-- Generated 2021-04-18T14:46:17.798-04:00 --><!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- --><!-- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- --><!--     Root --><!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -->
+   <!-- Generated 2021-04-19T11:28:51.018-04:00 --><!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- --><!-- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- --><!--     Root --><!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -->
 <xsl:template match="/catalog" mode="test">
       <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-catalog-assembly"/>
@@ -79,13 +79,15 @@
       </xsl:call-template>
       <xsl:call-template name="require-for-parameter-selection-assembly"/>
    </xsl:template>
-   <xsl:template match="metadata/revision" mode="test">
+   <xsl:template match="metadata/revisions" mode="test">
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
          <xsl:with-param name="msg">
             <code>revision</code> is not expected to follow <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
       </xsl:call-template>
+   </xsl:template>
+   <xsl:template match="metadata/revisions/revision" mode="test">
       <xsl:call-template name="require-for-oscal-metadata-revision-assembly"/>
    </xsl:template>
    <xsl:template match="metadata/prop" mode="test">
@@ -515,9 +517,9 @@
       </xsl:call-template>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
-         <xsl:with-param name="condition" select="exists( preceding-sibling::last-modified | preceding-sibling::version | preceding-sibling::oscal-version | preceding-sibling::revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
+         <xsl:with-param name="condition" select="exists( preceding-sibling::last-modified | preceding-sibling::version | preceding-sibling::oscal-version | preceding-sibling::revisions/revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
          <xsl:with-param name="msg">
-            <code>published</code> is not expected to follow <code>last-modified</code>, <code>version</code>, <code>oscal-version</code>, <code>revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
+            <code>published</code> is not expected to follow <code>last-modified</code>, <code>version</code>, <code>oscal-version</code>, <code>revisions/revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-published-field"/>
    </xsl:template>
@@ -531,9 +533,9 @@
       </xsl:call-template>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
-         <xsl:with-param name="condition" select="exists( preceding-sibling::version | preceding-sibling::oscal-version | preceding-sibling::revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
+         <xsl:with-param name="condition" select="exists( preceding-sibling::version | preceding-sibling::oscal-version | preceding-sibling::revisions/revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
          <xsl:with-param name="msg">
-            <code>last-modified</code> is not expected to follow <code>version</code>, <code>oscal-version</code>, <code>revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
+            <code>last-modified</code> is not expected to follow <code>version</code>, <code>oscal-version</code>, <code>revisions/revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-last-modified-field"/>
    </xsl:template>
@@ -547,9 +549,9 @@
       </xsl:call-template>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
-         <xsl:with-param name="condition" select="exists( preceding-sibling::oscal-version | preceding-sibling::revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
+         <xsl:with-param name="condition" select="exists( preceding-sibling::oscal-version | preceding-sibling::revisions/revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
          <xsl:with-param name="msg">
-            <code>version</code> is not expected to follow <code>oscal-version</code>, <code>revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
+            <code>version</code> is not expected to follow <code>oscal-version</code>, <code>revisions/revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-version-field"/>
    </xsl:template>
@@ -563,9 +565,9 @@
       </xsl:call-template>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
-         <xsl:with-param name="condition" select="exists( preceding-sibling::revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
+         <xsl:with-param name="condition" select="exists( preceding-sibling::revisions/revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
          <xsl:with-param name="msg">
-            <code>oscal-version</code> is not expected to follow <code>revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
+            <code>oscal-version</code> is not expected to follow <code>revisions/revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
       </xsl:call-template>
       <xsl:call-template name="require-for-oscal-metadata-oscal-version-field"/>
    </xsl:template>
@@ -927,9 +929,9 @@
       </xsl:call-template>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
-         <xsl:with-param name="condition" select="exists( preceding-sibling::published | preceding-sibling::last-modified | preceding-sibling::version | preceding-sibling::oscal-version | preceding-sibling::revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
+         <xsl:with-param name="condition" select="exists( preceding-sibling::published | preceding-sibling::last-modified | preceding-sibling::version | preceding-sibling::oscal-version | preceding-sibling::revisions/revision | preceding-sibling::document-id | preceding-sibling::prop | preceding-sibling::link | preceding-sibling::role | preceding-sibling::location | preceding-sibling::party | preceding-sibling::responsible-party | preceding-sibling::remarks )"/>
          <xsl:with-param name="msg">
-            <code>title</code> is not expected to follow <code>published</code>, <code>last-modified</code>, <code>version</code>, <code>oscal-version</code>, <code>revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
+            <code>title</code> is not expected to follow <code>published</code>, <code>last-modified</code>, <code>version</code>, <code>oscal-version</code>, <code>revisions/revision</code>, <code>document-id</code>, <code>prop</code>, <code>link</code>, <code>role</code>, <code>location</code>, <code>party</code>, <code>responsible-party</code>,  or <code>remarks</code>.</xsl:with-param>
       </xsl:call-template>
       <xsl:call-template name="require-for-metadata-title-field"/>
    </xsl:template>
