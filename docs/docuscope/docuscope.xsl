@@ -149,6 +149,15 @@
                     </tr>
                     <tr>
                         <th>
+                            <span class="lbl">Element type count</span>
+                        </th>
+                        <td>
+                            <span class="ct">{ count( //*/node-name() => distinct-values() ) }</span>
+                        </td>
+                        <td class="n"> </td>
+                    </tr>
+                    <tr>
+                        <th>
                             <span class="lbl">Word count*</span>
                         </th>
                         <td>
