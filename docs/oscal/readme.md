@@ -3,34 +3,31 @@
 
 OSCAL is the Open Security Controls Assessment Language.
 
-Possible applications (tbd):
+Current applications:
 
-- Metaschema-driven validation
-- Validation to local rules set (e.g. profile integrity vis a vis catalog)
-- profile resolution (save)
+* [Baseline matrix](baseline-matrix) - paints your OSCAL profile's coverage of 800-53 control families, following look/feel of the official NIST publication (SP800-53B).
+* [Import examiner](import-examiner) - validates your OSCAL profile's imports against known public baselines
+* [Catalog Validator](validator/catalog.html) - tag validation of OSCAL catalog contents, emulating schema validation
+ 
+Further applications (tbd):
+
 - profile resolution (display)
-- XML|JSON conversion
+- XML\|JSON conversion
   - wrap fn:transform() dynamically per document type?
-
 - Preview
   - Catalog?
   - SSP?
 
 # Security posture of SaxonJS applications:
 
-*  No client data is moved off the client system or uploaded (anywhere)
-* No cookies are placed on the system; state is maintained *only* for the runtime
+* No client data is moved off the client system or uploaded (anywhere)
+* No cookies are placed on the system; state is maintained only for the runtime
 * Runtime code is all downloaded and (once cached) can be run off line
 * Distributed from a plain generic web server delivering HTML, XML, Javascript and JSON (SEF)
-  * Can be run as localhost or on a local network/VPN
-  * Nothing is installed it is all static files to be served
-  * A single client is served the resources only on request and never remembers clients
-      (though they are free to cache the resources for future runtimes)
-  * Referenced resources are all determinable (subject to design of UIs) and traceable
 * Code is auditable
   * SEF is machine-generated JSON produced by 'compiling' XSLT
   * Original XSLT sources are also public
-  * Executed transformations originate as W3C compliant XSLT
+  * Executed transformations originate as W3C-compliant XSLT
     * in principle, this makes all these capabilities also portable to other XSLT processors
     * also, open source and declarative
 * Architecture is documented:

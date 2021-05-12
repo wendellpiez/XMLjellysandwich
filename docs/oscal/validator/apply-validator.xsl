@@ -35,31 +35,32 @@
     
     <xsl:template name="validate-catalog">
         <xsl:result-document href="#bxbody" method="ixsl:append-content">
-            <details>
-                <summary>XML source</summary>
-                <pre id="document-source">
-                    <xsl:value-of select="serialize(/,$indented-serialization)"/>
-                </pre>
-            </details>
             <section class="validation">
                 <xsl:variable name="validated-tree">
-                  <xsl:apply-templates mode="validate"/>
+                    <xsl:apply-templates mode="validate"/>
                 </xsl:variable>
                 <xsl:variable name="findings" select="$validated-tree//pb:*"/>
-                
+
                 <h3>Element (tree) structure<xsl:if test="exists($findings)"> (with validation findings)</xsl:if></h3>
                 <ul>
                     <xsl:sequence expand-text="true">
                         <xsl:variable name="elements" select="$validated-tree//* except $findings"/>
-                        <li>elements: {   count($elements) }</li>
+                        <li>elements: { count($elements) }</li>
                         <li>attributes: { count($elements/@*) }</li>
-                        <li>findings: {   count($findings) }</li>
+                        <li>findings: { count($findings) }</li>
                     </xsl:sequence>
                 </ul>
                 <xsl:if test="empty($findings)">
                     <h4>Congratulations: there is nothing to report</h4>
                 </xsl:if>
                 <xsl:apply-templates select="$validated-tree" mode="outline"/>
+                <details class="xml-source">
+                    <summary>XML source</summary>
+                    <pre id="document-source">
+                    <xsl:value-of select="serialize(/, $indented-serialization)"/>
+                </pre>
+                </details>
+
             </section>
         </xsl:result-document>
     </xsl:template>
