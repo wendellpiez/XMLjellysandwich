@@ -12,7 +12,7 @@ Current applications:
 Further applications (tbd):
 
 - profile resolution (display)
-- XML\|JSON conversion
+- XML - JSON conversion
   - wrap fn:transform() dynamically per document type?
 - Preview
   - Catalog?
