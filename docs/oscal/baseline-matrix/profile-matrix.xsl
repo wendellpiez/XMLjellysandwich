@@ -469,15 +469,19 @@
     </xsl:function>
 
     <!-- @with-control logic goes here - -->
+    
+<!-- does not implement @with-child-controls or matching (glob) patterns, only 'include-all' and */with-id -->
     <xsl:function name="XJS:imports-control" as="xs:boolean">
       <xsl:param name="import" as="element(import)"/>
       <xsl:param name="controlid" as="xs:string"/>
-      <xsl:sequence
-            select="
-                (exists($import/include/all) or
-                ($controlid = $import/include/call/@control-id)) and
-                not($controlid = $import/exclude/call/@control-id)"
+        <xsl:sequence
+            select=" 
+            ( exists($import/include-all) or
+            ($controlid = $import/include-controls/with-id) )
+            and not($controlid = $import/exclude-controls/with-id)"
         />
     </xsl:function>
 
+    
+    
 </xsl:stylesheet>

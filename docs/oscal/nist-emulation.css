@@ -23,10 +23,12 @@ tr.control-matrix-header > th.controlno { font-size: 80% }
 #directory input[type='checkbox'] + label { color: grey }
 #directory input[type='checkbox']:checked + label { color: black }
     
-#file-roster { display: grid; grid-auto-columns: max-content }
+#file-roster { display: grid; grid-auto-columns: max-content;
+    grid-auto-rows: auto; grid-auto-flow: column;
+    grid-gap: 0.5em; margin-bottom: 1em
+}
 
-.filelisting { margin-top: 0.8em; padding: 0.2em;
-  border: thin dotted grey; background-color: gainsboro }
+.filelisting { margin-top: 0.8em; padding: 0.2em; border: thin outset gainsboro; background-color: oldlace; }
 
 .filelisting *               { margin: 0em }
 

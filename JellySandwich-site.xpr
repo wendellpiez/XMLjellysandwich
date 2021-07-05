@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="22.1">
+<project>
     <meta>
         <filters directoryPatterns="" filePatterns="JellySandwich-site.xpr" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="22.1" xml:space="preserve">
+            <serialized xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>document.types</String>
@@ -460,6 +460,9 @@
     <projectTree name="JellySandwich-site.xpr">
         <folder masterFiles="true" name="Master Files">
             <file name="docs/oscal/validator/apply-validator.xsl"/>
+        </folder>
+        <folder name="ISO_Schematron">
+            <file name="../schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl"/>
         </folder>
         <folder path="."/>
     </projectTree>
