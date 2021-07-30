@@ -108,14 +108,14 @@
                   control sets derived from it, i.e. the NIST <code>HIGH</code>, <code>MODERATE</code> and <code>LOW</code> control baselines.</li>
                 <li>In later versions we plan support of testing imports in other OSCAL documents as well as testing constraints over OSCAL data in general, with respect to their imports.</li>
               </ul>
-              <p>Note: this analysis does not examine the documents actually linked (imported) by your profile. Instead, it examines every import directive as if the SP800-653 Rev 5 catalog (or other selected baseline) were its intended source. For reference and comparison, please see the <a href="../NIST_SP-800-53_rev5_catalog.xml">SP 800-53 Rev 5 catalog (copy) in this repository</a>.</p>
+              <p>Note: this analysis does not examine the documents actually linked (imported) by your profile. Instead, it examines every import directive as if the SP800-653 Rev 5 catalog (or other selected baseline) were its intended source, and as such can be provided by a known and trusted proxy (document). For reference and comparison, please see the <a href="../NIST_SP-800-53_rev5_catalog.xml">SP 800-53 Rev 5 catalog (copy) in this repository</a>. (It then proceeds, in part, to test this premise.)</p>
               <p>Using this analysis you can quickly and easily determine whether your OSCAL profile, considered as a baseline or overlay of Rev 5 or of its overlays (such as the NIST or FedRAMP HIGH, MODERATE or LOW baselines), will resolve correctly into a control selection for an OSCAL processor according to OSCAL profile semantics.</p>
               <p>Provided with further back end infrastructure (in the form of appropriate file sets, metadata, and match criteria between import statements and upstream catalogs), this tool can offer the same analysis against arbitrary catalogs. NIST SP 800-53 and its baselines are selected for this demonstration for their ubiquity and ready availability in OSCAL.</p>
-              <p>A subsequent version of this tool will provide similar import-based analysis of other OSCAL document types including System Security Plans (SSPs) and POA&amp;Ms (Plans of Action and Milestones).</p>
-              <p>Limitations / tdb:</p>
+              <p>A subsequent version of this tool could provide similar import-based analysis of other OSCAL document types including System Security Plans (SSPs) and POA&amp;Ms (Plans of Action and Milestones).</p>
+              <p>Limitations / tbd:</p>
               <ul>
-                <li>Supports <code>call/@control-id</code> only, not <code>call/@matches</code></li>
-                <li>Does not support <code>call/@with-child-controls</code></li>
+                <li>Supports <code>import-control/with-id</code> only, not <code>import-control/matches</code></li>
+                <li>Does not support <code>import-control/@with-child-controls</code></li>
               </ul>
             </details>
         </div>
