@@ -2,10 +2,11 @@
 <pub>
   <author>Henry Vaughan</author>
   <title>The World</title>
-  <style xml:space="preserve"> .stanza { padding: 1em 10% }
-    .l[data-meter='5'] { padding-left: 2em }
-    .l[data-meter='4'] { padding-left: 3em }
-    .l[data-meter='2'] { padding-left: 5em }
+  <style xml:space="preserve">
+.stanza { padding: 1em 10% }
+.l[data-meter='5'] { padding-left: 2em }
+.l[data-meter='4'] { padding-left: 3em }
+.l[data-meter='2'] { padding-left: 5em }
   </style>
   <verse>
     <stanza>

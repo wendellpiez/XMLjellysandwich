@@ -63,14 +63,7 @@ code.ctrl { background-color: white; padding: 0.1em; display: inline-block; bord
      </style>
         <script type="text/javascript" src="../../lib/Saxon-JS-2.0/SaxonJS2.js"> </script>
         <script xml:space="preserve">
-  /*  window.onload = function () {
-      SaxonJS.transform({
-        sourceLocation: "NIST_SP-800-53_rev5_catalog.xml",
-        stylesheetLocation: "profile-matrix.sef.json",
-        initialTemplate: "initialize"
-      });
-    } */
-    
+
     function validateFiles(fileSet) {
       for (const eachFile of fileSet) {
         let frdr = new FileReader();
@@ -88,19 +81,6 @@ code.ctrl { background-color: white; padding: 0.1em; display: inline-block; bord
       }
     }
     
-    /* MAYBE FOR LATER...
-    // look at ../import-examiner/index.html for supporting dynamic refresh
-    // here the function should let us validate the document again with a new schema indicated by nominalDoctype
-    function refreshValidation(nominalDoctype, documentIndex) {
-      SaxonJS.transform({
-        stylesheetLocation: "apply-validator.sef.json",
-        initialTemplate:     "refresh-baseline",
-        stylesheetParams: {
-              "nominal-document-type": nominalDoctype, // e.g. 'catalog'
-              "document-index": documentIndex
-            }
-          },"async")
-      } */
 </script>
 
     </head>
@@ -108,19 +88,21 @@ code.ctrl { background-color: white; padding: 0.1em; display: inline-block; bord
         <div id="bxheader">
           <h3 id="page-title" onclick="void(0)">OSCAL Catalog Validator</h3>
           <h4>Checking your XML document against rules defined by the OSCAL Catalog Metaschema</h4>
-          <p style="font-style:italic">(<b>Coming soon</b> - not just catalogs but other OSCAL models as well)</p>
+          <h5>NB - work in progress - features and testing still to come -</h5>
+          <p style="font-style:italic">(<b>Coming soon</b> - not just catalogs but other OSCAL models as well)</p></div>
+      <div id="bxbody">
+            <!--<p>body</p>-->
+        </div>
+      <div id="bxhelp">
           <p>Load your OSCAL XML file(s) here for instant validation... <input
                 type="file" accept=".xml,text/xml"
                 id="loadfileInput" name="loadfileInput" title="Drop XML"
                 onchange="validateFiles(this.files)" /></p>
+        </div>
       
-        </div>
-      <div id="bxbody">
-            <!--<p>body</p>-->
-        </div>
       <details style="margin-top: 1em" id="overview">
         <summary style="font-style:italic">Explanation</summary>
-        <p>The <i>OSCAL Validator</i> reads an arbitrary XML document and reports back an inspection showing findings relative to rules
+        <p>The <i>OSCAL Validator</i> reads an arbitrary XML document and reports back findings from an inspection relative to rules
           defined for the OSCAL catalog (meta)schema:</p>
         <ul>
           <li>If it is (not) a <code>catalog</code> XML document in the OSCAL namespace (i.e.,
@@ -131,10 +113,10 @@ code.ctrl { background-color: white; padding: 0.1em; display: inline-block; bord
               <li>Required elements and attributes (checking for elements missing)</li>
               <li>Cardinality (of elements appearing) - too many or too few</li>
               <li>Order of elements - impermissible element ordering</li>
-              <li>Lexical datatypes, 'castable as' constraints (also tested on attributes)</li>
+              <li>Datatype-based lexical constraints (<q>castable as</q>) constraints (also tested on attributes)</li>
               <li><em>To come</em>... further metaschema-based constraints (<code>allowed-values</code> etc.)</li></ol></li>
         </ul>
-        <p>Effectively, this feature set is intended to match that of the normative XML Schema Definition (XSD)-based expression of constraints defining the (XML) OSCAL catalog format. If you find any disparities between this tool, and a compliant application of the OSCAL catalog XSD, please report them for remediation.</p>
+        <p>Effectively, this feature set is intended to match that of the normative XML Schema Definition (XSD)-based expression of constraints defining the (XML) OSCAL catalog format. If you find any disparities between this tool, and a compliant application of the OSCAL catalog XSD, please let the developer know.</p>
       </details>
         <div id="bxfooter">
           <p>The <i>SP 800-53 Catalog Validator</i> is an <a href="https://pages.nist.gov/OSCAL/">OSCAL</a> demonstration. Use with appropriate caution. Source code is available for inspection or analysis.</p>

@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:XSLT="http://www.w3.org/1999/XSL/Transform/alias"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:pb="http://github.com/wendellpiez/XMLjellsandwich/oscal/validator"
+  xmlns:pb="http://github.com/wendellpiez/XMLjellysandwich"
   xmlns="http://www.w3.org/1999/xhtml"
   xpath-default-namespace="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
   version="3.0">
@@ -71,14 +71,14 @@
       <xsl:call-template name="comment-xsl">
         <xsl:with-param name="head"> Fallbacks for occurrences of known elements and attributes, except out of context </xsl:with-param>
       </xsl:call-template>
-      <xsl:variable name="known-elements"   select="(//define-assembly | //define-field | //assembly | //field)/pb:use-name(.) => distinct-values()" />
+      <xsl:variable name="known-elements"   select="(/*/*/root-name/parent::define-assembly | //model//define-assembly | //model//define-field | //assembly | //field)[not(@in-xml='UNWRAPPED')]/pb:use-name(.) => distinct-values()" />
       <XSLT:template mode="test" match="{ string-join($known-elements,' | ') }">
         <XSLT:call-template name="notice">
           <XSLT:with-param name="cat">context</XSLT:with-param>
           <XSLT:with-param name="msg" expand-text="true"><code>{ name() }</code> is not expected here.</XSLT:with-param>
         </XSLT:call-template>
       </XSLT:template>
-      <xsl:variable name="known-attributes" select="((//define-flag | //flag)/pb:use-name(.) => distinct-values()) ! ('@' || .)" />
+      <xsl:variable name="known-attributes" select="((//flag | //define-assembly/define-flag | define-field/define-flag)/pb:use-name(.) => distinct-values()) ! ('@' || .)" />
       <XSLT:template mode="test" match="{ string-join($known-attributes,' | ') }">
         <XSLT:call-template name="notice">
           <XSLT:with-param name="cat">context</XSLT:with-param>
@@ -109,9 +109,26 @@
 
       <!-- Finally we have to generate these instead of keeping them in the static host file,
       so they will match namespaces. -->
-      <XSLT:template match="table | tr | ul | ol" mode="validate-markup-multiline">
-        <XSLT:apply-templates mode="validate-markup-multiline" select="@*"/>
-        <XSLT:apply-templates mode="validate-markup-multiline"/>
+      <XSLT:template match="ul | ol" mode="validate-markup-multiline">
+        <XSLT:apply-templates select="li" mode="validate-markup-multiline"/>
+        <XSLT:for-each select="* except li">
+          <!-- 'notice-multiline' is in the calling XSLT -->
+          <XSLT:call-template name="notice-multiline"/>
+        </XSLT:for-each>
+      </XSLT:template>
+      
+      <XSLT:template match="table" mode="validate-markup-multiline">
+        <XSLT:apply-templates select="tr" mode="validate-markup-multiline"/>
+        <XSLT:for-each select="* except tr">
+          <XSLT:call-template name="notice-multiline"/>
+        </XSLT:for-each>
+      </XSLT:template>
+      
+      <XSLT:template match="tr" mode="validate-markup-multiline">
+        <XSLT:apply-templates select="td" mode="validate-markup-multiline"/>
+        <XSLT:for-each select="* except td">
+          <XSLT:call-template name="notice-multiline"/>
+        </XSLT:for-each>
       </XSLT:template>
       
       <XSLT:template match="p | li | h1 | h2 | h3 | h4 | h5 | h6" mode="validate-markup-multiline">
@@ -119,12 +136,12 @@
         <XSLT:apply-templates mode="validate-markup-line"/>
       </XSLT:template>
       
-      <XSLT:template match="em | i | strong | b | u | q | code | img" mode="validate-markup-line">
+      <XSLT:template match="em | i | strong | b | u | q | code | img | insert" mode="validate-markup-line">
         <XSLT:apply-templates mode="validate-markup-line" select="@*"/>
         <XSLT:apply-templates mode="validate-markup-line"/>
       </XSLT:template>
       
-      <XSLT:template match="a/@href | img/@src | img/@title" mode="validate-markup-line"/>
+      <XSLT:template match="a/@href | img/@src | img/@title | insert/@type | insert/@id-ref" mode="validate-markup-line"/>
       
       <XSLT:template match="p/text() | li/text() | h1/text() | h2/text() | h3/text() | h4/text() | h5/text() | h6/text()"   mode="test"/>
       <XSLT:template match="em/text() | i/text() | strong/text() | b/text() | u/text() | q/text() | code/text() | a/text()" mode="test"/>
@@ -134,13 +151,14 @@
   
   <xsl:template match="/*/*" priority="0.25"/>
   
-  <xsl:key name="assembly-definitions" match="/METASCHEMA/define-assembly" use="@name"/>
-  <xsl:key name="field-definitions"    match="/METASCHEMA/define-field" use="@name"/>
-  <xsl:key name="flag-definitions"     match="/METASCHEMA/define-flag" use="@name"/>
+<!-- Assuming composed Metaschema input with disambiguated keys -->
+  <xsl:key name="assembly-definitions" match="/METASCHEMA/define-assembly" use="@_key-name"/>
+  <xsl:key name="field-definitions"    match="/METASCHEMA/define-field"    use="@_key-name"/>
+  <xsl:key name="flag-definitions"     match="/METASCHEMA/define-flag"     use="@_key-name"/>
   
-  <xsl:key name="flag-references"     match="flag"     use="@ref"/>
-  <xsl:key name="field-references"    match="field"    use="@ref"/>
-  <xsl:key name="assembly-references" match="assembly" use="@ref"/>
+  <xsl:key name="flag-references"     match="flag"     use="@_key-ref"/>
+  <xsl:key name="field-references"    match="field"    use="@_key-ref"/>
+  <xsl:key name="assembly-references" match="assembly" use="@_key-ref"/>
   
   <xsl:key name="using-name" match="flag | field | assembly | define-flag | define-field | define-assembly" use="pb:use-name(.)"/>
   
@@ -157,11 +175,18 @@
     </XSLT:template>
   </xsl:template>
   
+<!-- nothing required for unwrapped fields... -->
+  <xsl:template mode="require-of" priority="10"
+    match="field[@in-xml='UNWRAPPED'] | model//define-field[@in-xml='UNWRAPPED']"/>
+    
+  
   <xsl:template mode="require-of" expand-text="true"
     match="assembly | model//define-assembly | field | model//define-field">
     <xsl:variable name="metaschema-type" select="if (ends-with(local-name(),'assembly')) then 'assembly' else 'field'"/>
     <xsl:variable name="using-name" select="pb:use-name(.)"/>
-    <xsl:variable name="match-path" select="(ancestor::define-assembly | .)/pb:match-name(.) => string-join('/')"/>
+    
+    <!--<xsl:variable name="match-path" select="(ancestor::define-assembly[exists(ancestor::model)] | .)/pb:match-name(.) => string-join('/')"/>-->
+    <xsl:variable name="match-path" select="pb:match-name-with-parent(.)"/>
     
     <!-- when in-xml='WITH_WRAPPER' we need to extend to pb:path-step not just pb:use-name   -->
     <xsl:for-each select="self::field | self::define-field">
@@ -175,7 +200,7 @@
       </XSLT:template>
     </xsl:if>
     
-    <XSLT:template match="{ $match-path }" mode="test">
+    <XSLT:template priority="5" match="{ $match-path }" mode="test">
       <!-- 'test-occurrence' template produces only tests needed to check this occurrence -->
       <xsl:call-template name="test-occurrence">
           <xsl:with-param name="using-name" select="$using-name"/>
@@ -298,7 +323,7 @@
       <!--<XSLT:param tunnel="true" name="matching" as="xs:string">{ (use-name,root-name,@name)[1] }</XSLT:param>-->
       <xsl:call-template name="require-attributes"/>
       <!-- for each required element ... -->
-      <xsl:for-each select="model/(* | choice/*)[@min-occurs ! (number() ge 1)]" expand-text="true">
+      <xsl:for-each select="model/(* | choice/*)[@min-occurs ! (number() ge 1)][not(@in-xml='UNWRAPPED')]" expand-text="true">
         <xsl:variable name="requiring" select="pb:match-name(.)"/>
         <XSLT:call-template name="notice">
           <XSLT:with-param name="cat">required contents</XSLT:with-param>
@@ -311,16 +336,29 @@
       </xsl:if>
     </XSLT:template>
     <xsl:if test="$has-unwrapped-markup-multiline">
-      <xsl:variable name="context" select="pb:match-name(.) || '/'"/>
+      <xsl:variable name="matches" select="pb:contextualized-matches(.)" as="xs:string+"/>
       <!--<xsl:variable name="children" select="model/(.|choice)/(assembly | define-assembly | field | define-field )/pb:use-name(.)"/>-->
       <!--<XSLT:template match="{ $children ! ( $context || . ) => string-join(' | ') }" mode="validate-markup-multiline"/>-->
-      <XSLT:template match="{ pb:match-name(.) }/*" mode="validate-markup-multiline"/>
-      <xsl:variable name="markup-elements" select="'p | ul | ol | table | pre | h1 | h2 | h3 | h4 | h5 | h6'"/>
-      <XSLT:template match="{ tokenize($markup-elements,' \| ') ! ( $context || . ) => string-join(' | ') }" mode="test"/>
+      <xsl:variable name="matched-markup" as="xs:string*">
+        <xsl:for-each select="tokenize($markup-elements,' \| ')">
+          <xsl:variable name="e" select="."/>
+          <xsl:for-each select="$matches" expand-text="true">{ . || '/' || $e }</xsl:for-each>
+        </xsl:for-each>
+      </xsl:variable>
+      <XSLT:template match="{ $matched-markup => string-join(' | ') }" mode="validate"/>
+      
     </xsl:if>
   </xsl:template>
   
+  <xsl:variable name="markup-elements" select="'p | ul | ol | table | pre | h1 | h2 | h3 | h4 | h5 | h6'"/>
+  
   <xsl:template mode="require-for" match="define-field" expand-text="true">
+    <!-- intercept markup descendants of these fields -->
+    <xsl:if test="@as-type = ('markup-line','markup-multiline')">
+      <XSLT:template match="{ ancestor::model[1]/parent::*/(pb:match-name(.) || '/' )}{ pb:match-name(.) }/*" priority="{ if (@scope='global') then 5 else 7 }" mode="validate">
+        <XSLT:apply-templates mode="value-only"/>
+      </XSLT:template>
+    </xsl:if>
     <XSLT:template name="require-for-{ pb:definition-name(.) }-field">
       <!-- parameter is called by instructions in `require-attributes` logic -->
       <!--<XSLT:param tunnel="true" name="matching" as="xs:string">{ (use-name,@name)[1] }</XSLT:param>-->
@@ -335,7 +373,7 @@
      for references, the definition will be at the top level (only) -->
   <xsl:function name="pb:definition-name" as="xs:string">
     <xsl:param name="def" as="node()"/>
-    <xsl:sequence select="($def/@ref/string(.), $def/(ancestor::define-assembly | ancestor::define-field | .)/@name => string-join('-'))[1]"/>
+    <xsl:sequence select="($def/@ref/string(.), $def/(ancestor::define-assembly | ancestor::define-field | .)/@name => string-join('_..._'))[1]"/>
   </xsl:function>
   
   <xsl:template mode="require-for" match="define-flag" expand-text="true">
@@ -380,18 +418,49 @@
     <code>{ $n }</code>
   </xsl:function>
   
-<!-- match-name is like use-name, except it accounts for an explicit wrapper on group-as -->
+<!-- contextualized match name resolves assembly field and flag
+     definitions to their names in context (including parents) whereever referenced -->
+  <xsl:function name="pb:contextualized-matches" as="xs:string*">
+    
+    <xsl:param name="who" as="element()"/>
+<!-- for a reference, return the use-name and the use-name of the parent   -->
+<!-- for an inline definition, the same   -->
+<!-- for a global definition, find its points of reference -->    
+    <xsl:apply-templates select="$who" mode="name-used"/>
+  </xsl:function>
+  
+  <xsl:template mode="name-used" match="model//*" as="xs:string">
+    <xsl:text expand-text="true">{ pb:match-name(ancestor::model[1]/..) }/{ pb:match-name(.) }</xsl:text>
+  </xsl:template>
+  
+  <xsl:template mode="name-used" match="METASCHEMA/define-assembly" as="xs:string*">
+    <xsl:apply-templates mode="#current" select="key('assembly-references',@_key-name)"/>
+  </xsl:template>
+  
+  <xsl:template mode="name-used" match="METASCHEMA/define-field" as="xs:string*">
+    <xsl:apply-templates mode="#current" select="key('field-references',@_key-name)"/>
+  </xsl:template>
+  
+  <xsl:template mode="name-used" match="METASCHEMA/define-flag" as="xs:string*">
+    <xsl:apply-templates mode="#current" select="key('flag-references',@_key-name)"/>
+  </xsl:template>
+  
   <xsl:function name="pb:match-name" as="xs:string?">
     <xsl:param name="who" as="element()"/>
     <xsl:text expand-text="true">{ $who/group-as[@in-xml='GROUPED']/@name ! (. || '/') }{ pb:use-name($who) }</xsl:text>
   </xsl:function>
   
+  <xsl:function name="pb:match-name-with-parent" as="xs:string?">
+    <xsl:param name="who" as="element()"/>
+    <xsl:text expand-text="true">{ $who/ancestor::model[1]/parent::*/(pb:match-name(.) || '/') }{ pb:match-name($who) }</xsl:text>
+  </xsl:function>
+  
   <xsl:function name="pb:use-name" as="xs:string?">
     <xsl:param name="who" as="element()"/>
-    <xsl:variable name="definition" select="$who/self::assembly/key('assembly-definitions', @ref) |
-      $who/self::field/key('field-definitions', @ref) | $who/self::flag/key('flag-definitions',@ref)"/>
+    <xsl:variable name="definition" select="$who/self::assembly/key('assembly-definitions', @_key-ref) |
+      $who/self::field/key('field-definitions', @_key-ref) | $who/self::flag/key('flag-definitions',@_key-ref)"/>
     <xsl:sequence
-      select="($who/self::any/'ANY', $who/root-name, $who/use-name, $definition/root-name, $definition/use-name, $definition/@name,$who/@name)[1]"/>  
+      select="($who/root-name, $who/use-name, $definition/root-name, $definition/use-name, $definition/@name, $who/@name)[1]"/>  
   </xsl:function>
   
   <xsl:template name="comment-xsl">

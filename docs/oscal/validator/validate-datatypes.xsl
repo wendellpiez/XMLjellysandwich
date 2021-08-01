@@ -2,7 +2,7 @@
 <!-- Generated from generate-datatype-functions.xsl running on itself -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:pb="http://github.com/wendellpiez/XMLjellsandwich/oscal/validator"
+                xmlns:pb="http://github.com/wendellpiez/XMLjellysandwich"
                 xpath-default-namespace="http://csrc.nist.gov/ns/oscal/metaschema/1.0"
                 version="3.0">
    <xsl:function name="pb:datatype-validate" as="xs:boolean">
@@ -17,13 +17,19 @@
          </xsl:choose>
       </xsl:variable>
       <xsl:variable name="proxy" as="element()">
-         <xsl:element namespace="http://github.com/wendellpiez/XMLjellsandwich/oscal/validator"
+         <xsl:element namespace="http://github.com/wendellpiez/XMLjellysandwich"
                       name="{$test-type}"
                       expand-text="true">{$value}</xsl:element>
       </xsl:variable>
-      <xsl:apply-templates select="$proxy" mode="pb:validate-type"/>
+     <xsl:apply-templates select="$proxy" mode="pb:validate-type"/>
    </xsl:function>
    <!-- XXX -->
+   
+   <xsl:template match="pb:*" mode="pb:validate-type" as="xs:boolean">
+      <xsl:sequence select="true()"/>
+      <xsl:message expand-text="true">Assuming { local-name(.)} is valid</xsl:message>
+   </xsl:template>
+   
    <xsl:template match="pb:string" mode="pb:validate-type" as="xs:boolean">
       <xsl:sequence select="true()"/>
    </xsl:template>

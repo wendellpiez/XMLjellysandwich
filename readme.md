@@ -4,12 +4,13 @@ Starter kit for XSLT 3.0 in the browser using SaxonJS
 
 (Might have named it "XSLT Jump Start" except for the excellent book of that title, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, tasty, nutritious, and portable. Plus an XMLjellysandwich fits neatly into an XMLLunchbox, also in this repository.)
 
-To see examples: http://wendellpiez.github.io/XMLjellysandwich
+## Summary:
 
-Also, a couple of demonstration applications here can be used as starter frameworks for XML/CSS editing and micro-production (no XSLT required). For example 
-[the Versifier](https://github.com/wendellpiez/XMLjellysandwich/tree/master/docs/Versifier).
+In `/docs`, find example demonstrations, viewable through Github Pages at http://wendellpiez.github.io/XMLjellysandwich. A couple of these demonstrations serve as lightweight but complete publishing frameworks; others are designed to show functionality. Each demonstation has its own entry page or pages, source document(s) and transformation(s). Source code for everything is viewable. 
 
-To use: try any of the XSLT stylesheets on your XML. Its result will be either an HTML file, an XSLT stylesheet (which happens to match elements in your source XML), or a normalized XML copy of your input, depending on the stylesheet. Assemble the results of these (several) transformations, make your adjustments, compile the stylesheet, and you have a complete application you can park on a web server. (More details below.)
+In `/lib`, find XSLTs for making your own (starter) application, operating on your own XML. See further instructions below.
+
+## SaxonJS notices
 
 SaxonJS is documented here: http://www.saxonica.com/saxon-js/documentation/index.html
 
@@ -35,13 +36,13 @@ You have XML and you wish to style it in the browser with XSLT.
 
 If you wish to publish on your own localhost or must set up a server for any reason ...
 
-As described in Saxonica docs, copy the SaxonJS libraries into a `/lib/saxon` subdirectory on your web server. (Or some other subdirectory.) Here is the v1.0 download: http://www.saxonica.com/saxon-js/download/Saxon-JS-1.0.0.zip.
+As described in Saxonica docs, copy the SaxonJS libraries into a `/lib/saxon` subdirectory on your web server. (Or some other subdirectory.) Here is the v2.2 download: http://www.saxonica.com/saxon-js/download/Saxon-JS-2.2.zip.
 
 Just in case, copy the `.htaccess` file to your web server or otherwise configure it to serve up SEF as XML.
 
 (Cf http://www.saxonica.com/saxon-js/documentation/#!starting/export)
 
-Alternatively, skip all this and simply run off a plain vanilla web site from a commercial provider. Even works under Github Pages.
+Alternatively, skip all this and simply run off a plain vanilla web site from a commercial provider. The applications work fine delivered directly from a git repository by Github Pages.
 
 ### Runtime resources
 
