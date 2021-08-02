@@ -7,7 +7,7 @@ For *examples* of XML documents designed to showcase functionalities of the OSCA
 * [Docuscope](docuscope/)
 * [OSCAL Baseline Matrix](oscal/baseline-matrix/)
 * [OSCAL Profile Import Examiner](oscal/import-examiner/)
-* [OSCAL Metaschema Emulator](validator/catalog.html)
+* [OSCAL Metaschema Emulator](oscal/validator/catalog.html)
 
 Also find links to more demonstrations below, including **Conway's Life** and an I Ching forecaster.
 
