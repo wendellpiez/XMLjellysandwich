@@ -7,7 +7,7 @@
                xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0"
                exclude-result-prefixes="#all">
    <xsl:mode name="test" on-no-match="shallow-skip"/>
-   <!-- Generated 2021-08-01T16:46:11.578-04:00 -->
+   <!-- Generated 2021-08-01T20:04:39.455-04:00 -->
    <!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -->
    <!-- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -#- -->
    <!--     Root -->
@@ -21,6 +21,7 @@
    <!--     Occurrences - templates in mode 'test' -->
    <!-- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -~- -->
    <xsl:template priority="5" match="catalog/metadata" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::metadata) gt 1"/>
@@ -37,6 +38,7 @@
       <xsl:call-template name="require-for-metadata-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="catalog/param" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -47,6 +49,7 @@
       <xsl:call-template name="require-for-parameter-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="catalog/control" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -57,6 +60,7 @@
       <xsl:call-template name="require-for-control-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="catalog/group" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::back-matter )"/>
@@ -66,6 +70,7 @@
       <xsl:call-template name="require-for-group-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="catalog/back-matter" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -76,6 +81,7 @@
       <xsl:call-template name="require-for-back-matter-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="group/param" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -86,6 +92,7 @@
       <xsl:call-template name="require-for-parameter-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="group/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -96,6 +103,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="group/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -106,6 +114,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="group/part" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -116,6 +125,7 @@
       <xsl:call-template name="require-for-part-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="group/group" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="condition" select="exists(../(control))"/>
          <xsl:with-param name="cat">choice</xsl:with-param>
@@ -131,6 +141,7 @@
       <xsl:call-template name="require-for-group-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="group/control" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="condition" select="exists(../(group))"/>
          <xsl:with-param name="cat">choice</xsl:with-param>
@@ -140,6 +151,7 @@
       <xsl:call-template name="require-for-control-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="control/param" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -150,6 +162,7 @@
       <xsl:call-template name="require-for-parameter-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="control/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -160,6 +173,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="control/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -170,6 +184,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="control/part" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::control )"/>
@@ -179,9 +194,11 @@
       <xsl:call-template name="require-for-part-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="control/control" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-control-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="part/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -192,6 +209,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="part/part" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::link )"/>
@@ -201,9 +219,11 @@
       <xsl:call-template name="require-for-part-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="part/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="param/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -214,6 +234,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="param/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -224,6 +245,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="param/constraint" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -234,6 +256,7 @@
       <xsl:call-template name="require-for-parameter-constraint-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="param/guideline" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -244,6 +267,7 @@
       <xsl:call-template name="require-for-parameter-guideline-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="param/select" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::select) gt 1"/>
@@ -268,9 +292,11 @@
       </xsl:call-template>
    </xsl:template>
    <xsl:template priority="5" match="metadata/revisions/revision" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-revision-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="metadata/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -281,6 +307,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="metadata/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -291,6 +318,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="metadata/role" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -301,6 +329,7 @@
       <xsl:call-template name="require-for-role-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="metadata/location" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -311,6 +340,7 @@
       <xsl:call-template name="require-for-location-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="metadata/party" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -321,6 +351,7 @@
       <xsl:call-template name="require-for-party-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="metadata/responsible-party" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::remarks )"/>
@@ -330,6 +361,7 @@
       <xsl:call-template name="require-for-responsible-party-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="revision/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -340,6 +372,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="revision/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::remarks )"/>
@@ -349,6 +382,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="location/address" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::address) gt 1"/>
@@ -365,6 +399,7 @@
       <xsl:call-template name="require-for-address-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="location/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -375,6 +410,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="location/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::remarks )"/>
@@ -384,6 +420,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="party/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -394,6 +431,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="party/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -404,6 +442,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="party/address" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="condition" select="exists(../(location-uuid))"/>
          <xsl:with-param name="cat">choice</xsl:with-param>
@@ -419,6 +458,7 @@
       <xsl:call-template name="require-for-address-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="role/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -429,6 +469,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="role/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::remarks )"/>
@@ -438,6 +479,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="resource/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -448,6 +490,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="citation/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::link )"/>
@@ -457,9 +500,11 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="citation/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="responsible-party/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -470,6 +515,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="responsible-party/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::remarks )"/>
@@ -479,6 +525,7 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="responsible-role/prop" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -489,6 +536,7 @@
       <xsl:call-template name="require-for-property-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="responsible-role/link" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -499,12 +547,15 @@
       <xsl:call-template name="require-for-link-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="parameter-constraint/test" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-parameter-constraint_..._test-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="back-matter/resource" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-back-matter_..._resource-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="resource/citation" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::citation) gt 1"/>
@@ -521,6 +572,7 @@
       <xsl:call-template name="require-for-back-matter_..._resource_..._citation-assembly"/>
    </xsl:template>
    <xsl:template priority="5" match="resource/rlink" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -532,6 +584,7 @@
    </xsl:template>
    <xsl:template match="param/value/text()" mode="test"/>
    <xsl:template priority="5" match="param/value" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="condition" select="exists(../(select))"/>
          <xsl:with-param name="cat">choice</xsl:with-param>
@@ -548,6 +601,7 @@
    </xsl:template>
    <xsl:template match="param/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="param/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -558,6 +612,7 @@
    </xsl:template>
    <xsl:template match="test/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="test/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -568,6 +623,7 @@
    </xsl:template>
    <xsl:template match="metadata/published/text()" mode="test"/>
    <xsl:template priority="5" match="metadata/published" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::published) gt 1"/>
@@ -585,6 +641,7 @@
    </xsl:template>
    <xsl:template match="metadata/last-modified/text()" mode="test"/>
    <xsl:template priority="5" match="metadata/last-modified" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -603,6 +660,7 @@
    </xsl:template>
    <xsl:template match="metadata/version/text()" mode="test"/>
    <xsl:template priority="5" match="metadata/version" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::version) gt 1"/>
@@ -620,6 +678,7 @@
    </xsl:template>
    <xsl:template match="metadata/oscal-version/text()" mode="test"/>
    <xsl:template priority="5" match="metadata/oscal-version" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -638,6 +697,7 @@
    </xsl:template>
    <xsl:template match="metadata/document-id/text()" mode="test"/>
    <xsl:template priority="5" match="metadata/document-id" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -649,6 +709,7 @@
    </xsl:template>
    <xsl:template match="metadata/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="metadata/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -659,6 +720,7 @@
    </xsl:template>
    <xsl:template match="revision/published/text()" mode="test"/>
    <xsl:template priority="5" match="revision/published" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::published) gt 1"/>
@@ -676,6 +738,7 @@
    </xsl:template>
    <xsl:template match="revision/last-modified/text()" mode="test"/>
    <xsl:template priority="5" match="revision/last-modified" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -694,6 +757,7 @@
    </xsl:template>
    <xsl:template match="revision/version/text()" mode="test"/>
    <xsl:template priority="5" match="revision/version" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::version) gt 1"/>
@@ -711,6 +775,7 @@
    </xsl:template>
    <xsl:template match="revision/oscal-version/text()" mode="test"/>
    <xsl:template priority="5" match="revision/oscal-version" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -729,6 +794,7 @@
    </xsl:template>
    <xsl:template match="revision/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="revision/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -739,6 +805,7 @@
    </xsl:template>
    <xsl:template match="location/email-address/text()" mode="test"/>
    <xsl:template priority="5" match="location/email-address" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -750,6 +817,7 @@
    </xsl:template>
    <xsl:template match="location/telephone-number/text()" mode="test"/>
    <xsl:template priority="5" match="location/telephone-number" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -761,6 +829,7 @@
    </xsl:template>
    <xsl:template match="location/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="location/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -771,6 +840,7 @@
    </xsl:template>
    <xsl:template match="party/email-address/text()" mode="test"/>
    <xsl:template priority="5" match="party/email-address" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -782,6 +852,7 @@
    </xsl:template>
    <xsl:template match="party/telephone-number/text()" mode="test"/>
    <xsl:template priority="5" match="party/telephone-number" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -793,6 +864,7 @@
    </xsl:template>
    <xsl:template match="party/location-uuid/text()" mode="test"/>
    <xsl:template priority="5" match="party/location-uuid" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="condition" select="exists(../(address))"/>
          <xsl:with-param name="cat">choice</xsl:with-param>
@@ -803,6 +875,7 @@
    </xsl:template>
    <xsl:template match="party/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="party/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -813,6 +886,7 @@
    </xsl:template>
    <xsl:template match="role/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="role/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -823,6 +897,7 @@
    </xsl:template>
    <xsl:template match="resource/document-id/text()" mode="test"/>
    <xsl:template priority="5" match="resource/document-id" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -834,10 +909,12 @@
    </xsl:template>
    <xsl:template match="rlink/hash/text()" mode="test"/>
    <xsl:template priority="5" match="rlink/hash" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-hash-field"/>
    </xsl:template>
    <xsl:template match="resource/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="resource/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -848,6 +925,7 @@
    </xsl:template>
    <xsl:template match="prop/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="prop/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -858,6 +936,7 @@
    </xsl:template>
    <xsl:template match="responsible-party/party-uuid/text()" mode="test"/>
    <xsl:template priority="5" match="responsible-party/party-uuid" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -869,6 +948,7 @@
    </xsl:template>
    <xsl:template match="responsible-party/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="responsible-party/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -879,6 +959,7 @@
    </xsl:template>
    <xsl:template match="responsible-role/party-uuid/text()" mode="test"/>
    <xsl:template priority="5" match="responsible-role/party-uuid" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::remarks )"/>
@@ -889,6 +970,7 @@
    </xsl:template>
    <xsl:template match="responsible-role/remarks/text()" mode="test"/>
    <xsl:template priority="5" match="responsible-role/remarks" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::remarks) gt 1"/>
@@ -899,6 +981,7 @@
    </xsl:template>
    <xsl:template match="address/addr-line/text()" mode="test"/>
    <xsl:template priority="5" match="address/addr-line" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -910,6 +993,7 @@
    </xsl:template>
    <xsl:template match="group/title/text()" mode="test"/>
    <xsl:template priority="5" match="group/title" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::title) gt 1"/>
@@ -927,6 +1011,7 @@
    </xsl:template>
    <xsl:template match="control/title/text()" mode="test"/>
    <xsl:template priority="5" match="control/title" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::title) gt 1"/>
@@ -944,6 +1029,7 @@
    </xsl:template>
    <xsl:template match="part/title/text()" mode="test"/>
    <xsl:template priority="5" match="part/title" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::title) gt 1"/>
@@ -961,6 +1047,7 @@
    </xsl:template>
    <xsl:template match="param/label/text()" mode="test"/>
    <xsl:template priority="5" match="param/label" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::label) gt 1"/>
@@ -978,6 +1065,7 @@
    </xsl:template>
    <xsl:template match="param/usage/text()" mode="test"/>
    <xsl:template priority="5" match="param/usage" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::usage) gt 1"/>
@@ -995,6 +1083,7 @@
    </xsl:template>
    <xsl:template match="parameter-constraint/description/text()" mode="test"/>
    <xsl:template priority="5" match="parameter-constraint/description" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -1012,6 +1101,7 @@
    </xsl:template>
    <xsl:template match="test/expression/text()" mode="test"/>
    <xsl:template priority="5" match="test/expression" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::expression) gt 1"/>
@@ -1028,10 +1118,12 @@
    </xsl:template>
    <xsl:template match="parameter-selection/choice/text()" mode="test"/>
    <xsl:template priority="5" match="parameter-selection/choice" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="require-for-parameter-selection_..._parameter-choice-field"/>
    </xsl:template>
    <xsl:template match="metadata/title/text()" mode="test"/>
    <xsl:template priority="5" match="metadata/title" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::title) gt 1"/>
@@ -1049,6 +1141,7 @@
    </xsl:template>
    <xsl:template match="revision/title/text()" mode="test"/>
    <xsl:template priority="5" match="revision/title" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::title) gt 1"/>
@@ -1066,6 +1159,7 @@
    </xsl:template>
    <xsl:template match="location/title/text()" mode="test"/>
    <xsl:template priority="5" match="location/title" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::title) gt 1"/>
@@ -1083,6 +1177,7 @@
    </xsl:template>
    <xsl:template match="location/url/text()" mode="test"/>
    <xsl:template priority="5" match="location/url" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -1094,6 +1189,7 @@
    </xsl:template>
    <xsl:template match="party/name/text()" mode="test"/>
    <xsl:template priority="5" match="party/name" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::name) gt 1"/>
@@ -1111,6 +1207,7 @@
    </xsl:template>
    <xsl:template match="party/short-name/text()" mode="test"/>
    <xsl:template priority="5" match="party/short-name" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::short-name) gt 1"/>
@@ -1128,6 +1225,7 @@
    </xsl:template>
    <xsl:template match="party/external-id/text()" mode="test"/>
    <xsl:template priority="5" match="party/external-id" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition"
@@ -1139,6 +1237,7 @@
    </xsl:template>
    <xsl:template match="party/member-of-organization/text()" mode="test"/>
    <xsl:template priority="5" match="party/member-of-organization" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">ordering</xsl:with-param>
          <xsl:with-param name="condition" select="exists( preceding-sibling::remarks )"/>
@@ -1149,6 +1248,7 @@
    </xsl:template>
    <xsl:template match="role/title/text()" mode="test"/>
    <xsl:template priority="5" match="role/title" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::title) gt 1"/>
@@ -1166,6 +1266,7 @@
    </xsl:template>
    <xsl:template match="role/short-name/text()" mode="test"/>
    <xsl:template priority="5" match="role/short-name" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::short-name) gt 1"/>
@@ -1183,6 +1284,7 @@
    </xsl:template>
    <xsl:template match="role/description/text()" mode="test"/>
    <xsl:template priority="5" match="role/description" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -1201,6 +1303,7 @@
    </xsl:template>
    <xsl:template match="resource/title/text()" mode="test"/>
    <xsl:template priority="5" match="resource/title" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::title) gt 1"/>
@@ -1218,6 +1321,7 @@
    </xsl:template>
    <xsl:template match="resource/description/text()" mode="test"/>
    <xsl:template priority="5" match="resource/description" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -1236,6 +1340,7 @@
    </xsl:template>
    <xsl:template match="citation/text/text()" mode="test"/>
    <xsl:template priority="5" match="citation/text" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::text) gt 1"/>
@@ -1253,6 +1358,7 @@
    </xsl:template>
    <xsl:template match="resource/base64/text()" mode="test"/>
    <xsl:template priority="5" match="resource/base64" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::base64) gt 1"/>
@@ -1269,6 +1375,7 @@
    </xsl:template>
    <xsl:template match="link/text/text()" mode="test"/>
    <xsl:template priority="5" match="link/text" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::text) gt 1"/>
@@ -1279,6 +1386,7 @@
    </xsl:template>
    <xsl:template match="address/city/text()" mode="test"/>
    <xsl:template priority="5" match="address/city" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::city) gt 1"/>
@@ -1296,6 +1404,7 @@
    </xsl:template>
    <xsl:template match="address/state/text()" mode="test"/>
    <xsl:template priority="5" match="address/state" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::state) gt 1"/>
@@ -1313,6 +1422,7 @@
    </xsl:template>
    <xsl:template match="address/postal-code/text()" mode="test"/>
    <xsl:template priority="5" match="address/postal-code" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition"
@@ -1330,6 +1440,7 @@
    </xsl:template>
    <xsl:template match="address/country/text()" mode="test"/>
    <xsl:template priority="5" match="address/country" mode="test">
+      <xsl:apply-templates select="@*" mode="test"/>
       <xsl:call-template name="notice">
          <xsl:with-param name="cat">cardinality</xsl:with-param>
          <xsl:with-param name="condition" select="count(. | preceding-sibling::country) gt 1"/>

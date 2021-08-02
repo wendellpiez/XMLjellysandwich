@@ -201,6 +201,7 @@
     </xsl:if>
     
     <XSLT:template priority="5" match="{ $match-path }" mode="test">
+      <XSLT:apply-templates select="@*" mode="test"/>
       <!-- 'test-occurrence' template produces only tests needed to check this occurrence -->
       <xsl:call-template name="test-occurrence">
           <xsl:with-param name="using-name" select="$using-name"/>
