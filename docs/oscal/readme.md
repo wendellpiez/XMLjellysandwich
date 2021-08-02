@@ -3,6 +3,8 @@
 
 OSCAL is the Open Security Controls Assessment Language.
 
+For *examples* of XML documents designed to showcase functionalities of the OSCAL applications, download and unzip the file [oscal-examples.zip](oscal-examples.zip "oscal-examples.zip")
+
 Current applications:
 
 * [Baseline matrix](baseline-matrix) - paints your OSCAL profile's coverage of 800-53 control families, following look/feel of the official NIST publication (SP800-53B).

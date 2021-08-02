@@ -1,5 +1,18 @@
 # XML Jelly Sandwich Demos
 
+## Balisage 2021 Demonstrations
+
+For *examples* of XML documents designed to showcase functionalities of the OSCAL applications, download and unzip the file [oscal/oscal-examples.zip](oscal/oscal-examples.zip)
+
+* [Docuscope](docuscope/)
+* [OSCAL Baseline Matrix](oscal/baseline-matrix/)
+* [OSCAL Profile Import Examiner](oscal/import-examiner/)
+* [OSCAL Metaschema Emulator](validator/catalog.html)
+
+Also find links to more demonstrations below, including **Conway's Life** and an I Ching forecaster.
+
+## What this is
+
 XML Jelly Sandwich is a library of XSLTs you can use to create XML/XSLT applications using SaxonJS. These will run in most any modern browser with Javascript.
 
 The demonstrations, and XML Jelly Sandwich in general, are entirely dependent on SaxonJS and would hardly have been conceivable without the contributions of [Saxonica](http://saxonica.com) and [oXygen XML IDE](http://oxygenxml.com) among many others.
