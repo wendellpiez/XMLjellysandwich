@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+         uuid="93992707-84ae-4bd5-b1ec-6f52efc32ce2">
+   <metadata>
+      <title>Demo profile</title>
+      <last-modified>2021-07-05T11:59:33.693-04:00</last-modified>
+      <version>0.1</version>
+      <oscal-version>1.0.0</oscal-version>
+   </metadata>
+   <import href="../NIST_SP-800-53_rev5_catalog.xml">
+      <include-controls>
+         <with-id>at-1</with-id>
+         <with-id>at-2</with-id>
+      </include-controls>
+   </import>
+</profile>

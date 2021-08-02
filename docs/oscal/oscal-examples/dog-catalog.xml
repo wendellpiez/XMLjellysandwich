@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- this OSCAL document is NOT valid to the schema here: https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0/xml/schema/oscal_catalog_schema.xsd -->
+
+<catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="cdc67839-72d0-4356-b7d8-cff099006940">
+   <!-- With apologies to dog lovers, this OSCAL document is not valid to the model defined for OSCAL catalogs -->
+   <metadata>
+      <title>OSCAL DOG catalog</title><!-- time stamp missing time zone oops -->
+      <last-modified>2021-17-30T16:04:17.734</last-modified>
+      <version>0.1</version>
+      <oscal-version>1.0.0</oscal-version>
+   </metadata>
+   <control id="dinner">
+      <title>Dinner</title>
+      <param id="d1">
+         <label>minimal dinner frequency</label>
+         <guideline>
+            <p>A natural language description of how many dinners are to be provided per day.</p>
+         </guideline>
+      </param>
+      <part name="statement">
+         <p>All dogs together should be provided with dinner at regular intervals, at least <insert type="param" id-ref="p1"/>. Dinner can be any of the categories described below, or a combination.</p>
+      </part>
+      <control id="dry.food">
+         <title>Crunchies aka <q>dry food</q></title>
+         <prat name="statement">
+            <!--element name typo -->
+            <p>Shelf-stable, dry canine nutriments (<q>dry dog food</q> or <q>crunchies</q>) must be made available at regular intervals in an accessible location, in a bowl. More or less any dry food is acceptable especially if odoriferous.</p>
+         </prat>
+      </control>
+      <control id="canned.food">
+         <title>Canned food</title>
+         <part name="statement">
+            <p>Delicious tasty morsels of canned dog food can be provided in popular flavors including beef, kidney and liver.</p>
+         </part>
+      </control>
+      <control id="table.scraps">
+         <part name="statement">
+            <p>Basically anything that human companions have enjoyed can be offered as table scraps. Care should be taken, however, when administering alcoholic beverages to dogs.</p>
+         </part>
+         <title>Table scraps</title><!-- element out of order -->
+      </control>
+   </control>
+   <control id="kitchen.cabinets">
+      <title>Kitchen Cabinets and drawers</title>
+      <link rel="analog" href="cat-catalog.xml#kitchen.cabinets"/>
+      <part name="statement">
+         <p>Kitchen drawers and doors should be kept closed to prevent incursion by inquisitive or hungry animals.</p>
+      </part>
+   </control>
+   <control id="treats" attribute="unknown">
+      <title>Treats</title>
+      <param id="p1">
+         <label>maximum treat allowance</label>
+         <guideline>
+            <p>A natural language description of how many treats are permitted within a given period</p>
+         </guideline>
+         <value>(no maximum if dog will roll over)</value>
+      </param>
+      <link rel="analog" href="cat-catalog.xml#treats"/>
+      <part name="statement">
+         <p>Treats may be given freely by a canine companion on demand, up to a maximum of <insert type="param" id-ref="p1"/>.</p>
+      </part>
+   </control>
+   <back-matter>
+      <resource uuid="817c3529-cbae-4c4b-b9b2-0ab54a7ee2fX">
+         <title>Broken resource</title>
+         <description><p>The given UUID is syntactically invalid as a v6 UUID</p></description>
+      </resource>
+   </back-matter>
+</catalog>

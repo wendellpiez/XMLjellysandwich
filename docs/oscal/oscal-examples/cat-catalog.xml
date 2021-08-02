@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- this OSCAL document is valid to the schema here: https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0/xml/schema/oscal_catalog_schema.xsd -->
+<catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+         uuid="abe474a5-26aa-426d-8221-a0508c62dce2">
+   <metadata>
+      <title>OSCAL CATalog</title>
+      <last-modified>2021-07-30T14:54:06.481-04:00</last-modified>
+      <version>0.1</version>
+      <oscal-version>1.0.0</oscal-version>
+   </metadata>
+   <control id="dry.food">
+      <title>Crunchies aka <q>dry food</q></title>
+      <part name="statement">
+         <p>Shelf-stable, dry feline nutriments (<q>dry cat food</q> or <q>crunchies</q>) must be available at all times in an accessible location, with only such wrapping or packaging to make it entertaining to extract (using only teeth and claws), or preferably, open in a bowl. Flavors based on chicken or fish are preferred.</p>
+      </part>
+   </control>
+   <control id="canned.food">
+      <title>Wet cat food</title>
+      <part name="statement">
+         <p>Delicious tasty morsels of canned cat food should be provided at regular intervals in sufficient quantities for all cats to be satisfied.</p>
+      </part>
+      <part name="guidance">
+         <p>Wet cat food may be referred to as <q>cat fud</q> on shopping lists. When not otherwise qualified, <q>cat fud</q> should be taken to refer to wet (i.e., canned) cat food, not dry.</p>
+         <p>Table scraps are not acceptable as wet cat food (or acceptable in general). Prey animals also do not count, although they may also be enjoyed.</p>
+      </part>
+   </control>
+   <control id="kitchen.cabinets">
+      <title>Kitchen Cabinets and drawers</title>
+      <part name="statement">
+         <p>Kitchen drawers and cabinets should be kept closed to prevent feline incursion.</p>
+      </part>
+   </control>
+   <control id="boxes">
+      <title>Boxes</title>
+      <link rel="related" href="#toys"/>
+      <part name="statement">
+         <p>Cardboard or other disposable delivery boxes may be left in the living room as temporary cat fortresses.</p>
+      </part>
+   </control>
+   <control id="treats">
+      <title>Treats</title>
+      <param id="p1">
+         <label>maximum treat allowance</label>
+         <guideline>
+            <p>A natural language description of how many treats are permitted within a given period, to be determine by the cat's <q>owner</q> given appropriate veterinary advice.</p>
+         </guideline>
+      </param>
+      <part name="statement">
+         <p>Treats may be given freely by a feline's caretaker or companion on demand, up to a maximum of <insert type="param" id-ref="p1"/>.</p>
+      </part>
+   </control>
+   <control id="toys">
+      <title>Toys</title>
+      <link rel="related" href="#boxes"/>
+      <part name="statement">
+         <p>Any small objects or objects of any size with holes, passages, hatches or flaps may be considered cat toys, defined as objects designated for feline play. Store-bought cat toys are acceptable but a cat may select its own toys such as string, rubber bands or jewelry.</p>
+      </part>
+   </control>
+</catalog>
