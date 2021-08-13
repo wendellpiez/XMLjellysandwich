@@ -206,7 +206,7 @@
    
    <xsl:template name="load-poem">
       <xsl:param name="poem-uri" as="xs:anyURI"/>
-      <xsl:param name="poem" select="document( $poem-uri )"/>
+      <xsl:variable name="poem" select="document( $poem-uri )"/>
       <xsl:result-document href="#text_title" method="ixsl:replace-content">
          <xsl:apply-templates xpath-default-namespace="" select="$poem/descendant::title[1]/node()"
          />
