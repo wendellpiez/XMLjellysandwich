@@ -4,6 +4,7 @@
                 xmlns:XJS="http://github.com/wendellpiez/XMLjellysandwich"
                 xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT"
                 version="3.0"
+                xmlns="http://www.w3.org/1999/xhtml"
                 extension-element-prefixes="ixsl"
     exclude-result-prefixes="#all">
 
@@ -76,7 +77,6 @@
    
    <xsl:template match="*[contains-token(@class,'toc-entry')]" mode="ixsl:onclick">
       <xsl:variable name="where" select="resolve-uri(@data-src)"/>
-      <xsl:message expand-text="true">Whee { $where }</xsl:message>
       <ixsl:schedule-action document="{$where}">
          <xsl:call-template name="load-poem">
             <xsl:with-param name="where" select="$where"/>
@@ -142,7 +142,7 @@
          </div>
       </xsl:result-document>
       
-      <xsl:apply-templates select="ixsl:page()//*[contains-token(@class,'verse')]" xpath-default-namespace="" mode="spill"/>
+      <xsl:apply-templates select="ixsl:page()//*[contains-token(@class,'verse')]" mode="spill"/>
    </xsl:template>
    
    
@@ -287,7 +287,7 @@
    
    <!-- This is the tricky part - -->
    <!-- each phrase looks back at the phrase before, for its pause -->
-   <xsl:template mode="pause" xpath-default-namespace="" match="span[contains-token(@class,'phr')]" as="xs:integer">
+   <xsl:template mode="pause" xpath-default-namespace="http://www.w3.org/1999/xhtml" match="span[contains-token(@class,'phr')]" as="xs:integer">
       <xsl:if test=". is /descendant::span[contains-token(@class,'phr')][1]">0</xsl:if>
       <xsl:apply-templates select="preceding::span[contains-token(@class,'phr')][1]/text()" mode="pause"/>
    </xsl:template>
