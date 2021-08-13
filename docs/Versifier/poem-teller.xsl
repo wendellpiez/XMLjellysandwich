@@ -5,6 +5,7 @@
                 xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT"
                 version="3.0"
                 extension-element-prefixes="ixsl"
+                xmlns="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="#all">
 
 
@@ -23,9 +24,11 @@
    <!--<xsl:variable name="src-uri" select="document-uri(/)"/>-->
 
 
-   <xsl:key name="input-by-name" match="input" use="@name"/>
+   <xsl:key xpath-default-namespace="http://www.w3.org/1999/xhtml"
+      name="input-by-name" match="input" use="@name"/>
    
-   <xsl:key name="button-by-label" match="button" use="string(.)"/>
+   <xsl:key xpath-default-namespace="http://www.w3.org/1999/xhtml" 
+      name="button-by-label" match="button" use="string(.)"/>
    
    <xsl:template name="xmljellysandwich_pack">
       <xsl:result-document href="#teller-css">
@@ -62,7 +65,7 @@
    
    
    <xsl:template match="card" mode="toc">
-      <h5 class="toc-entry" data-src="{@src}" onclick="void(0)">
+      <h5 class="toc-entry" data-src="{@src}">
          <xsl:apply-templates select="title, (author,date)[1]" mode="toc"/>
       </h5>
    </xsl:template>
@@ -160,17 +163,45 @@
       <xsl:apply-templates select="id('text_panel')" mode="on"/>
    </xsl:template>
    
-   <xsl:template match="code[@class='button']" mode="ixsl:onclick">
+   <xsl:template xpath-default-namespace="http://www.w3.org/1999/xhtml"
+      match="code[@class='button']" mode="ixsl:onclick">
       <xsl:apply-templates select="key('button-by-label',string(.))" mode="ixsl:onclick"/>
    </xsl:template>
    
-   <xsl:template match="h5[@class='toc-entry']" mode="ixsl:onclick">
-      <xsl:variable name="poem" select="document(resolve-uri(@data-src))"/>
+   <!--<xsl:template xpath-default-namespace="http://www.w3.org/1999/xhtml"
+      match="a[@class='toc-entry']" mode="ixsl:onclick">
+      <xsl:variable name="src" select="@data-src"/>
+      <xsl:result-document expand-text="true" href="#text_title" method="ixsl:replace-content">BOO!!!{ $src }</xsl:result-document>
+      
+      <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
+      <xsl:apply-templates select="id('text_panel')" mode="on"/>
+   </xsl:template>-->
+   
+   <!--<xsl:template match="id('load_loveiii')" mode="ixsl:onclick">
+      <xsl:variable name="poem" select="document('loveiii.xml')"/>
       <xsl:result-document href="#text_title" method="ixsl:replace-content">
          <xsl:apply-templates select="$poem/descendant::title[1]/node()"/>
       </xsl:result-document>
       <xsl:result-document href="#text_byline" method="ixsl:replace-content">
          <xsl:apply-templates select="$poem//pub/author/node()"/>
+      </xsl:result-document>
+      <xsl:result-document href="#text_panel" method="ixsl:replace-content">
+         <textarea rows="28" cols="50" id="poetry-in-motion">
+            <xsl:apply-templates select="$poem" mode="textonly"/>
+         </textarea>
+      </xsl:result-document>
+      <xsl:apply-templates select="id('tweak_panel')" mode="off"/>
+      <xsl:apply-templates select="id('text_panel')" mode="on"/>
+   </xsl:template>-->
+   
+   <xsl:template xpath-default-namespace="http://www.w3.org/1999/xhtml"
+      match="h5[@class='toc-entry']" mode="ixsl:onclick">
+      <xsl:variable name="poem" select="document(resolve-uri(@data-src))"/>
+      <xsl:result-document href="#text_title" method="ixsl:replace-content">
+         <xsl:apply-templates xpath-default-namespace="" select="$poem/descendant::title[1]/node()"/>
+      </xsl:result-document>
+      <xsl:result-document href="#text_byline" method="ixsl:replace-content">
+         <xsl:apply-templates xpath-default-namespace="" select="$poem//pub/author/node()"/>
       </xsl:result-document>
       <xsl:result-document href="#text_panel" method="ixsl:replace-content">
          
@@ -424,11 +455,11 @@
    
    <!-- This is the tricky part - -->
    <!-- each phrase looks back at the phrase before, for its pause -->
-   <xsl:template mode="pause" xpath-default-namespace="" priority="10"
+   <xsl:template mode="pause" priority="10" xpath-default-namespace="http://www.w3.org/1999/xhtml"
       match="span[. is root()/descendant::span[contains-token(@class,'phr')][1] ]" 
       as="xs:integer">0</xsl:template>
    
-      <xsl:template mode="pause" xpath-default-namespace="" match="span[contains-token(@class,'phr')]" as="xs:integer">
+   <xsl:template mode="pause"  xpath-default-namespace="http://www.w3.org/1999/xhtml" match="span[contains-token(@class,'phr')]" as="xs:integer">
          <!-- Note extra step to text node child: this is what keeps us from recursing to the front. -->
       <xsl:apply-templates select="preceding::span[contains-token(@class,'phr')][1]/text()" mode="pause"/>
    </xsl:template>
