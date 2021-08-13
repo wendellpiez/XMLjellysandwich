@@ -196,16 +196,28 @@
    
    <xsl:template xpath-default-namespace="http://www.w3.org/1999/xhtml"
       match="h5[@class='toc-entry']" mode="ixsl:onclick">
-      <xsl:variable name="poem" select="document(resolve-uri(@data-src))"/>
+      <xsl:variable name="poem-uri" select="resolve-uri(@data-src)"/>
+      <ixsl:schedule-action document="{ $poem-uri }">
+         <xsl:call-template name="load-poem">
+         <xsl:with-param name="poem-uri" select="$poem-uri"/>
+      </xsl:call-template>
+      </ixsl:schedule-action>
+   </xsl:template>
+   
+   <xsl:template name="load-poem">
+      <xsl:param name="poem-uri" as="xs:anyURI"/>
+      <xsl:param name="poem" select="document( $poem-uri )"/>
       <xsl:result-document href="#text_title" method="ixsl:replace-content">
-         <xsl:apply-templates xpath-default-namespace="" select="$poem/descendant::title[1]/node()"/>
+         <xsl:apply-templates xpath-default-namespace="" select="$poem/descendant::title[1]/node()"
+         />
       </xsl:result-document>
       <xsl:result-document href="#text_byline" method="ixsl:replace-content">
          <xsl:apply-templates xpath-default-namespace="" select="$poem//pub/author/node()"/>
       </xsl:result-document>
       <xsl:result-document href="#text_panel" method="ixsl:replace-content">
-         
-         <textarea rows="28" cols="50" id="poetry-in-motion">
+         <xsl:variable name="linecount" xpath-default-namespace=""
+            select="count(($poem//line | $poem//l)/(. || parent::*))"/>
+         <textarea rows="{ $linecount }" cols="50" id="poetry-in-motion">
             <xsl:apply-templates select="$poem" mode="textonly"/>
          </textarea>
       </xsl:result-document>
