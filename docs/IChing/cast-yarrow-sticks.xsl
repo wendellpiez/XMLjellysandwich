@@ -79,6 +79,12 @@
                         
                     </main>
                 </xsl:result-document>
+                <xsl:result-document href="#favicon" method="ixsl:replace-content">
+                    <xsl:variable name="hex-svg">
+                        <xsl:apply-templates select="$cast/reading/current/*" mode="svg-gram"/>
+                    </xsl:variable>
+                    <link id="favicon" rel="icon" href="data:image/svg+xml,{ serialize($hex-svg) }"/>
+                </xsl:result-document>
                 <xsl:call-template name="make-download-link">
                     <xsl:with-param name="payload">
                         <html>
@@ -116,7 +122,6 @@
         <div id="ideogram-block" style="float:right">
             <xsl:apply-templates select="current/*" mode="svg-gram"/>
         </div>
-        
         
         <h2>{ @time }</h2>
         <xsl:if test="normalize-space($framing-text)">
