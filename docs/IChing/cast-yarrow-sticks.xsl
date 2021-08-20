@@ -112,7 +112,7 @@
             <xsl:otherwise>
                 <xsl:result-document href="#page_body" method="ixsl:replace-content">
                     <main>
-                <p class="framing">Offer a prompt (context or question) and cast.</p>
+                        <p class="framing">Enter a question or prompt.</p>
                 </main>
                 </xsl:result-document>
             </xsl:otherwise>
