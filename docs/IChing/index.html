@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-     <title>I Ching reading</title>
+     <title id="html_title">I Ching reading</title>
       <meta charset="utf-8"/>
      <link id="favicon" rel="icon" href="../sando1-icon.svg"/>
      <style type="text/css" id="xmljellysandwich_css">
@@ -28,20 +28,18 @@
         h1 small { font-size: 60% }
         #clock { height: 67% }
         </style>
-      <script type="text/javascript"
-              src="../lib/Saxon-JS-1.2.0/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
-     <!--<script type="text/javascript"
-              src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!-\- parsers are so easily confused -\-></script>-->
+     <script type="text/javascript"
+              src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
      <script>
         /*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
 function initiate(context9n,sticks) {
           SaxonJS.transform(
-            { stylesheetLocation: "caststicks.sef",
+            { stylesheetLocation: "caststicks.sef.json",
               initialTemplate:    "cast",
               stylesheetParams: {
                 "yarrowSequence": sticks,
                 "framingText": context9n }
-            } );
+            },"asynch" );
           }
 
 function castSticks() { 
@@ -68,11 +66,10 @@ function castSticks() {
      </div>
      <div id="diagnostic"/>
      <div id="page_footer" style="font-size: smaller">
-         <p>Reading produced by <a href="https://github.com/wendellpiez/XMLjellysandwich">XMLjellysandwich <i>I Ching</i></a> (Wendell Piez, 2019-2020).</p>
+         <p>Reading produced by <a href="https://github.com/wendellpiez/XMLjellysandwich">XMLjellysandwich <i>I Ching</i></a> (Wendell Piez, 2019-2021).</p>
          <p>Dedicated to the teachers and transmitters, especially Thomas Cleary, <a href="http://ctext.org">CTP</a> and all open-source I Ching.</p>
-       <p>Don't be a robot! Never click without consciousness or deliberation.</p>
-     </div>
-     
+       <p>See more projects produced by the <a href="https://wendellpiez.github.io/XMLjellysandwich/">XML Jelly Sandwich</a>.</p>
+     </div>     
    </body>
   
 </html>

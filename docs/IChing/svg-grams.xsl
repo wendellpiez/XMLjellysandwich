@@ -25,11 +25,25 @@
         </svg>
     </xsl:template>
     
+    <xsl:template match="*" mode="page-icon-svg" xpath-default-namespace="http://www.w3.org/2000/svg">
+        <xsl:variable name="svg-gram" as="element(svg)">
+            <xsl:apply-templates select="." mode="svg-gram">
+                <xsl:with-param name="dimension">300</xsl:with-param>
+            </xsl:apply-templates>
+        </xsl:variable>
+        <xsl:apply-templates select="$svg-gram" mode="copy-gram"/>
+    </xsl:template>
+    
+    <xsl:mode name="copy-gram" on-no-match="shallow-copy"/>
+    
+    <xsl:template mode="copy-gram" match="text" xpath-default-namespace="http://www.w3.org/2000/svg"/>
+    
         <!--
         <xsl:template mode="draw" match="日">———————</xsl:template>
         <xsl:template mode="draw" match="日[@to = '月']">———o———</xsl:template>
         <xsl:template mode="draw" match="月">——— ———</xsl:template>
         <xsl:template mode="draw" match="月[@to = '日']">———x———</xsl:template>-->
+    
     <xsl:template match="*" mode="draw-line">
         <g transform="translate(0 -10)">
             <xsl:apply-templates select="." mode="svg-line"/>
@@ -40,6 +54,7 @@
     <xsl:template mode="svg-line" match="*" expand-text="true">
         <text>{ name() }</text>
     </xsl:template>
+    
         <xsl:template mode="svg-line" match="日"><!--———————-->
             <text font-size="6" y="2">8</text>
             <path d="m 10 0 h 60" stroke-width="6" stroke="black" fill="none"/>

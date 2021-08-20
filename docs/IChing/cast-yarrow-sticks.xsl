@@ -41,10 +41,12 @@
         
     </xsl:template>
     
+    <xsl:variable name="scrub-chars" as="xs:string">[^\p{L}\d\-]</xsl:variable>
+    
     <xsl:template name="make-download-link">
         <xsl:param name="payload" select="()"/>
         <xsl:variable name="tag" expand-text="true">{
-            $payload/descendant::*:h1[1] ! replace(.,'\s+','') ! replace(.,'\W','_') 
+            $payload/descendant::*:h1[1] ! replace(.,'\s+','') ! replace(.,$scrub-chars,'_') 
             }_{
             replace($yarrowSequence,'\s+','') }</xsl:variable>
         <xsl:variable name="as-written" select="serialize($payload)"/>
@@ -68,6 +70,9 @@
     <xsl:template name="cast">
         <xsl:choose>
             <xsl:when test="normalize-space($framingText)">
+                <!-- cast delivers a tree representing the cast see yarrowcount.xsl for details -->
+                <!-- <日><月><月><月><日><日 to="月"/></日></月></月></月></日> -->
+                
                 <xsl:variable name="cast">
                     <xsl:call-template name="reading"/>
                 </xsl:variable>
@@ -76,24 +81,22 @@
                         <xsl:apply-templates select="$cast" mode="read">
                             <xsl:with-param name="framing-text" select="$framingText"/>
                         </xsl:apply-templates>
-                        
                     </main>
                 </xsl:result-document>
-                <xsl:result-document href="#favicon" method="ixsl:replace-content">
-                    <xsl:variable name="hex-svg">
-                        <xsl:apply-templates select="$cast/reading/current/*" mode="svg-gram"/>
-                    </xsl:variable>
-                    <link id="favicon" rel="icon" href="data:image/svg+xml,{ serialize($hex-svg) }"/>
+                <xsl:result-document href="#html_title" method="ixsl:replace-content">
+                    <xsl:apply-templates select="$cast/reading/current" mode="page-head-text"/>
                 </xsl:result-document>
                 <xsl:call-template name="make-download-link">
                     <xsl:with-param name="payload">
                         <html>
                             <head>
-                                <title>I Ching reading</title>
+                                <title>
+                                    <xsl:apply-templates select="$cast/reading/current" mode="page-head-text"/>
+                                </title>
                                 <meta charset="utf-8"/>
                             </head>
                             <body>
-                                <xsl:apply-templates select="$cast" mode="read">
+                                <xsl:apply-templates select="$cast/reading" mode="read">
                                     <xsl:with-param name="framing-text" select="$framingText"/>
                                 </xsl:apply-templates>
                                 <div id="page_footer" style="font-size: smaller; border-top: medium groove black">
@@ -139,6 +142,12 @@
     <xsl:key name="section-by-char"
         match="*:section" use="tokenize(@class,'\s+')[2]"/>
     
+    
+    <xsl:template match="current" mode="page-head-text">
+        <xsl:variable name="character" select="@char"/>
+        <xsl:value-of select="key('section-by-char',$character,$kingwen)/*:header/string(.)"
+          xpath-default-namespace="http://www.w3.org/1999/xhtml"/>
+    </xsl:template>
     
     <xsl:template match="current" mode="read">
         <xsl:variable name="character" select="@char"/>
@@ -202,6 +211,7 @@
     <xsl:template mode="read" match="*:section">
         <xsl:apply-templates mode="read"/>
     </xsl:template>
+    
     <xsl:template mode="read" match="*:section/*:header">
         <h1>
             <xsl:apply-templates mode="read"/>
