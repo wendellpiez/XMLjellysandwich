@@ -461,6 +461,9 @@
         <folder masterFiles="true" name="Master Files">
             <file name="docs/oscal/validator/apply-validator.xsl"/>
         </folder>
+        <folder name="Data">
+            <file name="../../usnistgov/oscal-content/src/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
+        </folder>
         <folder name="ISO_Schematron">
             <file name="../schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl"/>
         </folder>
