@@ -38,6 +38,7 @@
     
     <xsl:variable name="baseline-title" select="$baseline-catalog/*/metadata/title"/>
     
+    
     <xsl:template name="examine-profile">
         <xsl:result-document href="#bxbody" method="ixsl:append-content">
             <details>
@@ -237,7 +238,7 @@
                 <xsl:call-template name="tell">
                     <xsl:with-param name="when" select="empty(../include-all | $rev5-calls)"/>
                     <xsl:with-param name="title">No Rev 5 controls</xsl:with-param>
-                    <xsl:with-param name="msg">Include directive shows no controls calling SP 800-53 Rev 5 (by control-id).</xsl:with-param>
+                    <xsl:with-param name="msg">Include directive shows no controls calling SP 800-53 Rev 5 (by with-id).</xsl:with-param>
                 </xsl:call-template>
                 <xsl:apply-templates mode="examine"/>
                 <!--<xsl:on-empty>
@@ -255,9 +256,9 @@
     <xsl:template match="exclude-controls/with-id" mode="examine" expand-text="true">
         <xsl:variable name="me" select="."/>
         <xsl:call-template name="tell">
-            <xsl:with-param name="when" select="empty(../include-all) or not(@control-id = ../include-controls/with-id)"/>
+            <xsl:with-param name="when" select="empty(../include-all) or not(string(.) = ../include-controls/with-id)"/>
             <xsl:with-param name="title">Control excluded but not included</xsl:with-param>
-            <xsl:with-param name="msg">Exclusion of control <code class="ctrl">{ @control-id }</code> is inoperative as it is not included.</xsl:with-param>
+            <xsl:with-param name="msg">Exclusion of control <code class="ctrl">{ string(.) }</code> is inoperative as it is not included.</xsl:with-param>
         </xsl:call-template>
         
         <xsl:next-match/>
@@ -269,7 +270,7 @@
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="not(. = $baseline-controls/@id)"/>
             <xsl:with-param name="title">Calling an unknown control</xsl:with-param>
-            <xsl:with-param name="msg">Control <code class="ctrl">{. }</code> is not found in <b>{ $baseline-title }</b>.</xsl:with-param>
+            <xsl:with-param name="msg">Control <code class="ctrl">{ . }</code> is not found in <b>{ $baseline-title }</b>.</xsl:with-param>
         </xsl:call-template>
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="exists(preceding-sibling::with-id[. = $me])"/>
@@ -279,7 +280,7 @@
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="$refreshing and (. = $baseline-controls/@id)"/>
             <xsl:with-param name="title">Calling a recognized control</xsl:with-param>
-            <xsl:with-param name="msg">Control <code class="ctrl">{ @control-id }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
+            <xsl:with-param name="msg">Control <code class="ctrl">{ . }</code> appears in <b>{ $baseline-title }</b>.</xsl:with-param>
             <xsl:with-param name="status">noteworthy</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
@@ -311,13 +312,6 @@
             </details>
         </xsl:if>-->
     </xsl:template>
-    
-    <!--<xsl:function name="XJS:called-by-profile">
-        <xsl:param name="control" as="element(control)"/>
-        <xsl:param name="profile" as="element(profile)"/>
-        <xsl:sequence select="some $i in ($profile/import) satisfies XJS:imports-control($i,$control/@id)"/>        
-    </xsl:function>-->
-    
     
     <!-- ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### -->
     
@@ -375,11 +369,11 @@
         <xsl:value-of select="@href"/>
     </xsl:template>
     
-    <xsl:template match="call" mode="tag" expand-text="true">
+    <xsl:template match="with-id" mode="tag" expand-text="true">
         <p class="tag" id="tag-{XJS:xid(.)}">
-            <xsl:text>call</xsl:text>
+            <xsl:text>with-id</xsl:text>
             <span class="flag">
-                <xsl:value-of select="@control-id"/>
+                <xsl:value-of select="."/>
             </span>
         </p>
     </xsl:template>
@@ -475,31 +469,5 @@
         <xsl:sequence select="some $href in ($who/@href | $resource/rlink/@href) satisfies matches($href,'sp.800.53','i')"/>
     </xsl:function>
     
-    <!--<xsl:function name="XJS:mark-baseline-occurrence">
-      <xsl:param name="profile" as="document-node()"/>
-      <xsl:param name="controlid" as="xs:string"/>
-      <xsl:variable name="imports"
-          select="$profile/profile/import[XJS:rev5-import(.)]"/>
-        <xsl:choose>
-            <xsl:when
-                test="
-                    some $import in ($imports)
-                    satisfies XJS:imports-control($import,$controlid)"
-                >x</xsl:when>
-          <xsl:otherwise>&#xA0;</xsl:otherwise>
-        </xsl:choose>
-    </xsl:function>-->
-
-    <!-- @with-control logic goes here - -->
-    <xsl:function name="XJS:imports-control" as="xs:boolean">
-      <xsl:param name="import" as="element(import)"/>
-      <xsl:param name="controlid" as="xs:string"/>
-      <xsl:sequence
-            select="
-                (exists($import/include/all) or
-                ($controlid = $import/include/call/@control-id)) and
-                not($controlid = $import/exclude/call/@control-id)"
-        />
-    </xsl:function>
 
 </xsl:stylesheet>
