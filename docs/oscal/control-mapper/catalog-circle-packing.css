@@ -1,0 +1,53 @@
+@import url("webfonts/font-declarations-public-sans.css");
+
+body {
+  font-size: 12pt;
+  pointer-events: none;
+}
+
+text { font-family: "Public Sans" }
+
+
+text.group, text.control, text.subcontrol {
+    position: relative; top: -12pt 
+}
+text.group {
+  fill: midnightblue;
+  font-weight: bold;
+  font-size: 140%
+}
+
+text.control, text.subcontrol {
+  fill: #1f77b4;
+  font-weight: bold;
+  font-size: 100%
+}
+
+text.subcontrol { font-size: 80% }
+text.param, text.stmt { font-size: 8pt }
+
+circle {
+  fill: lightsteelblue;
+  fill-opacity: 0.6;
+  stroke: steelblue;
+  pointer-events: all;
+}
+
+circle.group {
+  fill: #1f77b4;
+  fill-opacity: 0.1;
+  stroke: steelblue;
+}
+
+circle.control:hover,
+circle.subcontrol:hover {
+  fill: midnightblue;
+  fill-opacity: 0.6;
+}
+
+circle.child {
+  pointer-events: none;
+}
+/*
+.subtitle { font-size: 80% }
+*/
