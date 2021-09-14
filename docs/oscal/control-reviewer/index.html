@@ -3,6 +3,16 @@
         <title>OSCAL Control Reviewer: An OSCAL analysis tool</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../nist-emulation.css" />
+      
+<!-- 
+        param value highlighting (box)
+        implement
+          set-parameter
+          alter/add
+          alter/remove
+     
+      -->
+      
         <style type="text/css" xml:space="preserve">
 
       
@@ -21,25 +31,28 @@
       
       .showing-selected div.control:not(.selected) { display: none }
       
-      .deck div.control-group { display: grid;  grid-gap: 0.2em ;
-        grid-template-columns: repeat(auto-fill, minmax(8rem,1fr));
-        overflow: }
+      .deck div.control-group { display: flex; flex-wrap: wrap }
+      
+      .deck div.control { max-width: 12em; margin-top: 0.5rem; margin-left: 0.5rem }
+      .deck div.control div.control { margin-top: 0.2rem; margin-left: 0rem; overflow: none }
       
       .control-title { font-weight: normal }
-      .control.selected h4 { color: blue }
-      .selected div.control:not(.selected) h4 { color: grey }
       
       .control .control .controlbx { padding-left: 2em }
       details.deck .control .control .controlbx { padding-left: 0em }
       details:not(.deck) .control { max-width: 44rem }
+      /* 
+         details:not(.deck) .control { max-width: 44rem; max-height: 1.6em; overflow: clip; transition: max-height 1s ease-out }
+         details:not(.deck) .control:hover { max-height: 100vh; transition: max-height 0.5s ease-in } */
       
       .deck .control-title { display: none }
-      .deck .controlbx h4:hover .control-title { display: block }
+      .deck .controlbx h4:hover .control-title { display: block; z-index: 2; position: absolute;
+          background-color: white; padding: 0.3em; border: 1px solid black; margin-left: 0.5em }
+      
       
       .deck .part { display: none }
       div.item { margin-left: 1em }
       
-      .controlbx { padding: 0.2em; border: thin solid black; background-color: white }
       
       .insert { font-size: 90%; font-weight: bold }
       
@@ -52,8 +65,16 @@
       
       code.ctrl { background-color: white; padding: 0.1em; display: inline-block; border: thin outset black }
       
-      .control .control h4 { font-size: smaller; text-transform: uppercase } 
-      .selected .controlbx  { background-color: floralwhite }
+      .controlbx { padding: 0.2em; border: thin dotted black; background-color: gainsboro }
+      .control.selected .controlbx { border: thin solid black; background-color: white } 
+      .control.selected .control:not(.selected) .controlbx { border: thin dotted black; background-color: gainsboro }
+      
+      
+      .control .control h4 { font-size: smaller; text-transform: uppercase; text-decoration: none } 
+      
+      div.control:not(.selected) h4 { color: grey }
+
+      
       .withdrawn .controlbx { background-color: lightgrey }
       .withdrawn .control-title { text-decoration:line-through }
       

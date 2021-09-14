@@ -59,10 +59,10 @@
             <form id="display-setting">
                 <div>
                     <span> Show </span><label for="show-all">all controls </label>
-                    <input type="radio" id="show-all"      name="showing" value="showing-all"/>
+                    <input type="radio" id="show-all" name="showing" value="showing-all"/>
                     <span> or </span>
                     <input type="radio" id="show-selected" name="showing" value="showing-selected"/>
-                    <label for="{@id}-set-to-deck"> only selected controls</label>
+                    <label for="show-selected"> only selected controls</label>
                 </div>
             </form>
             <xsl:apply-templates mode="profile-description" select="$profile"/>
@@ -368,6 +368,7 @@
         <xsl:param tunnel="true" name="profile" as="element(profile)*"/>
         <xsl:variable name="me" select="."/>
         <xsl:choose>
+            <xsl:when test="empty($profile)"><xsl:attribute name="class">selected control</xsl:attribute></xsl:when>
             <xsl:when test="some $i in ($profile) satisfies pb:included-by-profile($me,$i)"><xsl:attribute name="class">selected control</xsl:attribute></xsl:when>
             <xsl:otherwise>
                 <xsl:next-match/>
