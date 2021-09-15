@@ -162,9 +162,10 @@
     <xsl:template match="group">
         <details id="{@id}" class="group deck" open="open">
             <summary>
-              <xsl:apply-templates select="* except control"/>
+              <xsl:apply-templates select="title | prop"/>
               <xsl:text> </xsl:text>
               <button class="stackability" id="{@id}-stacking" >show list</button>
+                <xsl:apply-templates select="* except (title | prop | control)"/>
                 
             </summary>
             <div class="control-group">
@@ -219,16 +220,118 @@
         </div>
     </xsl:template>-->
     
+    
+    <xsl:template match="title" mode="expanded-title">
+        <xsl:apply-templates/>
+    </xsl:template>
+    
+    <xsl:template match="control/control/title" mode="expanded-title">
+        <xsl:apply-templates mode="#current" select="../parent::control/title"/>
+        <xsl:text> | </xsl:text>
+        <span class="enhancement-title">
+            <xsl:apply-templates/>
+        </span>
+    </xsl:template>
+    
+    
     <xsl:template match="control">
         <div id="{@id}" class="control">
             <xsl:apply-templates select="." mode="assign-class"/>
             <div class="controlbx">
                 <xsl:apply-templates select="prop[@name='label'][1]"/>
-                <xsl:apply-templates select="part[@name='statement']"/>
-                <xsl:apply-templates select="control"/>
+                <details class="statement">
+                    <summary>
+                       <span class="control-listing">
+                          <xsl:apply-templates select="title" mode="expanded-title"/>
+                       </span>
+                    </summary>
+                    <xsl:apply-templates select="prop[@name='status'][@value='withdrawn']"/>
+                    <!-- statements except in withdrawn controls where they are folded in already -->
+                    <xsl:apply-templates select="part[@name='statement'][not(../prop[@name='status']/lower-case(@value)='withdrawn')]"/>
+                </details>
+                <xsl:where-populated>
+                    <div class="control-enhancements">
+                        <xsl:apply-templates select="control"/>        
+                    </div>
+                </xsl:where-populated>
+                
             </div>
         </div>
     </xsl:template>
+    
+    <!-- template borrowed and modified from oscal-tools/xslt/publish/nist-emulation/sp800-53A-catalog_html.xsl-->
+    <xsl:template match="prop[@name='status'][matches(@value,'Withdrawn','i')]">
+        <p class="withdrawn-status">
+            <xsl:text>[Withdrawn</xsl:text>
+            <xsl:variable name="withdrawn-to" select="../link[@rel = ('moved-to', 'incorporated-into')]"/>
+            <xsl:variable name="link-label">
+                <xsl:choose>
+                    <xsl:when test="empty($withdrawn-to)">. </xsl:when>
+                    <xsl:when test="$withdrawn-to/@rel = 'incorporated-into'">: Incorporated into </xsl:when>
+                    <xsl:otherwise>: Moved to </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+            <xsl:variable name="withdrawn-statement">
+                <xsl:sequence select="$link-label"/>
+                <xsl:for-each-group select="$withdrawn-to" group-by="true()">
+                    <xsl:for-each select="current-group()">
+                        <xsl:if test="position() gt 1">, </xsl:if>
+                        <xsl:apply-templates select="." mode="link-as-link"/>
+                    </xsl:for-each>
+                </xsl:for-each-group>
+                <xsl:for-each select="../part[@name = 'statement']/*">
+                    <xsl:apply-templates/>
+                </xsl:for-each>
+            </xsl:variable>
+            <xsl:sequence select="$withdrawn-statement"/>
+            <xsl:if test="not(matches(string($withdrawn-statement), '\.\s*$'))">.</xsl:if>
+            <xsl:text>]</xsl:text>
+        </p>
+    </xsl:template>
+    
+    <xsl:key name="cross-reference-targets" match="*[exists(@id|@uuid)]" use="(@uuid | @id) ! ('#' || .)"/>
+    
+    <xsl:template match="link" mode="link-as-link">
+        <a href="{@href}">
+            <xsl:apply-templates select="text"/>
+            <xsl:if test="not(matches(text,'\S'))" expand-text="true">
+                <xsl:value-of select="@href"/> 
+            </xsl:if>
+        </a>
+    </xsl:template>
+    
+    <xsl:template match="link[starts-with(@href,'#')]" mode="link-as-link">
+        <xsl:variable name="target" select="key('cross-reference-targets',@href)"/>
+        <xsl:choose>
+            <xsl:when test="exists($target)">
+                <xsl:apply-templates select="$target" mode="link-as-link">
+                    <xsl:with-param name="link" select="."/>
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:next-match/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="*" mode="link-as-link">
+        <a href="#{ (@uuid, @id)[1] }">
+            <xsl:apply-templates select="." mode="link-text"/>
+        </a>
+    </xsl:template>
+    
+    <xsl:template match="control" mode="link-as-link" expand-text="true">
+        <a href="#{ @id }">{ prop[@name='label']/@value }</a>
+    </xsl:template>
+    
+    <xsl:template match="part" mode="link-as-link" expand-text="true">
+        <a href="#{ ancestor::control[1]/@id }">
+            <xsl:value-of select="ancestor-or-self::*/prop[@name='label']/@value"/>
+        </a>
+    </xsl:template>
+    
+    
+    
     
     <xsl:template match="group/title">
         <span class="h3 label">
@@ -244,11 +347,18 @@
             <xsl:for-each select="../title">
                 <xsl:text> </xsl:text>
                 <span class="control-title">
-                    <xsl:apply-templates/>
+                    <xsl:apply-templates select="." mode="expanded-title"/>
                 </span>
             </xsl:for-each>
         </h4>
     </xsl:template>
+    
+    <xsl:template match="part/title">
+        <h5 class="h5 label">
+            <xsl:apply-templates/>
+        </h5>
+    </xsl:template>
+    
     
     <xsl:template match="part">
         <div class="part {@name}">
@@ -367,17 +477,13 @@
     <xsl:template priority="101" match="control" mode="assign-class">
         <xsl:param tunnel="true" name="profile" as="element(profile)*"/>
         <xsl:variable name="me" select="."/>
-        <xsl:choose>
-            <xsl:when test="empty($profile)"><xsl:attribute name="class">selected control</xsl:attribute></xsl:when>
-            <xsl:when test="some $i in ($profile) satisfies pb:included-by-profile($me,$i)"><xsl:attribute name="class">selected control</xsl:attribute></xsl:when>
-            <xsl:otherwise>
-                <xsl:next-match/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    
-    <xsl:template match="control[prop[@name='status']/lower-case(@value) = 'withdrawn']" mode="assign-class">
-        <xsl:attribute name="class">withdrawn control</xsl:attribute>
+        <xsl:variable name="effective-classes" as="xs:string*">
+            <xsl:if test="prop[@name='status']/lower-case(@value) = 'withdrawn'">withdrawn</xsl:if>
+            <xsl:if test="empty($profile)">selected</xsl:if>
+            <xsl:if test="some $i in ($profile) satisfies pb:included-by-profile($me, $i)">selected</xsl:if>
+            <xsl:text>control</xsl:text>
+        </xsl:variable>
+        <xsl:attribute name="class" select="string-join($effective-classes,' ')"/>
     </xsl:template>
     
     <xsl:template match="*" mode="assign-class">

@@ -31,24 +31,32 @@
       
       .showing-selected div.control:not(.selected) { display: none }
       
-      .deck div.control-group { display: flex; flex-wrap: wrap }
+      .deck div.control-group        { display: flex; flex-wrap: wrap }
+      /* .deck div.control-enhancements { display: flex; flex-wrap: wrap; gap: 0.2em; justify-content: space-evenly } */
       
-      .deck div.control { max-width: 12em; margin-top: 0.5rem; margin-left: 0.5rem }
+      .deck div.control { max-width: 15vw; margin-top: 0.5rem; margin-left: 0.5rem }
       .deck div.control div.control { margin-top: 0.2rem; margin-left: 0rem; overflow: none }
       
       .control-title { font-weight: normal }
+          
+      details:not(.deck) { max-width: 44rem }
+      details:not(.deck) div { max-width: 44rem }
+      details:not(.deck) .control .control .controlbx { padding-left: 2em }
+
+      .overview { padding: 0.8em; background-color: lightskyblue; border: thin solid black }
+      .overview * { margin-top: 0.6em }
+      .overview *:first-child { margin-top: 0em }
       
-      .control .control .controlbx { padding-left: 2em }
-      details.deck .control .control .controlbx { padding-left: 0em }
-      details:not(.deck) .control { max-width: 44rem }
       /* 
          details:not(.deck) .control { max-width: 44rem; max-height: 1.6em; overflow: clip; transition: max-height 1s ease-out }
          details:not(.deck) .control:hover { max-height: 100vh; transition: max-height 0.5s ease-in } */
       
-      .deck .control-title { display: none }
+      .control-title { display: none }
       .deck .controlbx h4:hover .control-title { display: block; z-index: 2; position: absolute;
           background-color: white; padding: 0.3em; border: 1px solid black; margin-left: 0.5em }
       
+      details.statement { display: none }
+      details:not(.deck) details.statement { display: block }
       
       .deck .part { display: none }
       div.item { margin-left: 1em }
@@ -70,13 +78,18 @@
       .control.selected .control:not(.selected) .controlbx { border: thin dotted black; background-color: gainsboro }
       
       
-      .control .control h4 { font-size: smaller; text-transform: uppercase; text-decoration: none } 
+      .control .control h4 { font-size: smaller }
+      
+      .enhancement-title { text-transform: uppercase } 
       
       div.control:not(.selected) h4 { color: grey }
 
-      
+      details:not(.deck) .control .label { float: left; padding-right: 0.5em; line-height: 1.2rem; min-width: 4em }
+
+
       .withdrawn .controlbx { background-color: lightgrey }
-      .withdrawn .control-title { text-decoration:line-through }
+      .control .control .control-listing { font-size: smaller }
+      .withdrawn .control-title, .withdrawn .control-listing { text-decoration:line-through }
       
      </style>
         <script type="text/javascript" src="../../lib/Saxon-JS-2.2/SaxonJS2.js"> </script>
