@@ -9,6 +9,7 @@ For *examples* of XML documents designed to showcase functionalities of the OSCA
 
 * [Baseline matrix](baseline-matrix) - paints your OSCAL profile's coverage of 800-53 control families, following look/feel of the official NIST publication (SP800-53B).
 * [Import examiner](import-examiner) - validates your OSCAL profile's imports against known public baselines
+* [Baseline Reviewer](baseline-reviewer) - presents controls from the SP 800-53 catalog, marked for selection by an OSCAL profile (selected or loaded by the user)
 * [Catalog Validator](validator/catalog.html) - tag validation of OSCAL catalog contents, emulating schema validation
  
 ## Further applications (tbd):

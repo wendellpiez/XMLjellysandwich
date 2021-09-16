@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>OSCAL Control Reviewer: An OSCAL analysis tool</title>
+        <title>OSCAL Baseline Reviewer: An OSCAL analysis tool</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../nist-emulation.css" />
       
@@ -27,14 +27,14 @@
       a { color: inherit; text-decoration: none }
       a:hover { text-decoration: underline }
       
-      details.group { margin-top: 1em; padding: 0.5em; border: thin inset black; background-color: gainsboro }
+      details.group { margin-top: 1em; padding: 0.5em; border: thin solid black; background-color: gainsboro; padding-right: 6em }
       
       .showing-selected div.control:not(.selected) { display: none }
       
       .deck div.control-group        { display: flex; flex-wrap: wrap }
       /* .deck div.control-enhancements { display: flex; flex-wrap: wrap; gap: 0.2em; justify-content: space-evenly } */
       
-      .deck div.control { max-width: 15vw; margin-top: 0.5rem; margin-left: 0.5rem }
+      .deck div.control { max-width: 15vw; margin-top: 0.5rem; margin-right: 0.5rem }
       .deck div.control div.control { margin-top: 0.2rem; margin-left: 0rem; overflow: none }
       
       .control-title { font-weight: normal }
@@ -73,7 +73,8 @@
       
       code.ctrl { background-color: white; padding: 0.1em; display: inline-block; border: thin outset black }
       
-      .controlbx { padding: 0.2em; border: thin dotted black; background-color: gainsboro }
+      .controlbx { padding: 0.2em; border: thin dotted black; background-color: gainsboro; min-width: 5em }
+      .controlbx .controlbx { padding: 0.2em; border: thin dotted black; min-width: 4em }
       .control.selected .controlbx { border: thin solid black; background-color: white } 
       
       .control.withdrawn .controlbx { background-color: lightgrey }
@@ -127,9 +128,8 @@
     </head>
     <body>
         <div id="bxheader">
-          <h3 id="page-title" onclick="void(0)">OSCAL Control Reviewer</h3>
-          <h4>Surveying SP800-53 controls as modified by your profile</h4>
-          <div id="button-block"><span> </span></div>
+          <h3 id="page-title" onclick="void(0)">OSCAL Baseline Reviewer</h3>
+          <h4>Surveying SP800-53 controls as modified by your OSCAL profile</h4>
           <details style="margin-top: 1em" id="overview">
               <summary style="font-style:italic">Explanation</summary>
               <p>The <b>Control Reviewer</b> is an enhanced OSCAL catalog viewer designed to present
@@ -147,6 +147,8 @@
                 <li>Similarly does not yet support <code>import-control/@with-child-controls</code> so control enhancements must be included explicitly.</li>
               </ul>
             </details>
+          <div id="button-block"><span> </span></div>
+          
         </div>
       <div id="bxbody">
             <!--<p>body</p>-->

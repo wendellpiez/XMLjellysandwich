@@ -1,10 +1,10 @@
-# Profile Selection Inspector
+# Baseline Reviewer
 
 For viewing a profile in reference to an imported catalog or baseline
 
-Complements the import inspector
+Complements the import inspector and the baseline matrix.
 
-Assumes SP 800-53 controls
+Assumes SP 800-53 controls.
 
 View toggles
      
