@@ -8,7 +8,7 @@ Assumes SP 800-53 controls
 
 View toggles
      
-  - 'deck' and 'directory' views per family
+  - 'deck' and 'list' (directory) views per family
   - top level pulldown runs transform fresh with $profile parameter
     - full SP800-53 catalog
     - NIST baselines
@@ -18,9 +18,7 @@ View toggles
 
 Show view of entire catalog with selections highlighted
 
-Report on dangling calls?
-
-# Mod Inspector
+# To come - Profile Mod Inspector
 
 Shows parameters and expanded text in selected controls
 

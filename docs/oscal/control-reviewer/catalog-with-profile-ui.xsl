@@ -165,7 +165,7 @@
               <xsl:apply-templates select="title | prop"/>
               <xsl:text> </xsl:text>
               <button class="stackability" id="{@id}-stacking" >show list</button>
-                <xsl:apply-templates select="* except (title | prop | control)"/>
+              <!--  <xsl:apply-templates select="* except (title | prop | control)"/>-->
                 
             </summary>
             <div class="control-group">
@@ -220,7 +220,6 @@
         </div>
     </xsl:template>-->
     
-    
     <xsl:template match="title" mode="expanded-title">
         <xsl:apply-templates/>
     </xsl:template>
@@ -228,11 +227,11 @@
     <xsl:template match="control/control/title" mode="expanded-title">
         <xsl:apply-templates mode="#current" select="../parent::control/title"/>
         <xsl:text> | </xsl:text>
-        <span class="enhancement-title">
+        <span class="enhancement-title title-text">
             <xsl:apply-templates/>
+
         </span>
     </xsl:template>
-    
     
     <xsl:template match="control">
         <div id="{@id}" class="control">
@@ -347,7 +346,12 @@
             <xsl:for-each select="../title">
                 <xsl:text> </xsl:text>
                 <span class="control-title">
+                    <span class="title-text">
                     <xsl:apply-templates select="." mode="expanded-title"/>
+                    </span>
+                    <xsl:if test="../prop[@name = 'status']/lower-case(@value) = 'withdrawn'">
+                        <span class="wlabel"> [withdrawn]</span>
+                    </xsl:if>
                 </span>
             </xsl:for-each>
         </h4>

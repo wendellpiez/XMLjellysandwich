@@ -27,7 +27,7 @@
       a { color: inherit; text-decoration: none }
       a:hover { text-decoration: underline }
       
-      details.group { margin-top: 1em; padding: 0.5em; background-color: gainsboro }
+      details.group { margin-top: 1em; padding: 0.5em; border: thin inset black; background-color: gainsboro }
       
       .showing-selected div.control:not(.selected) { display: none }
       
@@ -43,9 +43,9 @@
       details:not(.deck) div { max-width: 44rem }
       details:not(.deck) .control .control .controlbx { padding-left: 2em }
 
-      .overview { padding: 0.8em; background-color: lightskyblue; border: thin solid black }
+      /* .overview { padding: 0.8em; background-color: #e8eaf6; border: thin solid black }
       .overview * { margin-top: 0.6em }
-      .overview *:first-child { margin-top: 0em }
+      .overview *:first-child { margin-top: 0em } */
       
       /* 
          details:not(.deck) .control { max-width: 44rem; max-height: 1.6em; overflow: clip; transition: max-height 1s ease-out }
@@ -53,7 +53,7 @@
       
       .control-title { display: none }
       .deck .controlbx h4:hover .control-title { display: block; z-index: 2; position: absolute;
-          background-color: white; padding: 0.3em; border: 1px solid black; margin-left: 0.5em }
+          background-color: white; padding: 0.3em; border: medium outset black; margin-left: 0.5em }
       
       details.statement { display: none }
       details:not(.deck) details.statement { display: block }
@@ -75,9 +75,11 @@
       
       .controlbx { padding: 0.2em; border: thin dotted black; background-color: gainsboro }
       .control.selected .controlbx { border: thin solid black; background-color: white } 
-      .control.selected .control:not(.selected) .controlbx { border: thin dotted black; background-color: gainsboro }
       
-      
+      .control.withdrawn .controlbx { background-color: lightgrey }
+      .control.selected .control:not(.selected) .controlbx { border: thin dotted black }
+      .control.selected .control:not(.selected):not(.withdrawn) .controlbx { background-color: gainsboro }
+
       .control .control h4 { font-size: smaller }
       
       .enhancement-title { text-transform: uppercase } 
@@ -87,9 +89,8 @@
       details:not(.deck) .control .label { float: left; padding-right: 0.5em; line-height: 1.2rem; min-width: 4em }
 
 
-      .withdrawn .controlbx { background-color: lightgrey }
       .control .control .control-listing { font-size: smaller }
-      .withdrawn .control-title, .withdrawn .control-listing { text-decoration:line-through }
+      .withdrawn .title-text, .withdrawn .control-listing { text-decoration:line-through }
       
      </style>
         <script type="text/javascript" src="../../lib/Saxon-JS-2.2/SaxonJS2.js"> </script>
