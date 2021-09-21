@@ -27,7 +27,7 @@
       a { color: inherit; text-decoration: none }
       a:hover { text-decoration: underline }
       
-      details.group { margin-top: 1em; padding: 0.5em; border: thin solid black; background-color: gainsboro; padding-right: 6em }
+      details.group { margin-top: 1em; padding: 0.5em; border: thin solid black; background-color: gainsboro; padding-right: 6vw }
       
       .showing-selected div.control:not(.selected) { display: none }
       
@@ -57,6 +57,9 @@
       
       details.statement { display: none }
       details:not(.deck) details.statement { display: block }
+      div.part.statement { margin-left: 4vw }
+      
+      .deck button.expander { display: none }
       
       .deck .part { display: none }
       div.item { margin-left: 1em }
@@ -154,7 +157,7 @@
             <!--<p>body</p>-->
         </div>
         <div id="bxfooter">
-            <p>The SP 800-53 Control Reviewer is an <a href="https://pages.nist.gov/OSCAL/">OSCAL</a> demonstration. Use with appropriate caution as disclaimers apply.</p>
+            <p>The SP 800-53 Baseline Reviewer is an <a href="https://pages.nist.gov/OSCAL/">OSCAL</a> demonstration. Use with appropriate caution as disclaimers apply.</p>
             <p>Data processing on this page runs entirely in your browser, under <a href="https://www.saxonica.com/saxon-js/index.xml">SaxonJS</a>. No data is transferred to any other party, monitored or analyzed in any way other than what is displayed.</p>
         </div>
     </body>

@@ -166,8 +166,18 @@
               <xsl:text> </xsl:text>
               <button class="stackability" id="{@id}-stacking" >show list</button>
               <!--  <xsl:apply-templates select="* except (title | prop | control)"/>-->
-                
+                <button class="expander collapsed" id="{@id}-expander" >expand all</button>
             </summary>
+            <!--<form class="group-expander">
+                <div>
+                    <label for="show-all">collapse </label>
+                    <input type="radio" id="collapse-me-{@id}" name="expansion" value="collapsed"/>
+                    <span> or </span>
+                    <input type="radio" id="expand-me-{@id}" name="expansion" value="expanded"/>
+                    <label for="show-selected"> only selected controls</label>
+                </div>
+            </form>-->
+            
             <div class="control-group">
               <xsl:apply-templates select="control"/>
             </div>
@@ -180,6 +190,28 @@
         </xsl:apply-templates>
     </xsl:template>
     
+    <xsl:template match="html:button[pb:classes(.) = 'expander'][pb:classes(.) = 'expanded']" mode="ixsl:onclick">
+        <xsl:for-each select="../parent::html:details/descendant::html:details[pb:classes(.) = 'statement']">
+            <ixsl:remove-attribute name="open"/>
+        </xsl:for-each>
+        <ixsl:set-attribute name="class" select="'expander collapsed'"/>
+        <xsl:result-document href="#{@id}" method="ixsl:replace-content">expand all</xsl:result-document>
+        
+    </xsl:template>
+    
+    <xsl:template match="html:button[pb:classes(.) = 'expander'][pb:classes(.) = 'collapsed']" mode="ixsl:onclick">
+        <xsl:for-each select="../parent::html:details/descendant::html:details[pb:classes(.) = 'statement']">
+            <ixsl:set-attribute name="open" select="'true'"/>
+        </xsl:for-each>
+        <ixsl:set-attribute name="class" select="'expander expanded'"/>
+        <xsl:result-document href="#{@id}" method="ixsl:replace-content">collapse all</xsl:result-document>
+    </xsl:template>
+    
+    <!--<xsl:template match="html:button[pb:classes(.)='collapser']" mode="ixsl:onclick">
+        <xsl:for-each select="../parent::html:details/descendant::html:details[pb:classes(.)='statement']">
+            <ixsl:remove-attribute name="open"/>
+        </xsl:for-each>
+    </xsl:template>-->
     
     <!--<xsl:template mode="restack2" match="html:details[pb:classes(.)='deck']" priority="5">
         <ixsl:set-attribute name="open" select="'open'"/>
