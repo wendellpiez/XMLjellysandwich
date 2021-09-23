@@ -11,6 +11,7 @@ For *examples* of XML documents designed to showcase functionalities of the OSCA
 * [Import examiner](import-examiner) - validates your OSCAL profile's imports against known public baselines
 * [Baseline Reviewer](baseline-reviewer) - presents controls from the SP 800-53 catalog, marked for selection by an OSCAL profile (selected or loaded by the user)
 * [Catalog Validator](validator/catalog.html) - tag validation of OSCAL catalog contents, emulating schema validation
+* (experimental!) [XML to JSON](format-converter/convert-xml2json.html) and [JSON to XML](format-converter/convert-json2xml.html) OSCAL catalog converters (demonstrations / PoC of this conversion in a browser)
  
 ## Further applications (tbd):
 

@@ -4,10 +4,15 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../nist-emulation.css" />
       <style type="text/css">
-#converter-grid { display: grid; grid-template-columns: 1fr 1fr }
+#converter-grid { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2vh }
 #converter-grid textarea {    box-sizing: border-box; width: 100% }     
 
-.codedump { white-space: pre-wrap }
+#resultbox h4:first-child { margin-top: 0em }
+
+.codedump { white-space: pre-wrap; border: thin solid black; padding: 0.5em }
+.inxml { background-color: aliceblue }
+.injson { background-color: mintcream }
+
 
       </style>
         <script type="text/javascript" src="../../lib/Saxon-JS-2.2/SaxonJS2.js"> </script>
@@ -34,6 +39,16 @@
         frdr.readAsText(eachFile);
       }
     }
+    
+    /* reads result off of pane, provides it to a download link and clicks it */
+    function offerDownload(fileName) {
+      var contents = document.getElementById("success").textContent;
+      var f = new Blob([ contents ]);
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(f);
+      a.download = fileName;
+      a.click()
+      }
 </script>
       
       <!--<script xml:space="preserve" id="load-download">
@@ -55,15 +70,11 @@
 <!-\-
    /* reads result off of pane and injects it into download link*/ 
     
-    function offerDownload()
     
-            var f = new Blob([ /** insert text here **/]);
-h = URL.createObjectURL(f);
 
-var a = document.getElementBydId("download-link");
-a.href = h
-b.download = "convert-result.json";
-/* a.click() */
+<a id="download-link"><button onclick="offerDownload('converted.json')">Save As</button></a>
+
+
 -\->
 </script>-->
     </head>
@@ -85,7 +96,7 @@ b.download = "convert-result.json";
               id="loadjsonInput" name="loadjsonInput" title="Drop JSON"
               onchange="dropFileText(this.files,'jsondata')" />
             <p>Load or paste your OSCAL catalog JSON ... and good luck!</p>
-            <textarea id="jsondata" rows="48" onchange="makeXMLforJSON(this.value)"></textarea>
+            <textarea id="jsondata" spellcheck="false" rows="48" onchange="makeXMLforJSON(this.value)"></textarea>
           </div><div class="ui-box" id="resultbox">
             
           </div>

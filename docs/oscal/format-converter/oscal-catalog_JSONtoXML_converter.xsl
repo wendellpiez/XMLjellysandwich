@@ -61,31 +61,32 @@
       </xsl:if>
     </xsl:variable>
     <xsl:variable name="results">
-    <xsl:choose>
-      <xsl:when test="empty($json-or-pb/j:map)" expand-text="true">
-        <div class="report">
-          <p class="error">Input is not JSON</p>
-          <!-- not announcing if XML but not in OSCAL namespace -->
-          <xsl:if test="$actually-xml/*/namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'">
-            <p>It appears to be OSCAL XML (please try the XML converter)</p>
-          </xsl:if>
-          <pre class="codedump{ ' inxml'[empty($actually-xml/pb:*)]}">{ $oscal-data  }</pre>
-        </div>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="from-xdm-json-xml">
-          <xsl:with-param name="source" select="$json-or-pb"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
+      <xsl:choose expand-text="true">
+        <xsl:when test="empty($json-or-pb/j:map)">
+          <div class="report">
+            <p class="error">Input is not JSON</p>
+            <!-- not announcing if XML but not in OSCAL namespace -->
+            <xsl:if test="$actually-xml/*/namespace-uri() = 'http://csrc.nist.gov/ns/oscal/1.0'">
+              <p>It appears to be OSCAL XML (please try the XML converter)</p>
+            </xsl:if>
+            <pre class="codedump{ ' inxml'[empty($actually-xml/pb:*)]}">{ $oscal-data  }</pre>
+          </div>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="result-xml">
+            <xsl:call-template name="from-xdm-json-xml">
+              <xsl:with-param name="source" select="$json-or-pb"/>
+            </xsl:call-template>
+          </xsl:variable>
+          <h4>This produces XML</h4><button onclick="offerDownload('converted.xml')">Save As</button>
+          <pre class="codedump inxml" id="success">{ serialize($result-xml, $indented) }</pre>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:variable>
 <!-- add a feature to accept XPath JSON XML input?   -->
-    
 
     <xsl:result-document href="#resultbox" method="ixsl:replace-content">
-      <pre class="codedump inxml">
-        <xsl:value-of select="serialize($results,$indented)"/>
-      </pre>
+      <xsl:sequence select="$results"/>
     </xsl:result-document>
   </xsl:template>
   

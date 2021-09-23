@@ -76,7 +76,7 @@
       <xsl:when test="exists($actually-json/j:map)" expand-text="true">
         <div class="report">
           <p class="error">Input is actually JSON - please try the JSON converter?</p>
-          <pre class="codedump">{ $oscal-data  }</pre>
+          <pre class="codedump injson">{ $oscal-data  }</pre>
         </div>
       </xsl:when>
       
@@ -99,20 +99,16 @@
             </xsl:try>
           </xsl:variable>
           
-          <xsl:choose>
+          <xsl:choose expand-text="true">
             <xsl:when test="exists($okay-json-result/pb:ERROR)">
               <p>ERROR: transformed result does not result as JSON</p>
               <p>XPath XML notation for the result is given (for debugging)</p>
-              <pre class="codedump">
-            <xsl:value-of select="$okay-json-result/pb:ERROR/pb:input"/>
-          </pre>
-              
+              <pre class="codedump inxml">{ $okay-json-result/pb:ERROR/pb:input }</pre>
             </xsl:when>
-            <xsl:otherwise><!-- we have a JSON string -->
-             
-            <xsl:value-of select="$okay-json-result"/>
-          
-              
+            <xsl:otherwise>
+              <!-- we have a JSON string -->
+              <h4>This produces JSON</h4><button onclick="offerDownload('converted.json')">Save As</button>
+              <pre class="codedump injson" id="success">{ $okay-json-result }</pre>
             </xsl:otherwise>
           </xsl:choose>
           
@@ -120,10 +116,8 @@
     </xsl:choose>
     </xsl:variable>
     
-    <xsl:result-document href="#resultbox" method="ixsl:replace-content">
-      <pre class="codedump inxml">
-        <xsl:sequence select="$results"/>
-      </pre>
+    <xsl:result-document href="#resultbox" method="ixsl:replace-content" expand-text="true">
+      <xsl:sequence select="$results"/>
     </xsl:result-document>
   </xsl:template>
   
