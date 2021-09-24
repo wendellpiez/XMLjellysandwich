@@ -47,23 +47,18 @@
         <xsl:param name="payload" select="()"/>
         <xsl:variable name="tag" expand-text="true">{
             $payload/descendant::*:h1[1] ! replace(.,'\s+','') ! replace(.,$scrub-chars,'_') 
-            }_{
-            replace($yarrowSequence,'\s+','') }</xsl:variable>
-        <xsl:variable name="as-written" select="serialize($payload)"/>
-        <xsl:variable name="data-href">
-            <xsl:text>data:text/html;charset=utf-8,</xsl:text>
-            <xsl:value-of select="$as-written"/>
-        </xsl:variable>
+            }_{ replace($yarrowSequence,'\s+','') }</xsl:variable>
         <xsl:variable name="fileName" expand-text="true">{format-dateTime(current-dateTime(),'[Y][M01][D01]-[H01][m01][s01]')}_{$tag}.html</xsl:variable>
-        <xsl:result-document href="#anchor-placement" method="ixsl:replace-content">
-            <a href="{$data-href}" download="{$fileName}"><button>Save</button></a>
+        
+        <!-- first, provide serialized $payload into hidden div       -->
+        <xsl:result-document href="#serialized-save" method="ixsl:replace-content">
+            <xsl:sequence select="serialize($payload)"/>
         </xsl:result-document>
-        <!--<xsl:result-document href="#diagnostic" method="ixsl:replace">
-            <pre>
-            <xsl:copy-of select="$as-written"/>
-        </pre>
-        </xsl:result-document>-->
+        <xsl:result-document href="#save-as" method="ixsl:replace-content">
+            <button onclick="acquireDownload('{$fileName}')">Save</button>
+        </xsl:result-document>
     </xsl:template>
+    
 
     <xsl:param name="framingText" select="''"/>
         
@@ -647,7 +642,7 @@
     the links are provided here so they can be retrieved dynamically
     -->
             <body>　1. <a href="book-of-changes/qian">䷀乾 - Qian</a>
-                <div style="display: inline-block; zoom: 1; *display: inline;'">
+                <div style="display: inline-block">
                     <a href="discuss.pl?if=en&amp;bookid=25006" class="sprite-discuss"
                         title="Related discussion">Related discussion<div style="display: inline;"
                             ></div></a>
@@ -676,7 +671,7 @@
                 <br class="br" />　24. <a href="book-of-changes/fu">䷗復 - Fu</a>
                 <br class="br" />　25. <a href="book-of-changes/wu-wang">䷘无妄 - Wu Wang</a>
                 <br class="br" />　26. <a href="book-of-changes/da-xu">䷙大畜 - Da Xu</a>
-                <div style="display: inline-block; zoom: 1; *display: inline;'">
+                <div style="display: inline-block">
                     <a href="discuss.pl?if=en&amp;bookid=25460" class="sprite-discuss"
                         title="Related discussion">Related discussion<div style="display: inline;"
                             ></div></a>
@@ -688,7 +683,7 @@
                 <br class="br" />　32. <a href="book-of-changes/heng">䷟恆 - Heng</a>
                 <br class="br" />　33. <a href="book-of-changes/dun">䷠遯 - Dun</a>
                 <br class="br" />　34. <a href="book-of-changes/da-zhuang">䷡大壯 - Da Zhuang</a>
-                <div style="display: inline-block; zoom: 1; *display: inline;'">
+                <div style="display: inline-block">
                     <a href="discuss.pl?if=en&amp;bookid=25601" class="sprite-discuss"
                         title="Related discussion">Related discussion<div style="display: inline;"
                             ></div></a>
@@ -696,7 +691,7 @@
                 <br class="br" />　36. <a href="book-of-changes/ming-yi">䷣明夷 - Ming Yi</a>
                 <br class="br" />　37. <a href="book-of-changes/jia-ren">䷤家人 - Jia Ren</a>
                 <br class="br" />　38. <a href="book-of-changes/kui">䷥睽 - Kui</a>
-                <div style="display: inline-block; zoom: 1; *display: inline;'">
+                <div style="display: inline-block">
                     <a href="discuss.pl?if=en&amp;bookid=25673" class="sprite-discuss"
                         title="Related discussion">Related discussion<div style="display: inline;"
                             ></div></a>
@@ -718,7 +713,7 @@
                 <br class="br" />　54. <a href="book-of-changes/gui-mei">䷵歸妹 - Gui Mei</a>
                 <br class="br" />　55. <a href="book-of-changes/feng">䷶豐 - Feng</a>
                 <br class="br" />　56. <a href="book-of-changes/lu1">䷷旅 - Lu</a>
-                <div style="display: inline-block; zoom: 1; *display: inline;'">
+                <div style="display: inline-block">
                     <a href="discuss.pl?if=en&amp;bookid=25998" class="sprite-discuss"
                         title="Related discussion">Related discussion<div style="display: inline;"
                             ></div></a>

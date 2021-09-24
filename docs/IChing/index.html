@@ -12,10 +12,8 @@
         td { border: medium solid lightgreen; border-radius: 45%; background-color: cornsilk; width: 1.5em; height: 1.5em }
         
         #page_body   { border-top: medium groove black; padding-top: 1em; padding-bottom: 1em }
-        #page_footer { border-top: medium groove black; margin-top:1m; padding-top: 1em }
+        #page_footer { border-top: medium groove black; margin-top:1em; padding-top: 1em }
         #page_footer > * { margin: 0.5em 0em }
-        
-        #time-setting { display: none }
         
         h1#page_title { font-size: 140%; margin-top: 1em }
         
@@ -26,7 +24,6 @@
         .changing  { font-size: 90%; font-style: italic }
         
         h1 small { font-size: 60% }
-        #clock { height: 67% }
         </style>
      <script type="text/javascript"
               src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
@@ -48,7 +45,18 @@ function castSticks() {
            return drawSticks.join(' ');
     }
   
-         </script>
+  /* reads result off of pane, provides it to a download link and clicks it
+     ad hoc anchor construction for the blob thanks to Nikita W */
+    function acquireDownload(fileName) {
+      var contents = document.getElementById("serialized-save").textContent;
+      var f = new Blob([ contents ]);
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(f);
+      a.type = "text/html;charset=utf-8";
+      a.download = fileName;
+      a.click()
+      }
+    </script>
       
    </head>
    <body>
@@ -57,14 +65,14 @@ function castSticks() {
       </div>
      <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
        <input size="37" id="framingInput" type="text" onchange="initiate(this.value,castSticks())" value="???"/>
-       <span id="anchor-placement"><!-- anchor here --></span>
-       <!--<button id="standard-reset_button">NIST clock</button>-->
+       <span id="save-as"><!-- anchor here --></span>
      </div>
      <div id="page_body">
        <p>Enter a question or prompt.</p>
            <!-- <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
      </div>
-     <div id="diagnostic"/>
+     <div id="diagnostic"><!-- placeholder --></div>
+     <div id="serialized-save" style="display:none"><!-- placeholder --></div>
      <div id="page_footer" style="font-size: smaller">
          <p>Reading produced by <a href="https://github.com/wendellpiez/XMLjellysandwich">XMLjellysandwich <i>I Ching</i></a> (Wendell Piez, 2019-2021).</p>
          <p>Dedicated to the teachers and transmitters, especially Thomas Cleary, <a href="http://ctext.org">CTP</a> and all open-source I Ching.</p>
