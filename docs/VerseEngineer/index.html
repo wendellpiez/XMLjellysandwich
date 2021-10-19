@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>Electronic Verse Engineer (EVE)</title>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Roboto+Slab" rel="stylesheet" />
+    <link rel="icon" href="../sando1-icon.svg" />
+    <style type="text/css" xml:space="preserve">
+html body { font-family: Alegreya, serif }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', sans-serif }
+
+a       { color: inherit; text-decoration: none }
+a:hover { text-decoration: underline }
+      
+#panel-grid { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2vh; margin-top: 2vh }
+
+#endnotes { display: grid; grid-template-columns: auto 1fr; grid-column-gap: 1vh; margin-top: 2vh }
+
+#panel-grid textarea {    box-sizing: border-box; width: 100% }     
+
+#displaybox .EVE { max-width: 24em;
+    margin: auto auto; }
+details { border: thin solid black; padding: 0.3rem; margin-top: 2vh }
+
+details *:last-child { margin-bottom: 0em }
+
+p.line { margin: 0em; padding-left: 1.5em; text-indent: -1.5em }
+p.indent1 { margin-left: 1em }
+p.indent2 { margin-left: 2em }
+p.indent3 { margin-left: 3em }
+p.indent4 { margin-left: 4em }
+p.indent5 { margin-left: 5em }
+p.indent6 { margin-left: 6em }
+
+.ON { text-decoration: underline }
+
+.verse, .group { margin-top: 1em }
+.verse *:first-child { margin-top: 0em }
+
+.head { margin-bottom: 1em; text-align: center }
+.head * { margin: 0em }
+
+p { margin: 0em; margin-top: 0.62em }
+
+ul { margin: 0em }
+
+.linkarea { border: none; resize: none; outline: none; width: 100%; max-height: 3em; overflow: scrollable }
+
+     </style>
+    <style id="evefp-css"> <!-- /* css injection here */ --> </style>
+    <script type="text/javascript" src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!--
+        parsers are so easily confused//--></script>
+    <script xml:space="preserve">
+
+window.onload = function() {
+  // const url = window.location.href; // The URL of the current page
+  const url = new URL(window.location.href);
+  const base64esc = ( url.searchParams.has(`eve`) ? url.searchParams.get(`eve`) : '' )
+  if (base64esc) {
+    const URIdecoded = decodeURIComponent(base64esc)
+    const decoded = atob(URIdecoded);
+    document.getElementById("evedata").value = decoded;  
+    engineerVerse(decoded)
+  }
+}
+
+ 
+// passes evetext into the Verse Engineer
+function engineerVerse(evetext) {
+  // first dropping the link into #linkcopy b/c easier than asking SaxonJS to do it
+  SaxonJS.transform({
+    stylesheetLocation: "eve-csx.sef.json",
+    initialTemplate: "engineer-verse",
+    stylesheetParams: {
+      "eve-to-read": evetext
+    }
+  },"async");
+  insertEveLink();
+}
+
+/* takes data (presumably eve data) and writes a link to the linkcopy field
+   constructed with base64 encoding of that data */
+function insertEveLink() {
+    const myorigin = window.location.origin + window.location.pathname
+    const newtext = document.getElementById("evedata").value
+    const base64 = btoa(newtext)
+    const base64encoded = encodeURIComponent(base64)
+    const myuri = ( `${ myorigin }?eve=${ base64encoded }` )
+    document.getElementById("linkcopy").value = myuri;   
+}
+
+
+/* reads text out of an element, provides it to a download link and clicks it */
+function offerDownload(elemID,fileName) {
+  const contents = document.getElementById(elemID).textContent;
+  const f = new Blob([ contents ], {type: 'text/xml'});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(f);
+  a.download = fileName;
+  a.click()
+}
+
+
+function copyLinktoclipboard() {
+  document.getElementById("linkcopy").select();
+  document.execCommand('copy');
+}
+ 
+</script>
+  </head>
+  
+<!-- to do:
+    local save
+    load example
+    documentation
+    max-width on display panel?
+    footnote symbols
+      n mod 6 gives index into symbols
+      (n idiv 6) + 1 gives symbol count
+      symbols: asterisk dagger double-dagger section double-pipe pilcrow
+      &#x2A; &#x2020; &#x2021; &#xA7; &#x2016; &#xb6;
+    accept base64 uri parameter for eve.txt
+
+ 
+ 
+window.onload = function() {
+  const url = window.location.href; // The URL of the current page
+  const params = new URLSearchParams(url);
+  const evebase64 = ( params.has(`eve`) ? params.get(`eve`) : '' )
+  if (evebase64) {
+    // let evestr = btoa(evebase64);
+    engineerVerse(evebase64);
+  }   
+}
+
+
+/* takes data (presumably eve data) and writes a link to the linkcopy field
+   constructed with base64 encoding of that data */
+function insertEveLink(evetext) {
+    const myorigin = window.location.origin
+    const encoded = atob(evetext)
+    const eveuri = ( `${ myorigin }?eve=${ encoded }` )
+    // insert eveuri into pre#linkcopy linkcopy
+    // alert(eveuri)
+    document.getElementById("linkcopy").textContent = eveuri; 
+  
+}
+  
+      
+  -->
+   <body>
+      <div id="eve-body">
+        <div id="nav" style="padding-bottom: 1ex">
+          <h3 style="float:right; margin: 0px; clear: both" id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE)</h3>
+        </div>
+        <details>
+          <summary>Operating the Verse Engineer</summary>
+          <p>Type or paste EVE syntax into the box, then click or tab away. <button id="load-example">Load an example</button></p>
+        </details>
+        <div id="everesults"> </div>
+        <div id="evelink" class="hidden">
+          <details>
+            <summary>Link capture </summary>
+            <textarea class="linkarea" id="linkcopy"><!-- --></textarea><button onclick="copyLinktoclipboard()">Copy Link</button>
+          </details>
+        </div>
+        <div id="panel-grid">
+          <div class="ui-box" id="evebox">
+            <textarea id="evedata" spellcheck="false" rows="48" onchange="engineerVerse(this.value)"></textarea>
+          </div>
+          <div class="ui-box" id="displaybox">
+            
+          </div>
+          
+        </div>
+        <details>
+          <summary>About the Verse Engineer</summary>
+          <p>The EVE processor on this page reads your input and parses it to produce formatted verse (lineated text). It is meant to support the sensitive display, aggregation (collection) and publishing of poetry and poetry selections.</p>
+          <p>Plain-text EVE notation (a markdown variant) will be displayed as verse or prose, according to the rules of EVE. While designed primarily for poetry (structured verse), EVE also supports comments and footnotes.</p>
+          <p>The XML representation of your EVE — a tools-agnostic <q>saveable</q> format — will also be shown. And you can save it.</p>
+          <p>Since this is CSX, no data is ever pushed over any network.</p>
+          <p>EVE, the Electronic Verse Engineer, has several parts:</p>
+          <ul>
+            <li>A markdown syntax (<q>EVE format</q> or EVE.txt)</li>
+            <li>A processor that reads EVE.txt syntax</li>
+            <li>An XML representation (EVE XML) of a data model that is readily and unambiguously determinable from EVE.txt.</li>
+            <li>A set of rules, followed by the processor, for making either of these formats (EVE.txt or EVE XML) from the other</li>
+            <li>Tools for using all this
+            <ul><li>Making EVE XML from EVE.txt</li>
+            <li>Producing other formats from EVE XML</li></ul></li>
+          </ul>
+        </details>
+    </div>
+      <div id="xmljellysandwich_footer">
+        <p><i>Electronic Verse Engineer</i> is a project of Wendell Piez for <a href="http://pellucidliterature.org">Pellucid Literature</a> starting in 2021. <a href="https://github.com/wendellpiez/XMLjellysandwich">Find the source code on Github.</a></p>
+      </div>
+   </body>
+</html>
