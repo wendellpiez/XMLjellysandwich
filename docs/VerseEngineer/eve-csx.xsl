@@ -42,7 +42,9 @@
       <xsl:result-document href="#displaybox" method="ixsl:replace-content">
          <xsl:apply-templates select="$eve-xml" mode="plainhtml"/>
       </xsl:result-document>
-      <xsl:variable name="filename" expand-text="true">{ $eve-xml/*/head/title/(. || '_') => normalize-space() => replace(' ','-') }{ current-date() ! format-date(.,'[Y][M01][D01]') }.eve.xml</xsl:variable>
+      <xsl:variable name="filename" expand-text="true">{ $eve-xml/*/head/title/(. || '_') => normalize-space() => replace(' ','-') => encode-for-uri() }{ current-date() ! format-date(.,'[Y][M01][D01]') }.eve.xml</xsl:variable>
+      <!-- add class 'ON' to turn off hiding -->
+      <xsl:apply-templates select="ixsl:page()/id('evelink')" mode="show"/>         
       <xsl:result-document href="#everesults" method="ixsl:replace-content">
          <details>
             <summary>EVE XML <button onclick="offerDownload('eve-xml','{$filename}')">Save</button></summary>
@@ -53,6 +55,26 @@
 <!--      <xsl:result-document href="#evelink" method="ixsl:replace-content">
          
       </xsl:result-document>-->
+   </xsl:template>
+   
+   
+   <xsl:template match="id('load-example')" mode="ixsl:onclick">
+      <xsl:variable name="example-text-location" select="resolve-uri('johndonne-example1.eve.txt')"/>
+      <ixsl:schedule-action document="{ $example-text-location }">
+         <xsl:call-template name="load-eve">
+            <xsl:with-param name="where" select="$example-text-location"/>
+         </xsl:call-template>
+      </ixsl:schedule-action>
+   </xsl:template>
+   
+   <xsl:template name="load-eve">
+      <xsl:param name="where" as="xs:anyURI" required="yes"/>
+      <xsl:variable name="evetext" select="unparsed-text($where)"/>
+      <ixsl:set-property name="value" object="id('evedata')" select="$evetext"/>
+      <!--<xsl:result-document href="#evedata" method="ixsl:replace-content">
+         <xsl:value-of select="$evetext"/>
+      </xsl:result-document>-->
+      <xsl:sequence select="ixsl:call(ixsl:window(),'engineerVerse',[$evetext])"/>
    </xsl:template>
    
    <xsl:template match="EVE" mode="plainhtml">
@@ -179,6 +201,13 @@
       <ixsl:set-attribute name="class"
          select="string-join( (tokenize(@class,'\s+')[not(. eq 'ON')],'ON'), ' ')"/>
    </xsl:template>
+   
+   <xsl:template match="*" mode="show">
+      <ixsl:set-attribute name="class"
+         select="string-join( (tokenize(@class,'\s+')[not(. eq 'hidden')]), ' ')"/>
+   </xsl:template>
+   
+   
    
    
 </xsl:stylesheet>

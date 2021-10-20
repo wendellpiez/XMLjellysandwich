@@ -4,24 +4,34 @@
   <head>
     <title>Electronic Verse Engineer (EVE)</title>
     <meta charset="utf-8" />
-    <link href="https://fonts.googleapis.com/css?family=Alegreya|Roboto+Slab" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans|Roboto+Slab" rel="stylesheet" />
     <link rel="icon" href="../sando1-icon.svg" />
     <style type="text/css" xml:space="preserve">
-html body { font-family: Alegreya, serif }
+html body { font-family: "Alegreya Sans", serif }
 
 h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', sans-serif }
 
 a       { color: inherit; text-decoration: none }
 a:hover { text-decoration: underline }
-      
-#panel-grid { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2vh; margin-top: 2vh }
 
-#endnotes { display: grid; grid-template-columns: auto 1fr; grid-column-gap: 1vh; margin-top: 2vh }
+#nav { padding-bottom: 1ex; width: 100%; border-bottom: thin solid black; }
+
+#page-title { margin: 0ex; text-align: right; font-style: italic; }
+
+#panel-grid { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2vh; margin-top: 2vh }
 
 #panel-grid textarea {    box-sizing: border-box; width: 100% }     
 
-#displaybox .EVE { max-width: 24em;
-    margin: auto auto; }
+#displaybox .EVE { font-family: 'Alegreya', serif;  
+    max-width: 24em;
+    margin: auto auto;
+    background-color: floralwhite;
+    padding: 1em;
+    border: thin solid black;
+}
+
+summary { font-family: 'Alegreya Sans' }
+
 details { border: thin solid black; padding: 0.3rem; margin-top: 2vh }
 
 details *:last-child { margin-bottom: 0em }
@@ -36,17 +46,32 @@ p.indent6 { margin-left: 6em }
 
 .ON { text-decoration: underline }
 
+
 .verse, .group { margin-top: 1em }
 .verse *:first-child { margin-top: 0em }
 
 .head { margin-bottom: 1em; text-align: center }
 .head * { margin: 0em }
 
+#endnotes {  font-family: 'Alegreya Sans'; display: grid; grid-template-columns: auto 1fr; grid-column-gap: 1vh; margin-top: 2vh;
+  font-size: 90% }
+
+
+
+div.sidenote { font-family: 'Alegreya Sans'; margin-top: 1rem; margin-left: 40%; border-left: thin solid black;
+  padding-left: 1ex; font-size: 90% }
+
+div.sidenote p:first-child { margin-top: 0em }
+div.sidenote p:last-child { margin-bottom: 0em }
+
 p { margin: 0em; margin-top: 0.62em }
 
 ul { margin: 0em }
 
-.linkarea { border: none; resize: none; outline: none; width: 100%; word-break: break-all}
+textarea  { outline: none }
+.linkarea { border: none; outline: none; width: 100%; word-break: break-all; font-size: 80% }
+
+.hidden { display:none }
 
      </style>
     <style id="evefp-css"> <!-- /* css injection here */ --> </style>
@@ -64,9 +89,15 @@ window.onload = function() {
     document.getElementById("evedata").value = decoded;  
     engineerVerse(decoded)
   }
+  else {
+    SaxonJS.transform( {
+      stylesheetLocation: "eve-csx.sef.json",
+      initialTemplate: "load_verse_engineer"
+      },
+      "async");
+  }
 }
 
- 
 // passes evetext into the Verse Engineer
 function engineerVerse(evetext) {
   // first dropping the link into #linkcopy b/c easier than asking SaxonJS to do it
@@ -80,6 +111,7 @@ function engineerVerse(evetext) {
   insertEveLink();
 }
 
+   
 /* takes data (presumably eve data) and writes a link to the linkcopy field
    constructed with base64 encoding of that data */
 function insertEveLink() {
@@ -88,10 +120,10 @@ function insertEveLink() {
     const base64 = btoa(newtext)
     const base64encoded = encodeURIComponent(base64)
     const myuri = ( `${ myorigin }?eve=${ base64encoded }` )
+    // textarea#linkcopy so we set .value
     document.getElementById("linkcopy").value = myuri;   
 }
-
-
+ 
 /* reads text out of an element, provides it to a download link and clicks it */
 function offerDownload(elemID,fileName) {
   const contents = document.getElementById(elemID).textContent;
@@ -100,81 +132,58 @@ function offerDownload(elemID,fileName) {
   a.href = URL.createObjectURL(f);
   a.download = fileName;
   a.click()
+  /* window.alert('boo!') */
 }
 
-
+/* selects textarea#linkcopy and copies it to the system clipboard */
 function copyLinktoclipboard() {
   document.getElementById("linkcopy").select();
   document.execCommand('copy');
 }
- 
+
 </script>
   </head>
   
 <!-- to do:
-    local save
-    load example
-    documentation
-    max-width on display panel?
-    footnote symbols
+    x local save
+    o load example
+    o documentation
+    x max-width on display panel?
+    x footnote symbols
       n mod 6 gives index into symbols
       (n idiv 6) + 1 gives symbol count
       symbols: asterisk dagger double-dagger section double-pipe pilcrow
       &#x2A; &#x2020; &#x2021; &#xA7; &#x2016; &#xb6;
-    accept base64 uri parameter for eve.txt
-
+    x accept base64 uri parameter for eve.txt
+    
  
  
-window.onload = function() {
-  const url = window.location.href; // The URL of the current page
-  const params = new URLSearchParams(url);
-  const evebase64 = ( params.has(`eve`) ? params.get(`eve`) : '' )
-  if (evebase64) {
-    // let evestr = btoa(evebase64);
-    engineerVerse(evebase64);
-  }   
-}
-
-
-/* takes data (presumably eve data) and writes a link to the linkcopy field
-   constructed with base64 encoding of that data */
-function insertEveLink(evetext) {
-    const myorigin = window.location.origin
-    const encoded = atob(evetext)
-    const eveuri = ( `${ myorigin }?eve=${ encoded }` )
-    // insert eveuri into pre#linkcopy linkcopy
-    // alert(eveuri)
-    document.getElementById("linkcopy").textContent = eveuri; 
-  
-}
-  
-      
-  -->
+-->
    <body>
       <div id="eve-body">
-        <div id="nav" style="padding-bottom: 1ex">
-          <h3 style="float:right; margin: 0px; clear: both" id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE)</h3>
-        </div>
-        <details>
-          <summary>Operating the Verse Engineer</summary>
-          <p>Type or paste EVE syntax into the box, then click or tab away. <button id="load-example">Load an example</button></p>
-        </details>
-        <div id="everesults"> </div>
-        <div id="evelink" class="hidden">
-          <details>
-            <summary>Link capture </summary>
-            <textarea class="linkarea" id="linkcopy"><!-- --></textarea><button onclick="copyLinktoclipboard()">Copy Link</button>
-          </details>
-        </div>
+        <div id="nav">
+          <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE)</h3>
+        </div>        
         <div id="panel-grid">
           <div class="ui-box" id="evebox">
-            <textarea id="evedata" spellcheck="false" rows="48" onchange="engineerVerse(this.value)"></textarea>
+            <textarea placeholder="Enter EVE here" id="evedata" spellcheck="false" rows="48" onchange="engineerVerse(this.value)"></textarea>
           </div>
           <div class="ui-box" id="displaybox">
             
           </div>
           
         </div>
+        <div id="everesults"> </div>
+        <div id="evelink" class="hidden">
+          <details>
+            <summary>Link Capture</summary>
+            <textarea class="linkarea" id="linkcopy" placeholder="Link comes here" readonly="readonly"></textarea><button onclick="copyLinktoclipboard()">Copy Link</button>
+          </details>
+        </div>
+        <details>
+          <summary>Operating the Verse Engineer</summary>
+          <p>Type or paste EVE syntax into the box, then click or tab away. <button id="load-example">Load an example</button></p>
+        </details>
         <details>
           <summary>About the Verse Engineer</summary>
           <p>The EVE processor on this page reads your input and parses it to produce formatted verse (lineated text). It is meant to support the sensitive display, aggregation (collection) and publishing of poetry and poetry selections.</p>
