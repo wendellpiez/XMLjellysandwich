@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 300 300">
+    <desc>XML Jelly Sandwich logo</desc>
+    <g transform="translate(150 40)">
+        <path stroke-width="20" stroke="#5C4033" d="M -100 120 C -250 -50 250 -50 100 120 v 140 h -200 z" fill="cornsilk"/>
+        <text transform="translate(0 220)" text-anchor="middle" font-size="240" font-weight="900" fill="#8B0000" font-family="sans-serif">X</text>
+    </g>
+</svg>
