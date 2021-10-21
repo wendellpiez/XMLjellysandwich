@@ -59,12 +59,18 @@
    
    
    <xsl:template match="id('load-example')" mode="ixsl:onclick">
-      <xsl:variable name="example-text-location" select="resolve-uri('johndonne-example1.eve.txt')"/>
+      <xsl:variable name="example-text-location" select="resolve-uri('stlucysday1.eve')"/>
       <ixsl:schedule-action document="{ $example-text-location }">
          <xsl:call-template name="load-eve">
             <xsl:with-param name="where" select="$example-text-location"/>
          </xsl:call-template>
       </ixsl:schedule-action>
+   </xsl:template>
+   
+   <xsl:template match="id('clear-eve')" mode="ixsl:onclick">
+      <xsl:result-document href="#displaybox" method="ixsl:replace-content"/>
+      <ixsl:set-property name="value" object="id('evedata')" select="''"/>
+      <ixsl:set-property name="value" object="id('linkcopy')" select="''"/>
    </xsl:template>
    
    <xsl:template name="load-eve">

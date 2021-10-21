@@ -16,6 +16,8 @@ a:hover { text-decoration: underline }
 
 #nav { padding-bottom: 1ex; width: 100%; border-bottom: thin solid black; }
 
+button#clear-eve { margin-left: 1em }
+
 #page-title { margin: 0ex; text-align: right; font-style: italic; }
 
 #panel-grid { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 2vh; margin-top: 2vh }
@@ -162,7 +164,7 @@ function copyLinktoclipboard() {
    <body>
       <div id="eve-body">
         <div id="nav">
-          <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE)</h3>
+          <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE) <button id="clear-eve">Clear</button></h3>
         </div>        
         <div id="panel-grid">
           <div class="ui-box" id="evebox">
