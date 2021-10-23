@@ -4,15 +4,60 @@
    <head>
       <title>Electronic Verse Engineer (EVE)</title>
       <meta charset="utf-8"/>
-     <link href="https://fonts.googleapis.com/css?family=Alegreya|Roboto+Slab" rel="stylesheet"/> 
+     <link href="https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans|Roboto+Slab" rel="stylesheet" />
      <link rel="icon" href="../sando1-icon.svg"/>
+     <link rel="stylesheet" type="text/css" href="eve-html.css" />
      <style type="text/css">
-      html body { font-family: Alegreya, serif }
+      html, body { font-family: Alegreya, serif }
       h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', sans-serif }
       a { color: inherit; text-decoration: none }
       a:hover { text-decoration: underline }
      </style>
-     <style id="evefp-css"> <!-- css injection here --> </style>
+     <style type="text/css" xml:space="preserve">
+
+html, body { font-family: "Alegreya Sans", serif }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', sans-serif }
+
+a       { color: inherit; text-decoration: none }
+a:hover { text-decoration: underline }
+
+#nav { padding-bottom: 1ex; width: 100%; border-bottom: thin solid black; }
+
+button#clear-eve { margin-left: 1em }
+
+#page-title { margin: 0ex; text-align: right; font-style: italic; }
+
+#eve-collection section.EVE { font-family: 'Alegreya', serif;  
+    max-width: 24em;
+    margin: 1em auto 1em auto;
+    background-color: floralwhite;
+    padding: 1em;
+    border: thin solid black;
+}
+
+
+summary { font-family: 'Alegreya Sans' }
+
+details { border: thin solid black; padding: 0.3rem; margin-top: 2vh }
+
+details *:last-child { margin-bottom: 0em }
+
+
+.ON { text-decoration: underline }
+
+
+p { margin: 0em; margin-top: 0.62em }
+
+ul { margin: 0em }
+
+textarea  { outline: none }
+.linkarea { border: none; outline: none; width: 100%; word-break: break-all; font-size: 80% }
+
+.hidden { display:none }
+
+     </style>
+     <style id="evefp-css"> /* css injection goes here */ </style>
      <script type="text/javascript"
               src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
      <!--
@@ -28,33 +73,33 @@
      <script xml:space="preserve">
 
 // passes evetext into the Verse Engineer
-function readEVE(evetext) {
+function readEVEXML(eve) {
   SaxonJS.transform({
-    stylesheetLocation: "eve-read.sef.json",
-    initialTemplate: "engineer-verse",
-    stylesheetParams: {
-      "evetext": evetext
-    }
+    sourceText: eve,
+    stylesheetLocation: "eve-build.sef.json",
+    initialTemplate: "add-eve",
   },"async")
 }
-
-// OPENS A FILE, DROPS IT INTO AN ELEMENT VALUE (id=whereID) TO DISPLAY, AND CALLS THE VERSE ENGINEER
-function dropFileText(fileSet,whereID) {
-  fileSet.map(eachFile => {
-    let where = document.getElementById(whereID)
-    let frdr = new FileReader();
+        
+// one at a time pass files into the Verse Engineer for display and processing
+function dropEVEXMLfiles(fileSet) {
+  for (const eachFile of fileSet) {
+    let frdr  = new FileReader();
     frdr.onload = function () {
-      where.value = frdr.result;
-      readEVE(frdr.result)
-    }
-  frdr.readAsText(eachFile); } ) }
+      readEVEXML(frdr.result)
+      }
+    frdr.readAsText(eachFile); } }
   
   
 /* reads text out of an element, provides it to a download link and clicks it */
-function offerDownload(fileName) {
-  var contents = document.getElementById("tei-anthology").textContent;
-  var f = new Blob([ contents ]);
-  var a = document.createElement("a");
+/* note this entire branch including the button and the (hidden or folded 'pre') element
+   it reads from to populate the download file, must have been inserted by the XSLT */
+/* call like this : offerDownload('tei','my-tei-file.xml') where #tei is where the TEI XML (literal) can be found */
+
+  function offerDownload(variant,fileName) {
+  const contents = document.getElementById(variant).textContent;
+  const f = new Blob([ contents ]);
+  const a = document.createElement("a");
   a.href = URL.createObjectURL(f);
   a.download = fileName;
   a.click()
@@ -76,31 +121,23 @@ Anthologizer
   -->
    <body>
       <div id="anthologizer-body">
-        <div id="nav" style="padding-bottom: 1ex">
-          <h3 style="float:right; margin: 0px" id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE)</h3>
-          <!--<button id="text_select">Text</button>
-          <button id="tell_select">Tell</button>
-          <button id="tweak_select">Hints</button>
-          <button id="dir_select">Ideas</button>
-          <button id="clear_select">Clear</button>-->
+        <div id="nav">
+          <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE) - Anthologizer <button id="clear-eve">Clear</button></h3>
+        </div>        
+        <div>
           
-<!-- #dir_panel is populated by the XSLT -->
+          <p style="font-style: italic">Load your EVE XML file here ... <input type="file" multiple="multiple"
+            id="evefileset" name="evefileset" title="Drop EVE XML"
+            onchange="dropEVEXMLfiles(this.files)" /></p>
+          <main id="eve-collection">
+            
+          </main>
+          <details>
+            <summary>Operating the Anthologizer</summary>
+            <p>Load one or more EVE files. The Anthologizer builds an anthology for you.</p>
+            <p>Copy it out or Save As to save a local copy in a standard format.</p>
+          </details>
           
-        </div>
-        <details>
-          <summary>Operating the Anthologizer</summary>
-          <p>Load one or more EVE files. The Anthologizer builds an anthology for you.</p>
-          <p>Copy it out or Save As TEI.</p>
-        </details>
-        <div class="panel" id="text_panel">
-          <textarea  rows="28" cols="50" id="eve-entry">
-          </textarea>
-        </div>
-        <div class="panel" id="display_panel">
-          
-        </div>
-        
-    </div>
       <div id="xmljellysandwich_footer">
         <p>The Anthologizer is part of the <i>Electronic Verse Engineer</i>, a project of Wendell Piez for <a href="http://pellucidliterature.org">Pellucid Literature</a> starting in 2021. <a href="https://github.com/wendellpiez/XMLjellysandwich">Find the source code on Github.</a></p>
       </div>
