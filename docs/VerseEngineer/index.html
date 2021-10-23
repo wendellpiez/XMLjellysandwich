@@ -73,7 +73,7 @@ window.onload = function() {
   }
   else {
     SaxonJS.transform( {
-      stylesheetLocation: "eve-csx.sef.json",
+      stylesheetLocation: "eve-entertain.sef.json",
       initialTemplate: "load_verse_engineer"
       },
       "async");
@@ -84,7 +84,7 @@ window.onload = function() {
 function engineerVerse(evetext) {
   // first dropping the link into #linkcopy b/c easier than asking SaxonJS to do it
   SaxonJS.transform({
-    stylesheetLocation: "eve-csx.sef.json",
+    stylesheetLocation: "eve-entertain.sef.json",
     initialTemplate: "engineer-verse",
     stylesheetParams: {
       "eve-to-read": evetext
@@ -165,6 +165,7 @@ function copyLinktoclipboard() {
         <details>
           <summary>Operating the Verse Engineer</summary>
           <p>Type or paste EVE syntax into the box, then click or tab away. <button id="load-example">Load an example</button></p>
+          <p>Try <a href="anthologizer.html">the Anthologizer</a> for a way to collect the EVE XML you save.</p>
         </details>
         <details>
           <summary>About the Verse Engineer</summary>
