@@ -18,14 +18,6 @@
 <!-- no-op template for loading makes event bindings available -->
    <xsl:template name="load_verse_engineer"/>
    
-   <xsl:variable name="indented-xml" as="element()">
-      <output:serialization-parameters
-         xmlns:output="http://www.w3.org/2010/xslt-xquery-serialization">
-         <output:indent value="true"/>
-         <output:omit-xml-declaration value="true"/>
-      </output:serialization-parameters>
-   </xsl:variable>
-   
    <xsl:template match="/">
       <xsl:sequence select="pb:engineer-verse($eve-to-read)"/>
    </xsl:template>

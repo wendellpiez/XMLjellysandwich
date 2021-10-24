@@ -57,7 +57,7 @@ textarea  { outline: none }
 .hidden { display:none }
 
      </style>
-     <style id="evefp-css"> /* css injection goes here */ </style>
+     <style id="evefp-css"> /* css injection here */ </style>
      <script type="text/javascript"
               src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
      <!--
@@ -96,13 +96,13 @@ function dropEVEXMLfiles(fileSet) {
    it reads from to populate the download file, must have been inserted by the XSLT */
 /* call like this : offerDownload('tei','my-tei-file.xml') where #tei is where the TEI XML (literal) can be found */
 
-  function offerDownload(variant,fileName) {
-  const contents = document.getElementById(variant).textContent;
-  const f = new Blob([ contents ]);
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(f);
-  a.download = fileName;
-  a.click()
+  function offerDownload(variant,fileName,fileType) {
+    const contents = document.getElementById(variant).textContent;
+    const f = new Blob([ contents ]);
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(f);
+    a.download = fileName;
+    a.click()
   }
 
 </script>
@@ -119,19 +119,22 @@ Anthologizer
     save it out as TEI
 
   -->
-   <body>
-      <div id="anthologizer-body">
+   <body id="anthologizer-body">
         <div id="nav">
           <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE) - Anthologizer <button id="clear-eve">Clear</button></h3>
         </div>        
-        <div>
           
-          <p style="font-style: italic">Load your EVE XML file here ... <input type="file" multiple="multiple"
+          <p style="font-style: italic">Load your EVE XML files here ... <input type="file" multiple="multiple"
             id="evefileset" name="evefileset" title="Drop EVE XML"
             onchange="dropEVEXMLfiles(this.files)" /></p>
+          <h3 contenteditable="true" id="anthology-title">[Title]</h3>
+          <h4 contenteditable="true" id="anthology-byline">[Collected by]</h4>
           <main id="eve-collection">
             
           </main>
+          <div class="hidden" id="download">
+
+          </div>
           <details>
             <summary>Operating the Anthologizer</summary>
             <p>Load one or more EVE files. The Anthologizer builds an anthology for you.</p>

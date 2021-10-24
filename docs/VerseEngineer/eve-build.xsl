@@ -16,14 +16,6 @@
 <!-- no-op template for loading makes event bindings available -->
    <xsl:template name="load_verse_engineer"/>
    
-   <xsl:variable name="indented-xml" as="element()">
-      <output:serialization-parameters
-         xmlns:output="http://www.w3.org/2010/xslt-xquery-serialization">
-         <output:indent value="true"/>
-         <output:omit-xml-declaration value="true"/>
-      </output:serialization-parameters>
-   </xsl:variable>
-   
    <xsl:template match="/">
       <xsl:apply-templates mode="eve-display"/>
       <!--<xsl:apply-templates mode="eve-tei"/>-->
@@ -49,16 +41,77 @@
    <xsl:template name="add-eve">
      <xsl:result-document href="#eve-collection" method="ixsl:append-content">
             <xsl:apply-templates select="/" mode="plainhtml"/>
-         </xsl:result-document>
-         
+     </xsl:result-document>
+      <xsl:variable name="basename" select="ixsl:page()/id('anthology-title') => normalize-space() => encode-for-uri()"/>
+      <xsl:result-document href="#download" method="ixsl:replace-content">
+         <details>
+         <summary>EVE, dress for the web (an HTML page) <button onclick="offerDownload('download-content','{ $basename }.html','html')">Save HTML</button></summary>
+         <!--Here we need to serialize the HTML code holding the anthology - or translate it into TEI, JATS or what have you,
+         then serialize it -->
+         <pre id="download-content">
+            <xsl:variable name="htmlpage" expand-text="true">
+               <html>
+                  <head>
+                     <title>{ ixsl:page()/id('anthology-byline') ! (. || ': ')}{ ixsl:page()/id('anthology-title') }</title>
+                     <!--<style type="text/css">
+                        <xsl:variable name="lines" select="ixsl:page()/id('eve-collection')//html:p[contains-token(@class,'line')]"/>
+                        <xsl:variable name="indents" select="$lines/@class/tokenize(.,'\s+')[starts-with(.,'indent')] => distinct-values()"/>
+                        <xsl:text>&#xA;.line {{ margin: 0em }}</xsl:text>
+                        <xsl:for-each select="$indents">
+                           <xsl:variable name="deg" select="replace(.,'\D','')"/>
+                           <xsl:text>&#xA;{ . } {{ padding-left:{$deg}em; text-indent:-{$deg}em }}</xsl:text>
+                        </xsl:for-each>
+                        
+                     </style>-->
+                  </head>
+                  <body>
+                     <xsl:apply-templates select="ixsl:page()/id('anthology-title')" mode="savable-html"/>
+                     <xsl:apply-templates select="ixsl:page()/id('anthology-byline')" mode="savable-html"/>
+                     <xsl:apply-templates mode="savable-html" select="ixsl:page()/id('eve-collection')"/>
+                  </body>
+               </html>
+            </xsl:variable>
+            <xsl:value-of select="serialize($htmlpage,$indented-xml)"/>
+         </pre>
+         </details>
+      </xsl:result-document>   
+      <xsl:apply-templates select="ixsl:page()/id('download')" mode="show"/>
    </xsl:template>
    
+   <xsl:mode name="savable-html" on-no-match="shallow-copy"/>
+   
+   <xsl:template match="@contenteditable" mode="savable-html"/>
+   
+   <xsl:variable name="indented-xml" as="element()">
+      <output:serialization-parameters
+         xmlns:output="http://www.w3.org/2010/xslt-xquery-serialization">
+         <output:indent value="true"/>
+         <output:omit-xml-declaration value="true"/>
+      </output:serialization-parameters>
+   </xsl:variable>
    <xsl:import href="eve-plainhtml.xsl"/>
    
    <xsl:template match="EVE" mode="plainhtml">
-      <section class="EVE">
+      <xsl:variable name="max-length">
+         <xsl:choose>
+            <xsl:when test="exists(text/child::p)">48</xsl:when>
+            <xsl:when test="empty(.//line)">42</xsl:when>
+            <xsl:otherwise>
+               <xsl:sequence select="(avg( descendant::line/(string-length(.) + (@ind,0)[1]) ) * 0.6) ! ceiling(.)"/>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+      <section class="EVE" style="max-width:{ $max-length }em">
          <xsl:apply-templates mode="#current"/>
       </section>
+   </xsl:template>
+   
+   <xsl:template mode="savable-html" match="html:p[contains-token(@class,'line')]">
+      <xsl:variable name="indent" select="tokenize(@class,'\s+')[starts-with(.,'indent')]"/>
+      <xsl:variable name="deg" select="$indent ! replace(.,'\D','')"/>
+      <p style="margin:0em;{ $deg ! ('padding-left:' || . || 'em;text-indent:-' || . || 'em;') }">
+         <xsl:apply-templates mode="#current"/>
+      </p>
    </xsl:template>
    
    <!--<xsl:template match="id('load-example')" mode="ixsl:onclick">
@@ -72,10 +125,34 @@
    
    <xsl:template match="id('clear-eve')" mode="ixsl:onclick">
       <ixsl:set-property name="value" object="id('evefileset')" select="()"/>
+      <xsl:apply-templates select="ixsl:page()/id('download')" mode="hide"/>
       <xsl:result-document href="#eve-collection" method="ixsl:replace-content"/>
    </xsl:template>
    
+   <!--<xsl:template match="id('download-html')" mode="ixsl:onclick">
+      <!-\-function offerDownload(variant,fileName) where variant is a pre into which we inject the contents -\->
+      
+      
+   </xsl:template>-->
    
+   <xsl:template match="*" mode="show">
+      <ixsl:set-attribute name="class"
+         select="string-join( (tokenize(@class,'\s+')[not(. eq 'hidden')]), ' ')"/>
+   </xsl:template>
    
+   <xsl:template match="*" mode="hide">
+      <ixsl:set-attribute name="class"
+         select="string-join( (tokenize(@class,'\s+')[not(. eq 'hidden')],'hidden'), ' ')"/>
+   </xsl:template>
+   
+   <xsl:template match="html:br" mode="savable-html"/>
+   
+   <xsl:template match="@style" mode="savable-html"/>
+   
+   <xsl:template match="html:div[@class='head']" mode="savable-html">
+      <header>
+         <xsl:apply-templates mode="#current"/>
+      </header>
+   </xsl:template>
    
 </xsl:stylesheet>
