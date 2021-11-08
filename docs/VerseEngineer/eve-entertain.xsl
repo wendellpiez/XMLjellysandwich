@@ -65,6 +65,10 @@
       <xsl:result-document href="#everesults" method="ixsl:replace-content"/>
       <xsl:apply-templates select="id('evelink')" mode="hide"/>
       <ixsl:set-property name="value" object="id('linkcopy')" select="''"/>
+      
+      <!--window.history.pushState(null, null, window.location.pathname);-->
+      <xsl:variable name="doc-href" select="ixsl:window() => ixsl:get('location.pathname')"/>
+      <xsl:sequence select="ixsl:window() => ixsl:call('history.pushState',[(),(),$doc-href])"/>
    </xsl:template>
    
    <xsl:template name="load-eve">

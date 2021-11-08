@@ -28,13 +28,14 @@ button#clear-eve { margin-left: 1em }
 #panel-grid textarea {    box-sizing: border-box; width: 100% }     
 
 #displaybox .EVE { font-family: 'Alegreya', serif;  
-    max-width: 24em;
+    max-width: 36em;
     margin: auto auto;
     background-color: floralwhite;
     padding: 1em;
     border: thin solid black;
 }
 
+div.verse { margin-left: 3em; margin-right: 2em }
 
 summary { font-family: 'Alegreya Sans' }
 
@@ -42,9 +43,7 @@ details { border: thin solid black; padding: 0.3rem; margin-top: 2vh }
 
 details *:last-child { margin-bottom: 0em }
 
-
 .ON { text-decoration: underline }
-
 
 p { margin: 0em; margin-top: 0.62em }
 
@@ -67,7 +66,8 @@ window.onload = function() {
   const base64esc = ( url.searchParams.has(`eve`) ? url.searchParams.get(`eve`) : '' )
   if (base64esc) {
     const URIdecoded = decodeURIComponent(base64esc)
-    const decoded = atob(URIdecoded);
+    const escapedDecoded = atob(URIdecoded);
+    const decoded = decodeURIComponent(escapedDecoded)
     document.getElementById("evedata").value = decoded;  
     engineerVerse(decoded)
   }
@@ -79,8 +79,8 @@ window.onload = function() {
       "async");
   }
 }
-
 // passes evetext into the Verse Engineer
+
 function engineerVerse(evetext) {
   // first dropping the link into #linkcopy b/c easier than asking SaxonJS to do it
   SaxonJS.transform({
@@ -99,7 +99,8 @@ function engineerVerse(evetext) {
 function insertEveLink() {
     const myorigin = window.location.origin + window.location.pathname
     const newtext = document.getElementById("evedata").value
-    const base64 = btoa(newtext)
+    const escaped = encodeURIComponent(newtext)
+    const base64 = btoa(escaped)
     const base64encoded = encodeURIComponent(base64)
     const myuri = ( `${ myorigin }?eve=${ base64encoded }` )
     // textarea#linkcopy so we set .value
@@ -126,7 +127,11 @@ function copyLinktoclipboard() {
 </script>
   </head>
   
-<!-- to do:
+<!--
+    αω http://localhost:8080/VerseEngineer/?eve=JUNFJUIxJUNGJTg5
+    “Yorick” http://localhost:8080/VerseEngineer/?eve=JUUyJTgwJTlEWW9yaWNrJUUyJTgwJTlD
+    http://localhost:8080/VerseEngineer/?eve=WW91JTIwYXJlJTIwbXklMjBiYWJ5
+    to do:
     x local save
     o load example
     o documentation
@@ -158,8 +163,9 @@ function copyLinktoclipboard() {
         <div id="everesults"> </div>
         <div id="evelink" class="hidden">
           <details>
-            <summary>Link Capture</summary>
-            <textarea class="linkarea" id="linkcopy" placeholder="Link comes here" readonly="readonly"></textarea><button onclick="copyLinktoclipboard()">Copy Link</button>
+            <summary>Link Capture </summary>
+            <textarea class="linkarea" id="linkcopy" placeholder="Link comes here" readonly="readonly"></textarea>
+            <button onclick="copyLinktoclipboard()">Copy Link</button>
           </details>
         </div>
         <details>

@@ -96,13 +96,13 @@ function dropEVEXMLfiles(fileSet) {
    it reads from to populate the download file, must have been inserted by the XSLT */
 /* call like this : offerDownload('tei','my-tei-file.xml') where #tei is where the TEI XML (literal) can be found */
 
-  function offerDownload(variant,fileName,fileType) {
-    const contents = document.getElementById(variant).textContent;
-    const f = new Blob([ contents ]);
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(f);
-    a.download = fileName;
-    a.click()
+function offerDownload(variant,fileName,fileType) {
+  const contents = document.getElementById(variant).textContent;
+  const f = new Blob([ contents ]);
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(f);
+  a.download = fileName;
+  a.click()
   }
 
 </script>
