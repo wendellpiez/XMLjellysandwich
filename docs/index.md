@@ -20,7 +20,7 @@ These and additional demonstrations are described below.
 
 ## Ideas / tbd
 
-- Put JellySandwich itself into SaxonJS to produce the XSLT for an XML? dynamic execution? (but see https://martin-honnen.github.io/xslt3fiddle/ )
+- Put JellySandwich itself into SaxonJS to produce the XSLT for an XML? dynamic execution? (but see [XSLT Fiddle](https://martin-honnen.github.io/xslt3fiddle/) )
 - Various EVE ideas
   - BITS or TEI conversion
   - Load EVE into editor
