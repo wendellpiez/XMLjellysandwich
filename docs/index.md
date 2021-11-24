@@ -1,27 +1,30 @@
 # XML Jelly Sandwich Demos
 
-## Summary / tldr
+## Update Nov 2021
 
-OSCAL demonstrations (originally developed for Balisage 2021) are now at https://pages.nist.gov/oscal-tools/demos/csx/
+OSCAL demonstrations (originally developed for Balisage 2021) are now at [an official home](https://pages.nist.gov/oscal-tools/demos/csx/).
 
-Served from this site:
+Quick links - served from this site:
 
 * [Docuscope](docuscope/) - load and examine your XML document
 * [EVE](VerseEngineer/) - the Electronic Verse Engineer
-  - create (and save) your [EVE](VerseEngineer/) XML
-  - [collect](VerseEngineer/anthologizer) your EVE XML
+  * [create (and save)](VerseEngineer/) your EVE XML
+  * [collect](VerseEngineer/anthologizer) your EVE XML
 * [Cast I Ching](IChing/)
 * [Isn't it a clock?](ApresMagritte/)
 * [The Versifier](Versifier/)
 * [The Poem Teller](Versifier/teller.html)
 * [Conway's Life - in XSLT](GameofLife/)
 
-These and more older demonstrations are described below.
+These and additional demonstrations are described below.
 
 ## Ideas / tbd
 
-- put JellySandwich itself into SaxonJS to produce the XSLT for an XML? dynamic execution? (but see https://martin-honnen.github.io/xslt3fiddle/ )
-- various EVE ideas including BITS or TEI conversion
+- Put JellySandwich itself into SaxonJS to produce the XSLT for an XML? dynamic execution? (but see https://martin-honnen.github.io/xslt3fiddle/ )
+- Various EVE ideas
+  - BITS or TEI conversion
+  - Load EVE into editor
+    - EVE XML -> EVE.txt serializer 
 
 ## The code
 
@@ -29,34 +32,22 @@ To produce your own XML application using XSLT and SaxonJS, XML Jelly Sandwich o
 
 All these demonstrations are meant to show what can be done with XSLT in the browser (client-side XSLT or CSX) and to provide a jump start to devs working on similar problems.
 
-## November 2021 - NIST migration!
-
-Listed below are demonstrations presented at Balisage 2021 in August. However, three of the demos have been accepted as contributions to the OSCAL project - so links to them below have been updated. (Copies on this repo are deprecated and will be removed from current builds.)
-
-To these, two new OSCAL demos supported by XSLT-backed code are now offered on the NIST site - see https://pages.nist.gov/oscal-tools/demos/ for the current list.
-
-*keep reading for more demonstrations*
-
 ## EVE: the ELECTRONIC VERSE ENGINEER
 
 This application permits creation of lightweight XML with local save for persistence, specifically oriented to structured (lineated) verse in the Western tradition (left-to-right top-to-bottom with defined conventions for line endings and indents). Transcribing Poe or Wordsworth? Markdown for versifiers!
 
 - Create your EVE: https://wendellpiez.github.io/XMLjellysandwich/VerseEngineer/
 - Collect your EVE: https://wendellpiez.github.io/XMLjellysandwich/VerseEngineer/anthologizer.html
-
-*keep scanning for more demonstrations*
-
 ## Balisage 2021 Demonstrations
 
 For *examples* of XML documents designed to showcase functionalities of the OSCAL applications, download and unzip the file [oscal/oscal-examples.zip](oscal/oscal-examples.zip)
+
+Note that the OSCAL demos now link to the sites where they are maintained:
 
 * [Docuscope](docuscope/)
 * [OSCAL Baseline Matrix](https://pages.nist.gov/oscal-tools/demos/csx/baseline-matrix/) - now at NIST!
 * [OSCAL Profile Import Examiner](https://pages.nist.gov/oscal-tools/demos/csx/import-examiner/) - now at NIST!
 * [OSCAL Metaschema Emulator](https://pages.nist.gov/oscal-tools/demos/csx/validator/) - now at NIST!
-
-Also find links to more demonstrations below, including **Conway's Life** and an I Ching forecaster. *keep scanning for more demonstrations*
-
 
 ## What this is
 
@@ -69,7 +60,6 @@ Each of the demonstrations listed is provided with source XSLT. The page code wi
 They have been made at various times to different versions of Saxon-JS, which continues to improve, so your mileage may vary. *Apologies in advance* if a page fails to load, and please feel free to report bugs via Issues in the Github repository.
 
 > Additional note: Although Saxon-JS libraries are available on this site -- which is designed for maximum transparency -- they are presented for *demonstration only*. When building your own Saxon-JS applications you should not rely on the currency or availability of copies found here, instead maintaining your copies of up-to-date distributable sources from Saxonica.
-
 
 ## Latest Demonstrations (2019ish)
 
