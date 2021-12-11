@@ -38,8 +38,8 @@
    
    
    <xsl:template match="EVE" mode="plainhtml">
-      <xsl:variable name="max-length" select="max( descendant::line/(string-length(.) + @ind) )"/>
-      <main class="EVE" style="max-width:{$max-length}ex">
+      
+      <main class="EVE">
          <xsl:apply-templates mode="#current"/>
       </main>
    </xsl:template>
