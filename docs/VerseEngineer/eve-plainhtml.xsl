@@ -27,13 +27,11 @@
    <xsl:key name="div-by-href" match="html:div" use="'#' || @id"/>
    
    <xsl:template match="*" mode="off">
-      <ixsl:set-attribute name="class"
-         select="string-join( (tokenize(@class,'\s+')[not(. eq 'ON')]), ' ')"/>
+      <ixsl:set-attribute name="class" select="(tokenize(@class,'\s+')[not(. eq 'ON')]) => string-join(' ')"/>
    </xsl:template>
    
    <xsl:template match="*" mode="on">
-      <ixsl:set-attribute name="class"
-         select="string-join( (tokenize(@class,'\s+')[not(. eq 'ON')],'ON'), ' ')"/>
+      <ixsl:set-attribute name="class" select="(tokenize(@class,'\s+')[not(. eq 'ON')],'ON') => string-join(' ')"/>
    </xsl:template>
    
    
@@ -148,4 +146,5 @@
       <xsl:variable name="count" select="1 + (($pos - 1) idiv 6)"/>
       <xsl:for-each select="1 to $count" expand-text="true">{ $sym }</xsl:for-each>
    </xsl:template>
+   
 </xsl:stylesheet>

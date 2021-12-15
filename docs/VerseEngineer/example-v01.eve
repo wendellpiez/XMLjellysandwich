@@ -1,0 +1,39 @@
+---
+author: Wendell Piez
+date: Oct 8 2021
+title: Example Ode
+---
+
+Oh what an ode to feel the breeze[fn1]
+   and *tickle* sniffle **snuffle** ***sneeze***
+when[fn2] everything that barks a tree
+   is over any allergy.
+
+Now we do prose for a while.
+
+When writing prose, one \\paragraph drops onto another.
+
+Lists, one, two three...
+
+Now we do verse again
+line by line, one or ten
+
+[[note]] This is clearly about spring. Note is like prose, but captured as a note.
+
+Notes embedded in text (as opposed to at the end in **notes**) might be managed like footnotes or endnotes, or they might appear as callouts. Depends.
+
+Notes with verse
+are also terse
+
+[[fn1]] Breezes are most common in April in this region.
+
+So may questions come to mind, one becomes anxious.
+
+
+[[verse]]
+if I were a bumble bee
+I would not know if I were me
+
+
+
+[[fn2]] What happens when the link breaks? the baby falls.
