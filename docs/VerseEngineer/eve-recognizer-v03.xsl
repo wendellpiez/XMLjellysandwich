@@ -391,9 +391,6 @@
 
   <xsl:mode name="eve:scrub" on-no-match="shallow-copy"/>
   
-  
-  
-  
   <xsl:template mode="eve:scrub" match="/all-marked-up">
     <scrubbed>
       <xsl:apply-templates mode="#current"/>
@@ -411,6 +408,15 @@
     </head>
   </xsl:template>
   
+  <xsl:template mode="eve:scrub" match="div">
+    <section>
+      <xsl:apply-templates mode="#current" select="* except note"/>
+      <notes>
+        <xsl:apply-templates mode="#current" select="note"/>
+      </notes>
+    </section>
+  </xsl:template>
+  
   <xsl:template mode="eve:scrub" match="div[eve:is-header(.)]/verse">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
@@ -425,27 +431,19 @@
       </xsl:non-matching-substring>
     </xsl:analyze-string>
   </xsl:template>
-  
-  
-  
+
+
   <xsl:mode name="eve:polish" on-no-match="shallow-copy"/>
   
   <xsl:template mode="eve:polish" match="scrubbed">
+    <xsl:text>&#xA;</xsl:text>
     <EVE>
       <xsl:apply-templates mode="#current"/>
       <xsl:text>&#xA;</xsl:text>
     </EVE>
   </xsl:template>
   
-  <xsl:template mode="eve:polish" match="div">
-    <xsl:text>&#xA;  </xsl:text>
-    <section>
-      <xsl:apply-templates mode="#current" select="*"/>
-      <xsl:text>&#xA;  </xsl:text>
-    </section>
-  </xsl:template>
-  
-  <xsl:template mode="eve:polish" match="head">
+  <xsl:template mode="eve:polish" match="head | section">
     <xsl:text>&#xA;  </xsl:text>
     <xsl:copy>
       <xsl:copy-of select="@*"/>
@@ -454,7 +452,7 @@
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template mode="eve:polish" match="div/* | note | verse | inset">
+  <xsl:template mode="eve:polish" match="section/* | note | verse | inset">
     <xsl:text>&#xA;</xsl:text>
     <xsl:for-each select="ancestor::*"><xsl:text>  </xsl:text></xsl:for-each>
     <xsl:copy>
@@ -465,7 +463,7 @@
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template priority="5" mode="eve:polish" match="inset[. is parent::div/child::*[1]]">
+  <xsl:template priority="5" mode="eve:polish" match="inset[. is parent::section/child::*[1]]">
     <xsl:text>&#xA;</xsl:text>
     <xsl:for-each select="ancestor::*"><xsl:text>  </xsl:text></xsl:for-each>
     <epigraph>
