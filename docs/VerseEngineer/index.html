@@ -27,15 +27,6 @@ button#clear-eve { margin-left: 1em }
 
 #panel-grid textarea {    box-sizing: border-box; width: 100% }     
 
-#displaybox .EVE { font-family: 'Alegreya', serif;  
-    max-width: 36em;
-    margin: auto auto;
-    background-color: floralwhite;
-    padding: 1em;
-    border: thin solid black;
-}
-
-div.verse { margin-left: 3em; margin-right: 2em }
 
 summary { font-family: 'Alegreya Sans' }
 
@@ -92,7 +83,6 @@ function engineerVerse(evetext) {
   },"async");
   insertEveLink();
 }
-
    
 /* takes data (presumably eve data) and writes a link to the linkcopy field
    constructed with base64 encoding of that data */
@@ -127,29 +117,10 @@ function copyLinktoclipboard() {
 </script>
   </head>
   
-<!--
-    αω http://localhost:8080/VerseEngineer/?eve=JUNFJUIxJUNGJTg5
-    “Yorick” http://localhost:8080/VerseEngineer/?eve=JUUyJTgwJTlEWW9yaWNrJUUyJTgwJTlD
-    http://localhost:8080/VerseEngineer/?eve=WW91JTIwYXJlJTIwbXklMjBiYWJ5
-    to do:
-    x local save
-    o load example
-    o documentation
-    x max-width on display panel?
-    x footnote symbols
-      n mod 6 gives index into symbols
-      (n idiv 6) + 1 gives symbol count
-      symbols: asterisk dagger double-dagger section double-pipe pilcrow
-      &#x2A; &#x2020; &#x2021; &#xA7; &#x2016; &#xb6;
-    x accept base64 uri parameter for eve.txt
-    
- 
- 
--->
    <body>
       <div id="eve-body">
         <div id="nav">
-          <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE) <button id="clear-eve">Clear</button></h3>
+          <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE) <button id="clear-eve">Clear</button> <button id="load-eve">Load file</button></h3>
         </div>        
         <div id="panel-grid">
           <div class="ui-box" id="evebox">

@@ -43,9 +43,15 @@
    </xsl:template>
    
    <xsl:template match="head" mode="plainhtml">
-      <div class="head">
+      <header>
          <xsl:apply-templates mode="#current" select="title, author, date"/>
-      </div>
+      </header>
+   </xsl:template>
+   
+   <xsl:template match="section" mode="plainhtml">
+      <section>
+         <xsl:apply-templates mode="#current"/>
+      </section>
    </xsl:template>
    
    <xsl:template match="head/title" mode="plainhtml">
@@ -61,16 +67,16 @@
    </xsl:template>
    
    
-   <xsl:template match="verse | group" mode="plainhtml">
+   <xsl:template match="verse | inset | epigraph" mode="plainhtml">
       <div class="{ local-name() }">
          <xsl:apply-templates mode="#current"/>
       </div>
    </xsl:template>
    
-   <xsl:template match="verse | group" mode="plainhtml">
-      <div class="{ local-name() }">
+   <xsl:template match="attrib" mode="plainhtml">
+      <p class="attrib">
          <xsl:apply-templates mode="#current"/>
-      </div>
+      </p>
    </xsl:template>
    
    <xsl:template match="p" mode="plainhtml">
@@ -119,9 +125,11 @@
    </xsl:template>
    
    <xsl:template match="notes" mode="plainhtml">
-      <div id="endnotes">
-         <xsl:apply-templates mode="#current"/>
-      </div>
+      <xsl:where-populated>
+         <div id="endnotes">
+            <xsl:apply-templates mode="#current"/>
+         </div>
+      </xsl:where-populated>
    </xsl:template>
    
    <xsl:template match="notes/note" mode="plainhtml">

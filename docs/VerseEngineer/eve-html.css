@@ -1,4 +1,38 @@
+.EVE { display: grid; gap: 0.5em }
+
+.EVE > * { font-family: 'Alegreya', serif;  
+    max-width: 36em;
+    margin: auto auto;
+    padding: 1em;
+}
+
+.EVE > section {   
+    border: thin solid black;
+}
+
+main.EVE > section {   
+    background-color: floralwhite;
+}
+
 .EVE > *:first-child { margin-top: 0em }
+
+.EVE header * { margin: 0em }
+
+div.verse { margin: 1em 2em 1em 3em }
+
+section > *:first-child { margin-top: 0em }
+section > *:last-child { margin-bottom: 0em }
+
+div.epigraph { margin: 0.5em }
+div.epigraph > *:first-child { margin-top: 0em }
+div.epigraph > *:last-child { margin-bottom: 0em }
+
+div.inset { margin: 0.5em }
+div.inset > *:first-child { margin-top: 0em }
+div.inset > *:last-child { margin-bottom: 0em }
+
+p.attrib { margin-left: 50%; text-indent: -1.1em }
+p.attrib:before { content: '— ' }
 
 p.line { margin: 0em; padding-left: 1.5em; text-indent: -1.5em }
 p.indent1 { margin-left: 1em }
@@ -26,17 +60,10 @@ p.indent22 { margin-left: 22em }
 p.indent23 { margin-left: 23em }
 p.indent24 { margin-left: 24em }
 
-.verse, .group { margin-top: 1em }
 .verse *:first-child { margin-top: 0em }
 
-.head { margin-bottom: 1em; text-align: center }
-.head * { margin: 0em }
+header { margin-bottom: 1em; text-align: center }
+header * { margin: 0em }
 
 #endnotes {  font-family: 'Alegreya Sans'; display: grid; grid-template-columns: auto 1fr; grid-column-gap: 1vh; margin-top: 2vh;
   font-size: 90% }
-
-div.sidenote { font-family: 'Alegreya Sans'; margin-top: 1rem; margin-left: 40%; border-left: thin solid black;
-  padding-left: 1ex; font-size: 90% }
-
-div.sidenote p:first-child { margin-top: 0em }
-div.sidenote p:last-child { margin-bottom: 0em }

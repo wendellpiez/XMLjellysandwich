@@ -3,6 +3,7 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:pb="http://github.com/wendellpiez/XMLjellysandwich"
                 xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT"
+                xmlns:eve="http://pellucidliterature.org/VerseEngineer"
                 version="3.0"
                 extension-element-prefixes="ixsl"
                 xmlns="http://www.w3.org/1999/xhtml"
@@ -19,7 +20,7 @@
    <xsl:template name="load_verse_engineer"/>
    
    <xsl:template match="/">
-      <xsl:sequence select="pb:engineer-verse($eve-to-read)"/>
+      <xsl:sequence select="eve:engineer-verse($eve-to-read)"/>
    </xsl:template>
    
    <xsl:template name="engineer-verse">
@@ -29,7 +30,7 @@
          - a 'Save As' button pre-loaded for download
          - tbd a 'Save As TEI' option - goes in anthologizer.html
 -->         
-      <xsl:variable name="eve-xml" select="pb:engineer-verse($eve-to-read)"/>
+      <xsl:variable name="eve-xml" select="eve:engineer-verse($eve-to-read)"/>
       <xsl:if test="matches($eve-to-read,'\S')">
       <xsl:result-document href="#displaybox" method="ixsl:replace-content">
          <xsl:apply-templates select="$eve-xml" mode="plainhtml"/>
@@ -51,7 +52,7 @@
    
    
    <xsl:template match="id('load-example')" mode="ixsl:onclick">
-      <xsl:variable name="example-text-location" select="resolve-uri('stlucysday1.eve')"/>
+      <xsl:variable name="example-text-location" select="resolve-uri('illustration.eve')"/>
       <ixsl:schedule-action document="{ $example-text-location }">
          <xsl:call-template name="load-eve">
             <xsl:with-param name="where" select="$example-text-location"/>
