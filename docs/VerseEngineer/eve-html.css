@@ -1,7 +1,7 @@
 .EVE { display: grid; gap: 0.5em }
 
 .EVE > * { font-family: 'Alegreya', serif;  
-    max-width: 36em;
+    max-width: max-content;
     margin: auto auto;
     padding: 1em;
 }

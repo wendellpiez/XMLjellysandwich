@@ -453,34 +453,35 @@
   </xsl:template>
   
   <xsl:template mode="eve:polish" match="section/* | note | verse | inset">
-    <xsl:text>&#xA;</xsl:text>
-    <xsl:for-each select="ancestor::*"><xsl:text>  </xsl:text></xsl:for-each>
+    <xsl:call-template name="drop-and-indent"/>
     <xsl:copy>
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates mode="#current"/>
-      <xsl:text>&#xA;</xsl:text>
-      <xsl:for-each select="ancestor::*"><xsl:text>  </xsl:text></xsl:for-each>
+      <xsl:call-template name="drop-and-indent"/>
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template priority="5" mode="eve:polish" match="inset[. is parent::section/child::*[1]]">
-    <xsl:text>&#xA;</xsl:text>
-    <xsl:for-each select="ancestor::*"><xsl:text>  </xsl:text></xsl:for-each>
+  <xsl:template priority="5" mode="eve:polish" match="inset[empty(preceding-sibling::* except preceding-sibling::inset)]">
+    <xsl:call-template name="drop-and-indent"/>
     <epigraph>
       <xsl:apply-templates mode="#current"/>
-      <xsl:text>&#xA;</xsl:text>
-      <xsl:for-each select="ancestor::*"><xsl:text>  </xsl:text></xsl:for-each>
+      <xsl:call-template name="drop-and-indent"/>
     </epigraph>
   </xsl:template>
   
   <xsl:template mode="eve:polish" match="p | line | head/* | attrib" priority="2">
-    <xsl:text>&#xA;</xsl:text>
-    <xsl:for-each select="ancestor::*"><xsl:text>  </xsl:text></xsl:for-each>
+    <xsl:call-template name="drop-and-indent"/>
     <xsl:copy>
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
+  <xsl:template name="drop-and-indent">
+    <xsl:text>&#xA;</xsl:text>
+    <xsl:for-each select="ancestor::*">
+      <xsl:text>  </xsl:text>
+    </xsl:for-each>
+  </xsl:template>
   
 </xsl:stylesheet>

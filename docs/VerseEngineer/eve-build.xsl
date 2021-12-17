@@ -45,7 +45,7 @@
       <xsl:variable name="basename" select="ixsl:page()/id('anthology-title') => normalize-space() => encode-for-uri()"/>
       <xsl:result-document href="#download" method="ixsl:replace-content">
          <details>
-         <summary>EVE, dressedfor the web (an HTML page) <button onclick="offerDownload('download-content','{ $basename }.html','html')">Save HTML</button></summary>
+         <summary>EVE, dressed for the web (an HTML page) <button onclick="offerDownload('download-content','{ $basename }.html','html')">Save HTML</button></summary>
          <!--Here we need to serialize the HTML code holding the anthology - or translate it into TEI, JATS or what have you,
          then serialize it -->
          <pre id="download-content">
@@ -92,19 +92,12 @@
    <xsl:import href="eve-plainhtml.xsl"/>
    
    <xsl:template match="EVE" mode="plainhtml">
-      <xsl:variable name="max-length">
-         <xsl:choose>
-            <xsl:when test="exists(text/child::p)">48</xsl:when>
-            <xsl:when test="empty(.//line)">42</xsl:when>
-            <xsl:otherwise>
-               <xsl:sequence select="(avg( descendant::line/(string-length(.) + (@ind,0)[1]) ) * 0.6) ! ceiling(.)"/>
-            </xsl:otherwise>
-         </xsl:choose>
-      </xsl:variable>
-      <section class="EVE" style="max-width:{ $max-length }em">
+      <section class="EVE">
          <xsl:apply-templates mode="#current"/>
       </section>
    </xsl:template>
+   
+   <xsl:template match="html:style" mode="plainhtml"/>
    
    <xsl:template mode="savable-html" match="html:p[contains-token(@class,'line')]">
       <xsl:variable name="indent" select="tokenize(@class,'\s+')[starts-with(.,'indent')]"/>
