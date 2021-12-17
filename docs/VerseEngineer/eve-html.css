@@ -69,4 +69,4 @@ header { margin-bottom: 1em; text-align: center }
 header * { margin: 0em }
 
 #endnotes {  font-family: 'Alegreya Sans'; display: grid; grid-template-columns: auto 1fr; grid-column-gap: 1vh; margin-top: 2vh;
-  font-size: 90% }
+  font-size: 85% }
