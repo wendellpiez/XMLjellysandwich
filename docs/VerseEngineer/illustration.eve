@@ -9,7 +9,7 @@ First, EVE considers a SECTION of the text to be anything demarcated with a deco
 
 So a line showing only "---" (in the EVE notation) is taken to be a (structural) section break.
 
-A "decorative line" for these purposes is any a line made up of *only* - = + \* # @ characters, which has at least three such characters, with nothing else, on a line with no leading space.
+A "decorative line" for these purposes is any line made up of *only* - = + \* # @ characters, which has at least three such characters, with nothing else, on a line with no leading space.
 
 This section ends after this line.
 
@@ -34,11 +34,11 @@ Additionally, EVE can support quotations of both verse and prose. These are done
 > I keep, and pass, and turn again.
 > -- Emerson, Brahma[rwe1]
 
-[[rwe1]] Ralph Waldo Emerson, *Brahma*
+[[rwe1]] Frequently anthologized.
 
 ---
 
-> Many a section needs a epigraph.
+> Many a section needs an epigraph.
 > -- (ed.)
 
 So a nice feature is that when EVE sees an inset text at the front of a section, it calls it an 'epigraph' (because that's what it is, pretty much).

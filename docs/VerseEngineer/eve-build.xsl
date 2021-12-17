@@ -45,7 +45,7 @@
       <xsl:variable name="basename" select="ixsl:page()/id('anthology-title') => normalize-space() => encode-for-uri()"/>
       <xsl:result-document href="#download" method="ixsl:replace-content">
          <details>
-         <summary>EVE, dress for the web (an HTML page) <button onclick="offerDownload('download-content','{ $basename }.html','html')">Save HTML</button></summary>
+         <summary>EVE, dressedfor the web (an HTML page) <button onclick="offerDownload('download-content','{ $basename }.html','html')">Save HTML</button></summary>
          <!--Here we need to serialize the HTML code holding the anthology - or translate it into TEI, JATS or what have you,
          then serialize it -->
          <pre id="download-content">

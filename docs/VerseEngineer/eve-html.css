@@ -20,16 +20,19 @@ main.EVE > section {
 
 div.verse { margin: 1em 2em 1em 3em }
 
-section > *:first-child { margin-top: 0em }
-section > *:last-child { margin-bottom: 0em }
+section > *:first-child { margin-top: 0em !important }
+section > *:last-child { margin-bottom: 0em !important }
 
-div.epigraph { margin: 0.5em }
-div.epigraph > *:first-child { margin-top: 0em }
-div.epigraph > *:last-child { margin-bottom: 0em }
+div.epigraph { padding: 0.5em;
+  border: thin inset gray;
+  background-color: gainsboro;
+  margin: 2em }
+  
+div.inset { padding: 0.5em;
+  border: thin inset gray;
+  background-color: cornsilk;
+  margin: 2em }
 
-div.inset { margin: 0.5em }
-div.inset > *:first-child { margin-top: 0em }
-div.inset > *:last-child { margin-bottom: 0em }
 
 p.attrib { margin-left: 50%; text-indent: -1.1em }
 p.attrib:before { content: '— ' }
