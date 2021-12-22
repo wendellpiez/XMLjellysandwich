@@ -27,7 +27,6 @@ button#clear-eve { margin-left: 1em }
 
 #panel-grid textarea {    box-sizing: border-box; width: 100% }     
 
-
 summary { font-family: 'Alegreya Sans' }
 
 details { border: thin solid black; padding: 0.3rem; margin-top: 2vh }
@@ -46,7 +45,7 @@ textarea  { outline: none }
 .hidden { display:none }
 
      </style>
-    <style id="evefp-css"> /* css injection here */ </style>
+    <style id="eve-css"> /* css injection here */ </style>
     <script type="text/javascript" src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!--
         parsers are so easily confused//--></script>
     <script xml:space="preserve">
@@ -142,6 +141,7 @@ function copyLinktoclipboard() {
         <details>
           <summary>Operating the Verse Engineer</summary>
           <p>Type or paste EVE syntax into the box, then click or tab away. <button id="load-example">Load an example</button></p>
+          <p>EVE will convert your plain text into XML markup, displays it, and posts it to the page. Use the Save option to save a copy of the EVE XML. For local display, you can download a <a href="eve-xml.css">CSS file</a>, which provides styling info for the XML. It's pretty straightforward as CSS goes and amenable to editing or borrowing - a link to it is given at the top of the EVE XML (and can also be removed or altered).</p>
           <p>Try <a href="anthologizer.html">the Anthologizer</a> for a way to collect the EVE XML you save.</p>
         </details>
         <details>

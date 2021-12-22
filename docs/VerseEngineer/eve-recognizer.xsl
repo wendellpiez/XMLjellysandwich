@@ -412,9 +412,11 @@
   <xsl:template mode="eve:scrub" match="div">
     <section>
       <xsl:apply-templates mode="#current" select="* except note"/>
+      <xsl:where-populated>
       <notes>
         <xsl:apply-templates mode="#current" select="note"/>
       </notes>
+      </xsl:where-populated>
     </section>
   </xsl:template>
   

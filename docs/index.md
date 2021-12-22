@@ -38,6 +38,7 @@ This application permits creation of lightweight XML with local save for persist
 
 - Create your EVE: https://wendellpiez.github.io/XMLjellysandwich/VerseEngineer/
 - Collect your EVE: https://wendellpiez.github.io/XMLjellysandwich/VerseEngineer/anthologizer.html
+
 ## Balisage 2021 Demonstrations
 
 For *examples* of XML documents designed to showcase functionalities of the OSCAL applications, download and unzip the file [oscal/oscal-examples.zip](oscal/oscal-examples.zip)

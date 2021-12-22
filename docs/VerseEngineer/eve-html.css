@@ -25,7 +25,7 @@ section > *:last-child { margin-bottom: 0em !important }
 
 div.epigraph { padding: 0.5em;
   border: thin inset gray;
-  background-color: gainsboro;
+  background-color: blanchedalmond;
   margin: 2em }
   
 div.inset { padding: 0.5em;
@@ -70,3 +70,13 @@ header * { margin: 0em }
 
 #endnotes {  font-family: 'Alegreya Sans'; display: grid; grid-template-columns: auto 1fr; grid-column-gap: 1vh; margin-top: 2vh;
   font-size: 85% }
+
+
+#endnotes:before {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    width: 37%;
+    padding-top: 1em;
+    border-top: 1px solid black;
+    grid-column: 1 / span 2;
+}

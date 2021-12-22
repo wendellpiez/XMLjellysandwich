@@ -26,13 +26,13 @@ line in sequence indicates a verse
 
 Note that when lines are consecutive (that is, without blank lines between), EVE interpolates a basic verse structure.
 
-Additionally, EVE can support quotations of both verse and prose. These are done using the traditional '>' notation of plain-demarcations for chunks of indented prose, quotes or other inset material.
+Additionally, EVE can support quotations of both verse and prose. These are done using the traditional '>' prefix on each line of a section of indented prose, quotes or anything to be inset.
 
 > If the red slayer think he slays,
 > Or if the slain think he is slain,
 > They know not well the subtle ways
 > I keep, and pass, and turn again.
-> -- Emerson, Brahma[rwe1]
+> -- Emerson, *Brahma*[rwe1]
 
 [[rwe1]] Frequently anthologized.
 
