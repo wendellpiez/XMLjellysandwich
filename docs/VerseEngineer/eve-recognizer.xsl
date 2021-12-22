@@ -11,7 +11,7 @@
   
 <!--  Test this XSLT by running it on itself -->
   
-  <xsl:output/>
+  <xsl:output indent="true"/>
   
   <xsl:param name="lines" select="unparsed-text-lines('example.eve')"/>
   
@@ -118,7 +118,7 @@
                 </xsl:call-template>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:apply-templates select="current-group()" mode="#current">
+                <xsl:apply-templates select="current-group()" mode="eve:nest-insets">
                   <xsl:with-param name="matchstr" select="$matchstr"/>
                 </xsl:apply-templates>
               </xsl:otherwise>
@@ -126,7 +126,7 @@
           </inset>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:apply-templates select="current-group()" mode="#current">
+          <xsl:apply-templates select="current-group()" mode="eve:nest-insets">
             <xsl:with-param name="matchstr" select="$matchstr"/>
           </xsl:apply-templates>
         </xsl:otherwise>
@@ -179,7 +179,7 @@
   
   <xsl:template mode="eve:split-line-groups" match="inset/line">
     <line>
-      <xsl:value-of select="substring-after(.,' ')"/>
+      <xsl:value-of select="replace(.,'^\s+','')"/>
     </line>
   </xsl:template>
   
@@ -241,6 +241,7 @@
         <line>
           <xsl:choose>
             <xsl:when test=". is $lead-line">
+              
               <xsl:value-of select="substring-after(., $note-id) ! replace(., '^\s+', '')"/>
             </xsl:when>
             <xsl:otherwise>

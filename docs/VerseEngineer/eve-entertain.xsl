@@ -41,7 +41,12 @@
       <xsl:result-document href="#everesults" method="ixsl:replace-content">
          <details>
             <summary>EVE XML <button onclick="offerDownload('eve-xml','{$filename}')">Save</button></summary>
-            <pre id="eve-xml"><xsl:sequence select="$eve-xml => serialize()"/></pre>   
+            <pre id="eve-xml">
+               <xsl:variable name="css-pi">
+               <xsl:processing-instruction name="xml-stylesheet">type="text/css" href="eve-xml.css"</xsl:processing-instruction>
+                  </xsl:variable>
+               <xsl:sequence select="$css-pi => serialize()"/>   
+               <xsl:sequence select="$eve-xml => serialize()"/></pre>   
          </details>
       </xsl:result-document>
       </xsl:if>
