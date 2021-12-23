@@ -95,7 +95,15 @@ function insertEveLink() {
     // textarea#linkcopy so we set .value
     document.getElementById("linkcopy").value = myuri;   
 }
- 
+
+function dropEVEfile(fileSet) { // there will only be one
+  for (const eachFile of fileSet) {
+    let frdr  = new FileReader();
+    frdr.onload = function () {
+      engineerVerse(frdr.result);
+      }
+    frdr.readAsText(eachFile); } }
+
 /* reads text out of an element, provides it to a download link and clicks it */
 function offerDownload(elemID,fileName) {
   const contents = document.getElementById(elemID).textContent;
@@ -119,7 +127,11 @@ function copyLinktoclipboard() {
    <body>
       <div id="eve-body">
         <div id="nav">
-          <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE) <button id="clear-eve">Clear</button> <button id="load-eve">Load file</button></h3>
+          <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE) <button id="clear-eve">Clear</button> 
+            <input type="file" multiple="multiple"
+              id="load-file" name="load-file" title="Load file"
+              onchange="dropEVEfile(this.files)" />
+          </h3>
         </div>        
         <div id="panel-grid">
           <div class="ui-box" id="evebox">
