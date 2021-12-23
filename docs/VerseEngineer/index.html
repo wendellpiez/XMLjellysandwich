@@ -83,6 +83,18 @@ function engineerVerse(evetext) {
   insertEveLink();
 }
    
+function loadVerse(evetext) {
+  // loadVerse is the same except targeting a different initial template
+  SaxonJS.transform({
+    stylesheetLocation: "eve-entertain.sef.json",
+    initialTemplate: "load-verse",
+    stylesheetParams: {
+      "eve-to-read": evetext
+    }
+  },"async");
+  insertEveLink();
+}
+   
 /* takes data (presumably eve data) and writes a link to the linkcopy field
    constructed with base64 encoding of that data */
 function insertEveLink() {
@@ -100,7 +112,7 @@ function dropEVEfile(fileSet) { // there will only be one
   for (const eachFile of fileSet) {
     let frdr  = new FileReader();
     frdr.onload = function () {
-      engineerVerse(frdr.result);
+      loadVerse(frdr.result);
       }
     frdr.readAsText(eachFile); } }
 
@@ -128,9 +140,9 @@ function copyLinktoclipboard() {
       <div id="eve-body">
         <div id="nav">
           <h3 id="page-title" onclick="void(0)">Electronic Verse Engineer (EVE) <button id="clear-eve">Clear</button> 
-            <input type="file" multiple="multiple"
+            <span id="loadfile-button"><input type="file"
               id="load-file" name="load-file" title="Load file"
-              onchange="dropEVEfile(this.files)" />
+              onchange="dropEVEfile(this.files)" /></span>
           </h3>
         </div>        
         <div id="panel-grid">

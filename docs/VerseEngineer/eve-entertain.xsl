@@ -34,23 +34,14 @@
    </xsl:template>
    
    <xsl:template name="engineer-verse">
+      <xsl:param name="eve-xml" select="eve:engineer-verse($eve-to-read)"/>
       <!-- picks up text, processes it and returns it back:
          - as pretty HTML
          - as serialized EVE XML
          - a 'Save As' button pre-loaded for download
          - tbd a 'Save As TEI' option - goes in anthologizer.html
 -->
-      <xsl:if test="matches($eve-to-read, '\S')">
-         <xsl:variable name="input-xml">
-            <xsl:try select="parse-xml($eve-to-read)">
-               <xsl:catch select="eve:engineer-verse($eve-to-read)"/>
-            </xsl:try>
-         </xsl:variable>
-         <xsl:variable name="eve-xml">
-            <xsl:apply-templates select="$input-xml" mode="insulate-xml"/>
-         </xsl:variable>
-
-         <xsl:result-document href="#displaybox" method="ixsl:replace-content">
+           <xsl:result-document href="#displaybox" method="ixsl:replace-content">
             <xsl:apply-templates select="$eve-xml" mode="plainhtml"/>
          </xsl:result-document>
          <xsl:variable name="filename" expand-text="true">{ $eve-xml/*/head/title/(. || '_') =>
@@ -61,28 +52,43 @@
          <xsl:result-document href="#everesults" method="ixsl:replace-content">
             <details>
                <summary>EVE XML <button onclick="offerDownload('eve-xml','{$filename}')"
-                     >Save</button></summary>
+                  >Save</button></summary>
                <pre id="eve-xml">
                <xsl:variable name="css-pi">
                <xsl:processing-instruction name="xml-stylesheet">type="text/css" href="eve-xml.css"</xsl:processing-instruction>
                   </xsl:variable>
-               <xsl:sequence select="$css-pi[exists($eve-xml/*)] => serialize()"/>   
+               <xsl:sequence select="$css-pi[exists($eve-xml/*)] => serialize()"/>
+               <xsl:text>&#xA;</xsl:text>
                <xsl:sequence select="$eve-xml => serialize()"/></pre>
             </details>
          </xsl:result-document>
-         <xsl:if test="(matches($eve-to-read, '^\s*&lt;') and exists($eve-xml/EVE))">
-            <xsl:variable name="eve-syntax">
-               <xsl:apply-templates select="$eve-xml" mode="eve:write-eve"/>
-            </xsl:variable>
-            <ixsl:set-property name="value" object="id('evedata',ixsl:page())" select="string($eve-syntax)"/>
-         </xsl:if>
-      </xsl:if>
-      <!--      <xsl:result-document href="#evelink" method="ixsl:replace-content">
-         
-      </xsl:result-document>-->
+      
    </xsl:template>
    
-<!-- 'insulate-xml' mode intercepts any XML not recognized as (close enough) to EVE -->
+   <!-- entry point for EVE loaded as a file - tries to parse as XML, reads it as EVE otherwise -->
+   <xsl:template name="load-verse">
+      <xsl:if test="matches($eve-to-read, '\S')">
+         <xsl:variable name="input-xml">
+            <xsl:try select="parse-xml($eve-to-read)">
+               <xsl:catch select="eve:engineer-verse($eve-to-read)"/>
+            </xsl:try>
+         </xsl:variable>
+         <xsl:variable name="eve-xml">
+            <xsl:apply-templates select="$input-xml" mode="insulate-xml"/>
+         </xsl:variable>
+
+         <xsl:call-template name="engineer-verse">
+            <xsl:with-param name="eve-xml" select="$eve-xml"/>
+         </xsl:call-template>
+         <xsl:variable name="eve-syntax">
+            <xsl:apply-templates select="$eve-xml" mode="eve:write-eve"/>
+         </xsl:variable>
+         <ixsl:set-property name="value" object="id('evedata',ixsl:page())" select="string($eve-syntax)"/>
+      </xsl:if>
+   </xsl:template>
+   
+   
+   <!-- 'insulate-xml' mode intercepts any XML not recognized as (close enough) to EVE -->
    <xsl:mode name="insulate-xml" on-no-match="shallow-copy"/>
    
    <xsl:template mode="insulate-xml" match="processing-instruction()"/>
@@ -111,7 +117,11 @@
       <xsl:result-document href="#everesults" method="ixsl:replace-content"/>
       <xsl:apply-templates select="id('evelink')" mode="hide"/>
       <ixsl:set-property name="value" object="id('linkcopy')" select="''"/>
-      
+      <!-- We can't rewire the files object but we can replace it with an empty one - -->
+      <xsl:result-document href="#loadfile-button" method="ixsl:replace-content">
+         <input type="file" id="load-file" name="load-file" title="Load file"
+            onchange="dropEVEfile(this.files)" />
+      </xsl:result-document>
       <!--window.history.pushState(null, null, window.location.pathname);-->
       <xsl:variable name="doc-href" select="ixsl:window() => ixsl:get('location.pathname')"/>
       <xsl:sequence select="ixsl:window() => ixsl:call('history.pushState',[(),(),$doc-href])"/>
@@ -120,9 +130,6 @@
    <xsl:template name="load-eve">
       <xsl:param name="evetext"  as="xs:string" required="yes"/>
       <ixsl:set-property name="value" object="id('evedata')" select="$evetext"/>
-      <!--<xsl:result-document href="#evedata" method="ixsl:replace-content">
-         <xsl:value-of select="$evetext"/>
-      </xsl:result-document>-->
       <xsl:sequence select="ixsl:call(ixsl:window(),'engineerVerse',[$evetext])"/>
    </xsl:template>
    
