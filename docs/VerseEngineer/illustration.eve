@@ -5,13 +5,15 @@ date: 2021-2022
 
 A commentary upon all the EVE to follow.
 
-First, EVE considers a SECTION of the text to be anything demarcated with a decorative line.
+First, EVE considers a SECTION of the text to be anything demarcated with a line starting with, and containing only, "---" (three dash signs)[dashes].
 
-So a line showing only "---" (in the EVE notation) is taken to be a (structural) section break.
+Place one or more of these in your text and EVE will break the text into sections there.
 
-A "decorative line" for these purposes is any line made up of *only* - = + \* # @ characters, which has at least three such characters, with nothing else, on a line with no leading space.
+When the first section has lines that start with labels like "title:", it (the section) is construed to be a header with labeled elements. Here you are reading the first section after a section divider, which is the first section since the section before it has been promoted to be the 'head'.
 
 This section ends after this line.
+
+[[dashes]] Not hyphen characters but the dash or 'minus sign' on your keyboard, ASCII 45.
 
 ---
 
@@ -22,9 +24,10 @@ line in sequence indicates a verse
   with indenting
   as indicated.
 
+Note that when lines are consecutive (that is, without blank lines between), EVE interpolates a basic verse structure.
+
 ---
 
-Note that when lines are consecutive (that is, without blank lines between), EVE interpolates a basic verse structure.
 
 Additionally, EVE can support quotations of both verse and prose. These are done using the traditional '>' prefix on each line of a section of indented prose, quotes or anything to be inset.
 

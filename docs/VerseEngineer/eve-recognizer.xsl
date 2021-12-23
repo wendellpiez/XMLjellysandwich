@@ -65,9 +65,7 @@
   </xsl:function>
   
 
-  <xsl:variable name="divchar" select="'[\-=+*#@]'"/>
-  
-  <xsl:variable name="section-divider" select="'^' || $divchar || $divchar || $divchar || '+'"/>
+  <xsl:variable name="section-divider" as="xs:string">^\-\-\-\s*$</xsl:variable>
   
   <xsl:template name="eve:see-sections">
     <xsl:param name="lines" as="xs:string*"/>
