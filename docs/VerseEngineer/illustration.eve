@@ -20,10 +20,10 @@ This section ends after this line (apart from notes)[en1].
 Headlined Section
 -----------------
 
-Not only can you demarcate sections with dashed lines, you can provide the sections with titles. Any line of text directly preceding the section demarcator, exactly the same length as that demarcator, will be taken to be a section header for that section (and not a line or paragraph in the preceding section).
+Not only can you demarcate sections with dashed lines, you can provide the sections with titles. Any line of text directly preceding the section demarcator, the same length as that demarcator or shorter, will be taken to be a section header for that section (and not a line or paragraph in the preceding section). (In other words if the line is longer than the line of dashes, a section title is not inferred.)
 
 Lines and paragraphs
---------------------
+-----------------------
 
  Placing a space at the front of a line tells EVE to consider it a line of verse, with the effect of providing it not only with an intent but with hanging indentation as well. EVE does not consider whether it scans in any way.
 

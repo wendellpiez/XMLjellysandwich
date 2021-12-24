@@ -159,7 +159,7 @@
     <xsl:sequence select="not(starts-with(string($who),'>'))
       and ($who is $here/child::*[last()])
       and matches($who/preceding-sibling::*[1]/self::line,'^\s*$')
-      and ($next-div/line[1] = $dashed)"/>
+      and starts-with($next-div/line[1],$dashed)"/>
   </xsl:function>
   
 <!-- group-lines mode produces line groups based on proximity of black or whitespace-only lines -->
