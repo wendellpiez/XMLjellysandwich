@@ -85,6 +85,12 @@
       </p>
    </xsl:template>
    
+   <xsl:template match="section/title" mode="plainhtml">
+      <h3 class="section-title">
+         <xsl:apply-templates mode="#current"/>
+      </h3>
+   </xsl:template>
+   
    <xsl:template match="line" mode="plainhtml">
       <!-- line[@ind='3'] become p.line.indent3 -->
       <p class="line{ @ind ! (' indent' || .) }">

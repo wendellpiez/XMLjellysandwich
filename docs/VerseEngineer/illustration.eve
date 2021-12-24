@@ -5,15 +5,17 @@ date: 2021-2022
 
 A commentary upon all the EVE to follow.
 
-First, EVE considers a SECTION of the text to be anything demarcated with a line starting with, and containing only, "---" (three dash signs)[dashes].
+First, EVE considers a *section* of the text to be anything demarcated with a line consisting of "---" (three dash signs)[dashes].
 
-Place one or more of these in your text and EVE will break the text into sections there.
+Place one or more such lines in your text and EVE will break the text into sections at those points.
 
 When the first section has lines that start with labels like "title:", it (the section) is construed to be a header with labeled elements. Here you are reading the first section after a section divider, which is the first section since the section before it has been promoted to be the 'head'.
 
-This section ends after this line.
+This section ends after this line (apart from notes)[en1].
 
 [[dashes]] Not hyphen characters but the dash or 'minus sign' on your keyboard, ASCII 45.
+
+[[en1]] Notes are made by bracketing a label appearing in text to make a note reference, then using the same label demarcated as '[[label]]' at the end of the section to provide the note content. A note will be interpolated for the text so marked. Ordinarily there should be a single note with a given label.
 
 ---
 
@@ -22,14 +24,15 @@ This section ends after this line.
 And indeed any second line after a first
 line in sequence indicates a verse
   with indenting
-  as indicated.
+  accordingly.
 
-Note that when lines are consecutive (that is, without blank lines between), EVE interpolates a basic verse structure.
+Note that when lines are consecutive (that is, without blank lines between), EVE interpolates a basic verse structure, reflected in the entire verse line group being indented together (even apart from indenting per line).
 
 ---
 
+Additionally, EVE can support "display boxes" of both verse and prose. These are done using the traditional '>' prefix on each line of a section of indented prose, a quote or anything to be inset. EVE sees the nested structure here (including cases of quotes inside insets, i.e. double inset or more) and exposes it, permitting it to be formatted "clean".
 
-Additionally, EVE can support quotations of both verse and prose. These are done using the traditional '>' prefix on each line of a section of indented prose, quotes or anything to be inset.
+Don't want an inset to appear in a shaded box? The features and styles used in display are all adjustable in the 'controller' layer (of this 'model-view-controller' architecture), that is the stylesheet or display logic applied to the EVE.[dsp1]
 
 > If the red slayer think he slays,
 > Or if the slain think he is slain,
@@ -39,12 +42,14 @@ Additionally, EVE can support quotations of both verse and prose. These are done
 
 [[rwe1]] Frequently anthologized.
 
+[[dsp1]] Not only colors, borders, boundaries and spacing are managed using the controller, but also detailed features such as the footnote styling and which symbols or numbering to use on note references....
+
 ---
 
 > Many a section needs an epigraph.
 > -- (ed.)
 
-So a nice feature is that when EVE sees an inset text at the front of a section, it calls it an 'epigraph' (because that's what it is, pretty much).
+Further, when EVE sees an inset text at the front of a section, it calls it an 'epigraph' (because that's what it is, pretty much).
 
 And when it interpolates nested text or epigraph, it also presumes to take any final line with leading '--' or '' (em-dash) as an "attribution line".
 

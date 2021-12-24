@@ -64,8 +64,11 @@
     </xsl:document>
   </xsl:function>
   
-
-  <xsl:variable name="section-divider" as="xs:string">^\-\-\-\s*$</xsl:variable>
+  <!-- section divides at any line of hyphens min 3 max 80 in length-->
+  <xsl:variable name="section-divider" as="xs:string">^\-{3,80}\s*$</xsl:variable>
+  
+  <!-- XXX next - promote headers from orphan paragraph or line in previous section, when the same length as the divider. -->
+  
   
   <xsl:template name="eve:see-sections">
     <xsl:param name="lines" as="xs:string*"/>
@@ -93,6 +96,9 @@
  
   <xsl:template match="div" mode="eve:nest-insets">
     <div>
+      <xsl:for-each select="preceding-sibling::*[1]/self::div/line[eve:is-a-head(.)]" expand-text="true">
+        <title>{ replace(.,'^\s+','') }</title>
+      </xsl:for-each>
       <xsl:call-template name="eve:inset-quotes"/>
     </div>
   </xsl:template>
@@ -141,8 +147,21 @@
       <xsl:value-of select="substring-after(.,$mark)"/>
     </line>
   </xsl:template>
-
-
+  
+  <!--dropping lines that are taken to be heading the next section - -->
+  <xsl:template mode="eve:nest-insets" priority="5" match="line[eve:is-a-head(.)]"/>
+  
+  <xsl:function name="eve:is-a-head" as="xs:boolean">
+    <xsl:param name="who" as="element(line)"/>
+    <xsl:variable name="here" select="$who/parent::div"/>
+    <xsl:variable name="next-div" select="$here/following-sibling::*[1]/self::div"/>
+    <xsl:variable name="dashed" select="replace(string($who),'.','-')"/>
+    <xsl:sequence select="not(starts-with(string($who),'>'))
+      and ($who is $here/child::*[last()])
+      and matches($who/preceding-sibling::*[1]/self::line,'^\s*$')
+      and ($next-div/line[1] = $dashed)"/>
+  </xsl:function>
+  
 <!-- group-lines mode produces line groups based on proximity of black or whitespace-only lines -->
   
   <xsl:function name="eve:ws-only" as="xs:boolean">
@@ -396,12 +415,12 @@
     </scrubbed>
   </xsl:template>
  
-  <xsl:function name="eve:is-header" as="xs:boolean">
+  <xsl:function name="eve:is-eve-head" as="xs:boolean">
     <xsl:param name="d" as="element(eve:div)"/>
     <xsl:sequence select="($d is ($d/../*[1])) and (every $c in ($d//line | $d//p) satisfies matches($c,'^\i\c*:'))"/>
   </xsl:function>
 
-  <xsl:template mode="eve:scrub" match="div[eve:is-header(.)]">
+  <xsl:template mode="eve:scrub" match="div[eve:is-eve-head(.)]">
     <head>
       <xsl:apply-templates mode="#current"/>
     </head>
@@ -418,11 +437,11 @@
     </section>
   </xsl:template>
   
-  <xsl:template mode="eve:scrub" match="div[eve:is-header(.)]/verse">
+  <xsl:template mode="eve:scrub" match="div[eve:is-eve-head(.)]/verse">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template mode="eve:scrub" match="div[eve:is-header(.)]//line | div[eve:is-header(.)]//p" expand-text="true">
+  <xsl:template mode="eve:scrub" match="div[eve:is-eve-head(.)]//line | div[eve:is-eve-head(.)]//p" expand-text="true">
     <xsl:variable name="gi" select="replace(.,'[\C^:].*','')"/>
     <xsl:analyze-string select="." regex="[\C^:]:\s*">
       <xsl:non-matching-substring>
@@ -470,7 +489,7 @@
     </epigraph>
   </xsl:template>
   
-  <xsl:template mode="eve:polish" match="p | line | head/* | attrib" priority="2">
+  <xsl:template mode="eve:polish" match="p | line | section/title | head/* | attrib" priority="2">
     <xsl:call-template name="drop-and-indent"/>
     <xsl:copy>
       <xsl:copy-of select="@*"/>
