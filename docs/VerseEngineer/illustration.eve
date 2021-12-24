@@ -5,11 +5,9 @@ date: 2021-2022
 
 A commentary upon all the EVE to follow.
 
-First, EVE considers a *section* of the text to be anything demarcated with a line consisting of at least "---" (three dash signs)[dashes], and up to eighty (80).
+First, EVE considers a line of at least "---" (three dash signs)[dashes], only — that is, nothing but straight dashes, no space — as a *section demarcator*. Place one or more such lines in your text and EVE will break the text into sections at those points.
 
-Place one or more such lines in your text and EVE will break the text into sections at those points.
-
-When the first section has lines that start with labels like "title:", it (the section) is construed to be a header with labeled elements. Here you are reading the first section after a section divider, which is the first section since the section before it has been promoted to be the 'head'.
+When the first section has lines that start with labels like "title:", it (the section) is construed to be a (metadata header) head with labeled elements. The section you are reading here appears first since the preceding chunk has been recognized as the 'head'.
 
 This section ends after this line (apart from notes)[en1].
 
@@ -17,10 +15,12 @@ This section ends after this line (apart from notes)[en1].
 
 [[en1]] Notes are made by bracketing a label appearing in text to make a note reference, then using the same label demarcated as '[[label]]' at the end of the section to provide the note content. A note will be interpolated for the text so marked. Ordinarily there should be a single note with a given label.
 
-Headlined Section
------------------
+Titled Section
+--------------
 
-Not only can you demarcate sections with dashed lines, you can provide the sections with titles. Any line of text directly preceding the section demarcator, the same length as that demarcator or shorter, will be taken to be a section header for that section (and not a line or paragraph in the preceding section). (In other words if the line is longer than the line of dashes, a section title is not inferred.)
+Not only can you demarcate sections with dashed lines, you can provide the sections with titles. Any line of text directly preceding the section demarcator, the same length as that demarcator or shorter, will be taken to be a section header for that section (and not a line or paragraph in the preceding section). 
+
+If the line of text is longer than the demarcator, no title is inferred, so if you want no title, use a short demarcator.
 
 Lines and paragraphs
 -----------------------

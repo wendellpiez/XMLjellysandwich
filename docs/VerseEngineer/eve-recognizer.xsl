@@ -65,7 +65,7 @@
   </xsl:function>
   
   <!-- section divides at any line of hyphens min 3 max 80 in length-->
-  <xsl:variable name="section-divider" as="xs:string">^\-{3,80}\s*$</xsl:variable>
+  <xsl:variable name="section-divider" as="xs:string">^\-{3,}\s*$</xsl:variable>
   
   <!-- XXX next - promote headers from orphan paragraph or line in previous section, when the same length as the divider. -->
   
