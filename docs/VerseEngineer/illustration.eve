@@ -5,7 +5,7 @@ date: 2021-2022
 
 A commentary upon all the EVE to follow.
 
-First, EVE considers a *section* of the text to be anything demarcated with a line consisting of "---" (three dash signs)[dashes].
+First, EVE considers a *section* of the text to be anything demarcated with a line consisting of at least "---" (three dash signs)[dashes], and up to eighty (80).
 
 Place one or more such lines in your text and EVE will break the text into sections at those points.
 
@@ -17,7 +17,13 @@ This section ends after this line (apart from notes)[en1].
 
 [[en1]] Notes are made by bracketing a label appearing in text to make a note reference, then using the same label demarcated as '[[label]]' at the end of the section to provide the note content. A note will be interpolated for the text so marked. Ordinarily there should be a single note with a given label.
 
----
+Headlined Section
+-----------------
+
+Not only can you demarcate sections with dashed lines, you can provide the sections with titles. Any line of text directly preceding the section demarcator, exactly the same length as that demarcator, will be taken to be a section header for that section (and not a line or paragraph in the preceding section).
+
+Lines and paragraphs
+--------------------
 
  Placing a space at the front of a line tells EVE to consider it a line of verse, with the effect of providing it not only with an intent but with hanging indentation as well. EVE does not consider whether it scans in any way.
 
@@ -28,11 +34,15 @@ line in sequence indicates a verse
 
 Note that when lines are consecutive (that is, without blank lines between), EVE interpolates a basic verse structure, reflected in the entire verse line group being indented together (even apart from indenting per line).
 
+Additionally, "paragraph" means what it means on the web, i.e. formatted block or paragraph fragment, not what it means in Strunk and White.[strwh]
+
+[[strwh]] Cite Strunk and White here. Link?
+
 ---
 
 Additionally, EVE can support "display boxes" of both verse and prose. These are done using the traditional '>' prefix on each line of a section of indented prose, a quote or anything to be inset. EVE sees the nested structure here (including cases of quotes inside insets, i.e. double inset or more) and exposes it, permitting it to be formatted "clean".
 
-Don't want an inset to appear in a shaded box? The features and styles used in display are all adjustable in the 'controller' layer (of this 'model-view-controller' architecture), that is the stylesheet or display logic applied to the EVE.[dsp1]
+Don't want an inset to appear in a shaded box? The features and styles applied in display - "how EVE is dressed" - are all adjustable in the 'controller' layer (of this 'model-view-controller' architecture), that is, in the stylesheet or display logic applied to the EVE.[dsp1]
 
 > If the red slayer think he slays,
 > Or if the slain think he is slain,
