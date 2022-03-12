@@ -117,7 +117,7 @@
     <xsl:template mode="read" match="reading" expand-text="true">
         <xsl:param name="framing-text" select="''"/>
         <!-- draw an SVG here :-) -->
-        <div id="ideogram-block" style="float:right">
+        <div id="ideogram-block">
             <xsl:apply-templates select="current/*" mode="svg-gram"/>
         </div>
         

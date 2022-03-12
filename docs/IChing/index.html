@@ -1,30 +1,101 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
      <title id="html_title">I Ching reading</title>
       <meta charset="utf-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
      <link id="favicon" rel="icon" href="../sando1-icon.svg"/>
-     <style type="text/css" id="xmljellysandwich_css">
+    <style type="text/css" id="xmljellysandwich_css">
+      #dashboard {
+        float: right;
+        font-size: 120%;
+        }
+      
+      #dashboard > * {
+        margin: 2vw;
+        font-size: inherit
+      }
+      
+      #dashboard > input {
+        background-color: lemonchiffon;
+      }
+      
+      button { font-size: inherit }
+
+      #ideogram-block { float: right }
+      
+      h1 {
+        color: darkred
+      }
+      
+      a {
+        color: darkred;
+        text-decoration: none
+      }
+      a:hover {
+        text-decoration: underline
+      }
+      td {
+        border: medium solid lightgreen;
+        border-radius: 45%;
+        background-color: cornsilk;
+        width: 1.5em;
+        height: 1.5em
+      }
+      
+      #page_body {
+        border-top: medium groove black;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        clear: both;
+      }
+      #page_footer {
+        border-top: medium groove black;
+        margin-top: 1em;
+        padding-top: 1em
+      }
+      #page_footer > * {
+        margin: 0.5em 0em
+      }
+      
+      h1#page_title {
+        font-size: 140%;
+        margin-top: 1em
+      }
+      
+      .link {
+        padding: 0.3em;
+        border: thin solid black;
+        font-size: 90%;
+        font-family: sans-serif;
+        display: inline-block
+      }
+      
+      
+      .changing {
+        font-size: 90%;
+        font-style: italic
+      }
+      
+      h1 small {
+        font-size: 60%
+      }
+      
+      
+      @media screen and  (-webkit-min-device-pixel-ratio: 2),
+        (min-device-pixel-ratio: 2) {
+        html {
+          font-size: 300%;
+          width: auto
+        }
+      
+        #dashboard {
+          float: left
+        }
         
-        h1 { color: darkred }
-        
-        a { color: darkred; text-decoration: none }
-        a:hover { text-decoration: underline }
-        td { border: medium solid lightgreen; border-radius: 45%; background-color: cornsilk; width: 1.5em; height: 1.5em }
-        
-        #page_body   { border-top: medium groove black; padding-top: 1em; padding-bottom: 1em }
-        #page_footer { border-top: medium groove black; margin-top:1em; padding-top: 1em }
-        #page_footer > * { margin: 0.5em 0em }
-        
-        h1#page_title { font-size: 140%; margin-top: 1em }
-        
-        .link  { padding: 0.3em; border: thin solid black;
-                 font-size: 90%; font-family: sans-serif; display: inline-block }
- 
- 
-        .changing  { font-size: 90%; font-style: italic }
-        
-        h1 small { font-size: 60% }
-        </style>
+        #ideogram-block { float: none; text-align: center } 
+      
+      }</style>
      <script type="text/javascript"
               src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
      <script>
@@ -63,8 +134,8 @@ function castSticks() {
       <div id="page_header">
         <h1 id="page_title"><i>I Ching</i> Reading</h1>
       </div>
-     <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
-       <input size="37" id="framingInput" type="text" onchange="initiate(this.value,castSticks())" value="???"/>
+     <div id="dashboard">
+       <input id="framingInput" type="text" onchange="initiate(this.value,castSticks())" value="???"/>
        <span id="save-as"><!-- anchor here --></span>
      </div>
      <div id="page_body">
