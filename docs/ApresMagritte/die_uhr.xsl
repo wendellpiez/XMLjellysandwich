@@ -28,7 +28,7 @@
     <xsl:template name="tell">
         <xsl:param name="when" select="$load-time"/>
         <!-- Begin by populating the page with the grid of cells. -->
-        <xsl:result-document href="#page_body" method="ixsl:replace-content">
+        <xsl:result-document href="#clockface" method="ixsl:replace-content">
             <xsl:call-template name="draw-clock">
                 <xsl:with-param name="now" select="$when"/>
                 <!--<xsl:with-param name="show-plain" select="id('view-toggle',ixsl:page())='Literal'"/>-->
@@ -39,7 +39,7 @@
     <xsl:template name="draw-clock">
         <xsl:param name="now" select="$load-time"/>
         <!--<xsl:param name="show-plain" select="true()"/>-->
-        <svg id="clock" viewBox="0 0 200 300">
+        <svg id="clock" viewBox="0 0 200 300" height="80vh">
 
             <text x="100" y="250" text-anchor="middle" font-size="14" font-style="italic">Ist das
                 nicht eine Uhr?</text>

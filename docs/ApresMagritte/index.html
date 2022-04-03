@@ -21,21 +21,21 @@
         h1#page_title { font-size: 140%; margin-top: 1em }
         
         h1 small { font-size: 60% }
-        #clock { max-width: 20em }
-              
+        
+        #clock { max-block-size: inherit }
+        
+        #clockface { max-height: 100vw; margin-left: auto; margin-right: auto }
+    
         #dashboard { float: right }
               
       @media screen and  (-webkit-min-device-pixel-ratio: 2) {
         body {
           font-size: 160%
         }
-      
         #dashboard {font-size: 160%
         }
-        
-        #ideogram-block { float: none; text-align: center } 
+     }
       
-      }
         </style>
       <script type="text/javascript"
               src="../lib/Saxon-JS-2.3/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
@@ -85,12 +85,14 @@ window.onload = resetClock(nanjikan());
        <!--<button id="standard-reset_button">NIST clock</button>-->
      </div>
      <div id="page_body">
+       <div id="clockface">
          <svg id="clock" xmlns="http://www.w3.org/2000/svg">
           
            <!--<rect width="100%" height="100%" fill="lemonchiffon"/>-->
            <text x="10" y="50" font-size="3vw" font-style="italic">Ist das nicht eine Uhr?</text>
            <!-- <xsl:result-document href="#xmljellysandwich_body"> .... </xsl:result-document> -->
          </svg> 
+       </div>
      </div>
    </body>
 </html>
