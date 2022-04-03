@@ -23,13 +23,14 @@
         h1 small { font-size: 60% }
         #clock { max-width: 20em }
               
+        #dashboard { float: right }
+              
       @media screen and  (-webkit-min-device-pixel-ratio: 2) {
         body {
           font-size: 160%
         }
       
-        #dashboard {
-          float: left; font-size: 160%
+        #dashboard {font-size: 160%
         }
         
         #ideogram-block { float: none; text-align: center } 
@@ -44,28 +45,29 @@
 /*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
    
 function resetClock(toTime) {
-          SaxonJS.transform(
-            { stylesheetLocation: "dieUhr.sef.json",
-              initialTemplate:    "tell",
-              stylesheetParams: { clockSet: toTime } },
-            "asynch" );
-          }
+    SaxonJS.transform(
+      { stylesheetLocation: "dieUhr.sef.json",
+        initialTemplate:    "tell",
+        sourceNode: document,
+        stylesheetParams: { clockSet: toTime } },
+      "asynch" );
+}
                     
 function nanjikan() {
-          var now = new Date();
-          var hh  = now.getHours();   var hh = (hh > 9) ? ''+hh : '0'+hh;
-          var mm  = now.getMinutes(); var mm = (mm > 9) ? ''+mm : '0'+mm;
-          var ss  = now.getSeconds(); var ss = (ss > 9) ? ''+ss : '0'+ss;
-          return (hh + ':' + mm + ':' + ss);
-          }
+    const now = new Date();
+    var hh  = now.getHours();   var hh = (hh > 9) ? ''+hh : '0'+hh;
+    var mm  = now.getMinutes(); var mm = (mm > 9) ? ''+mm : '0'+mm;
+    var ss  = now.getSeconds(); var ss = (ss > 9) ? ''+ss : '0'+ss;
+    return (hh + ':' + mm + ':' + ss);
+}
 
 function switchView(me) {
-    iWas = me.innerHTML;
-    document.getElementById('legible-view').style.display = ( iWas === "Literal" ? "none" : "inherit" );
-    document.getElementById('literal-view').style.display = ( iWas === "Legible" ? "none" : "inherit" );
-    me.innerHTML = ( iWas === "Literal" ? "Legible" : "Literal" );
-    me.innerHTML = ( iWas === "Legible" ? "Literal" : "Legible" );
-    }
+    makeMe = me.innerHTML;
+    document.getElementById('legible-view').style.display = ( makeMe === "Legible" ? "inherit" : "none" );
+    document.getElementById('literal-view').style.display = ( makeMe === "Literal" ? "inherit" : "none" );
+    if (makeMe === "Literal" ) { me.innerHTML = "Legible" };
+    if (makeMe === "Legible" ) { me.innerHTML = "Literal" };
+}
     
 window.onload = resetClock(nanjikan());
 
@@ -75,7 +77,7 @@ window.onload = resetClock(nanjikan());
       <div id="page_header">
         <h1 id="page_title">The Treachery of Images <small>(after Magritte)</small></h1>
       </div>
-     <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
+     <div id="dashboard">
        <button id="noon-reset_button" onclick="resetClock('12:00:00');">Noon</button>
        <!--<button id="local-reset_button">Page load time</button>-->
        <button id="system-reset-button" onclick="resetClock(nanjikan());">System</button>
