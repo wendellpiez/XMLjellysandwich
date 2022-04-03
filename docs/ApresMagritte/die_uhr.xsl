@@ -2,8 +2,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
-    xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT" xmlns="http://www.w3.org/2000/svg"
-    exclude-result-prefixes="#all" extension-element-prefixes="ixsl" version="3.0">
+    xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT"
+    xmlns="http://www.w3.org/2000/svg"
+    exclude-result-prefixes="#all" extension-element-prefixes="ixsl" version="3.0"
+    xpath-default-namespace="http://www.w3.org/1999/xhtml">
+    
+<!-- XSLT matches elements in HTML namespace, but emits elements in the SVG namespace   -->
 
     <!--    Pass in $set-time as a string. Errors if not hh:mm:ss (with zeroes).
         Note this is a 24-hour clock! -->
@@ -27,23 +31,23 @@
         <xsl:result-document href="#page_body" method="ixsl:replace-content">
             <xsl:call-template name="draw-clock">
                 <xsl:with-param name="now" select="$when"/>
-                <xsl:with-param name="show-plain" select="id('view-toggle',ixsl:page())='Literal'"/>
+                <!--<xsl:with-param name="show-plain" select="id('view-toggle',ixsl:page())='Literal'"/>-->
             </xsl:call-template>
         </xsl:result-document>
     </xsl:template>
 
     <xsl:template name="draw-clock">
         <xsl:param name="now" select="$load-time"/>
-        <xsl:param name="show-plain" select="true()"/>
-        <svg id="clock" viewBox="0 0 400 300">
+        <!--<xsl:param name="show-plain" select="true()"/>-->
+        <svg id="clock" viewBox="0 0 200 300">
 
-            <text x="200" y="250" text-anchor="middle" font-size="14" font-style="italic">Ist das
+            <text x="100" y="250" text-anchor="middle" font-size="14" font-style="italic">Ist das
                 nicht eine Uhr?</text>
             <text x="10" y="50" id="time-setting">
                 <xsl:value-of select="format-time($now, '[h]:[m02] [Pn]')"/>
             </text>
-            <g transform="translate(200 120)">
-                <g id="legible-view" class="timeView{ if ($show-plain) then ' opened' else '' }">
+            <g transform="translate(100 120)" id="views">
+                <g id="legible-view" class="timeView legible">
                     <circle r="90" fill="none" fill-opacity="0.2" stroke="steelblue"
                         stroke-opacity="0.2" stroke-width="10"/>
                     <xsl:call-template name="ticks"/>
@@ -52,7 +56,7 @@
                         <xsl:with-param name="when" select="$now"/>
                     </xsl:call-template>
                 </g>
-                <g id="literal-view" class="timeView{ if ($show-plain) then '' else ' opened' }">
+                <g id="literal-view" class="timeView literal" display="none">
                     <xsl:call-template name="freaky">
                         <xsl:with-param name="when" select="$now"/>
                     </xsl:call-template>
@@ -63,7 +67,7 @@
     </xsl:template>
 
 
-    <!-- Noon starts the page from the top, at noon. -->
+    <!--<!-\- Noon starts the page from the top, at noon. -\->
     <xsl:template mode="ixsl:click" match="id('noon-reset_button')">
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="xs:time('00:00:00')"/>
@@ -71,23 +75,24 @@
     </xsl:template>
     
     
-    <!-- System resets to whatever comes back by asking for the time -->
+    <!-\- System resets to whatever comes back by asking for the time -\->
     <xsl:template mode="ixsl:click" match="id('local-reset_button')">
         <xsl:call-template name="tell">
             <xsl:with-param name="when" select="current-time()"/>
         </xsl:call-template>
-    </xsl:template>
+    </xsl:template>-->
 
-    <xsl:template mode="label-rewrite" match="id('view-toggle')[. = 'Literal']">
+    <!--<xsl:template mode="label-rewrite" match="button[@id='view-toggle'][. = 'Literal']">
         <xsl:result-document method="ixsl:replace-content" href="#view-toggle">Legible</xsl:result-document>
     </xsl:template>
 
-    <xsl:template mode="label-rewrite" match="id('view-toggle')[. = 'Legible']">
+    <xsl:template mode="label-rewrite" match="button[@id='view-toggle'][. = 'Legible']">
         <xsl:result-document method="ixsl:replace-content" href="#view-toggle">Literal</xsl:result-document>
     </xsl:template>
 
 
-    <xsl:template mode="ixsl:click" match="id('view-toggle')">
+    <xsl:template mode="ixsl:click" match="button[@id='view-toggle']">
+        <xsl:message>Matching</xsl:message>
         <xsl:apply-templates select="." mode="label-rewrite"/>
 
         <xsl:for-each select="id('literal-view') | id('legible-view')">
@@ -95,15 +100,12 @@
         </xsl:for-each>
     </xsl:template>
 
-    <xsl:template name="open-or-shut" xpath-default-namespace="">
+    <xsl:template name="open-or-shut">
       <xsl:variable name="already-has" select="tokenize(@class, '\s+')"/>
       <ixsl:set-attribute name="class"
-            select="string-join(
-                ($already-has[not(. = 'opened')],
-                  (if ($already-has = 'opened') then '' else 'opened')),
-                ' ')"/>
+            select="string-join( ($already-has[not(. = 'opened')],'opened'[not($already-has = 'opened')] ), ' ')"/>
     </xsl:template>
-    
+    -->
     <xsl:template name="ticks">
         <xsl:for-each select="1 to 11">
             <path stroke-width="2" d="M 0 -85 v -10" stroke="black" fill="none"

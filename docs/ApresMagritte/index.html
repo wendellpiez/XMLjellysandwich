@@ -1,7 +1,10 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
      <title>Treachery of Images</title>
       <meta charset="utf-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+     
      <link rel="icon" href="../sando1-icon.svg"/>
      <style type="text/css" id="xmljellysandwich_css">
         
@@ -9,8 +12,8 @@
         a:hover { text-decoration: underline }
         td { border: medium solid lightgreen; border-radius: 45%; background-color: cornsilk; width: 1.5em; height: 1.5em }
         
-        #page_body   { border-top: medium groove black; padding-top: 1em; padding-bottom: 1em }
-        #page_footer { border-top: medium groove black; margin-top:1m; padding-top: 1em }
+        #page_body   { border-top: medium groove black; padding-top: 1em; padding-bottom: 1em; text-align: center }
+        #page_footer { border-top: medium groove black; margin-top:1em; padding-top: 1em }
         #page_footer > * { margin: 0.5em 0em }
         
         #time-setting { display: none }
@@ -18,26 +21,34 @@
         h1#page_title { font-size: 140%; margin-top: 1em }
         
         h1 small { font-size: 60% }
-        #clock { height: 67% }
+        #clock { max-width: 20em }
+              
+      @media screen and  (-webkit-min-device-pixel-ratio: 2) {
+        body {
+          font-size: 160%
+        }
+      
+        #dashboard {
+          float: left; font-size: 160%
+        }
         
-        .timeView { display: none }
-        .timeView.opened { display: block }
+        #ideogram-block { float: none; text-align: center } 
+      
+      }
         </style>
       <script type="text/javascript"
-              src="../lib/Saxon-JS-1.2.0/SaxonJS.min.js"><!-- parsers are so easily confused --></script>
+              src="../lib/Saxon-JS-2.3/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
      
      
       <script>
-        /*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
-window.onload = initiate()
-          
-function initiate() {
+/*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
+   
+function resetClock(toTime) {
           SaxonJS.transform(
-            { stylesheetLocation: "die_uhr.sef",
+            { stylesheetLocation: "dieUhr.sef.json",
               initialTemplate:    "tell",
-              stylesheetParams: {
-                clockSet: nanjikan()
-              } } );
+              stylesheetParams: { clockSet: toTime } },
+            "asynch" );
           }
                     
 function nanjikan() {
@@ -47,7 +58,17 @@ function nanjikan() {
           var ss  = now.getSeconds(); var ss = (ss > 9) ? ''+ss : '0'+ss;
           return (hh + ':' + mm + ':' + ss);
           }
-          
+
+function switchView(me) {
+    iWas = me.innerHTML;
+    document.getElementById('legible-view').style.display = ( iWas === "Literal" ? "none" : "inherit" );
+    document.getElementById('literal-view').style.display = ( iWas === "Legible" ? "none" : "inherit" );
+    me.innerHTML = ( iWas === "Literal" ? "Legible" : "Literal" );
+    me.innerHTML = ( iWas === "Legible" ? "Literal" : "Legible" );
+    }
+    
+window.onload = resetClock(nanjikan());
+
         </script>
    </head>
    <body>
@@ -55,10 +76,10 @@ function nanjikan() {
         <h1 id="page_title">The Treachery of Images <small>(after Magritte)</small></h1>
       </div>
      <div id="dashboard" style="position: absolute; right: 5%; top: 5%">
-       <button id="noon-reset_button">Noon</button>
+       <button id="noon-reset_button" onclick="resetClock('12:00:00');">Noon</button>
        <!--<button id="local-reset_button">Page load time</button>-->
-       <button id="system-reset-button" onclick="initiate();">System</button>
-       <button id="view-toggle">Literal</button>
+       <button id="system-reset-button" onclick="resetClock(nanjikan());">System</button>
+       <button id="view-toggle" onclick="switchView(this)">Literal</button>
        <!--<button id="standard-reset_button">NIST clock</button>-->
      </div>
      <div id="page_body">
