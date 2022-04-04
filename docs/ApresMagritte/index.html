@@ -52,24 +52,25 @@ function resetClock(toTime) {
         stylesheetParams: { clockSet: toTime } },
       "asynch" );
 }
-                    
-function nanjikan() {
-    const now = new Date();
-    var hh  = now.getHours();   var hh = (hh > 9) ? ''+hh : '0'+hh;
-    var mm  = now.getMinutes(); var mm = (mm > 9) ? ''+mm : '0'+mm;
-    var ss  = now.getSeconds(); var ss = (ss > 9) ? ''+ss : '0'+ss;
-    return (hh + ':' + mm + ':' + ss);
-}
 
-function switchView(me) {
-    makeMe = me.innerHTML;
+function imaNanJi() {
+  const now = new Date();
+  const time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
+  // pad zeroes and splice
+  return time.map(t => (t > 9) ? ''+t : '0'+t).join(':');
+}
+  
+function switchView(button) {
+    makeMe = button.innerHTML; // makeMe is what the button says to make me
+    // show or hide the 'legible' and 'literal' views accordingly
     document.getElementById('legible-view').style.display = ( makeMe === "Legible" ? "inherit" : "none" );
     document.getElementById('literal-view').style.display = ( makeMe === "Literal" ? "inherit" : "none" );
-    if (makeMe === "Literal" ) { me.innerHTML = "Legible" };
-    if (makeMe === "Legible" ) { me.innerHTML = "Literal" };
+    // switch the button
+    if (makeMe === "Literal" ) { me.innerHTML = "Legible" }; // next time makeMe will be "Legible"
+    if (makeMe === "Legible" ) { me.innerHTML = "Literal" }; // or "Literal"
 }
     
-window.onload = resetClock(nanjikan());
+window.onload = resetClock(imaNanJi());
 
         </script>
    </head>
@@ -81,7 +82,7 @@ window.onload = resetClock(nanjikan());
       <div id="dashboard">
         <button id="noon-reset_button" onclick="resetClock('12:00:00');">Noon</button>
         <!--<button id="local-reset_button">Page load time</button>-->
-        <button id="system-reset-button" onclick="resetClock(nanjikan());">System</button>
+        <button id="system-reset-button" onclick="resetClock(imaNanJi());">System</button>
         <button id="view-toggle" onclick="switchView(this)">Literal</button>
         <!--<button id="standard-reset_button">NIST clock</button>-->
       </div>

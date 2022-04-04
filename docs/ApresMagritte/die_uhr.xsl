@@ -7,6 +7,10 @@
     exclude-result-prefixes="#all" extension-element-prefixes="ixsl" version="3.0"
     xpath-default-namespace="http://www.w3.org/1999/xhtml">
     
+<!-- redo as XSLT 1.0 application?
+       clock template is stored as p/span segments within a div id="CLOCK" 
+       XSLT executes a transformation producing SVG from this
+    -->
 <!-- XSLT matches elements in HTML namespace, but emits elements in the SVG namespace   -->
 
     <!--    Pass in $set-time as a string. Errors if not hh:mm:ss (with zeroes).
@@ -39,14 +43,14 @@
     <xsl:template name="draw-clock">
         <xsl:param name="now" select="$load-time"/>
         <!--<xsl:param name="show-plain" select="true()"/>-->
-        <svg id="clock" viewBox="0 0 200 300" height="80vh">
+        <svg id="clock" viewBox="0 0 240 300" height="80vh">
 
-            <text x="100" y="250" text-anchor="middle" font-size="14" font-style="italic">Ist das
+            <text x="120" y="250" text-anchor="middle" font-size="14" font-style="italic">Ist das
                 nicht eine Uhr?</text>
             <text x="10" y="50" id="time-setting">
                 <xsl:value-of select="format-time($now, '[h]:[m02] [Pn]')"/>
             </text>
-            <g transform="translate(100 120)" id="views">
+            <g transform="translate(120 120)" id="views">
                 <g id="legible-view" class="timeView legible">
                     <circle r="90" fill="none" fill-opacity="0.2" stroke="steelblue"
                         stroke-opacity="0.2" stroke-width="10"/>
