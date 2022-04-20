@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:math="http://www.w3.org/2005/xpath-functions/math"
     xmlns:ixsl="http://saxonica.com/ns/interactiveXSLT"
     xmlns="http://www.w3.org/2000/svg"
     exclude-result-prefixes="#all" extension-element-prefixes="ixsl" version="3.0"
@@ -43,7 +42,7 @@
     <xsl:template name="draw-clock">
         <xsl:param name="now" select="$load-time"/>
         <!--<xsl:param name="show-plain" select="true()"/>-->
-        <svg id="clock" viewBox="0 0 240 300" height="80vh">
+        <svg id="clock" viewBox="0 0 240 300">
 
             <text x="120" y="250" text-anchor="middle" font-size="14" font-style="italic">Ist das
                 nicht eine Uhr?</text>

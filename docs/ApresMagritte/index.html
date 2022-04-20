@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
      <title>Treachery of Images</title>
-      <meta charset="utf-8"/>
+     <meta charset="utf-8"/>
      <meta name="viewport" content="width=device-width, initial-scale=1"/>
      
      <link rel="icon" href="../sando1-icon.svg"/>
@@ -37,42 +37,6 @@
      }
       
         </style>
-      <script type="text/javascript"
-              src="../lib/Saxon-JS-2.3/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
-     
-     
-      <script>
-/*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
-   
-function resetClock(toTime) {
-    SaxonJS.transform(
-      { stylesheetLocation: "dieUhr.sef.json",
-        initialTemplate:    "tell",
-        sourceNode: document,
-        stylesheetParams: { clockSet: toTime } },
-      "asynch" );
-}
-
-function imaNanJi() {
-  const now = new Date();
-  const time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
-  // pad zeroes and splice
-  return time.map(t => (t > 9) ? ''+t : '0'+t).join(':');
-}
-  
-function switchView(button) {
-    makeMe = button.innerHTML; // makeMe is what the button says to make me
-    // show or hide the 'legible' and 'literal' views accordingly
-    document.getElementById('legible-view').style.display = ( makeMe === "Legible" ? "inherit" : "none" );
-    document.getElementById('literal-view').style.display = ( makeMe === "Literal" ? "inherit" : "none" );
-    // switch the button
-    if (makeMe === "Literal" ) { me.innerHTML = "Legible" }; // next time makeMe will be "Legible"
-    if (makeMe === "Legible" ) { me.innerHTML = "Literal" }; // or "Literal"
-}
-    
-window.onload = resetClock(imaNanJi());
-
-        </script>
    </head>
    <body>
       <div id="page_header">
@@ -95,5 +59,47 @@ window.onload = resetClock(imaNanJi());
         </svg>
       </div>
      </div>
+     
+     <script type="text/javascript"
+              src="../lib/Saxon-JS-2.3/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
+     
+     
+     <script>
+/*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
+   
+function resetClock(toTime) {
+    SaxonJS.transform(
+      { stylesheetLocation: "dieUhr.sef.json",
+        initialTemplate:    "tell",
+        stylesheetParams: { "clockSet": toTime } },
+      "asynch" );
+}
+
+function imaNanJi() {
+  const now = new Date();
+  const time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
+  // pad zeroes and splice
+  return time.map(t => (t > 9) ? ''+t : '0'+t).join(':');
+}
+  
+function switchView(button) {
+    const makeMe = button.innerHTML; // makeMe is what the button says to make me
+    // show or hide the 'legible' and 'literal' views accordingly
+    document.getElementById('legible-view').style.display = ( makeMe === "Legible" ? "inherit" : "none" );
+    document.getElementById('literal-view').style.display = ( makeMe === "Literal" ? "inherit" : "none" );
+    // switch the button
+    switch (makeMe) {
+      case "Literal": button.innerHTML = "Legible"; // next time makeMe will be "Legible"
+      break;
+      
+      case "Legible": button.innerHTML = "Literal"; // or "Literal"
+      break;
+    }
+}
+
+window.onload = resetClock(imaNanJi());
+
+        </script>
+     
    </body>
 </html>
