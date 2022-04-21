@@ -22,7 +22,7 @@
         
         h1 small { font-size: 60% }
         
-        #clock { max-block-size: inherit }
+        #clock { max-block-size: inherit; max-height: 80vh }
         
         #clockface { max-height: 100vw; margin-left: auto; margin-right: auto }
     
@@ -61,16 +61,17 @@
      </div>
      
      <script type="text/javascript"
-              src="../lib/Saxon-JS-2.3/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
-     
+              src="../lib/Saxon-JS-2.2/SaxonJS2.rt.js"><!-- parsers are so easily confused --></script>
      
      <script>
 /*  http://www.saxonica.com/saxon-js/documentation/index.html#!api/transform */
    
+// function resetClock(toTime) { alert(toTime); }
+
 function resetClock(toTime) {
     SaxonJS.transform(
-      { stylesheetLocation: "dieUhr.sef.json",
-        initialTemplate:    "tell",
+      { initialTemplate:    "tell",
+        stylesheetLocation: "dieUhr.sef.json",
         stylesheetParams: { "clockSet": toTime } },
       "asynch" );
 }
