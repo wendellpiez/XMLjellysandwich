@@ -510,9 +510,6 @@
                                                 <field name="expandAttributeDefaults">
                                                     <Boolean>true</Boolean>
                                                 </field>
-                                                <field name="errorRecoverPolicy">
-                                                    <String>saxon.recover.with.warning</String>
-                                                </field>
                                                 <field name="stripWS">
                                                     <String>saxon.strip.ws.none</String>
                                                 </field>

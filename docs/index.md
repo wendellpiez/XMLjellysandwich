@@ -1,5 +1,15 @@
 # XML Jelly Sandwich Demos
 
+## Update Sep 2022
+
+See a new NIST project newly underway at https://pages.nist.gov/xslt-blender (for the demo) or github.com/usnistgov/xslt-blender (for the repository). XSLT 1.0! (Party like it's 1999.)
+
+### Rights
+
+Also, by popular demand, an [MIT License](LICENSE.md) now explicitly grants permission for reuse of software developed on this site.
+
+With respect to interpretive works herein, or parts of works with design aspects such as page layout or interfaces, please consider them copyright by the author.
+
 ## Update Nov 2021
 
 OSCAL demonstrations (originally developed for Balisage 2021) are now at [an official home](https://pages.nist.gov/oscal-tools/demos/csx/).
