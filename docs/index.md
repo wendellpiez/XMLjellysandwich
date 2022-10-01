@@ -2,7 +2,7 @@
 
 ## Update Sep 2022
 
-See a new NIST project newly underway at https://pages.nist.gov/xslt-blender (for the demo) or github.com/usnistgov/xslt-blender (for the repository). XSLT 1.0! (Party like it's 1999.)
+Students of XSLT may be interested in a NIST project newly underway, [XSLT Blender](https://pages.nist.gov/xslt-blender) (for the demo, with link to repository). XSLT 1.0 still punching above its weight.
 
 ### Rights
 
