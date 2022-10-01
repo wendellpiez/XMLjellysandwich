@@ -6,7 +6,7 @@ Students of XSLT may be interested in a NIST project newly underway, [XSLT Blend
 
 ### Rights
 
-Also, by popular demand, an [MIT License](LICENSE.md) now explicitly grants permission for reuse of software developed on this site.
+Also, by popular demand, an [MIT License](https://github.com/wendellpiez/XMLjellysandwich/blob/master/LICENSE.md) now explicitly grants permission for reuse of software developed on this site.
 
 With respect to interpretive works herein, or parts of works with design aspects such as page layout or interfaces, please consider them copyright by the author.
 
