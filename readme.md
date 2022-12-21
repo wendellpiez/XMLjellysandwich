@@ -4,19 +4,6 @@ Starter kit for XSLT 3.0 in the browser using SaxonJS
 
 (Might have named it "XSLT Jump Start" except for the excellent book of that title, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, tasty, nutritious, and portable, and go fine with butter or cheese. Plus an XMLjellysandwich fits neatly into an XMLLunchbox, also in this repository.)
 
-## IDEAS tbd
-
-- OSCAL catalog browser / interactive UI / search
-- profile resolver
-- JSON-XML conversion
-- HTMLy structural inferencer
-  - accepts flat HTML or OSCAL headers h1-hN, returns structured HTML or OSCAL
-- Markdown -> markup converter
-  - HTML
-  - OSCAL (unstructured)
-  - JATS/BITS?
-  - DITA, TEI ...?
-
 ## Summary:
 
 In `/docs`, find example demonstrations, viewable through Github Pages at http://wendellpiez.github.io/XMLjellysandwich. A couple of these demonstrations serve as lightweight but complete publishing frameworks; others are designed to show some specialized functionality. Each demonstration has its own entry page or pages, source document(s) and transformation(s). Source code for everything is viewable. 
