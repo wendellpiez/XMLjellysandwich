@@ -1,0 +1,83 @@
+@namespace url(http://pellucidliterature.org/VerseEngineer);
+
+*    { display: block }
+i, b { display: inline }
+
+EVE { display: grid; gap: 0.5em }
+
+EVE { font-family: Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;  
+    max-width: max-content;
+    margin: auto auto;
+    padding: 1em;
+}
+
+EVE > section {   
+    border: thin solid black;
+    background-color: floralwhite;
+}
+
+EVE > *:first-child { margin-top: 0em }
+
+head { font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif; padding: 1em; border: thin dotted black }
+
+EVE head * { margin: 0em; font-family: sans-serif }
+
+head title:before  { content: 'title: ' }
+head author:before { content: 'author: ' }
+head date:before   { content: 'date: ' }
+
+
+verse { margin: 1em 2em 1em 3em }
+
+epigraph { padding: 0.5em;
+  border: thin inset gray;
+  background-color: gainsboro;
+  margin: 2em }
+  
+inset { padding: 0.5em;
+  border: thin inset gray;
+  background-color: cornsilk;
+  margin: 2em }
+
+attrib { margin-left: 50%; text-indent: -1.1em }
+attrib:before { content: '— ' }
+
+line { margin: 0em; padding-left: 1.5em; text-indent: -1.5em }
+line[ind="1"] { margin-left: 1em }
+line[ind="2"] { margin-left: 2em }
+line[ind="3"] { margin-left: 3em }
+line[ind="4"] { margin-left: 4em }
+line[ind="5"] { margin-left: 5em }
+line[ind="6"] { margin-left: 6em }
+line[ind="7"] { margin-left: 7em }
+line[ind="8"] { margin-left: 8em }
+line[ind="9"] { margin-left: 9em }
+line[ind="10"] { margin-left: 10em }
+line[ind="11"] { margin-left: 11em }
+line[ind="12"] { margin-left: 12em }
+line[ind="13"] { margin-left: 13em }
+line[ind="14"] { margin-left: 14em }
+line[ind="15"] { margin-left: 15em }
+line[ind="16"] { margin-left: 16em }
+line[ind="17"] { margin-left: 17em }
+line[ind="18"] { margin-left: 18em }
+line[ind="19"] { margin-left: 19em }
+line[ind="20"] { margin-left: 20em }
+line[ind="21"] { margin-left: 21em }
+line[ind="22"] { margin-left: 22em }
+line[ind="23"] { margin-left: 23em }
+line[ind="24"] { margin-left: 24em }
+
+verse *:first-child { margin-top: 0em }
+
+notes {  font-family: 'Alegreya Sans'; display: grid; grid-template-columns: auto 1fr; grid-column-gap: 1vh; margin-top: 2vh;
+  font-size: 85% }
+
+notes:before {
+    content: "";
+    display: block;
+    width: 37%;
+    padding-top: 1em;
+    border-top: 1px solid black;
+    grid-column: 1 / span 2;
+}
