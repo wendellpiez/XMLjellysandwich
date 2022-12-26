@@ -12,6 +12,15 @@
    
     exclude-result-prefixes="#all">
    
+   <xsl:template mode="ixsl:onclick" match="html:span[contains-token(@class,'glossed')]">
+      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="toggle"/>
+   </xsl:template>
+   
+   <xsl:template mode="ixsl:onclick" match="html:div[contains-token(@class,'glossed')]">
+      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="toggle"/>
+   </xsl:template>
+   
+   
    
    <!-- hovering on a link affects display on the link target to highlight -->
    <xsl:template mode="ixsl:onmouseover" match="html:a[contains-token(@class,'fnr')]">
@@ -24,13 +33,29 @@
    
    <xsl:key name="html-internal" match="html:*" use="'#' || @id"/>
    
+   <xsl:key name="gloss-by-term" match="html:span[contains-token(@class,'glossed')]" use="@data-term"/>
+   
+   <xsl:key name="gloss-by-term" match="html:div[contains-token(@class,'glossed')]" use="@data-term"/>
+   
    <xsl:key name="div-by-href" match="html:div" use="'#' || @id"/>
    
-   <xsl:template match="*" mode="off">
+   <xsl:template mode="toggle" match="*">
+      <xsl:choose>
+         <xsl:when test="contains-token(@class,'ON')">
+            <xsl:apply-templates select="." mode="off"/>
+         </xsl:when>
+         <xsl:otherwise>
+            <xsl:apply-templates select="." mode="on"/>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
+   
+   
+   <xsl:template mode="off" match="*">
       <ixsl:set-attribute name="class" select="(tokenize(@class,'\s+')[not(. eq 'ON')]) => string-join(' ')"/>
    </xsl:template>
    
-   <xsl:template match="*" mode="on">
+   <xsl:template mode="on" match="*">
       <ixsl:set-attribute name="class" select="(tokenize(@class,'\s+')[not(. eq 'ON')],'ON') => string-join(' ')"/>
    </xsl:template>
    
@@ -85,7 +110,7 @@
       </p>
    </xsl:template>
    
-   <xsl:template match="section/title" mode="plainhtml">
+   <xsl:template match="title" mode="plainhtml">
       <h3 class="section-title">
          <xsl:apply-templates mode="#current"/>
       </h3>
@@ -110,6 +135,12 @@
       </b>
    </xsl:template>
    
+   <xsl:template match="gl">
+      <span class="glossed" data-term="{ @t }">
+         <xsl:apply-templates/>
+      </span>
+   </xsl:template>
+   
    <!-- fnr that points nowhere will not be resolved, but Eve gives us none
      (it only produces fnr when a target is found) -->
    <xsl:template match="fnr" mode="plainhtml">
@@ -124,15 +155,33 @@
       </a>
    </xsl:template>
       
-   <xsl:template match="note" mode="plainhtml">
-      <div class="sidenote">
+   <xsl:template match="glossary" mode="plainhtml">
+      <xsl:where-populated>
+         <div class="glossary">
+            <xsl:apply-templates mode="#current"/>
+         </div>
+      </xsl:where-populated>
+   </xsl:template>
+   
+   <xsl:template match="glossary/gloss" mode="plainhtml" expand-text="true">
+      <!-- displayed in a grid, so unwrapped -->
+      <div class="glossed term" data-term="{ @text }">
+         <p>{ @text }</p>
+      </div>
+      <div class="glossed gloss" data-term="{ @text }">
          <xsl:apply-templates mode="#current"/>
       </div>
    </xsl:template>
    
+   <xsl:template match="note" mode="plainhtml">
+      <aside class="sidenote">
+         <xsl:apply-templates mode="#current"/>
+      </aside>
+   </xsl:template>
+   
    <xsl:template match="notes" mode="plainhtml">
       <xsl:where-populated>
-         <div id="endnotes">
+         <div class="endnotes">
             <xsl:apply-templates mode="#current"/>
          </div>
       </xsl:where-populated>

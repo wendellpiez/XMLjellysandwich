@@ -33,6 +33,8 @@ div.inset { padding: 0.5em;
   background-color: cornsilk;
   margin: 2em }
 
+div.epigraph > *:first-child,
+div.inset > *:first-child { margin-top: 0em }
 
 p.attrib { margin-left: 50%; text-indent: -1.1em }
 p.attrib:before { content: '— ' }
@@ -68,11 +70,20 @@ p.indent24 { margin-left: 24em }
 header { margin-bottom: 1em; text-align: center }
 header * { margin: 0em }
 
-#endnotes {  font-family: 'Alegreya Sans'; display: grid; grid-template-columns: auto 1fr; grid-column-gap: 1vh; margin-top: 2vh;
+.glossary, .endnotes {  font-family: 'Alegreya Sans'; display: grid; grid-template-columns: auto 1fr; margin-top: 2vh;
   font-size: 85% }
 
+.endnotes { grid-column-gap: 1vh }
 
-#endnotes:before {
+div.glossed { margin-top: 0.5em }
+
+div.glossed > *:first-child { margin-top: 0em }
+
+.term { font-weight: bold }
+
+.gloss { padding-left: 0.5em; margin-left: 0.5em; border-left: thin solid black }
+
+.glossary:before, .endnotes:before {
     content: ""; /* This is necessary for the pseudo element to work. */ 
     display: block; /* This will put the pseudo element on its own line. */
     width: 37%;
@@ -80,3 +91,4 @@ header * { margin: 0em }
     border-top: 1px solid black;
     grid-column: 1 / span 2;
 }
+

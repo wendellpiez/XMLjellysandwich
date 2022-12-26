@@ -34,9 +34,13 @@ line in sequence indicates a verse
 
 Note that when lines are consecutive (that is, without blank lines between), EVE interpolates a basic verse structure, reflected in the entire verse line group being indented together (even apart from indenting per line).
 
+Some things happen implicitly on your behalf. For example, any text can be rendered with a gloss to appear in a glossary simply by adding the glossary entry along with other notes for a section.
+
 Additionally, "paragraph" means what it means on the web, i.e. formatted block or paragraph fragment, not what it means in Strunk and White.[strwh]
 
-[[strwh]] Cite Strunk and White here. Link?
+[[strwh]] One might cite Strunk and White here. Note that among many operations EVE leaves for downstream, is the marking of links.
+
+}}glossary}} EVE does, however, know how to produce glossary entries for any words in the text you wish to call out.
 
 ---
 

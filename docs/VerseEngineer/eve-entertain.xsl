@@ -26,7 +26,7 @@
    <!-- it can be either EVE XML, or plain text to be read for EVE -->
    <xsl:param name="eve-to-read" as="xs:string">ELECTRONIC VERSE ENGINEER eve-csx.xsl parameter $ eve-to-read default</xsl:param>
    
-<!-- no-op template for loading makes event bindings available -->
+   <!-- no-op template for loading makes event bindings available -->
    <xsl:template name="load_verse_engineer"/>
    
    <xsl:template match="/">

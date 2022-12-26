@@ -13,13 +13,41 @@
   
   <xsl:output indent="true"/>
   
-  <xsl:param name="lines" select="unparsed-text-lines('example.eve')"/>
+  <xsl:param name="debug" select="unparsed-text('debug.eve')"/>
   
+  <xsl:variable name="try-me">
+    
+TITLE OF SECTION
+----------------
+      
+There once was a fellow whose coding
+was subject to serious bloating[bl]:
+  he blow up his stack
+  in a service attack
+and they found him in transit, uploading.
+
+Oh what a blow! His pneuma started.
+
+[[bl]] "bloating" is a technical term, referring to an egregiously wasteful use of system resources including available RAM.
+
+}}service attack}} When someone gets in like Flynn.
+
+}}service attack}} A second gloss on the same term should be fine.
+
+
+    A second paragraph only indented.
+
+A third paragraph
+
+* lists - verses following certain patterns?
+  (such as a verse whose items all begin '*')
+
+  </xsl:variable>
  <!-- <xsl:include href="https://raw.githubusercontent.com/ilyakharlamov/xslt_base64/master/base64.xsl"/>-->
  <!-- <xsl:output indent="true"/>-->
   
   <xsl:template match="/">
-    <xsl:sequence select="eve:engineer-verse( unparsed-text('example.eve') )"/>
+    <xsl:sequence select="eve:engineer-verse( $debug )"/>
   </xsl:template>
 
   <!-- function call executes a pipeline  -->
@@ -37,11 +65,11 @@
     <xsl:variable name="regrouped">
       <xsl:apply-templates select="$structured" mode="eve:split-line-groups"/>
     </xsl:variable>
-    <xsl:variable name="with-notes">
-      <xsl:apply-templates select="$regrouped" mode="eve:pull-notes"/>
+    <xsl:variable name="with-notes-and-glosses">
+      <xsl:apply-templates select="$regrouped" mode="eve:pull-snips"/>
     </xsl:variable>
     <xsl:variable name="with-verse">
-      <xsl:apply-templates select="$with-notes" mode="eve:read-line-groups"/>
+      <xsl:apply-templates select="$with-notes-and-glosses" mode="eve:read-line-groups"/>
     </xsl:variable>
     <xsl:variable name="all-marked-up">
       <xsl:apply-templates select="$with-verse" mode="eve:render-markup"/>
@@ -54,12 +82,19 @@
     </xsl:variable>
     
     <xsl:document>
-      <!--<xsl:sequence select="$sectioned"/>-->
-      <!--<xsl:sequence select="$structured"/>-->
-      <!--<xsl:sequence select="$regrouped"/>-->
-      <!--<xsl:sequence select="$with-notes"/>-->
-      <!--<xsl:sequence select="$all-marked-up"/>-->
-      <!--<xsl:sequence select="$scrubbed"/>-->
+      <!--<debug>
+        <msg>Running eve-recognizer in a debug mode</msg>
+        <!-\-<xsl:sequence select="$sectioned"/>-\->
+        
+        <xsl:sequence select="$sectioned"/>
+        <xsl:sequence select="$structured"/>
+        <xsl:sequence select="$regrouped"/>
+        <xsl:sequence select="$with-notes-and-glosses"/>
+        <xsl:sequence select="$all-marked-up"/>
+        <xsl:sequence select="$scrubbed"/>
+        <xsl:sequence select="$polished"/>
+        
+      </debug>-->
       <xsl:sequence select="$polished"/>
     </xsl:document>
   </xsl:function>
@@ -206,21 +241,64 @@
     
   <!-- mode read-line-groups casts verse and prose respectively while dropping the splits -->
   
-  <xsl:mode name="eve:pull-notes" on-no-match="shallow-copy"/>
+  <xsl:mode name="eve:pull-snips" on-no-match="shallow-copy"/>
   
-  <xsl:template mode="eve:pull-notes" match="split[empty(child::* except *[matches(.,$section-divider)] )]"/>
+  <xsl:template mode="eve:pull-snips" match="regrouped">
+    <noted-and-glossed>
+      <xsl:apply-templates mode="#current"/>
+    </noted-and-glossed>
+  </xsl:template>
   
-  <xsl:template priority="5" mode="eve:pull-notes" match="div/split[1]/line[1][matches(.,$section-divider)]"/>
+  <xsl:template mode="eve:pull-snips" match="split[empty(child::* except *[matches(.,$section-divider)] )]"/>
+  
+  <xsl:template priority="5" mode="eve:pull-snips" match="div/split[1]/line[1][matches(.,$section-divider)]"/>
   
   <xsl:function name="eve:starts-note" as="xs:boolean">
     <xsl:param name="spl" as="element(eve:split)?"/>
     <xsl:sequence select="boolean( $spl/child::line[1]/matches(.,'^\[\[\i\c*\]\]') )"/>  
   </xsl:function>
   
-  <xsl:template mode="eve:pull-notes" match="div">
+  <xsl:function name="eve:starts-gloss" as="xs:boolean">
+    <xsl:param name="spl" as="element(eve:split)?"/>
+    <xsl:sequence select="boolean( $spl/child::line[1]/matches(.,'^\}\}.*\S.*\}\}') )"/>  
+  </xsl:function>
+  
+  <xsl:template mode="eve:make-a-note" match="*">
+    <main>
+      <xsl:apply-templates mode="eve:pull-snips" select="current-group()"/>
+    </main>
+  </xsl:template>
+  
+  <xsl:template mode="eve:make-a-note" priority="100" match="*[eve:starts-note(.)]">
+    <xsl:variable name="identifier" select="replace(.,'^\[\[(\i\c*)\]\].*$','$1')"/>
+    <note id="{ $identifier }">
+      <xsl:apply-templates mode="eve:pull-snips" select="current-group()">
+        <xsl:with-param tunnel="true" name="lead-line" select="descendant::line[1]"/>
+        <xsl:with-param tunnel="true" name="note-id"   select="'[[' || $identifier || ']]'"/>
+      </xsl:apply-templates>
+    </note>
+  </xsl:template>
+  
+  <xsl:template mode="eve:make-a-note" priority="100" match="*[eve:starts-gloss(.)]">
+    <xsl:variable name="term" select="replace(.,'^\}\}(.*\S.*)\}\}.*$','$1')"/>
+    <gloss text="{ $term }">
+      <xsl:apply-templates mode="eve:pull-snips" select="current-group()">
+        <xsl:with-param tunnel="true" name="lead-line" select="descendant::line[1]"/>
+        <xsl:with-param tunnel="true" name="gloss-term" select="$term"/>
+      </xsl:apply-templates>
+    </gloss>
+  </xsl:template>
+  
+  <xsl:template mode="eve:pull-snips" match="div">
     <div>
-    <xsl:for-each-group select="split" group-starting-with="*[eve:starts-note(.)]">
-      <note id=".main.">
+    <xsl:for-each-group select="split" group-starting-with="*[eve:starts-note(.) or eve:starts-gloss(.)]">
+      <xsl:apply-templates select="current-group()[1]" mode="eve:make-a-note"/>
+        
+        
+<!-- rename this to <pulled>
+      capture main, note and glosses separately
+      -->
+      <!--<note id=".main.">
         <xsl:variable name="identifier" select="current-group()[1][eve:starts-note(.)]/replace(.,'^\[\[(\i\c*)\]\].*$','$1')"/>
         <xsl:if test="current-group()[1]/eve:starts-note(.)">
           <xsl:attribute name="id" select="$identifier"/>
@@ -229,12 +307,12 @@
           <xsl:with-param tunnel="true" name="lead-line" select="current-group()[eve:starts-note(.)]/descendant::line[1]"/>
           <xsl:with-param tunnel="true" name="note-id"   select="'[[' || $identifier || ']]'"/>
         </xsl:apply-templates>
-      </note>
+      </note>-->
     </xsl:for-each-group>
     </div>
   </xsl:template>
 
-  <xsl:template mode="eve:pull-notes" match="inset">
+  <xsl:template mode="eve:pull-snips" match="inset">
     <xsl:variable name="attributing-signal" select="'^(&#x2014;|\-\-)\s'"/>
     <xsl:variable name="attribution-line" select="descendant::line[last()][matches(.,$attributing-signal)]"/>
     <xsl:copy>
@@ -249,14 +327,20 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template mode="eve:pull-notes" match="line">
+  <xsl:template mode="eve:pull-snips" match="line">
     <xsl:param tunnel="true" name="lead-line" select="()"/>
     <xsl:param tunnel="true" name="attribution-line" select="()"/>
     <xsl:param tunnel="true" name="note-id"/>
+    <xsl:param tunnel="true" name="gloss-term" select="false()"/>
     <xsl:if test="not(. is $attribution-line)">
       <xsl:where-populated>
         <line>
           <xsl:choose>
+            <xsl:when test=". is $lead-line and boolean($gloss-term)">
+              <xsl:variable name="leader" expand-text="true">}}}}{ $gloss-term }}}}}</xsl:variable>
+              <xsl:value-of select="substring-after(., $leader) ! replace(., '^\s+', '')"/>
+            </xsl:when>
+            
             <xsl:when test=". is $lead-line">
               
               <xsl:value-of select="substring-after(., $note-id) ! replace(., '^\s+', '')"/>
@@ -324,7 +408,7 @@
   
   <xsl:mode name="eve:render-markup" on-no-match="shallow-copy"/>
   
-  <xsl:template mode="eve:render-markup" match="/with-verse">
+  <xsl:template mode="eve:render-markup" match="/with-notes | /noted-and-glossed">
     <all-marked-up>
       <xsl:apply-templates mode="#current">
         <!-- names given to notes are passed down the tree -->
@@ -411,10 +495,35 @@
   
   <xsl:template mode="eve:scrub" match="/all-marked-up">
     <scrubbed>
-      <xsl:apply-templates mode="#current"/>
+      <xsl:apply-templates mode="#current">
+        <xsl:with-param name="index-to" tunnel="true" select="descendant::gloss/@text/normalize-space(.) => distinct-values()"/>
+      </xsl:apply-templates>
     </scrubbed>
   </xsl:template>
  
+  <xsl:template mode="eve:scrub" match="text()">
+    <xsl:param name="index-to" as="xs:string*" tunnel="true"/>
+    <xsl:choose>
+      <xsl:when test="empty($index-to)">
+        <xsl:value-of select="."/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="index-regex" expand-text="true">({ ($index-to ! replace(.,'\\','\\\\')) ! replace(.,' ','\\s+') => string-join('|') })</xsl:variable>
+        <xsl:analyze-string select="." regex="{ $index-regex }">
+          <xsl:matching-substring>
+            <gl t="{ normalize-space(.) }">
+              <xsl:value-of select="."/>
+            </gl>
+          </xsl:matching-substring>
+          <xsl:non-matching-substring>
+            <xsl:value-of select="."/>
+          </xsl:non-matching-substring>
+        </xsl:analyze-string>
+      </xsl:otherwise>
+    </xsl:choose>    
+    
+  </xsl:template>
+
   <xsl:function name="eve:is-eve-head" as="xs:boolean">
     <xsl:param name="d" as="element(eve:div)"/>
     <xsl:sequence select="($d is ($d/../*[1])) and (every $c in ($d//line | $d//p) satisfies matches($c,'^\i\c*:'))"/>
@@ -428,11 +537,16 @@
   
   <xsl:template mode="eve:scrub" match="div">
     <section>
-      <xsl:apply-templates mode="#current" select="* except note"/>
+      <xsl:apply-templates mode="#current" select="* except (note | gloss)"/>
       <xsl:where-populated>
       <notes>
         <xsl:apply-templates mode="#current" select="note"/>
       </notes>
+      </xsl:where-populated>
+      <xsl:where-populated>
+        <glossary>
+          <xsl:apply-templates mode="#current" select="gloss"/>
+        </glossary>
       </xsl:where-populated>
     </section>
   </xsl:template>
@@ -472,7 +586,7 @@
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template mode="eve:polish" match="section/* | note | verse | inset">
+  <xsl:template mode="eve:polish" match="section/* | note | gloss | verse | inset">
     <xsl:call-template name="drop-and-indent"/>
     <xsl:copy>
       <xsl:copy-of select="@*"/>
