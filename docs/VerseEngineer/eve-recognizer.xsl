@@ -16,7 +16,9 @@
   <xsl:param name="debug" select="unparsed-text('debug.eve')"/>
   
   <xsl:variable name="try-me">
-    
+author: bob
+---
+
 TITLE OF SECTION
 ----------------
 
@@ -304,21 +306,6 @@ A third paragraph
     <div>
     <xsl:for-each-group select="split" group-starting-with="*[eve:starts-note(.) or eve:starts-gloss(.)]">
       <xsl:apply-templates select="current-group()[1]" mode="eve:make-a-note"/>
-        
-        
-<!-- rename this to <pulled>
-      capture main, note and glosses separately
-      -->
-      <!--<note id=".main.">
-        <xsl:variable name="identifier" select="current-group()[1][eve:starts-note(.)]/replace(.,'^\[\[(\i\c*)\]\].*$','$1')"/>
-        <xsl:if test="current-group()[1]/eve:starts-note(.)">
-          <xsl:attribute name="id" select="$identifier"/>
-        </xsl:if>
-        <xsl:apply-templates mode="#current" select="current-group()">
-          <xsl:with-param tunnel="true" name="lead-line" select="current-group()[eve:starts-note(.)]/descendant::line[1]"/>
-          <xsl:with-param tunnel="true" name="note-id"   select="'[[' || $identifier || ']]'"/>
-        </xsl:apply-templates>
-      </note>-->
     </xsl:for-each-group>
     </div>
   </xsl:template>
@@ -394,7 +381,7 @@ A third paragraph
     </with-verse>
   </xsl:template>
   
-  <xsl:template mode="eve:read-line-groups" match="note[@id='.main.']">
+  <xsl:template mode="eve:read-line-groups" match="main">
       <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
