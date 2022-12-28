@@ -238,9 +238,9 @@ A third paragraph
   
   <xsl:template mode="eve:split-line-groups" match="inset/line">
     <line>
-      <xsl:variable name="indent" select="replace(., '\S.*$', '') => string-length() - 1"/>
-      <xsl:if test="not($indent = 0)">
-        <xsl:attribute name="ind" select="$indent"/>
+      <xsl:variable name="indent" select="replace(., '\S.*$', '') => string-length()"/>
+      <xsl:if test="$indent gt 1">
+        <xsl:attribute name="ind" select="$indent - 1"/>
       </xsl:if>
       <xsl:value-of select="replace(.,'^\s+','')"/>
     </line>
