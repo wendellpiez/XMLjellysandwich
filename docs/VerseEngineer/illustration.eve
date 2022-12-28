@@ -40,7 +40,7 @@ Additionally, "paragraph" means what it means on the web, i.e. formatted block o
 
 [[strwh]] One might cite Strunk and White here. Note that among many operations EVE leaves for downstream, is the marking of links.
 
-}}glossary}} EVE does, however, know how to produce glossary entries for any words in the text you wish to call out.
+[>glossary<] EVE does, however, know how to produce glossary entries for any words in the text you wish to call out. This is as simple as marking the term you wish to gloss, and EVE does the rest.
 
 ---
 

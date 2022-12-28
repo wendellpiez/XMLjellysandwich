@@ -19,12 +19,17 @@
     
 TITLE OF SECTION
 ----------------
-      
-There once was a fellow whose coding
-was subject to serious bloating[bl]:
-  he blow up his stack
-  in a service attack
-and they found him in transit, uploading.
+
+T.S. Eliot
+  became smelly at
+the slightest hint
+  of chocolate mint.
+
+> There once was a fellow whose coding
+> was subject to serious bloating[bl]:
+>  he blow up his stack
+>  in a service attack
+> and they found him in transit, uploading.
 
 Oh what a blow! His pneuma started.
 
@@ -46,8 +51,10 @@ A third paragraph
  <!-- <xsl:include href="https://raw.githubusercontent.com/ilyakharlamov/xslt_base64/master/base64.xsl"/>-->
  <!-- <xsl:output indent="true"/>-->
   
+  <xsl:variable name="gloss-regex" select="'^\[>(.*\S.*)&lt;\]'"/>
+  
   <xsl:template match="/">
-    <xsl:sequence select="eve:engineer-verse( $debug )"/>
+    <xsl:sequence select="eve:engineer-verse( $try-me )"/>
   </xsl:template>
 
   <!-- function call executes a pipeline  -->
@@ -231,6 +238,10 @@ A third paragraph
   
   <xsl:template mode="eve:split-line-groups" match="inset/line">
     <line>
+      <xsl:variable name="indent" select="replace(., '\S.*$', '') => string-length() - 1"/>
+      <xsl:if test="not($indent = 0)">
+        <xsl:attribute name="ind" select="$indent"/>
+      </xsl:if>
       <xsl:value-of select="replace(.,'^\s+','')"/>
     </line>
   </xsl:template>
@@ -260,7 +271,7 @@ A third paragraph
   
   <xsl:function name="eve:starts-gloss" as="xs:boolean">
     <xsl:param name="spl" as="element(eve:split)?"/>
-    <xsl:sequence select="boolean( $spl/child::line[1]/matches(.,'^\}\}.*\S.*\}\}') )"/>  
+    <xsl:sequence select="boolean( $spl/child::line[1]/matches(.,$gloss-regex) )"/>  
   </xsl:function>
   
   <xsl:template mode="eve:make-a-note" match="*">
@@ -280,7 +291,7 @@ A third paragraph
   </xsl:template>
   
   <xsl:template mode="eve:make-a-note" priority="100" match="*[eve:starts-gloss(.)]">
-    <xsl:variable name="term" select="replace(.,'^\}\}(.*\S.*)\}\}.*$','$1')"/>
+    <xsl:variable name="term" select="replace(.,($gloss-regex || '.*$'),'$1')"/>
     <gloss text="{ $term }">
       <xsl:apply-templates mode="eve:pull-snips" select="current-group()">
         <xsl:with-param tunnel="true" name="lead-line" select="descendant::line[1]"/>
@@ -335,31 +346,32 @@ A third paragraph
     <xsl:if test="not(. is $attribution-line)">
       <xsl:where-populated>
         <line>
+          <xsl:copy-of select="@*"/>
           <xsl:choose>
             <xsl:when test=". is $lead-line and boolean($gloss-term)">
-              <xsl:variable name="leader" expand-text="true">}}}}{ $gloss-term }}}}}</xsl:variable>
-              <xsl:value-of select="substring-after(., $leader) ! replace(., '^\s+', '')"/>
+              <xsl:variable name="leader" select="'[>' || $gloss-term || '&lt;]'"/>
+              <xsl:variable name="line" select="substring-after(., $leader)"/>
+              <xsl:value-of select="replace($line, '^\s+', '')"/>
             </xsl:when>
-            
             <xsl:when test=". is $lead-line">
-              
               <xsl:value-of select="substring-after(., $note-id) ! replace(., '^\s+', '')"/>
             </xsl:when>
             <xsl:otherwise>
+              <xsl:call-template name="mark-indent-attribute"/>
               <!-- marking line indents irrespective of grouping -->
-              <xsl:variable name="indent" select="replace(., '\S.*$', '') => string-length()"/>
-              <xsl:if test="not($indent = 0)">
-                <xsl:attribute name="ind" select="$indent"/>
-              </xsl:if>
-              <xsl:analyze-string select="." regex="\S.*$">
-                <xsl:matching-substring>
-                  <xsl:value-of select="."/>
-                </xsl:matching-substring>
-              </xsl:analyze-string>
+              <xsl:value-of select="replace(.,'^\s+','')"/>
+              
             </xsl:otherwise>
           </xsl:choose>
         </line>
       </xsl:where-populated>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template name="mark-indent-attribute">
+    <xsl:variable name="indent" select="replace(., '\S.*$', '') => string-length()"/>
+    <xsl:if test="not($indent = 0)">
+      <xsl:attribute name="ind" select="$indent"/>
     </xsl:if>
   </xsl:template>
   
@@ -404,7 +416,6 @@ A third paragraph
       <xsl:apply-templates mode="#current"/>
     </p>
   </xsl:template>
-  
   
   <xsl:mode name="eve:render-markup" on-no-match="shallow-copy"/>
   

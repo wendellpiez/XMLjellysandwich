@@ -2,6 +2,18 @@
 
 Starter kit for XSLT 3.0 in the browser using SaxonJS
 
+## Update Dec 2022
+
+The demonstrations in this site may use versions of SaxonJS that are no longer current. They still work fine and are kept in place for study and emulation. But only gradually will they be migrated or updated.
+
+See the [Saxonica](http://www.saxonica.com) for the latest SaxonJS.
+
+Readme instructions below apply to the 2.2 version.
+
+An overhaul or reorg will update the guidance as well.
+
+## The name
+
 (Might have named it "XSLT Jump Start" except for the excellent book of that title, or XML Jigsaw, except that too is taken. Jelly sandwiches are simple to make, tasty, nutritious, and portable, and go fine with butter or cheese. Plus an XMLjellysandwich fits neatly into an XMLLunchbox, also in this repository.)
 
 ## Summary:
@@ -9,6 +21,33 @@ Starter kit for XSLT 3.0 in the browser using SaxonJS
 In `/docs`, find example demonstrations, viewable through Github Pages at http://wendellpiez.github.io/XMLjellysandwich. A couple of these demonstrations serve as lightweight but complete publishing frameworks; others are designed to show some specialized functionality. Each demonstration has its own entry page or pages, source document(s) and transformation(s). Source code for everything is viewable. 
 
 In `/lib`, find XSLTs for making your own (starter) application, operating on your own XML. See further instructions below.
+
+## Quick tips
+
+For reference:
+
+- https://www.npmjs.com/package/saxon-js
+
+To install SaxonJS under NPM for local runtime (static XSLT or SEF compiling)
+
+> npm install --global saxon-js
+> npm install --global xslt3
+
+To install both the xslt3 package and the SaxonJS package dependency.
+
+To test SaxonJS on the CL (NodeJS):
+
+>  xslt3 -xp:"current-date() => format-date('[D] [MNn] [Y]')" && echo
+
+returns today's date (with a line feed).
+
+To compile an XSLT into SEF JSON format for delivery
+
+> xslt3 -xsl:books.xsl -export:books.sef.json -t -nogo
+
+xslt3 -xsl:eve-entertain.xsl -export:eve-entertain.sef.json -t -nogo
+
+Note that the `json` suffix on SEF (now a JSON application) means you don't have to worry about serving nominal `sef` suffixed files (as with earlier SaxonJS).
 
 ## SaxonJS notices
 
