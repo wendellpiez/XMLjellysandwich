@@ -71,6 +71,15 @@ window.onload = function() {
       "async");
   }
 }
+
+
+function resetUI() {
+  SaxonJS.transform( {
+      stylesheetLocation: "eve-entertain.sef.json",
+      initialTemplate: "load_verse_engineer"
+      },
+      "async");
+}
 // passes evetext into the Verse Engineer
 
 function engineerVerse(evetext) {
@@ -87,6 +96,7 @@ function engineerVerse(evetext) {
    
 function loadVerse(evetext) {
   // loadVerse is the same except targeting a different initial template
+  // used for inputs that could be EVE notation or EVE XML
   SaxonJS.transform({
     stylesheetLocation: "eve-entertain.sef.json",
     initialTemplate: "load-verse",

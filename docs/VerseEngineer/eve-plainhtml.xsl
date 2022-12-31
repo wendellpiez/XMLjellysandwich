@@ -63,7 +63,13 @@
    <xsl:template match="EVE" mode="plainhtml">
       
       <main class="EVE">
+         <xsl:where-populated>
+            <div class="links">
+               <xsl:apply-templates mode="plainhtml" select="/EVE/head/link"/>
+            </div>
+         </xsl:where-populated>
          <xsl:apply-templates mode="#current"/>
+         
       </main>
    </xsl:template>
    
@@ -91,6 +97,13 @@
       </h4>
    </xsl:template>
    
+   <xsl:template priority="0.4" match="head/link" mode="plainhtml">
+      <p class="eve-reflink">
+         <a href="{ . }">
+           <xsl:apply-templates mode="#current"/>
+         </a>
+      </p>
+   </xsl:template>
    
    <xsl:template match="verse | inset | epigraph" mode="plainhtml">
       <div class="{ local-name() }">

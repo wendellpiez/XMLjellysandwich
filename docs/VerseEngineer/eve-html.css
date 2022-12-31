@@ -11,7 +11,7 @@
 }
 
 main.EVE > section {   
-    background-color: floralwhite;
+    background-color: ghostwhite;
 }
 
 .EVE > *:first-child { margin-top: 0em }
@@ -25,12 +25,12 @@ section > *:last-child { margin-bottom: 0em !important }
 
 div.epigraph { padding: 0.5em;
   border: thin inset gray;
-  background-color: blanchedalmond;
+  background-color: whitesmoke;
   margin: 2em }
   
 div.inset { padding: 0.5em;
   border: thin inset gray;
-  background-color: cornsilk;
+  background-color: ivory;
   margin: 2em }
 
 div.epigraph > *:first-child,
@@ -78,6 +78,8 @@ header * { margin: 0em }
 div.glossed { margin-top: 0.5em }
 
 div.glossed > *:first-child { margin-top: 0em }
+
+.glossed:hover { text-decoration: underline }
 
 .term { font-weight: bold }
 

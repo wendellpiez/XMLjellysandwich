@@ -3,27 +3,30 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:pb="http://github.com/wendellpiez/XMLjellysandwich"
   xmlns:math="http://www.w3.org/2005/xpath-functions/math"
-  exclude-result-prefixes="xs math pb eve"
+  xmlns:functx="http://www.functx.com"
+  exclude-result-prefixes="xs math pb eve functx"
   xmlns="http://pellucidliterature.org/VerseEngineer"
   xpath-default-namespace="http://pellucidliterature.org/VerseEngineer"
   xmlns:eve="http://pellucidliterature.org/VerseEngineer"
   version="3.0">
   
-<!--  Test this XSLT by running it on itself -->
+  <!--  Test this XSLT by running it on itself -->
+  <!-- Use one of its functions as an entry point from elsewhere. -->
   
   <xsl:output indent="true"/>
-  
+    
   <xsl:param name="debug" select="unparsed-text('debug.eve')"/>
   
   <xsl:variable name="try-me">
 author: bob
+link: http:blha 
 ---
 
 TITLE OF SECTION
 ----------------
 
 T.S. Eliot
-  became smelly at
+  became jolly at
 the slightest hint
   of chocolate mint.
 
@@ -33,34 +36,39 @@ the slightest hint
 >  in a service attack
 > and they found him in transit, uploading.
 
-Oh what a blow! His pneuma started.
+Oh what a blow! His pneuma? started.
 
 [[bl]] "bloating" is a technical term, referring to an egregiously wasteful use of system resources including available RAM.
 
-}}service attack}} When someone gets in like Flynn.
+[}pneuma?{] Cosmic energy expressed as breath.
 
-}}service attack}} A second gloss on the same term should be fine.
+[}pneuma?{] A second gloss should also be fine.
 
+[}bloating{] what happens if doubling?
+
+[}subject to … bloating{] what you get if you have too much lunch.
 
     A second paragraph only indented.
 
 A third paragraph
 
-* lists - verses following certain patterns?
-  (such as a verse whose items all begin '*')
-
   </xsl:variable>
  <!-- <xsl:include href="https://raw.githubusercontent.com/ilyakharlamov/xslt_base64/master/base64.xsl"/>-->
  <!-- <xsl:output indent="true"/>-->
   
-  <xsl:variable name="gloss-regex" select="'^\[>(.*\S.*)&lt;\]'"/>
+  <xsl:variable name="gloss-regex" select="'^\[\}(.*\S.*)\{\]'"/>
   
   <xsl:template match="/">
-    <xsl:sequence select="eve:engineer-verse( $try-me )"/>
+    <!-- to debug -->
+    <xsl:sequence select="eve:run-pipeline( $try-me )"/>
+    
+    <!-- to run -->
+    <!--<xsl:sequence select="eve:engineer-verse( $try-me )"/>-->
+    
   </xsl:template>
 
   <!-- function call executes a pipeline  -->
-  <xsl:function name="eve:engineer-verse" as="document-node()">
+  <xsl:function name="eve:run-pipeline" as="document-node()">
     <xsl:param name="evetext" as="xs:string"/>
     <xsl:variable name="lines" select="$evetext => tokenize('&#xD;?&#xA;')"/>
     <xsl:variable name="sectioned">
@@ -91,9 +99,9 @@ A third paragraph
     </xsl:variable>
     
     <xsl:document>
-      <!--<debug>
+      <EVE>
         <msg>Running eve-recognizer in a debug mode</msg>
-        <!-\-<xsl:sequence select="$sectioned"/>-\->
+        <!--<xsl:sequence select="$sectioned"/>-->
         
         <xsl:sequence select="$sectioned"/>
         <xsl:sequence select="$structured"/>
@@ -103,8 +111,17 @@ A third paragraph
         <xsl:sequence select="$scrubbed"/>
         <xsl:sequence select="$polished"/>
         
-      </debug>-->
-      <xsl:sequence select="$polished"/>
+      </EVE>
+      
+    </xsl:document>
+  </xsl:function>
+  
+  <!-- function call executes a pipeline  -->
+  <xsl:function name="eve:engineer-verse" as="document-node()">
+    <xsl:param name="evetext" as="xs:string"/>
+    <xsl:variable name="trace" select="eve:run-pipeline($evetext)"/>
+    <xsl:document>
+      <xsl:sequence select="$trace/*/child::*[last()]"/>
     </xsl:document>
   </xsl:function>
   
@@ -294,7 +311,7 @@ A third paragraph
   
   <xsl:template mode="eve:make-a-note" priority="100" match="*[eve:starts-gloss(.)]">
     <xsl:variable name="term" select="replace(.,($gloss-regex || '.*$'),'$1')"/>
-    <gloss text="{ $term }">
+    <gloss text="{ $term }" regex="{ $term => eve:write-as-regex() }">
       <xsl:apply-templates mode="eve:pull-snips" select="current-group()">
         <xsl:with-param tunnel="true" name="lead-line" select="descendant::line[1]"/>
         <xsl:with-param tunnel="true" name="gloss-term" select="$term"/>
@@ -336,7 +353,7 @@ A third paragraph
           <xsl:copy-of select="@*"/>
           <xsl:choose>
             <xsl:when test=". is $lead-line and boolean($gloss-term)">
-              <xsl:variable name="leader" select="'[>' || $gloss-term || '&lt;]'"/>
+              <xsl:variable name="leader" select="'[}' || $gloss-term || '{]'"/>
               <xsl:variable name="line" select="substring-after(., $leader)"/>
               <xsl:value-of select="replace($line, '^\s+', '')"/>
             </xsl:when>
@@ -494,22 +511,37 @@ A third paragraph
   <xsl:template mode="eve:scrub" match="/all-marked-up">
     <scrubbed>
       <xsl:apply-templates mode="#current">
-        <xsl:with-param name="index-to" tunnel="true" select="descendant::gloss/@text/normalize-space(.) => distinct-values()"/>
+        <xsl:with-param name="glosses" tunnel="true" select="descendant::gloss"/>
       </xsl:apply-templates>
     </scrubbed>
   </xsl:template>
  
-  <xsl:template mode="eve:scrub" match="text()">
-    <xsl:param name="index-to" as="xs:string*" tunnel="true"/>
+ <xsl:function name="eve:write-as-regex" as="xs:string">
+   <xsl:param name="str" as="xs:string"/>
+   <xsl:sequence select="$str => functx:escape-for-regex() => replace('\s+','\\s+') => replace('…','.+')"/>
+ </xsl:function>
+  
+  <xsl:template mode="eve:scrub" match="text()" expand-text="true">
+    <xsl:param name="glosses" as="element(gloss)*" tunnel="true"/>
     <xsl:choose>
-      <xsl:when test="empty($index-to)">
+      <xsl:when test="empty($glosses)">
         <xsl:value-of select="."/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="index-regex" expand-text="true">({ ($index-to ! replace(.,'\\','\\\\')) ! replace(.,' ','\\s+') => string-join('|') })</xsl:variable>
+        <xsl:variable name="index-regex" expand-text="true">({ distinct-values($glosses/@regex) => string-join('|') })</xsl:variable>
+        <!--<xsl:message expand-text="true">looking for { $index-regex }</xsl:message>-->
         <xsl:analyze-string select="." regex="{ $index-regex }">
           <xsl:matching-substring>
-            <gl t="{ normalize-space(.) }">
+            <!--<xsl:message>matched regex { $index-regex }</xsl:message>-->
+            <xsl:variable name="me" select="."/>
+            <!--<xsl:message>$me is { $me }</xsl:message>-->
+            
+            <xsl:variable name="matches" select="$glosses[matches($me, @regex)]"/>
+            <!--<xsl:message>$matches has { count($matches) }</xsl:message>-->
+            <xsl:variable name="max-length" select="$matches/string-length(@text) => max()"/>
+            <xsl:variable name="first" select="$matches[string-length(@text) = $max-length][1]"/>
+
+            <gl t="{ $first/@text }">
               <xsl:value-of select="."/>
             </gl>
           </xsl:matching-substring>
@@ -537,14 +569,14 @@ A third paragraph
     <section>
       <xsl:apply-templates mode="#current" select="* except (note | gloss)"/>
       <xsl:where-populated>
-      <notes>
-        <xsl:apply-templates mode="#current" select="note"/>
-      </notes>
-      </xsl:where-populated>
-      <xsl:where-populated>
         <glossary>
           <xsl:apply-templates mode="#current" select="gloss"/>
         </glossary>
+      </xsl:where-populated>
+      <xsl:where-populated>
+        <notes>
+          <xsl:apply-templates mode="#current" select="note"/>
+        </notes>
       </xsl:where-populated>
     </section>
   </xsl:template>
@@ -616,4 +648,15 @@ A third paragraph
     </xsl:for-each>
   </xsl:template>
   
+  <!-- Borrowed from XSpec who borrowed from functx -->
+  <xsl:function name="functx:escape-for-regex" as="xs:string">
+    <xsl:param name="arg" as="xs:string?"/>
+    
+    <xsl:sequence
+      select=" 
+      replace($arg,
+      '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')
+      "
+    />
+  </xsl:function>
 </xsl:stylesheet>
