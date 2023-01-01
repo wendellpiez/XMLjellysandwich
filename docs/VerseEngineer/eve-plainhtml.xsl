@@ -12,12 +12,20 @@
    
     exclude-result-prefixes="#all">
    
-   <xsl:template mode="ixsl:onclick" match="html:span[contains-token(@class,'glossed')]">
-      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="toggle"/>
+   <xsl:template mode="ixsl:onclick" match="html:span[contains-token(@class,'glossed')]
+      | html:div[contains-token(@class,'glossed')]">
+      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="nudge"/>
    </xsl:template>
    
-   <xsl:template mode="ixsl:onclick" match="html:div[contains-token(@class,'glossed')]">
-      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="toggle"/>
+   <!-- hovering on a link affects display on the link target to highlight -->
+   <xsl:template mode="ixsl:onmouseover" match="html:span[contains-token(@class,'glossed')]
+      | html:div[contains-token(@class,'glossed')]">
+      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="on"/>
+   </xsl:template>
+   
+   <xsl:template mode="ixsl:onmouseout"  match="html:span[contains-token(@class,'glossed')]
+      | html:div[contains-token(@class,'glossed')]">
+      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="off"/>
    </xsl:template>
    
    
@@ -39,13 +47,13 @@
    
    <xsl:key name="div-by-href" match="html:div" use="'#' || @id"/>
    
-   <xsl:template mode="toggle" match="*">
+   <xsl:template mode="nudge" match="*">
       <xsl:choose>
-         <xsl:when test="contains-token(@class,'ON')">
-            <xsl:apply-templates select="." mode="off"/>
+         <xsl:when test="contains-token(@class,'AWAKE')">
+            <xsl:apply-templates select="." mode="sleep"/>
          </xsl:when>
          <xsl:otherwise>
-            <xsl:apply-templates select="." mode="on"/>
+            <xsl:apply-templates select="." mode="awake"/>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
@@ -57,6 +65,14 @@
    
    <xsl:template mode="on" match="*">
       <ixsl:set-attribute name="class" select="(tokenize(@class,'\s+')[not(. eq 'ON')],'ON') => string-join(' ')"/>
+   </xsl:template>
+   
+   <xsl:template mode="sleep" match="*">
+      <ixsl:set-attribute name="class" select="(tokenize(@class,'\s+')[not(. eq 'AWAKE')]) => string-join(' ')"/>
+   </xsl:template>
+   
+   <xsl:template mode="awaken" match="*">
+      <ixsl:set-attribute name="class" select="(tokenize(@class,'\s+')[not(. eq 'AWAKE')],'AWAKE') => string-join(' ')"/>
    </xsl:template>
    
    
@@ -80,7 +96,7 @@
    </xsl:template>
    
    <xsl:template match="section" mode="plainhtml">
-      <section>
+      <section class="section">
          <xsl:apply-templates mode="#current"/>
       </section>
    </xsl:template>

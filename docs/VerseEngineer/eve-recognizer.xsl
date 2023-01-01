@@ -585,6 +585,8 @@ A third paragraph
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
+  <xsl:template mode="eve:scrub" match="@regex"/>
+  
   <xsl:template mode="eve:scrub" match="div[eve:is-eve-head(.)]//line | div[eve:is-eve-head(.)]//p" expand-text="true">
     <xsl:variable name="gi" select="replace(.,'[\C^:].*','')"/>
     <xsl:analyze-string select="." regex="[\C^:]:\s*">

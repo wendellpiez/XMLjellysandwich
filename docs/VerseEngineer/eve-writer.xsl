@@ -54,6 +54,11 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
+  <xsl:template match="gloss/*[1]/self::p" mode="eve:write-eve">
+    <xsl:text> </xsl:text>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
   <xsl:template match="verse/line" mode="eve:write-eve">
     <xsl:apply-templates select="." mode="eve:inset-LF"/>
     <xsl:apply-templates mode="#current" select="@ind"/>
@@ -87,6 +92,14 @@
     <xsl:value-of select="@ref"/>
     <xsl:text>]</xsl:text>
   </xsl:template>
+  
+  <xsl:template match="gloss" mode="eve:write-eve">
+    <xsl:text>&#xA;&#xA;[}</xsl:text>
+    <xsl:value-of select="@text"/>
+    <xsl:text>{]</xsl:text>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
   
   <xsl:template match="note" mode="eve:write-eve">
     <xsl:text>&#xA;&#xA;[[</xsl:text>
