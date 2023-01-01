@@ -12,20 +12,22 @@
    
     exclude-result-prefixes="#all">
    
+   <!-- hovering on a link affects display on the link target to highlight -->
+   <xsl:template priority="2" mode="ixsl:onmouseover" match="html:span[contains-token(@class,'glossed')]
+      | html:div[contains-token(@class,'glossed')]">
+      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="on"/>
+      <xsl:next-match/>
+   </xsl:template>
+   
+   <xsl:template priority="2" mode="ixsl:onmouseout"  match="html:span[contains-token(@class,'glossed')]
+      | html:div[contains-token(@class,'glossed')]">
+      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="off"/>
+      <xsl:next-match/>
+   </xsl:template>
+   
    <xsl:template mode="ixsl:onclick" match="html:span[contains-token(@class,'glossed')]
       | html:div[contains-token(@class,'glossed')]">
       <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="nudge"/>
-   </xsl:template>
-   
-   <!-- hovering on a link affects display on the link target to highlight -->
-   <xsl:template mode="ixsl:onmouseover" match="html:span[contains-token(@class,'glossed')]
-      | html:div[contains-token(@class,'glossed')]">
-      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="on"/>
-   </xsl:template>
-   
-   <xsl:template mode="ixsl:onmouseout"  match="html:span[contains-token(@class,'glossed')]
-      | html:div[contains-token(@class,'glossed')]">
-      <xsl:apply-templates select="key('gloss-by-term',@data-term)" mode="off"/>
    </xsl:template>
    
    
@@ -53,7 +55,7 @@
             <xsl:apply-templates select="." mode="sleep"/>
          </xsl:when>
          <xsl:otherwise>
-            <xsl:apply-templates select="." mode="awake"/>
+            <xsl:apply-templates select="." mode="awaken"/>
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>

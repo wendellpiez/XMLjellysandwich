@@ -189,10 +189,6 @@ div.glossed > *:first-child {
   margin-top: 0em
 }
 
-.glossed:hover {
-  text-decoration: underline
-}
-
 .term {
   font-weight: bold
 }
