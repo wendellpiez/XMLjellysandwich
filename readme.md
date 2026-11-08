@@ -6,7 +6,7 @@ Starter kit for XSLT 3.0 in the browser using SaxonJS
 
 The demonstrations in this site may use versions of SaxonJS that are no longer current. They still work fine and are kept in place for study and emulation. But only gradually will they be migrated or updated.
 
-See the [Saxonica](http://www.saxonica.com) for the latest SaxonJS.
+See the [Saxonica](http://www.saxonica.com) site for the latest SaxonJS.
 
 Readme instructions below apply to the 2.2 version.
 

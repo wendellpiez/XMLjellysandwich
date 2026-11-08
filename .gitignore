@@ -8,3 +8,8 @@ xspec
 
 # modules
 node_modules/
+/Sources/PerseusDL/tlg0012.tlg001.perseus-grc1.tb.xml
+/docs/lib/saxonjs3/SaxonJS3.js
+/Sources/Iliad/gregorycrane/
+/Sources/Iliad/PerseusDL/
+/docs/Homer/temp/

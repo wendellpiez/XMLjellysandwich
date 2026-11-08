@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+     <title>Cunliffe's Iliad</title>
+      <meta charset="utf-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+     
+     <link rel="icon" href="../sando1-icon.svg"/>
+     <style type="text/css" id="xmljellysandwich_css">
+        html, body { background-color: linen }
+        
+        a { color: black; text-decoration: none }
+        a:hover { text-decoration: underline }
+        
+        div.book { margin: 1em }
+        p.line { padding-left: 2em; text-indent: -2em; margin: 0em }
+        p.line:before { display: inline-block; text-align: right; width: 6em;
+          font-size:80%; color: steelblue; font-family: sans-serif; content: attr(data-no);
+          padding-right: 2em;}
+        
+        aside#lexicon { color: initial; position: fixed;
+       top: 34vh; right: 2vw;
+       max-height: 62vh;
+       width: clamp(10em,24em,80vw);
+       overflow: auto; resize: both;
+       font-size: smaller; padding: 0.4rem;
+       background-color: floralwhite;
+       outline: medium outset slateblue }
+
+       .teiHeader div { margin-left: 1em }
+       
+       .teiHeader div:before { content: attr(class) ": ";
+          font-size:80%: font-weight: bold; font-family: sans-serif }
+       
+       .bibl { font-family: sans-serif; font-size: 95% }
+       
+       #lexicon p, #lexicon div { margin: 0.2em 0em }
+       
+       .lexentry > .head { font-size: 120% }
+       
+        .title { font-weight: bold; font-family: 113% }
+        main   { border-top: medium groove black; padding-top: 1em; padding-bottom: 1em }
+        
+        header * { max-width: 40em }
+        
+        footer { border-top: medium groove black; margin-top:1em; padding-top: 1em; font-size: smaller }
+        footer * { margin: 0em }
+        
+        .head { font-weight: bold }
+        div div .head { font-style: italic }
+        
+        main:has(.book) #patiencePlease { display: none}
+        
+        .inView  { outline: thin dotted slateblue; padding: 0.2em; background-color: gainsboro }
+
+        .foundMe { outline: thin dotted darkred; padding: 0.2em; background-color: mistyrose; font-weight: bold }
+
+        </style>
+      <script type="text/javascript"
+              src="../lib/saxonjs3/SaxonJS3.rt.js"><!-- parsers are so easily confused --></script>
+     
+     <!-- Using SaxonJS 3.0.0-beta2
+     XSLT must be compiled using Saxon12.6 (at least)-->
+      <script>
+          window.onload = function() {
+          SaxonJS.transform(
+            { sourceLocation:     "ILIAD_lexica.xml",
+              stylesheetLocation: "lexicalDisplay.sef",
+              initialTemplate:    "incipit" }, "async" );
+          }     
+        </script>
+     
+   </head>
+  
+  
+<!-- The PLAN:
+  . Test latest SaxonJS all the way through (with a Hello World)
+  x Replicate treebank acquisition pipeline in this repo (snag from EpicMarkup)
+  x Migrate conversion into full text near-TEI (XPL)
+  . Acquire and document a copy of Cunliffe TEI XML (XPL)
+  . Initial display - entire Iliad
+  . metadata and header!
+  . Links into Cunliffe
+    - every word is linked
+    - words referenced by bibl are highlighted
+    - display populates a lookup window
+  . A panel provides CSS interactivity for parts of speech
+  
+  Pipelines
+  - acquire and repair treebank data
+  - acquire Cunliffe dictionary
+  - build Iliad source XML
+  XSLT
+  - epic-display.xsl
+    (has event handling for links)
+  -->
+   <body>
+      <header>
+         <h1 id="page_title">Cybernetic Iliad - Greek text with English lexicon</h1>
+        <p>The full text of Homer's poem is provided with links into the <i>Lexicon of the Homeric Dialect</i>, by Richard John Cunliffe</p>
+      </header>
+     <main id="page_body">
+       <p style="font-style:italic" id="patiencePlease">... Loading 11.2MB of <i>ILIAD</i> ...</p>
+    </main>
+     <aside id="lexicon">
+       <h4 style="font-style:italic; margin: 0em">... The lexicon is another 14.9MB ...</h4>
+     </aside>
+    <footer>
+      <h4>Credits:</h4>
+      <p><i>Iliad</i> full text with morphology (treebank) data is acquired from PerseusDL;</p>
+      <p>R J Cunliffe Lexicon is provided in TEI encoding by Gregory Crane</p>
+      <p>This rendition into a web resource is built by Wendell Piez</p>
+      <p>using SaxonJS from Saxonica, XProc and XSLT.</p>
+    </footer>
+   </body>
+</html>
